@@ -1,0 +1,192 @@
+{
+  "version": "v5_two_stage",
+  "timestamp": "2026-03-19 07:15:30",
+  "description": "Two-stage: (1) physical\u2192density, (2) physical+visible\u2192masked categories",
+  "stage1_density_r2": 0.772568679217623,
+  "stage2_loo_mean_r2": 0.10961663897172136,
+  "stage2_loo_mean_mae": 3.351497066747586,
+  "stage2b_multimask_r2": 0.17558739708689242,
+  "stage2b_multimask_mae": 3.30616345743859,
+  "comparison": {
+    "v1": 0.597,
+    "v3_leaky": 0.97,
+    "v4_strict": -0.014,
+    "v5_loo": 0.10961663897172136,
+    "v5_multi": 0.17558739708689242
+  },
+  "per_category_r2": {
+    "cat_automotive_prop": -0.07303129927778956,
+    "cat_bakery_pastry_prop": 0.14196598406241573,
+    "cat_bar_nightlife_prop": -0.2839772794312053,
+    "cat_beauty_personal_care_prop": 0.36495621059815464,
+    "cat_business_prop": 0.2935183174228634,
+    "cat_cafe_coffee_prop": 0.2097916355730022,
+    "cat_civic_government_prop": 0.1472960725069389,
+    "cat_convenience_daily_needs_prop": 0.3285579158904726,
+    "cat_culture_entertainment_prop": 0.38412274215302933,
+    "cat_education_prop": 0.3555771145312493,
+    "cat_fast_food_qsr_prop": 0.33485648617678515,
+    "cat_fitness_recreation_prop": 0.30106936346331026,
+    "cat_general_prop": -0.03922082830686008,
+    "cat_hawker_street_food_prop": 0.2813750903236862,
+    "cat_health_medical_prop": -0.16726533413385986,
+    "cat_hospitality_prop": -0.39186494735558397,
+    "cat_ngo_prop": -0.6919363819185606,
+    "cat_office_workspace_prop": 0.5293425061054108,
+    "cat_religious_prop": -0.6412179546727583,
+    "cat_residential_prop": 0.37621649648896416,
+    "cat_restaurant_prop": 0.175524220219933,
+    "cat_services_prop": 0.31216062108730963,
+    "cat_shopping_retail_prop": 0.4669021251910646,
+    "cat_transport_prop": -0.08391954137665984
+  },
+  "per_category_mae": {
+    "cat_automotive": 3.2633800369453914,
+    "cat_bakery_pastry": 1.5763289898871142,
+    "cat_bar_nightlife": 2.575201917690726,
+    "cat_beauty_personal_care": 3.7316716969188306,
+    "cat_business": 2.6176258098436884,
+    "cat_cafe_coffee": 3.0452860940016455,
+    "cat_civic_government": 3.2709118641248254,
+    "cat_convenience_daily_needs": 3.442359936464679,
+    "cat_culture_entertainment": 2.3838948186719007,
+    "cat_education": 4.420072386638198,
+    "cat_fast_food_qsr": 1.8113607338803828,
+    "cat_fitness_recreation": 3.6477213987707082,
+    "cat_general": 2.6182099887732155,
+    "cat_hawker_street_food": 4.909554106265176,
+    "cat_health_medical": 2.6645241349824866,
+    "cat_hospitality": 1.4435303435687794,
+    "cat_ngo": 1.3721933191302598,
+    "cat_office_workspace": 3.485952828971783,
+    "cat_religious": 2.3865043962251336,
+    "cat_residential": 4.80334872666199,
+    "cat_restaurant": 5.90216950062153,
+    "cat_services": 4.594925707099823,
+    "cat_shopping_retail": 7.563485694613408,
+    "cat_transport": 2.9057151711904012
+  },
+  "top_features": [
+    {
+      "feature": "lu_industrial_pct",
+      "importance": 0.043184291711326234
+    },
+    {
+      "feature": "sfa_eating_count",
+      "importance": 0.02448598369260567
+    },
+    {
+      "feature": "dist_orchard",
+      "importance": 0.023344180750131612
+    },
+    {
+      "feature": "dist_nearest_supermarket",
+      "importance": 0.019785419416484467
+    },
+    {
+      "feature": "dist_nearest_hawker",
+      "importance": 0.016805386504405977
+    },
+    {
+      "feature": "lu_open_space_pct",
+      "importance": 0.016563539617001216
+    },
+    {
+      "feature": "lu_institutional_pct",
+      "importance": 0.015969998788825317
+    },
+    {
+      "feature": "lu_other_pct",
+      "importance": 0.015968455266331203
+    },
+    {
+      "feature": "avg_gpr",
+      "importance": 0.015508624720643913
+    },
+    {
+      "feature": "lu_entropy",
+      "importance": 0.014673469139854046
+    },
+    {
+      "feature": "road_density_km_per_km2",
+      "importance": 0.014500725000812243
+    },
+    {
+      "feature": "green_ratio",
+      "importance": 0.013221442944702205
+    },
+    {
+      "feature": "dist_nearest_park",
+      "importance": 0.012530757856989363
+    },
+    {
+      "feature": "total_road_length_km",
+      "importance": 0.011827940374418956
+    },
+    {
+      "feature": "dist_nearest_school",
+      "importance": 0.011498810587480597
+    },
+    {
+      "feature": "total_population",
+      "importance": 0.011081267937055146
+    },
+    {
+      "feature": "road_service_km",
+      "importance": 0.01087603780746609
+    },
+    {
+      "feature": "lu_residential_pct",
+      "importance": 0.01086301335070706
+    },
+    {
+      "feature": "road_primary_km",
+      "importance": 0.010342012379494557
+    },
+    {
+      "feature": "dist_changi",
+      "importance": 0.010208252675188255
+    },
+    {
+      "feature": "road_footway_km",
+      "importance": 0.01015025630546358
+    },
+    {
+      "feature": "bus_stop_count_1km",
+      "importance": 0.01002259516591014
+    },
+    {
+      "feature": "lu_transport_pct",
+      "importance": 0.009911341204099365
+    },
+    {
+      "feature": "lu_reserve_pct",
+      "importance": 0.009498378969004588
+    },
+    {
+      "feature": "road_residential_km",
+      "importance": 0.009341485126438065
+    },
+    {
+      "feature": "dist_marina",
+      "importance": 0.008972790032830556
+    },
+    {
+      "feature": "dist_cbd",
+      "importance": 0.008706223160867171
+    },
+    {
+      "feature": "lu_nature_pct",
+      "importance": 0.008256043373894649
+    },
+    {
+      "feature": "road_motorway_km",
+      "importance": 0.00786353281584399
+    },
+    {
+      "feature": "chas_clinic_count",
+      "importance": 0.007856903046902322
+    }
+  ],
+  "tests_passed": false
+}

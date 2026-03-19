@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Atlas Singapore</title>
+<style>
+:root{--bg:#0a0f1a;--card:#111827;--border:#1e2a3a;--text:#e5e7eb;--muted:#9ca3af;--accent:#14b8a6;--accent2:#6366f1;--warn:#f59e0b;--red:#ef4444;--green:#10b981}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.6}
+.container{max-width:1200px;margin:0 auto;padding:2rem}
+h1{font-size:2.5rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.5rem}
+h2{font-size:1.5rem;color:var(--accent);margin:2rem 0 1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
+h3{font-size:1.1rem;color:var(--text);margin:1.5rem 0 .5rem}
+.subtitle{color:var(--muted);font-size:1.1rem;margin-bottom:2rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin:1rem 0}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem}
+.card .num{font-size:2rem;font-weight:700;color:var(--accent)}
+.card .label{color:var(--muted);font-size:.85rem;margin-top:.25rem}
+.card .detail{color:var(--text);font-size:.9rem;margin-top:.5rem}
+table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.9rem}
+th{text-align:left;padding:.75rem;background:var(--card);color:var(--accent);border-bottom:2px solid var(--border)}
+td{padding:.6rem .75rem;border-bottom:1px solid var(--border)}
+tr:hover td{background:rgba(20,184,166,.05)}
+.tag{display:inline-block;padding:.15rem .5rem;border-radius:6px;font-size:.75rem;font-weight:600;margin:.1rem}
+.tag-green{background:rgba(16,185,129,.15);color:var(--green)}
+.tag-yellow{background:rgba(245,158,11,.15);color:var(--warn)}
+.tag-red{background:rgba(239,68,68,.15);color:var(--red)}
+.tag-blue{background:rgba(99,102,241,.15);color:var(--accent2)}
+.bar{height:8px;background:var(--border);border-radius:4px;margin:.25rem 0;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px;background:var(--accent)}
+.section{margin:3rem 0}
+.arch-box{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:2rem;font-family:'SF Mono',Monaco,monospace;font-size:.8rem;line-height:1.8;overflow-x:auto;white-space:pre;color:var(--muted)}
+.arch-box em{color:var(--accent);font-style:normal}
+.cv{display:flex;gap:.5rem;align-items:end;height:100px;margin:.5rem 0}
+.cv-bar{flex:1;background:var(--accent);border-radius:4px 4px 0 0;min-width:30px;position:relative}
+.cv-label{font-size:.65rem;color:var(--muted);text-align:center;margin-top:.25rem}
+code{background:var(--card);padding:.15rem .4rem;border-radius:4px;font-size:.85rem;color:var(--accent)}
+.finding{background:var(--card);border-left:3px solid var(--accent);padding:1rem 1.5rem;margin:1rem 0;border-radius:0 8px 8px 0}
+.finding strong{color:var(--accent)}
+footer{text-align:center;color:var(--muted);padding:3rem 0 1rem;font-size:.8rem;border-top:1px solid var(--border);margin-top:3rem}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>Digital Atlas Singapore</h1>
+<p class="subtitle">Mathematical representation of Singapore's urban structure &mdash; 332 subzones, 66,851 places, 12 category micrographs</p>
+
+<div class="grid">
+<div class="card"><div class="num">66,851</div><div class="label">Curated Places</div><div class="detail">24 categories, 165 place types, 232 brands</div></div>
+<div class="card"><div class="num">332</div><div class="label">Subzones</div><div class="detail">202 features per zone, 3 graph structures</div></div>
+<div class="card"><div class="num">12</div><div class="label">Category Micrographs</div><div class="detail">~40K places with per-place star-graphs</div></div>
+<div class="card"><div class="num">947</div><div class="label">Detected Anchors</div><div class="detail">MRT stations, malls, hawkers, hospitals</div></div>
+</div>
+
+<div class="section">
+<h2>Architecture</h2>
+<div class="arch-box">
+<em>DATA LAYERS (1.9 GB)</em>                          <em>PROCESSING</em>                         <em>OUTPUT</em>
+
+  Boundaries (332 subzones)  ─┐
+  Demographics (2025 census) ─┤   ┌──────────────────┐   ┌──────────────────────┐
+  Property (227K HDB txns)   ─┤   │  Feature Engine  │   │ subzone_features     │
+  Roads (551K edges)         ─┼──▶│  (19 steps)      │──▶│ 332 × 202 dims      │
+  Buildings (126K footprints)─┤   │  + validation    │   │ + 3 graph structures │
+  Land Use (113K parcels)    ─┤   └──────────────────┘   └──────────────────────┘
+  Transit (5K bus, 231 MRT)  ─┤
+  Amenities (SFA, CHAS, etc) ─┤   ┌──────────────────┐   ┌──────────────────────┐
+  ACRA (2M entities)         ─┘   │ Micrograph Engine │   │ 12 category outputs  │
+                                  │  - Anchor detect  │   │  - Per-place graphs  │
+  66,851 Places ──────────────────│  - Tier classify  │──▶│  - Context vectors   │
+  (categories, brands, ratings)   │  - Walk-time graph│   │  - Derived scores    │
+                                  │  - Derived scores │   │  - Slim + Detail JSON│
+                                  └──────────────────┘   └──────────────────────┘
+
+                                  ┌──────────────────┐   ┌──────────────────────┐
+                                  │  Density Model   │   │ Gap Analysis         │
+                                  │  XGBoost R²=0.77 │──▶│ Predicted vs Actual  │
+                                  │  10-fold CV      │   │ per subzone × 24 cats│
+                                  └──────────────────┘   └──────────────────────┘
+</div>
+</div>
+
+<div class="section">
+<h2>Place Composition</h2>
+<table>
+<tr><th>Category</th><th>Places</th><th>Share</th><th>Micrograph</th><th></th></tr>
+<tr><td>Shopping &amp; Retail</td><td>12,280</td><td>18.4%</td><td><span class="tag tag-green">Built</span></td><td><div class="bar"><div class="bar-fill" style="width:18.4%"></div></div></td></tr>
+<tr><td>Restaurant</td><td>5,656</td><td>8.5%</td><td><span class="tag tag-green">Built</span></td><td><div class="bar"><div class="bar-fill" style="width:8.5%"></div></div></td></tr>
+<tr><td>Services</td><td>4,848</td><td>7.3%</td><td>&mdash;</td><td><div class="bar"><div class="bar-fill" style="width:7.3%"></div></div></td></tr>
+<tr><td>Beauty &amp; Personal Care</td><td>3,967</td><td>5.9%</td><td><span class="tag tag-green">Built</span></td><td><div class="bar"><div class="bar-fill" style="width:5.9%"></div></div></td></tr>
+<tr><td>Education</td><td>3,949</td><td>5.9%</td><td><span class="tag tag-green">Built</span></td><td><div class="bar"><div class="bar-fill" style="width:5.9%"></div></div></td></tr>
+<tr><td>Convenience &amp; Daily Needs</td><td>3,930</td><td>5.9%</td><td><span class="tag tag-green">Built</span></td><td><div class="bar"><div class="bar-fill" style="width:5.9%"></div></div></td></tr>
+<tr><td>Cafe &amp; Coffee</td><td>3,368</td><td>5.0%</td><td><span class="tag tag-green">Built</span></td><td><div class="bar"><div class="bar-fill" style="width:5.0%"></div></div></td></tr>
+<tr><td>Hawker &amp; Street Food</td><td>3,157</td><td>4.7%</td><td><span class="tag tag-green">Built</span></td><td><div class="bar"><div class="bar-fill" style="width:4.7%"></div></div></td></tr>
+<tr><td>Fitness &amp; Recreation</td><td>2,818</td><td>4.2%</td><td><span class="tag tag-green">Built</span></td><td><div class="bar"><div class="bar-fill" style="width:4.2%"></div></div></td></tr>
+<tr><td>Health &amp; Medical</td><td>1,561</td><td>2.3%</td><td><span class="tag tag-green">Built</span></td><td><div class="bar"><div class="bar-fill" style="width:2.3%"></div></div></td></tr>
+<tr><td>Bar &amp; Nightlife</td><td>1,388</td><td>2.1%</td><td><span class="tag tag-green">Built</span></td><td><div class="bar"><div class="bar-fill" style="width:2.1%"></div></div></td></tr>
+<tr><td>Fast Food &amp; QSR</td><td>1,203</td><td>1.8%</td><td><span class="tag tag-green">Built</span></td><td><div class="bar"><div class="bar-fill" style="width:1.8%"></div></div></td></tr>
+<tr><td>Bakery &amp; Pastry</td><td>925</td><td>1.4%</td><td><span class="tag tag-green">Built</span></td><td><div class="bar"><div class="bar-fill" style="width:1.4%"></div></div></td></tr>
+</table>
+</div>
+
+<div class="section">
+<h2>Micrograph: How It Works</h2>
+<p>Every place gets a <strong>star-graph</strong> with up to 25 anchors in 4 tiers:</p>
+<div class="grid">
+<div class="card"><h3>T1: Transit</h3><div class="detail">MRT stations within walk-time budget. Flow-weighted by ridership estimate.</div></div>
+<div class="card"><h3>T2: Competitors</h3><div class="detail">Same-category places. Ranked by magnitude (reviews &times; rating) or walk-time.</div></div>
+<div class="card"><h3>T3: Complementary</h3><div class="detail">Adjacent categories (bakery near cafe, hawker near office). Synergy signal.</div></div>
+<div class="card"><h3>T4: Demand Magnets</h3><div class="detail">Offices, malls, schools, HDB clusters. Generate foot traffic.</div></div>
+</div>
+
+<h3>Cafe Context Vector (mean across 3,368 cafes)</h3>
+<div class="cv">
+<div style="flex-direction:column;text-align:center;flex:1"><div class="cv-bar" style="height:68px;background:var(--accent2)"></div><div class="cv-label">Transit<br>22%</div></div>
+<div style="flex-direction:column;text-align:center;flex:1"><div class="cv-bar" style="height:97px;background:var(--red)"></div><div class="cv-label">Competitor<br>31%</div></div>
+<div style="flex-direction:column;text-align:center;flex:1"><div class="cv-bar" style="height:100px;background:var(--green)"></div><div class="cv-label">Complementary<br>32%</div></div>
+<div style="flex-direction:column;text-align:center;flex:1"><div class="cv-bar" style="height:46px;background:var(--warn)"></div><div class="cv-label">Demand<br>15%</div></div>
+</div>
+</div>
+
+<div class="section">
+<h2>Subzone Features (202 dimensions)</h2>
+<table>
+<tr><th>Block</th><th>Features</th><th>Source</th></tr>
+<tr><td>Demographics</td><td>8</td><td>Population, age brackets, gender, dependency ratio</td></tr>
+<tr><td>Dwelling Type</td><td>7</td><td>HDB room types, condo %, landed % (income proxy)</td></tr>
+<tr><td>Property Market</td><td>4</td><td>HDB resale PSF, YoY change, transaction volume</td></tr>
+<tr><td>Road Network</td><td>11</td><td>Density, type breakdown (motorway to cycleway)</td></tr>
+<tr><td>Land Use Zoning</td><td>13</td><td>10 zoning types, GPR, entropy, green ratio</td></tr>
+<tr><td>Transit Access</td><td>5</td><td>MRT distance, bus density, station counts</td></tr>
+<tr><td>Amenity Access</td><td>9</td><td>Park, hawker, school, supermarket distances</td></tr>
+<tr><td>Category Composition</td><td>51</td><td>24 category counts + percentages + entropy</td></tr>
+<tr><td>Place Type Counts</td><td>80</td><td>Top 80 granular place types</td></tr>
+<tr><td>Brand &amp; Quality</td><td>10</td><td>Brand density, ratings, reviews</td></tr>
+<tr><td>Government Cross-Ref</td><td>6</td><td>SFA (34K), CHAS (1.2K), ECDA preschools</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h2>Model Results</h2>
+
+<div class="finding"><strong>Finding 1:</strong> Physical structure predicts place density (R&sup2;=0.773) &mdash; population, roads, zoning, transit strongly determine how many places exist.</div>
+<div class="finding"><strong>Finding 2:</strong> Physical structure alone cannot predict composition (R&sup2;&approx;0) &mdash; whether an area has more cafes vs clinics is market-driven, not infrastructure-driven.</div>
+<div class="finding"><strong>Finding 3:</strong> Knowing partial composition helps predict the rest (R&sup2;=0.18-0.53) &mdash; inter-category relationships are real but noisy.</div>
+
+<h3>Top Features Driving Composition</h3>
+<table>
+<tr><th>Feature</th><th>Importance</th><th>Interpretation</th></tr>
+<tr><td>Industrial zoning %</td><td>4.3%</td><td>Strongest structural separator</td></tr>
+<tr><td>SFA eating count</td><td>2.5%</td><td>Government food licensing = F&amp;B signal</td></tr>
+<tr><td>Distance to Orchard Road</td><td>2.3%</td><td>Proximity to prime commercial</td></tr>
+<tr><td>Distance to supermarket</td><td>2.0%</td><td>Existing amenity infrastructure</td></tr>
+<tr><td>Open space zoning %</td><td>1.7%</td><td>Parks reduce commercial density</td></tr>
+<tr><td>Average GPR</td><td>1.6%</td><td>Development intensity allowed</td></tr>
+<tr><td>Land use entropy</td><td>1.5%</td><td>Mixed zoning = diverse composition</td></tr>
+<tr><td>Road density</td><td>1.5%</td><td>Accessibility drives places</td></tr>
+</table>
+
+<h3>Category Predictability (Leave-One-Out R&sup2;)</h3>
+<table>
+<tr><th>Category</th><th>R&sup2;</th><th>Verdict</th></tr>
+<tr><td>Office &amp; Workspace</td><td>0.53</td><td><span class="tag tag-green">Strong</span></td></tr>
+<tr><td>Shopping &amp; Retail</td><td>0.47</td><td><span class="tag tag-green">Moderate</span></td></tr>
+<tr><td>Culture &amp; Entertainment</td><td>0.38</td><td><span class="tag tag-yellow">Fair</span></td></tr>
+<tr><td>Beauty &amp; Personal Care</td><td>0.37</td><td><span class="tag tag-yellow">Fair</span></td></tr>
+<tr><td>Education</td><td>0.36</td><td><span class="tag tag-yellow">Fair</span></td></tr>
+<tr><td>Convenience &amp; Daily Needs</td><td>0.33</td><td><span class="tag tag-yellow">Fair</span></td></tr>
+<tr><td>Cafe &amp; Coffee</td><td>0.21</td><td><span class="tag tag-red">Weak</span></td></tr>
+<tr><td>Hospitality</td><td>-0.39</td><td><span class="tag tag-red">Unpredictable</span></td></tr>
+</table>
+</div>
+
+<div class="section">
+<h2>Anchor Detection</h2>
+<div class="grid">
+<div class="card"><div class="num">231</div><div class="label">MRT Stations</div><div class="detail">300m radius, 20K daily flow estimate</div></div>
+<div class="card"><div class="num">129</div><div class="label">Hawker Centres</div><div class="detail">300m radius, government-managed</div></div>
+<div class="card"><div class="num">239</div><div class="label">Shopping Malls</div><div class="detail">400m radius, &ge;100 reviews</div></div>
+<div class="card"><div class="num">243</div><div class="label">Supermarkets</div><div class="detail">250m radius, &ge;50 reviews</div></div>
+<div class="card"><div class="num">45</div><div class="label">Hospitals</div><div class="detail">400m radius, medical clusters</div></div>
+<div class="card"><div class="num">60</div><div class="label">Universities</div><div class="detail">400m radius, education corridors</div></div>
+</div>
+</div>
+
+<div class="section">
+<h2>Data Inventory</h2>
+<table>
+<tr><th>Layer</th><th>Files</th><th>Size</th><th>Key Data</th></tr>
+<tr><td>Places</td><td>3</td><td>44 MB</td><td>66,851 curated + brands + Kepler CSV</td></tr>
+<tr><td>Boundaries</td><td>3</td><td>5 MB</td><td>332 subzones + 55 planning areas</td></tr>
+<tr><td>Demographics</td><td>6</td><td>34 MB</td><td>Pop by age/sex/dwelling 2020-2025</td></tr>
+<tr><td>Property</td><td>3</td><td>43 MB</td><td>HDB resale + private transactions</td></tr>
+<tr><td>Roads</td><td>1</td><td>220 MB</td><td>551K edges from OSM</td></tr>
+<tr><td>Buildings</td><td>1</td><td>81 MB</td><td>126K footprints from OSM</td></tr>
+<tr><td>Land Use</td><td>1</td><td>166 MB</td><td>113K zoning parcels (URA Master Plan)</td></tr>
+<tr><td>Transit</td><td>4</td><td>2 MB</td><td>5.2K bus stops + 231 MRT (March 2026)</td></tr>
+<tr><td>Amenities</td><td>8</td><td>40 MB</td><td>SFA 34K, CHAS 1.2K, preschools 2.3K</td></tr>
+<tr><td>Business</td><td>1</td><td>218 MB</td><td>2M ACRA registered entities</td></tr>
+<tr><td>Micrographs</td><td>36+</td><td>712 MB</td><td>12 categories with per-place graphs</td></tr>
+<tr><td>Features</td><td>11</td><td>4 MB</td><td>Computed subzone feature vectors</td></tr>
+<tr><td>Graphs</td><td>3</td><td>1 MB</td><td>Adjacency, PMI, transit connectivity</td></tr>
+<tr><td>Model</td><td>7</td><td>5 MB</td><td>Features + gap analysis + report</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h2>Graph Structures</h2>
+<div class="grid">
+<div class="card"><h3>Subzone Adjacency</h3><div class="detail">332 nodes, 1,001 edges. Queen contiguity &mdash; shared boundaries. Avg degree 6.1. For spatial message passing.</div></div>
+<div class="card"><h3>Co-location PMI</h3><div class="detail">155 place types, 5,397 PMI edges. Which types cluster together (Library+Stadium) vs avoid (HDB+Lounge).</div></div>
+<div class="card"><h3>Transit Connectivity</h3><div class="detail">139 MRT-connected subzones, 914 edges. Which zones are linked by rapid transit.</div></div>
+</div>
+</div>
+
+<div class="section">
+<h2>Repo Structure</h2>
+<div class="arch-box">digital-atlas-sgp/
+  <em>data/</em>                   Raw data layers (boundaries, demographics, roads, etc.)
+  <em>model/</em>                  Feature matrices (332&times;202) + gap analysis
+  <em>micrograph_output/</em>      12 category micrographs (per-place graphs)
+  <em>micrograph_pipeline/</em>    Pipeline code (config.py + run_pipeline.py)
+  <em>scripts/</em>                Processing pipeline (19 steps + test framework)
+  <em>docs/</em>                   Architecture, data catalog, model diagnosis, ideation
+  <em>app/</em>                    Data composer + frontend scaffolding
+  <em>index.html</em>              This report
+</div>
+</div>
+
+<footer>
+Digital Atlas Singapore v1.0 &mdash; Built March 2026<br>
+66,851 places &bull; 332 subzones &bull; 202 features &bull; 12 category micrographs &bull; 947 anchors
+</footer>
+
+</div>
+</body>
+</html>

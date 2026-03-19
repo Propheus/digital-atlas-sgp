@@ -1,0 +1,7461 @@
+{
+  "type": "transit_connectivity",
+  "subzones_with_mrt": 139,
+  "mrt_stations": 231,
+  "edge_count": 914,
+  "nodes_with_mrt": [
+    "BMSZ01",
+    "TMSZ02",
+    "NTSZ03",
+    "NVSZ05",
+    "ORSZ02",
+    "QTSZ06",
+    "MSSZ01",
+    "YSSZ09",
+    "JESZ06",
+    "AMSZ06",
+    "BMSZ03",
+    "BDSZ01",
+    "TPSZ09",
+    "KLSZ07",
+    "BSSZ03",
+    "OTSZ04",
+    "RCSZ01",
+    "SKSZ03",
+    "WDSZ01",
+    "TNSZ01",
+    "AMSZ02",
+    "BDSZ04",
+    "BPSZ06",
+    "RVSZ02",
+    "GLSZ02",
+    "RCSZ03",
+    "PNSZ02",
+    "DTSZ09",
+    "SESZ02",
+    "KLSZ03",
+    "KLSZ08",
+    "TSSZ04",
+    "PGSZ01",
+    "BPSZ05",
+    "QTSZ09",
+    "QTSZ13",
+    "WDSZ03",
+    "BTSZ08",
+    "SGSZ06",
+    "BPSZ04",
+    "MESZ01",
+    "KLSZ06",
+    "KLSZ01",
+    "BMSZ04",
+    "BTSZ03",
+    "TMSZ04",
+    "SESZ03",
+    "DTSZ03",
+    "KLSZ02",
+    "TSSZ03",
+    "SESZ04",
+    "SRSZ02",
+    "AMSZ08",
+    "JWSZ04",
+    "BDSZ05",
+    "BDSZ03",
+    "PGSZ04",
+    "PNSZ01",
+    "NVSZ02",
+    "CKSZ03",
+    "BPSZ02",
+    "YSSZ07",
+    "QTSZ03",
+    "QTSZ15",
+    "QTSZ08",
+    "JESZ04",
+    "WDSZ04",
+    "BKSZ05",
+    "OTSZ02",
+    "SVSZ01",
+    "TPSZ01",
+    "OTSZ03",
+    "TSSZ02",
+    "RCSZ10",
+    "MPSZ01",
+    "MUSZ01",
+    "HGSZ01",
+    "BKSZ04",
+    "AMSZ10",
+    "QTSZ11",
+    "BSSZ01",
+    "CKSZ01",
+    "RVSZ05",
+    "BDSZ08",
+    "DTSZ02",
+    "BDSZ02",
+    "SESZ05",
+    "HGSZ06",
+    "SESZ06",
+    "BPSZ01",
+    "PRSZ03",
+    "RVSZ01",
+    "DTSZ12",
+    "TMSZ05",
+    "YSSZ08",
+    "DTSZ13",
+    "BMSZ05",
+    "MPSZ03",
+    "CHSZ03",
+    "GLSZ04",
+    "BTSZ07",
+    "BDSZ06",
+    "SBSZ02",
+    "ORSZ03",
+    "PGSZ02",
+    "BTSZ01",
+    "DTSZ11",
+    "SBSZ03",
+    "BPSZ07",
+    "RCSZ09",
+    "SKSZ02",
+    "WDSZ06",
+    "TPSZ02",
+    "MDSZ01",
+    "BTSZ06",
+    "BKSZ07",
+    "SGSZ05",
+    "DTSZ05",
+    "WDSZ07",
+    "HGSZ09",
+    "HGSZ08",
+    "SGSZ07",
+    "KLSZ05",
+    "PGSZ05",
+    "TNSZ04",
+    "CLSZ06",
+    "TPSZ12",
+    "BMSZ09",
+    "CKSZ06",
+    "JWSZ09",
+    "GLSZ05",
+    "DTSZ01",
+    "CLSZ01",
+    "TMSZ03",
+    "MUSZ03",
+    "TPSZ10",
+    "PGSZ03",
+    "GLSZ03",
+    "BPSZ03"
+  ],
+  "edges": [
+    {
+      "source": "PGSZ03",
+      "target": "PGSZ04",
+      "distance_m": 1685,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PGSZ02",
+      "target": "PGSZ04",
+      "distance_m": 1945,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PGSZ04",
+      "target": "SESZ05",
+      "distance_m": 2495,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PGSZ01",
+      "target": "PGSZ04",
+      "distance_m": 2208,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PGSZ04",
+      "target": "PGSZ05",
+      "distance_m": 937,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PGSZ04",
+      "target": "SESZ02",
+      "distance_m": 1588,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PGSZ04",
+      "target": "SESZ04",
+      "distance_m": 2602,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PGSZ04",
+      "target": "SESZ03",
+      "distance_m": 1925,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "HGSZ01",
+      "target": "SESZ05",
+      "distance_m": 1280,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "HGSZ01",
+      "target": "HGSZ06",
+      "distance_m": 1475,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "HGSZ01",
+      "target": "SESZ02",
+      "distance_m": 1795,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "HGSZ01",
+      "target": "SESZ04",
+      "distance_m": 2897,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "HGSZ01",
+      "target": "SESZ03",
+      "distance_m": 2277,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "HGSZ01",
+      "target": "SESZ06",
+      "distance_m": 2682,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ04",
+      "target": "TMSZ03",
+      "distance_m": 2561,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ04",
+      "target": "BDSZ06",
+      "distance_m": 1856,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ04",
+      "target": "BDSZ08",
+      "distance_m": 1776,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ03",
+      "target": "BDSZ04",
+      "distance_m": 1943,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ01",
+      "target": "BDSZ04",
+      "distance_m": 2704,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ02",
+      "target": "BDSZ04",
+      "distance_m": 1419,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ04",
+      "target": "MPSZ03",
+      "distance_m": 2529,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ04",
+      "target": "BDSZ05",
+      "distance_m": 1572,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PGSZ02",
+      "target": "PGSZ03",
+      "distance_m": 564,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PGSZ03",
+      "target": "SESZ05",
+      "distance_m": 2696,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PGSZ01",
+      "target": "PGSZ03",
+      "distance_m": 978,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PGSZ03",
+      "target": "PGSZ05",
+      "distance_m": 1180,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PGSZ03",
+      "target": "SESZ02",
+      "distance_m": 2350,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PGSZ03",
+      "target": "SESZ04",
+      "distance_m": 1698,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PGSZ03",
+      "target": "SESZ03",
+      "distance_m": 1703,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PGSZ03",
+      "target": "SESZ06",
+      "distance_m": 2462,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PGSZ01",
+      "target": "PGSZ02",
+      "distance_m": 414,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PGSZ02",
+      "target": "PGSZ05",
+      "distance_m": 1185,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PGSZ02",
+      "target": "SESZ02",
+      "distance_m": 2859,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PGSZ02",
+      "target": "SESZ04",
+      "distance_m": 2206,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PGSZ02",
+      "target": "SESZ03",
+      "distance_m": 2267,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PGSZ02",
+      "target": "SESZ06",
+      "distance_m": 2900,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PGSZ02",
+      "target": "SESZ05",
+      "distance_m": 2971,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "CLSZ01",
+      "target": "JESZ06",
+      "distance_m": 2030,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "JESZ06",
+      "target": "JWSZ04",
+      "distance_m": 2668,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "JESZ04",
+      "target": "JESZ06",
+      "distance_m": 1446,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BKSZ07",
+      "target": "JESZ06",
+      "distance_m": 1933,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NVSZ05",
+      "target": "TNSZ04",
+      "distance_m": 2051,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NVSZ05",
+      "target": "TPSZ02",
+      "distance_m": 1861,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NVSZ02",
+      "target": "NVSZ05",
+      "distance_m": 2076,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BTSZ06",
+      "target": "NVSZ05",
+      "distance_m": 2742,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BSSZ01",
+      "target": "NVSZ05",
+      "distance_m": 2312,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BSSZ03",
+      "target": "NVSZ05",
+      "distance_m": 2715,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NVSZ05",
+      "target": "TNSZ01",
+      "distance_m": 1695,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NVSZ05",
+      "target": "TPSZ01",
+      "distance_m": 1121,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NTSZ03",
+      "target": "NVSZ05",
+      "distance_m": 2514,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "TMSZ02",
+      "target": "TMSZ03",
+      "distance_m": 2174,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "TMSZ02",
+      "target": "TMSZ04",
+      "distance_m": 1772,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PRSZ03",
+      "target": "TMSZ02",
+      "distance_m": 1961,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "TMSZ02",
+      "target": "TMSZ05",
+      "distance_m": 2617,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ03",
+      "target": "CKSZ01",
+      "distance_m": 1280,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ03",
+      "target": "BPSZ04",
+      "distance_m": 542,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ03",
+      "target": "BPSZ05",
+      "distance_m": 1138,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ03",
+      "target": "CKSZ03",
+      "distance_m": 2923,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ03",
+      "target": "SKSZ03",
+      "distance_m": 2189,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ02",
+      "target": "BPSZ03",
+      "distance_m": 382,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ01",
+      "target": "BPSZ03",
+      "distance_m": 963,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ03",
+      "target": "CKSZ06",
+      "distance_m": 2980,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ03",
+      "target": "BPSZ07",
+      "distance_m": 2497,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ03",
+      "target": "BPSZ06",
+      "distance_m": 1820,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "QTSZ09",
+      "target": "QTSZ11",
+      "distance_m": 2104,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "QTSZ08",
+      "target": "QTSZ11",
+      "distance_m": 766,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "QTSZ11",
+      "target": "QTSZ15",
+      "distance_m": 2055,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BTSZ07",
+      "target": "QTSZ11",
+      "distance_m": 2440,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "QTSZ03",
+      "target": "QTSZ11",
+      "distance_m": 1834,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "QTSZ11",
+      "target": "QTSZ13",
+      "distance_m": 1248,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "QTSZ06",
+      "target": "QTSZ11",
+      "distance_m": 2399,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ12",
+      "target": "KLSZ05",
+      "distance_m": 2338,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ04",
+      "target": "KLSZ05",
+      "distance_m": 1421,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ05",
+      "target": "MESZ01",
+      "distance_m": 857,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ05",
+      "target": "RCSZ10",
+      "distance_m": 2585,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ05",
+      "target": "KLSZ05",
+      "distance_m": 2849,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ05",
+      "target": "MPSZ01",
+      "distance_m": 2679,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ05",
+      "target": "SVSZ01",
+      "distance_m": 2789,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ05",
+      "target": "MSSZ01",
+      "distance_m": 2103,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ02",
+      "target": "KLSZ05",
+      "distance_m": 2365,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ01",
+      "target": "KLSZ05",
+      "distance_m": 2797,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ05",
+      "target": "KLSZ08",
+      "distance_m": 2172,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ02",
+      "target": "KLSZ05",
+      "distance_m": 2707,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ05",
+      "target": "MUSZ03",
+      "distance_m": 2535,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ05",
+      "target": "RCSZ01",
+      "distance_m": 2723,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ13",
+      "target": "KLSZ05",
+      "distance_m": 1129,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "KLSZ05",
+      "distance_m": 1858,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ05",
+      "target": "KLSZ06",
+      "distance_m": 1633,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ03",
+      "target": "KLSZ05",
+      "distance_m": 1595,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ05",
+      "target": "RCSZ03",
+      "distance_m": 2199,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ03",
+      "target": "KLSZ05",
+      "distance_m": 1453,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ05",
+      "target": "KLSZ07",
+      "distance_m": 2975,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ05",
+      "target": "RCSZ09",
+      "distance_m": 2452,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BTSZ08",
+      "target": "TNSZ04",
+      "distance_m": 1110,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BTSZ08",
+      "target": "QTSZ08",
+      "distance_m": 2984,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BTSZ07",
+      "target": "BTSZ08",
+      "distance_m": 1393,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BTSZ06",
+      "target": "BTSZ08",
+      "distance_m": 936,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BTSZ08",
+      "target": "QTSZ03",
+      "distance_m": 1957,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BTSZ08",
+      "target": "TNSZ01",
+      "distance_m": 2021,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BTSZ08",
+      "target": "QTSZ06",
+      "distance_m": 2545,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BTSZ08",
+      "target": "RVSZ01",
+      "distance_m": 2455,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "HGSZ06",
+      "target": "SESZ05",
+      "distance_m": 2665,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "SESZ05",
+      "target": "SESZ06",
+      "distance_m": 2533,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "SESZ02",
+      "target": "SESZ05",
+      "distance_m": 1028,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "SESZ04",
+      "target": "SESZ05",
+      "distance_m": 1652,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "SESZ03",
+      "target": "SESZ05",
+      "distance_m": 1007,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ06",
+      "target": "TMSZ02",
+      "distance_m": 2899,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ02",
+      "target": "TMSZ02",
+      "distance_m": 2343,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PGSZ01",
+      "target": "PGSZ05",
+      "distance_m": 1347,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PGSZ01",
+      "target": "SESZ04",
+      "distance_m": 2594,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PGSZ01",
+      "target": "SESZ03",
+      "distance_m": 2681,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PGSZ01",
+      "target": "SESZ02",
+      "distance_m": 2757,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BKSZ04",
+      "target": "CKSZ01",
+      "distance_m": 2574,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BKSZ04",
+      "target": "BKSZ05",
+      "distance_m": 1967,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BKSZ04",
+      "target": "BPSZ05",
+      "distance_m": 2471,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BKSZ04",
+      "target": "BPSZ04",
+      "distance_m": 2899,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BKSZ04",
+      "target": "JESZ04",
+      "distance_m": 2808,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BKSZ04",
+      "target": "BPSZ01",
+      "distance_m": 2914,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BKSZ04",
+      "target": "BKSZ07",
+      "distance_m": 1108,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BKSZ04",
+      "target": "CKSZ03",
+      "distance_m": 2515,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BKSZ04",
+      "target": "BPSZ07",
+      "distance_m": 1773,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BKSZ04",
+      "target": "BPSZ06",
+      "distance_m": 1853,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "JWSZ09",
+      "target": "PNSZ01",
+      "distance_m": 2373,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PNSZ01",
+      "target": "PNSZ02",
+      "distance_m": 2176,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "HGSZ06",
+      "target": "TPSZ12",
+      "distance_m": 2771,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "HGSZ06",
+      "target": "HGSZ09",
+      "distance_m": 2080,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "HGSZ06",
+      "target": "TPSZ10",
+      "distance_m": 2821,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "HGSZ06",
+      "target": "HGSZ08",
+      "distance_m": 2091,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "HGSZ06",
+      "target": "SGSZ05",
+      "distance_m": 2516,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "HGSZ06",
+      "target": "SGSZ06",
+      "distance_m": 1767,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "HGSZ06",
+      "target": "SGSZ07",
+      "distance_m": 1732,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "SESZ04",
+      "target": "SESZ06",
+      "distance_m": 1526,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "SESZ03",
+      "target": "SESZ06",
+      "distance_m": 2293,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PGSZ05",
+      "target": "SESZ02",
+      "distance_m": 2341,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PGSZ05",
+      "target": "SESZ04",
+      "distance_m": 2648,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PGSZ05",
+      "target": "SESZ03",
+      "distance_m": 2261,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PGSZ05",
+      "target": "SESZ05",
+      "distance_m": 2652,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ04",
+      "target": "CKSZ01",
+      "distance_m": 1394,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ05",
+      "target": "CKSZ01",
+      "distance_m": 418,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "CKSZ01",
+      "target": "CKSZ03",
+      "distance_m": 1802,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "CKSZ01",
+      "target": "SKSZ03",
+      "distance_m": 1972,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ02",
+      "target": "CKSZ01",
+      "distance_m": 1345,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ01",
+      "target": "CKSZ01",
+      "distance_m": 364,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "CKSZ01",
+      "target": "CKSZ06",
+      "distance_m": 2382,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ07",
+      "target": "CKSZ01",
+      "distance_m": 2157,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ06",
+      "target": "CKSZ01",
+      "distance_m": 1320,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PGSZ04",
+      "target": "SESZ06",
+      "distance_m": 2731,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ01",
+      "target": "QTSZ15",
+      "distance_m": 2139,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ01",
+      "target": "QTSZ06",
+      "distance_m": 2703,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ01",
+      "target": "BMSZ03",
+      "distance_m": 2257,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ01",
+      "target": "BMSZ04",
+      "distance_m": 2592,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BKSZ05",
+      "target": "CKSZ01",
+      "distance_m": 3000,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "ORSZ02",
+      "target": "RVSZ02",
+      "distance_m": 136,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RCSZ10",
+      "target": "RVSZ02",
+      "distance_m": 2138,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RVSZ02",
+      "target": "TNSZ04",
+      "distance_m": 2752,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NVSZ02",
+      "target": "RVSZ02",
+      "distance_m": 2378,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RVSZ02",
+      "target": "RVSZ05",
+      "distance_m": 962,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ02",
+      "target": "RVSZ02",
+      "distance_m": 2599,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RVSZ02",
+      "target": "SRSZ02",
+      "distance_m": 2323,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MUSZ03",
+      "target": "RVSZ02",
+      "distance_m": 2238,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RVSZ02",
+      "target": "TNSZ01",
+      "distance_m": 1941,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NVSZ05",
+      "target": "RVSZ02",
+      "distance_m": 2873,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RCSZ01",
+      "target": "RVSZ02",
+      "distance_m": 2744,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ09",
+      "target": "RVSZ02",
+      "distance_m": 1630,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "RVSZ02",
+      "distance_m": 2851,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "QTSZ06",
+      "target": "RVSZ02",
+      "distance_m": 2977,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ07",
+      "target": "RVSZ02",
+      "distance_m": 1789,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RCSZ03",
+      "target": "RVSZ02",
+      "distance_m": 2676,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RVSZ01",
+      "target": "RVSZ02",
+      "distance_m": 849,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ03",
+      "target": "RVSZ02",
+      "distance_m": 2207,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ05",
+      "target": "RVSZ02",
+      "distance_m": 2723,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "OTSZ04",
+      "target": "RVSZ02",
+      "distance_m": 2503,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "OTSZ02",
+      "target": "RVSZ02",
+      "distance_m": 2569,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "OTSZ03",
+      "target": "RVSZ02",
+      "distance_m": 2846,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MUSZ01",
+      "target": "RVSZ02",
+      "distance_m": 1653,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ04",
+      "target": "RVSZ02",
+      "distance_m": 1926,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "ORSZ03",
+      "target": "RVSZ02",
+      "distance_m": 896,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NTSZ03",
+      "target": "RVSZ02",
+      "distance_m": 1267,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RCSZ09",
+      "target": "RVSZ02",
+      "distance_m": 2332,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ11",
+      "target": "DTSZ12",
+      "distance_m": 790,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ12",
+      "target": "MESZ01",
+      "distance_m": 1491,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ12",
+      "target": "RCSZ10",
+      "distance_m": 2116,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ09",
+      "target": "DTSZ12",
+      "distance_m": 1586,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ05",
+      "target": "DTSZ12",
+      "distance_m": 881,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ12",
+      "target": "SVSZ01",
+      "distance_m": 971,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ12",
+      "target": "MSSZ01",
+      "distance_m": 1029,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ02",
+      "target": "DTSZ12",
+      "distance_m": 1425,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ12",
+      "target": "SRSZ02",
+      "distance_m": 1572,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ12",
+      "target": "MUSZ03",
+      "distance_m": 1908,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ09",
+      "target": "DTSZ12",
+      "distance_m": 2928,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ12",
+      "target": "DTSZ13",
+      "distance_m": 2057,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "DTSZ12",
+      "distance_m": 1970,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ12",
+      "target": "KLSZ06",
+      "distance_m": 2866,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ12",
+      "target": "RCSZ03",
+      "distance_m": 2645,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ05",
+      "target": "DTSZ12",
+      "distance_m": 2195,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ12",
+      "target": "OTSZ04",
+      "distance_m": 1643,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ12",
+      "target": "OTSZ02",
+      "distance_m": 2199,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ12",
+      "target": "OTSZ03",
+      "distance_m": 1691,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ12",
+      "target": "MUSZ01",
+      "distance_m": 2411,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ03",
+      "target": "DTSZ12",
+      "distance_m": 1283,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ12",
+      "target": "RCSZ01",
+      "distance_m": 2993,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ12",
+      "target": "RCSZ09",
+      "distance_m": 2561,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ04",
+      "target": "MPSZ03",
+      "distance_m": 2579,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ03",
+      "target": "MPSZ03",
+      "distance_m": 2183,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ05",
+      "target": "MPSZ03",
+      "distance_m": 1896,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MPSZ01",
+      "target": "MPSZ03",
+      "distance_m": 977,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ05",
+      "target": "MPSZ03",
+      "distance_m": 2819,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ01",
+      "target": "DTSZ09",
+      "distance_m": 2978,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ01",
+      "target": "BMSZ09",
+      "distance_m": 2890,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ01",
+      "target": "BMSZ05",
+      "distance_m": 2558,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ01",
+      "target": "OTSZ02",
+      "distance_m": 2648,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ03",
+      "target": "GLSZ04",
+      "distance_m": 2358,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ03",
+      "target": "GLSZ03",
+      "distance_m": 1817,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ01",
+      "target": "GLSZ03",
+      "distance_m": 1165,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ03",
+      "target": "GLSZ05",
+      "distance_m": 1220,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ03",
+      "target": "TPSZ12",
+      "distance_m": 1376,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ03",
+      "target": "HGSZ09",
+      "distance_m": 1631,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ02",
+      "target": "GLSZ03",
+      "distance_m": 1076,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ03",
+      "target": "HGSZ08",
+      "distance_m": 1743,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ03",
+      "target": "MPSZ03",
+      "distance_m": 2990,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ03",
+      "target": "TPSZ10",
+      "distance_m": 2601,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ04",
+      "target": "MESZ01",
+      "distance_m": 2271,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ04",
+      "target": "GLSZ05",
+      "distance_m": 2763,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ04",
+      "target": "MPSZ01",
+      "distance_m": 1823,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ02",
+      "target": "GLSZ04",
+      "distance_m": 2402,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ04",
+      "target": "KLSZ01",
+      "distance_m": 2748,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ04",
+      "target": "KLSZ08",
+      "distance_m": 2337,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ04",
+      "target": "KLSZ02",
+      "distance_m": 2074,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ13",
+      "target": "GLSZ04",
+      "distance_m": 2219,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "GLSZ04",
+      "distance_m": 2949,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ04",
+      "target": "KLSZ06",
+      "distance_m": 2195,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ04",
+      "target": "KLSZ03",
+      "distance_m": 1376,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ03",
+      "target": "GLSZ04",
+      "distance_m": 2795,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ01",
+      "target": "QTSZ13",
+      "distance_m": 2605,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ11",
+      "target": "MESZ01",
+      "distance_m": 2266,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ11",
+      "target": "RCSZ10",
+      "distance_m": 2591,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ09",
+      "target": "DTSZ11",
+      "distance_m": 1035,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ05",
+      "target": "DTSZ11",
+      "distance_m": 991,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ11",
+      "target": "SVSZ01",
+      "distance_m": 931,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ11",
+      "target": "MSSZ01",
+      "distance_m": 1463,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ02",
+      "target": "DTSZ11",
+      "distance_m": 1909,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ11",
+      "target": "SRSZ02",
+      "distance_m": 1692,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ11",
+      "target": "MUSZ03",
+      "distance_m": 2374,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ09",
+      "target": "DTSZ11",
+      "distance_m": 2772,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ11",
+      "target": "DTSZ13",
+      "distance_m": 2815,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "DTSZ11",
+      "distance_m": 2620,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ05",
+      "target": "DTSZ11",
+      "distance_m": 1798,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ11",
+      "target": "OTSZ04",
+      "distance_m": 1522,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ11",
+      "target": "OTSZ02",
+      "distance_m": 1856,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ11",
+      "target": "OTSZ03",
+      "distance_m": 1350,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ11",
+      "target": "MUSZ01",
+      "distance_m": 2769,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ03",
+      "target": "DTSZ11",
+      "distance_m": 2031,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ04",
+      "target": "TPSZ09",
+      "distance_m": 2265,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "TPSZ02",
+      "target": "TPSZ09",
+      "distance_m": 2411,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "TPSZ09",
+      "target": "TPSZ12",
+      "distance_m": 2170,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "HGSZ09",
+      "target": "TPSZ09",
+      "distance_m": 2978,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ02",
+      "target": "TPSZ09",
+      "distance_m": 2421,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ01",
+      "target": "TPSZ09",
+      "distance_m": 1561,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "TPSZ09",
+      "target": "TPSZ10",
+      "distance_m": 891,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ08",
+      "target": "TPSZ09",
+      "distance_m": 2089,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ02",
+      "target": "TPSZ09",
+      "distance_m": 1143,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RCSZ01",
+      "target": "TPSZ09",
+      "distance_m": 2672,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "TPSZ01",
+      "target": "TPSZ09",
+      "distance_m": 2673,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "HGSZ08",
+      "target": "TPSZ09",
+      "distance_m": 2492,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ06",
+      "target": "TPSZ09",
+      "distance_m": 2759,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ03",
+      "target": "TPSZ09",
+      "distance_m": 2237,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BSSZ03",
+      "target": "TPSZ09",
+      "distance_m": 2949,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "SGSZ05",
+      "target": "TPSZ09",
+      "distance_m": 2315,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "SGSZ06",
+      "target": "TPSZ09",
+      "distance_m": 2162,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "SGSZ07",
+      "target": "TPSZ09",
+      "distance_m": 2090,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ05",
+      "target": "KLSZ05",
+      "distance_m": 2598,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ02",
+      "target": "KLSZ05",
+      "distance_m": 2811,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "ORSZ02",
+      "target": "RCSZ10",
+      "distance_m": 2086,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "ORSZ02",
+      "target": "TNSZ04",
+      "distance_m": 2721,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NVSZ02",
+      "target": "ORSZ02",
+      "distance_m": 2242,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "ORSZ02",
+      "target": "RVSZ05",
+      "distance_m": 1055,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ02",
+      "target": "ORSZ02",
+      "distance_m": 2576,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "ORSZ02",
+      "target": "SRSZ02",
+      "distance_m": 2343,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MUSZ03",
+      "target": "ORSZ02",
+      "distance_m": 2197,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "ORSZ02",
+      "target": "TNSZ01",
+      "distance_m": 1870,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NVSZ05",
+      "target": "ORSZ02",
+      "distance_m": 2755,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "ORSZ02",
+      "target": "RCSZ01",
+      "distance_m": 2628,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ09",
+      "target": "ORSZ02",
+      "distance_m": 1729,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "ORSZ02",
+      "distance_m": 2787,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ07",
+      "target": "ORSZ02",
+      "distance_m": 1665,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "ORSZ02",
+      "target": "RCSZ03",
+      "distance_m": 2586,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "ORSZ02",
+      "target": "RVSZ01",
+      "distance_m": 941,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ03",
+      "target": "ORSZ02",
+      "distance_m": 2340,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ05",
+      "target": "ORSZ02",
+      "distance_m": 2802,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "ORSZ02",
+      "target": "OTSZ04",
+      "distance_m": 2548,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "ORSZ02",
+      "target": "OTSZ02",
+      "distance_m": 2646,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "ORSZ02",
+      "target": "OTSZ03",
+      "distance_m": 2904,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MUSZ01",
+      "target": "ORSZ02",
+      "distance_m": 1608,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ04",
+      "target": "ORSZ02",
+      "distance_m": 2053,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "ORSZ02",
+      "target": "ORSZ03",
+      "distance_m": 865,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NTSZ03",
+      "target": "ORSZ02",
+      "distance_m": 1132,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "ORSZ02",
+      "target": "RCSZ09",
+      "distance_m": 2248,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "CLSZ01",
+      "target": "QTSZ09",
+      "distance_m": 2868,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BKSZ05",
+      "target": "CLSZ01",
+      "distance_m": 2974,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BTSZ01",
+      "target": "CLSZ01",
+      "distance_m": 2190,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "CLSZ01",
+      "target": "CLSZ06",
+      "distance_m": 1683,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BKSZ07",
+      "target": "CLSZ01",
+      "distance_m": 2483,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BTSZ03",
+      "target": "CLSZ01",
+      "distance_m": 2734,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MDSZ01",
+      "target": "WDSZ04",
+      "distance_m": 892,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "WDSZ01",
+      "target": "WDSZ04",
+      "distance_m": 1199,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "WDSZ04",
+      "target": "WDSZ06",
+      "distance_m": 2273,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "WDSZ04",
+      "target": "WDSZ07",
+      "distance_m": 2534,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "WDSZ03",
+      "target": "WDSZ04",
+      "distance_m": 1694,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MDSZ01",
+      "target": "WDSZ01",
+      "distance_m": 2076,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MDSZ01",
+      "target": "WDSZ06",
+      "distance_m": 2883,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MDSZ01",
+      "target": "WDSZ03",
+      "distance_m": 2388,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BKSZ05",
+      "target": "BPSZ04",
+      "distance_m": 2863,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ04",
+      "target": "BPSZ05",
+      "distance_m": 1097,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ04",
+      "target": "SKSZ03",
+      "distance_m": 2685,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ02",
+      "target": "BPSZ04",
+      "distance_m": 923,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ01",
+      "target": "BPSZ04",
+      "distance_m": 1182,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ04",
+      "target": "BPSZ07",
+      "distance_m": 2050,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ04",
+      "target": "BPSZ06",
+      "distance_m": 1479,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "AMSZ08",
+      "target": "YSSZ07",
+      "distance_m": 2518,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "AMSZ08",
+      "target": "AMSZ10",
+      "distance_m": 1004,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "AMSZ08",
+      "target": "BSSZ01",
+      "distance_m": 2439,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "AMSZ02",
+      "target": "AMSZ08",
+      "distance_m": 2225,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "AMSZ06",
+      "target": "AMSZ08",
+      "distance_m": 1427,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MESZ01",
+      "target": "RCSZ10",
+      "distance_m": 2247,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ05",
+      "target": "MESZ01",
+      "distance_m": 2087,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MESZ01",
+      "target": "SVSZ01",
+      "distance_m": 1960,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MESZ01",
+      "target": "MSSZ01",
+      "distance_m": 1322,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ02",
+      "target": "MESZ01",
+      "distance_m": 1826,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ08",
+      "target": "MESZ01",
+      "distance_m": 2608,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MESZ01",
+      "target": "SRSZ02",
+      "distance_m": 2495,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MESZ01",
+      "target": "MUSZ03",
+      "distance_m": 2132,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MESZ01",
+      "target": "RCSZ01",
+      "distance_m": 2890,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ13",
+      "target": "MESZ01",
+      "distance_m": 1144,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "MESZ01",
+      "distance_m": 1636,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ06",
+      "target": "MESZ01",
+      "distance_m": 1944,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MESZ01",
+      "target": "MPSZ01",
+      "distance_m": 2065,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ03",
+      "target": "MESZ01",
+      "distance_m": 2286,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MESZ01",
+      "target": "RCSZ03",
+      "distance_m": 2193,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MESZ01",
+      "target": "OTSZ04",
+      "distance_m": 2798,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MESZ01",
+      "target": "OTSZ03",
+      "distance_m": 2922,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MESZ01",
+      "target": "MUSZ01",
+      "distance_m": 2718,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ03",
+      "target": "MESZ01",
+      "distance_m": 916,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ07",
+      "target": "MESZ01",
+      "distance_m": 2887,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MESZ01",
+      "target": "RCSZ09",
+      "distance_m": 2330,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ04",
+      "target": "TPSZ12",
+      "distance_m": 2194,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ04",
+      "target": "TPSZ10",
+      "distance_m": 2867,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ04",
+      "target": "HGSZ08",
+      "distance_m": 2896,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ09",
+      "target": "RCSZ10",
+      "distance_m": 2518,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ05",
+      "target": "RCSZ10",
+      "distance_m": 1636,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NVSZ02",
+      "target": "RCSZ10",
+      "distance_m": 2517,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RCSZ10",
+      "target": "RVSZ05",
+      "distance_m": 1925,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MSSZ01",
+      "target": "RCSZ10",
+      "distance_m": 2933,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ02",
+      "target": "RCSZ10",
+      "distance_m": 696,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ01",
+      "target": "RCSZ10",
+      "distance_m": 2631,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ08",
+      "target": "RCSZ10",
+      "distance_m": 2174,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RCSZ10",
+      "target": "SRSZ02",
+      "distance_m": 1203,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MUSZ03",
+      "target": "RCSZ10",
+      "distance_m": 216,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RCSZ01",
+      "target": "RCSZ10",
+      "distance_m": 1590,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ09",
+      "target": "RCSZ10",
+      "distance_m": 2177,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ13",
+      "target": "RCSZ10",
+      "distance_m": 1493,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "RCSZ10",
+      "distance_m": 743,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ06",
+      "target": "RCSZ10",
+      "distance_m": 1698,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ03",
+      "target": "RCSZ10",
+      "distance_m": 2733,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ07",
+      "target": "RCSZ10",
+      "distance_m": 1461,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RCSZ03",
+      "target": "RCSZ10",
+      "distance_m": 938,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RCSZ10",
+      "target": "RVSZ01",
+      "distance_m": 2965,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ05",
+      "target": "RCSZ10",
+      "distance_m": 2423,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "OTSZ04",
+      "target": "RCSZ10",
+      "distance_m": 1690,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "OTSZ02",
+      "target": "RCSZ10",
+      "distance_m": 2295,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "OTSZ03",
+      "target": "RCSZ10",
+      "distance_m": 2135,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MUSZ01",
+      "target": "RCSZ10",
+      "distance_m": 492,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ04",
+      "target": "RCSZ10",
+      "distance_m": 2931,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ03",
+      "target": "RCSZ10",
+      "distance_m": 1341,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "ORSZ03",
+      "target": "RCSZ10",
+      "distance_m": 1253,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NTSZ03",
+      "target": "RCSZ10",
+      "distance_m": 2035,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RCSZ09",
+      "target": "RCSZ10",
+      "distance_m": 628,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BTSZ07",
+      "target": "TNSZ04",
+      "distance_m": 2502,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BTSZ06",
+      "target": "TNSZ04",
+      "distance_m": 1054,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "QTSZ03",
+      "target": "TNSZ04",
+      "distance_m": 2978,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "TNSZ01",
+      "target": "TNSZ04",
+      "distance_m": 1098,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RVSZ01",
+      "target": "TNSZ04",
+      "distance_m": 2359,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NTSZ03",
+      "target": "TNSZ04",
+      "distance_m": 2673,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ06",
+      "target": "TMSZ03",
+      "distance_m": 2222,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "TMSZ03",
+      "target": "TMSZ04",
+      "distance_m": 2596,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ02",
+      "target": "TMSZ03",
+      "distance_m": 1204,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "TMSZ03",
+      "target": "TMSZ05",
+      "distance_m": 2844,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ01",
+      "target": "TMSZ03",
+      "distance_m": 2579,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "QTSZ08",
+      "target": "QTSZ09",
+      "distance_m": 1627,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BTSZ07",
+      "target": "QTSZ09",
+      "distance_m": 1956,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BTSZ06",
+      "target": "QTSZ09",
+      "distance_m": 2993,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "QTSZ03",
+      "target": "QTSZ09",
+      "distance_m": 2399,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "CLSZ06",
+      "target": "QTSZ09",
+      "distance_m": 1547,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BTSZ03",
+      "target": "QTSZ09",
+      "distance_m": 2758,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BKSZ05",
+      "target": "BTSZ01",
+      "distance_m": 1657,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BKSZ05",
+      "target": "BPSZ05",
+      "distance_m": 2689,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BKSZ05",
+      "target": "BKSZ07",
+      "distance_m": 2260,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BKSZ05",
+      "target": "BPSZ07",
+      "distance_m": 890,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BKSZ05",
+      "target": "BTSZ03",
+      "distance_m": 2664,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BKSZ05",
+      "target": "BPSZ06",
+      "distance_m": 1722,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ05",
+      "target": "DTSZ09",
+      "distance_m": 1046,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ09",
+      "target": "SVSZ01",
+      "distance_m": 1961,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ09",
+      "target": "RVSZ05",
+      "distance_m": 2432,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ09",
+      "target": "MSSZ01",
+      "distance_m": 2470,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ02",
+      "target": "DTSZ09",
+      "distance_m": 1974,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ09",
+      "target": "SRSZ02",
+      "distance_m": 1340,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ09",
+      "target": "MUSZ03",
+      "distance_m": 2321,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ09",
+      "target": "DTSZ09",
+      "distance_m": 1904,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "DTSZ09",
+      "distance_m": 2830,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ05",
+      "target": "DTSZ09",
+      "distance_m": 801,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ09",
+      "target": "OTSZ04",
+      "distance_m": 914,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ09",
+      "target": "OTSZ02",
+      "distance_m": 896,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ09",
+      "target": "OTSZ03",
+      "distance_m": 502,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ09",
+      "target": "MUSZ01",
+      "distance_m": 2505,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ04",
+      "target": "DTSZ09",
+      "distance_m": 2354,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ03",
+      "target": "DTSZ09",
+      "distance_m": 2509,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ09",
+      "target": "ORSZ03",
+      "distance_m": 2745,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "QTSZ08",
+      "target": "QTSZ15",
+      "distance_m": 2642,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BTSZ07",
+      "target": "QTSZ08",
+      "distance_m": 1683,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "QTSZ03",
+      "target": "QTSZ08",
+      "distance_m": 1250,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "QTSZ08",
+      "target": "QTSZ13",
+      "distance_m": 2005,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "QTSZ06",
+      "target": "QTSZ08",
+      "distance_m": 2148,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "WDSZ01",
+      "target": "WDSZ06",
+      "distance_m": 1575,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "WDSZ01",
+      "target": "WDSZ07",
+      "distance_m": 1388,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "WDSZ01",
+      "target": "WDSZ03",
+      "distance_m": 1536,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "SKSZ02",
+      "target": "WDSZ06",
+      "distance_m": 1564,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "WDSZ06",
+      "target": "WDSZ07",
+      "distance_m": 2170,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "SESZ02",
+      "target": "SESZ04",
+      "distance_m": 2045,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "SESZ02",
+      "target": "SESZ03",
+      "distance_m": 1128,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "SESZ02",
+      "target": "SESZ06",
+      "distance_m": 2805,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "SESZ03",
+      "target": "SESZ04",
+      "distance_m": 918,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "YSSZ07",
+      "target": "YSSZ08",
+      "distance_m": 2740,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BTSZ01",
+      "target": "BTSZ06",
+      "distance_m": 2656,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ07",
+      "target": "BTSZ01",
+      "distance_m": 2529,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BTSZ01",
+      "target": "BTSZ03",
+      "distance_m": 1088,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "TSSZ02",
+      "target": "TSSZ03",
+      "distance_m": 2298,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "TSSZ02",
+      "target": "TSSZ04",
+      "distance_m": 1183,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BTSZ06",
+      "target": "QTSZ08",
+      "distance_m": 2845,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "CLSZ06",
+      "target": "QTSZ08",
+      "distance_m": 2981,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ06",
+      "target": "BDSZ08",
+      "distance_m": 1695,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ06",
+      "target": "TMSZ04",
+      "distance_m": 2312,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ02",
+      "target": "BDSZ06",
+      "distance_m": 1895,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ06",
+      "target": "TMSZ05",
+      "distance_m": 2073,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ05",
+      "target": "BDSZ06",
+      "distance_m": 2677,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ02",
+      "target": "BDSZ08",
+      "distance_m": 2837,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ08",
+      "target": "MPSZ03",
+      "distance_m": 2998,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ05",
+      "target": "BDSZ08",
+      "distance_m": 1344,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ08",
+      "target": "TMSZ05",
+      "distance_m": 2729,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ01",
+      "target": "BDSZ03",
+      "distance_m": 1627,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ03",
+      "target": "GLSZ05",
+      "distance_m": 1075,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ03",
+      "target": "MPSZ01",
+      "distance_m": 2962,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ03",
+      "target": "GLSZ02",
+      "distance_m": 2591,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ02",
+      "target": "BDSZ03",
+      "distance_m": 2760,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ03",
+      "target": "BDSZ05",
+      "distance_m": 2255,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ01",
+      "target": "GLSZ05",
+      "distance_m": 1781,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ01",
+      "target": "TPSZ12",
+      "distance_m": 2256,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ01",
+      "target": "HGSZ09",
+      "distance_m": 1943,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ01",
+      "target": "GLSZ02",
+      "distance_m": 2237,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ01",
+      "target": "BDSZ02",
+      "distance_m": 2656,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ01",
+      "target": "HGSZ08",
+      "distance_m": 2298,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ05",
+      "target": "CKSZ03",
+      "distance_m": 2192,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ05",
+      "target": "SKSZ03",
+      "distance_m": 2319,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ02",
+      "target": "BPSZ05",
+      "distance_m": 1320,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ01",
+      "target": "BPSZ05",
+      "distance_m": 537,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ05",
+      "target": "CKSZ06",
+      "distance_m": 2789,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ05",
+      "target": "BPSZ07",
+      "distance_m": 1800,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ05",
+      "target": "BPSZ06",
+      "distance_m": 969,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ05",
+      "target": "MPSZ01",
+      "distance_m": 2363,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ05",
+      "target": "TPSZ12",
+      "distance_m": 2427,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ05",
+      "target": "HGSZ09",
+      "distance_m": 2851,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ02",
+      "target": "GLSZ05",
+      "distance_m": 1630,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ05",
+      "target": "HGSZ08",
+      "distance_m": 2924,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "QTSZ13",
+      "target": "QTSZ15",
+      "distance_m": 1268,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "QTSZ06",
+      "target": "QTSZ15",
+      "distance_m": 2617,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NVSZ02",
+      "target": "TPSZ02",
+      "distance_m": 1420,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ01",
+      "target": "TPSZ02",
+      "distance_m": 2163,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BSSZ01",
+      "target": "TPSZ02",
+      "distance_m": 2904,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "TPSZ02",
+      "target": "TPSZ10",
+      "distance_m": 2699,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ08",
+      "target": "TPSZ02",
+      "distance_m": 2727,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BSSZ03",
+      "target": "TPSZ02",
+      "distance_m": 2021,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ02",
+      "target": "TPSZ02",
+      "distance_m": 2992,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "TNSZ01",
+      "target": "TPSZ02",
+      "distance_m": 2844,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RCSZ01",
+      "target": "TPSZ02",
+      "distance_m": 2375,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "TPSZ01",
+      "target": "TPSZ02",
+      "distance_m": 960,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ07",
+      "target": "TPSZ02",
+      "distance_m": 2424,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "SGSZ05",
+      "target": "TPSZ02",
+      "distance_m": 2809,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NTSZ03",
+      "target": "TPSZ02",
+      "distance_m": 2495,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "YSSZ08",
+      "target": "YSSZ09",
+      "distance_m": 1352,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "SBSZ02",
+      "target": "YSSZ08",
+      "distance_m": 2864,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "TMSZ04",
+      "target": "TMSZ05",
+      "distance_m": 850,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ05",
+      "target": "SVSZ01",
+      "distance_m": 1714,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ05",
+      "target": "RVSZ05",
+      "distance_m": 2316,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ05",
+      "target": "MSSZ01",
+      "distance_m": 1910,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ02",
+      "target": "DTSZ05",
+      "distance_m": 994,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ05",
+      "target": "SRSZ02",
+      "distance_m": 734,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ05",
+      "target": "MUSZ03",
+      "distance_m": 1422,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ09",
+      "target": "DTSZ05",
+      "distance_m": 2047,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ05",
+      "target": "DTSZ13",
+      "distance_m": 2212,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "DTSZ05",
+      "distance_m": 1814,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ05",
+      "target": "KLSZ06",
+      "distance_m": 2884,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ05",
+      "target": "RCSZ03",
+      "distance_m": 2411,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ05",
+      "target": "DTSZ05",
+      "distance_m": 1418,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ05",
+      "target": "OTSZ04",
+      "distance_m": 770,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ05",
+      "target": "OTSZ02",
+      "distance_m": 1388,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ05",
+      "target": "OTSZ03",
+      "distance_m": 923,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ05",
+      "target": "MUSZ01",
+      "distance_m": 1779,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ04",
+      "target": "DTSZ05",
+      "distance_m": 2726,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ03",
+      "target": "DTSZ05",
+      "distance_m": 1472,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ05",
+      "target": "ORSZ03",
+      "distance_m": 2266,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ05",
+      "target": "KLSZ07",
+      "distance_m": 2588,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ05",
+      "target": "RCSZ01",
+      "distance_m": 2574,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ05",
+      "target": "RCSZ09",
+      "distance_m": 2211,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ01",
+      "target": "NVSZ02",
+      "distance_m": 1989,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ08",
+      "target": "NVSZ02",
+      "distance_m": 2251,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MUSZ03",
+      "target": "NVSZ02",
+      "distance_m": 2732,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NVSZ02",
+      "target": "TNSZ01",
+      "distance_m": 2033,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NVSZ02",
+      "target": "RCSZ01",
+      "distance_m": 1462,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NVSZ02",
+      "target": "TPSZ01",
+      "distance_m": 1922,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "NVSZ02",
+      "distance_m": 2748,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ06",
+      "target": "NVSZ02",
+      "distance_m": 2565,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ07",
+      "target": "NVSZ02",
+      "distance_m": 1068,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NVSZ02",
+      "target": "RCSZ03",
+      "distance_m": 2114,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NVSZ02",
+      "target": "RVSZ01",
+      "distance_m": 2973,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MUSZ01",
+      "target": "NVSZ02",
+      "distance_m": 2389,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NVSZ02",
+      "target": "ORSZ03",
+      "distance_m": 2304,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NTSZ03",
+      "target": "NVSZ02",
+      "distance_m": 1110,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NVSZ02",
+      "target": "RCSZ09",
+      "distance_m": 2070,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BTSZ06",
+      "target": "BTSZ07",
+      "distance_m": 1980,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BTSZ07",
+      "target": "QTSZ03",
+      "distance_m": 1081,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BTSZ07",
+      "target": "QTSZ06",
+      "distance_m": 2215,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BTSZ07",
+      "target": "TNSZ01",
+      "distance_m": 2601,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BTSZ03",
+      "target": "BTSZ07",
+      "distance_m": 2971,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "AMSZ10",
+      "target": "BSSZ01",
+      "distance_m": 2443,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "AMSZ02",
+      "target": "AMSZ10",
+      "distance_m": 1418,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "AMSZ06",
+      "target": "AMSZ10",
+      "distance_m": 1395,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "SBSZ03",
+      "target": "YSSZ09",
+      "distance_m": 2719,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "SBSZ02",
+      "target": "SBSZ03",
+      "distance_m": 1248,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "SBSZ03",
+      "target": "WDSZ03",
+      "distance_m": 2335,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MSSZ01",
+      "target": "SVSZ01",
+      "distance_m": 743,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ02",
+      "target": "SVSZ01",
+      "distance_m": 2396,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "SRSZ02",
+      "target": "SVSZ01",
+      "distance_m": 2447,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MUSZ03",
+      "target": "SVSZ01",
+      "distance_m": 2879,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ13",
+      "target": "SVSZ01",
+      "distance_m": 2841,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "SVSZ01",
+      "distance_m": 2892,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ05",
+      "target": "SVSZ01",
+      "distance_m": 2729,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "OTSZ04",
+      "target": "SVSZ01",
+      "distance_m": 2386,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "OTSZ02",
+      "target": "SVSZ01",
+      "distance_m": 2783,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "OTSZ03",
+      "target": "SVSZ01",
+      "distance_m": 2272,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ03",
+      "target": "SVSZ01",
+      "distance_m": 2128,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "SKSZ02",
+      "target": "WDSZ01",
+      "distance_m": 2961,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "CKSZ03",
+      "target": "SKSZ03",
+      "distance_m": 1913,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ02",
+      "target": "CKSZ03",
+      "distance_m": 2810,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ01",
+      "target": "CKSZ03",
+      "distance_m": 1995,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "CKSZ03",
+      "target": "CKSZ06",
+      "distance_m": 1450,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ06",
+      "target": "CKSZ03",
+      "distance_m": 2823,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ04",
+      "target": "CKSZ03",
+      "distance_m": 2926,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ02",
+      "target": "RVSZ05",
+      "distance_m": 2138,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RVSZ05",
+      "target": "SRSZ02",
+      "distance_m": 1607,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MUSZ03",
+      "target": "RVSZ05",
+      "distance_m": 1930,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RVSZ05",
+      "target": "TNSZ01",
+      "distance_m": 2899,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ09",
+      "target": "RVSZ05",
+      "distance_m": 676,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "RVSZ05",
+      "distance_m": 2662,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ11",
+      "target": "RVSZ05",
+      "distance_m": 2680,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ07",
+      "target": "RVSZ05",
+      "distance_m": 2262,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RCSZ03",
+      "target": "RVSZ05",
+      "distance_m": 2726,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RVSZ01",
+      "target": "RVSZ05",
+      "distance_m": 1396,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ03",
+      "target": "RVSZ05",
+      "distance_m": 1931,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ05",
+      "target": "RVSZ05",
+      "distance_m": 1769,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "OTSZ04",
+      "target": "RVSZ05",
+      "distance_m": 1655,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "OTSZ02",
+      "target": "RVSZ05",
+      "distance_m": 1617,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "OTSZ03",
+      "target": "RVSZ05",
+      "distance_m": 1939,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MUSZ01",
+      "target": "RVSZ05",
+      "distance_m": 1466,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ04",
+      "target": "RVSZ05",
+      "distance_m": 1167,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "ORSZ03",
+      "target": "RVSZ05",
+      "distance_m": 893,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NTSZ03",
+      "target": "RVSZ05",
+      "distance_m": 2042,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RCSZ01",
+      "target": "RVSZ05",
+      "distance_m": 2301,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RCSZ09",
+      "target": "RVSZ05",
+      "distance_m": 2356,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ05",
+      "target": "KLSZ02",
+      "distance_m": 2380,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ05",
+      "target": "KLSZ03",
+      "distance_m": 2529,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ02",
+      "target": "MSSZ01",
+      "distance_m": 2291,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MSSZ01",
+      "target": "SRSZ02",
+      "distance_m": 2590,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MSSZ01",
+      "target": "MUSZ03",
+      "distance_m": 2748,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ13",
+      "target": "MSSZ01",
+      "distance_m": 2347,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "MSSZ01",
+      "distance_m": 2570,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MPSZ01",
+      "target": "MSSZ01",
+      "distance_m": 2905,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MSSZ01",
+      "target": "OTSZ04",
+      "distance_m": 2667,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MSSZ01",
+      "target": "OTSZ03",
+      "distance_m": 2672,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ03",
+      "target": "MSSZ01",
+      "distance_m": 1748,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "HGSZ09",
+      "target": "TPSZ12",
+      "distance_m": 1026,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ02",
+      "target": "TPSZ12",
+      "distance_m": 1037,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "TPSZ10",
+      "target": "TPSZ12",
+      "distance_m": 1974,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ02",
+      "target": "TPSZ12",
+      "distance_m": 2381,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "HGSZ08",
+      "target": "TPSZ12",
+      "distance_m": 708,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "SGSZ06",
+      "target": "TPSZ12",
+      "distance_m": 2420,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "SGSZ07",
+      "target": "TPSZ12",
+      "distance_m": 2256,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "SBSZ02",
+      "target": "YSSZ09",
+      "distance_m": 1615,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "JESZ04",
+      "target": "JWSZ04",
+      "distance_m": 1338,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "JWSZ04",
+      "target": "JWSZ09",
+      "distance_m": 1773,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BKSZ07",
+      "target": "JESZ04",
+      "distance_m": 2009,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "WDSZ03",
+      "target": "WDSZ07",
+      "distance_m": 1907,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ02",
+      "target": "SKSZ03",
+      "distance_m": 1863,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ01",
+      "target": "SKSZ03",
+      "distance_m": 1796,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "CKSZ06",
+      "target": "SKSZ03",
+      "distance_m": 966,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ02",
+      "target": "KLSZ08",
+      "distance_m": 2571,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ02",
+      "target": "SRSZ02",
+      "distance_m": 827,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ02",
+      "target": "MUSZ03",
+      "distance_m": 484,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ02",
+      "target": "RCSZ01",
+      "distance_m": 2178,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ09",
+      "target": "DTSZ02",
+      "distance_m": 2174,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ02",
+      "target": "DTSZ13",
+      "distance_m": 1444,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "DTSZ02",
+      "distance_m": 867,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ02",
+      "target": "KLSZ06",
+      "distance_m": 1967,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ02",
+      "target": "KLSZ03",
+      "distance_m": 2922,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ02",
+      "target": "KLSZ07",
+      "distance_m": 2157,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ02",
+      "target": "RCSZ03",
+      "distance_m": 1419,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ05",
+      "target": "DTSZ02",
+      "distance_m": 2068,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ02",
+      "target": "OTSZ04",
+      "distance_m": 1286,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ02",
+      "target": "OTSZ02",
+      "distance_m": 1971,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ02",
+      "target": "OTSZ03",
+      "distance_m": 1678,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ02",
+      "target": "MUSZ01",
+      "distance_m": 1014,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ04",
+      "target": "DTSZ02",
+      "distance_m": 2939,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ02",
+      "target": "DTSZ03",
+      "distance_m": 933,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ02",
+      "target": "ORSZ03",
+      "distance_m": 1711,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ02",
+      "target": "NTSZ03",
+      "distance_m": 2700,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ02",
+      "target": "RCSZ09",
+      "distance_m": 1223,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BTSZ06",
+      "target": "QTSZ03",
+      "distance_m": 2792,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BTSZ06",
+      "target": "TNSZ01",
+      "distance_m": 2151,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BTSZ03",
+      "target": "BTSZ06",
+      "distance_m": 2825,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ02",
+      "target": "HGSZ09",
+      "distance_m": 1905,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "HGSZ09",
+      "target": "TPSZ10",
+      "distance_m": 2516,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "HGSZ08",
+      "target": "HGSZ09",
+      "distance_m": 489,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "HGSZ09",
+      "target": "SGSZ06",
+      "distance_m": 2430,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "HGSZ09",
+      "target": "SGSZ07",
+      "distance_m": 2274,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ02",
+      "target": "TPSZ10",
+      "distance_m": 2591,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ02",
+      "target": "KLSZ02",
+      "distance_m": 2110,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ02",
+      "target": "HGSZ08",
+      "distance_m": 1719,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ02",
+      "target": "KLSZ03",
+      "distance_m": 2685,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ01",
+      "target": "TPSZ10",
+      "distance_m": 2420,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ01",
+      "target": "KLSZ08",
+      "distance_m": 659,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ01",
+      "target": "KLSZ02",
+      "distance_m": 1160,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ01",
+      "target": "MUSZ03",
+      "distance_m": 2798,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ01",
+      "target": "RCSZ01",
+      "distance_m": 1133,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ01",
+      "target": "TPSZ01",
+      "distance_m": 2861,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ13",
+      "target": "KLSZ01",
+      "distance_m": 2195,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "KLSZ01",
+      "distance_m": 2286,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ01",
+      "target": "KLSZ06",
+      "distance_m": 1349,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ01",
+      "target": "KLSZ03",
+      "distance_m": 1396,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ01",
+      "target": "KLSZ07",
+      "distance_m": 2036,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ01",
+      "target": "RCSZ03",
+      "distance_m": 1711,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ02",
+      "target": "KLSZ01",
+      "distance_m": 2536,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ01",
+      "target": "MUSZ01",
+      "distance_m": 2872,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ02",
+      "target": "KLSZ01",
+      "distance_m": 2989,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ03",
+      "target": "KLSZ01",
+      "distance_m": 2914,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ01",
+      "target": "NTSZ03",
+      "distance_m": 2750,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ01",
+      "target": "RCSZ09",
+      "distance_m": 2008,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ01",
+      "target": "BPSZ02",
+      "distance_m": 986,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ02",
+      "target": "CKSZ06",
+      "distance_m": 2703,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ02",
+      "target": "BPSZ07",
+      "distance_m": 2837,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ02",
+      "target": "BPSZ06",
+      "distance_m": 2118,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "AMSZ02",
+      "target": "BSSZ01",
+      "distance_m": 2536,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BSSZ01",
+      "target": "BSSZ03",
+      "distance_m": 1738,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BSSZ01",
+      "target": "TPSZ01",
+      "distance_m": 2062,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "AMSZ06",
+      "target": "BSSZ01",
+      "distance_m": 2014,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "AMSZ02",
+      "target": "BSSZ03",
+      "distance_m": 2131,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "AMSZ02",
+      "target": "AMSZ06",
+      "distance_m": 1446,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "AMSZ02",
+      "target": "SGSZ05",
+      "distance_m": 2600,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BSSZ01",
+      "target": "SGSZ05",
+      "distance_m": 2767,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ08",
+      "target": "TPSZ10",
+      "distance_m": 2976,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BSSZ03",
+      "target": "TPSZ10",
+      "distance_m": 2832,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ02",
+      "target": "TPSZ10",
+      "distance_m": 1971,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "TPSZ01",
+      "target": "TPSZ10",
+      "distance_m": 2673,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "HGSZ08",
+      "target": "TPSZ10",
+      "distance_m": 2035,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "SGSZ05",
+      "target": "TPSZ10",
+      "distance_m": 1567,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "SGSZ06",
+      "target": "TPSZ10",
+      "distance_m": 1273,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "SGSZ07",
+      "target": "TPSZ10",
+      "distance_m": 1199,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ02",
+      "target": "TMSZ04",
+      "distance_m": 2457,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ02",
+      "target": "KLSZ08",
+      "distance_m": 1331,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ08",
+      "target": "MUSZ03",
+      "distance_m": 2312,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ08",
+      "target": "RCSZ01",
+      "distance_m": 968,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ13",
+      "target": "KLSZ08",
+      "distance_m": 1541,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "KLSZ08",
+      "distance_m": 1714,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ06",
+      "target": "KLSZ08",
+      "distance_m": 698,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ03",
+      "target": "KLSZ08",
+      "distance_m": 969,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ07",
+      "target": "KLSZ08",
+      "distance_m": 1962,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ08",
+      "target": "RCSZ03",
+      "distance_m": 1238,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ02",
+      "target": "KLSZ08",
+      "distance_m": 2699,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ08",
+      "target": "MUSZ01",
+      "distance_m": 2496,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ03",
+      "target": "KLSZ08",
+      "distance_m": 2278,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ08",
+      "target": "NTSZ03",
+      "distance_m": 2772,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ08",
+      "target": "RCSZ09",
+      "distance_m": 1587,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BSSZ03",
+      "target": "TPSZ01",
+      "distance_m": 1747,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "AMSZ06",
+      "target": "BSSZ03",
+      "distance_m": 2680,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BSSZ03",
+      "target": "SGSZ05",
+      "distance_m": 1781,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BSSZ03",
+      "target": "SGSZ06",
+      "distance_m": 2704,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BSSZ03",
+      "target": "SGSZ07",
+      "distance_m": 2837,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "QTSZ03",
+      "target": "QTSZ13",
+      "distance_m": 2876,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "QTSZ03",
+      "target": "QTSZ06",
+      "distance_m": 1226,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "QTSZ03",
+      "target": "RVSZ01",
+      "distance_m": 2842,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ03",
+      "target": "QTSZ03",
+      "distance_m": 2503,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "QTSZ03",
+      "target": "TNSZ01",
+      "distance_m": 2355,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ02",
+      "target": "RCSZ01",
+      "distance_m": 2205,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "HGSZ08",
+      "target": "KLSZ02",
+      "distance_m": 2942,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ13",
+      "target": "KLSZ02",
+      "distance_m": 2584,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ02",
+      "target": "RCSZ10",
+      "distance_m": 2930,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "KLSZ02",
+      "distance_m": 2968,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ02",
+      "target": "KLSZ06",
+      "distance_m": 1868,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ02",
+      "target": "KLSZ03",
+      "distance_m": 1127,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ02",
+      "target": "RCSZ03",
+      "distance_m": 2564,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ02",
+      "target": "RCSZ09",
+      "distance_m": 2917,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MUSZ03",
+      "target": "SRSZ02",
+      "distance_m": 1025,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RCSZ01",
+      "target": "SRSZ02",
+      "distance_m": 2791,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ09",
+      "target": "SRSZ02",
+      "distance_m": 1449,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ13",
+      "target": "SRSZ02",
+      "distance_m": 2270,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "SRSZ02",
+      "distance_m": 1667,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ06",
+      "target": "SRSZ02",
+      "distance_m": 2764,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ07",
+      "target": "SRSZ02",
+      "distance_m": 2496,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RCSZ03",
+      "target": "SRSZ02",
+      "distance_m": 2114,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RVSZ01",
+      "target": "SRSZ02",
+      "distance_m": 2975,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ05",
+      "target": "SRSZ02",
+      "distance_m": 1257,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "OTSZ04",
+      "target": "SRSZ02",
+      "distance_m": 491,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "OTSZ02",
+      "target": "SRSZ02",
+      "distance_m": 1150,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "OTSZ03",
+      "target": "SRSZ02",
+      "distance_m": 933,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MUSZ01",
+      "target": "SRSZ02",
+      "distance_m": 1171,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ04",
+      "target": "SRSZ02",
+      "distance_m": 2191,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ03",
+      "target": "SRSZ02",
+      "distance_m": 1683,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "ORSZ03",
+      "target": "SRSZ02",
+      "distance_m": 1548,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NTSZ03",
+      "target": "SRSZ02",
+      "distance_m": 2812,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RCSZ09",
+      "target": "SRSZ02",
+      "distance_m": 1830,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BDSZ02",
+      "target": "BDSZ05",
+      "distance_m": 2983,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MUSZ03",
+      "target": "RCSZ01",
+      "distance_m": 1783,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ09",
+      "target": "MUSZ03",
+      "distance_m": 2115,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ13",
+      "target": "MUSZ03",
+      "distance_m": 1480,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "MUSZ03",
+      "distance_m": 752,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ06",
+      "target": "MUSZ03",
+      "distance_m": 1791,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ03",
+      "target": "MUSZ03",
+      "distance_m": 2811,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ07",
+      "target": "MUSZ03",
+      "distance_m": 1675,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MUSZ03",
+      "target": "RCSZ03",
+      "distance_m": 1089,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ05",
+      "target": "MUSZ03",
+      "distance_m": 2267,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MUSZ03",
+      "target": "OTSZ04",
+      "distance_m": 1516,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MUSZ03",
+      "target": "OTSZ02",
+      "distance_m": 2146,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MUSZ03",
+      "target": "OTSZ03",
+      "distance_m": 1954,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MUSZ01",
+      "target": "MUSZ03",
+      "distance_m": 590,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ04",
+      "target": "MUSZ03",
+      "distance_m": 2879,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ03",
+      "target": "MUSZ03",
+      "distance_m": 1216,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MUSZ03",
+      "target": "ORSZ03",
+      "distance_m": 1343,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MUSZ03",
+      "target": "NTSZ03",
+      "distance_m": 2225,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MUSZ03",
+      "target": "RCSZ09",
+      "distance_m": 814,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "TNSZ01",
+      "target": "TPSZ01",
+      "distance_m": 2569,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ07",
+      "target": "TNSZ01",
+      "distance_m": 2401,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RVSZ01",
+      "target": "TNSZ01",
+      "distance_m": 1872,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "ORSZ03",
+      "target": "TNSZ01",
+      "distance_m": 2604,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NTSZ03",
+      "target": "TNSZ01",
+      "distance_m": 1589,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ01",
+      "target": "CKSZ06",
+      "distance_m": 2344,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ01",
+      "target": "BPSZ07",
+      "distance_m": 2333,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ01",
+      "target": "BPSZ06",
+      "distance_m": 1505,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "TSSZ03",
+      "target": "TSSZ04",
+      "distance_m": 1444,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PNSZ02",
+      "target": "TSSZ03",
+      "distance_m": 1292,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "PNSZ02",
+      "target": "TSSZ04",
+      "distance_m": 2603,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NVSZ05",
+      "target": "RCSZ01",
+      "distance_m": 2787,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ07",
+      "target": "NVSZ05",
+      "distance_m": 2271,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ13",
+      "target": "RCSZ01",
+      "distance_m": 1749,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "RCSZ01",
+      "distance_m": 1474,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ06",
+      "target": "RCSZ01",
+      "distance_m": 1107,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ03",
+      "target": "RCSZ01",
+      "distance_m": 1898,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ07",
+      "target": "RCSZ01",
+      "distance_m": 994,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RCSZ01",
+      "target": "RCSZ03",
+      "distance_m": 796,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MUSZ01",
+      "target": "RCSZ01",
+      "distance_m": 1761,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ03",
+      "target": "RCSZ01",
+      "distance_m": 2262,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "ORSZ03",
+      "target": "RCSZ01",
+      "distance_m": 2166,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NTSZ03",
+      "target": "RCSZ01",
+      "distance_m": 1810,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RCSZ01",
+      "target": "RCSZ09",
+      "distance_m": 969,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ07",
+      "target": "TPSZ01",
+      "distance_m": 2989,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NTSZ03",
+      "target": "TPSZ01",
+      "distance_m": 2790,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "SGSZ05",
+      "target": "TPSZ01",
+      "distance_m": 2294,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "HGSZ08",
+      "target": "SGSZ05",
+      "distance_m": 2966,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "HGSZ08",
+      "target": "SGSZ06",
+      "distance_m": 2074,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "HGSZ08",
+      "target": "SGSZ07",
+      "distance_m": 1912,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ09",
+      "target": "DTSZ01",
+      "distance_m": 2866,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ09",
+      "target": "KLSZ07",
+      "distance_m": 2830,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ09",
+      "target": "RVSZ01",
+      "distance_m": 1911,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ03",
+      "target": "BMSZ09",
+      "distance_m": 1870,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ09",
+      "target": "TNSZ01",
+      "distance_m": 2597,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ05",
+      "target": "BMSZ09",
+      "distance_m": 1162,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ09",
+      "target": "OTSZ04",
+      "distance_m": 1293,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ09",
+      "target": "OTSZ02",
+      "distance_m": 1026,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ09",
+      "target": "OTSZ03",
+      "distance_m": 1445,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ09",
+      "target": "MUSZ01",
+      "distance_m": 1801,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ04",
+      "target": "BMSZ09",
+      "distance_m": 768,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ09",
+      "target": "ORSZ03",
+      "distance_m": 1448,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ09",
+      "target": "NTSZ03",
+      "distance_m": 2699,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ09",
+      "target": "RCSZ01",
+      "distance_m": 2756,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ09",
+      "target": "RCSZ09",
+      "distance_m": 2713,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "DTSZ13",
+      "distance_m": 751,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ13",
+      "target": "KLSZ06",
+      "distance_m": 846,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ13",
+      "target": "MPSZ01",
+      "distance_m": 2516,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ13",
+      "target": "KLSZ03",
+      "distance_m": 1546,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ13",
+      "target": "KLSZ07",
+      "distance_m": 2372,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ13",
+      "target": "RCSZ03",
+      "distance_m": 1102,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ13",
+      "target": "OTSZ04",
+      "distance_m": 2710,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ13",
+      "target": "OTSZ03",
+      "distance_m": 2823,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ13",
+      "target": "MUSZ01",
+      "distance_m": 1981,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ03",
+      "target": "DTSZ13",
+      "distance_m": 785,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ13",
+      "target": "ORSZ03",
+      "distance_m": 2730,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ13",
+      "target": "RCSZ09",
+      "distance_m": 1326,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "KLSZ06",
+      "distance_m": 1102,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "KLSZ03",
+      "distance_m": 2083,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "KLSZ07",
+      "distance_m": 1804,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "RCSZ03",
+      "distance_m": 679,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ05",
+      "target": "DTSZ01",
+      "distance_m": 2922,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "OTSZ04",
+      "distance_m": 2144,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "OTSZ02",
+      "distance_m": 2816,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "OTSZ03",
+      "distance_m": 2544,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "MUSZ01",
+      "distance_m": 1230,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "DTSZ03",
+      "distance_m": 827,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "ORSZ03",
+      "distance_m": 1982,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "NTSZ03",
+      "distance_m": 2542,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ01",
+      "target": "RCSZ09",
+      "distance_m": 702,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ06",
+      "target": "MPSZ01",
+      "distance_m": 2804,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ03",
+      "target": "KLSZ06",
+      "distance_m": 1043,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ06",
+      "target": "KLSZ07",
+      "distance_m": 1974,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ06",
+      "target": "RCSZ03",
+      "distance_m": 852,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ06",
+      "target": "MUSZ01",
+      "distance_m": 2105,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ03",
+      "target": "KLSZ06",
+      "distance_m": 1584,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ06",
+      "target": "ORSZ03",
+      "distance_m": 2757,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ06",
+      "target": "NTSZ03",
+      "distance_m": 2817,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ06",
+      "target": "RCSZ09",
+      "distance_m": 1218,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "QTSZ06",
+      "target": "RVSZ01",
+      "distance_m": 2172,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ03",
+      "target": "QTSZ06",
+      "distance_m": 1317,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "QTSZ06",
+      "target": "TNSZ01",
+      "distance_m": 1975,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ04",
+      "target": "QTSZ06",
+      "distance_m": 2513,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ03",
+      "target": "MPSZ01",
+      "distance_m": 2238,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ03",
+      "target": "MPSZ01",
+      "distance_m": 2846,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ03",
+      "target": "KLSZ07",
+      "distance_m": 2876,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ03",
+      "target": "RCSZ03",
+      "distance_m": 1888,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ03",
+      "target": "KLSZ03",
+      "distance_m": 2321,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ03",
+      "target": "RCSZ09",
+      "distance_m": 2257,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ04",
+      "target": "DTSZ11",
+      "distance_m": 2792,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ11",
+      "target": "ORSZ03",
+      "distance_m": 2826,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ11",
+      "target": "RCSZ09",
+      "distance_m": 2932,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ07",
+      "target": "RCSZ03",
+      "distance_m": 1272,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ07",
+      "target": "RVSZ01",
+      "distance_m": 2573,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ07",
+      "target": "OTSZ04",
+      "distance_m": 2930,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ07",
+      "target": "OTSZ03",
+      "distance_m": 2967,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ07",
+      "target": "MUSZ01",
+      "distance_m": 1326,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ03",
+      "target": "KLSZ07",
+      "distance_m": 2620,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ07",
+      "target": "ORSZ03",
+      "distance_m": 1385,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ07",
+      "target": "NTSZ03",
+      "distance_m": 843,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "KLSZ07",
+      "target": "RCSZ09",
+      "distance_m": 1103,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ11",
+      "target": "RCSZ03",
+      "distance_m": 2899,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "OTSZ04",
+      "target": "RCSZ03",
+      "distance_m": 2605,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "OTSZ03",
+      "target": "RCSZ03",
+      "distance_m": 2689,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MUSZ01",
+      "target": "RCSZ03",
+      "distance_m": 1279,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ03",
+      "target": "RCSZ03",
+      "distance_m": 1484,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "ORSZ03",
+      "target": "RCSZ03",
+      "distance_m": 1906,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NTSZ03",
+      "target": "RCSZ03",
+      "distance_m": 2088,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RCSZ03",
+      "target": "RCSZ09",
+      "distance_m": 370,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ03",
+      "target": "RVSZ01",
+      "distance_m": 1647,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "OTSZ02",
+      "target": "RVSZ01",
+      "distance_m": 2936,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "OTSZ03",
+      "target": "RVSZ01",
+      "distance_m": 2981,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MUSZ01",
+      "target": "RVSZ01",
+      "distance_m": 2475,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ04",
+      "target": "RVSZ01",
+      "distance_m": 1859,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "ORSZ03",
+      "target": "RVSZ01",
+      "distance_m": 1712,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NTSZ03",
+      "target": "RVSZ01",
+      "distance_m": 1905,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "RCSZ01",
+      "target": "RVSZ01",
+      "distance_m": 2932,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BKSZ07",
+      "target": "BPSZ07",
+      "distance_m": 2481,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BKSZ07",
+      "target": "BPSZ06",
+      "distance_m": 2823,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ03",
+      "target": "TNSZ01",
+      "distance_m": 1919,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ03",
+      "target": "BMSZ05",
+      "distance_m": 2745,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ03",
+      "target": "OTSZ02",
+      "distance_m": 2672,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ03",
+      "target": "BMSZ04",
+      "distance_m": 1200,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ03",
+      "target": "ORSZ03",
+      "distance_m": 2745,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ04",
+      "target": "TNSZ01",
+      "distance_m": 2448,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ02",
+      "target": "SGSZ06",
+      "distance_m": 2892,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "GLSZ02",
+      "target": "SGSZ07",
+      "distance_m": 2747,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ05",
+      "target": "OTSZ04",
+      "distance_m": 782,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ05",
+      "target": "OTSZ02",
+      "distance_m": 159,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ05",
+      "target": "OTSZ03",
+      "distance_m": 506,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ05",
+      "target": "MUSZ01",
+      "distance_m": 2255,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ04",
+      "target": "BMSZ05",
+      "distance_m": 1553,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ05",
+      "target": "DTSZ03",
+      "distance_m": 2825,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ05",
+      "target": "ORSZ03",
+      "distance_m": 2275,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "OTSZ02",
+      "target": "OTSZ04",
+      "distance_m": 696,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "OTSZ03",
+      "target": "OTSZ04",
+      "distance_m": 454,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MUSZ01",
+      "target": "OTSZ04",
+      "distance_m": 1609,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ04",
+      "target": "OTSZ04",
+      "distance_m": 1956,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ03",
+      "target": "OTSZ04",
+      "distance_m": 2064,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "ORSZ03",
+      "target": "OTSZ04",
+      "distance_m": 1842,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "OTSZ04",
+      "target": "RCSZ01",
+      "distance_m": 2573,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "OTSZ04",
+      "target": "RCSZ09",
+      "distance_m": 2318,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "OTSZ02",
+      "target": "OTSZ03",
+      "distance_m": 518,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MUSZ01",
+      "target": "OTSZ02",
+      "distance_m": 2111,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ04",
+      "target": "OTSZ02",
+      "distance_m": 1473,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ03",
+      "target": "OTSZ02",
+      "distance_m": 2758,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "ORSZ03",
+      "target": "OTSZ02",
+      "distance_m": 2117,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "OTSZ02",
+      "target": "RCSZ09",
+      "distance_m": 2917,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MUSZ01",
+      "target": "OTSZ03",
+      "distance_m": 2063,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ04",
+      "target": "OTSZ03",
+      "distance_m": 1979,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ03",
+      "target": "OTSZ03",
+      "distance_m": 2363,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "ORSZ03",
+      "target": "OTSZ03",
+      "distance_m": 2252,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "OTSZ03",
+      "target": "RCSZ09",
+      "distance_m": 2762,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "OTSZ03",
+      "target": "RCSZ01",
+      "distance_m": 2632,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ04",
+      "target": "MUSZ01",
+      "distance_m": 2530,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ03",
+      "target": "MUSZ01",
+      "distance_m": 1805,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MUSZ01",
+      "target": "ORSZ03",
+      "distance_m": 763,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MUSZ01",
+      "target": "NTSZ03",
+      "distance_m": 1715,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "MUSZ01",
+      "target": "RCSZ09",
+      "distance_m": 913,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BMSZ04",
+      "target": "ORSZ03",
+      "distance_m": 2056,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ03",
+      "target": "ORSZ03",
+      "distance_m": 2558,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "DTSZ03",
+      "target": "RCSZ09",
+      "distance_m": 1521,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "SGSZ05",
+      "target": "SGSZ06",
+      "distance_m": 933,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "SGSZ05",
+      "target": "SGSZ07",
+      "distance_m": 1078,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "SGSZ06",
+      "target": "SGSZ07",
+      "distance_m": 165,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NTSZ03",
+      "target": "ORSZ03",
+      "distance_m": 1347,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "ORSZ03",
+      "target": "RCSZ09",
+      "distance_m": 1541,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "NTSZ03",
+      "target": "RCSZ09",
+      "distance_m": 1858,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    },
+    {
+      "source": "BPSZ06",
+      "target": "BPSZ07",
+      "distance_m": 838,
+      "station_a": null,
+      "station_b": null,
+      "type": "mrt_connected"
+    }
+  ]
+}
