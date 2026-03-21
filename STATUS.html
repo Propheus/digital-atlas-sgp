@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Atlas Singapore — Build Report</title>
+<style>
+:root{--bg:#0a0f1a;--card:#111827;--border:#1e2a3a;--text:#e5e7eb;--muted:#9ca3af;--accent:#14b8a6;--accent2:#6366f1}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.7;padding:2rem}
+.container{max-width:1000px;margin:0 auto}
+h1{font-size:2.2rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.25rem}
+h2{font-size:1.3rem;color:var(--accent);margin:2.5rem 0 .75rem;padding-bottom:.4rem;border-bottom:1px solid var(--border)}
+h3{font-size:1rem;color:var(--text);margin:1.5rem 0 .5rem}
+.sub{color:var(--muted);font-size:1rem;margin-bottom:2rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem;margin:1rem 0}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.25rem}
+.card .n{font-size:1.8rem;font-weight:700;color:var(--accent)}
+.card .l{color:var(--muted);font-size:.8rem;margin-top:.15rem}
+table{width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.85rem}
+th{text-align:left;padding:.6rem;background:var(--card);color:var(--accent);border-bottom:2px solid var(--border)}
+td{padding:.5rem .6rem;border-bottom:1px solid var(--border)}
+.tag{display:inline-block;padding:.1rem .45rem;border-radius:5px;font-size:.7rem;font-weight:600}
+.g{background:rgba(16,185,129,.15);color:#10b981}
+.y{background:rgba(245,158,11,.15);color:#f59e0b}
+.b{background:rgba(99,102,241,.15);color:#6366f1}
+.timeline{position:relative;padding-left:2rem;margin:1rem 0}
+.timeline::before{content:'';position:absolute;left:.5rem;top:0;bottom:0;width:2px;background:var(--border)}
+.step{position:relative;margin-bottom:1.5rem}
+.step::before{content:'';position:absolute;left:-1.65rem;top:.4rem;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+.step .d{font-size:.75rem;color:var(--muted)}
+.step .t{font-weight:600;color:var(--text)}
+.step .desc{font-size:.85rem;color:var(--muted);margin-top:.2rem}
+code{background:var(--card);padding:.15rem .4rem;border-radius:4px;font-size:.8rem;color:var(--accent)}
+.finding{background:var(--card);border-left:3px solid var(--accent);padding:.75rem 1.25rem;margin:.75rem 0;border-radius:0 8px 8px 0;font-size:.9rem}
+footer{text-align:center;color:var(--muted);padding:2rem 0;font-size:.75rem;border-top:1px solid var(--border);margin-top:2rem}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>Digital Atlas Singapore</h1>
+<p class="sub">Build Report — How we built a mathematical representation of Singapore's urban structure</p>
+
+<div class="grid">
+<div class="card"><div class="n">66,851</div><div class="l">Places curated & LLM-classified</div></div>
+<div class="card"><div class="n">332</div><div class="l">Subzones with 202-dim feature vectors</div></div>
+<div class="card"><div class="n">12</div><div class="l">Category micrographs (v2 quality)</div></div>
+<div class="card"><div class="n">948</div><div class="l">Anchors (MRT, malls, hawkers, hospitals)</div></div>
+</div>
+
+<h2>Build Timeline</h2>
+<div class="timeline">
+<div class="step"><div class="d">March 17</div><div class="t">Overture Maps POI extraction</div><div class="desc">Downloaded 340,857 Overture POIs for Jakarta (Jabodetabek) using DuckDB on Azure server. Deployed to 12-server fleet for Google Maps curation — 96.5% find rate.</div></div>
+<div class="step"><div class="d">March 17</div><div class="t">Singapore places discovery</div><div class="desc">Scraped 79,257 Singapore places across 12 Azure servers (24 workers each). Extracted name, address, category, rating, phone, website from Google Maps.</div></div>
+<div class="step"><div class="d">March 18</div><div class="t">Places curation & dedup</div><div class="desc">Deduped by geohash9 + name → 68,269 unique places. Assigned 12-char alphanumeric IDs. Normalized names (caps, emojis, SEO junk removed). Clipped to GADM Singapore boundary → 66,851 final.</div></div>
+<div class="step"><div class="d">March 18</div><div class="t">Category taxonomy</div><div class="desc">Built 24 main categories + 165 place types. Identified 232 brands. Tagged luxury places. Iterative refinement — multiple passes to reduce "Other" from 8,507 → 0.</div></div>
+<div class="step"><div class="d">March 18</div><div class="t">Data collection</div><div class="desc">Assembled 15 data layers (1.9 GB): Singstat census 2025, URA Master Plan (113K parcels), LTA transit (5.2K bus stops, 231 MRT), OSM roads (551K edges), OSM buildings (126K), HDB resale (227K txns), ACRA entities (2M), SFA eating establishments (34K).</div></div>
+<div class="step"><div class="d">March 19</div><div class="t">Feature engineering</div><div class="desc">19-step pipeline → 202-dimension subzone feature vectors. Demographics, dwelling types, HDB prices, road density, land use zoning, transit accessibility, amenity distances, place composition, brand density, government cross-reference. 30/30 validation tests passed.</div></div>
+<div class="step"><div class="d">March 19</div><div class="t">Graph construction</div><div class="desc">Subzone adjacency (332 nodes, 1,001 edges), co-location PMI (155 types, 5,397 edges), transit connectivity (139 MRT-connected subzones, 914 edges).</div></div>
+<div class="step"><div class="d">March 19</div><div class="t">Model training</div><div class="desc">Tested GCN-MLP (R²=0.597) and XGBoost (R²=0.970 leaky, 0.773 strict). Key insight: physical structure predicts density (R²=0.77) but not composition. Gap analysis computed for all 332 subzones × 24 categories.</div></div>
+<div class="step"><div class="d">March 19</div><div class="t">Micrograph pipeline v1</div><div class="desc">Built per-place star-graphs for 12 categories. 4-tier system: Transit (MRT), Competitors, Complementary, Demand Magnets. 72/72 validation tests passed.</div></div>
+<div class="step"><div class="d">March 20</div><div class="t">LLM reclassification</div><div class="desc">All 66,851 places run through Gemini 2.0 Flash via OpenRouter. 8-thread parallel processing, ~3,500 places/min. 660 places reclassified (e.g., "King of Fried Rice" moved from Cafe to Hawker & Street Food).</div></div>
+<div class="step"><div class="d">March 20</div><div class="t">Micrograph pipeline v2</div><div class="desc">Complete rewrite with quality-first rules: T1=MRT only, T2=actual cafe competitors with 10+ reviews, T3=bakeries/bookstores with 15+ reviews, T4=malls/supermarkets/hawkers with 30+ reviews. Avg anchors dropped from 22 → 10.7 (fewer but meaningful).</div></div>
+<div class="step"><div class="d">March 20</div><div class="t">App deployment</div><div class="desc">Adapted NYC Digital Atlas v2 codebase for SGP. All text, metrics, coordinates, descriptions customized. Deployed on rwm-server port 18067. 44K places on map across 6 category groups.</div></div>
+</div>
+
+<h2>What's Running</h2>
+<table>
+<tr><th>Component</th><th>Location</th><th>Status</th></tr>
+<tr><td>SGP Atlas App</td><td><code>rwm-server:18067</code></td><td><span class="tag g">LIVE</span></td></tr>
+<tr><td>NYC Atlas App (unchanged)</td><td><code>rwm-server:20990</code></td><td><span class="tag g">LIVE</span></td></tr>
+<tr><td>Local dev</td><td><code>localhost:18067</code></td><td><span class="tag y">Dev</span></td></tr>
+<tr><td>Git repo</td><td><code>github.com/paperclip369/digital-atlas-sgp</code></td><td><span class="tag b">2 commits</span></td></tr>
+</table>
+
+<h2>Data Inventory</h2>
+<table>
+<tr><th>Layer</th><th>Records</th><th>Source</th><th>Quality</th></tr>
+<tr><td>Places</td><td>66,851</td><td>Google Maps → LLM classified</td><td><span class="tag g">Clean</span></td></tr>
+<tr><td>Brands</td><td>232</td><td>Pattern matching + validation</td><td><span class="tag g">Verified</span></td></tr>
+<tr><td>Subzone boundaries</td><td>332</td><td>URA / data.gov.sg</td><td><span class="tag g">Official</span></td></tr>
+<tr><td>Demographics (2025)</td><td>332 subzones</td><td>Singstat Census</td><td><span class="tag g">Official</span></td></tr>
+<tr><td>HDB resale</td><td>227,207 txns</td><td>data.gov.sg</td><td><span class="tag g">Official</span></td></tr>
+<tr><td>Private property</td><td>287,196 txns</td><td>data.gov.sg</td><td><span class="tag g">Official</span></td></tr>
+<tr><td>Roads</td><td>550,991 edges</td><td>OpenStreetMap</td><td><span class="tag g">Complete</span></td></tr>
+<tr><td>Buildings</td><td>125,973</td><td>OpenStreetMap</td><td><span class="tag g">Complete</span></td></tr>
+<tr><td>Land use zoning</td><td>113,212 parcels</td><td>URA Master Plan</td><td><span class="tag g">Official</span></td></tr>
+<tr><td>MRT stations</td><td>231</td><td>LTA (Mar 2026)</td><td><span class="tag g">Current</span></td></tr>
+<tr><td>Bus stops</td><td>5,177</td><td>LTA (Mar 2026)</td><td><span class="tag g">Current</span></td></tr>
+<tr><td>SFA eating establishments</td><td>34,378</td><td>data.gov.sg</td><td><span class="tag g">Official</span></td></tr>
+<tr><td>CHAS clinics</td><td>1,193</td><td>data.gov.sg</td><td><span class="tag g">Official</span></td></tr>
+<tr><td>Preschools</td><td>2,290</td><td>data.gov.sg</td><td><span class="tag g">Official</span></td></tr>
+<tr><td>ACRA entities</td><td>2,076,438</td><td>data.gov.sg</td><td><span class="tag g">Official</span></td></tr>
+<tr><td>Hawker centres</td><td>129</td><td>data.gov.sg</td><td><span class="tag g">Official</span></td></tr>
+</table>
+
+<h2>App: 10-Layer Progressive Atlas</h2>
+<table>
+<tr><th>Act</th><th>Layer</th><th>Choropleth</th></tr>
+<tr><td rowspan="3">I: The People</td><td>🏘️ Who Lives Here</td><td>Population density</td></tr>
+<tr><td>💰 The HDB Map</td><td>HDB resale PSF</td></tr>
+<tr><td>📐 The Zoning Plan</td><td>Land use entropy</td></tr>
+<tr><td rowspan="3">II: The Urban Fabric</td><td>🚇 How They Move</td><td>MRT distance</td></tr>
+<tr><td>🏗️ The Road Network</td><td>Road density</td></tr>
+<tr><td>📍 What's Nearby</td><td>Hawker distance</td></tr>
+<tr><td>III: The Places</td><td>🏪 The Place Map</td><td>Place density (44K dots)</td></tr>
+<tr><td rowspan="2">IV: The Intelligence</td><td>🎯 What's Expected</td><td>Density gap</td></tr>
+<tr><td>🔬 The Micrograph</td><td>Per-place star-graphs</td></tr>
+</table>
+
+<h2>Micrograph v2: Quality Anchors</h2>
+<div class="finding"><strong>T1 Transit:</strong> MRT stations only. Walk-time weighted by sigmoid decay. Max 3 per place.</div>
+<div class="finding"><strong>T2 Competitors:</strong> Actual cafes/coffee shops with 10+ reviews. Ranked by magnitude (reviews × rating). Max 6.</div>
+<div class="finding"><strong>T3 Complementary:</strong> Bakeries, bookstores, coworking spaces with 15+ reviews. Real synergy signals. Max 5.</div>
+<div class="finding"><strong>T4 Demand Magnets:</strong> Shopping malls (200+ reviews), hawker centres, universities, hospitals, supermarkets with 30+ reviews. Proven foot traffic. Max 4.</div>
+<div class="finding"><strong>Result:</strong> Average 10.7 anchors per place (was 22 in v1). Fewer but every anchor is meaningful with real review evidence.</div>
+
+<h2>Model Results</h2>
+<table>
+<tr><th>Model</th><th>R²</th><th>What it predicts</th></tr>
+<tr><td>XGBoost density (strict)</td><td><strong>0.773</strong></td><td>Physical features → total place count</td></tr>
+<tr><td>XGBoost composition (LOO)</td><td>0.11–0.53</td><td>Physical + other categories → missing category</td></tr>
+<tr><td>XGBoost composition (leaky)</td><td>0.970</td><td>With category % features (inflated)</td></tr>
+<tr><td>GCN-MLP v1</td><td>0.597</td><td>Using place type counts (place→place correlation)</td></tr>
+</table>
+
+<h3>Key Insight</h3>
+<div class="finding">Physical urban structure predicts <strong>how many</strong> places exist (R²=0.77) but not <strong>what kind</strong> (R²≈0.18). Composition is market-driven — cafe vs restaurant vs salon is an entrepreneur decision, not determined by roads and zoning. The density model IS the real Digital Atlas signal.</div>
+
+<h2>What's Missing (For v2)</h2>
+<table>
+<tr><th>Data</th><th>Impact</th><th>Source</th></tr>
+<tr><td>MRT passenger volume</td><td>Demand signal for transit-oriented places</td><td>LTA DataMall (API key needed)</td></tr>
+<tr><td>Commercial rental rates</td><td>Feasibility filter — can a cafe afford this location?</td><td>URA rental data</td></tr>
+<tr><td>Foot traffic / mobility</td><td>The #1 missing signal for composition prediction</td><td>Telco / aggregator data</td></tr>
+<tr><td>Historical snapshot</td><td>Trend detection — growing vs declining areas</td><td>Repeat scrape in 6 months</td></tr>
+</table>
+
+<h2>Infrastructure</h2>
+<table>
+<tr><th>Resource</th><th>Usage</th></tr>
+<tr><td>12× Azure VMs (az-gojek-infra-proc)</td><td>Google Maps scraping fleet — 288 browser workers</td></tr>
+<tr><td>rwm-server</td><td>Data processing, model training, app hosting</td></tr>
+<tr><td>az-gojek-server</td><td>Overture Maps data storage</td></tr>
+<tr><td>OpenRouter (Gemini 2.0 Flash)</td><td>LLM classification of 66,851 places</td></tr>
+<tr><td>OSMnx / DuckDB</td><td>Road network + building extraction</td></tr>
+</table>
+
+<h2>Files</h2>
+<table>
+<tr><th>Location</th><th>Contents</th></tr>
+<tr><td><code>rwm-server:/home/azureuser/digital-atlas-sgp/</code></td><td>Full data (1.9 GB), models, micrographs, scripts</td></tr>
+<tr><td><code>rwm-server:.../sgp-atlas-app/</code></td><td>Running app on port 18067</td></tr>
+<tr><td><code>github.com/paperclip369/digital-atlas-sgp</code></td><td>Git repo with data (LFS), docs, scripts</td></tr>
+<tr><td><code>/Users/sumanth/propheus-projs/da-sgp/</code></td><td>Local development copy</td></tr>
+</table>
+
+<footer>
+Digital Atlas Singapore v1.0 — Built March 17–20, 2026<br>
+66,851 places · 332 subzones · 202 features · 12 category micrographs · 948 anchors · 232 brands
+</footer>
+
+</div>
+</body>
+</html>

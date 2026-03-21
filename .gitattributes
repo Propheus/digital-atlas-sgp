@@ -4,3 +4,7 @@
 *.jsonl filter=lfs diff=lfs merge=lfs -text
 micrograph_output/**/*.json filter=lfs diff=lfs merge=lfs -text
 app/public/data/*.json filter=lfs diff=lfs merge=lfs -text
+app/dist/data/**/*.json filter=lfs diff=lfs merge=lfs -text
+app/dist/assets/*.js filter=lfs diff=lfs merge=lfs -text
+app/dist/assets/*.css filter=lfs diff=lfs merge=lfs -text
+micrograph_output/*.jsonl filter=lfs diff=lfs merge=lfs -text
