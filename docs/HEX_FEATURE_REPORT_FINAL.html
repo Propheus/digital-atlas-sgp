@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Propheus — Singapore Hex Feature Table</title>
+<style>
+:root{
+  --bg:#0d1f21;--bg2:#11282a;--bg3:#162f32;
+  --accent:#20b2aa;--accent2:#2dd4bf;--accent-dim:rgba(32,178,170,0.15);
+  --text:#ffffff;--text2:#a0aeb0;--text3:#607274;
+  --glass:rgba(13,13,13,0.85);--glass-border:rgba(32,178,170,0.2);
+  --red:#ef4444;--green:#22c55e;--yellow:#eab308;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter','Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+.container{max-width:1100px;margin:0 auto;padding:24px 20px}
+
+/* Header */
+.header{display:flex;align-items:center;gap:14px;padding:20px 0;border-bottom:1px solid var(--glass-border)}
+.header svg{width:32px;height:32px;flex-shrink:0}
+.header h1{font-size:20px;font-weight:600;color:var(--text)}
+.header .sub{font-size:12px;color:var(--text3);margin-top:2px}
+
+h2{font-size:16px;font-weight:600;color:var(--accent);margin:28px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--glass-border)}
+h3{font-size:13px;font-weight:600;color:var(--accent2);margin:16px 0 6px}
+p,li{font-size:13px;color:var(--text2)}
+p{margin:4px 0}
+ul{padding-left:16px;margin:4px 0}
+strong{color:var(--text)}
+
+/* Cards */
+.cards{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.kpi{flex:1;min-width:90px;text-align:center;background:var(--bg2);border:1px solid var(--glass-border);border-radius:8px;padding:12px 8px}
+.kpi .n{font-size:22px;font-weight:700;color:var(--accent)}
+.kpi .l{font-size:9px;text-transform:uppercase;letter-spacing:.6px;color:var(--text3);margin-top:2px}
+
+/* Tables */
+table{border-collapse:collapse;width:100%;margin:8px 0;font-size:12px}
+th{background:var(--bg3);color:var(--accent);padding:8px 10px;text-align:left;font-weight:600;border-bottom:1px solid var(--glass-border)}
+td{padding:6px 10px;color:var(--text2);border-bottom:1px solid rgba(255,255,255,0.04)}
+tr:hover{background:rgba(32,178,170,0.04)}
+.r{text-align:right}
+
+/* Bars */
+.bar{display:inline-block;height:10px;border-radius:2px;vertical-align:middle}
+.ba{background:var(--accent)}.br{background:var(--red)}.bg{background:var(--green)}.by{background:var(--yellow)}
+
+/* Tags */
+.tag{display:inline-block;padding:1px 6px;border-radius:3px;font-size:10px;font-weight:600}
+.tg{background:rgba(34,197,94,0.15);color:var(--green)}
+.tr{background:rgba(239,68,68,0.15);color:var(--red)}
+.ty{background:rgba(234,179,8,0.15);color:var(--yellow)}
+.tb{background:var(--accent-dim);color:var(--accent)}
+
+/* Section cards */
+.section{background:var(--bg2);border:1px solid var(--glass-border);border-radius:8px;padding:16px 18px;margin:12px 0}
+code{background:var(--bg3);color:var(--accent);padding:1px 5px;border-radius:3px;font-size:11px}
+.q{color:var(--text3);font-size:10px}
+hr{border:none;border-top:1px solid var(--glass-border);margin:24px 0}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<g><g><g>
+<path fill="#20b2aa" d="M45,64.2c-1.1,9.1-3.3,15.3-5.8,15.3c-0.1,0-0.1,0-0.2,0c-0.3,0-0.6-0.2-1-0.4c0,0,0,0,0,0c-3.1-2.5-5.4-14.5-5.4-29c0-14.4,2.3-26.4,5.4-29c0.3-0.3,0.7-0.5,1-0.5c0,0,0,0,0,0h0.2c2.6,0,4.9,6.8,6,16.6c-5.6,2-9.5,7.3-9.5,13.5C35.6,56.9,39.5,62.1,45,64.2z"/>
+<path fill="#20b2aa" d="M67.4,50c0,14.5-2.3,26.5-5.4,29h0v0c-0.3,0.2-0.6,0.4-0.9,0.4c-0.1,0-0.2,0-0.2,0c-2.5,0-4.7-6.2-5.8-15.3c5.5-2,9.4-7.3,9.4-13.5c0-6.2-4-11.6-9.5-13.5c1.1-9.8,3.4-16.6,6-16.6H61v0c0.4,0,0.7,0.2,1,0.5c0,0,0,0,0,0C65.1,23.6,67.4,35.6,67.4,50z"/>
+</g>
+<path fill="#20b2aa" d="M30.2,50c0-14.4,2.3-26.4,5.4-29c-10.6,5.3-17.9,16.3-17.9,29c0,12.7,7.3,23.7,17.9,29C32.5,76.5,30.2,64.5,30.2,50z M64.4,21c3.1,2.6,5.4,14.5,5.4,29c0,14.5-2.3,26.5-5.4,29C75,73.7,82.3,62.7,82.3,50C82.3,37.3,75,26.4,64.4,21z"/>
+<path fill="#20b2aa" d="M62.1,50.7c0,5-3,9.3-7.4,11.2c-1.5,0.6-3.1,1-4.8,1c-1.7,0-3.3-0.4-4.8-1c-4.3-1.9-7.4-6.2-7.4-11.2c0-5.1,3.1-9.4,7.5-11.2c1.4-0.6,3-0.9,4.7-0.9c1.7,0,3.2,0.3,4.7,0.9C59.1,41.3,62.1,45.6,62.1,50.7z"/>
+</g></g>
+</svg>
+<div>
+<h1>Singapore Hex Feature Table</h1>
+<div class="sub">7,318 hexes &times; 460 features &nbsp;&bull;&nbsp; 14 data sources &nbsp;&bull;&nbsp; Zero NaN &nbsp;&bull;&nbsp; Zero broadcast &nbsp;&bull;&nbsp; Propheus Digital Atlas</div>
+</div>
+</div>
+
+<!-- KPIs -->
+<div class="cards">
+<div class="kpi"><div class="n">7,318</div><div class="l">H3-9 Hexes</div></div>
+<div class="kpi"><div class="n">460</div><div class="l">Features</div></div>
+<div class="kpi"><div class="n">5.98M</div><div class="l">Population</div></div>
+<div class="kpi"><div class="n">169K</div><div class="l">Places</div></div>
+<div class="kpi"><div class="n">91K</div><div class="l">Micrographed</div></div>
+<div class="kpi"><div class="n">14</div><div class="l">Data Sources</div></div>
+<div class="kpi"><div class="n">0</div><div class="l">NaN Cells</div></div>
+<div class="kpi"><div class="n">120/120</div><div class="l">Verified</div></div>
+</div>
+
+<!-- SOURCES -->
+<h2>1. Data Sources</h2>
+<div class="section">
+<table>
+<tr><th>#</th><th>Source</th><th class="r">Records</th><th>Contribution</th><th>Authority</th></tr>
+<tr><td>1</td><td>Places (Overture + OSM + Google, v2)</td><td class="r">174,713</td><td>24 categories, price tiers, 233 brands</td><td>Multi-source fused</td></tr>
+<tr><td>2</td><td>Micrograph v3 pipeline</td><td class="r">91,274</td><td>Per-place T1-T4 spatial context, 12 categories</td><td>Computed</td></tr>
+<tr><td>3</td><td>Census 2025 (data.gov.sg)</td><td class="r">332 sz</td><td>Resident population by age, dwelling</td><td>Government</td></tr>
+<tr><td>4</td><td>Non-resident (MOM totals)</td><td class="r">1.77M</td><td>Workers, students, dependents by building type</td><td>Estimated</td></tr>
+<tr><td>5</td><td>Buildings (Overture + HDB + OSM)</td><td class="r">377,331</td><td>9 types, floor areas, height</td><td>Multi-source fused</td></tr>
+<tr><td>6</td><td>HDB authority (data.gov.sg)</td><td class="r">13,386</td><td>Authoritative HDB block locations</td><td>Government</td></tr>
+<tr><td>7</td><td>URA Master Plan zoning</td><td class="r">113,212</td><td>Land-use shares, GPR (area-weighted)</td><td>Government</td></tr>
+<tr><td>8</td><td>MRT + Bus (LTA)</td><td class="r">5,408</td><td>Stations, stops, daily tap volumes</td><td>Government</td></tr>
+<tr><td>9</td><td>LTA traffic data</td><td class="r">15,500</td><td>Speed bands, congestion, signals, crossings</td><td>Government</td></tr>
+<tr><td>10</td><td>Amenities (data.gov.sg &times; 9)</td><td class="r">~45K</td><td>Hawkers, clinics, schools, parks, supermarkets, hotels</td><td>Government</td></tr>
+<tr><td>11</td><td>Roads (OpenStreetMap)</td><td class="r">550,991</td><td>6 road categories, cycling infra</td><td>Community</td></tr>
+<tr><td>12</td><td>LTA live feeds</td><td class="r">~3K</td><td>Carparks, taxi availability</td><td>Government</td></tr>
+<tr><td>13</td><td>Park connector network</td><td class="r">883</td><td>Cycling/walking paths</td><td>Government</td></tr>
+<tr><td>14</td><td>MRT station graph</td><td class="r">3,716 edges</td><td>Transit influence connectivity</td><td>Derived</td></tr>
+</table>
+</div>
+
+<!-- PILLARS -->
+<h2>2. Feature Pillars</h2>
+<div class="section">
+<table>
+<tr><th>Pillar</th><th class="r">Features</th><th class="r">Variance</th><th></th><th>Strongest signal</th></tr>
+<tr><td><strong>Micrograph v3</strong></td><td class="r">156</td><td class="r">33.7%</td><td><span class="bar ba" style="width:135px"></span></td><td>T1 transit 6x near MRT; per-category spatial DNA</td></tr>
+<tr><td><strong>Place composition</strong></td><td class="r">66</td><td class="r">14.4%</td><td><span class="bar ba" style="width:58px"></span></td><td>Sungei Kadut 84% automotive; MBS 68 luxury</td></tr>
+<tr><td><strong>Influence (transit)</strong></td><td class="r">62</td><td class="r">13.6%</td><td><span class="bar ba" style="width:54px"></span></td><td>Sentosa sees Raffles Place via MRT; &minus;9.2% if removed</td></tr>
+<tr><td><strong>Influence (spatial)</strong></td><td class="r">61</td><td class="r">13.3%</td><td><span class="bar ba" style="width:53px"></span></td><td>Bedok HDB finds Bedok town centre; &minus;7.3% if removed</td></tr>
+<tr><td>Walkability</td><td class="r">36</td><td class="r">5.5%</td><td><span class="bar ba" style="width:22px"></span></td><td>7 amenity walk-times + distances, complete</td></tr>
+<tr><td>Roads &amp; signals</td><td class="r">22</td><td class="r">4.8%</td><td><span class="bar ba" style="width:19px"></span></td><td>Jam% identifies CBD congestion</td></tr>
+<tr><td>Buildings</td><td class="r">19</td><td class="r">4.2%</td><td><span class="bar ba" style="width:17px"></span></td><td>corr(pop, residential_floor_area) = 0.95</td></tr>
+<tr><td>Amenities</td><td class="r">14</td><td class="r">3.1%</td><td><span class="bar ba" style="width:12px"></span></td><td>14 point-count features, 9 gov sources</td></tr>
+<tr><td>Land use</td><td class="r">12</td><td class="r">2.6%</td><td><span class="bar ba" style="width:10px"></span></td><td>NUS = lu_institutional 1.00; proper area-weighted GPR</td></tr>
+<tr><td>Population</td><td class="r">7</td><td class="r">1.3%</td><td><span class="bar ba" style="width:5px"></span></td><td>6M total; dasymetric (park=0, HDB=real)</td></tr>
+<tr><td>Transit</td><td class="r">7</td><td class="r">1.3%</td><td><span class="bar ba" style="width:5px"></span></td><td>Actual ridership taps, not just station presence</td></tr>
+<tr><td>Dev gaps</td><td class="r">4</td><td class="r">0.9%</td><td><span class="bar ba" style="width:4px"></span></td><td>CBD=0 (built), Industrial=+0.64 (unbuilt)</td></tr>
+<tr><td>Mobility</td><td class="r">4</td><td class="r">0.9%</td><td><span class="bar ba" style="width:4px"></span></td><td>2,589 carparks, 418K lots, 883 PCN</td></tr>
+<tr><td>Derived</td><td class="r">2</td><td class="r">0.4%</td><td><span class="bar ba" style="width:2px"></span></td><td>Tourist draw; daytime ratio (CBD=999x)</td></tr>
+</table>
+<p><strong>337 self features</strong> (what this hex IS) + <strong>123 influence features</strong> (what this hex can REACH) = 460</p>
+</div>
+
+<!-- STRONG SIGNALS -->
+<h2>3. Strongest Signals</h2>
+<div class="section">
+
+<h3>Micrograph v3 &mdash; 33.7% of total variance</h3>
+<p>91,274 places across 12 consumer-facing categories. Each place has a spatial context graph; we aggregate T1 (transit), T2 (competitor), T3 (complementary), T4 (demand) context weights per hex per category.</p>
+<table>
+<tr><th>Signal</th><th>Evidence</th></tr>
+<tr><td>Transit proximity</td><td>T1 weight = 0.380 near MRT vs 0.065 in suburbs &mdash; <strong>6x ratio</strong></td></tr>
+<tr><td>Competition density</td><td>Dense commercial T2 = 0.527; suburban T2 = 0.564 (few places = dominated by category peers)</td></tr>
+<tr><td>Per-category differentiation</td><td>Cafe micrograph &ne; restaurant &ne; hawker. Cafes cluster near MRT; hawkers near HDB; bars near hotels.</td></tr>
+</table>
+
+<h3>Place composition &mdash; 14.4%</h3>
+<table>
+<tr><th>Signal</th><th>Evidence</th></tr>
+<tr><td>Category specialization</td><td>Sungei Kadut 84% automotive; Tanglin 80% health; NUS 74% education</td></tr>
+<tr><td>Price gradient</td><td>CBD 23% upmarket (4% luxury + 19% premium) vs Heartland 6%. <strong>4x ratio.</strong></td></tr>
+<tr><td>Brand penetration</td><td>CBD 32.5 brands/hex vs Heartland 4.1 vs Industrial 2.3</td></tr>
+</table>
+
+<h3>Influence graph &mdash; 26.9% combined</h3>
+<p>Two neighborhoods: walking reach (k=5, ~875m) + MRT transit graph (209 stations, 3,716 edges).</p>
+<table>
+<tr><th>Signal</th><th>Evidence</th></tr>
+<tr><td>Max-influence dominates</td><td>"Biggest commercial center I can reach" (+13.2%) beats uniform mean (+8.0%)</td></tr>
+<tr><td>Transit is complementary</td><td>corr(spatial_max, transit_max) = 0.605. Combined +34.5% lift beyond position.</td></tr>
+<tr><td>Cross-boundary twins</td><td>Sentosa finds Marina Bay Sands &mdash; same function, different PA, 4km apart</td></tr>
+<tr><td>Most critical pillar</td><td>Removing transit_max = &minus;9.2%. Removing spatial_max = &minus;7.3%.</td></tr>
+</table>
+
+<h3>Development gaps &mdash; plan vs reality</h3>
+<table>
+<tr><th></th><th class="r">CBD</th><th class="r">HDB</th><th class="r">Industrial</th><th class="r">New Towns</th></tr>
+<tr><td>gap_residential</td><td class="r">+0.05</td><td class="r"><strong>+0.32</strong></td><td class="r">+0.01</td><td class="r"><strong>+0.31</strong></td></tr>
+<tr><td>gap_commercial</td><td class="r"><strong>+0.30</strong></td><td class="r">+0.02</td><td class="r">&minus;0.00</td><td class="r">+0.02</td></tr>
+<tr><td>gap_industrial</td><td class="r">+0.00</td><td class="r">+0.12</td><td class="r"><strong>+0.64</strong></td><td class="r">+0.08</td></tr>
+</table>
+</div>
+
+<!-- ARCHETYPES -->
+<h2>4. Unsupervised Archetypes (k=8)</h2>
+<div class="section">
+<p>K-means on the normalized 460-feature matrix. No labels. These emerge from data alone.</p>
+<table>
+<tr><th>Archetype</th><th class="r">Hexes</th><th class="r">Avg Places</th><th class="r">Avg Pop</th><th class="r">Luxury</th><th>Top PAs</th></tr>
+<tr><td>Void / water</td><td class="r">~2,200</td><td class="r">0.5</td><td class="r">1</td><td class="r">0</td><td>NE Islands, Water Catchment</td></tr>
+<tr><td>Industrial</td><td class="r">~1,000</td><td class="r">3</td><td class="r">0</td><td class="r">0</td><td>Tuas, Pioneer, Boon Lay</td></tr>
+<tr><td>Low-density</td><td class="r">~1,500</td><td class="r">3</td><td class="r">13</td><td class="r">0</td><td>Suburban edges</td></tr>
+<tr><td>Medium residential</td><td class="r">~1,000</td><td class="r">26</td><td class="r">821</td><td class="r">0.1</td><td>Bedok, Hougang</td></tr>
+<tr><td>Dense HDB</td><td class="r">~750</td><td class="r">64</td><td class="r">3,821</td><td class="r">0.2</td><td>Tampines, Woodlands</td></tr>
+<tr><td>HDB town centers</td><td class="r">~250</td><td class="r">135</td><td class="r">3,269</td><td class="r">0.3</td><td>Bedok, Hougang</td></tr>
+<tr><td>Urban mixed</td><td class="r">~330</td><td class="r">106</td><td class="r">282</td><td class="r">0.8</td><td>Queenstown, Geylang</td></tr>
+<tr style="background:var(--accent-dim)"><td><strong>CBD / premium</strong></td><td class="r">~200</td><td class="r">361</td><td class="r">950</td><td class="r"><strong>6.1</strong></td><td><strong>Downtown Core, Rochor</strong></td></tr>
+</table>
+<p>CBD luxury = 6.1/hex vs HDB = 0.2 &mdash; <strong>30x ratio</strong> recovered from features alone.</p>
+</div>
+
+<!-- STRUCTURAL TWINS -->
+<h2>5. Structural Twins</h2>
+<div class="section">
+<h3>Sentosa &rarr; Marina Bay Sands</h3>
+<p>Sentosa (tourism) finds MBS (Downtown Core, 4km away) as its nearest non-Sentosa neighbor. Same tourism/entertainment function across geographic boundaries &mdash; connected by the MRT transit graph.</p>
+<h3>Bedok HDB &rarr; 7 planning areas</h3>
+<p>A Bedok HDB hex finds structural twins in Woodlands, Bukit Merah, Hougang, Sengkang, Queenstown, Bukit Batok, Toa Payoh. "HDB heartland" is a structural type that spans Singapore.</p>
+<h3>Raffles Place &rarr; CBD core</h3>
+<p>1,356 places (densest hex) &rarr; Downtown Core, Orchard, Singapore River, Museum, Outram. Clean commercial core cluster.</p>
+</div>
+
+<!-- INTEGRITY -->
+<h2>6. Data Integrity</h2>
+<div class="section">
+<table>
+<tr><th>Check</th><th>Result</th></tr>
+<tr><td>NaN cells</td><td><span class="tag tg">0</span> across 7,318 &times; 460</td></tr>
+<tr><td>Broadcast columns</td><td><span class="tag tg">0</span> (personas, satellite, elderly_pct all dropped with reason)</td></tr>
+<tr><td>Places</td><td><span class="tag tg">174,713 exact</span></td></tr>
+<tr><td>Population</td><td><span class="tag tg">99.99%</span> conserved (4,212,320 / 4,212,800)</td></tr>
+<tr><td>HDB blocks</td><td><span class="tag tg">13,386 exact</span></td></tr>
+<tr><td>MRT stations</td><td><span class="tag tg">231 exact</span></td></tr>
+<tr><td>Ground-truth</td><td><span class="tag tg">120/120</span> &mdash; 10 hexes &times; 12 features, every one matches raw source</td></tr>
+<tr><td>Local = Server</td><td><span class="tag tg">Identical</span></td></tr>
+</table>
+</div>
+
+<!-- EXCLUDED -->
+<h2>7. Evaluated and Not Included</h2>
+<div class="section">
+<table>
+<tr><th>Feature</th><th>Why</th></tr>
+<tr><td>NVIDIA personas (35)</td><td>PA-broadcast &mdash; only 48 unique values across 318 subzones</td></tr>
+<tr><td>HDB resale prices</td><td>No lat/lng geocoding at hex level</td></tr>
+<tr><td>Satellite features (8)</td><td>Subzone-broadcast when joined via parent_subzone</td></tr>
+<tr><td>elderly_pct / walking_dep_pct</td><td>Collapses to subzone constant under dasymetric (counts kept)</td></tr>
+<tr><td>Gap scores (4)</td><td>V7/V8 model outputs &mdash; target leakage</td></tr>
+<tr><td>nightlife_intensity</td><td>r = 0.915 with pc_pct_cat_bar_nightlife</td></tr>
+<tr><td>daytime_pop_est</td><td>r = 0.947 with population</td></tr>
+<tr><td>k-ring contrast / rank (60)</td><td>Actively hurt similarity (&minus;1.2% / &minus;2.9%)</td></tr>
+<tr><td>Night light radiance</td><td>r ~0.95 with pc_total</td></tr>
+<tr><td>Race / ethnicity</td><td>Not published at sub-national level in Singapore</td></tr>
+</table>
+</div>
+
+<!-- STORAGE -->
+<h2>8. Storage</h2>
+<div class="section">
+<table>
+<tr><th>Format</th><th class="r">Size</th><th>Rows &times; Cols</th><th>Use</th></tr>
+<tr><td><code>hex_features_v10.parquet</code></td><td class="r">5.2 MB</td><td>7,318 &times; 471</td><td>ML pipelines</td></tr>
+<tr><td><code>hex_features_v10_normalized.parquet</code></td><td class="r">5.4 MB</td><td>7,318 &times; 468</td><td>Model-ready input</td></tr>
+<tr><td><code>hex_features_v10.db</code></td><td class="r">15 MB</td><td>7,318 rows</td><td>SQL queries (6 indexes)</td></tr>
+<tr><td><code>hex_features_v10.csv</code></td><td class="r">24 MB</td><td>7,318 &times; 471</td><td>Spreadsheets</td></tr>
+<tr><td><code>hex_features_v10.jsonl</code></td><td class="r">91 MB</td><td>7,318 lines</td><td>grep, APIs</td></tr>
+<tr><td><code>hex_influence_graph.npz</code></td><td class="r">75 KB</td><td>47,824 edges</td><td>GNN adjacency</td></tr>
+<tr><td><code>res8/*.parquet</code></td><td class="r">3.5 MB</td><td>1,191 hexes</td><td>Neighborhood scale</td></tr>
+</table>
+<p>Both locations: <code>data/hex_v10/</code> (local) and <code>/home/azureuser/digital-atlas-sgp/data/hex_v10/</code> (rwm-server)</p>
+</div>
+
+<hr>
+<p class="q" style="text-align:center">
+Propheus Digital Atlas &nbsp;&bull;&nbsp; Singapore &nbsp;&bull;&nbsp; 7,318 hexes &times; 460 features &nbsp;&bull;&nbsp; 14 sources &nbsp;&bull;&nbsp; 0 NaN &nbsp;&bull;&nbsp; 120/120 verified &nbsp;&bull;&nbsp; 2026-04-12
+</p>
+</div>
+</body>
+</html>

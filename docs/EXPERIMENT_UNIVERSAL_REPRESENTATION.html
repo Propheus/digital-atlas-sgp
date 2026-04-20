@@ -1,0 +1,223 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'><title>Universal Representation of Urban Regions</title><style>
+    body { font-family: 'Segoe UI', system-ui, sans-serif; max-width: 1100px; margin: 40px auto; padding: 0 20px; color: #1a1a2e; background: #fafafa; line-height: 1.6; }
+    h1 { color: #16213e; border-bottom: 3px solid #0f3460; padding-bottom: 10px; }
+    h2 { color: #0f3460; margin-top: 40px; border-bottom: 1px solid #e0e0e0; padding-bottom: 6px; }
+    h3 { color: #533483; }
+    table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 14px; }
+    th { background: #0f3460; color: white; padding: 10px 12px; text-align: left; font-weight: 600; }
+    td { padding: 8px 12px; border-bottom: 1px solid #e0e0e0; }
+    tr:nth-child(even) { background: #f0f4f8; }
+    tr:hover { background: #e8edf3; }
+    .metric { font-size: 28px; font-weight: 700; color: #0f3460; }
+    .metric-label { font-size: 13px; color: #666; text-transform: uppercase; letter-spacing: 0.5px; }
+    .metric-box { display: inline-block; text-align: center; padding: 16px 24px; margin: 8px; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    .highlight { background: #e8f5e9; font-weight: 600; }
+    .warn { background: #fff3e0; }
+    .bar { display: inline-block; height: 16px; background: #0f3460; border-radius: 2px; vertical-align: middle; }
+    .bar-transit { background: #e94560; }
+    .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; }
+    .tag-pass { background: #c8e6c9; color: #2e7d32; }
+    .tag-fail { background: #ffcdd2; color: #c62828; }
+    .section-num { color: #999; font-weight: 400; }
+    code { background: #f5f5f5; padding: 1px 4px; border-radius: 3px; font-size: 13px; }
+    blockquote { border-left: 4px solid #0f3460; margin: 16px 0; padding: 8px 16px; background: #f8f9fa; }
+    .abstract { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); margin: 20px 0; }
+    </style></head><body>
+<h1>Universal Representation of Urban Regions</h1>
+<p><em>Unifying Places and Region Metrics — Singapore H3 Hex Experiment</em></p>
+<p>Date: 2026-04-12 &nbsp;|&nbsp; Resolution: H3-9 (~175m edge) &nbsp;|&nbsp; City: Singapore</p>
+<div class='abstract'>
+<h3>Abstract</h3>
+<p>We construct a <strong>305-dimensional</strong> per-hex representation of Singapore across <strong>7,318</strong> H3 resolution-9 hexagons, unifying 174,713 places, 4,212,800 residents, 113K zoning parcels, 377K buildings, and 231 MRT stations into a single feature table. The representation spans 16 pillars covering self-features (buildings, population, land use, commercial composition, spatial context) and influence features (spatial walking neighborhood + MRT transit graph). A spatial+transit influence graph improves nearest-neighbor accuracy by <strong>127%</strong> over self-features alone, with the transit component contributing genuine contextual signal beyond geographic position. Unsupervised k-means on the representation recovers Singapore's known urban archetypes (CBD, HDB heartland, industrial belt, void) without supervision, and correctly identifies structural twins across planning area boundaries (Sentosa &harr; Marina Bay Sands).</p>
+</div>
+<div style='text-align:center; margin: 30px 0;'>
+<div class='metric-box'><div class='metric'>7,318</div><div class='metric-label'>Hexes</div></div>
+<div class='metric-box'><div class='metric'>305</div><div class='metric-label'>Features</div></div>
+<div class='metric-box'><div class='metric'>174,713</div><div class='metric-label'>Places</div></div>
+<div class='metric-box'><div class='metric'>4,212,800</div><div class='metric-label'>Population</div></div>
+<div class='metric-box'><div class='metric'>55.1%</div><div class='metric-label'>kNN Accuracy</div></div>
+<div class='metric-box'><div class='metric'>+34.5%</div><div class='metric-label'>Influence Lift</div></div>
+</div>
+<h2><span class='section-num'>1.</span> Data Inventory</h2>
+<table><tr><th>Metric</th><th>Value</th></tr>
+<tr><td>Total Hexes</td><td><strong>7,318</strong></td></tr>
+<tr><td>Active Hexes</td><td><strong>3,934</strong></td></tr>
+<tr><td>Void Hexes</td><td><strong>3,384</strong></td></tr>
+<tr><td>Subzones Covered</td><td><strong>326</strong></td></tr>
+<tr><td>Planning Areas</td><td><strong>55</strong></td></tr>
+<tr><td>Total Columns Raw</td><td><strong>318</strong></td></tr>
+<tr><td>Total Columns Normalized</td><td><strong>307</strong></td></tr>
+<tr><td>Non Constant Features</td><td><strong>305</strong></td></tr>
+<tr><td>Self Features</td><td><strong>184</strong></td></tr>
+<tr><td>Influence Features</td><td><strong>121</strong></td></tr>
+<tr><td>Places In Hexes</td><td><strong>169,294</strong></td></tr>
+<tr><td>Places Outside</td><td><strong>5,419</strong></td></tr>
+<tr><td>Total Population</td><td><strong>4,212,320</strong></td></tr>
+<tr><td>Census Population</td><td><strong>4,212,800</strong></td></tr>
+</table>
+<h2><span class='section-num'>2.</span> Feature Pillars</h2>
+<table><tr><th>Pillar</th><th>Columns</th><th>Type</th></tr>
+<tr><td><code>identity</code></td><td>8</td><td>Meta</td></tr>
+<tr><td><code>buildings</code></td><td>19</td><td>Self</td></tr>
+<tr><td><code>population</code></td><td>5</td><td>Self</td></tr>
+<tr><td><code>land_use</code></td><td>12</td><td>Self</td></tr>
+<tr><td><code>transit</code></td><td>7</td><td>Self</td></tr>
+<tr><td><code>amenities</code></td><td>9</td><td>Self</td></tr>
+<tr><td><code>roads_signals</code></td><td>22</td><td>Self</td></tr>
+<tr><td><code>walkability</code></td><td>24</td><td>Self</td></tr>
+<tr><td><code>place_composition</code></td><td>66</td><td>Self</td></tr>
+<tr><td><code>micrograph</code></td><td>20</td><td>Self</td></tr>
+<tr><td><code>influence_spatial_max</code></td><td>31</td><td>Context</td></tr>
+<tr><td><code>influence_spatial_pw</code></td><td>30</td><td>Context</td></tr>
+<tr><td><code>influence_transit_max</code></td><td>30</td><td>Context</td></tr>
+<tr><td><code>influence_transit_pw</code></td><td>30</td><td>Context</td></tr>
+<tr><td><code>influence_scalars</code></td><td>2</td><td>Context</td></tr>
+<tr><td><code>bookkeeping</code></td><td>3</td><td>Meta</td></tr>
+</table>
+<h2><span class='section-num'>3.</span> Influence Feature Ablation</h2>
+<h3>3.1 Aggregation Method Comparison (k=5 ring)</h3>
+<p>All methods add 30 features to the self+latlng baseline. kNN k=5, PA-match accuracy.</p>
+<table><tr><th>Method</th><th>Accuracy</th><th>Lift vs baseline</th><th></th></tr>
+<tr><td>Self + lat/lng (baseline)</td><td>0.242</td><td>+0.000</td><td><span class='bar' style='width:48px'></span></td></tr>
+<tr><td>+ Uniform k=5 mean</td><td>0.323</td><td>+0.080</td><td><span class='bar' style='width:64px'></span></td></tr>
+<tr><td>+ Pop-weighted k=5</td><td>0.311</td><td>+0.069</td><td><span class='bar' style='width:62px'></span></td></tr>
+<tr><td>+ Place-weighted k=5</td><td>0.334</td><td>+0.091</td><td><span class='bar' style='width:66px'></span></td></tr>
+<tr><td>+ Gravity-weighted k=5</td><td>0.314</td><td>+0.072</td><td><span class='bar' style='width:62px'></span></td></tr>
+<tr><td>+ Max-influence k=5</td><td>0.374</td><td>+0.132</td><td><span class='bar' style='width:74px'></span></td></tr>
+<tr><td>+ Spatial (max + place-w)</td><td>0.438</td><td>+0.196</td><td><span class='bar' style='width:87px'></span></td></tr>
+<tr><td>+ Transit only (max + place-w)</td><td>0.444</td><td>+0.202</td><td><span class='bar-transit' style='width:88px'></span></td></tr>
+<tr class='highlight'><td>+ Spatial + Transit (FINAL)</td><td>0.587</td><td>+0.345</td><td><span class='bar' style='width:117px'></span></td></tr>
+</table>
+<h3>3.2 Ring Radius Sweep</h3>
+<p>How influence signal grows with spatial reach. Max-influence + place-weighted mean.</p>
+<table><tr><th>k</th><th>Neighbors</th><th>Radius</th><th>Max-Influence</th><th>Place-Weighted</th><th>Combined</th></tr>
+<tr><td>1</td><td>6</td><td>175m</td><td>0.283</td><td>0.286</td><td><strong>0.312</strong></td></tr>
+<tr><td>2</td><td>18</td><td>350m</td><td>0.323</td><td>0.313</td><td><strong>0.366</strong></td></tr>
+<tr><td>3</td><td>36</td><td>525m</td><td>0.347</td><td>0.323</td><td><strong>0.401</strong></td></tr>
+<tr><td>5</td><td>90</td><td>875m</td><td>0.374</td><td>0.334</td><td><strong>0.438</strong></td></tr>
+<tr><td>8</td><td>216</td><td>1400m</td><td>0.388</td><td>0.337</td><td><strong>0.448</strong></td></tr>
+</table>
+<blockquote>Signal grows monotonically with ring radius up to k=8 (~1.4km). Max-influence (densest neighbor) is consistently stronger than place-weighted mean. The influence signal is fundamentally long-range.</blockquote>
+<h3>3.3 Position Disentanglement</h3>
+<p>Does influence signal add beyond pure geographic position (lat/lng)?</p>
+<table><tr><th>Configuration</th><th>Accuracy</th></tr>
+<tr><td>lat/lng only</td><td>0.283</td></tr>
+<tr><td>Self features only</td><td>0.229</td></tr>
+<tr><td>Self + lat/lng</td><td>0.242</td></tr>
+<tr><td>Self + lat/lng + spatial k=5</td><td>0.438</td></tr>
+<tr class='highlight'><td>Self + lat/lng + spatial + transit</td><td>0.587</td></tr>
+</table>
+<blockquote><strong>Influence lift beyond position: +34.5%</strong> — confirmed genuine contextual signal, not a positional proxy.</blockquote>
+<h2><span class='section-num'>4.</span> Validation</h2>
+<h3>4.1 Totals Conservation</h3>
+<table><tr><th>Metric</th><th>Hex Sum</th><th>Target</th><th>Status</th></tr>
+<tr><td>places</td><td>169,294</td><td></td><td><span class='tag tag-pass'>PASS</span></td></tr>
+<tr><td>population</td><td>4,212,320</td><td>4,212,800</td><td><span class='tag tag-pass'>PASS</span></td></tr>
+<tr><td>mrt_stations</td><td>231</td><td>231</td><td><span class='tag tag-pass'>PASS</span></td></tr>
+<tr><td>hdb_blocks</td><td>13,386</td><td>13,386</td><td><span class='tag tag-pass'>PASS</span></td></tr>
+</table>
+<h3>4.2 Cross-Feature Coherence</h3>
+<table><tr><th>Correlation</th><th>Value</th><th>Expected</th></tr>
+<tr><td>corr(population, residential_floor_area)</td><td><strong>0.952</strong></td><td>&gt; 0.90 (dasymetric check)</td></tr>
+<tr><td>corr(hdb_blocks, population)</td><td><strong>0.88</strong></td><td>&gt; 0.70 (HDB = high density)</td></tr>
+<tr><td>corr(spatial_max, transit_max)</td><td><strong>0.605</strong></td><td>0.3-0.8 (complementary, not redundant)</td></tr>
+</table>
+<h3>4.3 Broadcast Scan</h3>
+<p>Subzone-broadcast feature columns: <strong>0</strong> (down from 40 in v1)</p>
+<h2><span class='section-num'>5.</span> Unsupervised Cluster Recovery (k=8)</h2>
+<p>K-means with k=8 on the normalized feature matrix, zero supervision.</p>
+<table><tr><th>Archetype</th><th>Hexes</th><th>Avg Places</th><th>Avg Pop</th><th>Avg HDB</th><th>Avg Luxury</th><th>Avg lu_res</th><th>Avg lu_bus</th><th>Top PAs</th></tr>
+<tr><td><strong>void / water / nature</strong></td><td>1,835</td><td>1</td><td>1</td><td>0.0</td><td>0.0</td><td>0.00</td><td>0.08</td><td><small>NORTH-EASTERN ISLANDS(502), WESTERN WATER CATCHMENT(320), WESTERN ISLANDS(212)</small></td></tr>
+<tr><td><strong>mixed / transitional</strong></td><td>1,585</td><td>3</td><td>13</td><td>0.0</td><td>0.0</td><td>0.06</td><td>0.15</td><td><small>CENTRAL WATER CATCHMENT(160), CHANGI(151), SUNGEI KADUT(105)</small></td></tr>
+<tr><td><strong>medium-density residential</strong></td><td>1,072</td><td>26</td><td>821</td><td>2.0</td><td>0.1</td><td>0.34</td><td>0.14</td><td><small>BEDOK(108), BUKIT TIMAH(76), TAMPINES(72)</small></td></tr>
+<tr><td><strong>industrial belt</strong></td><td>1,005</td><td>3</td><td>0</td><td>0.0</td><td>0.0</td><td>0.00</td><td>0.57</td><td><small>TUAS(424), WESTERN ISLANDS(248), WESTERN WATER CATCHMENT(181)</small></td></tr>
+<tr><td><strong>dense HDB heartland</strong></td><td>752</td><td>64</td><td>3,821</td><td>13.4</td><td>0.1</td><td>0.56</td><td>0.03</td><td><small>TAMPINES(56), BEDOK(54), WOODLANDS(51)</small></td></tr>
+<tr><td><strong>low-density / landed</strong></td><td>529</td><td>25</td><td>470</td><td>1.0</td><td>0.6</td><td>0.34</td><td>0.03</td><td><small>BUKIT MERAH(108), TANGLIN(62), NOVENA(52)</small></td></tr>
+<tr><td><strong>void / water / nature</strong></td><td>341</td><td>0</td><td>0</td><td>0.0</td><td>0.0</td><td>0.00</td><td>0.05</td><td><small>NORTH-EASTERN ISLANDS(160), WESTERN ISLANDS(99), TUAS(79)</small></td></tr>
+<tr><td><strong>CBD / premium commercial</strong></td><td>199</td><td>361</td><td>950</td><td>3.0</td><td>6.1</td><td>0.20</td><td>0.12</td><td><small>GEYLANG(31), DOWNTOWN CORE(24), ROCHOR(15)</small></td></tr>
+</table>
+<h2><span class='section-num'>6.</span> Place Composition Analysis</h2>
+<h3>6.1 Most Specialized Hexes</h3>
+<table><tr><th>Subzone</th><th>PA</th><th>Places</th><th>Entropy</th><th>Dominant Category</th><th>Share</th></tr>
+<tr><td>WCSZ01</td><td>WESTERN WATER CATCHMENT</td><td>28</td><td>0.41</td><td><strong>services</strong></td><td>89%</td></tr>
+<tr><td>SKSZ01</td><td>SUNGEI KADUT</td><td>214</td><td>0.76</td><td><strong>automotive</strong></td><td>84%</td></tr>
+<tr><td>JWSZ05</td><td>JURONG WEST</td><td>23</td><td>0.92</td><td><strong>business</strong></td><td>74%</td></tr>
+<tr><td>QTSZ15</td><td>QUEENSTOWN</td><td>50</td><td>0.95</td><td><strong>shopping_retail</strong></td><td>74%</td></tr>
+<tr><td>TNSZ01</td><td>TANGLIN</td><td>180</td><td>1.03</td><td><strong>health_medical</strong></td><td>80%</td></tr>
+<tr><td>QTSZ10</td><td>QUEENSTOWN</td><td>20</td><td>1.08</td><td><strong>education</strong></td><td>70%</td></tr>
+<tr><td>QTSZ11</td><td>QUEENSTOWN</td><td>58</td><td>1.10</td><td><strong>education</strong></td><td>74%</td></tr>
+<tr><td>PGSZ01</td><td>PUNGGOL</td><td>21</td><td>1.11</td><td><strong>restaurant</strong></td><td>71%</td></tr>
+<tr><td>BSSZ01</td><td>BISHAN</td><td>261</td><td>1.13</td><td><strong>automotive</strong></td><td>70%</td></tr>
+<tr><td>BDSZ01</td><td>BEDOK</td><td>152</td><td>1.21</td><td><strong>automotive</strong></td><td>68%</td></tr>
+</table>
+<h3>6.2 Price Tier Profiles</h3>
+<table><tr><th>Archetype</th><th>Hexes</th><th>Places</th><th>Luxury</th><th>Premium</th><th>Mid</th><th>Value</th><th>Budget</th></tr>
+<tr><td><strong>CBD</strong></td><td>61</td><td>22,792</td><td>4.0%</td><td>18.9%</td><td>62.4%</td><td>13.7%</td><td>1.0%</td></tr>
+<tr><td><strong>Heartland</strong></td><td>848</td><td>38,430</td><td>0.1%</td><td>6.0%</td><td>56.9%</td><td>33.7%</td><td>3.2%</td></tr>
+<tr><td><strong>Industrial</strong></td><td>346</td><td>3,051</td><td>0.2%</td><td>2.0%</td><td>69.3%</td><td>26.0%</td><td>2.5%</td></tr>
+</table>
+<h2><span class='section-num'>7.</span> Micrograph Context Vectors</h2>
+<table><tr><th>Archetype</th><th>Hexes</th><th>T1 Transit</th><th>T2 Competitor</th><th>T3 Complementary</th><th>T4 Demand</th></tr>
+<tr><td><strong>Near Mrt</strong></td><td>183</td><td>0.380</td><td>0.355</td><td>0.100</td><td>0.164</td></tr>
+<tr><td><strong>Dense Commercial</strong></td><td>390</td><td>0.106</td><td>0.527</td><td>0.144</td><td>0.212</td></tr>
+<tr><td><strong>Suburban Residential</strong></td><td>431</td><td>0.065</td><td>0.564</td><td>0.120</td><td>0.240</td></tr>
+</table>
+<h2><span class='section-num'>8.</span> Transition Zones</h2>
+<h3>8.1 Commercial Islands in Residential Seas (982 hexes)</h3>
+<table><tr><th>Subzone</th><th>PA</th><th>Places</th><th>Pop</th><th>Nbr Avg Pop</th></tr>
+<tr><td>ORSZ03</td><td>ORCHARD</td><td>1110</td><td>58</td><td>590</td></tr>
+<tr><td>SRSZ03</td><td>SINGAPORE RIVER</td><td>876</td><td>99</td><td>610</td></tr>
+<tr><td>ORSZ03</td><td>ORCHARD</td><td>778</td><td>62</td><td>583</td></tr>
+<tr><td>RCSZ05</td><td>ROCHOR</td><td>777</td><td>7</td><td>739</td></tr>
+<tr><td>OTSZ04</td><td>OUTRAM</td><td>762</td><td>0</td><td>548</td></tr>
+</table>
+<h3>8.2 Residential Pockets in Commercial Areas (227 hexes)</h3>
+<table><tr><th>Subzone</th><th>PA</th><th>Pop</th><th>Places</th><th>Nbr Avg Places</th></tr>
+<tr><td>YSSZ03</td><td>YISHUN</td><td>9,578</td><td>36</td><td>142</td></tr>
+<tr><td>JWSZ09</td><td>JURONG WEST</td><td>9,070</td><td>17</td><td>120</td></tr>
+<tr><td>WDSZ03</td><td>WOODLANDS</td><td>8,200</td><td>16</td><td>185</td></tr>
+<tr><td>WDSZ03</td><td>WOODLANDS</td><td>8,140</td><td>21</td><td>183</td></tr>
+<tr><td>YSSZ09</td><td>YISHUN</td><td>7,601</td><td>49</td><td>129</td></tr>
+</table>
+<h2><span class='section-num'>9.</span> Nearest-Neighbor Structural Sanity</h2>
+<h3>CBD_DTSZ05 (DTSZ05, DOWNTOWN CORE)</h3>
+<table><tr><th>#</th><th>Subzone</th><th>PA</th><th>Places</th><th>Pop</th></tr>
+<tr><td>1</td><td>DTSZ09</td><td>DOWNTOWN CORE</td><td>1068</td><td>1,030</td></tr>
+<tr><td>2</td><td>OTSZ04</td><td>OUTRAM</td><td>762</td><td>0</td></tr>
+<tr><td>3</td><td>ORSZ02</td><td>ORCHARD</td><td>1245</td><td>165</td></tr>
+<tr><td>4</td><td>ORSZ03</td><td>ORCHARD</td><td>1110</td><td>58</td></tr>
+<tr><td>5</td><td>MUSZ01</td><td>MUSEUM</td><td>714</td><td>610</td></tr>
+<tr><td>6</td><td>DTSZ01</td><td>DOWNTOWN CORE</td><td>848</td><td>1,310</td></tr>
+<tr><td>7</td><td>DTSZ02</td><td>DOWNTOWN CORE</td><td>1154</td><td>0</td></tr>
+<tr><td>8</td><td>OTSZ04</td><td>OUTRAM</td><td>829</td><td>1,200</td></tr>
+<tr><td>9</td><td>DTSZ08</td><td>DOWNTOWN CORE</td><td>1140</td><td>560</td></tr>
+<tr><td>10</td><td>SRSZ03</td><td>SINGAPORE RIVER</td><td>876</td><td>99</td></tr>
+</table>
+<h3>Sentosa_SISZ01 (SISZ01, SOUTHERN ISLANDS)</h3>
+<table><tr><th>#</th><th>Subzone</th><th>PA</th><th>Places</th><th>Pop</th></tr>
+<tr><td>1</td><td>SISZ01</td><td>SOUTHERN ISLANDS</td><td>69</td><td>0</td></tr>
+<tr><td>2</td><td>SISZ01</td><td>SOUTHERN ISLANDS</td><td>36</td><td>0</td></tr>
+<tr><td>3</td><td>SISZ01</td><td>SOUTHERN ISLANDS</td><td>68</td><td>0</td></tr>
+<tr><td>4</td><td>DTSZ12</td><td>DOWNTOWN CORE</td><td>146</td><td>0</td></tr>
+<tr><td>5</td><td>DTSZ12</td><td>DOWNTOWN CORE</td><td>279</td><td>0</td></tr>
+<tr><td>6</td><td>SISZ01</td><td>SOUTHERN ISLANDS</td><td>12</td><td>0</td></tr>
+<tr><td>7</td><td>DTSZ11</td><td>DOWNTOWN CORE</td><td>20</td><td>0</td></tr>
+<tr><td>8</td><td>DTSZ12</td><td>DOWNTOWN CORE</td><td>129</td><td>0</td></tr>
+<tr><td>9</td><td>SISZ01</td><td>SOUTHERN ISLANDS</td><td>6</td><td>0</td></tr>
+<tr><td>10</td><td>JESZ05</td><td>JURONG EAST</td><td>19</td><td>0</td></tr>
+</table>
+<h3>Bedok_HDB (BDSZ01, BEDOK)</h3>
+<table><tr><th>#</th><th>Subzone</th><th>PA</th><th>Places</th><th>Pop</th></tr>
+<tr><td>1</td><td>BDSZ01</td><td>BEDOK</td><td>35</td><td>4,280</td></tr>
+<tr><td>2</td><td>WDSZ03</td><td>WOODLANDS</td><td>39</td><td>6,248</td></tr>
+<tr><td>3</td><td>BMSZ04</td><td>BUKIT MERAH</td><td>57</td><td>4,020</td></tr>
+<tr><td>4</td><td>BDSZ01</td><td>BEDOK</td><td>89</td><td>2,643</td></tr>
+<tr><td>5</td><td>HGSZ08</td><td>HOUGANG</td><td>59</td><td>3,049</td></tr>
+<tr><td>6</td><td>SESZ06</td><td>SENGKANG</td><td>49</td><td>7,318</td></tr>
+<tr><td>7</td><td>QTSZ02</td><td>QUEENSTOWN</td><td>63</td><td>6,649</td></tr>
+<tr><td>8</td><td>SESZ06</td><td>SENGKANG</td><td>42</td><td>7,666</td></tr>
+<tr><td>9</td><td>SESZ06</td><td>SENGKANG</td><td>61</td><td>7,217</td></tr>
+<tr><td>10</td><td>BKSZ07</td><td>BUKIT BATOK</td><td>45</td><td>4,773</td></tr>
+</table>
+<hr><p style='color:#999; font-size:12px;'>Generated from <code>data/hex_v10/experiment_results.json</code> by <code>scripts/representation_v1/v10/generate_experiment_report.py</code></p>
+</body></html>

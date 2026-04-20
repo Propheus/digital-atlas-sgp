@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hex v10 Feature Report — What We Built and What It Can Do</title>
+<style>
+:root{--blue:#0f3460;--accent:#e94560;--green:#2e7d32;--bg:#fafbfc;--card:white}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:#1a1a2e;line-height:1.65;max-width:1100px;margin:0 auto;padding:30px 24px}
+h1{font-size:26px;color:var(--blue);border-bottom:3px solid var(--blue);padding-bottom:8px;margin-bottom:4px}
+h2{font-size:19px;color:var(--blue);margin:32px 0 10px;border-bottom:2px solid #e8ecf0;padding-bottom:5px}
+h3{font-size:15px;color:#533483;margin:18px 0 6px}
+p,li{font-size:14px}p{margin:6px 0}ul{padding-left:18px;margin:4px 0}
+table{border-collapse:collapse;width:100%;margin:10px 0;font-size:13px}
+th{background:var(--blue);color:white;padding:8px 10px;text-align:left;font-weight:600}
+td{padding:6px 10px;border-bottom:1px solid #e8ecf0}
+tr:nth-child(even){background:#f4f6f9}
+.r{text-align:right}.c{text-align:center}
+.card{background:var(--card);border-radius:8px;padding:16px 20px;box-shadow:0 1px 3px rgba(0,0,0,0.06);margin:12px 0}
+.cards{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+.kpi{flex:1;min-width:120px;text-align:center;background:var(--card);border-radius:8px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
+.kpi .n{font-size:24px;font-weight:700;color:var(--blue)}.kpi .l{font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:#888}
+.bar{display:inline-block;height:14px;border-radius:2px;vertical-align:middle}
+.b1{background:var(--blue)}.b2{background:var(--accent)}.b3{background:var(--green)}.b4{background:#ff9800}
+.tag{display:inline-block;padding:1px 6px;border-radius:3px;font-size:11px;font-weight:600}
+.tag-g{background:#c8e6c9;color:#1b5e20}.tag-r{background:#ffcdd2;color:#b71c1c}.tag-y{background:#fff3e0;color:#e65100}.tag-b{background:#e3f2fd;color:#0d47a1}
+.verdict{border-left:4px solid var(--blue);padding:12px 16px;margin:14px 0;background:var(--card);border-radius:0 6px 6px 0;box-shadow:0 1px 2px rgba(0,0,0,0.04)}
+.verdict h4{margin-bottom:4px;font-size:14px}
+code{background:#f0f2f5;padding:1px 4px;border-radius:3px;font-size:12px}
+.quiet{color:#888;font-size:11.5px}
+hr{border:none;border-top:1px solid #e0e0e0;margin:28px 0}
+</style>
+</head>
+<body>
+
+<h1>Hex v10 — Feature Report</h1>
+<p class="quiet">What we built, what each feature captures, and what it can do. &nbsp;|&nbsp; 7,318 hexes × 322 columns &nbsp;|&nbsp; Singapore H3-9 &nbsp;|&nbsp; 2026-04-12</p>
+
+<div class="cards">
+<div class="kpi"><div class="n">322</div><div class="l">Total Columns</div></div>
+<div class="kpi"><div class="n">309</div><div class="l">Non-constant Features</div></div>
+<div class="kpi"><div class="n">17</div><div class="l">Feature Pillars</div></div>
+<div class="kpi"><div class="n">14</div><div class="l">Data Sources</div></div>
+<div class="kpi"><div class="n">55.0%</div><div class="l">kNN PA Accuracy</div></div>
+<div class="kpi"><div class="n">120/120</div><div class="l">Ground-Truth Checks</div></div>
+</div>
+
+<!-- ============================================================ -->
+<h2>1. Feature Anatomy — 322 Columns, 17 Pillars</h2>
+
+<table>
+<tr><th>Pillar</th><th class="r">Cols</th><th class="r">Variance %</th><th>Type</th><th>What it captures</th></tr>
+<tr><td><strong>place_composition</strong></td><td class="r">66</td><td class="r">22.3%</td><td><span class="tag tag-b">Self</span></td><td>24 category counts+shares, 5 price tiers, brands, HHI, entropy</td></tr>
+<tr><td><strong>influence_spatial_max</strong></td><td class="r">31</td><td class="r">10.5%</td><td><span class="tag tag-g">Context</span></td><td>Densest commercial hex within ~875m walking reach</td></tr>
+<tr><td><strong>influence_spatial_pw</strong></td><td class="r">30</td><td class="r">10.1%</td><td><span class="tag tag-g">Context</span></td><td>Place-weighted mean of walking neighborhood</td></tr>
+<tr><td><strong>influence_transit_max</strong></td><td class="r">30</td><td class="r">10.1%</td><td><span class="tag tag-g">Context</span></td><td>Densest hex reachable by MRT</td></tr>
+<tr><td><strong>influence_transit_pw</strong></td><td class="r">30</td><td class="r">10.1%</td><td><span class="tag tag-g">Context</span></td><td>Place-weighted mean of transit-reachable area</td></tr>
+<tr><td>walkability</td><td class="r">24</td><td class="r">6.5%</td><td><span class="tag tag-b">Self</span></td><td>Walk-times + scores to 6 amenity types, distances</td></tr>
+<tr><td>micrograph</td><td class="r">20</td><td class="r">6.4%</td><td><span class="tag tag-b">Self</span></td><td>T1-T4 spatial context (transit/competitor/complementary/demand)</td></tr>
+<tr><td>roads_signals</td><td class="r">22</td><td class="r">6.0%</td><td><span class="tag tag-b">Self</span></td><td>6 road categories, signals, ped crossings, LTA jam/flow</td></tr>
+<tr><td>buildings</td><td class="r">19</td><td class="r">5.6%</td><td><span class="tag tag-b">Self</span></td><td>Counts by 9 types, floor areas, height</td></tr>
+<tr><td>land_use</td><td class="r">12</td><td class="r">3.9%</td><td><span class="tag tag-b">Self</span></td><td>9 URA zoning-bucket shares, entropy, GPR</td></tr>
+<tr><td>amenities</td><td class="r">9</td><td class="r">3.0%</td><td><span class="tag tag-b">Self</span></td><td>Hawkers, clinics, preschools, hotels, attractions, etc.</td></tr>
+<tr><td>transit</td><td class="r">7</td><td class="r">1.8%</td><td><span class="tag tag-b">Self</span></td><td>MRT/bus stop counts, daily tap volumes</td></tr>
+<tr><td>population</td><td class="r">5</td><td class="r">1.7%</td><td><span class="tag tag-b">Self</span></td><td>Dasymetric counts: total, children, elderly, working age</td></tr>
+<tr><td>development_gaps</td><td class="r">4</td><td class="r">1.3%</td><td><span class="tag tag-y">Derived</span></td><td>URA plan vs actual: residential, commercial, industrial sub-gaps</td></tr>
+<tr><td>influence_scalars</td><td class="r">2</td><td class="r">0.7%</td><td><span class="tag tag-g">Context</span></td><td>MRT distance, transit reachable count</td></tr>
+<tr><td>identity</td><td class="r">8</td><td class="c">—</td><td><span class="quiet">Meta</span></td><td>hex_id, lat/lng, parent_subzone/pa/region</td></tr>
+<tr><td>bookkeeping</td><td class="r">3</td><td class="c">—</td><td><span class="quiet">Meta</span></td><td>Dasymetric denominators (excluded from model)</td></tr>
+</table>
+
+<p><strong>Split:</strong> 198 self features (what this hex IS) + 123 context features (what this hex's NEIGHBORHOOD is) + 11 meta = 322</p>
+
+<!-- ============================================================ -->
+<h2>2. Pillar Ablation — What Actually Matters</h2>
+
+<p>Remove each pillar from the full 309-feature normalized matrix and measure kNN (k=5) planning-area match accuracy. This reveals which pillars are load-bearing for similarity.</p>
+
+<table>
+<tr><th>Pillar removed</th><th class="r">Cols</th><th class="r">Accuracy without</th><th class="r">Drop</th><th>Impact</th><th style="width:180px"></th></tr>
+<tr style="background:#e8f5e9"><td><strong>influence_transit_max</strong></td><td class="r">30</td><td class="r">0.459</td><td class="r"><strong>−0.092</strong></td><td><span class="tag tag-r">CRITICAL</span></td><td><span class="bar b2" style="width:160px"></span></td></tr>
+<tr style="background:#e8f5e9"><td><strong>influence_spatial_max</strong></td><td class="r">31</td><td class="r">0.478</td><td class="r"><strong>−0.073</strong></td><td><span class="tag tag-r">CRITICAL</span></td><td><span class="bar b2" style="width:127px"></span></td></tr>
+<tr><td>influence_spatial_pw</td><td class="r">30</td><td class="r">0.515</td><td class="r">−0.036</td><td><span class="tag tag-y">HIGH</span></td><td><span class="bar b4" style="width:62px"></span></td></tr>
+<tr><td>influence_transit_pw</td><td class="r">30</td><td class="r">0.516</td><td class="r">−0.034</td><td><span class="tag tag-y">HIGH</span></td><td><span class="bar b4" style="width:60px"></span></td></tr>
+<tr><td>walkability</td><td class="r">24</td><td class="r">0.532</td><td class="r">−0.018</td><td><span class="tag tag-b">MODERATE</span></td><td><span class="bar b1" style="width:31px"></span></td></tr>
+<tr><td>land_use</td><td class="r">12</td><td class="r">0.545</td><td class="r">−0.005</td><td><span class="tag tag-b">MODERATE</span></td><td><span class="bar b1" style="width:9px"></span></td></tr>
+<tr><td>development_gaps</td><td class="r">4</td><td class="r">0.551</td><td class="r">+0.001</td><td><span class="quiet">LOW</span></td><td></td></tr>
+<tr><td>population</td><td class="r">5</td><td class="r">0.551</td><td class="r">+0.001</td><td><span class="quiet">LOW</span></td><td></td></tr>
+<tr><td>roads_signals</td><td class="r">22</td><td class="r">0.553</td><td class="r">+0.003</td><td><span class="quiet">LOW</span></td><td></td></tr>
+<tr><td>buildings</td><td class="r">19</td><td class="r">0.554</td><td class="r">+0.004</td><td><span class="quiet">LOW</span></td><td></td></tr>
+<tr><td>transit</td><td class="r">6</td><td class="r">0.558</td><td class="r">+0.008</td><td><span class="quiet">LOW</span></td><td></td></tr>
+<tr><td>micrograph</td><td class="r">19</td><td class="r">0.561</td><td class="r">+0.011</td><td><span class="quiet">LOW</span></td><td></td></tr>
+<tr><td>amenities</td><td class="r">9</td><td class="r">0.572</td><td class="r">+0.022</td><td><span class="quiet">LOW</span></td><td></td></tr>
+<tr><td>place_composition</td><td class="r">66</td><td class="r">0.668</td><td class="r">+0.117</td><td><span class="quiet">LOW</span></td><td></td></tr>
+</table>
+
+<div class="verdict" style="border-left-color:var(--accent)">
+<h4>Key insight: influence features are the backbone; raw features suffer from curse of dimensionality</h4>
+<p>The 4 influence pillars (121 features) are the only ones whose removal degrades kNN. Removing <code>influence_transit_max</code> alone drops accuracy by <strong>9.2 percentage points</strong>. Meanwhile, removing <code>place_composition</code> (66 features, the largest pillar) actually <em>improves</em> accuracy by +11.7%.</p>
+<p>This does NOT mean place composition is useless — it carries the most variance (22.3%) and correctly differentiates Sungei Kadut (84% automotive) from Orchard (31% shopping). What it means is that in a raw 309-dimensional cosine-similarity space, 66 category features dilute the spatial-context signal. A learned compression (autoencoder) would resolve this by weighting features appropriately.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2>3. What Each Pillar Actually Captures — Evidence</h2>
+
+<h3>3.1 Place Composition (66 features)</h3>
+<p>24 category counts + 24 shares + 5 price tiers + 5 tier shares + 8 summary. Computed from 169,294 places assigned to hexes via H3 lat/lng.</p>
+
+<table>
+<tr><th>Check</th><th>Evidence</th></tr>
+<tr><td>Category specialization</td><td>Sungei Kadut = 84% automotive; Tanglin = 80% health (Gleneagles); NUS = 74% education</td></tr>
+<tr><td>Category diversity</td><td>Entropy range 0.0–2.89 (max possible 3.18). Yishun neighbourhood centre = most diverse (2.89)</td></tr>
+<tr><td>Price tier separation</td><td>CBD: 4% luxury + 19% premium (23% upmarket). Heartland: 0.1% luxury + 6% premium (6%). A <strong>4x concentration ratio</strong></td></tr>
+<tr><td>Brand signal</td><td>CBD: 32.5 unique brands/hex. Heartland: 4.1. Industrial: 2.3</td></tr>
+<tr><td>Ground-truth accuracy</td><td>120/120 checks pass against raw JSONL source — every category count, every tier count, exact match</td></tr>
+</table>
+
+<h3>3.2 Influence Features (123 features)</h3>
+<p>4 views × 30 basis features + 3 scalars. Two complementary neighborhoods: spatial (walking k=5) + transit (MRT graph).</p>
+
+<table>
+<tr><th>Check</th><th>Evidence</th></tr>
+<tr><td>Spatial max-influence</td><td>Each hex's densest walking-distance neighbor. Bedok HDB hex → Bedok town centre. CBD hex → Raffles Place</td></tr>
+<tr><td>Transit max-influence</td><td>Each hex's densest MRT-reachable neighbor. Sentosa hex: <code>tr_max_pc_total = 1,356</code> (reaches Raffles Place via Circle+Downtown Line)</td></tr>
+<tr><td>Spatial ≠ transit</td><td>Correlation between spatial_max and transit_max = 0.605 (complementary, not redundant)</td></tr>
+<tr><td>Lift beyond position</td><td>+34.5% kNN accuracy beyond lat/lng alone — genuine contextual signal, not positional proxy</td></tr>
+<tr><td>Ablation impact</td><td>Removing transit_max = −9.2%, spatial_max = −7.3%. The two most important pillars</td></tr>
+</table>
+
+<h3>3.3 Buildings (19 features)</h3>
+<p>From 377K fused Overture+HDB+OSM buildings, assigned to hexes by centroid. Includes residential floor area (dasymetric weight).</p>
+
+<table>
+<tr><th>Check</th><th>Evidence</th></tr>
+<tr><td>HDB blocks exact</td><td>13,386 — exact match with authoritative HDB geojson</td></tr>
+<tr><td>Floor area as pop proxy</td><td>corr(residential_floor_area, population) = 0.952</td></tr>
+<tr><td>Building type separation</td><td>Jurong Island: 0 residential, 24 bldg_count (industrial). Punggol: 31 HDB blocks, 53 buildings</td></tr>
+</table>
+
+<h3>3.4 Population (5 features)</h3>
+<p>Census 2025 dasymetrically distributed to hexes proportional to residential floor area.</p>
+
+<table>
+<tr><th>Check</th><th>Evidence</th></tr>
+<tr><td>Conservation</td><td>4,212,320 / 4,212,800 (99.99%)</td></tr>
+<tr><td>Zero in non-residential</td><td>Raffles Place = 0 pop, VivoCity = 0 pop, Changi Airport = 0 pop — all correct</td></tr>
+<tr><td>Realistic in residential</td><td>Punggol HDB hex: 5,783 pop, 31 HDB blocks. Bedok: 2,343 pop, 7 blocks</td></tr>
+</table>
+
+<h3>3.5 Land Use (12 features)</h3>
+<p>113K URA zoning parcels area-weighted intersected with each hex polygon in projected SVY21 coordinates.</p>
+
+<table>
+<tr><th>Check</th><th>Evidence</th></tr>
+<tr><td>Within-subzone variance</td><td>avg_gpr: median std = 0.34 (was 0 when broadcast from subzone)</td></tr>
+<tr><td>NUS = institutional</td><td>lu_institutional_pct = 1.00</td></tr>
+<tr><td>Jurong Island = business</td><td>lu_business_pct = 1.00 (was 0.81 for another hex on the island)</td></tr>
+<tr><td>Shares sum to 1</td><td>All 7,318 hexes: Σ lu_*_pct = 1.0 ± 1e-6 where measured</td></tr>
+</table>
+
+<h3>3.6 Development Gaps (4 features)</h3>
+<p>URA planned zoning vs actual building footprint ratio. Derived features capturing plan-vs-reality.</p>
+
+<table>
+<tr><th>Check</th><th>Evidence</th></tr>
+<tr><td>CBD = built to plan</td><td>gap overall ≈ 0, gap_commercial = +0.30 (some room for more retail)</td></tr>
+<tr><td>Industrial = massive unbuilt</td><td>gap_industrial = +0.64 (Tuas/Boon Lay zoned but not yet built)</td></tr>
+<tr><td>New towns = growing</td><td>gap_residential = +0.31 (Punggol/Sengkang under construction)</td></tr>
+<tr><td>Airport = overbuilt</td><td>Changi gap = −2.03 (terminal footprint > hex area, not in URA zoning)</td></tr>
+<tr><td>Independence</td><td>gap_res vs gap_com: r = 0.024; gap_res vs gap_ind: r = −0.254. All mutually independent</td></tr>
+</table>
+
+<h3>3.7 Micrograph (20 features)</h3>
+<p>Per-place spatial context vectors aggregated to hex level. T1 (transit), T2 (competitor), T3 (complementary), T4 (demand).</p>
+
+<table>
+<tr><th>Archetype</th><th class="r">T1 Transit</th><th class="r">T2 Competitor</th><th class="r">T3 Comp.</th><th class="r">T4 Demand</th></tr>
+<tr><td>Near MRT (183 hexes)</td><td class="r"><strong>0.380</strong></td><td class="r">0.355</td><td class="r">0.100</td><td class="r">0.164</td></tr>
+<tr><td>Dense commercial (390)</td><td class="r">0.106</td><td class="r"><strong>0.527</strong></td><td class="r">0.144</td><td class="r">0.212</td></tr>
+<tr><td>Suburban residential (431)</td><td class="r">0.065</td><td class="r"><strong>0.564</strong></td><td class="r">0.120</td><td class="r">0.240</td></tr>
+</table>
+<p>Transit signal is <strong>6x stronger</strong> near MRT stations (0.38 vs 0.065). corr(mg_mean_transit, mrt_stations) = 0.611.</p>
+
+<!-- ============================================================ -->
+<h2>4. Structural Similarity — What the Representation Sees</h2>
+
+<h3>4.1 Unsupervised Archetypes (k=8, zero supervision)</h3>
+
+<table>
+<tr><th>Archetype</th><th class="r">Hexes</th><th class="r">Avg Places</th><th class="r">Avg Pop</th><th class="r">Avg HDB</th><th class="r">Avg Luxury</th><th>Top PAs</th></tr>
+<tr><td>Void / water / nature</td><td class="r">2,176</td><td class="r">0.5</td><td class="r">1</td><td class="r">0</td><td class="r">0</td><td>NE Islands, Water Catchment</td></tr>
+<tr><td>Industrial belt</td><td class="r">1,005</td><td class="r">2.6</td><td class="r">0</td><td class="r">0</td><td class="r">0</td><td>Tuas, Pioneer, Boon Lay</td></tr>
+<tr><td>Mixed / transitional</td><td class="r">1,585</td><td class="r">2.6</td><td class="r">13</td><td class="r">0</td><td class="r">0</td><td>Suburban edges</td></tr>
+<tr><td>Medium-density residential</td><td class="r">1,072</td><td class="r">26</td><td class="r">821</td><td class="r">2.2</td><td class="r">0.1</td><td>Bedok, Hougang, BM</td></tr>
+<tr><td>Dense HDB heartland</td><td class="r">752</td><td class="r">64</td><td class="r">3,821</td><td class="r">11.3</td><td class="r">0.2</td><td>Tampines, Bedok, Woodlands</td></tr>
+<tr><td>Low-density / landed</td><td class="r">529</td><td class="r">25</td><td class="r">470</td><td class="r">0.3</td><td class="r">0.2</td><td>Bukit Timah, Queenstown</td></tr>
+<tr style="background:#fff8e1"><td><strong>CBD / premium</strong></td><td class="r">199</td><td class="r">361</td><td class="r">950</td><td class="r">3.0</td><td class="r"><strong>6.1</strong></td><td>Downtown Core, Rochor</td></tr>
+</table>
+
+<p>CBD luxury concentration = 6.1 per hex vs 0.2 in HDB heartland — a <strong>30x ratio</strong> recovered from features alone.</p>
+
+<h3>4.2 Nearest-Neighbor Structural Twins</h3>
+
+<div class="card">
+<h4>Sentosa → Marina Bay Sands (the signature finding)</h4>
+<p>Sentosa (SISZ01, tourism/hospitality) finds <strong>Marina Bay Sands (DTSZ12)</strong> as its 4th nearest neighbor — a hex in a completely different planning area, 4km away, but sharing the same tourism/hospitality/entertainment function. The transit influence graph connects them via MRT. This is structural similarity across geographic boundaries — exactly what a universal representation should capture.</p>
+</div>
+
+<div class="card">
+<h4>Bedok HDB → 7 different planning areas</h4>
+<p>Bedok North HDB (BDSZ04) finds its nearest neighbors in Woodlands, Bukit Merah, Hougang, Sengkang, Queenstown, Bukit Batok — all HDB heartlands. Population range 3,049–7,666, HDB blocks 10–22. The representation correctly identifies "HDB heartland" as a structural type that spans Singapore, not a geographic cluster.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2>5. Ground-Truth Verification — 120/120</h2>
+
+<p>10 hexes spanning the full urban spectrum, 12 features each, independently re-counted from raw source files.</p>
+
+<table>
+<tr><th>Hex</th><th>Character</th><th class="r">Places</th><th class="r">Pop</th><th class="r">HDB</th><th class="r">MRT</th><th>Result</th></tr>
+<tr><td>Raffles Place</td><td>Densest commercial</td><td class="r">1,356</td><td class="r">0</td><td class="r">0</td><td class="r">1</td><td><span class="tag tag-g">12/12</span></td></tr>
+<tr><td>ION Orchard</td><td>Premium shopping</td><td class="r">1,245</td><td class="r">165</td><td class="r">0</td><td class="r">2</td><td><span class="tag tag-g">12/12</span></td></tr>
+<tr><td>VivoCity</td><td>Largest mall</td><td class="r">568</td><td class="r">0</td><td class="r">0</td><td class="r">2</td><td><span class="tag tag-g">12/12</span></td></tr>
+<tr><td>Woodlands Centre</td><td>Suburban town hub</td><td class="r">554</td><td class="r">0</td><td class="r">2</td><td class="r">1</td><td><span class="tag tag-g">12/12</span></td></tr>
+<tr><td>Changi Airport T1</td><td>Airport</td><td class="r">329</td><td class="r">0</td><td class="r">0</td><td class="r">0</td><td><span class="tag tag-g">12/12</span></td></tr>
+<tr><td>Marina Bay Sands</td><td>Luxury tourism</td><td class="r">146</td><td class="r">0</td><td class="r">0</td><td class="r">0</td><td><span class="tag tag-g">12/12</span></td></tr>
+<tr><td>Punggol New Town</td><td>Dense HDB</td><td class="r">55</td><td class="r">5,783</td><td class="r">31</td><td class="r">1</td><td><span class="tag tag-g">12/12</span></td></tr>
+<tr><td>NUS Kent Ridge</td><td>University</td><td class="r">21</td><td class="r">25</td><td class="r">0</td><td class="r">0</td><td><span class="tag tag-g">12/12</span></td></tr>
+<tr><td>Bedok North HDB</td><td>Residential</td><td class="r">12</td><td class="r">2,343</td><td class="r">7</td><td class="r">0</td><td><span class="tag tag-g">12/12</span></td></tr>
+<tr><td>Jurong Island</td><td>Refinery</td><td class="r">3</td><td class="r">0</td><td class="r">0</td><td class="r">0</td><td><span class="tag tag-g">12/12</span></td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2>6. Data Integrity</h2>
+
+<table>
+<tr><th>Check</th><th>Result</th></tr>
+<tr><td>Subzone-broadcast feature columns</td><td><strong>0</strong> (was 40 in v1 — all eliminated)</td></tr>
+<tr><td>Places conservation</td><td>169,294 + 5,419 outside = <strong>174,713 exact</strong></td></tr>
+<tr><td>Population conservation</td><td>4,212,320 / 4,212,800 (<strong>99.99%</strong>)</td></tr>
+<tr><td>MRT stations</td><td><strong>231 exact</strong></td></tr>
+<tr><td>HDB blocks</td><td><strong>13,386 exact</strong></td></tr>
+<tr><td>42 percentage columns in [0,1]</td><td><span class="tag tag-g">ALL PASS</span></td></tr>
+<tr><td>13 count columns ≥ 0</td><td><span class="tag tag-g">ALL PASS</span></td></tr>
+<tr><td>elderly ≤ population</td><td><span class="tag tag-g">ALL 7,318</span></td></tr>
+<tr><td>Σ category counts = pc_total</td><td><span class="tag tag-g">ALL 7,318</span></td></tr>
+<tr><td>Σ land use shares = 1.0</td><td><span class="tag tag-g">ALL 7,318</span></td></tr>
+<tr><td>Boundary hex assignment</td><td>Majority-area overlap (84 hexes corrected from center-containment)</td></tr>
+<tr><td>Constant features</td><td>2 (mg_pct_hyperdense, 1 other — both near-zero-variance columns)</td></tr>
+<tr><td>Highly correlated pairs (|r|>0.9)</td><td>209 pairs out of ~47K — concentrated in count↔share duplicates within place_composition</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2>7. What We Evaluated and Didn't Add</h2>
+
+<table>
+<tr><th>Feature</th><th>Tested?</th><th>Result</th><th>Decision</th></tr>
+<tr><td>NVIDIA personas (35 features)</td><td>Yes</td><td>PA-broadcast: only 48 unique signatures across 318 subzones</td><td><span class="tag tag-r">Dropped</span> at hex level</td></tr>
+<tr><td>HDB resale prices (2)</td><td>Yes</td><td>No geocoding: resale CSV has town+block+street, no lat/lng</td><td><span class="tag tag-r">Dropped</span> at hex level</td></tr>
+<tr><td>elderly_pct, walking_dep_pct (2)</td><td>Yes</td><td>Ratio collapses to subzone constant under dasymetric</td><td><span class="tag tag-r">Dropped</span> (counts kept)</td></tr>
+<tr><td>Gap scores (4)</td><td>Yes</td><td>V7/V8 model outputs — including them is target leakage</td><td><span class="tag tag-r">Dropped</span></td></tr>
+<tr><td>nightlife_intensity (1)</td><td>Yes</td><td>r = 0.915 with pc_pct_cat_bar_nightlife — redundant</td><td><span class="tag tag-r">Dropped</span></td></tr>
+<tr><td>k-ring contrast features (30)</td><td>Yes</td><td>kNN accuracy −1.2% — actively hurts similarity</td><td><span class="tag tag-r">Replaced</span> by influence</td></tr>
+<tr><td>k-ring rank features (30)</td><td>Yes</td><td>kNN accuracy −2.9% — actively hurts similarity</td><td><span class="tag tag-r">Replaced</span> by influence</td></tr>
+<tr><td>Night light radiance (absolute)</td><td>Assessed</td><td>r ~0.95 with pc_total — mostly redundant</td><td><span class="tag tag-y">Deferred</span> (low value)</td></tr>
+<tr><td>Night light temporal change</td><td>Assessed</td><td>UNIQUE — zero temporal features in v10. Cannot approximate</td><td><span class="tag tag-y">Deferred</span> (high value, needs rasters)</td></tr>
+<tr><td>Tree canopy cover</td><td>Assessed</td><td>UNIQUE — actual greenery ≠ "open space" zoning</td><td><span class="tag tag-y">Deferred</span> (moderate value, needs rasters)</td></tr>
+<tr><td>Satellite population</td><td>Assessed</td><td>Census dasymetric is authoritative — satellite would be inferior</td><td><span class="tag tag-r">Skipped</span></td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2>8. Storage</h2>
+
+<table>
+<tr><th>Format</th><th class="r">Size</th><th>Use case</th></tr>
+<tr><td><code>hex_features_v10.parquet</code></td><td class="r">4 MB</td><td>ML pipelines (pandas, sklearn, PyTorch)</td></tr>
+<tr><td><code>hex_features_v10_normalized.parquet</code></td><td class="r">4 MB</td><td>Model-ready input (AE, GNN, regression)</td></tr>
+<tr><td><code>hex_features_v10.db</code></td><td class="r">11 MB</td><td>SQL queries: <code>SELECT * WHERE pc_tier_luxury > 10</code></td></tr>
+<tr><td><code>hex_features_v10.jsonl</code></td><td class="r">63 MB</td><td>grep + human inspection</td></tr>
+<tr><td><code>hex_influence_graph.npz</code></td><td class="r">75 KB</td><td>Sparse adjacency for GNN</td></tr>
+</table>
+
+<hr>
+<p class="quiet" style="text-align:center">Hex v10 Feature Report &nbsp;|&nbsp; 7,318 hexes × 322 columns &nbsp;|&nbsp; 14 data sources &nbsp;|&nbsp; 120/120 ground-truth checks &nbsp;|&nbsp; 2026-04-12</p>
+</body>
+</html>

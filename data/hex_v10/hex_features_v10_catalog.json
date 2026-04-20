@@ -1,0 +1,3860 @@
+{
+  "resolution": "H3 res-9",
+  "hex_count": 7318,
+  "hex_area_km2": 0.1053,
+  "hex_edge_m": 174,
+  "total_area_km2": 770.8,
+  "total_features": 471,
+  "population_total": 4212320,
+  "hexes_with_residents": 1973,
+  "pillars": {
+    "identity": {
+      "count": 8,
+      "features": [
+        {
+          "name": "hex_id",
+          "dtype": "object",
+          "unique": 7318,
+          "sample": "896520c0007ffff"
+        },
+        {
+          "name": "lat",
+          "dtype": "float64",
+          "min": 1.16,
+          "max": 1.47,
+          "mean": 1.35,
+          "nonzero": 7318
+        },
+        {
+          "name": "lng",
+          "dtype": "float64",
+          "min": 103.6,
+          "max": 104.09,
+          "mean": 103.82,
+          "nonzero": 7318
+        },
+        {
+          "name": "area_km2",
+          "dtype": "float64",
+          "min": 0.11,
+          "max": 0.11,
+          "mean": 0.11,
+          "nonzero": 7318
+        },
+        {
+          "name": "parent_subzone",
+          "dtype": "object",
+          "unique": 326,
+          "sample": "TSSZ06"
+        },
+        {
+          "name": "parent_subzone_name",
+          "dtype": "object",
+          "unique": 326,
+          "sample": "TUAS VIEW EXTENSION"
+        },
+        {
+          "name": "parent_pa",
+          "dtype": "object",
+          "unique": 55,
+          "sample": "TUAS"
+        },
+        {
+          "name": "parent_region",
+          "dtype": "object",
+          "unique": 5,
+          "sample": "WEST REGION"
+        }
+      ]
+    },
+    "population": {
+      "count": 9,
+      "features": [
+        {
+          "name": "population",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 10877.52,
+          "mean": 575.61,
+          "nonzero": 1973
+        },
+        {
+          "name": "children_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 2272.0,
+          "mean": 78.26,
+          "nonzero": 1948
+        },
+        {
+          "name": "elderly_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 2740.0,
+          "mean": 108.28,
+          "nonzero": 1957
+        },
+        {
+          "name": "working_age_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 7451.98,
+          "mean": 389.07,
+          "nonzero": 1973
+        },
+        {
+          "name": "walking_dependent_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 3425.54,
+          "mean": 186.54,
+          "nonzero": 1967
+        },
+        {
+          "name": "subzone_pop_total",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 127080.0,
+          "mean": 8272.23,
+          "nonzero": 3412
+        },
+        {
+          "name": "daytime_ratio",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 999.0,
+          "mean": 284.74,
+          "nonzero": 3998
+        },
+        {
+          "name": "population_nonresident",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 11680.45,
+          "mean": 241.87,
+          "nonzero": 4123
+        },
+        {
+          "name": "population_total",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 13033.34,
+          "mean": 817.48,
+          "nonzero": 4149
+        }
+      ]
+    },
+    "buildings": {
+      "count": 22,
+      "features": [
+        {
+          "name": "bldg_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 518.0,
+          "mean": 33.37,
+          "nonzero": 5676
+        },
+        {
+          "name": "bldg_footprint_sqm",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 353932.78,
+          "mean": 14578.11,
+          "nonzero": 5676
+        },
+        {
+          "name": "avg_floors",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 20.0,
+          "mean": 2.27,
+          "nonzero": 5676
+        },
+        {
+          "name": "max_floors",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 70.0,
+          "mean": 5.61,
+          "nonzero": 5676
+        },
+        {
+          "name": "avg_height",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 182.0,
+          "mean": 1.15,
+          "nonzero": 291
+        },
+        {
+          "name": "max_height",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 245.0,
+          "mean": 1.95,
+          "nonzero": 291
+        },
+        {
+          "name": "total_floor_area_sqm",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1071301.25,
+          "mean": 63669.43,
+          "nonzero": 5676
+        },
+        {
+          "name": "residential_floor_area_sqm",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 898919.5,
+          "mean": 34001.48,
+          "nonzero": 2047
+        },
+        {
+          "name": "commercial_floor_area_sqm",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1050112.35,
+          "mean": 9120.33,
+          "nonzero": 1700
+        },
+        {
+          "name": "hdb_blocks",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 109.0,
+          "mean": 1.83,
+          "nonzero": 1185
+        },
+        {
+          "name": "bldg_hdb_residential",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 109.0,
+          "mean": 1.43,
+          "nonzero": 1158
+        },
+        {
+          "name": "bldg_private_residential",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 454.0,
+          "mean": 4.83,
+          "nonzero": 1826
+        },
+        {
+          "name": "bldg_commercial",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 87.0,
+          "mean": 0.43,
+          "nonzero": 632
+        },
+        {
+          "name": "bldg_industrial",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 69.0,
+          "mean": 0.5,
+          "nonzero": 881
+        },
+        {
+          "name": "bldg_institutional",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 21.0,
+          "mean": 0.15,
+          "nonzero": 506
+        },
+        {
+          "name": "bldg_transport",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 6.0,
+          "mean": 0.09,
+          "nonzero": 428
+        },
+        {
+          "name": "bldg_religious",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 14.0,
+          "mean": 0.04,
+          "nonzero": 183
+        },
+        {
+          "name": "bldg_other",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 26.0,
+          "mean": 0.2,
+          "nonzero": 766
+        },
+        {
+          "name": "bldg_unclassified",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 418.0,
+          "mean": 25.7,
+          "nonzero": 5652
+        },
+        {
+          "name": "subzone_res_floor_area",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 7147111.84,
+          "mean": 578159.86,
+          "nonzero": 6003
+        },
+        {
+          "name": "residential_floor_weight",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.04,
+          "nonzero": 3362
+        },
+        {
+          "name": "avg_gpr",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 21.96,
+          "mean": 1.08,
+          "nonzero": 3640
+        }
+      ]
+    },
+    "land_use": {
+      "count": 15,
+      "features": [
+        {
+          "name": "lu_residential_pct",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.15,
+          "nonzero": 2359
+        },
+        {
+          "name": "lu_commercial_pct",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.93,
+          "mean": 0.01,
+          "nonzero": 788
+        },
+        {
+          "name": "lu_business_pct",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.16,
+          "nonzero": 1903
+        },
+        {
+          "name": "lu_mixed_use_pct",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.0,
+          "nonzero": 139
+        },
+        {
+          "name": "lu_institutional_pct",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.03,
+          "nonzero": 1701
+        },
+        {
+          "name": "lu_open_space_pct",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.21,
+          "nonzero": 3744
+        },
+        {
+          "name": "lu_transport_pct",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.16,
+          "nonzero": 4444
+        },
+        {
+          "name": "lu_utility_pct",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.07,
+          "nonzero": 2788
+        },
+        {
+          "name": "lu_other_pct",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.19,
+          "nonzero": 2531
+        },
+        {
+          "name": "lu_total_sqm",
+          "dtype": "float64",
+          "min": 0.02,
+          "max": 130806.96,
+          "mean": 107248.04,
+          "nonzero": 7318
+        },
+        {
+          "name": "lu_entropy",
+          "dtype": "float64",
+          "min": -0.0,
+          "max": 1.83,
+          "mean": 0.53,
+          "nonzero": 5022
+        },
+        {
+          "name": "ura_development_gap",
+          "dtype": "float64",
+          "min": -3.36,
+          "max": 1.0,
+          "mean": 0.22,
+          "nonzero": 5852
+        },
+        {
+          "name": "gap_residential",
+          "dtype": "float64",
+          "min": -0.34,
+          "max": 1.0,
+          "mean": 0.13,
+          "nonzero": 2451
+        },
+        {
+          "name": "gap_commercial",
+          "dtype": "float64",
+          "min": -0.36,
+          "max": 1.0,
+          "mean": 0.02,
+          "nonzero": 1151
+        },
+        {
+          "name": "gap_industrial",
+          "dtype": "float64",
+          "min": -0.23,
+          "max": 1.0,
+          "mean": 0.16,
+          "nonzero": 2137
+        }
+      ]
+    },
+    "transit": {
+      "count": 10,
+      "features": [
+        {
+          "name": "mrt_stations",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 3.0,
+          "mean": 0.03,
+          "nonzero": 209
+        },
+        {
+          "name": "lrt_stations",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonzero": 0
+        },
+        {
+          "name": "bus_stops",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 13.0,
+          "mean": 0.71,
+          "nonzero": 2212
+        },
+        {
+          "name": "bus_daily_taps",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 107657.0,
+          "mean": 938.01,
+          "nonzero": 2334
+        },
+        {
+          "name": "dist_bus_m",
+          "dtype": "float64",
+          "min": 5.0,
+          "max": 13756.54,
+          "mean": 1542.0,
+          "nonzero": 7318
+        },
+        {
+          "name": "dist_mrt_m",
+          "dtype": "float64",
+          "min": 16.0,
+          "max": 14162.82,
+          "mean": 3052.66,
+          "nonzero": 7318
+        },
+        {
+          "name": "dist_nearest_mrt_m",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 14162.82,
+          "mean": 2108.1,
+          "nonzero": 7114
+        },
+        {
+          "name": "mrt_daily_taps",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 168480.0,
+          "mean": 739.93,
+          "nonzero": 121
+        },
+        {
+          "name": "mrt_hex_rings",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 20.0,
+          "mean": 7.39,
+          "nonzero": 7112
+        },
+        {
+          "name": "transit_daily_taps",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 198622.0,
+          "mean": 1677.95,
+          "nonzero": 2357
+        }
+      ]
+    },
+    "walkability": {
+      "count": 15,
+      "features": [
+        {
+          "name": "walk_bus_m",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 13756.54,
+          "mean": 1008.21,
+          "nonzero": 5135
+        },
+        {
+          "name": "walk_bus_score",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.99,
+          "mean": 0.24,
+          "nonzero": 3355
+        },
+        {
+          "name": "walk_clinic_m",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 14143.77,
+          "mean": 1570.63,
+          "nonzero": 6686
+        },
+        {
+          "name": "walk_clinic_score",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.16,
+          "nonzero": 2368
+        },
+        {
+          "name": "walk_hawker_m",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 16777.28,
+          "mean": 1835.62,
+          "nonzero": 7200
+        },
+        {
+          "name": "walk_hawker_score",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.97,
+          "mean": 0.05,
+          "nonzero": 987
+        },
+        {
+          "name": "walk_mrt_m",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 14162.82,
+          "mean": 1784.47,
+          "nonzero": 7154
+        },
+        {
+          "name": "walk_mrt_score",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.98,
+          "mean": 0.12,
+          "nonzero": 2090
+        },
+        {
+          "name": "walk_park_m",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 16174.77,
+          "mean": 1346.26,
+          "nonzero": 6958
+        },
+        {
+          "name": "walk_park_score",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.98,
+          "mean": 0.13,
+          "nonzero": 2147
+        },
+        {
+          "name": "walk_school_m",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 15928.71,
+          "mean": 1877.76,
+          "nonzero": 6611
+        },
+        {
+          "name": "walk_super_m",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 14342.81,
+          "mean": 1527.8,
+          "nonzero": 6906
+        },
+        {
+          "name": "walk_super_score",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.99,
+          "mean": 0.12,
+          "nonzero": 2037
+        },
+        {
+          "name": "walkability_score",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 98.0,
+          "mean": 30.92,
+          "nonzero": 5493
+        },
+        {
+          "name": "walkability_score_v2",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 79.0,
+          "mean": 10.94,
+          "nonzero": 4218
+        }
+      ]
+    },
+    "amenities": {
+      "count": 16,
+      "features": [
+        {
+          "name": "hawker_centres",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 2.0,
+          "mean": 0.02,
+          "nonzero": 120
+        },
+        {
+          "name": "chas_clinics",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 12.0,
+          "mean": 0.16,
+          "nonzero": 637
+        },
+        {
+          "name": "preschools_gov",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 14.0,
+          "mean": 0.31,
+          "nonzero": 1136
+        },
+        {
+          "name": "hotels",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 23.0,
+          "mean": 0.06,
+          "nonzero": 164
+        },
+        {
+          "name": "tourist_attractions",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 5.0,
+          "mean": 0.01,
+          "nonzero": 77
+        },
+        {
+          "name": "sfa_eating_establishments",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 244.0,
+          "mean": 4.7,
+          "nonzero": 2019
+        },
+        {
+          "name": "silver_zones",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.01,
+          "nonzero": 42
+        },
+        {
+          "name": "school_zones",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 2.0,
+          "mean": 0.03,
+          "nonzero": 201
+        },
+        {
+          "name": "park_facilities",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 90.0,
+          "mean": 0.74,
+          "nonzero": 1008
+        },
+        {
+          "name": "amenity_types_nearby",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 6.0,
+          "mean": 2.04,
+          "nonzero": 4146
+        },
+        {
+          "name": "formal_schools",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 3.0,
+          "mean": 0.05,
+          "nonzero": 298
+        },
+        {
+          "name": "schools_primary",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 2.0,
+          "mean": 0.02,
+          "nonzero": 175
+        },
+        {
+          "name": "schools_secondary",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 2.0,
+          "mean": 0.02,
+          "nonzero": 152
+        },
+        {
+          "name": "supermarkets",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 5.0,
+          "mean": 0.07,
+          "nonzero": 419
+        },
+        {
+          "name": "parks_nature",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 5.0,
+          "mean": 0.06,
+          "nonzero": 377
+        },
+        {
+          "name": "tourist_draw_est",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 3485.0,
+          "mean": 31.69,
+          "nonzero": 2107
+        }
+      ]
+    },
+    "distance_to": {
+      "count": 5,
+      "features": [
+        {
+          "name": "dist_clinic_m",
+          "dtype": "float64",
+          "min": 1.0,
+          "max": 14143.77,
+          "mean": 2567.66,
+          "nonzero": 7318
+        },
+        {
+          "name": "dist_hawker_m",
+          "dtype": "float64",
+          "min": 17.0,
+          "max": 16777.28,
+          "mean": 3640.44,
+          "nonzero": 7318
+        },
+        {
+          "name": "dist_park_m",
+          "dtype": "float64",
+          "min": 9.0,
+          "max": 16174.77,
+          "mean": 2740.21,
+          "nonzero": 7318
+        },
+        {
+          "name": "dist_school_m",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 15928.71,
+          "mean": 1877.76,
+          "nonzero": 6611
+        },
+        {
+          "name": "dist_super_m",
+          "dtype": "float64",
+          "min": 6.0,
+          "max": 14342.81,
+          "mean": 2373.54,
+          "nonzero": 7318
+        }
+      ]
+    },
+    "roads_traffic": {
+      "count": 17,
+      "features": [
+        {
+          "name": "hex_avg_speed_kmh",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 75.0,
+          "mean": 8.18,
+          "nonzero": 1419
+        },
+        {
+          "name": "hex_flow_pct",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 100.0,
+          "mean": 7.12,
+          "nonzero": 883
+        },
+        {
+          "name": "hex_flow_segments",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 49.0,
+          "mean": 0.59,
+          "nonzero": 883
+        },
+        {
+          "name": "hex_jam_pct",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 100.0,
+          "mean": 3.44,
+          "nonzero": 749
+        },
+        {
+          "name": "hex_jam_segments",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 36.0,
+          "mean": 0.5,
+          "nonzero": 749
+        },
+        {
+          "name": "hex_seg_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 98.0,
+          "mean": 2.16,
+          "nonzero": 1419
+        },
+        {
+          "name": "road_cat_arterial",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 26.0,
+          "mean": 0.16,
+          "nonzero": 205
+        },
+        {
+          "name": "road_cat_expressway",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 21.0,
+          "mean": 0.31,
+          "nonzero": 503
+        },
+        {
+          "name": "road_cat_major_arterial",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 53.0,
+          "mean": 0.54,
+          "nonzero": 604
+        },
+        {
+          "name": "road_cat_minor_arterial",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 25.0,
+          "mean": 0.37,
+          "nonzero": 554
+        },
+        {
+          "name": "road_cat_slip",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 32.0,
+          "mean": 0.26,
+          "nonzero": 547
+        },
+        {
+          "name": "road_cat_small",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 48.0,
+          "mean": 0.52,
+          "nonzero": 539
+        },
+        {
+          "name": "sig_beacon",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 20.0,
+          "mean": 0.8,
+          "nonzero": 1279
+        },
+        {
+          "name": "sig_filter_arrow",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 22.0,
+          "mean": 0.39,
+          "nonzero": 701
+        },
+        {
+          "name": "sig_ground",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 51.0,
+          "mean": 2.42,
+          "nonzero": 1838
+        },
+        {
+          "name": "sig_overhead",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 14.0,
+          "mean": 0.69,
+          "nonzero": 1663
+        },
+        {
+          "name": "sig_rag",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 21.0,
+          "mean": 0.28,
+          "nonzero": 494
+        }
+      ]
+    },
+    "pedestrian": {
+      "count": 6,
+      "features": [
+        {
+          "name": "bicycle_signal",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 4.0,
+          "mean": 0.0,
+          "nonzero": 16
+        },
+        {
+          "name": "ped_countdown",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 17.0,
+          "mean": 0.21,
+          "nonzero": 341
+        },
+        {
+          "name": "ped_crossings_total",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 48.0,
+          "mean": 1.9,
+          "nonzero": 1800
+        },
+        {
+          "name": "ped_elderly",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 10.0,
+          "mean": 0.03,
+          "nonzero": 82
+        },
+        {
+          "name": "ped_standard",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 33.0,
+          "mean": 1.65,
+          "nonzero": 1750
+        },
+        {
+          "name": "pcn_segments",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 18.0,
+          "mean": 0.12,
+          "nonzero": 395
+        }
+      ]
+    },
+    "mobility": {
+      "count": 3,
+      "features": [
+        {
+          "name": "carpark_count",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 16.0,
+          "mean": 0.35,
+          "nonzero": 1032
+        },
+        {
+          "name": "carpark_lots",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 3054.0,
+          "mean": 57.21,
+          "nonzero": 1017
+        },
+        {
+          "name": "taxi_snapshot",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 13.0,
+          "mean": 0.07,
+          "nonzero": 367
+        }
+      ]
+    },
+    "place_composition": {
+      "count": 66,
+      "features": [
+        {
+          "name": "pc_total",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 1356.0,
+          "mean": 23.13,
+          "nonzero": 3934
+        },
+        {
+          "name": "pc_cat_shopping_retail",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 376.0,
+          "mean": 3.63,
+          "nonzero": 2394
+        },
+        {
+          "name": "pc_cat_restaurant",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 243.0,
+          "mean": 2.74,
+          "nonzero": 1889
+        },
+        {
+          "name": "pc_cat_services",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 288.0,
+          "mean": 2.25,
+          "nonzero": 2215
+        },
+        {
+          "name": "pc_cat_business",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 384.0,
+          "mean": 2.2,
+          "nonzero": 1888
+        },
+        {
+          "name": "pc_cat_beauty_personal_care",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 209.0,
+          "mean": 1.54,
+          "nonzero": 1525
+        },
+        {
+          "name": "pc_cat_education",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 91.0,
+          "mean": 1.39,
+          "nonzero": 1902
+        },
+        {
+          "name": "pc_cat_health_medical",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 255.0,
+          "mean": 1.05,
+          "nonzero": 1311
+        },
+        {
+          "name": "pc_cat_cafe_coffee",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 68.0,
+          "mean": 0.87,
+          "nonzero": 1454
+        },
+        {
+          "name": "pc_cat_fitness_recreation",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 62.0,
+          "mean": 0.84,
+          "nonzero": 1950
+        },
+        {
+          "name": "pc_cat_convenience_daily_needs",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 34.0,
+          "mean": 0.81,
+          "nonzero": 1557
+        },
+        {
+          "name": "pc_cat_hawker_street_food",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 88.0,
+          "mean": 0.79,
+          "nonzero": 993
+        },
+        {
+          "name": "pc_cat_automotive",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 196.0,
+          "mean": 0.73,
+          "nonzero": 1147
+        },
+        {
+          "name": "pc_cat_transport",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 38.0,
+          "mean": 0.56,
+          "nonzero": 1749
+        },
+        {
+          "name": "pc_cat_civic_government",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 16.0,
+          "mean": 0.42,
+          "nonzero": 1648
+        },
+        {
+          "name": "pc_cat_bar_nightlife",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 67.0,
+          "mean": 0.44,
+          "nonzero": 1074
+        },
+        {
+          "name": "pc_cat_fast_food_qsr",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 39.0,
+          "mean": 0.39,
+          "nonzero": 804
+        },
+        {
+          "name": "pc_cat_residential",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 19.0,
+          "mean": 0.39,
+          "nonzero": 1259
+        },
+        {
+          "name": "pc_cat_culture_entertainment",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 33.0,
+          "mean": 0.38,
+          "nonzero": 1125
+        },
+        {
+          "name": "pc_cat_office_workspace",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 27.0,
+          "mean": 0.38,
+          "nonzero": 1067
+        },
+        {
+          "name": "pc_cat_hospitality",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 40.0,
+          "mean": 0.32,
+          "nonzero": 951
+        },
+        {
+          "name": "pc_cat_bakery_pastry",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 28.0,
+          "mean": 0.32,
+          "nonzero": 866
+        },
+        {
+          "name": "pc_cat_general",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 13.0,
+          "mean": 0.28,
+          "nonzero": 1265
+        },
+        {
+          "name": "pc_cat_religious",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 32.0,
+          "mean": 0.27,
+          "nonzero": 781
+        },
+        {
+          "name": "pc_cat_ngo",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 9.0,
+          "mean": 0.14,
+          "nonzero": 637
+        },
+        {
+          "name": "pc_pct_cat_shopping_retail",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.06,
+          "nonzero": 2394
+        },
+        {
+          "name": "pc_pct_cat_restaurant",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.04,
+          "nonzero": 1889
+        },
+        {
+          "name": "pc_pct_cat_services",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.05,
+          "nonzero": 2215
+        },
+        {
+          "name": "pc_pct_cat_business",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.05,
+          "nonzero": 1888
+        },
+        {
+          "name": "pc_pct_cat_beauty_personal_care",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.02,
+          "nonzero": 1525
+        },
+        {
+          "name": "pc_pct_cat_education",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.04,
+          "nonzero": 1902
+        },
+        {
+          "name": "pc_pct_cat_health_medical",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.01,
+          "nonzero": 1311
+        },
+        {
+          "name": "pc_pct_cat_cafe_coffee",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.01,
+          "nonzero": 1454
+        },
+        {
+          "name": "pc_pct_cat_fitness_recreation",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.04,
+          "nonzero": 1950
+        },
+        {
+          "name": "pc_pct_cat_convenience_daily_needs",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.02,
+          "nonzero": 1557
+        },
+        {
+          "name": "pc_pct_cat_hawker_street_food",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.01,
+          "nonzero": 993
+        },
+        {
+          "name": "pc_pct_cat_automotive",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.01,
+          "nonzero": 1147
+        },
+        {
+          "name": "pc_pct_cat_transport",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.03,
+          "nonzero": 1749
+        },
+        {
+          "name": "pc_pct_cat_civic_government",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.04,
+          "nonzero": 1648
+        },
+        {
+          "name": "pc_pct_cat_bar_nightlife",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.01,
+          "nonzero": 1074
+        },
+        {
+          "name": "pc_pct_cat_fast_food_qsr",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.5,
+          "mean": 0.0,
+          "nonzero": 804
+        },
+        {
+          "name": "pc_pct_cat_residential",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.02,
+          "nonzero": 1259
+        },
+        {
+          "name": "pc_pct_cat_culture_entertainment",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.02,
+          "nonzero": 1125
+        },
+        {
+          "name": "pc_pct_cat_office_workspace",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.02,
+          "nonzero": 1067
+        },
+        {
+          "name": "pc_pct_cat_hospitality",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.01,
+          "nonzero": 951
+        },
+        {
+          "name": "pc_pct_cat_bakery_pastry",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.0,
+          "nonzero": 866
+        },
+        {
+          "name": "pc_pct_cat_general",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.02,
+          "nonzero": 1265
+        },
+        {
+          "name": "pc_pct_cat_religious",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.01,
+          "nonzero": 781
+        },
+        {
+          "name": "pc_pct_cat_ngo",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.01,
+          "nonzero": 637
+        },
+        {
+          "name": "pc_tier_luxury",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 112.0,
+          "mean": 0.24,
+          "nonzero": 388
+        },
+        {
+          "name": "pc_tier_premium",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 411.0,
+          "mean": 2.16,
+          "nonzero": 1985
+        },
+        {
+          "name": "pc_tier_mid",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 937.0,
+          "mean": 13.68,
+          "nonzero": 3435
+        },
+        {
+          "name": "pc_tier_value",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 335.0,
+          "mean": 6.39,
+          "nonzero": 3291
+        },
+        {
+          "name": "pc_tier_budget",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 22.0,
+          "mean": 0.67,
+          "nonzero": 2031
+        },
+        {
+          "name": "pc_pct_tier_luxury",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.0,
+          "nonzero": 388
+        },
+        {
+          "name": "pc_pct_tier_premium",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.04,
+          "nonzero": 1985
+        },
+        {
+          "name": "pc_pct_tier_mid",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.28,
+          "nonzero": 3435
+        },
+        {
+          "name": "pc_pct_tier_value",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.18,
+          "nonzero": 3291
+        },
+        {
+          "name": "pc_pct_tier_budget",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.04,
+          "nonzero": 2031
+        },
+        {
+          "name": "pc_unique_brands",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 194.0,
+          "mean": 1.48,
+          "nonzero": 1646
+        },
+        {
+          "name": "pc_branded_count",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 217.0,
+          "mean": 1.57,
+          "nonzero": 1646
+        },
+        {
+          "name": "pc_branded_pct",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.02,
+          "nonzero": 1646
+        },
+        {
+          "name": "pc_unique_place_types",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 288.0,
+          "mean": 11.75,
+          "nonzero": 3934
+        },
+        {
+          "name": "pc_cat_hhi",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.19,
+          "nonzero": 3934
+        },
+        {
+          "name": "pc_cat_entropy",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 2.89,
+          "mean": 0.83,
+          "nonzero": 3302
+        },
+        {
+          "name": "pc_seg_entropy",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 3.56,
+          "mean": 0.98,
+          "nonzero": 3344
+        }
+      ]
+    },
+    "micrograph": {
+      "count": 156,
+      "features": [
+        {
+          "name": "mg_cafe_n",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 71.0,
+          "mean": 0.88,
+          "nonzero": 1443
+        },
+        {
+          "name": "mg_cafe_cv_transit",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.96,
+          "mean": 0.12,
+          "nonzero": 1387
+        },
+        {
+          "name": "mg_cafe_cv_competitor",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.4,
+          "mean": 0.02,
+          "nonzero": 1397
+        },
+        {
+          "name": "mg_cafe_cv_complementary",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.72,
+          "mean": 0.03,
+          "nonzero": 1431
+        },
+        {
+          "name": "mg_cafe_cv_demand",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.02,
+          "nonzero": 1442
+        },
+        {
+          "name": "mg_cafe_anchor_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 25.0,
+          "mean": 4.61,
+          "nonzero": 1442
+        },
+        {
+          "name": "mg_cafe_comp_pressure",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.28,
+          "mean": 0.0,
+          "nonzero": 1397
+        },
+        {
+          "name": "mg_cafe_demand_diversity",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.79,
+          "mean": 0.31,
+          "nonzero": 1438
+        },
+        {
+          "name": "mg_cafe_walkability",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 400.8,
+          "mean": 20.8,
+          "nonzero": 1442
+        },
+        {
+          "name": "mg_cafe_pct_hyperdense",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.01,
+          "nonzero": 84
+        },
+        {
+          "name": "mg_cafe_pct_dense",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.04,
+          "nonzero": 365
+        },
+        {
+          "name": "mg_cafe_pct_moderate",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.07,
+          "nonzero": 637
+        },
+        {
+          "name": "mg_cafe_pct_sparse",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.09,
+          "nonzero": 725
+        },
+        {
+          "name": "mg_rest_n",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 200.0,
+          "mean": 2.2,
+          "nonzero": 1789
+        },
+        {
+          "name": "mg_rest_cv_transit",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.94,
+          "mean": 0.15,
+          "nonzero": 1688
+        },
+        {
+          "name": "mg_rest_cv_competitor",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.77,
+          "mean": 0.04,
+          "nonzero": 1738
+        },
+        {
+          "name": "mg_rest_cv_complementary",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.62,
+          "mean": 0.03,
+          "nonzero": 1766
+        },
+        {
+          "name": "mg_rest_cv_demand",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.03,
+          "nonzero": 1788
+        },
+        {
+          "name": "mg_rest_anchor_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 25.0,
+          "mean": 5.71,
+          "nonzero": 1788
+        },
+        {
+          "name": "mg_rest_comp_pressure",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.51,
+          "mean": 0.01,
+          "nonzero": 1738
+        },
+        {
+          "name": "mg_rest_demand_diversity",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.79,
+          "mean": 0.38,
+          "nonzero": 1780
+        },
+        {
+          "name": "mg_rest_walkability",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 399.7,
+          "mean": 26.91,
+          "nonzero": 1788
+        },
+        {
+          "name": "mg_rest_pct_hyperdense",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.01,
+          "nonzero": 84
+        },
+        {
+          "name": "mg_rest_pct_dense",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.04,
+          "nonzero": 404
+        },
+        {
+          "name": "mg_rest_pct_moderate",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.08,
+          "nonzero": 809
+        },
+        {
+          "name": "mg_rest_pct_sparse",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.12,
+          "nonzero": 1017
+        },
+        {
+          "name": "mg_hawk_n",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 87.0,
+          "mean": 0.82,
+          "nonzero": 1026
+        },
+        {
+          "name": "mg_hawk_cv_transit",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.87,
+          "mean": 0.09,
+          "nonzero": 1009
+        },
+        {
+          "name": "mg_hawk_cv_competitor",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.28,
+          "mean": 0.02,
+          "nonzero": 987
+        },
+        {
+          "name": "mg_hawk_cv_complementary",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.7,
+          "mean": 0.02,
+          "nonzero": 1022
+        },
+        {
+          "name": "mg_hawk_cv_demand",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.94,
+          "mean": 0.01,
+          "nonzero": 1026
+        },
+        {
+          "name": "mg_hawk_anchor_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 25.0,
+          "mean": 3.3,
+          "nonzero": 1026
+        },
+        {
+          "name": "mg_hawk_comp_pressure",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.08,
+          "mean": 0.0,
+          "nonzero": 987
+        },
+        {
+          "name": "mg_hawk_demand_diversity",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.79,
+          "mean": 0.22,
+          "nonzero": 1026
+        },
+        {
+          "name": "mg_hawk_walkability",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 289.8,
+          "mean": 11.97,
+          "nonzero": 1026
+        },
+        {
+          "name": "mg_hawk_pct_hyperdense",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.01,
+          "nonzero": 58
+        },
+        {
+          "name": "mg_hawk_pct_dense",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.03,
+          "nonzero": 265
+        },
+        {
+          "name": "mg_hawk_pct_moderate",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.06,
+          "nonzero": 499
+        },
+        {
+          "name": "mg_hawk_pct_sparse",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.05,
+          "nonzero": 379
+        },
+        {
+          "name": "mg_fast_n",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 36.0,
+          "mean": 0.44,
+          "nonzero": 854
+        },
+        {
+          "name": "mg_fast_cv_transit",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.89,
+          "mean": 0.07,
+          "nonzero": 835
+        },
+        {
+          "name": "mg_fast_cv_competitor",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.37,
+          "mean": 0.01,
+          "nonzero": 829
+        },
+        {
+          "name": "mg_fast_cv_complementary",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.74,
+          "mean": 0.02,
+          "nonzero": 852
+        },
+        {
+          "name": "mg_fast_cv_demand",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.01,
+          "nonzero": 854
+        },
+        {
+          "name": "mg_fast_anchor_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 25.0,
+          "mean": 2.76,
+          "nonzero": 854
+        },
+        {
+          "name": "mg_fast_comp_pressure",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.09,
+          "mean": 0.0,
+          "nonzero": 829
+        },
+        {
+          "name": "mg_fast_demand_diversity",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.79,
+          "mean": 0.19,
+          "nonzero": 853
+        },
+        {
+          "name": "mg_fast_walkability",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 277.1,
+          "mean": 9.76,
+          "nonzero": 854
+        },
+        {
+          "name": "mg_fast_pct_hyperdense",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.01,
+          "nonzero": 68
+        },
+        {
+          "name": "mg_fast_pct_dense",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.03,
+          "nonzero": 254
+        },
+        {
+          "name": "mg_fast_pct_moderate",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.05,
+          "nonzero": 402
+        },
+        {
+          "name": "mg_fast_pct_sparse",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.03,
+          "nonzero": 273
+        },
+        {
+          "name": "mg_bake_n",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 31.0,
+          "mean": 0.35,
+          "nonzero": 891
+        },
+        {
+          "name": "mg_bake_cv_transit",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.81,
+          "mean": 0.08,
+          "nonzero": 879
+        },
+        {
+          "name": "mg_bake_cv_competitor",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.29,
+          "mean": 0.01,
+          "nonzero": 852
+        },
+        {
+          "name": "mg_bake_cv_complementary",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.64,
+          "mean": 0.02,
+          "nonzero": 890
+        },
+        {
+          "name": "mg_bake_cv_demand",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.89,
+          "mean": 0.01,
+          "nonzero": 891
+        },
+        {
+          "name": "mg_bake_anchor_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 25.0,
+          "mean": 2.71,
+          "nonzero": 891
+        },
+        {
+          "name": "mg_bake_comp_pressure",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.1,
+          "mean": 0.0,
+          "nonzero": 852
+        },
+        {
+          "name": "mg_bake_demand_diversity",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.79,
+          "mean": 0.2,
+          "nonzero": 891
+        },
+        {
+          "name": "mg_bake_walkability",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 283.6,
+          "mean": 11.71,
+          "nonzero": 891
+        },
+        {
+          "name": "mg_bake_pct_hyperdense",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.01,
+          "nonzero": 60
+        },
+        {
+          "name": "mg_bake_pct_dense",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.03,
+          "nonzero": 240
+        },
+        {
+          "name": "mg_bake_pct_moderate",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.05,
+          "nonzero": 388
+        },
+        {
+          "name": "mg_bake_pct_sparse",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.04,
+          "nonzero": 346
+        },
+        {
+          "name": "mg_bar_n",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 69.0,
+          "mean": 0.44,
+          "nonzero": 1078
+        },
+        {
+          "name": "mg_bar_cv_transit",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.9,
+          "mean": 0.09,
+          "nonzero": 992
+        },
+        {
+          "name": "mg_bar_cv_competitor",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.01,
+          "nonzero": 980
+        },
+        {
+          "name": "mg_bar_cv_complementary",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.84,
+          "mean": 0.02,
+          "nonzero": 1051
+        },
+        {
+          "name": "mg_bar_cv_demand",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.02,
+          "nonzero": 1072
+        },
+        {
+          "name": "mg_bar_anchor_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 25.0,
+          "mean": 3.02,
+          "nonzero": 1074
+        },
+        {
+          "name": "mg_bar_comp_pressure",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.0,
+          "nonzero": 980
+        },
+        {
+          "name": "mg_bar_demand_diversity",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.79,
+          "mean": 0.23,
+          "nonzero": 1068
+        },
+        {
+          "name": "mg_bar_walkability",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 411.2,
+          "mean": 18.17,
+          "nonzero": 1074
+        },
+        {
+          "name": "mg_bar_pct_hyperdense",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.01,
+          "nonzero": 67
+        },
+        {
+          "name": "mg_bar_pct_dense",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.02,
+          "nonzero": 226
+        },
+        {
+          "name": "mg_bar_pct_moderate",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.04,
+          "nonzero": 347
+        },
+        {
+          "name": "mg_bar_pct_sparse",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.08,
+          "nonzero": 593
+        },
+        {
+          "name": "mg_beau_n",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 199.0,
+          "mean": 1.43,
+          "nonzero": 1491
+        },
+        {
+          "name": "mg_beau_cv_transit",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.99,
+          "mean": 0.15,
+          "nonzero": 1455
+        },
+        {
+          "name": "mg_beau_cv_competitor",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.59,
+          "mean": 0.03,
+          "nonzero": 1449
+        },
+        {
+          "name": "mg_beau_cv_complementary",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonzero": 0
+        },
+        {
+          "name": "mg_beau_cv_demand",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.03,
+          "nonzero": 1491
+        },
+        {
+          "name": "mg_beau_anchor_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 17.0,
+          "mean": 3.25,
+          "nonzero": 1491
+        },
+        {
+          "name": "mg_beau_comp_pressure",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.21,
+          "mean": 0.0,
+          "nonzero": 1449
+        },
+        {
+          "name": "mg_beau_demand_diversity",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.79,
+          "mean": 0.33,
+          "nonzero": 1490
+        },
+        {
+          "name": "mg_beau_walkability",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 337.8,
+          "mean": 20.77,
+          "nonzero": 1491
+        },
+        {
+          "name": "mg_beau_pct_hyperdense",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.01,
+          "nonzero": 79
+        },
+        {
+          "name": "mg_beau_pct_dense",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.04,
+          "nonzero": 381
+        },
+        {
+          "name": "mg_beau_pct_moderate",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.07,
+          "nonzero": 690
+        },
+        {
+          "name": "mg_beau_pct_sparse",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.09,
+          "nonzero": 791
+        },
+        {
+          "name": "mg_heal_n",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 196.0,
+          "mean": 0.76,
+          "nonzero": 1159
+        },
+        {
+          "name": "mg_heal_cv_transit",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.91,
+          "mean": 0.11,
+          "nonzero": 1141
+        },
+        {
+          "name": "mg_heal_cv_competitor",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.48,
+          "mean": 0.02,
+          "nonzero": 1116
+        },
+        {
+          "name": "mg_heal_cv_complementary",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.2,
+          "mean": 0.01,
+          "nonzero": 1016
+        },
+        {
+          "name": "mg_heal_cv_demand",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.02,
+          "nonzero": 1159
+        },
+        {
+          "name": "mg_heal_anchor_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 25.0,
+          "mean": 3.0,
+          "nonzero": 1159
+        },
+        {
+          "name": "mg_heal_comp_pressure",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.08,
+          "mean": 0.0,
+          "nonzero": 1116
+        },
+        {
+          "name": "mg_heal_demand_diversity",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.79,
+          "mean": 0.25,
+          "nonzero": 1158
+        },
+        {
+          "name": "mg_heal_walkability",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 428.3,
+          "mean": 19.38,
+          "nonzero": 1159
+        },
+        {
+          "name": "mg_heal_pct_hyperdense",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.01,
+          "nonzero": 79
+        },
+        {
+          "name": "mg_heal_pct_dense",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.03,
+          "nonzero": 325
+        },
+        {
+          "name": "mg_heal_pct_moderate",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.06,
+          "nonzero": 578
+        },
+        {
+          "name": "mg_heal_pct_sparse",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.06,
+          "nonzero": 481
+        },
+        {
+          "name": "mg_fitn_n",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 38.0,
+          "mean": 0.47,
+          "nonzero": 1358
+        },
+        {
+          "name": "mg_fitn_cv_transit",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.87,
+          "mean": 0.12,
+          "nonzero": 1287
+        },
+        {
+          "name": "mg_fitn_cv_competitor",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.89,
+          "mean": 0.02,
+          "nonzero": 1315
+        },
+        {
+          "name": "mg_fitn_cv_complementary",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.58,
+          "mean": 0.02,
+          "nonzero": 1326
+        },
+        {
+          "name": "mg_fitn_cv_demand",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.02,
+          "nonzero": 1358
+        },
+        {
+          "name": "mg_fitn_anchor_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 25.0,
+          "mean": 4.13,
+          "nonzero": 1358
+        },
+        {
+          "name": "mg_fitn_comp_pressure",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.47,
+          "mean": 0.0,
+          "nonzero": 1315
+        },
+        {
+          "name": "mg_fitn_demand_diversity",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.79,
+          "mean": 0.29,
+          "nonzero": 1353
+        },
+        {
+          "name": "mg_fitn_walkability",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 445.6,
+          "mean": 27.41,
+          "nonzero": 1358
+        },
+        {
+          "name": "mg_fitn_pct_hyperdense",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.01,
+          "nonzero": 67
+        },
+        {
+          "name": "mg_fitn_pct_dense",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.03,
+          "nonzero": 263
+        },
+        {
+          "name": "mg_fitn_pct_moderate",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.05,
+          "nonzero": 496
+        },
+        {
+          "name": "mg_fitn_pct_sparse",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1,
+          "nonzero": 792
+        },
+        {
+          "name": "mg_educ_n",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 76.0,
+          "mean": 1.15,
+          "nonzero": 1812
+        },
+        {
+          "name": "mg_educ_cv_transit",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.89,
+          "mean": 0.16,
+          "nonzero": 1748
+        },
+        {
+          "name": "mg_educ_cv_competitor",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.63,
+          "mean": 0.04,
+          "nonzero": 1774
+        },
+        {
+          "name": "mg_educ_cv_complementary",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.48,
+          "mean": 0.02,
+          "nonzero": 1765
+        },
+        {
+          "name": "mg_educ_cv_demand",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.03,
+          "nonzero": 1811
+        },
+        {
+          "name": "mg_educ_anchor_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 25.0,
+          "mean": 5.65,
+          "nonzero": 1811
+        },
+        {
+          "name": "mg_educ_comp_pressure",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.63,
+          "mean": 0.01,
+          "nonzero": 1774
+        },
+        {
+          "name": "mg_educ_demand_diversity",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.79,
+          "mean": 0.39,
+          "nonzero": 1807
+        },
+        {
+          "name": "mg_educ_walkability",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 412.5,
+          "mean": 36.15,
+          "nonzero": 1811
+        },
+        {
+          "name": "mg_educ_pct_hyperdense",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.01,
+          "nonzero": 79
+        },
+        {
+          "name": "mg_educ_pct_dense",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.03,
+          "nonzero": 340
+        },
+        {
+          "name": "mg_educ_pct_moderate",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.07,
+          "nonzero": 762
+        },
+        {
+          "name": "mg_educ_pct_sparse",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.14,
+          "nonzero": 1232
+        },
+        {
+          "name": "mg_shop_n",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 254.0,
+          "mean": 2.67,
+          "nonzero": 2281
+        },
+        {
+          "name": "mg_shop_cv_transit",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.94,
+          "mean": 0.18,
+          "nonzero": 2099
+        },
+        {
+          "name": "mg_shop_cv_competitor",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.93,
+          "mean": 0.06,
+          "nonzero": 2246
+        },
+        {
+          "name": "mg_shop_cv_complementary",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.42,
+          "mean": 0.03,
+          "nonzero": 2202
+        },
+        {
+          "name": "mg_shop_cv_demand",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.04,
+          "nonzero": 2278
+        },
+        {
+          "name": "mg_shop_anchor_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 25.0,
+          "mean": 7.05,
+          "nonzero": 2278
+        },
+        {
+          "name": "mg_shop_comp_pressure",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.78,
+          "mean": 0.01,
+          "nonzero": 2246
+        },
+        {
+          "name": "mg_shop_demand_diversity",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.79,
+          "mean": 0.49,
+          "nonzero": 2274
+        },
+        {
+          "name": "mg_shop_walkability",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 423.4,
+          "mean": 43.22,
+          "nonzero": 2278
+        },
+        {
+          "name": "mg_shop_pct_hyperdense",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.01,
+          "nonzero": 88
+        },
+        {
+          "name": "mg_shop_pct_dense",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.04,
+          "nonzero": 442
+        },
+        {
+          "name": "mg_shop_pct_moderate",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.08,
+          "nonzero": 908
+        },
+        {
+          "name": "mg_shop_pct_sparse",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.18,
+          "nonzero": 1577
+        },
+        {
+          "name": "mg_conv_n",
+          "dtype": "int64",
+          "min": 0.0,
+          "max": 39.0,
+          "mean": 0.86,
+          "nonzero": 1579
+        },
+        {
+          "name": "mg_conv_cv_transit",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.94,
+          "mean": 0.16,
+          "nonzero": 1539
+        },
+        {
+          "name": "mg_conv_cv_competitor",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.56,
+          "mean": 0.03,
+          "nonzero": 1544
+        },
+        {
+          "name": "mg_conv_cv_complementary",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonzero": 0
+        },
+        {
+          "name": "mg_conv_cv_demand",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.03,
+          "nonzero": 1579
+        },
+        {
+          "name": "mg_conv_anchor_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 17.0,
+          "mean": 3.42,
+          "nonzero": 1579
+        },
+        {
+          "name": "mg_conv_comp_pressure",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.19,
+          "mean": 0.0,
+          "nonzero": 1544
+        },
+        {
+          "name": "mg_conv_demand_diversity",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.79,
+          "mean": 0.34,
+          "nonzero": 1578
+        },
+        {
+          "name": "mg_conv_walkability",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 383.8,
+          "mean": 24.45,
+          "nonzero": 1579
+        },
+        {
+          "name": "mg_conv_pct_hyperdense",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.01,
+          "nonzero": 72
+        },
+        {
+          "name": "mg_conv_pct_dense",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.04,
+          "nonzero": 351
+        },
+        {
+          "name": "mg_conv_pct_moderate",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.07,
+          "nonzero": 700
+        },
+        {
+          "name": "mg_conv_pct_sparse",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1,
+          "nonzero": 871
+        }
+      ]
+    },
+    "spatial_max": {
+      "count": 31,
+      "features": [
+        {
+          "name": "sp_max_population",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 10175.19,
+          "mean": 892.28,
+          "nonzero": 2863
+        },
+        {
+          "name": "sp_max_elderly_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1921.35,
+          "mean": 173.16,
+          "nonzero": 2863
+        },
+        {
+          "name": "sp_max_children_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1743.42,
+          "mean": 114.98,
+          "nonzero": 2827
+        },
+        {
+          "name": "sp_max_walking_dependent_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 3172.66,
+          "mean": 288.13,
+          "nonzero": 2863
+        },
+        {
+          "name": "sp_max_bldg_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 350.0,
+          "mean": 43.26,
+          "nonzero": 6788
+        },
+        {
+          "name": "sp_max_hdb_blocks",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 27.0,
+          "mean": 3.1,
+          "nonzero": 2244
+        },
+        {
+          "name": "sp_max_bldg_footprint_sqm",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 213913.48,
+          "mean": 32927.93,
+          "nonzero": 6788
+        },
+        {
+          "name": "sp_max_residential_floor_area_sqm",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 548349.25,
+          "mean": 51938.5,
+          "nonzero": 3100
+        },
+        {
+          "name": "sp_max_mrt_stations",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 3.0,
+          "mean": 0.29,
+          "nonzero": 1685
+        },
+        {
+          "name": "sp_max_bus_stops",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 13.0,
+          "mean": 1.57,
+          "nonzero": 4189
+        },
+        {
+          "name": "sp_max_pc_total",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1356.0,
+          "mean": 213.66,
+          "nonzero": 6877
+        },
+        {
+          "name": "sp_max_pc_cat_restaurant",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 243.0,
+          "mean": 29.87,
+          "nonzero": 5017
+        },
+        {
+          "name": "sp_max_pc_cat_cafe_coffee",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 68.0,
+          "mean": 7.98,
+          "nonzero": 4774
+        },
+        {
+          "name": "sp_max_pc_cat_shopping_retail",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 376.0,
+          "mean": 39.7,
+          "nonzero": 5477
+        },
+        {
+          "name": "sp_max_pc_cat_hawker_street_food",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 88.0,
+          "mean": 6.52,
+          "nonzero": 3856
+        },
+        {
+          "name": "sp_max_pc_cat_health_medical",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 255.0,
+          "mean": 9.44,
+          "nonzero": 4267
+        },
+        {
+          "name": "sp_max_pc_cat_education",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 91.0,
+          "mean": 9.13,
+          "nonzero": 4406
+        },
+        {
+          "name": "sp_max_pc_cat_office_workspace",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 27.0,
+          "mean": 2.33,
+          "nonzero": 3472
+        },
+        {
+          "name": "sp_max_pc_cat_bar_nightlife",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 65.0,
+          "mean": 2.48,
+          "nonzero": 3328
+        },
+        {
+          "name": "sp_max_pc_unique_brands",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 194.0,
+          "mean": 23.75,
+          "nonzero": 4625
+        },
+        {
+          "name": "sp_max_pc_cat_entropy",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 2.75,
+          "mean": 1.73,
+          "nonzero": 6335
+        },
+        {
+          "name": "sp_max_lu_residential_pct",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.12,
+          "nonzero": 2892
+        },
+        {
+          "name": "sp_max_lu_commercial_pct",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.93,
+          "mean": 0.12,
+          "nonzero": 2990
+        },
+        {
+          "name": "sp_max_lu_business_pct",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.2,
+          "nonzero": 2596
+        },
+        {
+          "name": "sp_max_avg_gpr",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 14.7,
+          "mean": 2.01,
+          "nonzero": 5078
+        },
+        {
+          "name": "sp_max_mg_mean_transit",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.09,
+          "nonzero": 2702
+        },
+        {
+          "name": "sp_max_mg_mean_competitor",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.36,
+          "nonzero": 4864
+        },
+        {
+          "name": "sp_max_mg_mean_complementary",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.08,
+          "nonzero": 3655
+        },
+        {
+          "name": "sp_max_mg_mean_demand",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.14,
+          "nonzero": 4242
+        },
+        {
+          "name": "sp_max_mg_mean_anchor_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 16.95,
+          "mean": 6.59,
+          "nonzero": 5147
+        },
+        {
+          "name": "sp_max_distance_rings",
+          "dtype": "float64",
+          "min": 1.0,
+          "max": 5.0,
+          "mean": 3.62,
+          "nonzero": 7318
+        }
+      ]
+    },
+    "spatial_pw": {
+      "count": 30,
+      "features": [
+        {
+          "name": "sp_pw_population",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 5512.91,
+          "mean": 995.19,
+          "nonzero": 4456
+        },
+        {
+          "name": "sp_pw_elderly_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1057.31,
+          "mean": 184.8,
+          "nonzero": 4456
+        },
+        {
+          "name": "sp_pw_children_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 995.35,
+          "mean": 134.39,
+          "nonzero": 4446
+        },
+        {
+          "name": "sp_pw_walking_dependent_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1742.81,
+          "mean": 319.18,
+          "nonzero": 4456
+        },
+        {
+          "name": "sp_pw_bldg_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 211.55,
+          "mean": 46.34,
+          "nonzero": 6741
+        },
+        {
+          "name": "sp_pw_hdb_blocks",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 19.71,
+          "mean": 3.41,
+          "nonzero": 3896
+        },
+        {
+          "name": "sp_pw_bldg_footprint_sqm",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 106219.81,
+          "mean": 26040.3,
+          "nonzero": 6741
+        },
+        {
+          "name": "sp_pw_residential_floor_area_sqm",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 264448.31,
+          "mean": 56085.52,
+          "nonzero": 5065
+        },
+        {
+          "name": "sp_pw_mrt_stations",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.16,
+          "mean": 0.1,
+          "nonzero": 3796
+        },
+        {
+          "name": "sp_pw_bus_stops",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 4.7,
+          "mean": 1.27,
+          "nonzero": 5464
+        },
+        {
+          "name": "sp_pw_pc_total",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 838.56,
+          "mean": 87.0,
+          "nonzero": 6877
+        },
+        {
+          "name": "sp_pw_pc_cat_restaurant",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 133.29,
+          "mean": 11.34,
+          "nonzero": 5688
+        },
+        {
+          "name": "sp_pw_pc_cat_cafe_coffee",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 38.43,
+          "mean": 3.35,
+          "nonzero": 5614
+        },
+        {
+          "name": "sp_pw_pc_cat_shopping_retail",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 186.36,
+          "mean": 15.29,
+          "nonzero": 5975
+        },
+        {
+          "name": "sp_pw_pc_cat_hawker_street_food",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 26.42,
+          "mean": 2.92,
+          "nonzero": 4987
+        },
+        {
+          "name": "sp_pw_pc_cat_health_medical",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 97.05,
+          "mean": 4.06,
+          "nonzero": 5145
+        },
+        {
+          "name": "sp_pw_pc_cat_education",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 44.42,
+          "mean": 4.37,
+          "nonzero": 5764
+        },
+        {
+          "name": "sp_pw_pc_cat_office_workspace",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 12.62,
+          "mean": 1.18,
+          "nonzero": 5663
+        },
+        {
+          "name": "sp_pw_pc_cat_bar_nightlife",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 28.92,
+          "mean": 1.35,
+          "nonzero": 5804
+        },
+        {
+          "name": "sp_pw_pc_unique_brands",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 78.46,
+          "mean": 7.27,
+          "nonzero": 5281
+        },
+        {
+          "name": "sp_pw_pc_cat_entropy",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 2.5,
+          "mean": 1.54,
+          "nonzero": 6348
+        },
+        {
+          "name": "sp_pw_lu_residential_pct",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.73,
+          "mean": 0.18,
+          "nonzero": 4389
+        },
+        {
+          "name": "sp_pw_lu_commercial_pct",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.58,
+          "mean": 0.05,
+          "nonzero": 4634
+        },
+        {
+          "name": "sp_pw_lu_business_pct",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.2,
+          "nonzero": 4857
+        },
+        {
+          "name": "sp_pw_avg_gpr",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 13.32,
+          "mean": 1.63,
+          "nonzero": 5497
+        },
+        {
+          "name": "sp_pw_mg_mean_transit",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.7,
+          "mean": 0.05,
+          "nonzero": 4073
+        },
+        {
+          "name": "sp_pw_mg_mean_competitor",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.91,
+          "mean": 0.34,
+          "nonzero": 5227
+        },
+        {
+          "name": "sp_pw_mg_mean_complementary",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.65,
+          "mean": 0.07,
+          "nonzero": 4383
+        },
+        {
+          "name": "sp_pw_mg_mean_demand",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.89,
+          "mean": 0.15,
+          "nonzero": 4924
+        },
+        {
+          "name": "sp_pw_mg_mean_anchor_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 14.79,
+          "mean": 5.11,
+          "nonzero": 5530
+        }
+      ]
+    },
+    "transit_reach_max": {
+      "count": 30,
+      "features": [
+        {
+          "name": "tr_max_population",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 8832.43,
+          "mean": 1393.44,
+          "nonzero": 3814
+        },
+        {
+          "name": "tr_max_elderly_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1921.35,
+          "mean": 291.15,
+          "nonzero": 3814
+        },
+        {
+          "name": "tr_max_children_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1095.62,
+          "mean": 165.67,
+          "nonzero": 3803
+        },
+        {
+          "name": "tr_max_walking_dependent_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 3016.97,
+          "mean": 456.82,
+          "nonzero": 3814
+        },
+        {
+          "name": "tr_max_bldg_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 284.0,
+          "mean": 32.35,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_max_hdb_blocks",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 20.0,
+          "mean": 4.04,
+          "nonzero": 3733
+        },
+        {
+          "name": "tr_max_bldg_footprint_sqm",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 81558.08,
+          "mean": 46654.87,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_max_residential_floor_area_sqm",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 548349.25,
+          "mean": 86896.19,
+          "nonzero": 4388
+        },
+        {
+          "name": "tr_max_mrt_stations",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 2.0,
+          "mean": 0.94,
+          "nonzero": 5651
+        },
+        {
+          "name": "tr_max_bus_stops",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 13.0,
+          "mean": 3.07,
+          "nonzero": 6828
+        },
+        {
+          "name": "tr_max_pc_total",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1356.0,
+          "mean": 566.28,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_max_pc_cat_restaurant",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 219.0,
+          "mean": 86.36,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_max_pc_cat_cafe_coffee",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 68.0,
+          "mean": 22.31,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_max_pc_cat_shopping_retail",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 376.0,
+          "mean": 109.39,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_max_pc_cat_hawker_street_food",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 47.0,
+          "mean": 10.9,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_max_pc_cat_health_medical",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 134.0,
+          "mean": 27.87,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_max_pc_cat_education",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 55.0,
+          "mean": 21.73,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_max_pc_cat_office_workspace",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 26.0,
+          "mean": 5.11,
+          "nonzero": 4866
+        },
+        {
+          "name": "tr_max_pc_cat_bar_nightlife",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 29.0,
+          "mean": 6.53,
+          "nonzero": 5155
+        },
+        {
+          "name": "tr_max_pc_unique_brands",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 194.0,
+          "mean": 76.97,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_max_pc_cat_entropy",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 2.57,
+          "mean": 2.18,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_max_lu_residential_pct",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.66,
+          "mean": 0.14,
+          "nonzero": 4464
+        },
+        {
+          "name": "tr_max_lu_commercial_pct",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.93,
+          "mean": 0.29,
+          "nonzero": 5518
+        },
+        {
+          "name": "tr_max_lu_business_pct",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.72,
+          "mean": 0.13,
+          "nonzero": 2035
+        },
+        {
+          "name": "tr_max_avg_gpr",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 14.7,
+          "mean": 4.4,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_max_mg_mean_transit",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.45,
+          "mean": 0.22,
+          "nonzero": 6264
+        },
+        {
+          "name": "tr_max_mg_mean_competitor",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.89,
+          "mean": 0.37,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_max_mg_mean_complementary",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.33,
+          "mean": 0.15,
+          "nonzero": 5967
+        },
+        {
+          "name": "tr_max_mg_mean_demand",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.39,
+          "mean": 0.15,
+          "nonzero": 6476
+        },
+        {
+          "name": "tr_max_mg_mean_anchor_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 16.95,
+          "mean": 12.77,
+          "nonzero": 6977
+        }
+      ]
+    },
+    "transit_reach_pw": {
+      "count": 30,
+      "features": [
+        {
+          "name": "tr_pw_population",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 4380.33,
+          "mean": 1925.25,
+          "nonzero": 6468
+        },
+        {
+          "name": "tr_pw_elderly_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 687.25,
+          "mean": 363.78,
+          "nonzero": 6468
+        },
+        {
+          "name": "tr_pw_children_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 776.49,
+          "mean": 249.65,
+          "nonzero": 6468
+        },
+        {
+          "name": "tr_pw_walking_dependent_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 1334.55,
+          "mean": 613.43,
+          "nonzero": 6468
+        },
+        {
+          "name": "tr_pw_bldg_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 102.26,
+          "mean": 54.18,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_pw_hdb_blocks",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 15.43,
+          "mean": 6.8,
+          "nonzero": 6468
+        },
+        {
+          "name": "tr_pw_bldg_footprint_sqm",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 47492.19,
+          "mean": 35116.48,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_pw_residential_floor_area_sqm",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 218823.09,
+          "mean": 105403.25,
+          "nonzero": 6468
+        },
+        {
+          "name": "tr_pw_mrt_stations",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.49,
+          "mean": 0.23,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_pw_bus_stops",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 3.14,
+          "mean": 2.27,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_pw_pc_total",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 582.31,
+          "mean": 174.31,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_pw_pc_cat_restaurant",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 95.79,
+          "mean": 24.08,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_pw_pc_cat_cafe_coffee",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 24.74,
+          "mean": 6.73,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_pw_pc_cat_shopping_retail",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 101.65,
+          "mean": 32.52,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_pw_pc_cat_hawker_street_food",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 12.84,
+          "mean": 5.76,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_pw_pc_cat_health_medical",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 37.99,
+          "mean": 9.41,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_pw_pc_cat_education",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 22.38,
+          "mean": 8.79,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_pw_pc_cat_office_workspace",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 5.4,
+          "mean": 1.79,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_pw_pc_cat_bar_nightlife",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 19.09,
+          "mean": 2.78,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_pw_pc_unique_brands",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 40.63,
+          "mean": 17.02,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_pw_pc_cat_entropy",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 2.45,
+          "mean": 2.14,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_pw_lu_residential_pct",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.52,
+          "mean": 0.3,
+          "nonzero": 6468
+        },
+        {
+          "name": "tr_pw_lu_commercial_pct",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.33,
+          "mean": 0.11,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_pw_lu_business_pct",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.75,
+          "mean": 0.15,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_pw_avg_gpr",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 5.53,
+          "mean": 2.67,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_pw_mg_mean_transit",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.24,
+          "mean": 0.12,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_pw_mg_mean_competitor",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.57,
+          "mean": 0.46,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_pw_mg_mean_complementary",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.19,
+          "mean": 0.1,
+          "nonzero": 6468
+        },
+        {
+          "name": "tr_pw_mg_mean_demand",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 0.28,
+          "mean": 0.2,
+          "nonzero": 6977
+        },
+        {
+          "name": "tr_pw_mg_mean_anchor_count",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 13.86,
+          "mean": 9.15,
+          "nonzero": 6977
+        }
+      ]
+    },
+    "transit_reach_other": {
+      "count": 2,
+      "features": [
+        {
+          "name": "tr_nearest_station_rings",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 999.0,
+          "mean": 53.98,
+          "nonzero": 7109
+        },
+        {
+          "name": "tr_reachable_hexes",
+          "dtype": "float64",
+          "min": 0.0,
+          "max": 628.0,
+          "mean": 215.38,
+          "nonzero": 6977
+        }
+      ]
+    }
+  }
+}

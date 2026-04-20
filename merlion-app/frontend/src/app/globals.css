@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body { height: 100%; }
+body {
+  background: #0D1F21;
+  color: #fff;
+  font-family: Inter, "Segoe UI", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #0D1F21; }
+::-webkit-scrollbar-thumb { background: rgba(32,178,170,0.25); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(32,178,170,0.5); }
+
+.glass {
+  background: rgba(17, 40, 42, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(32,178,170,0.18);
+}
+
+@keyframes pulseRing {
+  0% { box-shadow: 0 0 0 0 rgba(32,178,170,0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(32,178,170,0); }
+  100% { box-shadow: 0 0 0 0 rgba(32,178,170,0); }
+}
+.live-dot { animation: pulseRing 1.6s cubic-bezier(0.4,0,0.6,1) infinite; }

@@ -1,20 +1,19 @@
 #!/usr/bin/env python3
 """
-Digital Atlas SGP — Micrograph Pipeline
+Digital Atlas SGP — Micrograph Pipeline v3
 Builds per-place micro-graphs for all categories.
 
 Steps:
-1. Load data
-2. Build OSM walk network
-3. Detect anchors (MRT, hawker centres, malls, HDB)
+1. Load data (places, MRT, bus stops, hawker centres)
+2. Detect anchors (MRT, bus interchanges, hawker centres, malls, schools, HDB)
+3. Build dynamic tier mapping per category using COMPETITION_SETS
 4. Classify places into tiers
-5. Snap to OSM network
-6. Compute density bands
-7. Build micro-graphs (star-graph per place)
-8. Compute derived scores
-9. Output JSONL + GeoJSON + stats
+5. Compute density bands
+6. Build micro-graphs (star-graph per place)
+7. Compute derived scores
+8. Output JSONL + slim JSON + per-subzone details + stats
 
-Run: python3 run_pipeline.py [--category cafe] [--limit 100]
+Run: python3 run_pipeline.py [--category cafe] [--limit 100] [--all]
 """
 import json, os, sys, time, argparse
 import numpy as np
@@ -30,6 +29,23 @@ from config import *
 
 def log_msg(msg):
     print("[%s] %s" % (time.strftime("%H:%M:%S"), msg), flush=True)
+
+import re
+
+def clean_address(addr):
+    """Clean address: remove 'Singapore', postal-only junk, plus codes."""
+    if not addr:
+        return ""
+    # Remove plus codes (e.g., "6PH5+XX Singapore")
+    addr = re.sub(r'\b[23456789CFGHJMPQRVWX]{4}\+[23456789CFGHJMPQRVWX]{2,3}\b\s*', '', addr)
+    # Remove ", Singapore XXXXXX" or "Singapore XXXXXX" at end
+    addr = re.sub(r',?\s*Singapore\s*\d*\s*$', '', addr, flags=re.IGNORECASE)
+    # Remove standalone "Singapore" anywhere
+    addr = re.sub(r'\bSingapore\b', '', addr, flags=re.IGNORECASE)
+    # Clean up extra commas, spaces
+    addr = re.sub(r'\s*,\s*,\s*', ', ', addr)
+    addr = re.sub(r'\s+', ' ', addr).strip().strip(',').strip()
+    return addr
 
 def haversine_m(lat1, lon1, lat2, lon2):
     R = EARTH_RADIUS_M
@@ -56,20 +72,62 @@ def load_mrt_stations():
     for _, row in mrt.iterrows():
         c = row.geometry.centroid
         if c and not c.is_empty:
-            name_col = [col for col in mrt.columns if "STN_NAM" in col.upper() or "STATION" in col.upper() or "NAME" in col.upper()]
-            name = row[name_col[0]] if name_col else "MRT Station"
+            # STN_NAM_DE has full name ("HOUGANG MRT STATION"), STN_NAM is often None
+            name = None
+            for col in ["STN_NAM_DE", "STN_NAM", "STATION", "NAME"]:
+                if col in mrt.columns and row.get(col):
+                    name = str(row[col]).strip()
+                    # Clean up: "HOUGANG MRT STATION" -> "Hougang"
+                    name = name.replace(" MRT STATION", "").replace(" LRT STATION", "").title()
+                    break
+            if not name:
+                name = "MRT Station"
+            stn_type = str(row.get("TYP_CD_DES", "")).upper()
+            if "LRT" in stn_type:
+                atype = "mrt_minor"
+            else:
+                atype = "mrt_standard"
             stations.append({
                 "anchor_id": "mrt_%d" % len(stations),
                 "name": name,
-                "anchor_type": "mrt_standard",  # default, upgrade later if we get ridership
+                "anchor_type": atype,
                 "latitude": c.y,
                 "longitude": c.x,
-                "radius_m": ANCHOR_SCALE["mrt_standard"]["radius_m"],
-                "daily_flow": ANCHOR_FLOW_TIERS["mrt_standard"],
+                "radius_m": ANCHOR_SCALE[atype]["radius_m"],
+                "daily_flow": ANCHOR_FLOW_TIERS[atype],
                 "directional": True,
             })
-    log_msg("  %d MRT stations" % len(stations))
+    log_msg("  %d MRT stations (%d LRT)" % (len(stations), sum(1 for s in stations if s["anchor_type"]=="mrt_minor")))
     return stations
+
+def load_bus_interchanges():
+    """Load bus stops and filter for interchanges/terminals only."""
+    log_msg("Loading bus interchanges...")
+    if not os.path.exists(BUS_FILE):
+        log_msg("  SKIP: bus file not found")
+        return []
+    bus = gpd.read_file(BUS_FILE)
+    interchanges = []
+    for _, row in bus.iterrows():
+        c = row.geometry
+        if c is None or c.is_empty:
+            continue
+        pt = c.centroid if c.geom_type != "Point" else c
+        desc = str(row.get("LOC_DESC", "")).upper()
+        # Only keep interchanges and terminals
+        if any(kw in desc for kw in BUS_INTERCHANGE_KEYWORDS):
+            interchanges.append({
+                "anchor_id": "bus_%s" % row.get("BUS_STOP_N", len(interchanges)),
+                "name": row.get("LOC_DESC", "Bus Interchange"),
+                "anchor_type": "bus_interchange",
+                "latitude": pt.y,
+                "longitude": pt.x,
+                "radius_m": ANCHOR_SCALE["bus_interchange"]["radius_m"],
+                "daily_flow": ANCHOR_FLOW_TIERS["bus_interchange"],
+                "directional": True,
+            })
+    log_msg("  %d bus interchanges (of %d total stops)" % (len(interchanges), len(bus)))
+    return interchanges
 
 def load_hawker_centres():
     log_msg("Loading hawker centres...")
@@ -106,7 +164,6 @@ class SpatialIndex:
         self.lons = np.array(lons, dtype=np.float64)
         self.records = records or [None] * len(ids)
 
-        # Equirectangular projection (valid near equator for SGP)
         self.x = self.lons * M_PER_DEG_LNG
         self.y = self.lats * M_PER_DEG_LAT
         self.tree = cKDTree(np.column_stack([self.x, self.y]))
@@ -129,18 +186,17 @@ class SpatialIndex:
 # ============================================================
 # STEP 3: DETECT ANCHORS
 # ============================================================
-def detect_anchors(places, mrt_stations, hawker_centres):
+def detect_anchors(places, mrt_stations, hawker_centres, bus_interchanges):
     log_msg("Detecting anchors from places...")
-    anchors = list(mrt_stations) + list(hawker_centres)
+    anchors = list(mrt_stations) + list(hawker_centres) + list(bus_interchanges)
 
     for p in places:
         pt = p.get("place_type", "")
         reviews = p.get("review_count", 0) or 0
-        rating = p.get("rating", 0) or 0
         name = p.get("name", "")
 
         # Shopping malls
-        if pt == "Shopping Mall" and reviews >= 100:
+        if pt == "Shopping Mall" and reviews >= 50:
             anchors.append({
                 "anchor_id": "mall_%s" % p["id"],
                 "name": name, "anchor_type": "shopping_mall",
@@ -151,7 +207,7 @@ def detect_anchors(places, mrt_stations, hawker_centres):
             })
 
         # Supermarkets
-        elif pt == "Supermarket" and reviews >= 50:
+        elif pt == "Supermarket" and reviews >= 30:
             anchors.append({
                 "anchor_id": "super_%s" % p["id"],
                 "name": name, "anchor_type": "supermarket",
@@ -162,7 +218,7 @@ def detect_anchors(places, mrt_stations, hawker_centres):
             })
 
         # Hospitals
-        elif pt == "Hospital" and reviews >= 50:
+        elif pt == "Hospital" and reviews >= 30:
             anchors.append({
                 "anchor_id": "hosp_%s" % p["id"],
                 "name": name, "anchor_type": "hospital",
@@ -173,13 +229,46 @@ def detect_anchors(places, mrt_stations, hawker_centres):
             })
 
         # Universities
-        elif pt == "University" and reviews >= 30:
+        elif pt == "University" and reviews >= 20:
             anchors.append({
                 "anchor_id": "uni_%s" % p["id"],
                 "name": name, "anchor_type": "university",
                 "latitude": p["latitude"], "longitude": p["longitude"],
                 "radius_m": ANCHOR_SCALE["university"]["radius_m"],
                 "daily_flow": ANCHOR_FLOW_TIERS["university"],
+                "directional": False, "reviews": reviews,
+            })
+
+        # Schools (primary, secondary, international)
+        elif pt in ("Primary School", "Secondary School", "International School") and reviews >= 10:
+            anchors.append({
+                "anchor_id": "school_%s" % p["id"],
+                "name": name, "anchor_type": "school",
+                "latitude": p["latitude"], "longitude": p["longitude"],
+                "radius_m": ANCHOR_SCALE["school"]["radius_m"],
+                "daily_flow": ANCHOR_FLOW_TIERS["school"],
+                "directional": False, "reviews": reviews,
+            })
+
+        # HDB blocks (residential clusters) — use HDB places with any reviews
+        elif pt == "HDB" and reviews >= 5:
+            anchors.append({
+                "anchor_id": "hdb_%s" % p["id"],
+                "name": name, "anchor_type": "hdb_cluster",
+                "latitude": p["latitude"], "longitude": p["longitude"],
+                "radius_m": ANCHOR_SCALE["hdb_cluster"]["radius_m"],
+                "daily_flow": ANCHOR_FLOW_TIERS["hdb_cluster"],
+                "directional": False, "reviews": reviews,
+            })
+
+        # Office buildings/clusters
+        elif pt in ("Office", "Office Building") and reviews >= 20:
+            anchors.append({
+                "anchor_id": "office_%s" % p["id"],
+                "name": name, "anchor_type": "office_cluster",
+                "latitude": p["latitude"], "longitude": p["longitude"],
+                "radius_m": ANCHOR_SCALE["office_cluster"]["radius_m"],
+                "daily_flow": ANCHOR_FLOW_TIERS["office_cluster"],
                 "directional": False, "reviews": reviews,
             })
 
@@ -191,18 +280,13 @@ def detect_anchors(places, mrt_stations, hawker_centres):
     return anchors
 
 # ============================================================
-# STEP 4: CLASSIFY PLACES INTO TIERS
+# STEP 4: CLASSIFY PLACES INTO TIERS (DYNAMIC)
 # ============================================================
-def classify_places(places, category="cafe"):
-    """Classify each place into tier 1-4 or None (excluded)"""
-    log_msg("Classifying places for '%s' pipeline..." % category)
+def classify_places(places, category):
+    """Classify each place into tier 1-4 or None using dynamic tier mapping."""
+    log_msg("Classifying places for '%s' pipeline (dynamic)..." % category)
 
-    if category == "cafe":
-        cat_tier = CAFE_CATEGORY_TO_TIER
-        brand_tier = CAFE_BRAND_TO_TIER
-    else:
-        cat_tier = CAFE_CATEGORY_TO_TIER  # reuse for now
-        brand_tier = CAFE_BRAND_TO_TIER
+    tier_mapping = build_tier_mapping(category)
 
     tiers = []
     for p in places:
@@ -210,29 +294,36 @@ def classify_places(places, category="cafe"):
         pt = p.get("place_type", "")
 
         # Brand override first
-        if brand and brand in brand_tier:
-            tiers.append(brand_tier[brand])
+        brand_tier = get_brand_tier(brand, category) if brand else None
+        if brand_tier is not None:
+            tiers.append(brand_tier)
             continue
 
-        # Place type match
-        if pt in cat_tier:
-            tiers.append(cat_tier[pt])
+        # Place type mapping
+        if pt in tier_mapping:
+            tiers.append(tier_mapping[pt])
             continue
 
-        # Main category fallback
+        # Main category fallback for demand magnets
         mc = p.get("main_category", "")
-        if mc in ("Office & Workspace",):
+        if mc in ("Office & Workspace", "Business"):
             tiers.append(4)
         elif mc in ("Education",):
             tiers.append(4)
+        elif mc in ("Residential",):
+            tiers.append(4)
         elif mc in ("Shopping & Retail",):
+            tiers.append(4)
+        elif mc in ("Civic & Government",):
+            tiers.append(4)
+        elif mc in ("Hospitality",):
             tiers.append(4)
         else:
             tiers.append(None)
 
     counts = Counter(t for t in tiers if t is not None)
     excluded = sum(1 for t in tiers if t is None)
-    log_msg("  T1(transit): via anchors, T2: %d, T3: %d, T4: %d, excluded: %d" %
+    log_msg("  T2 (competitors): %d, T3 (complementary): %d, T4 (demand): %d, excluded: %d" %
             (counts.get(2, 0), counts.get(3, 0), counts.get(4, 0), excluded))
 
     return tiers
@@ -241,7 +332,6 @@ def classify_places(places, category="cafe"):
 # STEP 5: COMPUTE DENSITY BANDS
 # ============================================================
 def compute_density_bands(places, place_index):
-    """Assign density band per place based on nearby place count within 200m"""
     log_msg("Computing density bands...")
     bands = []
     for p in places:
@@ -276,13 +366,12 @@ def build_micro_graph(target_place, target_idx, density_band,
                       places, tiers, place_index,
                       anchors, anchor_index,
                       target_category="cafe"):
-    """Build star-graph for one target place"""
+    """Build star-graph for one target place."""
 
     budgets = TIER_BUDGETS[density_band]
     quotas = TIER_QUOTAS
     max_budget = max(budgets.values())
 
-    # Walk distance ≈ walk time (at 1.34 m/s)
     max_radius_m = max_budget * OSM_WALK_SPEED_MS
 
     # Find nearby places
@@ -296,7 +385,7 @@ def build_micro_graph(target_place, target_idx, density_band,
     selected = {1: [], 2: [], 3: [], 4: []}
     eligible_counts = {1: 0, 2: 0, 3: 0, 4: 0}
 
-    # T1: Anchors (MRT, hawker centres, malls...)
+    # T1: Anchors (MRT, bus interchanges, hawker centres, malls...)
     for idx, dist_m in nearby_anchors:
         anchor = anchor_index.get_record(idx)
         if dist_m > anchor.get("radius_m", 300):
@@ -329,6 +418,11 @@ def build_micro_graph(target_place, target_idx, density_band,
             "daily_flow": flow,
         })
 
+    # Build set of T1 anchor locations for deduplication
+    t1_locs = set()
+    for a in selected[1]:
+        t1_locs.add((round(a["latitude"], 5), round(a["longitude"], 5)))
+
     # T2, T3, T4: Places
     for idx, dist_m in nearby_places:
         if idx == target_idx:
@@ -340,6 +434,12 @@ def build_micro_graph(target_place, target_idx, density_band,
         p = places[idx]
         reviews = p.get("review_count", 0) or 0
         rating = p.get("rating", 0) or 0
+
+        # Skip T4 places that duplicate a T1 anchor (same location)
+        if tier == 4:
+            p_loc = (round(p["latitude"], 5), round(p["longitude"], 5))
+            if p_loc in t1_locs:
+                continue
 
         if reviews < MIN_REVIEWS and tier != 4:
             continue
@@ -360,7 +460,9 @@ def build_micro_graph(target_place, target_idx, density_band,
         magnitude = log(1 + reviews) * (rating / 5.0) if reviews > 0 and rating > 0 else 0.1
         raw_weight = decay * TIER_IMPORTANCE[tier] * magnitude
 
-        if raw_weight < EDGE_WEIGHT_MIN:
+        # Higher minimum weight for T4 to filter noise
+        min_w = EDGE_WEIGHT_MIN * 3 if tier == 4 else EDGE_WEIGHT_MIN
+        if raw_weight < min_w:
             continue
 
         selected[tier].append({
@@ -388,7 +490,10 @@ def build_micro_graph(target_place, target_idx, density_band,
         selected[2].sort(key=lambda x: x["walk_time_s"])
 
     # Merge all anchors
-    all_anchors = selected[1] + selected[2][:quotas[2]["max"]] + selected[3][:quotas[3]["max"]] + selected[4][:quotas[4]["max"]]
+    all_anchors = (selected[1] +
+                   selected[2][:quotas[2]["max"]] +
+                   selected[3][:quotas[3]["max"]] +
+                   selected[4][:quotas[4]["max"]])
 
     # Hard cap
     if len(all_anchors) > TOTAL_MAX_ANCHORS:
@@ -406,10 +511,12 @@ def build_micro_graph(target_place, target_idx, density_band,
         "place_id": target_place["id"],
         "name": target_place["name"],
         "brand": target_place.get("brand"),
+        "address": clean_address(target_place.get("address", "")),
         "place_type": target_place.get("place_type", ""),
         "latitude": target_place["latitude"],
         "longitude": target_place["longitude"],
         "subzone": target_place.get("subzone", ""),
+        "subzone_code": target_place.get("subzone_code", ""),
         "density_band": density_band,
         "anchor_count": len(all_anchors),
         "anchors": all_anchors,
@@ -420,7 +527,6 @@ def build_micro_graph(target_place, target_idx, density_band,
 # STEP 8: DERIVED SCORES
 # ============================================================
 def compute_derived_scores(result):
-    """Compute context vector and derived metrics"""
     anchors = result.get("anchors", [])
     if not anchors:
         result["context_vector"] = {"transit": 0, "competitor": 0, "complementary": 0, "demand": 0}
@@ -430,25 +536,23 @@ def compute_derived_scores(result):
         result["demand_diversity"] = 0
         result["fnb_density"] = 0
         result["walkability_index"] = 0
+        result["has_gaps"] = True
+        result["gap_tiers"] = [1, 2, 3, 4]
         return
 
-    # Context vector
     cv = {"transit": 0, "competitor": 0, "complementary": 0, "demand": 0}
     tier_map = {1: "transit", 2: "competitor", 3: "complementary", 4: "demand"}
     for a in anchors:
         cv[tier_map.get(a["tier"], "demand")] += a.get("normalized_weight", 0)
     result["context_vector"] = {k: round(v, 4) for k, v in cv.items()}
 
-    # Transit access
     t1 = [a for a in anchors if a["tier"] == 1]
     result["transit_access"] = round(max((a["normalized_weight"] for a in t1), default=0), 4)
 
-    # Competitive pressure
     t2 = [a for a in anchors if a["tier"] == 2]
     result["competitive_pressure"] = round(np.mean([a["normalized_weight"] for a in t2]), 4) if t2 else 0
     result["competitor_count"] = len(t2)
 
-    # Demand diversity (entropy of T4 categories)
     t4_cats = [a.get("place_type", a.get("anchor_type", "")) for a in anchors if a["tier"] == 4]
     if t4_cats:
         cat_counts = Counter(t4_cats)
@@ -458,14 +562,11 @@ def compute_derived_scores(result):
     else:
         result["demand_diversity"] = 0
 
-    # F&B density (T3 count)
     result["fnb_density"] = len([a for a in anchors if a["tier"] == 3])
 
-    # Walkability (mean walk time)
     walk_times = [a["walk_time_s"] for a in anchors]
     result["walkability_index"] = round(np.mean(walk_times), 1) if walk_times else 0
 
-    # Gap flags
     gaps = {}
     tier_counts = Counter(a["tier"] for a in anchors)
     for tier, quota in TIER_QUOTAS.items():
@@ -487,34 +588,39 @@ def write_outputs(results, category, output_dir):
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
     log_msg("  JSONL: %s (%.1f MB)" % (jsonl_path, os.path.getsize(jsonl_path) / 1048576))
 
-    # Slim (for frontend)
+    # Slim (for frontend) — 13 elements matching app's expected format
+    # [0:id, 1:name, 2:brand, 3:lat, 4:lon, 5:density_band_short, 6:anchor_count,
+    #  7:transit_cv, 8:competitor_cv, 9:complementary_cv, 10:demand_cv,
+    #  11:competitive_pressure (None placeholder), 12:subzone_code]
+    BAND_SHORT = {"hyperdense": "hd", "dense": "de", "moderate": "mo", "sparse": "sp"}
     slim = []
     for r in results:
         slim.append([
             r["place_id"], r["name"], r.get("brand"),
             r["latitude"], r["longitude"],
-            r["density_band"],
+            BAND_SHORT.get(r["density_band"], r["density_band"][:2]),
             r["anchor_count"],
             r.get("context_vector", {}).get("transit", 0),
             r.get("context_vector", {}).get("competitor", 0),
             r.get("context_vector", {}).get("complementary", 0),
             r.get("context_vector", {}).get("demand", 0),
-            r.get("subzone", ""),
+            None,
+            r.get("subzone_code", ""),
         ])
     slim_path = os.path.join(output_dir, "%s_slim.json" % category)
     with open(slim_path, "w") as f:
         json.dump(slim, f, separators=(",", ":"))
     log_msg("  Slim: %s (%.1f KB)" % (slim_path, os.path.getsize(slim_path) / 1024))
 
-    # Per-subzone detail files
+    # Per-subzone detail files — keyed by subzone_code (e.g., AMSZ01.json)
     detail_dir = os.path.join(output_dir, "%s_details" % category)
     os.makedirs(detail_dir, exist_ok=True)
     by_subzone = defaultdict(list)
     for r in results:
-        sz = r.get("subzone", "unknown")
-        by_subzone[sz].append(r)
-    for sz, items in by_subzone.items():
-        with open(os.path.join(detail_dir, "%s.json" % sz), "w") as f:
+        sz_code = r.get("subzone_code") or r.get("subzone", "unknown")
+        by_subzone[sz_code].append(r)
+    for sz_code, items in by_subzone.items():
+        with open(os.path.join(detail_dir, "%s.json" % sz_code), "w") as f:
             json.dump(items, f, ensure_ascii=False, indent=1)
     log_msg("  Details: %d subzone files" % len(by_subzone))
 
@@ -527,6 +633,12 @@ def write_outputs(results, category, output_dir):
         "anchor_count_min": min(r["anchor_count"] for r in results),
         "anchor_count_max": max(r["anchor_count"] for r in results),
         "with_gaps": sum(1 for r in results if r.get("has_gaps")),
+        "tier_distribution": {
+            "T1_transit": sum(1 for r in results for a in r.get("anchors", []) if a["tier"] == 1),
+            "T2_competitor": sum(1 for r in results for a in r.get("anchors", []) if a["tier"] == 2),
+            "T3_complementary": sum(1 for r in results for a in r.get("anchors", []) if a["tier"] == 3),
+            "T4_demand": sum(1 for r in results for a in r.get("anchors", []) if a["tier"] == 4),
+        },
         "mean_context_vector": {
             "transit": round(np.mean([r.get("context_vector", {}).get("transit", 0) for r in results]), 4),
             "competitor": round(np.mean([r.get("context_vector", {}).get("competitor", 0) for r in results]), 4),
@@ -567,6 +679,12 @@ def validate_results(results, category):
         tests.append(("walk times positive", min(walk_times) >= 0, "min=%.0f" % min(walk_times)))
         tests.append(("walk times reasonable", max(walk_times) < 1200, "max=%.0f" % max(walk_times)))
 
+    # Check tier distribution
+    tier_counts = Counter(a["tier"] for r in results for a in r.get("anchors", []))
+    tests.append(("T2 competitors exist", tier_counts.get(2, 0) > 0, "T2=%d" % tier_counts.get(2, 0)))
+    tests.append(("T2 > T3", tier_counts.get(2, 0) >= tier_counts.get(3, 0),
+                  "T2=%d, T3=%d" % (tier_counts.get(2, 0), tier_counts.get(3, 0))))
+
     all_pass = True
     for name, passed, detail in tests:
         status = "PASS" if passed else "FAIL"
@@ -579,29 +697,98 @@ def validate_results(results, category):
 # ============================================================
 # MAIN
 # ============================================================
+def run_category(category, places, mrt_stations, hawker_centres, bus_interchanges,
+                 anchors, anchor_index, place_index, bands, limit=0):
+    """Run pipeline for a single category."""
+    log_msg("\n" + "=" * 60)
+    log_msg("CATEGORY: %s" % category)
+    log_msg("=" * 60)
+
+    # Classify places for this category
+    tiers = classify_places(places, category)
+
+    # Identify target places
+    target_types = CATEGORY_TARGETS.get(category, set())
+    if not target_types:
+        log_msg("  WARNING: No target types defined for '%s', skipping" % category)
+        return []
+
+    targets = [(i, p) for i, p in enumerate(places)
+               if p.get("place_type") in target_types]
+
+    # Fallback: also match by main_category if place_type didn't match
+    if not targets:
+        mc_key = category.replace("_", " ").title().replace(" And ", " & ")
+        targets = [(i, p) for i, p in enumerate(places)
+                   if p.get("main_category", "") == mc_key]
+
+    if limit > 0:
+        targets = targets[:limit]
+
+    log_msg("Target places: %d (of %d total)" % (len(targets), len(places)))
+
+    if not targets:
+        log_msg("  WARNING: No targets found for '%s', skipping" % category)
+        return []
+
+    # Build micro-graphs
+    log_msg("Building micro-graphs...")
+    results = []
+    t0 = time.time()
+
+    for idx, (place_idx, place) in enumerate(targets):
+        result = build_micro_graph(
+            place, place_idx, bands[place_idx],
+            places, tiers, place_index,
+            anchors, anchor_index,
+            category,
+        )
+        compute_derived_scores(result)
+        results.append(result)
+
+        if (idx + 1) % 500 == 0:
+            elapsed = time.time() - t0
+            rate = (idx + 1) / elapsed
+            eta = (len(targets) - idx - 1) / rate / 60
+            log_msg("  %d/%d (%.0f/s, ETA %.1fm)" % (idx + 1, len(targets), rate, eta))
+
+    elapsed = time.time() - t0
+    log_msg("  Done: %d micro-graphs in %.1fs (%.0f/s)" % (len(results), elapsed, len(results)/max(elapsed,1)))
+
+    # Validate
+    ok = validate_results(results, category)
+
+    # Write output
+    log_msg("Writing outputs...")
+    write_outputs(results, category, OUTPUT_DIR)
+
+    log_msg("PIPELINE COMPLETE: %s — %d places, validation: %s" %
+            (category, len(results), "PASSED" if ok else "SOME FAILED"))
+
+    return results
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--category", default="cafe", help="Category pipeline to run")
     parser.add_argument("--limit", type=int, default=0, help="Limit target places (0=all)")
+    parser.add_argument("--all", action="store_true", help="Run all categories")
     args = parser.parse_args()
 
     log_msg("=" * 60)
-    log_msg("DIGITAL ATLAS SGP — MICROGRAPH PIPELINE")
-    log_msg("Category: %s" % args.category)
+    log_msg("DIGITAL ATLAS SGP — MICROGRAPH PIPELINE v3")
     log_msg("=" * 60)
 
-    # Load data
+    # Load data (shared across all categories)
     places = load_places()
     mrt_stations = load_mrt_stations()
     hawker_centres = load_hawker_centres()
+    bus_interchanges = load_bus_interchanges()
 
     # Detect anchors
-    anchors = detect_anchors(places, mrt_stations, hawker_centres)
+    anchors = detect_anchors(places, mrt_stations, hawker_centres, bus_interchanges)
 
-    # Classify places
-    tiers = classify_places(places, args.category)
-
-    # Build spatial indices
+    # Build spatial indices (shared)
     log_msg("Building spatial indices...")
     place_index = SpatialIndex(
         ids=list(range(len(places))),
@@ -617,69 +804,37 @@ def main():
     )
     log_msg("  Place index: %d, Anchor index: %d" % (len(places), len(anchors)))
 
-    # Compute density bands
+    # Compute density bands (shared)
     bands = compute_density_bands(places, place_index)
 
-    # Identify target places (e.g., all cafes for cafe pipeline)
-    if args.category == "cafe":
-        target_types = {"Cafe", "Coffee Shop", "Coffee Roastery", "Themed Cafe", "Internet Cafe", "Coffee Stand"}
-        targets = [(i, p) for i, p in enumerate(places) if p.get("place_type") in target_types]
-    elif args.category == "hawker":
-        target_types = {"Hawker Stall", "Food Court", "Hawker Centre"}
-        targets = [(i, p) for i, p in enumerate(places) if p.get("place_type") in target_types]
-    elif args.category == "restaurant":
-        target_types = {"Restaurant", "Chinese Restaurant", "Japanese Restaurant", "Indian Restaurant",
-                        "Western Restaurant", "Thai Restaurant", "Korean Restaurant", "Seafood Restaurant",
-                        "Italian Restaurant", "French Restaurant", "Vietnamese Restaurant",
-                        "Malay Restaurant", "Halal Restaurant", "Vegetarian Restaurant",
-                        "Peranakan Restaurant", "Mexican Restaurant", "Indonesian Restaurant",
-                        "Fine Dining", "Buffet", "Noodle House", "Takeout", "Catering"}
-        targets = [(i, p) for i, p in enumerate(places) if p.get("place_type") in target_types]
+    # Run categories
+    if args.all:
+        categories = list(CATEGORY_TARGETS.keys())
+        log_msg("\nRunning ALL %d categories: %s" % (len(categories), ", ".join(categories)))
     else:
-        # All places in the main_category
-        targets = [(i, p) for i, p in enumerate(places) if p.get("main_category", "").lower().replace(" & ", "_").replace(" ", "_") == args.category]
+        categories = [args.category]
 
-    if args.limit > 0:
-        targets = targets[:args.limit]
-
-    log_msg("\nTarget places: %d (of %d total)" % (len(targets), len(places)))
-
-    # Build micro-graphs
-    log_msg("Building micro-graphs...")
-    results = []
-    t0 = time.time()
-
-    for idx, (place_idx, place) in enumerate(targets):
-        result = build_micro_graph(
-            place, place_idx, bands[place_idx],
-            places, tiers, place_index,
-            anchors, anchor_index,
-            args.category,
+    all_results = {}
+    for cat in categories:
+        results = run_category(
+            cat, places, mrt_stations, hawker_centres, bus_interchanges,
+            anchors, anchor_index, place_index, bands, args.limit,
         )
-        compute_derived_scores(result)
-        results.append(result)
+        all_results[cat] = results
 
-        if (idx + 1) % 500 == 0:
-            elapsed = time.time() - t0
-            rate = (idx + 1) / elapsed
-            eta = (len(targets) - idx - 1) / rate / 60
-            log_msg("  %d/%d (%.0f/s, ETA %.1fm)" % (idx + 1, len(targets), rate, eta))
-
-    elapsed = time.time() - t0
-    log_msg("  Done: %d micro-graphs in %.1fs (%.0f/s)" % (len(results), elapsed, len(results)/max(elapsed,1)))
-
-    # Validate
-    ok = validate_results(results, args.category)
-
-    # Write output
-    log_msg("\nWriting outputs...")
-    write_outputs(results, args.category, OUTPUT_DIR)
-
+    # Summary
     log_msg("\n" + "=" * 60)
-    log_msg("PIPELINE COMPLETE: %s" % args.category)
-    log_msg("  Places: %d, Anchors detected: %d" % (len(results), len(anchors)))
-    log_msg("  Validation: %s" % ("PASSED" if ok else "SOME FAILED"))
+    log_msg("ALL PIPELINES COMPLETE")
     log_msg("=" * 60)
+    total_places = 0
+    for cat, results in all_results.items():
+        n = len(results)
+        total_places += n
+        avg_anchors = np.mean([r["anchor_count"] for r in results]) if results else 0
+        log_msg("  %-25s %5d places, avg %.1f anchors" % (cat, n, avg_anchors))
+    log_msg("  TOTAL: %d place micrographs" % total_places)
+    log_msg("=" * 60)
+
 
 if __name__ == "__main__":
     main()

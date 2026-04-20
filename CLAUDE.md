@@ -3,22 +3,31 @@
 ## Working Directory
 `/Users/sumanth/propheus-projs/da-sgp/digital-atlas-sgp`
 
+## Full snapshot
+See [`CONTEXT.md`](./CONTEXT.md) for the complete server + data catalog (5.7 GB across 14 sources, all paths, ports, models, findings, restart commands, project launchpad).
+
 ## What This Is
-Mathematical representation of Singapore's urban structure. 66,851 curated places across 332 subzones with per-place micrographs, deployed as an interactive map app.
+Mathematical representation of Singapore's urban structure. **174,713 places** across 332 subzones and 5,897 H3-9 hexagons with per-place micrographs, deployed as an interactive map app.
 
 ## Deployment
 
-### SGP Atlas App (THIS PROJECT)
-- **Server:** `rwm-server` (SSH alias, Azure VM)
-- **Port:** `18067`
-- **Screen:** `sgp-atlas`
+### Hex Adequacy Explorer (PRIMARY public app)
+- **URL:** https://sgp-sim.alchemy-propheus.ai/
+- **Server:** `rwm-server` | **Port:** 16789 | **Screen:** `hex-adequacy`
+- **Path:** `/home/azureuser/hex-adequacy-app/`
+- **GitHub:** github.com/Propheus/da-sgp-simulation-app
+
+### SGP Atlas App (subzone explorer)
+- **Server:** `rwm-server` | **Port:** 18067 | **Screen:** `sgp-atlas`
 - **Path:** `/home/azureuser/digital-atlas-sgp/sgp-atlas-app/app/dist/`
-- **Command:** `python3 -m http.server 18067 --bind 0.0.0.0`
+
+### Scenario Sim (subzone-level connectivity + clinics + FairPrice)
+- **Server:** `rwm-server` | **Port:** 18070 | **Screen:** `scenario-sim`
+- **Path:** `/home/azureuser/digital-atlas-sgp/scenario_sim/` (code + cache + UI)
+- **What:** 332 subzone agents, Huff gravity + logsum welfare, 3 scenario knobs: new transit link / add CHAS clinic / add FairPrice. Rebuild from source (no minified patching).
 
 ### NYC Atlas App (SEPARATE, DO NOT TOUCH)
-- **Server:** `rwm-server`
-- **Port:** `20990`
-- **Screen:** `digital-atlas-v2`
+- **Server:** `rwm-server` | **Port:** 20990 | **Screen:** `digital-atlas-v2`
 - **Path:** `/home/azureuser/digital-atlas-v2/`
 - **URL:** `https://digital-atlas-v2.alchemy-propheus.ai/`
 
@@ -48,10 +57,10 @@ docs/                    Architecture, reports, ideation
 ```
 
 ## Key Numbers
-- 66,851 places | 24 categories | 165 place types | 232 brands
-- 332 subzones | 202 features per subzone
-- 12 category micrographs | 948 anchors | avg 10.7 anchors/place
-- Density model R²=0.773
+- **174,713 places** (master: `data/places_consolidated/sgp_places_v2.jsonl`) | 24 categories | 233 brands
+- 332 subzones × 243 V8 features | 5,897 H3-9 hexes × 154 V9 features
+- 12 category micrographs (V2) + V3 pipeline covering 174K places
+- V7 gap model: R²=0.755 | V8 population model: R²=0.816
 
 ## App Tech
 - NYC Digital Atlas v2 codebase adapted for SGP

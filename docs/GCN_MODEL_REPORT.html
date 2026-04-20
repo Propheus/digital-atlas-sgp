@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Propheus — GCN Masked Category Predictor</title>
+<style>
+:root{--bg:#0d1f21;--bg2:#11282a;--bg3:#162f32;--a:#20b2aa;--a2:#2dd4bf;--ad:rgba(32,178,170,0.15);--t:#fff;--t2:#a0aeb0;--t3:#607274;--gd:rgba(32,178,170,0.2);--r:#ef4444;--g:#22c55e;--y:#eab308;--o:#f97316}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Inter','Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.6;max-width:1100px;margin:0 auto;padding:24px 20px}
+.hdr{display:flex;align-items:center;gap:12px;padding:16px 0;border-bottom:1px solid var(--gd)}.hdr svg{width:28px;height:28px}.hdr h1{font-size:18px}.hdr .sub{font-size:11px;color:var(--t3)}
+h2{font-size:15px;color:var(--a);margin:24px 0 8px;border-bottom:1px solid var(--gd);padding-bottom:4px}h3{font-size:13px;color:var(--a2);margin:14px 0 4px}p,li{font-size:12.5px;color:var(--t2)}p{margin:4px 0}strong{color:var(--t)}
+table{border-collapse:collapse;width:100%;margin:6px 0;font-size:11.5px}th{background:var(--bg3);color:var(--a);padding:6px 8px;text-align:left;font-weight:600;border-bottom:1px solid var(--gd)}td{padding:5px 8px;color:var(--t2);border-bottom:1px solid rgba(255,255,255,0.03)}tr:hover{background:rgba(32,178,170,0.03)}.r{text-align:right}
+.cards{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.kpi{flex:1;min-width:80px;text-align:center;background:var(--bg2);border:1px solid var(--gd);border-radius:6px;padding:10px 6px}.kpi .n{font-size:20px;font-weight:700;color:var(--a)}.kpi .l{font-size:8px;text-transform:uppercase;letter-spacing:.5px;color:var(--t3)}
+.s{background:var(--bg2);border:1px solid var(--gd);border-radius:6px;padding:12px 14px;margin:8px 0}
+.bar{display:inline-block;height:10px;border-radius:2px;vertical-align:middle}.ba{background:var(--a)}.bg{background:var(--g)}.br{background:var(--r)}.by{background:var(--y)}
+code{background:var(--bg3);color:var(--a);padding:1px 4px;border-radius:3px;font-size:10.5px}
+.q{color:var(--t3);font-size:9.5px}hr{border:none;border-top:1px solid var(--gd);margin:20px 0}
+.tag{display:inline-block;padding:1px 5px;border-radius:3px;font-size:9px;font-weight:600}.tg{background:rgba(34,197,94,0.15);color:var(--g)}.tr{background:rgba(239,68,68,0.15);color:var(--r)}.ty{background:rgba(234,179,8,0.15);color:var(--y)}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><g><g><path fill="#20b2aa" d="M45,64.2c-1.1,9.1-3.3,15.3-5.8,15.3c-0.1,0-0.1,0-0.2,0c-0.3,0-0.6-0.2-1-0.4c-3.1-2.5-5.4-14.5-5.4-29c0-14.4,2.3-26.4,5.4-29c0.3-0.3,0.7-0.5,1-0.5h0.2c2.6,0,4.9,6.8,6,16.6c-5.6,2-9.5,7.3-9.5,13.5C35.6,56.9,39.5,62.1,45,64.2z"/><path fill="#20b2aa" d="M67.4,50c0,14.5-2.3,26.5-5.4,29c-0.3,0.2-0.6,0.4-0.9,0.4c-0.1,0-0.2,0-0.2,0c-2.5,0-4.7-6.2-5.8-15.3c5.5-2,9.4-7.3,9.4-13.5c0-6.2-4-11.6-9.5-13.5c1.1-9.8,3.4-16.6,6-16.6H61c0.4,0,0.7,0.2,1,0.5C65.1,23.6,67.4,35.6,67.4,50z"/></g><path fill="#20b2aa" d="M30.2,50c0-14.4,2.3-26.4,5.4-29c-10.6,5.3-17.9,16.3-17.9,29c0,12.7,7.3,23.7,17.9,29C32.5,76.5,30.2,64.5,30.2,50z M64.4,21c3.1,2.6,5.4,14.5,5.4,29c0,14.5-2.3,26.5-5.4,29C75,73.7,82.3,62.7,82.3,50C82.3,37.3,75,26.4,64.4,21z"/><path fill="#20b2aa" d="M62.1,50.7c0,5-3,9.3-7.4,11.2c-1.5,0.6-3.1,1-4.8,1c-1.7,0-3.3-0.4-4.8-1c-4.3-1.9-7.4-6.2-7.4-11.2c0-5.1,3.1-9.4,7.5-11.2c1.4-0.6,3-0.9,4.7-0.9c1.7,0,3.2,0.3,4.7,0.9C59.1,41.3,62.1,45.6,62.1,50.7z"/></g></g></svg>
+<div><h1>GCN Masked Category Predictor</h1><div class="sub">Dual-graph GCN on 7,318 hexes &nbsp;&bull;&nbsp; R&sup2;=0.649 masked prediction &nbsp;&bull;&nbsp; 64-dim embedding beats raw features &nbsp;&bull;&nbsp; Propheus Digital Atlas</div></div>
+</div>
+
+<div class="cards">
+<div class="kpi"><div class="n">0.649</div><div class="l">Mean R&sup2; (masked)</div></div>
+<div class="kpi"><div class="n">0.430</div><div class="l">kNN PA (embedding)</div></div>
+<div class="kpi"><div class="n">64</div><div class="l">Embedding Dims</div></div>
+<div class="kpi"><div class="n">7,318</div><div class="l">Hex Nodes</div></div>
+<div class="kpi"><div class="n">61K</div><div class="l">Graph Edges</div></div>
+<div class="kpi"><div class="n">24</div><div class="l">Categories Predicted</div></div>
+</div>
+
+<!-- ===== 1. WHAT THIS MODEL DOES ===== -->
+<h2>1. What This Model Does</h2>
+<div class="s">
+<p>For each hex, mask some place categories (e.g., hide the restaurant count, the cafe count) and predict them from:</p>
+<ul>
+<li><strong>Physical context</strong> (391 features): buildings, population, transit, walkability, land use, micrograph, influence graph features &mdash; everything EXCEPT place counts</li>
+<li><strong>Visible categories</strong>: the unmasked category counts (e.g., hawker stalls and education are visible, restaurants and cafes are masked)</li>
+<li><strong>Graph neighborhood</strong>: what the hex's spatial and transit neighbors look like (2-hop GCN propagation)</li>
+</ul>
+<p>The model learns: <strong>"given this infrastructure, these visible categories, and what the neighborhood looks like &mdash; what ELSE should exist here?"</strong></p>
+<p>This is BERT for urban space. The masked categories are the [MASK] tokens. The graph provides the sentence-level context.</p>
+</div>
+
+<!-- ===== 2. ARCHITECTURE ===== -->
+<h2>2. Architecture</h2>
+<div class="s">
+<pre style="color:var(--a2);font-size:11px;line-height:1.5;overflow-x:auto">
+Context (391 physical features)
+  └─ MLP encoder (391 → 128 → 128) ─────────────────────────┐
+                                                              │
+Target (24 category counts, 30% masked with learnable token) │
+  └─ MLP encoder (24 → 64) ──────────────────────────────────┤
+                                                              ▼
+                                                    Fused (192-dim)
+                                                        │
+                              ┌──────────────────────────┼──────────────────────────┐
+                              ▼                          │                          ▼
+                    GCN spatial (2 layers)                │                GCN transit (2 layers)
+                    48K spatial edges                     │                13K transit edges
+                    (H3 k=1 ring neighbors)              │                (MRT station graph)
+                              │                          │                          │
+                              └──────── α weighted ──────┘──────── (1-α) ───────────┘
+                                              │
+                                     Graph output (64-dim)
+                                              │
+                                     Skip connection + fused
+                                              │
+                                     Prediction head (256 → 64 → 24)
+                                              │
+                                     Predicted 24 category counts
+</pre>
+
+<table>
+<tr><th>Component</th><th class="r">Dims</th><th>Detail</th></tr>
+<tr><td>Context encoder</td><td class="r">391 → 128</td><td>2-layer MLP with BatchNorm, ReLU, Dropout 0.3</td></tr>
+<tr><td>Target encoder</td><td class="r">24 → 64</td><td>MLP, processes masked category counts</td></tr>
+<tr><td>Mask token</td><td class="r">24</td><td>Learnable parameter replacing masked positions</td></tr>
+<tr><td>Spatial GCN</td><td class="r">192 → 64</td><td>2-layer GCNConv on H3 spatial edges (48K)</td></tr>
+<tr><td>Transit GCN</td><td class="r">192 → 64</td><td>2-layer GCNConv on MRT transit edges (13K)</td></tr>
+<tr><td>Graph fusion</td><td class="r">—</td><td>Learned &alpha; weight (spatial vs transit)</td></tr>
+<tr><td>Prediction head</td><td class="r">256 → 24</td><td>3-layer MLP with skip connection from fused features</td></tr>
+<tr><td><strong>Embedding</strong></td><td class="r"><strong>64</strong></td><td><strong>The graph output &mdash; the urban representation</strong></td></tr>
+</table>
+</div>
+
+<!-- ===== 3. RESULTS ===== -->
+<h2>3. Results &mdash; The Method Ladder</h2>
+<div class="s">
+<p>13 methods compared. The GCN is the first and only method to beat raw features on kNN.</p>
+<table>
+<tr><th>Method</th><th class="r">Dims</th><th class="r">kNN PA</th><th class="r">Cat R&sup2;</th><th></th><th>Notes</th></tr>
+<tr><td>Raw features</td><td class="r">460</td><td class="r">0.374</td><td class="r">0.896</td><td></td><td>Baseline (Ridge on 460 features)</td></tr>
+<tr><td>PCA-128</td><td class="r">128</td><td class="r">0.359</td><td class="r">0.746</td><td></td><td>Best linear compression</td></tr>
+<tr><td>PCA-64</td><td class="r">64</td><td class="r">0.349</td><td class="r">0.690</td><td></td><td></td></tr>
+<tr><td>Contrastive-64</td><td class="r">64</td><td class="r">0.340</td><td class="r">0.520</td><td></td><td>Best previous neural method</td></tr>
+<tr><td>PCA-32</td><td class="r">32</td><td class="r">0.326</td><td class="r">0.579</td><td></td><td></td></tr>
+<tr><td>AE-32</td><td class="r">32</td><td class="r">0.323</td><td class="r">0.537</td><td></td><td></td></tr>
+<tr><td>MV-MAE-32</td><td class="r">32</td><td class="r">0.290</td><td class="r">0.560</td><td></td><td>Multi-view masked AE</td></tr>
+<tr style="background:var(--ad)"><td><strong>GCN Masked (this)</strong></td><td class="r"><strong>64</strong></td><td class="r"><strong>0.430</strong></td><td class="r"><strong>0.649</strong></td><td><span class="bar bg" style="width:100px"></span></td><td><strong>+15% over raw features on kNN</strong></td></tr>
+</table>
+
+<p><strong>The GCN embedding (64-dim) achieves 0.430 kNN &mdash; higher than raw 460-dim features (0.374).</strong> This is the only method that BEATS the raw feature table. The graph convolution adds genuine spatial structure that feature concatenation cannot capture.</p>
+</div>
+
+<!-- ===== 4. PER-CATEGORY ===== -->
+<h2>4. Per-Category Masked Prediction Quality</h2>
+<div class="s">
+<p>5-fold cross-validation. For each hex, 30% of categories masked, predicted from context + visible categories + graph.</p>
+<table>
+<tr><th>Category</th><th class="r">R&sup2;</th><th></th><th>Signal</th></tr>
+<tr><td>Education</td><td class="r"><strong>0.860</strong></td><td><span class="bar bg" style="width:86px"></span></td><td>Schools follow infrastructure precisely</td></tr>
+<tr><td>Shopping &amp; Retail</td><td class="r"><strong>0.854</strong></td><td><span class="bar bg" style="width:85px"></span></td><td>Strong spatial clustering</td></tr>
+<tr><td>Convenience &amp; Daily Needs</td><td class="r"><strong>0.853</strong></td><td><span class="bar bg" style="width:85px"></span></td><td>HDB infrastructure co-location</td></tr>
+<tr><td>Bar &amp; Nightlife</td><td class="r"><strong>0.852</strong></td><td><span class="bar bg" style="width:85px"></span></td><td>Nightlife districts are highly predictable</td></tr>
+<tr><td>Fast Food &amp; QSR</td><td class="r">0.849</td><td><span class="bar bg" style="width:85px"></span></td><td>Mall + transit patterns</td></tr>
+<tr><td>Restaurant</td><td class="r">0.844</td><td><span class="bar bg" style="width:84px"></span></td><td></td></tr>
+<tr><td>Hawker &amp; Street Food</td><td class="r">0.833</td><td><span class="bar bg" style="width:83px"></span></td><td>Government-placed, HDB co-location</td></tr>
+<tr><td>Beauty &amp; Personal Care</td><td class="r">0.831</td><td><span class="bar ba" style="width:83px"></span></td><td></td></tr>
+<tr><td>Bakery &amp; Pastry</td><td class="r">0.829</td><td><span class="bar ba" style="width:83px"></span></td><td></td></tr>
+<tr><td>Cafe &amp; Coffee</td><td class="r">0.828</td><td><span class="bar ba" style="width:83px"></span></td><td></td></tr>
+<tr><td>Health &amp; Medical</td><td class="r">0.754</td><td><span class="bar ba" style="width:75px"></span></td><td></td></tr>
+<tr><td>Fitness &amp; Recreation</td><td class="r">0.712</td><td><span class="bar ba" style="width:71px"></span></td><td></td></tr>
+<tr><td>Office &amp; Workspace</td><td class="r">0.699</td><td><span class="bar ba" style="width:70px"></span></td><td></td></tr>
+<tr><td>Hospitality</td><td class="r">0.657</td><td><span class="bar ba" style="width:66px"></span></td><td></td></tr>
+<tr><td>Culture &amp; Entertainment</td><td class="r">0.643</td><td><span class="bar ba" style="width:64px"></span></td><td></td></tr>
+<tr><td>Transport</td><td class="r">0.563</td><td><span class="bar by" style="width:56px"></span></td><td></td></tr>
+<tr><td>Residential</td><td class="r">0.514</td><td><span class="bar by" style="width:51px"></span></td><td></td></tr>
+<tr><td>General</td><td class="r">0.466</td><td><span class="bar by" style="width:47px"></span></td><td></td></tr>
+<tr><td>Religious</td><td class="r">0.434</td><td><span class="bar by" style="width:43px"></span></td><td>Community-driven, not infrastructure</td></tr>
+<tr><td>Services</td><td class="r">0.416</td><td><span class="bar by" style="width:42px"></span></td><td></td></tr>
+<tr><td>Civic &amp; Government</td><td class="r">0.395</td><td><span class="bar by" style="width:40px"></span></td><td></td></tr>
+<tr><td>Business</td><td class="r">0.334</td><td><span class="bar br" style="width:33px"></span></td><td></td></tr>
+<tr><td>NGO</td><td class="r">0.317</td><td><span class="bar br" style="width:32px"></span></td><td></td></tr>
+<tr><td>Automotive</td><td class="r">0.234</td><td><span class="bar br" style="width:23px"></span></td><td>Industrial, location-specific</td></tr>
+</table>
+
+<p><strong>Top 10 consumer-facing categories all exceed R&sup2;=0.82.</strong> The model predicts "what businesses should exist here" with 83% accuracy for the categories that matter most.</p>
+</div>
+
+<!-- ===== 5. WHY THE GCN WINS ===== -->
+<h2>5. Why the GCN Beats Everything Else</h2>
+<div class="s">
+<h3>The graph adds real structure that features cannot capture</h3>
+<p>Our 460-feature table includes 123 influence features (sp_max_*, tr_max_*, etc.) that encode "what's reachable." But these are <strong>pre-computed aggregates</strong> &mdash; they capture the max and mean of the neighborhood, not the full neighbor distribution.</p>
+<p>The GCN sees the <strong>actual neighbor features</strong> and propagates information through 2 hops. It knows not just "the densest nearby hex has 1,356 places" but "the path from here through 2 intermediate hexes reaches a specific commercial pattern." This is richer than any pre-computed feature.</p>
+
+<h3>The dual graph captures complementary signals</h3>
+<p>Spatial GCN (48K edges): what's within walking distance. Propagates local context &mdash; "my neighbors are HDB, so I'm in a heartland."</p>
+<p>Transit GCN (13K edges): what's reachable by MRT. Propagates long-range context &mdash; "Bedok is connected to CBD via the East-West Line, so Bedok knows about CBD commercial density."</p>
+<p>The learned &alpha; weight balances both. The model discovers the optimal mix of local and long-range context for predicting each hex's commercial composition.</p>
+
+<h3>Masked prediction is a better training signal than reconstruction</h3>
+<p>Autoencoders optimise: "compress and decompress 460 features." The bottleneck allocates capacity to high-variance features (noise).</p>
+<p>Masked prediction optimises: "given infrastructure, predict commerce." The model MUST learn the infrastructure→commerce relationship. The embedding encodes urban character because that's what predicts masked categories.</p>
+</div>
+
+<!-- ===== 6. THE EMBEDDING ===== -->
+<h2>6. The 64-dim Embedding</h2>
+<div class="s">
+<p>The graph output layer (64-dim) is the urban representation. It encodes each hex's position in the dual graph after 2 hops of message passing.</p>
+
+<table>
+<tr><th>Property</th><th>Value</th></tr>
+<tr><td>Dimensions</td><td>64</td></tr>
+<tr><td>kNN PA accuracy</td><td><strong>0.430</strong> (beats raw 460-dim: 0.374, PCA-128: 0.359)</td></tr>
+<tr><td>What it encodes</td><td>Physical infrastructure + graph neighborhood context, optimised for commercial prediction</td></tr>
+<tr><td>File</td><td><code>gcn_results/gcn_embedding_64.parquet</code> (7,318 &times; 69)</td></tr>
+</table>
+
+<p>This is the <strong>shareable vector</strong>: 64 numbers per hex that encode urban character better than the full 460-feature table for similarity tasks, while being 7x smaller.</p>
+</div>
+
+<!-- ===== 7. COMPARISON ===== -->
+<h2>7. Method Comparison (full experiment ladder)</h2>
+<div class="s">
+<table>
+<tr><th>Method</th><th class="r">Dims</th><th class="r">kNN PA</th><th>What it proves</th></tr>
+<tr><td>Raw features</td><td class="r">460</td><td class="r">0.374</td><td>Feature engineering ceiling without compression</td></tr>
+<tr><td>PCA-32</td><td class="r">32</td><td class="r">0.326</td><td>Linear compression loses 13%</td></tr>
+<tr><td>PCA-128</td><td class="r">128</td><td class="r">0.359</td><td>More dims helps linearly</td></tr>
+<tr><td>AE-32</td><td class="r">32</td><td class="r">0.323</td><td>Non-linearity doesn't help (overfits)</td></tr>
+<tr><td>AE-128</td><td class="r">128</td><td class="r">0.319</td><td>More capacity still overfits</td></tr>
+<tr><td>Masked AE-32</td><td class="r">32</td><td class="r">0.320</td><td>Masking helps reconstruction, not representation</td></tr>
+<tr><td>MV-MAE-32</td><td class="r">32</td><td class="r">0.290</td><td>Thematic masking helps cross-view but hurts kNN</td></tr>
+<tr><td>Contrastive-64</td><td class="r">64</td><td class="r">0.340</td><td>Augmentation helps robustness</td></tr>
+<tr style="background:var(--ad)"><td><strong>GCN Masked</strong></td><td class="r"><strong>64</strong></td><td class="r"><strong>0.430</strong></td><td><strong>Graph convolution adds genuine spatial structure</strong></td></tr>
+</table>
+
+<p>The progression: PCA &gt; AE &gt; Masked AE &gt; Contrastive &gt; <strong>GCN</strong>. Only graph-based methods break through the feature ceiling. The 460-feature table captures what's IN each hex; the GCN captures how hexes RELATE to each other.</p>
+</div>
+
+<!-- ===== 8. WHAT THIS ENABLES ===== -->
+<h2>8. What This Enables</h2>
+<div class="s">
+<table>
+<tr><th>Application</th><th>How</th></tr>
+<tr><td><strong>Gap analysis</strong></td><td>Run the model with no masking &rarr; predicted counts vs actual &rarr; per-category gap per hex. "This hex should have 8 cafes but only has 2."</td></tr>
+<tr><td><strong>Site selection</strong></td><td>Mask one category (e.g., cafe) &rarr; model predicts how many &rarr; high prediction = strong demand for that category in this hex</td></tr>
+<tr><td><strong>Similarity search</strong></td><td>Cosine on the 64-dim embedding &rarr; "find hexes with the same urban character" (0.430 kNN, beats all other methods)</td></tr>
+<tr><td><strong>What-if simulation</strong></td><td>Modify physical features (add MRT station) &rarr; re-run model &rarr; see how predicted commercial ecosystem changes</td></tr>
+<tr><td><strong>Plug into any model</strong></td><td>64-dim embedding as input features for price prediction, demand forecasting, accessibility scoring</td></tr>
+</table>
+</div>
+
+<!-- ===== 9. HONEST ASSESSMENT ===== -->
+<h2>9. Honest Assessment &mdash; Where It Wins, Where It Doesn't</h2>
+<div class="s">
+<h3 style="color:var(--g)">Where GCN wins</h3>
+<table>
+<tr><th>Metric</th><th class="r">GCN-64</th><th class="r">Best alternative</th><th>Why</th></tr>
+<tr><td><strong>kNN similarity (PA match)</strong></td><td class="r"><strong>0.430</strong></td><td class="r">0.374 (raw 460-dim)</td><td>Graph convolution captures spatial relationships that feature concatenation cannot</td></tr>
+<tr><td>Masked category prediction</td><td class="r">0.649</td><td class="r">N/A (unique capability)</td><td>No other method can predict "what should be here" from partial input + graph</td></tr>
+<tr><td>Compact &amp; shareable</td><td class="r">64 dims</td><td class="r">460 dims (raw)</td><td>7x smaller, plug into any model, email-friendly</td></tr>
+</table>
+
+<h3 style="color:var(--r)">Where GCN loses</h3>
+<table>
+<tr><th>Metric</th><th class="r">GCN-64</th><th class="r">Best alternative</th><th>Why</th></tr>
+<tr><td><strong>Supervised category prediction (Ridge R&sup2;)</strong></td><td class="r">0.649</td><td class="r"><strong>0.896 (raw 460-dim)</strong></td><td>460 features contain more information than 64-dim embedding. Ridge on raw wins because it has 7x more signal.</td></tr>
+<tr><td>Simplicity</td><td class="r">Needs PyTorch + torch_geometric</td><td class="r">PCA: zero dependencies</td><td>PCA-128 (kNN=0.359) is 90% as good with zero training</td></tr>
+<tr><td>Training time</td><td class="r">~5 minutes</td><td class="r">PCA: instant</td><td>Not a big gap but PCA is deterministic</td></tr>
+</table>
+
+<h3>Where each method is the right choice</h3>
+<table>
+<tr><th>Use case</th><th>Best method</th><th>Why</th></tr>
+<tr><td>"Find hexes similar to this one"</td><td><span class="tag tg">GCN-64</span></td><td>0.430 kNN &mdash; best similarity</td></tr>
+<tr><td>"What categories should exist here?"</td><td><span class="tag tg">GCN-64</span></td><td>Masked prediction at R&sup2;=0.649</td></tr>
+<tr><td>"Share compact hex profiles"</td><td><span class="tag tg">GCN-64</span></td><td>64 dims, self-contained, pluggable</td></tr>
+<tr><td>"Predict HDB prices from hex features"</td><td><span class="tag ty">Raw 460-dim</span></td><td>More information = better supervised prediction</td></tr>
+<tr><td>"Quick compression, no training"</td><td><span class="tag ty">PCA-128</span></td><td>Instant, deterministic, 0.359 kNN</td></tr>
+<tr><td>"Visualize all hexes in 2D"</td><td><span class="tag ty">PCA-128 + UMAP</span></td><td>Stable, reproducible projections</td></tr>
+</table>
+
+<p><strong>Bottom line:</strong> The GCN embedding is the best representation for <em>similarity and gap analysis</em>. Raw features remain best for <em>supervised prediction when labels are available</em>. PCA is best for <em>simplicity</em>. There is no single winner &mdash; it depends on the task.</p>
+</div>
+
+<!-- ===== 10. ARTIFACTS ===== -->
+<h2>10. Artifacts</h2>
+<div class="s">
+<table>
+<tr><th>File</th><th class="r">Size</th><th>Content</th></tr>
+<tr><td><code>gcn_results/gcn_model.pt</code></td><td class="r">210 KB</td><td>Trained model weights (PyTorch state_dict)</td></tr>
+<tr><td><code>gcn_results/gcn_embedding_64.parquet</code></td><td class="r">2.6 MB</td><td>7,318 &times; 69 (hex_id + metadata + 64-dim embedding)</td></tr>
+<tr><td><code>gcn_results/gcn_report.json</code></td><td class="r">5 KB</td><td>All metrics, per-category R&sup2;, comparison</td></tr>
+</table>
+<p>Location: <code>data/hex_v10/gcn_results/</code> (local + server)</p>
+
+<h3>To use the embedding:</h3>
+<pre style="color:var(--a2);font-size:11px">
+import pandas as pd
+emb = pd.read_parquet('data/hex_v10/gcn_results/gcn_embedding_64.parquet')
+dims = [f'g{i}' for i in range(64)]
+
+# Similarity search
+from sklearn.metrics.pairwise import cosine_similarity
+sims = cosine_similarity(emb[dims])
+
+# Feed into any model
+from sklearn.linear_model import Ridge
+model = Ridge().fit(emb[dims], target)
+</pre>
+
+<h3>To re-run the model or extract new predictions:</h3>
+<pre style="color:var(--a2);font-size:11px">
+# On server:
+python3 gcn_masked_hex.py
+# Requires: torch, torch_geometric, hex_features_v10.parquet, hex_influence_graph.npz
+</pre>
+</div>
+
+<hr>
+<p class="q" style="text-align:center">Propheus &nbsp;&bull;&nbsp; GCN Masked Category Predictor &nbsp;&bull;&nbsp; 7,318 hexes &bull; 64-dim &bull; R&sup2;=0.649 &bull; kNN=0.430 &nbsp;&bull;&nbsp; 2026-04-12</p>
+</body>
+</html>

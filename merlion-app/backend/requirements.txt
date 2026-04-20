@@ -1,0 +1,4 @@
+fastapi>=0.109
+uvicorn[standard]>=0.25
+pydantic>=2.5
+anthropic>=0.34

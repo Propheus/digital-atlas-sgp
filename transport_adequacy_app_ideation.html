@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Transport Adequacy App — Ideation</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080c16;--b2:#0d1322;--b3:#121a2e;--cd:#0e1628;--br:rgba(20,184,166,0.1);--ac:#14b8a6;--tx:#e2e8f0;--t2:#94a3b8;--t3:#4a5568;--warn:#F59E0B;--ok:#34D399;--err:#EF4444;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--tx);line-height:1.6;}
+.d{padding:24px 20px 40px;max-width:960px;margin:0 auto;}
+.hero{text-align:center;padding:16px 20px 24px;border-bottom:1px solid var(--br);margin-bottom:28px;}
+.hero h1{font-size:30px;font-weight:800;background:linear-gradient(135deg,#EF4444,#F59E0B,#14b8a6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-0.5px;}
+.hero .sub{color:var(--t2);font-size:14px;margin-top:8px;}
+.hero .meta{color:var(--t3);font-size:11px;margin-top:6px;letter-spacing:0.5px;text-transform:uppercase;}
+.lead{font-size:15px;color:var(--t2);padding:16px 20px;background:rgba(239,68,68,0.05);border-left:3px solid var(--err);border-radius:0 8px 8px 0;margin-bottom:28px;line-height:1.7;}
+.lead b{color:var(--tx);}
+h2{font-size:20px;font-weight:800;color:#fff;margin:36px 0 14px;display:flex;align-items:center;gap:10px;}
+h2 .num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:var(--ac);color:var(--bg);border-radius:50%;font-size:13px;font-weight:800;}
+h3{font-size:15px;font-weight:700;color:var(--tx);margin:18px 0 8px;}
+p{font-size:14px;color:var(--t2);margin-bottom:12px;}
+p b,li b{color:var(--tx);font-weight:600;}
+ul,ol{margin-left:20px;margin-bottom:14px;}
+li{font-size:14px;color:var(--t2);margin-bottom:8px;}
+em{color:var(--t2);font-style:italic;}
+code{background:var(--b3);color:#FCD34D;padding:1px 6px;border-radius:3px;font-size:12px;font-family:'SF Mono',Consolas,monospace;}
+table{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0;background:var(--cd);border-radius:8px;overflow:hidden;}
+table th,table td{padding:10px 12px;border-bottom:1px solid var(--br);text-align:left;vertical-align:top;}
+table th{color:var(--t3);font-size:10px;text-transform:uppercase;font-weight:700;letter-spacing:0.5px;background:var(--b3);}
+table td{color:var(--t2);}
+table tr:last-child td{border-bottom:none;}
+.sec{background:var(--cd);border:1px solid var(--br);border-radius:12px;padding:20px 22px;margin-bottom:20px;}
+.sec.key{border-color:var(--ac);background:rgba(20,184,166,0.04);}
+.sec.warn{border-color:var(--warn);background:rgba(245,158,11,0.04);}
+.sec.keypt{border-left:4px solid var(--ac);background:rgba(20,184,166,0.05);padding:16px 20px;margin:24px 0;}
+.sec.keypt b{color:var(--ac);}
+.callout{background:rgba(20,184,166,0.06);border-left:3px solid var(--ac);padding:10px 14px;margin:10px 0;font-size:13px;border-radius:0 6px 6px 0;color:var(--t2);}
+.tag{display:inline-block;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;letter-spacing:0.5px;vertical-align:middle;margin-left:6px;}
+.tag.ok{color:var(--ok);border:1px solid var(--ok);}
+.tag.warn{color:var(--warn);border:1px solid var(--warn);}
+.tag.err{color:var(--err);border:1px solid var(--err);}
+.q{font-size:15px;color:var(--tx);font-weight:600;margin:24px 0 16px;padding:14px 18px;background:var(--b3);border-radius:8px;border-left:4px solid var(--warn);}
+.foot{text-align:center;color:var(--t3);font-size:11px;margin-top:40px;padding:20px;border-top:1px solid var(--br);}
+hr{border:none;border-top:1px solid var(--br);margin:30px 0;}
+</style>
+</head>
+<body>
+<div class="d">
+
+<div class="hero">
+  <h1>Transport Adequacy App — Ideation</h1>
+  <div class="sub">How to build it, and how to make it better than the original report</div>
+  <div class="meta">Planning doc · No code · April 2026</div>
+</div>
+
+<div class="lead">
+The original <i>transport_gaps</i> report had one fundamental flaw behind all the surface errors: <b>it tried to be a narrative, not an instrument.</b> It decided what the story was ("transit fails them", "formula works") and mined the data to support it. An app inherits that frame or breaks it. This document is about breaking it.
+</div>
+
+<h2><span class="num">1</span>What is the question the app is actually answering?</h2>
+
+<p>The original conflates four different questions under one roof:</p>
+
+<table>
+<tr><th>Question</th><th>Who asks</th><th>What they need</th></tr>
+<tr><td><em>Do residents have transit near them?</em></td><td>Planners, public</td><td>Coverage map</td></tr>
+<tr><td><em>Can people reach where they need to go?</em></td><td>Residents, equity researchers</td><td>Accessibility, not coverage</td></tr>
+<tr><td><em>Is the system overloaded?</em></td><td>Operators, LTA</td><td>Capacity / utilization</td></tr>
+<tr><td><em>Where should we invest next?</em></td><td>Policy, investors</td><td>Marginal impact analysis</td></tr>
+</table>
+
+<p>These are <b>different apps under one shell</b>, not one dashboard. An honest app lets the user pick the question first, then shows metrics fit for that question. The mistake of the original is treating <code>pop/station</code> and <code>taps/resident</code> and <code>distance-to-MRT</code> as if they answer the same question — they don't.</p>
+
+<h2><span class="num">2</span>The shift that matters: from coverage to accessibility</h2>
+
+<p><b>Coverage:</b> "Is there a station within 800m?" — an infrastructure fact.<br>
+<b>Accessibility:</b> "In 30 minutes of public transport, what fraction of jobs / schools / hospitals / groceries can I reach?" — what people actually care about.</p>
+
+<p>Singapore has the rare privilege of origin-destination data being public (LTA <code>od_train</code> files). That means the app can compute <b>true isochrones</b> — not "distance from station" but "time to anywhere." This is the single biggest honesty upgrade available, and it flips the conclusion in multiple places. A zone 900m from an MRT station on a fast line with 3-minute headways may have <em>better</em> 30-min accessibility than a zone 400m from a slow terminal.</p>
+
+<div class="callout">Almost every per-subzone finding in the original dashboard changes under this lens. Woodlands East isn't "overcrowded" — it's "an origin with 40-min mean travel time to CBD." That's actionable.</div>
+
+<h2><span class="num">3</span>The metrics that would be honest</h2>
+
+<p>Replace the original's metric set with something the audit can survive:</p>
+
+<table>
+<tr><th>Axis</th><th>Honest metric</th><th>Flawed proxy it replaces</th></tr>
+<tr><td>Access</td><td>% of jobs reachable in 30/45/60 min by PT, population-weighted</td><td>distance-to-nearest-MRT</td></tr>
+<tr><td>Capacity stress</td><td>peak-hour line load vs design capacity, by segment</td><td>pop/station</td></tr>
+<tr><td>First-mile</td><td>median walk-time to first PT boarding (from building footprints)</td><td>bus-stops-per-zone</td></tr>
+<tr><td>Transfer penalty</td><td>% of trips requiring 2+ transfers</td><td>coverage-only</td></tr>
+<tr><td>Temporal adequacy</td><td>adequacy at 8am / 2pm / 10pm / Sunday — separately</td><td>single average</td></tr>
+<tr><td>Equity gap</td><td>accessibility P10/P50/P90 by HDB/private, elderly %, income</td><td>none in original</td></tr>
+<tr><td>Demand signal</td><td>observed taps ÷ modeled demand (under-served = taps &lt;&lt; expected)</td><td>ridehail-as-canary</td></tr>
+</table>
+
+<p>The audit-killer was that every original metric used the wrong denominator. Fix it by being explicit about denominators: <b>residents</b> for residential adequacy, <b>workers</b> for employment-zone adequacy, <b>daytime pop</b> for commercial, <b>visits</b> for tourist.</p>
+
+<h2><span class="num">4</span>The interaction model</h2>
+
+<p>Two modes, both first-class:</p>
+
+<h3>Reverse-geocoding mode — pick a location</h3>
+<ul>
+<li>Your 15/30/45-min reach by walk / bus / MRT / multimodal</li>
+<li>% of SG jobs reachable in 30 min; % of hospitals, schools, groceries</li>
+<li>Your percentile among SG residential zones</li>
+<li>The <b>chain that breaks</b> — e.g. "walk 8 min → bus 22 min → MRT 15 min. First mile is 50% of your time budget. That's the weak link."</li>
+</ul>
+
+<h3>Destination mode — pick a destination</h3>
+<ul>
+<li>Its PT-shed: color each origin zone by time-to-get-here</li>
+<li>Equity lens: who <em>can't</em> reach it in 45 min? Map overlay by HDB share / elderly %</li>
+<li>Arrival-time distribution: how many can arrive by 8 am vs 9 am</li>
+</ul>
+
+<h3>Scenario mode — add a hypothetical station / bus route</h3>
+<ul>
+<li>Compute delta in accessibility</li>
+<li>Residents newly inside 30-min iso</li>
+<li>Cost-per-newly-served-resident</li>
+</ul>
+
+<div class="callout">Without scenario mode this is just a visualization. With it, it's a decision tool.</div>
+
+<h2><span class="num">5</span>Methodology as UI, not as footer</h2>
+
+<p>The audit failed the original because methodology was hidden. An honest app inverts this:</p>
+
+<ul>
+<li><b>Every number has a "why" tooltip</b> that shows the formula.</li>
+<li><b>Definition toggles are primary UI</b>: MRT-only vs MRT+LRT / Euclidean vs network / weekday-peak vs all-day. When you flip a toggle, numbers move. This teaches the user that the number is conditional.</li>
+<li><b>Confidence bands, not point estimates.</b> "1.0M ± 200K residents beyond 800m, depending on how you define walk distance" is more truthful than "1.0M".</li>
+<li><b>Public methodology doc</b> at <code>/methodology</code> with the exact code paths.</li>
+</ul>
+
+<p>This is the single biggest differentiator from the original. Most dashboards hide their assumptions; this one surfaces them.</p>
+
+<h2><span class="num">6</span>The cross-city angle</h2>
+
+<p>Atlas already has NYC, Chicago, LA, SF, SJ. <b>Singapore in comparative context</b> is a killer feature:</p>
+
+<ul>
+<li>"Singapore HDB towns have better rail accessibility than Manhattan outer boroughs"</li>
+<li>"Tuas West workers have accessibility comparable to LA industrial zones"</li>
+<li>"SG median walk-to-rail is X; NYC is Y"</li>
+</ul>
+
+<p>The 135-d graph fingerprint vectors already in atlas can be extended with an <b>accessibility fingerprint</b>. Then SG subzones get nearest-neighbours in NYC/Chicago — a way to import lessons. The original report's ceiling was Singapore-only; this breaks that ceiling.</p>
+
+<h2><span class="num">7</span>What's currently missing in the data repo</h2>
+
+<p>Critical gaps to close before building:</p>
+
+<table>
+<tr><th>Data</th><th>Why needed</th><th>Status</th></tr>
+<tr><td>Bus GTFS (stops + routes + frequencies)</td><td>Accessibility by bus is unreliable without it</td><td><span class="tag err">MISSING</span></td></tr>
+<tr><td>OSM pedestrian network for SG</td><td>Network walk distance &gt; Euclidean</td><td><span class="tag warn">PARTIAL</span> (roads exist, ped subset unclear)</td></tr>
+<tr><td>Daytime / worker location</td><td>Correct denominator for CBD zones</td><td><span class="tag warn">MODELED</span> (flag as proxy)</td></tr>
+<tr><td>Ridehail trips</td><td>Only with operator partnership</td><td><span class="tag err">UNAVAILABLE</span> — drop canary narrative</td></tr>
+<tr><td>Future LTA master plan (JRL, CRL)</td><td>Scenario mode needs this</td><td><span class="tag err">TO PULL</span></td></tr>
+<tr><td>Building footprints + unit counts</td><td>First-mile from doorstep, not centroid</td><td><span class="tag warn">PARTIAL</span> (HDB exists, coverage TBD)</td></tr>
+</table>
+
+<h2><span class="num">8</span>Architecture, at the level of principles</h2>
+
+<p>Three layers:</p>
+
+<ol>
+<li><b>Compute layer</b> (offline, heavy): isochrones, accessibility scores, percentile normalizations. Batched nightly. Output: parquet per subzone / hex / building.</li>
+<li><b>Tile layer</b>: vector tiles for choropleths; per-feature JSON for drill-in. Cache-friendly.</li>
+<li><b>App layer</b>: thin. No heavy client math. Map + query + methodology UI.</li>
+</ol>
+
+<p><b>Why this matters:</b> the original dashboard likely did everything client-side with static HTML. That's fine for a report but bad for an app. For an app, the expensive stuff has to be precomputed and served, and the UI has to be cheap to interact with.</p>
+
+<p><b>Hex vs subzone:</b> subzone is government-natural (matches demography and planning); hex (H3 at res 8 or 9) is analytically cleaner (equal area, no boundary artifacts like "Selegie has 0 MRT"). An honest app shows both and lets the user toggle — and <b>population-weights within a hex</b>, not centroid.</p>
+
+<h2><span class="num">9</span>Pitfalls to name up front</h2>
+
+<ul>
+<li><b>OSM walk network is imperfect in Singapore</b> — pedestrian overhead bridges, covered linkways, mall through-routes are often missing. Field verification matters for headline numbers.</li>
+<li><b>Isochrones are sensitive to start time</b> — miss a 10-min bus by 30 seconds and your accessibility halves. Report distributions, not points.</li>
+<li><b>Daytime pop is modelled downstream</b> — treat as proxy, label it so.</li>
+<li><b>Peak hour is not one number</b> — morning peak and evening peak have different geometries. Treat them separately.</li>
+<li><b>Singapore is small</b> — edge effects are real. 800m at the edge of a subzone that's 1 km across means half the zone is in the "gap" even if 90% of residents are in range.</li>
+</ul>
+
+<h2><span class="num">10</span>Where I'd start, if we agree on the above</h2>
+
+<p>The smallest unit that would be <em>visibly better than the original report</em>:</p>
+
+<ol>
+<li><b>Pedestrian isochrone (15 / 30 / 45 min)</b> from each subzone building footprint centroid, using OSM walk network. Replaces the Euclidean 800m metric.</li>
+<li><b>Job accessibility score</b>: % of SG jobs reachable in 30 min by multimodal PT, using LTA od_train + bus GTFS.</li>
+<li><b>Two interaction modes</b>: pick-your-origin and pick-your-destination.</li>
+<li><b>Definition toggle</b> (MRT-only vs MRT+LRT, time budget 30 / 45 / 60).</li>
+<li><b>Methodology drawer</b> on every metric.</li>
+<li><b>No ridehail, no "canary" narrative, no causal claims.</b></li>
+</ol>
+
+<p>Everything else — scenarios, equity overlays, cross-city benchmarking, temporal slider, growth-readiness — is phase 2+.</p>
+
+<hr>
+
+<div class="sec keypt">
+<b>The strongest opinion in this doc:</b> the biggest value of this app is not the pretty map. It's forcing the conversation from <i>"where are the gaps in infrastructure?"</i> to <i>"where are the gaps in access?"</i> The first is easy to argue about; the second has an answer. Singapore has the data to give that answer honestly, and almost nobody has built that — not even LTA publicly.
+</div>
+
+<div class="q">
+Open questions — where do you want to push back or go deeper?<br><br>
+<b>1.</b> Is accessibility-first the right reframe, or do you want to keep a coverage lens as the primary view?<br>
+<b>2.</b> Is scenario mode (hypothetical station → delta) table-stakes, or phase 2?<br>
+<b>3.</b> Cross-city benchmarking — phase 1 or defer?
+</div>
+
+<div class="foot">
+Ideation doc · Transport adequacy app · Companion to transport_gaps_validated.html · April 2026
+</div>
+
+</div>
+</body>
+</html>

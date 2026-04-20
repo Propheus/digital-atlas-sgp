@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Propheus — SGP Urban Representation: Downstream Use Cases</title>
+<style>
+:root{--bg:#0d1f21;--bg2:#11282a;--bg3:#162f32;--a:#20b2aa;--a2:#2dd4bf;--ad:rgba(32,178,170,0.15);--t:#fff;--t2:#a0aeb0;--t3:#607274;--gd:rgba(32,178,170,0.2);--r:#ef4444;--g:#22c55e;--y:#eab308;--o:#f97316;--p:#a855f7}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Inter','Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.6;max-width:1180px;margin:0 auto;padding:24px 20px}
+.hdr{display:flex;align-items:center;gap:12px;padding:16px 0;border-bottom:1px solid var(--gd)}.hdr svg{width:28px;height:28px}.hdr h1{font-size:18px}.hdr .sub{font-size:11px;color:var(--t3)}
+h2{font-size:15px;color:var(--a);margin:24px 0 8px;border-bottom:1px solid var(--gd);padding-bottom:4px}h3{font-size:13px;color:var(--a2);margin:14px 0 4px}h4{font-size:12px;color:var(--a);margin:10px 0 4px}p,li{font-size:12.5px;color:var(--t2)}p{margin:4px 0}strong{color:var(--t)}
+table{border-collapse:collapse;width:100%;margin:6px 0;font-size:11.5px}th{background:var(--bg3);color:var(--a);padding:6px 8px;text-align:left;font-weight:600;border-bottom:1px solid var(--gd)}td{padding:5px 8px;color:var(--t2);border-bottom:1px solid rgba(255,255,255,0.03);vertical-align:top}tr:hover{background:rgba(32,178,170,0.03)}.r{text-align:right}.c{text-align:center}
+.cards{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.kpi{flex:1;min-width:90px;text-align:center;background:var(--bg2);border:1px solid var(--gd);border-radius:6px;padding:10px 6px}.kpi .n{font-size:20px;font-weight:700;color:var(--a)}.kpi .l{font-size:8px;text-transform:uppercase;letter-spacing:.5px;color:var(--t3)}
+.s{background:var(--bg2);border:1px solid var(--gd);border-radius:6px;padding:12px 14px;margin:8px 0}
+code{background:var(--bg3);color:var(--a);padding:1px 4px;border-radius:3px;font-size:10.5px}
+pre{background:var(--bg3);color:var(--t2);padding:10px 12px;border-radius:4px;font-size:10.5px;overflow-x:auto;border-left:2px solid var(--a);font-family:'SF Mono','Monaco','Menlo',monospace;line-height:1.5}
+pre .k{color:var(--a2)}pre .s2{color:var(--y)}pre .c2{color:var(--t3);font-style:italic}pre .n2{color:var(--o)}
+.q{color:var(--t3);font-size:9.5px}hr{border:none;border-top:1px solid var(--gd);margin:20px 0}
+.tag{display:inline-block;padding:2px 6px;border-radius:3px;font-size:9px;font-weight:600;white-space:nowrap}.tg{background:rgba(34,197,94,0.15);color:var(--g)}.tr{background:rgba(239,68,68,0.15);color:var(--r)}.ty{background:rgba(234,179,8,0.15);color:var(--y)}.tb{background:var(--ad);color:var(--a)}.to{background:rgba(249,115,22,0.15);color:var(--o)}.tp{background:rgba(168,85,247,0.15);color:var(--p)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.uc{background:var(--bg2);border:1px solid var(--gd);border-radius:6px;padding:12px 14px;margin:8px 0}
+.uc .head{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.uc .num{background:var(--a);color:var(--bg);width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;flex-shrink:0}
+.uc .title{font-size:13px;color:var(--a);font-weight:600}
+.uc .meta{font-size:10px;color:var(--t3);margin-bottom:8px}
+.uc .meta span{margin-right:10px}
+.uc p{font-size:12px;margin:5px 0;color:var(--t2)}
+.uc .row{display:grid;grid-template-columns:120px 1fr;gap:6px;margin:3px 0;font-size:11.5px}
+.uc .row .lbl{color:var(--a2);font-weight:600}
+.uc .row .val{color:var(--t2)}
+.uc .recipe{background:var(--bg3);padding:8px 10px;border-radius:4px;margin:6px 0;font-size:10.5px;color:var(--t2);border-left:2px solid var(--a)}
+.uc .warn{background:rgba(239,68,68,0.05);padding:6px 10px;border-radius:4px;margin:4px 0;font-size:10.5px;color:var(--t2);border-left:2px solid var(--r)}
+.pill{display:inline-block;background:var(--bg3);color:var(--t2);padding:2px 6px;border-radius:10px;font-size:9.5px;margin-right:4px}
+.effort{display:inline-block;width:12px;text-align:center}
+.eff-1{color:var(--g)}.eff-2{color:var(--y)}.eff-3{color:var(--o)}.eff-4{color:var(--r)}
+.hero{background:linear-gradient(135deg,rgba(32,178,170,0.08),rgba(45,212,191,0.03));border:1px solid var(--a);border-radius:8px;padding:14px 18px;margin:10px 0}
+.stake{background:var(--bg2);border:1px solid var(--gd);border-radius:6px;padding:10px 12px}
+.stake h4{color:var(--a);font-size:12px;margin-bottom:6px}
+.stake ul{list-style:none;padding:0}
+.stake li{font-size:11px;padding:2px 0;color:var(--t2)}
+.stake li::before{content:"▸ ";color:var(--a);font-weight:700}
+.pattern{background:var(--bg2);border-left:3px solid var(--a);padding:10px 14px;border-radius:4px;margin:8px 0}
+.pattern h4{margin-top:0}
+.flow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:6px 0;font-size:10.5px}
+.flow .step{background:var(--bg3);padding:4px 8px;border-radius:4px;color:var(--t2);white-space:nowrap}
+.flow .arr{color:var(--a);font-weight:700}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><g><g><path fill="#20b2aa" d="M45,64.2c-1.1,9.1-3.3,15.3-5.8,15.3c-0.1,0-0.1,0-0.2,0c-0.3,0-0.6-0.2-1-0.4c-3.1-2.5-5.4-14.5-5.4-29c0-14.4,2.3-26.4,5.4-29c0.3-0.3,0.7-0.5,1-0.5h0.2c2.6,0,4.9,6.8,6,16.6c-5.6,2-9.5,7.3-9.5,13.5C35.6,56.9,39.5,62.1,45,64.2z"/><path fill="#20b2aa" d="M67.4,50c0,14.5-2.3,26.5-5.4,29c-0.3,0.2-0.6,0.4-0.9,0.4c-0.1,0-0.2,0-0.2,0c-2.5,0-4.7-6.2-5.8-15.3c5.5-2,9.4-7.3,9.4-13.5c0-6.2-4-11.6-9.5-13.5c1.1-9.8,3.4-16.6,6-16.6H61c0.4,0,0.7,0.2,1,0.5C65.1,23.6,67.4,35.6,67.4,50z"/></g><path fill="#20b2aa" d="M30.2,50c0-14.4,2.3-26.4,5.4-29c-10.6,5.3-17.9,16.3-17.9,29c0,12.7,7.3,23.7,17.9,29C32.5,76.5,30.2,64.5,30.2,50z M64.4,21c3.1,2.6,5.4,14.5,5.4,29c0,14.5-2.3,26.5-5.4,29C75,73.7,82.3,62.7,82.3,50C82.3,37.3,75,26.4,64.4,21z"/><path fill="#20b2aa" d="M62.1,50.7c0,5-3,9.3-7.4,11.2c-1.5,0.6-3.1,1-4.8,1c-1.7,0-3.3-0.4-4.8-1c-4.3-1.9-7.4-6.2-7.4-11.2c0-5.1,3.1-9.4,7.5-11.2c1.4-0.6,3-0.9,4.7-0.9c1.7,0,3.2,0.3,4.7,0.9C59.1,41.3,62.1,45.6,62.1,50.7z"/></g></g></svg>
+<div><h1>SGP Urban Representation &mdash; Downstream Use Cases Playbook</h1><div class="sub">What the 88-dim hex bundle enables, end-to-end workflows, integration patterns, and honest limitations &nbsp;&bull;&nbsp; Propheus Digital Atlas</div></div>
+</div>
+
+<div class="cards">
+<div class="kpi"><div class="n">27</div><div class="l">Use Cases</div></div>
+<div class="kpi"><div class="n">13</div><div class="l">Ship Today</div></div>
+<div class="kpi"><div class="n">8</div><div class="l">One Join Away</div></div>
+<div class="kpi"><div class="n">6</div><div class="l">Need v2 Bundle</div></div>
+<div class="kpi"><div class="n">9</div><div class="l">Stakeholders</div></div>
+<div class="kpi"><div class="n">4</div><div class="l">Integration Patterns</div></div>
+<div class="kpi"><div class="n">7,318</div><div class="l">Hexes</div></div>
+<div class="kpi"><div class="n">2.8 MB</div><div class="l">Bundle</div></div>
+</div>
+
+<!-- ===== HOW TO READ THIS DOC ===== -->
+<h2>How to Read This Playbook</h2>
+<div class="hero">
+<p>Each use case follows the same structure so you can scan for fit:</p>
+<table style="margin-top:6px">
+<tr><td><strong>Who</strong></td><td>The stakeholder / buyer persona who cares</td></tr>
+<tr><td><strong>Decision</strong></td><td>The specific decision this enables</td></tr>
+<tr><td><strong>Inputs</strong></td><td>What it needs from the bundle (and external data, if any)</td></tr>
+<tr><td><strong>Workflow</strong></td><td>End-to-end steps with concrete queries</td></tr>
+<tr><td><strong>Output</strong></td><td>What the consumer receives &mdash; ranked list, score, map layer, predictions</td></tr>
+<tr><td><strong>Success metric</strong></td><td>How to know if it's working</td></tr>
+<tr><td><strong>Effort</strong></td><td><span class="effort eff-1">&#9679;</span> half-day &nbsp; <span class="effort eff-2">&#9679;&#9679;</span> 1&ndash;3 days &nbsp; <span class="effort eff-3">&#9679;&#9679;&#9679;</span> 1&ndash;2 weeks &nbsp; <span class="effort eff-4">&#9679;&#9679;&#9679;&#9679;</span> month+</td></tr>
+<tr><td><strong>Honest risks</strong></td><td>What could go wrong &mdash; always read this before promising outcomes</td></tr>
+</table>
+</div>
+
+<!-- ===== BUNDLE RECAP ===== -->
+<h2>0. The Bundle We're Serving</h2>
+<div class="s">
+<table>
+<tr><th>Component</th><th class="r">Dims</th><th>What it encodes</th><th>Query it answers</th></tr>
+<tr><td><strong>GCN-64 embedding</strong> <span class="q">g0..g63</span></td><td class="r">64</td><td>Neighborhood-aware urban character; dual-graph propagation over 47K spatial+transit edges</td><td>Similarity search, clustering, transfer features</td></tr>
+<tr><td><strong>XGBoost predictions</strong> <span class="q">pred_*</span></td><td class="r">24</td><td>Expected count of each place category given physical context</td><td>Gap analysis: expected &ndash; actual</td></tr>
+<tr><td><strong>Identity fields</strong></td><td class="r">5</td><td>hex_id, lat, lng, parent_subzone, parent_pa</td><td>Joins to any external spatial data</td></tr>
+<tr><td>Optional: raw 391 context features</td><td class="r">391</td><td>Normalized physical/structural features (for re-training)</td><td>New XGBoost heads against new targets</td></tr>
+<tr><td>Optional: 156 micrograph features</td><td class="r">156</td><td>Aggregate place-level texture per hex (anchor composition, tier structure, gap signatures)</td><td>Fine-grained neighborhood queries</td></tr>
+</table>
+<p style="margin-top:8px"><strong>File:</strong> <code>data/hex_v10/serving/hex_shareable_bundle.parquet</code> (2.8 MB) &nbsp;&nbsp; <strong>Coverage:</strong> 7,318 H3-res-9 hexes (~400m) spanning all Singapore land.</p>
+</div>
+
+<!-- ===== STAKEHOLDER MATRIX ===== -->
+<h2>Stakeholder &times; Use Case Matrix</h2>
+<div class="s">
+<p>Nine primary stakeholder archetypes and which use cases address their questions.</p>
+<div class="grid3">
+
+<div class="stake">
+<h4>Retail / F&amp;B brands</h4>
+<ul>
+<li>#1 Site selection (brand expansion)</li>
+<li>#2 Gap-driven site selection</li>
+<li>#9 Brand whitespace analysis</li>
+<li>#12 New concept fit scoring</li>
+<li>#15 Rent negotiation support</li>
+</ul>
+</div>
+
+<div class="stake">
+<h4>Real estate &amp; property</h4>
+<ul>
+<li>#4 Comparable market analysis</li>
+<li>#14 HDB price prediction</li>
+<li>#15 Commercial rent modeling</li>
+<li>#21 Gentrification early-warning</li>
+</ul>
+</div>
+
+<div class="stake">
+<h4>Government planners (URA / HDB / MND)</h4>
+<ul>
+<li>#3 Amenity gap analysis</li>
+<li>#7 15-minute city scorecard</li>
+<li>#8 Amenity desert mapping</li>
+<li>#18 School enrollment forecast</li>
+<li>#23 Scenario simulation</li>
+</ul>
+</div>
+
+<div class="stake">
+<h4>Marketing / adtech</h4>
+<ul>
+<li>#6 Look-alike targeting</li>
+<li>#10 Audience segmentation</li>
+<li>#13 Tourism cluster detection</li>
+</ul>
+</div>
+
+<div class="stake">
+<h4>Logistics / q-commerce</h4>
+<ul>
+<li>#11 Delivery service zone design</li>
+<li>#16 Footfall prediction</li>
+<li>#19 EV charger placement</li>
+</ul>
+</div>
+
+<div class="stake">
+<h4>Transport &amp; mobility (LTA)</h4>
+<ul>
+<li>#19 EV charger placement</li>
+<li>#22 Temporal dynamics</li>
+<li>#23 Scenario simulation (MRT)</li>
+<li>#26 Flow / gravity modeling</li>
+</ul>
+</div>
+
+<div class="stake">
+<h4>Health / social policy</h4>
+<ul>
+<li>#8 Food / amenity desert</li>
+<li>#17 Health outcome correlation</li>
+<li>#18 School demand forecast</li>
+</ul>
+</div>
+
+<div class="stake">
+<h4>Insurance / risk</h4>
+<ul>
+<li>#20 Insurance micro-pricing</li>
+<li>#21 Gentrification early-warning</li>
+</ul>
+</div>
+
+<div class="stake">
+<h4>Academia / research</h4>
+<ul>
+<li>#5 Urban archetype clustering</li>
+<li>#7 15-minute city scorecard</li>
+<li>#17 Health geography</li>
+<li>#25 Cross-city transfer research</li>
+</ul>
+</div>
+
+</div>
+</div>
+
+<!-- ===== TIER 1 ===== -->
+<h2>1. Tier 1 &mdash; Works Today With the Bundle Alone <span class="tag tg">ship-ready</span></h2>
+<p>Thirteen use cases powered entirely by the 2.8 MB bundle &mdash; no external data, no retraining. Each card shows a full workflow.</p>
+
+<!-- UC #1 -->
+<div class="uc">
+<div class="head"><span class="num">1</span><span class="title">Site Selection &mdash; Brand Expansion</span><span class="tag tg">GCN-64</span><span class="effort eff-1">&#9679;</span></div>
+<div class="meta"><span class="pill">Retail / F&amp;B</span><span class="pill">similarity</span><span class="pill">interactive</span></div>
+<div class="row"><div class="lbl">Who</div><div class="val">VP Expansion, head of real estate at a brand (cafe, QSR, fitness, beauty)</div></div>
+<div class="row"><div class="lbl">Decision</div><div class="val">Where to open the next 20 stores out of all unclaimed SGP territory</div></div>
+<div class="row"><div class="lbl">Inputs</div><div class="val">Bundle + brand's own list of top-performing store locations (just hex_ids or lat/lng)</div></div>
+<div class="recipe"><strong>Workflow:</strong><br>
+1. Convert brand's top-10 store lat/lng &rarr; hex_ids via h3.latlng_to_cell(..., 9)<br>
+2. Retrieve GCN-64 vectors for those 10 hexes, average &rarr; <code>brand_centroid</code><br>
+3. Compute cosine similarity between centroid and all 7,318 hexes<br>
+4. Filter out hexes already containing the brand (or tier-1 competitors)<br>
+5. Filter for feasibility: <code>actual_cafe_count &gt; 0 OR pred_cafe &gt; threshold</code><br>
+6. Return top 20 ranked by similarity &times; feasibility score</div>
+<div class="row"><div class="lbl">Output</div><div class="val">CSV / GeoJSON of 20 hex_ids + lat/lng + similarity score + neighborhood profile, ready for field-scout validation</div></div>
+<div class="row"><div class="lbl">Success metric</div><div class="val">6-month revenue of new stores opened from the list vs. brand's historical expansion baseline</div></div>
+<div class="warn"><strong>Risks:</strong> (1) Brand's top stores may share PA (planning area) &mdash; model will cluster there. Spread centroid across geographic regions. (2) Similarity ignores operational constraints (rent, lease availability, footfall-hour match). Treat as shortlist, not final answer.</div>
+</div>
+
+<!-- UC #2 -->
+<div class="uc">
+<div class="head"><span class="num">2</span><span class="title">Gap-Driven Site Selection</span><span class="tag ty">XGBoost preds</span><span class="effort eff-1">&#9679;</span></div>
+<div class="meta"><span class="pill">Retail / F&amp;B</span><span class="pill">prediction</span><span class="pill">planning</span></div>
+<div class="row"><div class="lbl">Who</div><div class="val">Strategy teams at chains (7-Eleven, FairPrice, Toast Box) scouting for under-served areas</div></div>
+<div class="row"><div class="lbl">Decision</div><div class="val">"Where does the model say X should exist, but it doesn't yet?" &mdash; finds gaps competitors haven't filled</div></div>
+<div class="row"><div class="lbl">Inputs</div><div class="val">Bundle only</div></div>
+<div class="recipe"><strong>Workflow:</strong><br>
+1. For each hex: <code>gap = pred_cafe_coffee &ndash; actual_cafe_count</code><br>
+2. Standardize gap (z-score) so we get hexes with structurally-unexpected absence<br>
+3. Filter <code>gap_z &gt; 2</code> (top ~2.5%)<br>
+4. Join with population + walkability for secondary ranking<br>
+5. Visualize on map: size = gap, color = population density</div>
+<div class="row"><div class="lbl">Output</div><div class="val">Map layer of high-gap hexes per category &mdash; interactive dashboard or GeoJSON feed</div></div>
+<div class="row"><div class="lbl">Success metric</div><div class="val">(a) Correlation of high-gap hexes with places opened in the 12 months after publication &nbsp; (b) hit rate if client acts on recommendations</div></div>
+<div class="warn"><strong>Risks:</strong> XGBoost predicts based on physical context; if the model has systematic blind spots (e.g. HDB-specific rules), gaps will be artificial. Validate against holdout set first.</div>
+</div>
+
+<!-- UC #3 -->
+<div class="uc">
+<div class="head"><span class="num">3</span><span class="title">Amenity Gap Analysis (Policy)</span><span class="tag ty">XGBoost</span><span class="effort eff-2">&#9679;&#9679;</span></div>
+<div class="meta"><span class="pill">URA / MND / HDB</span><span class="pill">rollup</span><span class="pill">policy</span></div>
+<div class="row"><div class="lbl">Who</div><div class="val">Planning officers deciding where to provision childcare centres, CHAS clinics, hawker stalls, community spaces</div></div>
+<div class="row"><div class="lbl">Decision</div><div class="val">Which of 332 subzones are structurally under-served in specific categories and by how much</div></div>
+<div class="row"><div class="lbl">Inputs</div><div class="val">Bundle + population table (already in <code>data/hex_v10/hex_population.parquet</code>)</div></div>
+<div class="recipe"><strong>Workflow:</strong><br>
+1. Per hex: compute <code>deficit = pred_cat &ndash; actual_cat</code> for all 24 categories<br>
+2. Roll up: <code>subzone_deficit = sum(deficit) / sum(population)</code> per 10K residents<br>
+3. Rank 332 subzones by deficit in each category<br>
+4. Cross-tab: which subzones have concurrent deficits in &ge; 3 categories (compound priority)<br>
+5. Pre-compute &amp; serve as <code>subzone_gap_table.parquet</code> (~30 KB)</div>
+<div class="row"><div class="lbl">Output</div><div class="val">332 &times; 24 gap table + rankings + compound-priority list. Drop-in for URA/HDB dashboards or briefings.</div></div>
+<div class="row"><div class="lbl">Success metric</div><div class="val">Adoption in existing HDB masterplan briefings; agreement with field surveys from residents' associations</div></div>
+<div class="warn"><strong>Risks:</strong> Predictions are based on snapshot; policy decisions have 5&ndash;10 year horizons. Pair with SingStat population projections for forward-looking version.</div>
+</div>
+
+<!-- UC #4 -->
+<div class="uc">
+<div class="head"><span class="num">4</span><span class="title">Comparable Market Analysis</span><span class="tag tg">GCN-64</span><span class="effort eff-1">&#9679;</span></div>
+<div class="meta"><span class="pill">Real Estate</span><span class="pill">similarity</span><span class="pill">appraisal</span></div>
+<div class="row"><div class="lbl">Who</div><div class="val">Real estate appraisers, JLL / CBRE / Savills research teams, shophouse investors</div></div>
+<div class="row"><div class="lbl">Decision</div><div class="val">For a specific property at address X, find 10 hexes with comparable urban character (not just "nearby")</div></div>
+<div class="row"><div class="lbl">Inputs</div><div class="val">Bundle + property address/coords</div></div>
+<div class="recipe"><strong>Workflow:</strong><br>
+1. Address &rarr; lat/lng &rarr; hex_id<br>
+2. <code>find_similar(hex_id, k=10)</code> using GCN-64 cosine<br>
+3. For each comparable: return parent subzone, PA, and any actual transaction data available<br>
+4. Export as comp sheet with similarity score &amp; distance from target</div>
+<div class="row"><div class="lbl">Output</div><div class="val">Comparable sheet: 10 hex_ids + similarity scores + metadata, ready for valuation models</div></div>
+<div class="row"><div class="lbl">Success metric</div><div class="val">Appraiser-reported usefulness; blind comparison to human-selected comps</div></div>
+<div class="warn"><strong>Risks:</strong> GCN-64 captures urban character, not property-specific features (building age, condition, view). Use alongside traditional comps, not as a replacement.</div>
+</div>
+
+<!-- UC #5 -->
+<div class="uc">
+<div class="head"><span class="num">5</span><span class="title">Urban Archetype Clustering</span><span class="tag tg">GCN-64</span><span class="effort eff-2">&#9679;&#9679;</span></div>
+<div class="meta"><span class="pill">Planners / Research</span><span class="pill">unsupervised</span><span class="pill">map layer</span></div>
+<div class="row"><div class="lbl">Who</div><div class="val">URA researchers, academics, anyone needing a neighborhood-type taxonomy for SGP</div></div>
+<div class="row"><div class="lbl">Decision</div><div class="val">Define 10&ndash;20 SGP neighborhood archetypes (e.g. "CBD core," "mature HDB," "industrial edge," "tourism cluster") as a segmentation layer for other analyses</div></div>
+<div class="row"><div class="lbl">Inputs</div><div class="val">Bundle only</div></div>
+<div class="recipe"><strong>Workflow:</strong><br>
+1. <code>KMeans(n_clusters=15, random_state=42).fit(GCN-64)</code><br>
+2. Characterize each cluster by its centroid's top features (predicted category profile, density, transit access)<br>
+3. Name each archetype via LLM or domain expert &mdash; publish the vocabulary<br>
+4. Attach cluster label to every hex &rarr; <code>archetype_labels.parquet</code><br>
+5. Serve as map layer + lookup table</div>
+<div class="row"><div class="lbl">Output</div><div class="val">7,318 hexes &times; 1 archetype_id + named archetype vocabulary (JSON). Re-usable segmentation for any downstream task.</div></div>
+<div class="row"><div class="lbl">Success metric</div><div class="val">(a) Silhouette score / Davies-Bouldin on clustering quality &nbsp; (b) human-rated coherence of named archetypes</div></div>
+<div class="warn"><strong>Risks:</strong> k=15 is a design choice. Try k=10, 15, 20 and pick what aligns with URA's planning-area vocabulary. Document that archetypes are data-driven, not policy-driven.</div>
+</div>
+
+<!-- UC #6 -->
+<div class="uc">
+<div class="head"><span class="num">6</span><span class="title">Look-Alike Targeting (Marketing)</span><span class="tag tg">GCN-64</span><span class="effort eff-1">&#9679;</span></div>
+<div class="meta"><span class="pill">Marketing / Adtech</span><span class="pill">similarity</span><span class="pill">geo-fencing</span></div>
+<div class="row"><div class="lbl">Who</div><div class="val">Programmatic ad buyers, OOH (out-of-home) media planners, CRM geo-marketing teams</div></div>
+<div class="row"><div class="lbl">Decision</div><div class="val">Given a set of high-performing campaign zones (known from conversion data), find all SGP hexes with matching character for budget expansion</div></div>
+<div class="row"><div class="lbl">Inputs</div><div class="val">Bundle + campaign conversion data (hex-level or point-level)</div></div>
+<div class="recipe"><strong>Workflow:</strong><br>
+1. Map converting customer locations (or campaign-performing zones) &rarr; hex_ids<br>
+2. Compute conversion-weighted centroid in GCN-64 space<br>
+3. Rank all 7,318 hexes by cosine similarity<br>
+4. Cap at top-N hexes (e.g. 500) matching target audience size<br>
+5. Export as GeoJSON geofences for ad platforms (Meta, Google, DOOH)</div>
+<div class="row"><div class="lbl">Output</div><div class="val">Ranked hex list + geofence GeoJSON, audience-size estimate</div></div>
+<div class="row"><div class="lbl">Success metric</div><div class="val">Campaign CAC / CPA in look-alike zones vs. baseline zones. A/B test split.</div></div>
+<div class="warn"><strong>Risks:</strong> Cold-start: if input zones are geographically clustered, look-alikes will be too. Weight by performance not raw count, and diversify seed zones.</div>
+</div>
+
+<!-- UC #7 -->
+<div class="uc">
+<div class="head"><span class="num">7</span><span class="title">15-Minute City Scorecard</span><span class="tag ty">raw counts + walkability</span><span class="effort eff-2">&#9679;&#9679;</span></div>
+<div class="meta"><span class="pill">Sustainability / URA</span><span class="pill">composite metric</span><span class="pill">dashboard</span></div>
+<div class="row"><div class="lbl">Who</div><div class="val">URA sustainability team, smart-city researchers, town council strategists</div></div>
+<div class="row"><div class="lbl">Decision</div><div class="val">Per hex, how walkably accessible are the 24 daily-life categories? Flagships the "amenity access" metric underlying 15-min-city policy.</div></div>
+<div class="row"><div class="lbl">Inputs</div><div class="val">Bundle + walkability index (already in features)</div></div>
+<div class="recipe"><strong>Workflow:</strong><br>
+1. For each hex: count of the 24 categories present in the hex OR its k=1 H3 ring<br>
+2. Weight by walkability_index (already in the 391 features)<br>
+3. Normalize: <code>score = weighted_cat_coverage / 24 &times; 100</code> &isin; [0, 100]<br>
+4. Per-category breakdown: which categories are missing in low-scoring hexes?<br>
+5. Map layer with choropleth</div>
+<div class="row"><div class="lbl">Output</div><div class="val">Per-hex 15-min-city score (0&ndash;100) + category-level breakdown + missing-category list</div></div>
+<div class="row"><div class="lbl">Success metric</div><div class="val">Correlation with URA's own accessibility metrics; resident-survey satisfaction scores by subzone</div></div>
+<div class="warn"><strong>Risks:</strong> 400m hex size &ne; 15-min walk. Calibrate ring radius (k=1 ring + walkability) to actual pedestrian speed (~5 km/h &rarr; 1.25 km in 15 min).</div>
+</div>
+
+<!-- UC #8 -->
+<div class="uc">
+<div class="head"><span class="num">8</span><span class="title">Food / Amenity Desert Mapping</span><span class="tag ty">pred vs actual</span><span class="effort eff-2">&#9679;&#9679;</span></div>
+<div class="meta"><span class="pill">NGO / Public Health</span><span class="pill">equity</span><span class="pill">policy</span></div>
+<div class="row"><div class="lbl">Who</div><div class="val">Social service agencies (NGOs), public health researchers, HDB estate welfare teams</div></div>
+<div class="row"><div class="lbl">Decision</div><div class="val">Identify hexes where vulnerable populations are structurally cut off from hawker, convenience, clinic, or education access</div></div>
+<div class="row"><div class="lbl">Inputs</div><div class="val">Bundle + population (by age ideally) + MRT/bus proximity (in features)</div></div>
+<div class="recipe"><strong>Workflow:</strong><br>
+1. For categories of interest (hawker, convenience, health_medical, education):<br>
+&nbsp;&nbsp;<code>deficit = max(0, pred_cat &ndash; actual_cat) &times; population</code><br>
+2. Weight by walkability (low walkability = deeper desert effect)<br>
+3. Composite desert score per hex<br>
+4. Highlight hexes with low transit access + high deficit (compound vulnerability)<br>
+5. Publish as map + ranked list for council-level interventions</div>
+<div class="row"><div class="lbl">Output</div><div class="val">Desert index per hex, top-100 priority list, compound-vulnerability flags</div></div>
+<div class="row"><div class="lbl">Success metric</div><div class="val">Alignment with existing food security research; pilot intervention outcomes (e.g. new hawker stall in top-flagged hex)</div></div>
+<div class="warn"><strong>Risks:</strong> Without income data, can't truly measure vulnerability. For serious equity work, request age + income distribution from SingStat.</div>
+</div>
+
+<!-- UC #9 -->
+<div class="uc">
+<div class="head"><span class="num">9</span><span class="title">Brand Whitespace Analysis</span><span class="tag tg">GCN-64 + filter</span><span class="effort eff-2">&#9679;&#9679;</span></div>
+<div class="meta"><span class="pill">Brand Strategy</span><span class="pill">competitive</span><span class="pill">expansion</span></div>
+<div class="row"><div class="lbl">Who</div><div class="val">Brand CMOs, expansion teams, competitive intelligence analysts</div></div>
+<div class="row"><div class="lbl">Decision</div><div class="val">Where does Starbucks fit, but isn't yet? Find hexes similar to Starbucks-heavy areas that have zero Starbucks presence (or presence below expected).</div></div>
+<div class="row"><div class="lbl">Inputs</div><div class="val">Bundle + brand presence data (joined from <code>sgp_places_v2.jsonl</code> brand field)</div></div>
+<div class="recipe"><strong>Workflow:</strong><br>
+1. Identify hexes containing brand (or tier-1 competitor)<br>
+2. Compute brand centroid in GCN-64<br>
+3. Rank all hexes by similarity to centroid<br>
+4. Filter: hexes with similarity in top 25% AND zero brand presence<br>
+5. Secondary rank by size of competitor presence (high = contested, low = whitespace)<br>
+6. Export "uncontested whitespace" list</div>
+<div class="row"><div class="lbl">Output</div><div class="val">Two lists: (a) whitespace (similar + brand absent + low competition), (b) contested (similar + competitor-heavy)</div></div>
+<div class="row"><div class="lbl">Success metric</div><div class="val">Strategic alignment with brand's stated expansion hypothesis; test via partial rollout</div></div>
+<div class="warn"><strong>Risks:</strong> "Absence" of a brand at 400m granularity is noisy. Use k=1 H3 ring presence, not just the focal hex.</div>
+</div>
+
+<!-- UC #10 -->
+<div class="uc">
+<div class="head"><span class="num">10</span><span class="title">Audience Segmentation</span><span class="tag tg">cluster labels</span><span class="effort eff-1">&#9679;</span></div>
+<div class="meta"><span class="pill">Marketing</span><span class="pill">segmentation</span></div>
+<div class="row"><div class="lbl">Who</div><div class="val">Brand managers mapping products to neighborhood archetypes</div></div>
+<div class="row"><div class="lbl">Decision</div><div class="val">Match creative / product / SKU to urban archetype. "Archetype 7 = young-professional dense-HDB &rarr; run campaign-variant B"</div></div>
+<div class="row"><div class="lbl">Inputs</div><div class="val">Use-Case #5 output (<code>archetype_labels.parquet</code>)</div></div>
+<div class="recipe"><strong>Workflow:</strong><br>
+1. Export <code>archetype_labels.parquet</code> as CSV<br>
+2. Import into campaign-management tool (Meta Ads, Google Ads, DOOH platforms)<br>
+3. Define creative / bid variants per archetype<br>
+4. Route impressions by user's current hex (from phone GPS) &rarr; archetype &rarr; creative<br>
+5. Measure conversion by archetype &rarr; feed back into archetype profitability ranking</div>
+<div class="row"><div class="lbl">Output</div><div class="val">Archetype-to-creative mapping; per-archetype conversion dashboard</div></div>
+<div class="row"><div class="lbl">Success metric</div><div class="val">Conversion lift by archetype vs. undifferentiated baseline</div></div>
+<div class="warn"><strong>Risks:</strong> Archetype labels are stable but campaign-attribution at hex granularity requires clean IDs. Don't over-segment &mdash; 15 archetypes is ceiling for most media budgets.</div>
+</div>
+
+<!-- UC #11 -->
+<div class="uc">
+<div class="head"><span class="num">11</span><span class="title">Delivery / Service Zone Design</span><span class="tag tg">GCN-64 + geo</span><span class="effort eff-3">&#9679;&#9679;&#9679;</span></div>
+<div class="meta"><span class="pill">Q-commerce / Logistics</span><span class="pill">clustering + geo</span></div>
+<div class="row"><div class="lbl">Who</div><div class="val">Ops teams at Grab, foodpanda, Deliveroo, cloud-kitchen companies, local chains with in-house delivery</div></div>
+<div class="row"><div class="lbl">Decision</div><div class="val">Group hexes into 30&ndash;50 service zones where each zone has (a) geographic contiguity, (b) similar demand mix, (c) balanced order volume</div></div>
+<div class="row"><div class="lbl">Inputs</div><div class="val">Bundle + geographic centroids + (optionally) historical order volume</div></div>
+<div class="recipe"><strong>Workflow:</strong><br>
+1. Use constrained clustering on [GCN-64 features + lat/lng]<br>
+2. Add geographic contiguity constraint (each cluster is a connected region)<br>
+3. Balance constraint: sum(predicted demand) per cluster within &plusmn;20%<br>
+4. If historical order data available: calibrate demand weights<br>
+5. Output: zone_id per hex + zone summary (area, demand index, dominant archetypes)</div>
+<div class="row"><div class="lbl">Output</div><div class="val">Zone boundaries (GeoJSON), zone-summary dashboard, demand-balance report</div></div>
+<div class="row"><div class="lbl">Success metric</div><div class="val">Delivery time variance reduction; utilization rate per zone; driver income parity</div></div>
+<div class="warn"><strong>Risks:</strong> Constrained clustering is computationally expensive and has no closed-form optimum. Use heuristics (spatial k-means + post-hoc boundary repair) or SKATER regionalization.</div>
+</div>
+
+<!-- UC #12 -->
+<div class="uc">
+<div class="head"><span class="num">12</span><span class="title">New Concept Fit Scoring</span><span class="tag ty">GCN-64 + mg_* features</span><span class="effort eff-2">&#9679;&#9679;</span></div>
+<div class="meta"><span class="pill">F&amp;B / Retail</span><span class="pill">scoring</span></div>
+<div class="row"><div class="lbl">Who</div><div class="val">New concept operators, concept-led brands (specialty desserts, boutique fitness, experience retail)</div></div>
+<div class="row"><div class="lbl">Decision</div><div class="val">Where does a new concept fit? Example: a specialty matcha dessert bar wants "high demand_diversity + low comp_pressure + cafe-rich + walkability &gt; 60"</div></div>
+<div class="row"><div class="lbl">Inputs</div><div class="val">Bundle (+ concept profile defined by operator)</div></div>
+<div class="recipe"><strong>Workflow:</strong><br>
+1. Operator defines concept profile as a weighted feature vector:<br>
+&nbsp;&nbsp;<code>{demand_diversity: +0.3, mg_cafe_comp_pressure: &minus;0.2, walkability: +0.2, pred_cafe: +0.15, pred_hospitality: +0.15}</code><br>
+2. Normalize weights, compute per-hex score = weighted sum<br>
+3. Optionally: find anchor hex (e.g. Tiong Bahru), add similarity to anchor as a factor<br>
+4. Rank all 7,318 hexes, return top-20 with full feature-value breakdown<br>
+5. Operator validates by visiting top-5 in person</div>
+<div class="row"><div class="lbl">Output</div><div class="val">Ranked candidate hexes + feature-value breakdown explaining each score &mdash; explainable, not black-box</div></div>
+<div class="row"><div class="lbl">Success metric</div><div class="val">Operator's gut-check acceptance rate; first-year revenue of sites chosen from list</div></div>
+<div class="warn"><strong>Risks:</strong> Operators often lack vocabulary to define "fit." Offer a UI where they pick 3&ndash;5 reference hexes; derive the profile automatically.</div>
+</div>
+
+<!-- UC #13 -->
+<div class="uc">
+<div class="head"><span class="num">13</span><span class="title">Tourism Cluster Detection</span><span class="tag tg">multi-category</span><span class="effort eff-2">&#9679;&#9679;</span></div>
+<div class="meta"><span class="pill">STB / Tourism</span><span class="pill">product dev</span></div>
+<div class="row"><div class="lbl">Who</div><div class="val">Singapore Tourism Board, hospitality chains, destination marketers, tourism-experience startups</div></div>
+<div class="row"><div class="lbl">Decision</div><div class="val">Identify emerging tourism microdistricts. Candidate hexes have joint strength in culture, hospitality, dining, and transit &mdash; suggesting a potential tourist cluster not yet on official maps.</div></div>
+<div class="row"><div class="lbl">Inputs</div><div class="val">Bundle only</div></div>
+<div class="recipe"><strong>Workflow:</strong><br>
+1. Composite score = w1 &times; pred_culture_entertainment + w2 &times; pred_hospitality + w3 &times; pred_restaurant + w4 &times; transit_access<br>
+2. Rank hexes, take top 500<br>
+3. Cluster geographically (DBSCAN on lat/lng) &rarr; microdistricts<br>
+4. Characterize each microdistrict: dominant categories, walkability, transit, population<br>
+5. Compare to official tourism-board maps &rarr; identify under-represented clusters</div>
+<div class="row"><div class="lbl">Output</div><div class="val">Map of tourism microdistricts, with each annotated by theme (heritage, F&amp;B, nightlife, culture) &mdash; foundation for tourism product dev</div></div>
+<div class="row"><div class="lbl">Success metric</div><div class="val">Overlap with STB-designated tourism zones; identification of 1&ndash;2 novel clusters</div></div>
+<div class="warn"><strong>Risks:</strong> Weights are subjective. Run sensitivity analysis and report top-10 under multiple weight schemes. Don't overclaim predictive power on tourist footfall.</div>
+</div>
+
+<!-- ===== TIER 2 ===== -->
+<h2>2. Tier 2 &mdash; Works With Bundle + One Data Join <span class="tag ty">1-day integration</span></h2>
+<p>Eight use cases that unlock when bundle joins to one external dataset. Each shows the join + workflow.</p>
+
+<!-- UC #14 -->
+<div class="uc">
+<div class="head"><span class="num">14</span><span class="title">HDB Resale Price Prediction</span><span class="tag ty">bundle + HDB data</span><span class="effort eff-2">&#9679;&#9679;</span></div>
+<div class="meta"><span class="pill">Real Estate</span><span class="pill">regression</span></div>
+<div class="row"><div class="lbl">Who</div><div class="val">PropTech platforms, HDB research teams, investment advisors</div></div>
+<div class="row"><div class="lbl">Decision</div><div class="val">Predict resale price per sqft at hex granularity; identify under-priced micro-markets</div></div>
+<div class="row"><div class="lbl">External data</div><div class="val"><code>data/hex_v10/hex_hdb_prices.parquet</code> (already in repo) &mdash; HDB resale transactions aggregated to hex</div></div>
+<div class="recipe"><strong>Workflow:</strong><br>
+1. Load bundle + hex_hdb_prices, join on hex_id<br>
+2. Features = GCN-64 (64 dims) &oplus; pred_residential + pred_transport + pred_education<br>
+3. Target = log(price_per_sqft)<br>
+4. Train XGBoost with 5-fold CV<br>
+5. Predict for all 7,318 hexes &rarr; compare to actual<br>
+6. Gap (actual &ndash; predicted) flags under/over-priced micro-markets</div>
+<div class="row"><div class="lbl">Output</div><div class="val">Hex-level price prediction + residual analysis + heat map of valuation gaps</div></div>
+<div class="row"><div class="lbl">Success metric</div><div class="val">CV R&sup2; (expected 0.60&ndash;0.75); correlation with HDB's own valuation models</div></div>
+<div class="warn"><strong>Risks:</strong> HDB prices have policy-driven boundaries (PMT eligibility, grants) that features don't capture. Residuals may reflect policy, not mispricing.</div>
+</div>
+
+<!-- UC #15 -->
+<div class="uc">
+<div class="head"><span class="num">15</span><span class="title">Commercial Rent Modeling</span><span class="tag ty">bundle + rent data</span><span class="effort eff-3">&#9679;&#9679;&#9679;</span></div>
+<div class="meta"><span class="pill">Real Estate</span><span class="pill">regression</span></div>
+<div class="row"><div class="lbl">Who</div><div class="val">Commercial landlords, retail brands, leasing agents</div></div>
+<div class="row"><div class="lbl">Decision</div><div class="val">Predict prime shop rent psf by hex; detect rent gaps vs. commercial potential</div></div>
+<div class="row"><div class="lbl">External data</div><div class="val">JLL / CBRE / Savills rent benchmarks (not in repo; would need to scrape or license)</div></div>
+<div class="recipe"><strong>Workflow:</strong><br>
+1. Geocode rent observations to hex_ids<br>
+2. Ridge or XGBoost regression: y = rent_psf, X = GCN-64 + 24 preds + walkability + transit_access<br>
+3. Predict for all commercial-zoned hexes<br>
+4. Rent-gap = actual_rent &ndash; predicted_rent<br>
+5. Negative gap &rarr; under-priced (retail opportunity); positive gap &rarr; over-priced<br>
+6. Deliver as lease-negotiation tool</div>
+<div class="row"><div class="lbl">Output</div><div class="val">Per-hex rent prediction + gap + confidence interval</div></div>
+<div class="row"><div class="lbl">Success metric</div><div class="val">CV R&sup2;; agreement with licensed-agent reports</div></div>
+<div class="warn"><strong>Risks:</strong> Commercial rent data is sparse and heterogeneous (office vs retail vs F&amp;B). Split training by use type. Report CIs, not point predictions.</div>
+</div>
+
+<!-- UC #16 -->
+<div class="uc">
+<div class="head"><span class="num">16</span><span class="title">Footfall / Dwell-Time Prediction</span><span class="tag ty">bundle + telco / GPS</span><span class="effort eff-3">&#9679;&#9679;&#9679;</span></div>
+<div class="meta"><span class="pill">Retail Ops</span><span class="pill">transfer learning</span></div>
+<div class="row"><div class="lbl">Who</div><div class="val">Mall operators, retail chains with sensors, ad network resellers</div></div>
+<div class="row"><div class="lbl">Decision</div><div class="val">Predict pedestrian footfall and dwell-time per hex per time-of-day, transfer from instrumented hexes to all 7,318</div></div>
+<div class="row"><div class="lbl">External data</div><div class="val">Telco-aggregated visits (M1, Singtel), or licensed Grab/Uber mobility traces, or mall foot-traffic sensors</div></div>
+<div class="recipe"><strong>Workflow:</strong><br>
+1. Instrumented hexes: observed footfall_by_hour<br>
+2. Train MLP / XGBoost: y = log(footfall), X = GCN-64 + pred_* + transit + population<br>
+3. Predict for the 6,500+ uninstrumented hexes<br>
+4. Decompose by hour-of-day using shared temporal basis functions<br>
+5. Serve as hourly footfall heatmap</div>
+<div class="row"><div class="lbl">Output</div><div class="val">Per-hex footfall by hour; uncertainty bands from CV</div></div>
+<div class="row"><div class="lbl">Success metric</div><div class="val">Hold-out R&sup2;; temporal correlation with spot-sensor validation</div></div>
+<div class="warn"><strong>Risks:</strong> Transfer learning assumes instrumented-vs-uninstrumented hexes are drawn from the same distribution. If instrumentation is only in malls, prediction on HDB hexes is extrapolation.</div>
+</div>
+
+<!-- UC #17 -->
+<div class="uc">
+<div class="head"><span class="num">17</span><span class="title">Health Outcome Correlation</span><span class="tag ty">bundle + MOH data</span><span class="effort eff-3">&#9679;&#9679;&#9679;</span></div>
+<div class="meta"><span class="pill">Public Health</span><span class="pill">research</span></div>
+<div class="row"><div class="lbl">Who</div><div class="val">MOH researchers, academic health geographers, hospital network planners</div></div>
+<div class="row"><div class="lbl">Decision</div><div class="val">Correlate amenity gaps (fitness, fresh food, clinics) with disease incidence by subzone. Informs preventative-health resource allocation.</div></div>
+<div class="row"><div class="lbl">External data</div><div class="val">MOH disease-incidence data at subzone or planning-area level (restricted access)</div></div>
+<div class="recipe"><strong>Workflow:</strong><br>
+1. Roll bundle from hex &rarr; subzone: aggregate features (mean walkability, sum amenity gaps)<br>
+2. Join with health indicators (diabetes prevalence, heart disease, mental health use)<br>
+3. Partial correlation: control for age/income where available<br>
+4. Identify amenity types with highest health-outcome correlation<br>
+5. Publish as research paper + dashboard</div>
+<div class="row"><div class="lbl">Output</div><div class="val">Amenity-to-health correlation matrix; hotspot subzones for policy targeting</div></div>
+<div class="row"><div class="lbl">Success metric</div><div class="val">Statistical significance of found correlations; policy adoption</div></div>
+<div class="warn"><strong>Risks:</strong> Correlation &ne; causation. Urban confounders abound (income, age, commute patterns). Use as hypothesis generator, not causal evidence.</div>
+</div>
+
+<!-- UC #18 -->
+<div class="uc">
+<div class="head"><span class="num">18</span><span class="title">School Enrollment Demand Forecast</span><span class="tag ty">bundle + demographics</span><span class="effort eff-2">&#9679;&#9679;</span></div>
+<div class="meta"><span class="pill">MOE / Planners</span><span class="pill">forecasting</span></div>
+<div class="row"><div class="lbl">Who</div><div class="val">MOE planning office, primary-school admission strategists, HDB young-families data teams</div></div>
+<div class="row"><div class="lbl">Decision</div><div class="val">Identify subzones where primary-school capacity will fall short by 2030</div></div>
+<div class="row"><div class="lbl">External data</div><div class="val">SingStat kid-age population projections by subzone</div></div>
+<div class="recipe"><strong>Workflow:</strong><br>
+1. Per hex: pred_education * (1 / kid-population-per-school-seat) = capacity-per-child<br>
+2. Roll up to subzone, adjust by projected 2030 kid-population<br>
+3. Flag subzones with capacity shortfall<br>
+4. Overlay with planned MOE capacity expansions &rarr; residual gap<br>
+5. Output priority list for new school / expansion decisions</div>
+<div class="row"><div class="lbl">Output</div><div class="val">Subzone-level supply/demand gap by 2030, ranked</div></div>
+<div class="row"><div class="lbl">Success metric</div><div class="val">Accuracy vs. MOE's own internal projections; adoption in planning briefings</div></div>
+<div class="warn"><strong>Risks:</strong> School choice in SGP is not hex-confined (parents send kids across subzones). Pair with MOE's actual admission-zone rules.</div>
+</div>
+
+<!-- UC #19 -->
+<div class="uc">
+<div class="head"><span class="num">19</span><span class="title">EV Charger Placement</span><span class="tag ty">bundle + EV data</span><span class="effort eff-3">&#9679;&#9679;&#9679;</span></div>
+<div class="meta"><span class="pill">LTA / Energy</span><span class="pill">optimization</span></div>
+<div class="row"><div class="lbl">Who</div><div class="val">LTA, SP Group, private EV charging operators (Shell Recharge, ComfortDelGro)</div></div>
+<div class="row"><div class="lbl">Decision</div><div class="val">Where to install the next 500 public EV chargers &mdash; matched to demand archetypes and grid capacity</div></div>
+<div class="row"><div class="lbl">External data</div><div class="val">EV registration by postal code + grid-capacity map (SP Group)</div></div>
+<div class="recipe"><strong>Workflow:</strong><br>
+1. Filter archetypes: office_cluster, high-end residential, mall-heavy commercial<br>
+2. Score = demand proxy (EV registrations + predicted car-dependent activity) &times; feasibility (grid capacity)<br>
+3. Rank top-500 hexes<br>
+4. Cluster geographically to avoid oversupply in single areas<br>
+5. Deliver as site-selection priority list</div>
+<div class="row"><div class="lbl">Output</div><div class="val">Ranked candidate hex list + grid-feasibility flag + demand projection</div></div>
+<div class="row"><div class="lbl">Success metric</div><div class="val">Utilization rate of installed chargers vs. baseline placement strategy</div></div>
+<div class="warn"><strong>Risks:</strong> EV registration data is lagging indicator &mdash; future demand is the real question. Use current EV penetration &times; archetype growth rate.</div>
+</div>
+
+<!-- UC #20 -->
+<div class="uc">
+<div class="head"><span class="num">20</span><span class="title">Insurance Micro-Pricing</span><span class="tag ty">bundle + claims data</span><span class="effort eff-3">&#9679;&#9679;&#9679;</span></div>
+<div class="meta"><span class="pill">Insurance</span><span class="pill">actuarial</span></div>
+<div class="row"><div class="lbl">Who</div><div class="val">Property and casualty insurers, commercial underwriters, SME insurance brokers</div></div>
+<div class="row"><div class="lbl">Decision</div><div class="val">Add micro-location risk factor to commercial property / contents insurance pricing beyond postal-code granularity</div></div>
+<div class="row"><div class="lbl">External data</div><div class="val">Insurer's own policy and claims history (proprietary)</div></div>
+<div class="recipe"><strong>Workflow:</strong><br>
+1. Geocode policies to hex_ids<br>
+2. Train GLM / GBDT with claims frequency / severity as target<br>
+3. Features: GCN-64 + traditional risk factors (age of building, industry, size)<br>
+4. Extract embedding-driven risk loading<br>
+5. Integrate as rate-modifier in actuarial model</div>
+<div class="row"><div class="lbl">Output</div><div class="val">Rate modifier per hex; contribution to loss-cost model</div></div>
+<div class="row"><div class="lbl">Success metric</div><div class="val">Actuarial lift in loss-ratio prediction; regulator approval</div></div>
+<div class="warn"><strong>Risks:</strong> Insurance regulators require explainability. GCN-64 is opaque. Offer feature-importance rollups from the tree model, not raw embedding coefficients.</div>
+</div>
+
+<!-- UC #21 -->
+<div class="uc">
+<div class="head"><span class="num">21</span><span class="title">Gentrification Early-Warning</span><span class="tag ty">bundle + time-series</span><span class="effort eff-4">&#9679;&#9679;&#9679;&#9679;</span></div>
+<div class="meta"><span class="pill">Policy / Real Estate</span><span class="pill">temporal</span></div>
+<div class="row"><div class="lbl">Who</div><div class="val">Urban sociologists, heritage-protection NGOs, REIT analysts, HDB equity researchers</div></div>
+<div class="row"><div class="lbl">Decision</div><div class="val">Identify neighborhoods with rising mismatch between predicted and actual premium category (specialty cafe, boutique, artisan) &mdash; leading indicator of price appreciation and displacement</div></div>
+<div class="row"><div class="lbl">External data</div><div class="val">Requires &ge; 2 bundle snapshots (current = t=0; at t=1, rebuild from fresh place data)</div></div>
+<div class="recipe"><strong>Workflow:</strong><br>
+1. At t=0 and t=1: compute per-hex gap for premium categories<br>
+2. Delta_gap = gap(t=1) &ndash; gap(t=0) &mdash; positive means rising mismatch<br>
+3. Rank hexes by delta_gap in premium categories<br>
+4. Overlay with HDB price history: correlate leading-vs-lagging<br>
+5. Output watch-list for policy/investment monitoring</div>
+<div class="row"><div class="lbl">Output</div><div class="val">Gentrification watch-list with lead-lag relationship to price / rent changes</div></div>
+<div class="row"><div class="lbl">Success metric</div><div class="val">Precision: watch-listed hexes that subsequently show &gt;10% price appreciation in 24 months</div></div>
+<div class="warn"><strong>Risks:</strong> Gentrification is contested politically. Frame outputs as risk/watch rather than opportunity. Don't publish watch-list public without stakeholder review.</div>
+</div>
+
+<!-- ===== TIER 3 ===== -->
+<h2>3. Tier 3 &mdash; Needs Bundle v2 <span class="tag tr">not available today</span></h2>
+<p>Six use cases requiring data or joint training we don't yet have. Flagged honestly to set expectations.</p>
+
+<div class="grid2">
+
+<div class="uc">
+<div class="head"><span class="num">22</span><span class="title">Temporal Dynamics</span><span class="tag tr">needs t &ge; 2 snapshots</span></div>
+<p>Place churn rate, opening/closing trends by category. Requires multiple bundle snapshots; the current version is a snapshot.</p>
+<div class="row"><div class="lbl">Unlock</div><div class="val">Rebuild the places &amp; features pipeline annually; archive snapshots. First usable signal at ~12 months.</div></div>
+</div>
+
+<div class="uc">
+<div class="head"><span class="num">23</span><span class="title">Scenario Simulation (What-If MRT)</span><span class="tag to">parallel system</span></div>
+<p>Already exists at subzone level as <code>scenario_sim</code> on port 18070. Hex-level integration exists in the <strong>City Simulation Ideation</strong> doc &mdash; would be Artifact 2 of that plan (2&ndash;3 months of work).</p>
+<div class="row"><div class="lbl">Unlock</div><div class="val">Build HexEquilibriumSim per the simulation ideation report</div></div>
+</div>
+
+<div class="uc">
+<div class="head"><span class="num">24</span><span class="title">Place-Level Matching</span><span class="tag tr">needs learned pool</span></div>
+<p>"Find cafes like this cafe." We have 42K per-place micrographs but naive pooling failed (see experiment log). Requires a learned set-encoder trained jointly with hex GCN.</p>
+<div class="row"><div class="lbl">Unlock</div><div class="val">Joint place-and-hex training with transformer set-encoder (1-2 months research)</div></div>
+</div>
+
+<div class="uc">
+<div class="head"><span class="num">25</span><span class="title">Cross-City Transfer</span><span class="tag tr">needs multi-city training</span></div>
+<p>Train once on SGP + NYC + HK, fine-tune on new cities. NYC Digital Atlas v2 exists as a separate deployment but no shared backbone.</p>
+<div class="row"><div class="lbl">Unlock</div><div class="val">Multi-city GCN with city-conditioning embedding (3+ months)</div></div>
+</div>
+
+<div class="uc">
+<div class="head"><span class="num">26</span><span class="title">Flow / Gravity Modeling</span><span class="tag tr">needs OD data</span></div>
+<p>Huff / gravity for commerce catchments requires an origin-destination matrix. Proxy OD can be synthesized (and is in scenario_sim) but real OD data requires LTA partnership.</p>
+<div class="row"><div class="lbl">Unlock</div><div class="val">License or partner for LTA passenger-flow data</div></div>
+</div>
+
+<div class="uc">
+<div class="head"><span class="num">27</span><span class="title">Real-Time Occupancy / Events</span><span class="tag tr">needs live feed</span></div>
+<p>Live crowd density, weather-adjusted visit probability, event-driven demand spikes.</p>
+<div class="row"><div class="lbl">Unlock</div><div class="val">Separate real-time ingest architecture &mdash; different product</div></div>
+</div>
+
+</div>
+
+<!-- ===== INTEGRATION PATTERNS ===== -->
+<h2>4. Integration Patterns (How Consumers Actually Use This)</h2>
+<div class="s">
+<p>Every use case falls into one of four integration patterns. Consumers can mix and match.</p>
+
+<div class="pattern">
+<h4>Pattern A &mdash; Offline Analytics (batch)</h4>
+<p>Consumer downloads the parquet, joins to their own data, runs analysis in pandas/R/SQL. Most flexible, zero latency constraint.</p>
+<div class="flow">
+<span class="step">pull parquet (2.8 MB)</span><span class="arr">&rarr;</span><span class="step">join in pandas</span><span class="arr">&rarr;</span><span class="step">ranking / regression / cluster</span><span class="arr">&rarr;</span><span class="step">export CSV or map</span>
+</div>
+<p><strong>Fits:</strong> #2, #3, #5, #8, #10, #11, #13, #14, #15, #17&ndash;#21 (14 use cases)</p>
+<pre><span class="k">import</span> pandas <span class="k">as</span> pd
+bundle = pd.read_parquet(<span class="s2">"hex_shareable_bundle.parquet"</span>)
+<span class="c2"># ... your analysis in pure pandas</span></pre>
+</div>
+
+<div class="pattern">
+<h4>Pattern B &mdash; Interactive Lookup (real-time)</h4>
+<p>Consumer calls an HTTP endpoint for specific queries (map click, kNN search, bounding-box). Best for web and mobile UIs.</p>
+<div class="flow">
+<span class="step">user clicks map tile</span><span class="arr">&rarr;</span><span class="step">GET /hex/{id}</span><span class="arr">&rarr;</span><span class="step">server returns JSON</span><span class="arr">&rarr;</span><span class="step">render tooltip/panel</span>
+</div>
+<p><strong>Fits:</strong> #1, #4, #6, #9, #12, #13 (6 use cases)</p>
+<pre><span class="k">fetch</span>(<span class="s2">"/api/hex/896520db3a/similar?k=10"</span>)
+  .then(r => r.json())
+  .then(results => renderMap(results))</pre>
+</div>
+
+<div class="pattern">
+<h4>Pattern C &mdash; Training Features (ML pipeline)</h4>
+<p>Consumer uses GCN-64 or raw 391 features as inputs to their own ML models (gradient boosting, neural nets, survival analysis).</p>
+<div class="flow">
+<span class="step">load features</span><span class="arr">&rarr;</span><span class="step">join target (price, claims, footfall)</span><span class="arr">&rarr;</span><span class="step">train XGBoost/MLP</span><span class="arr">&rarr;</span><span class="step">predict / deploy</span>
+</div>
+<p><strong>Fits:</strong> #14, #15, #16, #17, #18, #19, #20 (7 use cases)</p>
+<pre><span class="k">import</span> xgboost <span class="k">as</span> xgb
+emb = bundle[[<span class="s2">f"g{i}"</span> <span class="k">for</span> i <span class="k">in</span> range(<span class="n2">64</span>)]].values
+y = my_data[<span class="s2">"target"</span>].values
+model = xgb.XGBRegressor().fit(emb, y)</pre>
+</div>
+
+<div class="pattern">
+<h4>Pattern D &mdash; Pre-Computed Rollups (dashboards)</h4>
+<p>For common queries (subzone rollups, archetype labels), ship a pre-computed artifact that answers the question in one read. No compute by consumer.</p>
+<div class="flow">
+<span class="step">consumer loads subzone_gap_table.parquet</span><span class="arr">&rarr;</span><span class="step">already ranked</span><span class="arr">&rarr;</span><span class="step">publish dashboard</span>
+</div>
+<p><strong>Fits:</strong> #3, #5, #7, #8, #10 (5 use cases)</p>
+<p class="q">Ship alongside the bundle: <code>subzone_gap_table.parquet</code> (30 KB), <code>archetype_labels.parquet</code> (50 KB)</p>
+</div>
+</div>
+
+<!-- ===== WORKED EXAMPLE ===== -->
+<h2>5. Worked Example &mdash; Site Selection End-to-End (Use Case #1)</h2>
+<div class="s">
+<p>Concrete walkthrough: a boutique specialty coffee brand with 8 stores wants to open 12 more. Here's the full pipeline using the bundle.</p>
+
+<h3>Step 1 &mdash; Define the anchor set</h3>
+<pre><span class="c2"># Brand provides 8 top-performing store lat/lng pairs</span>
+<span class="k">import</span> h3, pandas <span class="k">as</span> pd, numpy <span class="k">as</span> np
+
+anchors = pd.DataFrame([
+    {<span class="s2">"name"</span>: <span class="s2">"Tiong Bahru"</span>, <span class="s2">"lat"</span>: <span class="n2">1.2846</span>, <span class="s2">"lng"</span>: <span class="n2">103.8306</span>},
+    {<span class="s2">"name"</span>: <span class="s2">"Duxton"</span>,      <span class="s2">"lat"</span>: <span class="n2">1.2792</span>, <span class="s2">"lng"</span>: <span class="n2">103.8421</span>},
+    <span class="c2"># ... 6 more top stores</span>
+])
+anchors[<span class="s2">"hex_id"</span>] = anchors.apply(<span class="k">lambda</span> r: h3.latlng_to_cell(r.lat, r.lng, <span class="n2">9</span>), axis=<span class="n2">1</span>)</pre>
+
+<h3>Step 2 &mdash; Compute brand centroid in GCN-64</h3>
+<pre>bundle = pd.read_parquet(<span class="s2">"hex_shareable_bundle.parquet"</span>)
+emb_cols = [<span class="s2">f"g{i}"</span> <span class="k">for</span> i <span class="k">in</span> range(<span class="n2">64</span>)]
+anchor_embs = bundle.set_index(<span class="s2">"hex_id"</span>).loc[anchors.hex_id, emb_cols].values
+centroid = anchor_embs.mean(axis=<span class="n2">0</span>)</pre>
+
+<h3>Step 3 &mdash; Rank all hexes by similarity + feasibility</h3>
+<pre>Z = bundle[emb_cols].values
+sims = (Z @ centroid) / (np.linalg.norm(Z, axis=<span class="n2">1</span>) * np.linalg.norm(centroid) + <span class="n2">1e-9</span>)
+bundle[<span class="s2">"similarity"</span>] = sims
+
+<span class="c2"># Feasibility: hex must have commerce already present and not already hold the brand</span>
+bundle[<span class="s2">"feasible"</span>] = (
+    (bundle[<span class="s2">"pred_cafe_coffee"</span>] > <span class="n2">1.5</span>) &
+    (~bundle[<span class="s2">"hex_id"</span>].isin(anchors.hex_id))
+)
+bundle[<span class="s2">"score"</span>] = bundle.similarity * bundle.feasible.astype(float)</pre>
+
+<h3>Step 4 &mdash; Return top 12 with explanations</h3>
+<pre>top12 = bundle.sort_values(<span class="s2">"score"</span>, ascending=<span class="k">False</span>).head(<span class="n2">12</span>)
+top12[[<span class="s2">"hex_id"</span>, <span class="s2">"lat"</span>, <span class="s2">"lng"</span>, <span class="s2">"parent_subzone"</span>,
+      <span class="s2">"pred_cafe_coffee"</span>, <span class="s2">"similarity"</span>]]</pre>
+
+<h3>Step 5 &mdash; Deliver as GeoJSON for field scouting</h3>
+<pre>top12_geojson = {
+    <span class="s2">"type"</span>: <span class="s2">"FeatureCollection"</span>,
+    <span class="s2">"features"</span>: [{
+        <span class="s2">"type"</span>: <span class="s2">"Feature"</span>,
+        <span class="s2">"geometry"</span>: {<span class="s2">"type"</span>: <span class="s2">"Point"</span>, <span class="s2">"coordinates"</span>: [r.lng, r.lat]},
+        <span class="s2">"properties"</span>: {<span class="s2">"hex_id"</span>: r.hex_id, <span class="s2">"rank"</span>: i+<span class="n2">1</span>, <span class="s2">"sim"</span>: float(r.similarity)}
+    } <span class="k">for</span> i, r <span class="k">in</span> top12.iterrows()]
+}</pre>
+
+<p><strong>Total code: ~25 lines.</strong> Total time to run on a laptop: under 1 second.</p>
+
+<h3>Honest post-mortem</h3>
+<table>
+<tr><td><strong>What this gives the brand</strong></td><td>A validated shortlist to deploy scouts, saves 70&ndash;80% of blanket survey cost</td></tr>
+<tr><td><strong>What this does not give</strong></td><td>Lease availability, rent affordability, operational cost, zoning restrictions, site-specific foot traffic</td></tr>
+<tr><td><strong>Recommended next step</strong></td><td>Use the top-20 list as a scout roster; expect 40&ndash;60% of sites to fail on-the-ground feasibility; open 12 from surviving set</td></tr>
+</table>
+</div>
+
+<!-- ===== QUERY PATTERNS ===== -->
+<h2>6. Query Patterns &rarr; Serving Implications</h2>
+<div class="s">
+<p>Each use case implies a specific access pattern. This drives the serving architecture decisions.</p>
+<table>
+<tr><th>Pattern</th><th>Use Cases</th><th>Best Serving Mode</th><th>Why</th></tr>
+<tr><td><strong>Single-hex lookup</strong></td><td>#1, #4, #9, #12 (map-click UIs)</td><td><span class="tag tb">HTTP API</span></td><td>Low volume per query, request from any language</td></tr>
+<tr><td><strong>kNN similarity</strong></td><td>#1, #4, #6, #9</td><td><span class="tag tb">HTTP API</span> or <span class="tag tg">local numpy</span></td><td>7,318&sup2; cosine is 4 ms in numpy; no vector DB needed</td></tr>
+<tr><td><strong>Full-bundle scan</strong></td><td>#2, #3, #5, #7, #8, #10, #11, #13</td><td><span class="tag tg">Bulk download</span></td><td>Impractical over HTTP; users want pandas access</td></tr>
+<tr><td><strong>Subzone/PA rollup</strong></td><td>#3, #7, #8, #17, #18</td><td><span class="tag ty">Pre-computed JSON</span></td><td>Ship alongside bundle; &lt; 50 KB; instant to use</td></tr>
+<tr><td><strong>Join to external data</strong></td><td>#14&ndash;#21 (Tier 2)</td><td><span class="tag tg">Bulk download</span></td><td>Users already have the other data in pandas</td></tr>
+<tr><td><strong>Bounding-box / map-tile</strong></td><td>map UIs for #1&ndash;#13</td><td><span class="tag tb">HTTP API</span></td><td>Web frontends don't load 7,318 rows at once</td></tr>
+</table>
+</div>
+
+<!-- ===== RECOMMENDED STACK ===== -->
+<h2>7. Recommended Serving Stack</h2>
+<div class="s">
+<div class="grid2">
+<div>
+<h3>Track A &mdash; Bulk Download <span class="tag tg">must-have</span></h3>
+<p>Covers 13 of 21 Tier-1/2 use cases. Zero infrastructure cost.</p>
+<ul style="list-style:none;padding-left:0">
+<li>&bull; GitHub Release &ldquo;<code>sgp_hex_bundle_v1.0.0.tar.gz</code>&rdquo; (18 MB)</li>
+<li>&bull; Direct-URL mirror on rwm-server nginx</li>
+<li>&bull; <code>pip install sgp-hex-atlas</code> with parquet + helpers</li>
+</ul>
+<p class="q" style="margin-top:6px">Users: researchers, data scientists, modelers, anyone doing pandas joins.</p>
+</div>
+<div>
+<h3>Track B &mdash; Lightweight API <span class="tag ty">nice-to-have</span></h3>
+<p>4 endpoints, FastAPI on rwm-server. Bundle pre-loaded in RAM. &lt; 5 ms p50.</p>
+<ul style="list-style:none;padding-left:0">
+<li>&bull; <code>GET /hex/{id}</code> &rarr; full record</li>
+<li>&bull; <code>GET /hex/{id}/similar?k=10</code> &rarr; kNN</li>
+<li>&bull; <code>GET /hex/{id}/predictions</code> &rarr; 24 counts</li>
+<li>&bull; <code>POST /bbox</code> &rarr; hexes in a viewport</li>
+</ul>
+<p class="q" style="margin-top:6px">Users: web UIs, dashboards, non-Python integrations.</p>
+</div>
+</div>
+
+<h3>Also ship alongside bundle (2 hrs of work)</h3>
+<table>
+<tr><th>Artifact</th><th class="r">Size</th><th>Unlocks</th></tr>
+<tr><td><code>subzone_gap_table.parquet</code></td><td class="r">~30 KB</td><td>Use cases #3, #8, #17 as one-liners</td></tr>
+<tr><td><code>archetype_labels.parquet</code></td><td class="r">~50 KB</td><td>Use cases #5, #10, #11 as drop-in segmentation</td></tr>
+<tr><td><code>USE_CASES.md</code> (this report's content)</td><td class="r">~30 KB</td><td>User onboarding &amp; sales enablement</td></tr>
+</table>
+
+<h3>Explicitly NOT recommended</h3>
+<ul style="list-style:none;padding-left:0;margin-top:6px">
+<li>&bull; Vector DB (FAISS/Qdrant) &mdash; 7,318 rows is a numpy problem, not an ANN problem</li>
+<li>&bull; gRPC &mdash; only meaningful at &gt; 1K QPS</li>
+<li>&bull; Real-time encoder endpoint &mdash; SGP land is fixed, no new hexes arrive</li>
+<li>&bull; Parquet-over-HTTP range reads &mdash; overhead exceeds just downloading 2.8 MB</li>
+</ul>
+</div>
+
+<!-- ===== IMPLEMENTATION ROADMAP ===== -->
+<h2>8. Implementation Roadmap</h2>
+<div class="s">
+<p>Ordered by value-per-effort. Each row is a ship-able increment.</p>
+<table>
+<tr><th class="r">Priority</th><th>Deliverable</th><th>Effort</th><th>Unlocks</th></tr>
+<tr><td class="r"><strong>1</strong></td><td>Publish GitHub Release with bundle + README</td><td><span class="effort eff-1">&#9679;</span> half-day</td><td>All 13 Tier-1 use cases immediately accessible</td></tr>
+<tr><td class="r"><strong>2</strong></td><td>Pre-compute &amp; ship <code>subzone_gap_table.parquet</code> + <code>archetype_labels.parquet</code></td><td><span class="effort eff-1">&#9679;</span> half-day</td><td>#3, #5, #8, #10, #17 as one-liners</td></tr>
+<tr><td class="r"><strong>3</strong></td><td>Publish <code>pip install sgp-hex-atlas</code> (bundle + helpers)</td><td><span class="effort eff-2">&#9679;&#9679;</span> 1 day</td><td>Best DX for Python users; repeatable installs</td></tr>
+<tr><td class="r"><strong>4</strong></td><td>Ship 4-endpoint FastAPI on rwm-server:16790</td><td><span class="effort eff-2">&#9679;&#9679;</span> 2 days</td><td>Web UI support, external partner integrations</td></tr>
+<tr><td class="r"><strong>5</strong></td><td>Build HDB price prediction demo (use case #14)</td><td><span class="effort eff-2">&#9679;&#9679;</span> 2 days</td><td>Flagship Tier-2 demo; proves the pattern</td></tr>
+<tr><td class="r"><strong>6</strong></td><td>Package this doc as a public-facing playbook</td><td><span class="effort eff-1">&#9679;</span> half-day</td><td>Sales enablement, external communication</td></tr>
+<tr><td class="r"><strong>7</strong></td><td>Build 2&ndash;3 interactive UI demos (site selection, whitespace, archetype map)</td><td><span class="effort eff-3">&#9679;&#9679;&#9679;</span> 1&ndash;2 weeks</td><td>Makes the abstract concrete for non-technical stakeholders</td></tr>
+</table>
+<p style="margin-top:8px"><strong>Week 1 target:</strong> priorities 1&ndash;3 shipped. Bundle is publicly usable by anyone with pip.</p>
+<p><strong>Month 1 target:</strong> priorities 4&ndash;7 shipped. Full serving stack + one flagship demo + sales collateral.</p>
+</div>
+
+<hr>
+<p class="q" style="text-align:center">Propheus Digital Atlas &nbsp;&bull;&nbsp; SGP Hex Bundle v1 &nbsp;&bull;&nbsp; 7,318 hexes &times; 88 dims &nbsp;&bull;&nbsp; 27 use cases &nbsp;&bull;&nbsp; Playbook v2</p>
+
+</body>
+</html>

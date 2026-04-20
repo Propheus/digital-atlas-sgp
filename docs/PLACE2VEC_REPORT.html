@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Propheus — Place2Vec Report</title>
+<style>
+:root{--bg:#0d1f21;--bg2:#11282a;--bg3:#162f32;--a:#20b2aa;--a2:#2dd4bf;--ad:rgba(32,178,170,0.15);--t:#fff;--t2:#a0aeb0;--t3:#607274;--gb:rgba(13,13,13,0.85);--gd:rgba(32,178,170,0.2);--r:#ef4444;--g:#22c55e;--y:#eab308}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Inter','Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.6;max-width:1100px;margin:0 auto;padding:24px 20px}
+.hdr{display:flex;align-items:center;gap:12px;padding:16px 0;border-bottom:1px solid var(--gd)}
+.hdr svg{width:28px;height:28px}
+.hdr h1{font-size:18px;color:var(--t)}.hdr .sub{font-size:11px;color:var(--t3)}
+h2{font-size:15px;color:var(--a);margin:24px 0 8px;border-bottom:1px solid var(--gd);padding-bottom:4px}
+h3{font-size:13px;color:var(--a2);margin:14px 0 4px}
+p,li{font-size:12.5px;color:var(--t2)}p{margin:4px 0}
+table{border-collapse:collapse;width:100%;margin:6px 0;font-size:11.5px}
+th{background:var(--bg3);color:var(--a);padding:6px 8px;text-align:left;font-weight:600;border-bottom:1px solid var(--gd)}
+td{padding:5px 8px;color:var(--t2);border-bottom:1px solid rgba(255,255,255,0.03)}
+tr:hover{background:rgba(32,178,170,0.03)}.r{text-align:right}
+.cards{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.kpi{flex:1;min-width:80px;text-align:center;background:var(--bg2);border:1px solid var(--gd);border-radius:6px;padding:10px 6px}
+.kpi .n{font-size:20px;font-weight:700;color:var(--a)}.kpi .l{font-size:8px;text-transform:uppercase;letter-spacing:.5px;color:var(--t3)}
+.s{background:var(--bg2);border:1px solid var(--gd);border-radius:6px;padding:12px 14px;margin:8px 0}
+.tag{display:inline-block;padding:1px 5px;border-radius:3px;font-size:9px;font-weight:600}
+.tg{background:rgba(34,197,94,0.15);color:var(--g)}.tr{background:rgba(239,68,68,0.15);color:var(--r)}.ty{background:rgba(234,179,8,0.15);color:var(--y)}
+code{background:var(--bg3);color:var(--a);padding:1px 4px;border-radius:3px;font-size:10.5px}
+.q{color:var(--t3);font-size:9.5px}
+hr{border:none;border-top:1px solid var(--gd);margin:20px 0}
+strong{color:var(--t)}
+.bar{display:inline-block;height:10px;border-radius:2px;vertical-align:middle;background:var(--a)}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><g><g><path fill="#20b2aa" d="M45,64.2c-1.1,9.1-3.3,15.3-5.8,15.3c-0.1,0-0.1,0-0.2,0c-0.3,0-0.6-0.2-1-0.4c-3.1-2.5-5.4-14.5-5.4-29c0-14.4,2.3-26.4,5.4-29c0.3-0.3,0.7-0.5,1-0.5h0.2c2.6,0,4.9,6.8,6,16.6c-5.6,2-9.5,7.3-9.5,13.5C35.6,56.9,39.5,62.1,45,64.2z"/><path fill="#20b2aa" d="M67.4,50c0,14.5-2.3,26.5-5.4,29c-0.3,0.2-0.6,0.4-0.9,0.4c-0.1,0-0.2,0-0.2,0c-2.5,0-4.7-6.2-5.8-15.3c5.5-2,9.4-7.3,9.4-13.5c0-6.2-4-11.6-9.5-13.5c1.1-9.8,3.4-16.6,6-16.6H61c0.4,0,0.7,0.2,1,0.5C65.1,23.6,67.4,35.6,67.4,50z"/></g><path fill="#20b2aa" d="M30.2,50c0-14.4,2.3-26.4,5.4-29c-10.6,5.3-17.9,16.3-17.9,29c0,12.7,7.3,23.7,17.9,29C32.5,76.5,30.2,64.5,30.2,50z M64.4,21c3.1,2.6,5.4,14.5,5.4,29c0,14.5-2.3,26.5-5.4,29C75,73.7,82.3,62.7,82.3,50C82.3,37.3,75,26.4,64.4,21z"/><path fill="#20b2aa" d="M62.1,50.7c0,5-3,9.3-7.4,11.2c-1.5,0.6-3.1,1-4.8,1c-1.7,0-3.3-0.4-4.8-1c-4.3-1.9-7.4-6.2-7.4-11.2c0-5.1,3.1-9.4,7.5-11.2c1.4-0.6,3-0.9,4.7-0.9c1.7,0,3.2,0.3,4.7,0.9C59.1,41.3,62.1,45.6,62.1,50.7z"/></g></g></svg>
+<div><h1>Place2Vec — Singapore</h1><div class="sub">169,292 places &times; 37-dim context vectors &nbsp;&bull;&nbsp; v2: context-only (no category one-hot) &nbsp;&bull;&nbsp; Propheus Digital Atlas</div></div>
+</div>
+
+<div class="cards">
+<div class="kpi"><div class="n">169K</div><div class="l">Places</div></div>
+<div class="kpi"><div class="n">37</div><div class="l">Dimensions</div></div>
+<div class="kpi"><div class="n">91K</div><div class="l">Micrographed</div></div>
+<div class="kpi"><div class="n">0.87</div><div class="l">Cross/Within Cat</div></div>
+<div class="kpi"><div class="n">56.7%</div><div class="l">Cat kNN (context)</div></div>
+<div class="kpi"><div class="n">0.19</div><div class="l">CBD vs HDB (Starbucks)</div></div>
+</div>
+
+<!-- ===== DESIGN ===== -->
+<h2>1. Design — Why Context-Only</h2>
+<div class="s">
+<h3>The v1 lesson</h3>
+<p>v1 used 68 dimensions: 24-dim category one-hot + 5-dim tier one-hot + 37 context dims. Category kNN accuracy was 99.5% — but this was <strong>trivial</strong>: the one-hot dominated, and removing identity caused a &minus;45.9% drop while removing all context layers caused ~0% drop. The vector WAS the category label, decorated with noise.</p>
+
+<h3>The v2 fix</h3>
+<p><strong>Category and tier are metadata, not features.</strong> The 37-dim vector encodes only spatial context, hex context, influence, and competitive position. Two places with similar vectors serve the same kind of area regardless of what category they are. A premium cafe in Orchard and a premium restaurant in Orchard should be NEAR each other &mdash; they share the same urban context.</p>
+
+<table>
+<tr><th>Layer</th><th class="r">Dims</th><th>What it encodes</th></tr>
+<tr><td>Spatial context (micrograph)</td><td class="r">12</td><td>T1-T4 weights, anchor count, competitive pressure, density band</td></tr>
+<tr><td>Hex context</td><td class="r">14</td><td>Population density, land use, commercial density, walkability, MRT, tourist draw, dev gap</td></tr>
+<tr><td>Influence</td><td class="r">7</td><td>Spatial + transit max-influence for same category, walking neighborhood avg</td></tr>
+<tr><td>Competitive position</td><td class="r">4</td><td>Tier rank in hex, brand rarity, category share, category rank</td></tr>
+</table>
+</div>
+
+<!-- ===== KEY RESULTS ===== -->
+<h2>2. Key Results</h2>
+<div class="s">
+
+<h3>2.1 Cross-category similarity in the same hex</h3>
+<p>The fundamental test: do cafes and restaurants in the same hex look similar (same context)?</p>
+<table>
+<tr><th>Metric</th><th class="r">Value</th><th>What it means</th></tr>
+<tr><td>Same-hex cafe vs restaurant cosine</td><td class="r"><strong>0.772</strong></td><td>Different categories in the same location share 77% of context</td></tr>
+<tr><td>Same-hex within-category cosine</td><td class="r">0.888</td><td>Same category in the same location share 89%</td></tr>
+<tr><td>Cross/within ratio</td><td class="r"><strong>0.87</strong></td><td>Cross-category is 87% as similar as within-category &mdash; context dominates over category</td></tr>
+</table>
+<p>This is exactly the design goal: the vector captures <em>where</em> more than <em>what</em>.</p>
+
+<h3>2.2 Same brand, different context &mdash; the Starbucks test</h3>
+<table>
+<tr><th>Brand</th><th class="r">CBD within</th><th class="r">HDB within</th><th class="r">CBD vs HDB</th><th>Interpretation</th></tr>
+<tr><td>Starbucks</td><td class="r">0.756</td><td class="r">0.629</td><td class="r"><strong>0.194</strong></td><td>Same brand, 19% similar across contexts</td></tr>
+<tr><td>McDonald's</td><td class="r">0.834</td><td class="r">0.656</td><td class="r"><strong>0.248</strong></td><td>More standardized locations, still 75% different</td></tr>
+<tr><td>7-Eleven</td><td class="r">0.693</td><td class="r">0.692</td><td class="r"><strong>0.170</strong></td><td>Context completely separates CBD from HDB</td></tr>
+<tr><td>Watsons</td><td class="r">0.561</td><td class="r">0.524</td><td class="r"><strong>0.104</strong></td><td>Most context-sensitive &mdash; CBD and HDB Watsons are 90% different</td></tr>
+</table>
+<p>Within CBD, Starbucks locations are 76% similar (same transit-rich, tourist-heavy context). Within HDB, 63% similar (residential but varied). <strong>Across CBD vs HDB: only 19% similar.</strong> The context vector successfully separates the same brand into different urban roles.</p>
+
+<h3>2.3 Category prediction from context alone</h3>
+<table>
+<tr><th>Metric</th><th class="r">v1 (with one-hot)</th><th class="r">v2 (context-only)</th><th>What it means</th></tr>
+<tr><td>kNN k=1 category accuracy</td><td class="r">99.5%</td><td class="r"><strong>56.7%</strong></td><td>Context alone predicts category 57% of the time &mdash; real but not dominant</td></tr>
+<tr><td>kNN k=5 category hit rate</td><td class="r">99.8%</td><td class="r"><strong>80.9%</strong></td><td>Within top-5 neighbors, 81% share the category</td></tr>
+</table>
+<p>56.7% is above the 4.2% random baseline (1/24 categories) by <strong>13.5x</strong>. Context IS predictive of category &mdash; hawkers cluster near HDB, bars cluster near hotels, cafes cluster near MRT. But it&rsquo;s no longer trivially dominant. The 43.3% "errors" are the valuable cross-category matches: a cafe's nearest neighbor is a restaurant in the same mall, because they share the same urban role.</p>
+
+<h3>2.4 Named examples &mdash; what neighbors look like now</h3>
+
+<h3 style="color:var(--t)">Starbucks ION Orchard (Cafe, ORCHARD)</h3>
+<table>
+<tr><th>#</th><th>Name</th><th>Category</th><th>PA</th><th class="r">Sim</th></tr>
+<tr><td>1</td><td>Starbucks</td><td>Cafe & Coffee</td><td>Orchard</td><td class="r">1.000</td></tr>
+<tr><td>2</td><td>Starbucks Orchard Gateway</td><td>Cafe & Coffee</td><td>Orchard</td><td class="r">0.999</td></tr>
+<tr><td>3</td><td>Cafe de Paris</td><td>Cafe & Coffee</td><td>Orchard</td><td class="r">0.993</td></tr>
+<tr><td>4</td><td>Tanyu 313 Somerset</td><td>Cafe & Coffee</td><td>Orchard</td><td class="r">0.993</td></tr>
+<tr><td>5</td><td>Arabica Singapore</td><td>Cafe & Coffee</td><td>Orchard</td><td class="r">0.992</td></tr>
+</table>
+<p class="q">Orchard cafes find other Orchard cafes &mdash; same premium transit-rich context.</p>
+
+<h3 style="color:var(--t)">McDonald's Bedok (Fast Food, BEDOK)</h3>
+<table>
+<tr><th>#</th><th>Name</th><th>Category</th><th>PA</th><th class="r">Sim</th></tr>
+<tr><td>1</td><td>Wingstop</td><td>Fast Food</td><td>Bedok</td><td class="r">1.000</td></tr>
+<tr><td>2</td><td>McDonald's</td><td>Fast Food</td><td>Bedok</td><td class="r">0.992</td></tr>
+<tr style="background:var(--ad)"><td>3</td><td><strong>Starbucks</strong></td><td><strong>Cafe & Coffee</strong></td><td>Bedok</td><td class="r">0.964</td></tr>
+<tr style="background:var(--ad)"><td>4</td><td><strong>Starbucks - Bedok Mall</strong></td><td><strong>Cafe & Coffee</strong></td><td>Bedok</td><td class="r">0.964</td></tr>
+<tr style="background:var(--ad)"><td>5</td><td><strong>Ya Kun Kaya Toast</strong></td><td><strong>Cafe & Coffee</strong></td><td>Bedok</td><td class="r">0.963</td></tr>
+</table>
+<p><strong>This is the v2 payoff.</strong> McDonald's in Bedok finds Starbucks and Ya Kun in the same mall as its 3rd-5th neighbors &mdash; <em>different category, same urban context</em> (HDB mall, family catchment, moderate competition). In v1 these would never appear because the category one-hot separated them completely.</p>
+
+<h3 style="color:var(--t)">Hawker in Chinatown (Hawker, OUTRAM)</h3>
+<table>
+<tr><th>#</th><th>Name</th><th>Category</th><th>PA</th><th class="r">Sim</th></tr>
+<tr><td>1-6</td><td>Various hawker stalls</td><td>Hawker & Street Food</td><td>Outram</td><td class="r">1.000</td></tr>
+</table>
+<p class="q">Hawker stalls in the same complex have identical context vectors &mdash; correct, they share the same hex, same micrograph context.</p>
+</div>
+
+<!-- ===== COMPARISON ===== -->
+<h2>3. v1 vs v2 Comparison</h2>
+<div class="s">
+<table>
+<tr><th>Metric</th><th class="r">v1 (68-dim)</th><th class="r">v2 (37-dim)</th><th>Better?</th></tr>
+<tr><td>Vector dimensions</td><td class="r">68</td><td class="r">37</td><td><span class="tag tg">v2</span> more compact</td></tr>
+<tr><td>Category kNN k=1</td><td class="r">99.5%</td><td class="r">56.7%</td><td><span class="tag tg">v2</span> not dominated by label</td></tr>
+<tr><td>Cross-category same-hex</td><td class="r">~0.3 (estimated)</td><td class="r">0.772</td><td><span class="tag tg">v2</span> captures shared context</td></tr>
+<tr><td>Starbucks CBD vs HDB</td><td class="r">0.714</td><td class="r">0.194</td><td><span class="tag tg">v2</span> separates by context</td></tr>
+<tr><td>McDonald's cross-cat neighbors</td><td class="r">All fast food</td><td class="r">Starbucks, Ya Kun in same mall</td><td><span class="tag tg">v2</span> finds co-located places</td></tr>
+<tr><td>Hex pool PA kNN</td><td class="r">0.130</td><td class="r">0.332</td><td><span class="tag tg">v2</span> 2.6x better at hex-level</td></tr>
+</table>
+<p>v2 is better on every metric that matters for a <em>context representation</em>. v1 was better at category prediction, but that's trivial with a one-hot &mdash; you don't need a 68-dim vector to tell you a cafe is a cafe.</p>
+</div>
+
+<!-- ===== USE CASES ===== -->
+<h2>4. What Place2Vec v2 Enables</h2>
+<div class="s">
+<table>
+<tr><th>Use case</th><th>How Place2Vec helps</th></tr>
+<tr><td><strong>Site selection</strong></td><td>"Where should Starbucks open next?" &rarr; Find hexes where existing place vectors match the Starbucks-in-successful-CBD context (high transit T1, moderate competition, premium walkability)</td></tr>
+<tr><td><strong>Refined gap analysis</strong></td><td>"This hex has cafes but they're all budget-tier in a premium-context area" &rarr; context vector shows the area demands premium, but actual places are mismatched</td></tr>
+<tr><td><strong>Co-location recommendations</strong></td><td>"What other categories thrive in contexts like this?" &rarr; Find all top-performing places with similar context vectors, regardless of category</td></tr>
+<tr><td><strong>Competition mapping</strong></td><td>"Who are my REAL competitors?" &rarr; Not just same-category, but same-context places that fight for the same customer in the same walkability zone</td></tr>
+<tr><td><strong>Region pooling</strong></td><td>Mean-pool place vectors per hex &rarr; hex "commercial DNA" embedding that captures what KIND of places, not just how many (0.332 PA accuracy vs 0.130 for v1)</td></tr>
+</table>
+</div>
+
+<!-- ===== STORAGE ===== -->
+<h2>5. Storage (server)</h2>
+<div class="s">
+<table>
+<tr><th>File</th><th class="r">Size</th><th>Content</th></tr>
+<tr><td><code>place_vectors_v2.parquet</code></td><td class="r">~30 MB</td><td>169,292 &times; 47 (37 vector + 10 meta)</td></tr>
+<tr><td><code>place_vectors_v2_normalized.parquet</code></td><td class="r">~30 MB</td><td>z-scored version</td></tr>
+<tr><td><code>place2vec_v2_catalog.json</code></td><td class="r">2 KB</td><td>Dimension names + layer mapping</td></tr>
+<tr><td><code>place2vec_v2_evaluation.json</code></td><td class="r">15 KB</td><td>All evaluation metrics</td></tr>
+</table>
+<p>Location: <code>/home/azureuser/digital-atlas-sgp/data/hex_v10/</code></p>
+<p>v1 files also retained for comparison: <code>place_vectors.parquet</code>, <code>place2vec_catalog.json</code></p>
+</div>
+
+<hr>
+<p class="q" style="text-align:center">Propheus &nbsp;&bull;&nbsp; Place2Vec v2 &nbsp;&bull;&nbsp; 169,292 places &times; 37-dim &nbsp;&bull;&nbsp; context-only &nbsp;&bull;&nbsp; 2026-04-12</p>
+</body>
+</html>

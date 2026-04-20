@@ -1,0 +1,3117 @@
+{
+  "llm": {
+    "label": "LLM (Claude Sonnet)",
+    "total": 200,
+    "uc_passes": 188,
+    "ent_passes": 190,
+    "avg_confidence": 0.8750999999999991,
+    "by_uc": {
+      "site_selection": {
+        "total": 25,
+        "uc_pass": 24,
+        "ent_pass": 22,
+        "samples": [
+          {
+            "q": "open 10 new convenience stores in underserved areas",
+            "got": "gap_analysis"
+          }
+        ]
+      },
+      "gap_analysis": {
+        "total": 25,
+        "uc_pass": 24,
+        "ent_pass": 24,
+        "samples": [
+          {
+            "q": "where does the model predict more cafes should exist",
+            "got": "category_prediction"
+          }
+        ]
+      },
+      "archetype_clustering": {
+        "total": 22,
+        "uc_pass": 22,
+        "ent_pass": 21,
+        "samples": []
+      },
+      "comparable_market": {
+        "total": 22,
+        "uc_pass": 21,
+        "ent_pass": 17,
+        "samples": [
+          {
+            "q": "property appraisal: what's similar to marine parade",
+            "got": "site_selection"
+          }
+        ]
+      },
+      "whitespace_analysis": {
+        "total": 20,
+        "uc_pass": 14,
+        "ent_pass": 20,
+        "samples": [
+          {
+            "q": "where is Starbucks missing but should be",
+            "got": "gap_analysis"
+          },
+          {
+            "q": "where should FairPrice expand with no competitors",
+            "got": "site_selection"
+          },
+          {
+            "q": "hexes with no Starbucks where one would fit",
+            "got": "feature_query"
+          }
+        ]
+      },
+      "category_prediction": {
+        "total": 20,
+        "uc_pass": 20,
+        "ent_pass": 20,
+        "samples": []
+      },
+      "feature_query": {
+        "total": 18,
+        "uc_pass": 17,
+        "ent_pass": 18,
+        "samples": [
+          {
+            "q": "find hexes matching high cafe and low comp pressure",
+            "got": "comparable_market"
+          }
+        ]
+      },
+      "amenity_desert": {
+        "total": 18,
+        "uc_pass": 17,
+        "ent_pass": 18,
+        "samples": [
+          {
+            "q": "regions with poor access to daily needs",
+            "got": "fifteen_minute_city"
+          }
+        ]
+      },
+      "fifteen_minute_city": {
+        "total": 15,
+        "uc_pass": 14,
+        "ent_pass": 15,
+        "samples": [
+          {
+            "q": "how many categories are within 15 min walk from each hex",
+            "got": "category_prediction"
+          }
+        ]
+      },
+      "edge_case": {
+        "total": 15,
+        "uc_pass": 15,
+        "ent_pass": 15,
+        "samples": []
+      }
+    },
+    "results": [
+      {
+        "query": "where should I open a Starbucks in the CBD",
+        "expected_uc": "site_selection",
+        "chosen_uc": "site_selection",
+        "confidence": 0.9500000000000001,
+        "strategy": "rule_based",
+        "entities": {
+          "brands": [
+            "starbucks"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": false,
+        "ent_missing": [
+          "locations"
+        ],
+        "duration_s": 0.0
+      },
+      {
+        "query": "find 20 sites for expansion like tanjong pagar",
+        "expected_uc": "site_selection",
+        "chosen_uc": "site_selection",
+        "confidence": 0.82,
+        "strategy": "llm",
+        "entities": {
+          "location": "Tanjong Pagar",
+          "k": 20
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 6.12
+      },
+      {
+        "query": "recommend locations for a specialty coffee brand",
+        "expected_uc": "site_selection",
+        "chosen_uc": "site_selection",
+        "confidence": 0.82,
+        "strategy": "llm",
+        "entities": {
+          "category": "specialty coffee"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.99
+      },
+      {
+        "query": "where should we put new FairPrice stores",
+        "expected_uc": "site_selection",
+        "chosen_uc": "site_selection",
+        "confidence": 0.9500000000000001,
+        "strategy": "rule_based",
+        "entities": {
+          "brands": [
+            "fairprice"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "I want to open 5 new gyms in mature HDB estates",
+        "expected_uc": "site_selection",
+        "chosen_uc": "site_selection",
+        "confidence": 0.97,
+        "strategy": "llm",
+        "entities": {
+          "category": "gym",
+          "location": "mature HDB estates",
+          "k": 5
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 8.2
+      },
+      {
+        "query": "best places to expand a cafe brand near orchard",
+        "expected_uc": "site_selection",
+        "chosen_uc": "site_selection",
+        "confidence": 0.98,
+        "strategy": "rule_based",
+        "entities": {
+          "locations": [
+            {
+              "name": "orchard",
+              "pa": "ORCHARD",
+              "lat": 1.3048,
+              "lng": 103.8318
+            }
+          ],
+          "categories": [
+            "cafe_coffee"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "find locations for a new bubble tea concept",
+        "expected_uc": "site_selection",
+        "chosen_uc": "site_selection",
+        "confidence": 0.95,
+        "strategy": "llm",
+        "entities": {
+          "category": "bubble tea"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.08
+      },
+      {
+        "query": "site selection for a dessert shop in jurong west",
+        "expected_uc": "site_selection",
+        "chosen_uc": "site_selection",
+        "confidence": 0.97,
+        "strategy": "llm",
+        "entities": {
+          "category": "dessert shop",
+          "location": "Jurong West"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 4.97
+      },
+      {
+        "query": "where to put a bakery near bedok",
+        "expected_uc": "site_selection",
+        "chosen_uc": "site_selection",
+        "confidence": 0.98,
+        "strategy": "rule_based",
+        "entities": {
+          "locations": [
+            {
+              "name": "bedok",
+              "pa": "BEDOK",
+              "lat": 1.3236,
+              "lng": 103.9273
+            }
+          ],
+          "categories": [
+            "bakery_pastry"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "expand my coffee chain to 3 new neighborhoods",
+        "expected_uc": "site_selection",
+        "chosen_uc": "site_selection",
+        "confidence": 0.93,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "cafe_coffee"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": false,
+        "ent_missing": [
+          "k"
+        ],
+        "duration_s": 0.0
+      },
+      {
+        "query": "help me find sites for opening a new salon",
+        "expected_uc": "site_selection",
+        "chosen_uc": "site_selection",
+        "confidence": 0.93,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "beauty_personal_care"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "where should the next McDonald's go in the heartland",
+        "expected_uc": "site_selection",
+        "chosen_uc": "site_selection",
+        "confidence": 0.9500000000000001,
+        "strategy": "rule_based",
+        "entities": {
+          "brands": [
+            "mcdonald's"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "I'm opening a bookstore - where are the best sites",
+        "expected_uc": "site_selection",
+        "chosen_uc": "site_selection",
+        "confidence": 0.95,
+        "strategy": "llm",
+        "entities": {
+          "category": "bookstore"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 4.73
+      },
+      {
+        "query": "find locations similar to tiong bahru for a cafe",
+        "expected_uc": "site_selection",
+        "chosen_uc": "site_selection",
+        "confidence": 0.7799999999999999,
+        "strategy": "rule_based",
+        "entities": {
+          "locations": [
+            {
+              "name": "tiong bahru",
+              "pa": "BUKIT MERAH",
+              "lat": 1.2852,
+              "lng": 103.8306
+            }
+          ],
+          "categories": [
+            "cafe_coffee"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "expand KFC into the north of singapore",
+        "expected_uc": "site_selection",
+        "chosen_uc": "site_selection",
+        "confidence": 0.9500000000000001,
+        "strategy": "rule_based",
+        "entities": {
+          "brands": [
+            "kfc"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "20 best locations for a new restaurant concept",
+        "expected_uc": "site_selection",
+        "chosen_uc": "site_selection",
+        "confidence": 0.88,
+        "strategy": "llm",
+        "entities": {
+          "category": "restaurant",
+          "k": 20
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 7.16
+      },
+      {
+        "query": "where to locate a new fitness studio in the central region",
+        "expected_uc": "site_selection",
+        "chosen_uc": "site_selection",
+        "confidence": 0.97,
+        "strategy": "llm",
+        "entities": {
+          "category": "fitness studio",
+          "location": "central region"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 4.77
+      },
+      {
+        "query": "site selection for a pet store",
+        "expected_uc": "site_selection",
+        "chosen_uc": "site_selection",
+        "confidence": 0.97,
+        "strategy": "llm",
+        "entities": {
+          "category": "pet store"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 6.48
+      },
+      {
+        "query": "open 10 new convenience stores in underserved areas",
+        "expected_uc": "site_selection",
+        "chosen_uc": "gap_analysis",
+        "confidence": 0.93,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "convenience_daily_needs"
+          ]
+        },
+        "uc_pass": false,
+        "ent_pass": false,
+        "ent_missing": [
+          "k"
+        ],
+        "duration_s": 0.0
+      },
+      {
+        "query": "find neighborhoods to expand my ice cream business into",
+        "expected_uc": "site_selection",
+        "chosen_uc": "site_selection",
+        "confidence": 0.9,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "where should I build a new mall in the west",
+        "expected_uc": "site_selection",
+        "chosen_uc": "site_selection",
+        "confidence": 0.93,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "shopping_retail"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "locations for a new specialty grocery near the CBD",
+        "expected_uc": "site_selection",
+        "chosen_uc": "site_selection",
+        "confidence": 0.93,
+        "strategy": "llm",
+        "entities": {
+          "category": "specialty grocery",
+          "location": "CBD"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 6.11
+      },
+      {
+        "query": "top 15 hexes for a cafe expansion",
+        "expected_uc": "site_selection",
+        "chosen_uc": "site_selection",
+        "confidence": 0.95,
+        "strategy": "llm",
+        "entities": {
+          "category": "cafe",
+          "k": 15
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 7.17
+      },
+      {
+        "query": "where to open a hawker stall with good foot traffic",
+        "expected_uc": "site_selection",
+        "chosen_uc": "site_selection",
+        "confidence": 0.93,
+        "strategy": "llm",
+        "entities": {
+          "category": "hawker stall",
+          "profile": {
+            "foot_traffic": "high"
+          }
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.46
+      },
+      {
+        "query": "best locations for expanding a beauty salon chain",
+        "expected_uc": "site_selection",
+        "chosen_uc": "site_selection",
+        "confidence": 0.93,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "beauty_personal_care"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "where are hawker centres missing in the heartland",
+        "expected_uc": "gap_analysis",
+        "chosen_uc": "gap_analysis",
+        "confidence": 0.93,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "hawker_street_food"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "which subzones are underserved in childcare",
+        "expected_uc": "gap_analysis",
+        "chosen_uc": "gap_analysis",
+        "confidence": 0.93,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "education"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "find gaps in clinic availability",
+        "expected_uc": "gap_analysis",
+        "chosen_uc": "gap_analysis",
+        "confidence": 0.95,
+        "strategy": "llm",
+        "entities": {
+          "category": "clinic"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.55
+      },
+      {
+        "query": "where is fitness access under-supplied",
+        "expected_uc": "gap_analysis",
+        "chosen_uc": "gap_analysis",
+        "confidence": 0.93,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "fitness_recreation"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "areas with missing bakeries",
+        "expected_uc": "gap_analysis",
+        "chosen_uc": "gap_analysis",
+        "confidence": 0.93,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "bakery_pastry"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "show me expected vs actual cafe counts",
+        "expected_uc": "gap_analysis",
+        "chosen_uc": "gap_analysis",
+        "confidence": 0.8300000000000001,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "cafe_coffee"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "find structural deficit in education per subzone",
+        "expected_uc": "gap_analysis",
+        "chosen_uc": "gap_analysis",
+        "confidence": 0.9,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": false,
+        "ent_missing": [
+          "categories"
+        ],
+        "duration_s": 0.0
+      },
+      {
+        "query": "underserved areas for kindergartens",
+        "expected_uc": "gap_analysis",
+        "chosen_uc": "gap_analysis",
+        "confidence": 0.93,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "education"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "gap between expected and actual restaurants",
+        "expected_uc": "gap_analysis",
+        "chosen_uc": "gap_analysis",
+        "confidence": 0.93,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "restaurant"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "systematic undersupply of hospitals by planning area",
+        "expected_uc": "gap_analysis",
+        "chosen_uc": "gap_analysis",
+        "confidence": 0.92,
+        "strategy": "llm",
+        "entities": {
+          "category": "hospitals",
+          "location": null
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.11
+      },
+      {
+        "query": "which subzones don't have enough bakeries",
+        "expected_uc": "gap_analysis",
+        "chosen_uc": "gap_analysis",
+        "confidence": 0.92,
+        "strategy": "llm",
+        "entities": {
+          "category": "bakery"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.57
+      },
+      {
+        "query": "amenity gaps for mature HDB residents",
+        "expected_uc": "gap_analysis",
+        "chosen_uc": "gap_analysis",
+        "confidence": 0.82,
+        "strategy": "llm",
+        "entities": {
+          "category": "amenity",
+          "location": "mature HDB estates"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.06
+      },
+      {
+        "query": "where does the model predict more cafes should exist",
+        "expected_uc": "gap_analysis",
+        "chosen_uc": "category_prediction",
+        "confidence": 0.88,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "cafe_coffee"
+          ]
+        },
+        "uc_pass": false,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "find areas missing 7-eleven or similar",
+        "expected_uc": "gap_analysis",
+        "chosen_uc": "gap_analysis",
+        "confidence": 0.9500000000000001,
+        "strategy": "rule_based",
+        "entities": {
+          "brands": [
+            "7-eleven"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "where is specialty retail under-supplied",
+        "expected_uc": "gap_analysis",
+        "chosen_uc": "gap_analysis",
+        "confidence": 0.93,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "shopping_retail"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "show the gap between population and gym capacity",
+        "expected_uc": "gap_analysis",
+        "chosen_uc": "gap_analysis",
+        "confidence": 0.93,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "fitness_recreation"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "hexes with systematic deficit in F&B",
+        "expected_uc": "gap_analysis",
+        "chosen_uc": "gap_analysis",
+        "confidence": 0.9,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "subzones missing enough schools relative to kids",
+        "expected_uc": "gap_analysis",
+        "chosen_uc": "gap_analysis",
+        "confidence": 0.93,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "education"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "what categories are missing in tampines",
+        "expected_uc": "gap_analysis",
+        "chosen_uc": "gap_analysis",
+        "confidence": 0.9500000000000001,
+        "strategy": "rule_based",
+        "entities": {
+          "locations": [
+            {
+              "name": "tampines",
+              "pa": "TAMPINES",
+              "lat": 1.3549,
+              "lng": 103.9442
+            }
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "where are we under provisioned for clinics",
+        "expected_uc": "gap_analysis",
+        "chosen_uc": "gap_analysis",
+        "confidence": 0.93,
+        "strategy": "llm",
+        "entities": {
+          "category": "clinic"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 8.34
+      },
+      {
+        "query": "deficit analysis for hawker centres by subzone",
+        "expected_uc": "gap_analysis",
+        "chosen_uc": "gap_analysis",
+        "confidence": 0.93,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "hawker_street_food"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "undersupplied neighborhoods for beauty salons",
+        "expected_uc": "gap_analysis",
+        "chosen_uc": "gap_analysis",
+        "confidence": 0.93,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "beauty_personal_care"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "missing mall coverage in eastern singapore",
+        "expected_uc": "gap_analysis",
+        "chosen_uc": "gap_analysis",
+        "confidence": 0.93,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "shopping_retail"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "where are convenience stores below predicted levels",
+        "expected_uc": "gap_analysis",
+        "chosen_uc": "gap_analysis",
+        "confidence": 0.87,
+        "strategy": "llm",
+        "entities": {
+          "category": "convenience store"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.5
+      },
+      {
+        "query": "amenity gap analysis by residential density",
+        "expected_uc": "gap_analysis",
+        "chosen_uc": "gap_analysis",
+        "confidence": 0.9,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "cluster all neighborhoods into urban archetypes",
+        "expected_uc": "archetype_clustering",
+        "chosen_uc": "archetype_clustering",
+        "confidence": 0.9,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "segment singapore into 15 archetypes",
+        "expected_uc": "archetype_clustering",
+        "chosen_uc": "archetype_clustering",
+        "confidence": 0.9,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": false,
+        "ent_missing": [
+          "k"
+        ],
+        "duration_s": 0.0
+      },
+      {
+        "query": "what kind of area is each hex \u2014 group by character",
+        "expected_uc": "archetype_clustering",
+        "chosen_uc": "archetype_clustering",
+        "confidence": 0.9,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "urban type segmentation for singapore",
+        "expected_uc": "archetype_clustering",
+        "chosen_uc": "archetype_clustering",
+        "confidence": 0.9,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "classify all hexes into neighborhood types",
+        "expected_uc": "archetype_clustering",
+        "chosen_uc": "archetype_clustering",
+        "confidence": 0.95,
+        "strategy": "llm",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 4.19
+      },
+      {
+        "query": "group hexes into 10 clusters by urban character",
+        "expected_uc": "archetype_clustering",
+        "chosen_uc": "archetype_clustering",
+        "confidence": 0.97,
+        "strategy": "llm",
+        "entities": {
+          "k": 10
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 6.08
+      },
+      {
+        "query": "archetype clustering for the whole city",
+        "expected_uc": "archetype_clustering",
+        "chosen_uc": "archetype_clustering",
+        "confidence": 0.9,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "categorize neighborhoods into types",
+        "expected_uc": "archetype_clustering",
+        "chosen_uc": "archetype_clustering",
+        "confidence": 0.92,
+        "strategy": "llm",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 4.65
+      },
+      {
+        "query": "urban typology for singapore",
+        "expected_uc": "archetype_clustering",
+        "chosen_uc": "archetype_clustering",
+        "confidence": 0.92,
+        "strategy": "llm",
+        "entities": {
+          "location": "Singapore"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 4.5
+      },
+      {
+        "query": "cluster hexes by their urban profile",
+        "expected_uc": "archetype_clustering",
+        "chosen_uc": "archetype_clustering",
+        "confidence": 0.9,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "create 20 archetypes from the hex embeddings",
+        "expected_uc": "archetype_clustering",
+        "chosen_uc": "archetype_clustering",
+        "confidence": 0.98,
+        "strategy": "llm",
+        "entities": {
+          "k": 20
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 4.16
+      },
+      {
+        "query": "segmentation of hexes by character",
+        "expected_uc": "archetype_clustering",
+        "chosen_uc": "archetype_clustering",
+        "confidence": 0.9,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "find urban neighborhood archetypes",
+        "expected_uc": "archetype_clustering",
+        "chosen_uc": "archetype_clustering",
+        "confidence": 0.85,
+        "strategy": "llm",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.05
+      },
+      {
+        "query": "segment by neighborhood type",
+        "expected_uc": "archetype_clustering",
+        "chosen_uc": "archetype_clustering",
+        "confidence": 0.9,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "k-means clustering on hex embeddings",
+        "expected_uc": "archetype_clustering",
+        "chosen_uc": "archetype_clustering",
+        "confidence": 0.9,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "group areas by urban style",
+        "expected_uc": "archetype_clustering",
+        "chosen_uc": "archetype_clustering",
+        "confidence": 0.82,
+        "strategy": "llm",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.12
+      },
+      {
+        "query": "bucket hexes into character groups",
+        "expected_uc": "archetype_clustering",
+        "chosen_uc": "archetype_clustering",
+        "confidence": 0.85,
+        "strategy": "llm",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 4.03
+      },
+      {
+        "query": "typology of singapore neighborhoods",
+        "expected_uc": "archetype_clustering",
+        "chosen_uc": "archetype_clustering",
+        "confidence": 0.95,
+        "strategy": "llm",
+        "entities": {
+          "location": "Singapore"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.5
+      },
+      {
+        "query": "classify each hex by its urban kind",
+        "expected_uc": "archetype_clustering",
+        "chosen_uc": "archetype_clustering",
+        "confidence": 0.85,
+        "strategy": "llm",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 4.55
+      },
+      {
+        "query": "show me the 12 types of neighborhoods in SG",
+        "expected_uc": "archetype_clustering",
+        "chosen_uc": "archetype_clustering",
+        "confidence": 0.93,
+        "strategy": "llm",
+        "entities": {
+          "k": 12,
+          "location": "Singapore"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 4.71
+      },
+      {
+        "query": "segment urban areas into archetypes for policy",
+        "expected_uc": "archetype_clustering",
+        "chosen_uc": "archetype_clustering",
+        "confidence": 0.9,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "what are the different neighborhood types in singapore",
+        "expected_uc": "archetype_clustering",
+        "chosen_uc": "archetype_clustering",
+        "confidence": 0.82,
+        "strategy": "llm",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 6.63
+      },
+      {
+        "query": "find 10 comparable hexes to 896520db3afffff",
+        "expected_uc": "comparable_market",
+        "chosen_uc": "comparable_market",
+        "confidence": 0.9500000000000001,
+        "strategy": "rule_based",
+        "entities": {
+          "hex_ids": [
+            "896520db3afffff"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": false,
+        "ent_missing": [
+          "k"
+        ],
+        "duration_s": 0.0
+      },
+      {
+        "query": "hexes like tiong bahru for valuation",
+        "expected_uc": "comparable_market",
+        "chosen_uc": "comparable_market",
+        "confidence": 0.9500000000000001,
+        "strategy": "rule_based",
+        "entities": {
+          "locations": [
+            {
+              "name": "tiong bahru",
+              "pa": "BUKIT MERAH",
+              "lat": 1.2852,
+              "lng": 103.8306
+            }
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "comps for a shophouse in duxton",
+        "expected_uc": "comparable_market",
+        "chosen_uc": "comparable_market",
+        "confidence": 0.9,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "appraise 1.3006, 103.8555 with comparable areas",
+        "expected_uc": "comparable_market",
+        "chosen_uc": "comparable_market",
+        "confidence": 0.9,
+        "strategy": "rule_based",
+        "entities": {
+          "coords": [
+            [
+              1.3006,
+              103.8555
+            ]
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "places like ang mo kio for property valuation",
+        "expected_uc": "comparable_market",
+        "chosen_uc": "comparable_market",
+        "confidence": 0.9500000000000001,
+        "strategy": "rule_based",
+        "entities": {
+          "locations": [
+            {
+              "name": "ang mo kio",
+              "pa": "ANG MO KIO",
+              "lat": 1.3691,
+              "lng": 103.8454
+            }
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "valuation comps for a cafe location in holland village",
+        "expected_uc": "comparable_market",
+        "chosen_uc": "comparable_market",
+        "confidence": 0.93,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "cafe_coffee"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "comparable neighborhoods to orchard for appraisal",
+        "expected_uc": "comparable_market",
+        "chosen_uc": "comparable_market",
+        "confidence": 0.9500000000000001,
+        "strategy": "rule_based",
+        "entities": {
+          "locations": [
+            {
+              "name": "orchard",
+              "pa": "ORCHARD",
+              "lat": 1.3048,
+              "lng": 103.8318
+            }
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "real estate comps for hex 89652012345ffff",
+        "expected_uc": "comparable_market",
+        "chosen_uc": "comparable_market",
+        "confidence": 0.9500000000000001,
+        "strategy": "rule_based",
+        "entities": {
+          "hex_ids": [
+            "89652012345ffff"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "find comparable areas for commercial property analysis",
+        "expected_uc": "comparable_market",
+        "chosen_uc": "comparable_market",
+        "confidence": 0.9,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "property appraisal: what's similar to marine parade",
+        "expected_uc": "comparable_market",
+        "chosen_uc": "site_selection",
+        "confidence": 0.7,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": false,
+        "ent_pass": false,
+        "ent_missing": [
+          "locations"
+        ],
+        "duration_s": 0.0
+      },
+      {
+        "query": "give me comparables for this hex \u2014 8965201aa3bffff",
+        "expected_uc": "comparable_market",
+        "chosen_uc": "comparable_market",
+        "confidence": 0.97,
+        "strategy": "llm",
+        "entities": {
+          "target_hex": "8965201aa3bffff"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.07
+      },
+      {
+        "query": "appraisal comps for residential property near bukit timah",
+        "expected_uc": "comparable_market",
+        "chosen_uc": "comparable_market",
+        "confidence": 0.9500000000000001,
+        "strategy": "rule_based",
+        "entities": {
+          "locations": [
+            {
+              "name": "bukit timah",
+              "pa": "BUKIT TIMAH",
+              "lat": 1.3294,
+              "lng": 103.8021
+            }
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "find 8 similar hexes to serangoon for a valuation exercise",
+        "expected_uc": "comparable_market",
+        "chosen_uc": "comparable_market",
+        "confidence": 0.9500000000000001,
+        "strategy": "rule_based",
+        "entities": {
+          "locations": [
+            {
+              "name": "serangoon",
+              "pa": "SERANGOON",
+              "lat": 1.3554,
+              "lng": 103.8679
+            }
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": false,
+        "ent_missing": [
+          "k"
+        ],
+        "duration_s": 0.0
+      },
+      {
+        "query": "which areas compare to east coast for property pricing",
+        "expected_uc": "comparable_market",
+        "chosen_uc": "comparable_market",
+        "confidence": 0.97,
+        "strategy": "llm",
+        "entities": {
+          "location": "East Coast"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 4.4
+      },
+      {
+        "query": "REIT analyst needs comps to bugis",
+        "expected_uc": "comparable_market",
+        "chosen_uc": "comparable_market",
+        "confidence": 0.9500000000000001,
+        "strategy": "rule_based",
+        "entities": {
+          "locations": [
+            {
+              "name": "bugis",
+              "pa": "DOWNTOWN CORE",
+              "lat": 1.3006,
+              "lng": 103.8555
+            }
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "comparable market analysis for kallang",
+        "expected_uc": "comparable_market",
+        "chosen_uc": "comparable_market",
+        "confidence": 0.9500000000000001,
+        "strategy": "rule_based",
+        "entities": {
+          "locations": [
+            {
+              "name": "kallang",
+              "pa": "KALLANG",
+              "lat": 1.311,
+              "lng": 103.8637
+            }
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "valuation exercise for clementi \u2014 find comps",
+        "expected_uc": "comparable_market",
+        "chosen_uc": "comparable_market",
+        "confidence": 0.9500000000000001,
+        "strategy": "rule_based",
+        "entities": {
+          "locations": [
+            {
+              "name": "clementi",
+              "pa": "CLEMENTI",
+              "lat": 1.3162,
+              "lng": 103.7649
+            }
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "hexes most similar to bishan for comps",
+        "expected_uc": "comparable_market",
+        "chosen_uc": "comparable_market",
+        "confidence": 0.9,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": false,
+        "ent_missing": [
+          "locations"
+        ],
+        "duration_s": 0.0
+      },
+      {
+        "query": "give me 15 property comps near jurong east",
+        "expected_uc": "comparable_market",
+        "chosen_uc": "comparable_market",
+        "confidence": 0.9500000000000001,
+        "strategy": "rule_based",
+        "entities": {
+          "locations": [
+            {
+              "name": "jurong east",
+              "pa": "JURONG EAST",
+              "lat": 1.3331,
+              "lng": 103.7428
+            }
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": false,
+        "ent_missing": [
+          "k"
+        ],
+        "duration_s": 0.0
+      },
+      {
+        "query": "for an apartment near novena, find comparable locations",
+        "expected_uc": "comparable_market",
+        "chosen_uc": "comparable_market",
+        "confidence": 0.9500000000000001,
+        "strategy": "rule_based",
+        "entities": {
+          "locations": [
+            {
+              "name": "novena",
+              "pa": "NOVENA",
+              "lat": 1.3203,
+              "lng": 103.8435
+            }
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "look up comparable shophouse neighborhoods",
+        "expected_uc": "comparable_market",
+        "chosen_uc": "comparable_market",
+        "confidence": 0.9,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "property valuation using comparable area analysis",
+        "expected_uc": "comparable_market",
+        "chosen_uc": "comparable_market",
+        "confidence": 0.9,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "where is Starbucks missing but should be",
+        "expected_uc": "whitespace_analysis",
+        "chosen_uc": "gap_analysis",
+        "confidence": 0.9500000000000001,
+        "strategy": "rule_based",
+        "entities": {
+          "brands": [
+            "starbucks"
+          ]
+        },
+        "uc_pass": false,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "whitespace areas for a new KFC",
+        "expected_uc": "whitespace_analysis",
+        "chosen_uc": "whitespace_analysis",
+        "confidence": 0.9500000000000001,
+        "strategy": "rule_based",
+        "entities": {
+          "brands": [
+            "kfc"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "uncontested hexes for ya kun expansion",
+        "expected_uc": "whitespace_analysis",
+        "chosen_uc": "whitespace_analysis",
+        "confidence": 0.9500000000000001,
+        "strategy": "rule_based",
+        "entities": {
+          "brands": [
+            "ya kun"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "where is 7-eleven absent",
+        "expected_uc": "whitespace_analysis",
+        "chosen_uc": "whitespace_analysis",
+        "confidence": 0.75,
+        "strategy": "rule_based",
+        "entities": {
+          "brands": [
+            "7-eleven"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "find white space opportunities for cold storage",
+        "expected_uc": "whitespace_analysis",
+        "chosen_uc": "whitespace_analysis",
+        "confidence": 0.9500000000000001,
+        "strategy": "rule_based",
+        "entities": {
+          "brands": [
+            "cold storage"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "where should FairPrice expand with no competitors",
+        "expected_uc": "whitespace_analysis",
+        "chosen_uc": "site_selection",
+        "confidence": 0.9500000000000001,
+        "strategy": "rule_based",
+        "entities": {
+          "brands": [
+            "fairprice"
+          ]
+        },
+        "uc_pass": false,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "brand whitespace for Toast Box",
+        "expected_uc": "whitespace_analysis",
+        "chosen_uc": "whitespace_analysis",
+        "confidence": 0.9500000000000001,
+        "strategy": "rule_based",
+        "entities": {
+          "brands": [
+            "toast box"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "hexes with no Starbucks where one would fit",
+        "expected_uc": "whitespace_analysis",
+        "chosen_uc": "feature_query",
+        "confidence": 0.8,
+        "strategy": "rule_based",
+        "entities": {
+          "brands": [
+            "starbucks"
+          ]
+        },
+        "uc_pass": false,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "find uncontested territory for McDonald's",
+        "expected_uc": "whitespace_analysis",
+        "chosen_uc": "whitespace_analysis",
+        "confidence": 0.9500000000000001,
+        "strategy": "rule_based",
+        "entities": {
+          "brands": [
+            "mcdonald's"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "where is Giant supermarket not yet present",
+        "expected_uc": "whitespace_analysis",
+        "chosen_uc": "whitespace_analysis",
+        "confidence": 0.93,
+        "strategy": "llm",
+        "entities": {
+          "brand": "Giant",
+          "category": "supermarket"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 6.6
+      },
+      {
+        "query": "whitespace map for Guardian pharmacy",
+        "expected_uc": "whitespace_analysis",
+        "chosen_uc": "whitespace_analysis",
+        "confidence": 0.9500000000000001,
+        "strategy": "rule_based",
+        "entities": {
+          "brands": [
+            "guardian"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "which areas lack a Sheng Siong but should have one",
+        "expected_uc": "whitespace_analysis",
+        "chosen_uc": "whitespace_analysis",
+        "confidence": 0.95,
+        "strategy": "llm",
+        "entities": {
+          "brand": "Sheng Siong",
+          "category": "supermarket"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.91
+      },
+      {
+        "query": "no-competitor areas for a new cafe chain",
+        "expected_uc": "whitespace_analysis",
+        "chosen_uc": "site_selection",
+        "confidence": 0.82,
+        "strategy": "llm",
+        "entities": {
+          "category": "cafe"
+        },
+        "uc_pass": false,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.79
+      },
+      {
+        "query": "hexes without a KFC that match KFC's profile",
+        "expected_uc": "whitespace_analysis",
+        "chosen_uc": "whitespace_analysis",
+        "confidence": 0.92,
+        "strategy": "llm",
+        "entities": {
+          "brand": "KFC",
+          "category": "fast food"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 7.87
+      },
+      {
+        "query": "find areas free of Starbucks where it would fit",
+        "expected_uc": "whitespace_analysis",
+        "chosen_uc": "whitespace_analysis",
+        "confidence": 0.97,
+        "strategy": "llm",
+        "entities": {
+          "brand": "Starbucks"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 4.97
+      },
+      {
+        "query": "brand whitespace for a new bubble tea operator",
+        "expected_uc": "whitespace_analysis",
+        "chosen_uc": "whitespace_analysis",
+        "confidence": 0.9,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "where can we enter without facing incumbents",
+        "expected_uc": "whitespace_analysis",
+        "chosen_uc": "unknown",
+        "confidence": 0.6,
+        "strategy": "llm",
+        "entities": {},
+        "uc_pass": false,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 7.01
+      },
+      {
+        "query": "virgin territory for subway sandwiches",
+        "expected_uc": "whitespace_analysis",
+        "chosen_uc": "whitespace_analysis",
+        "confidence": 0.97,
+        "strategy": "llm",
+        "entities": {
+          "brand": "Subway"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.81
+      },
+      {
+        "query": "white space hexes for expansion without competition",
+        "expected_uc": "whitespace_analysis",
+        "chosen_uc": "whitespace_analysis",
+        "confidence": 0.9,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "where are the brand absence pockets",
+        "expected_uc": "whitespace_analysis",
+        "chosen_uc": "unknown",
+        "confidence": 0.6,
+        "strategy": "llm",
+        "entities": {},
+        "uc_pass": false,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 6.65
+      },
+      {
+        "query": "predict expected cafes per hex in orchard area",
+        "expected_uc": "category_prediction",
+        "chosen_uc": "category_prediction",
+        "confidence": 0.9299999999999999,
+        "strategy": "rule_based",
+        "entities": {
+          "locations": [
+            {
+              "name": "orchard",
+              "pa": "ORCHARD",
+              "lat": 1.3048,
+              "lng": 103.8318
+            }
+          ],
+          "categories": [
+            "cafe_coffee"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "how many hawker stalls should exist in tampines",
+        "expected_uc": "category_prediction",
+        "chosen_uc": "category_prediction",
+        "confidence": 0.9299999999999999,
+        "strategy": "rule_based",
+        "entities": {
+          "locations": [
+            {
+              "name": "tampines",
+              "pa": "TAMPINES",
+              "lat": 1.3549,
+              "lng": 103.9442
+            }
+          ],
+          "categories": [
+            "hawker_street_food"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "forecast restaurant counts by subzone",
+        "expected_uc": "category_prediction",
+        "chosen_uc": "category_prediction",
+        "confidence": 0.88,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "restaurant"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "expected count of clinics in bedok",
+        "expected_uc": "category_prediction",
+        "chosen_uc": "category_prediction",
+        "confidence": 0.9299999999999999,
+        "strategy": "rule_based",
+        "entities": {
+          "locations": [
+            {
+              "name": "bedok",
+              "pa": "BEDOK",
+              "lat": 1.3236,
+              "lng": 103.9273
+            }
+          ],
+          "categories": [
+            "health_medical"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "predict retail density across singapore",
+        "expected_uc": "category_prediction",
+        "chosen_uc": "category_prediction",
+        "confidence": 0.88,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "shopping_retail"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "how many cafes does the model say a hex should have",
+        "expected_uc": "category_prediction",
+        "chosen_uc": "category_prediction",
+        "confidence": 0.88,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "cafe_coffee"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "expected number of gyms in jurong west",
+        "expected_uc": "category_prediction",
+        "chosen_uc": "category_prediction",
+        "confidence": 0.92,
+        "strategy": "llm",
+        "entities": {
+          "category": "gym",
+          "location": "Jurong West"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.41
+      },
+      {
+        "query": "predict hospital demand per subzone",
+        "expected_uc": "category_prediction",
+        "chosen_uc": "category_prediction",
+        "confidence": 0.88,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "health_medical"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "what's the expected count of schools in each area",
+        "expected_uc": "category_prediction",
+        "chosen_uc": "category_prediction",
+        "confidence": 0.88,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "education"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "forecast convenience store density",
+        "expected_uc": "category_prediction",
+        "chosen_uc": "category_prediction",
+        "confidence": 0.88,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "convenience_daily_needs"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "expected fitness studios for each hex",
+        "expected_uc": "category_prediction",
+        "chosen_uc": "category_prediction",
+        "confidence": 0.92,
+        "strategy": "llm",
+        "entities": {
+          "category": "fitness studios"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.78
+      },
+      {
+        "query": "model-predicted count of restaurants per hex",
+        "expected_uc": "category_prediction",
+        "chosen_uc": "category_prediction",
+        "confidence": 0.92,
+        "strategy": "llm",
+        "entities": {
+          "category": "restaurant"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 4.77
+      },
+      {
+        "query": "predict bakery density by area",
+        "expected_uc": "category_prediction",
+        "chosen_uc": "category_prediction",
+        "confidence": 0.88,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "bakery_pastry"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "how many salons should exist in each subzone",
+        "expected_uc": "category_prediction",
+        "chosen_uc": "category_prediction",
+        "confidence": 0.88,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "beauty_personal_care"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "expected office density across singapore",
+        "expected_uc": "category_prediction",
+        "chosen_uc": "category_prediction",
+        "confidence": 0.82,
+        "strategy": "llm",
+        "entities": {
+          "category": "office"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 4.62
+      },
+      {
+        "query": "predict hotel counts per subzone",
+        "expected_uc": "category_prediction",
+        "chosen_uc": "category_prediction",
+        "confidence": 0.88,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "hospitality"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "how many bars should be in each hex",
+        "expected_uc": "category_prediction",
+        "chosen_uc": "category_prediction",
+        "confidence": 0.88,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "bar_nightlife"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "forecast mall density by region",
+        "expected_uc": "category_prediction",
+        "chosen_uc": "category_prediction",
+        "confidence": 0.88,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "shopping_retail"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "expected childcare centre counts",
+        "expected_uc": "category_prediction",
+        "chosen_uc": "category_prediction",
+        "confidence": 0.92,
+        "strategy": "llm",
+        "entities": {
+          "category": "childcare centre"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 4.03
+      },
+      {
+        "query": "model prediction of cafe saturation per hex",
+        "expected_uc": "category_prediction",
+        "chosen_uc": "category_prediction",
+        "confidence": 0.87,
+        "strategy": "llm",
+        "entities": {
+          "category": "cafe"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 4.49
+      },
+      {
+        "query": "hexes with high walkability and low population",
+        "expected_uc": "feature_query",
+        "chosen_uc": "feature_query",
+        "confidence": 0.75,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "show me hexes with a specific feature profile",
+        "expected_uc": "feature_query",
+        "chosen_uc": "feature_query",
+        "confidence": 0.75,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "combination of high transit access and low commerce density",
+        "expected_uc": "feature_query",
+        "chosen_uc": "feature_query",
+        "confidence": 0.75,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "find hexes matching high cafe and low comp pressure",
+        "expected_uc": "feature_query",
+        "chosen_uc": "comparable_market",
+        "confidence": 0.93,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "cafe_coffee"
+          ]
+        },
+        "uc_pass": false,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "hexes with high MRT access but low retail",
+        "expected_uc": "feature_query",
+        "chosen_uc": "feature_query",
+        "confidence": 0.78,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "shopping_retail"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "find hexes with high population density and good walkability",
+        "expected_uc": "feature_query",
+        "chosen_uc": "feature_query",
+        "confidence": 0.75,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "hexes matching a profile of high tourist draw and high walk score",
+        "expected_uc": "feature_query",
+        "chosen_uc": "feature_query",
+        "confidence": 0.93,
+        "strategy": "llm",
+        "entities": {
+          "profile": {
+            "tourist_draw": "high",
+            "walk_score": "high"
+          }
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.22
+      },
+      {
+        "query": "combine high demand_diversity with low competitor pressure",
+        "expected_uc": "feature_query",
+        "chosen_uc": "feature_query",
+        "confidence": 0.95,
+        "strategy": "llm",
+        "entities": {
+          "profile": {
+            "demand_diversity": "high",
+            "competitor_pressure": "low"
+          }
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 4.5
+      },
+      {
+        "query": "find hexes scoring high on both residential and fitness",
+        "expected_uc": "feature_query",
+        "chosen_uc": "feature_query",
+        "confidence": 0.93,
+        "strategy": "llm",
+        "entities": {
+          "profile": {
+            "residential": "high",
+            "fitness": "high"
+          }
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 4.45
+      },
+      {
+        "query": "hexes with both high office density and good transit",
+        "expected_uc": "feature_query",
+        "chosen_uc": "feature_query",
+        "confidence": 0.78,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "office_workspace"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "multi-feature query: high cafe + low hawker",
+        "expected_uc": "feature_query",
+        "chosen_uc": "feature_query",
+        "confidence": 0.78,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "hawker_street_food",
+            "cafe_coffee"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "find hexes matching high culture + high hospitality",
+        "expected_uc": "feature_query",
+        "chosen_uc": "feature_query",
+        "confidence": 0.95,
+        "strategy": "llm",
+        "entities": {
+          "profile": {
+            "culture": "high",
+            "hospitality": "high"
+          }
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 4.89
+      },
+      {
+        "query": "hexes scoring high on walkability and low on population",
+        "expected_uc": "feature_query",
+        "chosen_uc": "feature_query",
+        "confidence": 0.88,
+        "strategy": "llm",
+        "entities": {
+          "profile": {
+            "walkability": "high",
+            "population": "low"
+          }
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 4.25
+      },
+      {
+        "query": "profile-based hex retrieval: low density + high MRT",
+        "expected_uc": "feature_query",
+        "chosen_uc": "feature_query",
+        "confidence": 0.93,
+        "strategy": "llm",
+        "entities": {
+          "profile": {
+            "density": "low",
+            "MRT_access": "high"
+          }
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 8.26
+      },
+      {
+        "query": "retrieve hexes with specific feature constraints",
+        "expected_uc": "feature_query",
+        "chosen_uc": "feature_query",
+        "confidence": 0.75,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "hexes with high office count AND high mrt access AND low residential",
+        "expected_uc": "feature_query",
+        "chosen_uc": "feature_query",
+        "confidence": 0.78,
+        "strategy": "rule_based",
+        "entities": {
+          "categories": [
+            "office_workspace"
+          ]
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "multi-attribute hex query",
+        "expected_uc": "feature_query",
+        "chosen_uc": "feature_query",
+        "confidence": 0.6,
+        "strategy": "llm",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.84
+      },
+      {
+        "query": "find hexes matching a given set of feature values",
+        "expected_uc": "feature_query",
+        "chosen_uc": "feature_query",
+        "confidence": 0.72,
+        "strategy": "llm",
+        "entities": {
+          "profile": {}
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 7.07
+      },
+      {
+        "query": "find food deserts in singapore",
+        "expected_uc": "amenity_desert",
+        "chosen_uc": "amenity_desert",
+        "confidence": 0.97,
+        "strategy": "llm",
+        "entities": {
+          "category": "food"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 4.44
+      },
+      {
+        "query": "where are amenity deserts for seniors",
+        "expected_uc": "amenity_desert",
+        "chosen_uc": "amenity_desert",
+        "confidence": 0.93,
+        "strategy": "llm",
+        "entities": {
+          "category": "senior amenities",
+          "location": null
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 7.76
+      },
+      {
+        "query": "transit deserts in the north",
+        "expected_uc": "amenity_desert",
+        "chosen_uc": "amenity_desert",
+        "confidence": 0.95,
+        "strategy": "llm",
+        "entities": {
+          "category": "transit",
+          "location": "north"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.54
+      },
+      {
+        "query": "areas cut off from fresh food access",
+        "expected_uc": "amenity_desert",
+        "chosen_uc": "amenity_desert",
+        "confidence": 0.95,
+        "strategy": "llm",
+        "entities": {
+          "category": "fresh food"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 9.27
+      },
+      {
+        "query": "hexes where elderly can't reach basic amenities",
+        "expected_uc": "amenity_desert",
+        "chosen_uc": "amenity_desert",
+        "confidence": 0.93,
+        "strategy": "llm",
+        "entities": {
+          "category": "basic amenities",
+          "location": null,
+          "brand": null,
+          "target_hex": null,
+          "coords": null,
+          "k": null,
+          "anchor_hexes": null,
+          "profile": null
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 6.09
+      },
+      {
+        "query": "find healthcare deserts",
+        "expected_uc": "amenity_desert",
+        "chosen_uc": "amenity_desert",
+        "confidence": 0.97,
+        "strategy": "llm",
+        "entities": {
+          "category": "healthcare"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 6.77
+      },
+      {
+        "query": "walkability deserts: where amenity access is poor",
+        "expected_uc": "amenity_desert",
+        "chosen_uc": "amenity_desert",
+        "confidence": 0.87,
+        "strategy": "llm",
+        "entities": {
+          "category": "amenity"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.63
+      },
+      {
+        "query": "which areas are cut off from essential services",
+        "expected_uc": "amenity_desert",
+        "chosen_uc": "amenity_desert",
+        "confidence": 0.92,
+        "strategy": "llm",
+        "entities": {
+          "category": "essential services"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.01
+      },
+      {
+        "query": "grocery deserts in the east",
+        "expected_uc": "amenity_desert",
+        "chosen_uc": "amenity_desert",
+        "confidence": 0.97,
+        "strategy": "llm",
+        "entities": {
+          "category": "grocery",
+          "location": "east"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 4.87
+      },
+      {
+        "query": "regions with poor access to daily needs",
+        "expected_uc": "amenity_desert",
+        "chosen_uc": "fifteen_minute_city",
+        "confidence": 0.87,
+        "strategy": "llm",
+        "entities": {
+          "category": "daily needs"
+        },
+        "uc_pass": false,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 6.1
+      },
+      {
+        "query": "areas where low-income residents lack amenities",
+        "expected_uc": "amenity_desert",
+        "chosen_uc": "amenity_desert",
+        "confidence": 0.88,
+        "strategy": "llm",
+        "entities": {
+          "category": "amenities",
+          "location": null,
+          "brand": null,
+          "target_hex": null,
+          "coords": null,
+          "k": null,
+          "anchor_hexes": null,
+          "profile": null
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.57
+      },
+      {
+        "query": "food desert map for singapore",
+        "expected_uc": "amenity_desert",
+        "chosen_uc": "amenity_desert",
+        "confidence": 0.95,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "which hexes are transit-isolated with no amenities",
+        "expected_uc": "amenity_desert",
+        "chosen_uc": "amenity_desert",
+        "confidence": 0.93,
+        "strategy": "llm",
+        "entities": {
+          "category": "transit and amenities"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.47
+      },
+      {
+        "query": "vulnerable populations in amenity-desert areas",
+        "expected_uc": "amenity_desert",
+        "chosen_uc": "amenity_desert",
+        "confidence": 0.87,
+        "strategy": "llm",
+        "entities": {
+          "category": null,
+          "location": null
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.9
+      },
+      {
+        "query": "identify neighborhoods cut off from hawker food",
+        "expected_uc": "amenity_desert",
+        "chosen_uc": "amenity_desert",
+        "confidence": 0.97,
+        "strategy": "llm",
+        "entities": {
+          "category": "hawker"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.9
+      },
+      {
+        "query": "transit + food desert intersection",
+        "expected_uc": "amenity_desert",
+        "chosen_uc": "amenity_desert",
+        "confidence": 0.95,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "areas where seniors have low amenity access",
+        "expected_uc": "amenity_desert",
+        "chosen_uc": "amenity_desert",
+        "confidence": 0.88,
+        "strategy": "llm",
+        "entities": {
+          "category": "senior amenities",
+          "location": null
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.22
+      },
+      {
+        "query": "flag amenity desert hexes for equity analysis",
+        "expected_uc": "amenity_desert",
+        "chosen_uc": "amenity_desert",
+        "confidence": 0.95,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "compute 15-minute city score for each hex",
+        "expected_uc": "fifteen_minute_city",
+        "chosen_uc": "fifteen_minute_city",
+        "confidence": 0.95,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "walkability scorecard across singapore",
+        "expected_uc": "fifteen_minute_city",
+        "chosen_uc": "fifteen_minute_city",
+        "confidence": 0.97,
+        "strategy": "llm",
+        "entities": {
+          "location": "Singapore"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 3.6
+      },
+      {
+        "query": "how walkable is each neighborhood",
+        "expected_uc": "fifteen_minute_city",
+        "chosen_uc": "fifteen_minute_city",
+        "confidence": 0.95,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "15-minute city analysis",
+        "expected_uc": "fifteen_minute_city",
+        "chosen_uc": "fifteen_minute_city",
+        "confidence": 0.95,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "amenity access score per hex",
+        "expected_uc": "fifteen_minute_city",
+        "chosen_uc": "fifteen_minute_city",
+        "confidence": 0.95,
+        "strategy": "llm",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.29
+      },
+      {
+        "query": "how many categories are within 15 min walk from each hex",
+        "expected_uc": "fifteen_minute_city",
+        "chosen_uc": "category_prediction",
+        "confidence": 0.85,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": false,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "walkability heat map for singapore",
+        "expected_uc": "fifteen_minute_city",
+        "chosen_uc": "fifteen_minute_city",
+        "confidence": 0.92,
+        "strategy": "llm",
+        "entities": {
+          "location": "Singapore"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.46
+      },
+      {
+        "query": "15min city compliance for every subzone",
+        "expected_uc": "fifteen_minute_city",
+        "chosen_uc": "fifteen_minute_city",
+        "confidence": 0.95,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "walkable city score per area",
+        "expected_uc": "fifteen_minute_city",
+        "chosen_uc": "fifteen_minute_city",
+        "confidence": 0.95,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "how close are residents to daily needs",
+        "expected_uc": "fifteen_minute_city",
+        "chosen_uc": "fifteen_minute_city",
+        "confidence": 0.92,
+        "strategy": "llm",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 4.05
+      },
+      {
+        "query": "score each hex on 15 min accessibility",
+        "expected_uc": "fifteen_minute_city",
+        "chosen_uc": "fifteen_minute_city",
+        "confidence": 0.95,
+        "strategy": "llm",
+        "entities": {
+          "category": null,
+          "location": null,
+          "k": null
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 6.4
+      },
+      {
+        "query": "walkability report across the city",
+        "expected_uc": "fifteen_minute_city",
+        "chosen_uc": "fifteen_minute_city",
+        "confidence": 0.92,
+        "strategy": "llm",
+        "entities": {
+          "location": "Singapore"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.12
+      },
+      {
+        "query": "walk-score-style amenity accessibility for singapore",
+        "expected_uc": "fifteen_minute_city",
+        "chosen_uc": "fifteen_minute_city",
+        "confidence": 0.95,
+        "strategy": "llm",
+        "entities": {
+          "location": "Singapore"
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 7.12
+      },
+      {
+        "query": "15 minute city audit",
+        "expected_uc": "fifteen_minute_city",
+        "chosen_uc": "fifteen_minute_city",
+        "confidence": 0.95,
+        "strategy": "rule_based",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.0
+      },
+      {
+        "query": "per-hex pedestrian access to services",
+        "expected_uc": "fifteen_minute_city",
+        "chosen_uc": "fifteen_minute_city",
+        "confidence": 0.88,
+        "strategy": "llm",
+        "entities": {
+          "category": null,
+          "location": null,
+          "k": null
+        },
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.46
+      },
+      {
+        "query": "what can you do",
+        "expected_uc": null,
+        "chosen_uc": "unknown",
+        "confidence": 0.6,
+        "strategy": "llm",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 4.91
+      },
+      {
+        "query": "show me the map",
+        "expected_uc": null,
+        "chosen_uc": "unknown",
+        "confidence": 0.6,
+        "strategy": "llm",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.06
+      },
+      {
+        "query": "help",
+        "expected_uc": null,
+        "chosen_uc": "unknown",
+        "confidence": 0.6,
+        "strategy": "llm",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 3.69
+      },
+      {
+        "query": "hello",
+        "expected_uc": null,
+        "chosen_uc": "unknown",
+        "confidence": 0.6,
+        "strategy": "llm",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 9.0
+      },
+      {
+        "query": "who are you",
+        "expected_uc": null,
+        "chosen_uc": "unknown",
+        "confidence": 0.6,
+        "strategy": "llm",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 4.73
+      },
+      {
+        "query": "how does this work",
+        "expected_uc": null,
+        "chosen_uc": "unknown",
+        "confidence": 0.6,
+        "strategy": "llm",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 4.14
+      },
+      {
+        "query": "print the weather",
+        "expected_uc": null,
+        "chosen_uc": "unknown",
+        "confidence": 0.6,
+        "strategy": "llm",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 3.63
+      },
+      {
+        "query": "what is the GDP of singapore",
+        "expected_uc": null,
+        "chosen_uc": "unknown",
+        "confidence": 0.6,
+        "strategy": "llm",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 6.19
+      },
+      {
+        "query": "explain machine learning",
+        "expected_uc": null,
+        "chosen_uc": "unknown",
+        "confidence": 0.6,
+        "strategy": "llm",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 4.58
+      },
+      {
+        "query": "show me star trek episodes",
+        "expected_uc": null,
+        "chosen_uc": "unknown",
+        "confidence": 0.6,
+        "strategy": "llm",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 5.42
+      },
+      {
+        "query": "",
+        "expected_uc": null,
+        "chosen_uc": null,
+        "confidence": 0.0,
+        "strategy": "none",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.28
+      },
+      {
+        "query": "   ",
+        "expected_uc": null,
+        "chosen_uc": null,
+        "confidence": 0.0,
+        "strategy": "none",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 0.37
+      },
+      {
+        "query": "qwerty asdf",
+        "expected_uc": null,
+        "chosen_uc": "unknown",
+        "confidence": 0.6,
+        "strategy": "llm",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 3.92
+      },
+      {
+        "query": "random nonsense string 123",
+        "expected_uc": null,
+        "chosen_uc": "unknown",
+        "confidence": 0.6,
+        "strategy": "llm",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 3.82
+      },
+      {
+        "query": "tell me a joke",
+        "expected_uc": null,
+        "chosen_uc": "unknown",
+        "confidence": 0.6,
+        "strategy": "llm",
+        "entities": {},
+        "uc_pass": true,
+        "ent_pass": true,
+        "ent_missing": [],
+        "duration_s": 3.37
+      }
+    ],
+    "duration_s": 495.4593732357025
+  }
+}

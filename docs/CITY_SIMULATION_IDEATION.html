@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Propheus — SGP City Simulation: Ideation & Feasibility</title>
+<style>
+:root{--bg:#0d1f21;--bg2:#11282a;--bg3:#162f32;--a:#20b2aa;--a2:#2dd4bf;--ad:rgba(32,178,170,0.15);--t:#fff;--t2:#a0aeb0;--t3:#607274;--gd:rgba(32,178,170,0.2);--r:#ef4444;--g:#22c55e;--y:#eab308;--o:#f97316;--p:#a855f7}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Inter','Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.6;max-width:1180px;margin:0 auto;padding:24px 20px}
+.hdr{display:flex;align-items:center;gap:12px;padding:16px 0;border-bottom:1px solid var(--gd)}.hdr svg{width:28px;height:28px}.hdr h1{font-size:18px}.hdr .sub{font-size:11px;color:var(--t3)}
+h2{font-size:15px;color:var(--a);margin:24px 0 8px;border-bottom:1px solid var(--gd);padding-bottom:4px}h3{font-size:13px;color:var(--a2);margin:14px 0 4px}p,li{font-size:12.5px;color:var(--t2)}p{margin:4px 0}strong{color:var(--t)}
+table{border-collapse:collapse;width:100%;margin:6px 0;font-size:11.5px}th{background:var(--bg3);color:var(--a);padding:6px 8px;text-align:left;font-weight:600;border-bottom:1px solid var(--gd)}td{padding:5px 8px;color:var(--t2);border-bottom:1px solid rgba(255,255,255,0.03);vertical-align:top}tr:hover{background:rgba(32,178,170,0.03)}.r{text-align:right}.c{text-align:center}
+.cards{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.kpi{flex:1;min-width:90px;text-align:center;background:var(--bg2);border:1px solid var(--gd);border-radius:6px;padding:10px 6px}.kpi .n{font-size:20px;font-weight:700;color:var(--a)}.kpi .l{font-size:8px;text-transform:uppercase;letter-spacing:.5px;color:var(--t3)}
+.s{background:var(--bg2);border:1px solid var(--gd);border-radius:6px;padding:12px 14px;margin:8px 0}
+code{background:var(--bg3);color:var(--a);padding:1px 4px;border-radius:3px;font-size:10.5px}
+.q{color:var(--t3);font-size:9.5px}hr{border:none;border-top:1px solid var(--gd);margin:20px 0}
+.tag{display:inline-block;padding:2px 6px;border-radius:3px;font-size:9px;font-weight:600;white-space:nowrap}.tg{background:rgba(34,197,94,0.15);color:var(--g)}.tr{background:rgba(239,68,68,0.15);color:var(--r)}.ty{background:rgba(234,179,8,0.15);color:var(--y)}.tb{background:var(--ad);color:var(--a)}.to{background:rgba(249,115,22,0.15);color:var(--o)}.tp{background:rgba(168,85,247,0.15);color:var(--p)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.level{background:var(--bg2);border:1px solid var(--gd);border-radius:6px;padding:12px 14px;margin:8px 0;border-left:4px solid var(--a)}
+.level h3{margin-top:0;display:flex;align-items:center;gap:8px;font-size:14px}
+.level .badge{background:var(--a);color:var(--bg);padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700}
+.level.l1{border-left-color:var(--g)}.level.l1 .badge{background:var(--g)}
+.level.l2{border-left-color:var(--a)}.level.l2 .badge{background:var(--a)}
+.level.l3{border-left-color:var(--o)}.level.l3 .badge{background:var(--o)}
+.level.l4{border-left-color:var(--p)}.level.l4 .badge{background:var(--p)}
+.level.l5{border-left-color:var(--r)}.level.l5 .badge{background:var(--r)}
+.box{background:var(--bg3);border-radius:4px;padding:8px 10px;margin-top:6px;font-size:11px}
+.box strong{color:var(--a)}
+.arrow{color:var(--a);font-weight:700;margin:0 4px}
+.strategy{background:linear-gradient(135deg,rgba(32,178,170,0.1),rgba(45,212,191,0.05));border:1px solid var(--a);border-radius:8px;padding:14px 18px;margin:14px 0}
+.strategy h2{border:none;padding:0;margin:0 0 8px;color:var(--a2)}
+.pill{display:inline-block;background:var(--bg3);color:var(--t2);padding:2px 6px;border-radius:10px;font-size:9.5px;margin-right:4px}
+.ask{background:var(--bg3);border-left:3px solid var(--y);padding:8px 12px;margin:8px 0;font-style:italic;color:var(--t2);font-size:11.5px}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><g><g><path fill="#20b2aa" d="M45,64.2c-1.1,9.1-3.3,15.3-5.8,15.3c-0.1,0-0.1,0-0.2,0c-0.3,0-0.6-0.2-1-0.4c-3.1-2.5-5.4-14.5-5.4-29c0-14.4,2.3-26.4,5.4-29c0.3-0.3,0.7-0.5,1-0.5h0.2c2.6,0,4.9,6.8,6,16.6c-5.6,2-9.5,7.3-9.5,13.5C35.6,56.9,39.5,62.1,45,64.2z"/><path fill="#20b2aa" d="M67.4,50c0,14.5-2.3,26.5-5.4,29c-0.3,0.2-0.6,0.4-0.9,0.4c-0.1,0-0.2,0-0.2,0c-2.5,0-4.7-6.2-5.8-15.3c5.5-2,9.4-7.3,9.4-13.5c0-6.2-4-11.6-9.5-13.5c1.1-9.8,3.4-16.6,6-16.6H61c0.4,0,0.7,0.2,1,0.5C65.1,23.6,67.4,35.6,67.4,50z"/></g><path fill="#20b2aa" d="M30.2,50c0-14.4,2.3-26.4,5.4-29c-10.6,5.3-17.9,16.3-17.9,29c0,12.7,7.3,23.7,17.9,29C32.5,76.5,30.2,64.5,30.2,50z M64.4,21c3.1,2.6,5.4,14.5,5.4,29c0,14.5-2.3,26.5-5.4,29C75,73.7,82.3,62.7,82.3,50C82.3,37.3,75,26.4,64.4,21z"/><path fill="#20b2aa" d="M62.1,50.7c0,5-3,9.3-7.4,11.2c-1.5,0.6-3.1,1-4.8,1c-1.7,0-3.3-0.4-4.8-1c-4.3-1.9-7.4-6.2-7.4-11.2c0-5.1,3.1-9.4,7.5-11.2c1.4-0.6,3-0.9,4.7-0.9c1.7,0,3.2,0.3,4.7,0.9C59.1,41.3,62.1,45.6,62.1,50.7z"/></g></g></svg>
+<div><h1>SGP City-Level Simulation &mdash; Feasibility &amp; Ideation</h1><div class="sub">Can we actually build a city simulator on top of the 7,318-hex bundle? An honest assessment. &nbsp;&bull;&nbsp; Propheus Digital Atlas</div></div>
+</div>
+
+<div class="cards">
+<div class="kpi"><div class="n">5</div><div class="l">Ambition Levels</div></div>
+<div class="kpi"><div class="n">2</div><div class="l">Buildable Now</div></div>
+<div class="kpi"><div class="n">1</div><div class="l">Research Spike</div></div>
+<div class="kpi"><div class="n">2</div><div class="l">Out-of-Scope</div></div>
+<div class="kpi"><div class="n">7,318</div><div class="l">Hexes as Substrate</div></div>
+<div class="kpi"><div class="n">174K</div><div class="l">Classified Places</div></div>
+</div>
+
+<!-- ===== TL;DR ===== -->
+<h2>TL;DR</h2>
+<div class="s">
+<p><strong>Yes, we can build city-level simulation &mdash; but at Levels 1&ndash;2 (scenario scorer + equilibrium sim), not at Level 3 (full agent-based model).</strong></p>
+<p>SimMobility already exists at SMART/SUTD for SGP and is used by LTA. The smart play is not to rebuild it but to position our 460-feature + 64-dim + micrograph substrate as <strong>the richest grounded geography layer for SGP</strong>, then layer:</p>
+<ul style="list-style:none;padding-left:0;margin:6px 0">
+<li>&bull; A <strong>hex-level scenario scorer</strong> (ships in 2 weeks, real planning value)</li>
+<li>&bull; A <strong>hex-level equilibrium simulator</strong> (ships in 1&ndash;2 months, novel at this granularity)</li>
+<li>&bull; An <strong>LLM-agent research spike</strong> (differentiator: nobody has our prompt grounding)</li>
+<li>&bull; A <strong>SimMobility integration path</strong> for credibility at the ABM tier</li>
+</ul>
+<p>Framing: not a "city simulator" but a <strong>simulation substrate + targeted scenario tools</strong>. Realer, achievable, defensible.</p>
+</div>
+
+<!-- ===== WHAT SIM MEANS ===== -->
+<h2>1. What "City Simulation" Actually Means</h2>
+<div class="s">
+<p>The term spans five very different things. Naming them explicitly matters:</p>
+<table>
+<tr><th>Level</th><th>What It Does</th><th>Canonical Reference</th><th>SGP Reality</th></tr>
+<tr><td><span class="tag tg">L1</span> Static scorer</td><td>One-step: "if X changes, new predicted state"</td><td>Partial-equilibrium delta</td><td>Subzone scenario_sim exists</td></tr>
+<tr><td><span class="tag tb">L2</span> Equilibrium</td><td>Iterative Huff / gravity / LUTI until convergence</td><td>UrbanSim, PECAS, RELU</td><td>Subzone-only, no hex version</td></tr>
+<tr><td><span class="tag to">L3</span> Agent-based (ABM)</td><td>Millions of agents, trip chains, activity scheduling</td><td>MATSim, SimMobility</td><td><strong>SimMobility runs on SGP, used by LTA</strong></td></tr>
+<tr><td><span class="tag tp">L4</span> LLM-agent generative</td><td>LLM personas with goals, emergent behavior</td><td>Park et al. "Generative Agents"</td><td>No one has done it for SGP</td></tr>
+<tr><td><span class="tag tr">L5</span> Neural world model</td><td>Learned (state, action) &rarr; next-state</td><td>Research frontier</td><td>Requires multi-year panel data we don't have</td></tr>
+</table>
+<p><strong>Critical context:</strong> SimMobility (SMART/SUTD) is the elephant in the room. Any "ABM for SGP" play must reckon with it honestly.</p>
+</div>
+
+<!-- ===== STRENGTHS ===== -->
+<h2>2. What Our Bundle Gives a Simulator <span class="tag tg">strong substrate</span></h2>
+<div class="s">
+<p>The 18 MB serving bundle would save 6&ndash;12 months of feature engineering for anyone building a city simulator. Asset by asset:</p>
+<table>
+<tr><th>Asset</th><th>Role in a Simulator</th><th>Why Valuable</th></tr>
+<tr><td><strong>391 features / hex</strong></td><td>World state: population, floor area, zoning, transit, walkability</td><td>The geography layer. Done.</td></tr>
+<tr><td><strong>24 category predictions</strong></td><td>Initialization &amp; calibration target</td><td>"What should exist" given physical context &mdash; a baseline for validation</td></tr>
+<tr><td><strong>GCN-64 embeddings</strong></td><td>Transfer-learning bridge</td><td>Behavior observed in hex X transfers to similar hexes via cosine</td></tr>
+<tr><td><strong>Influence graph (47K edges)</strong></td><td>Spatial adjacency for neighbor effects</td><td>Pre-computed dual-graph (spatial + transit) structure</td></tr>
+<tr><td><strong>42K per-place micrographs</strong></td><td>Place-level texture for agents</td><td>Anchor composition, tier structure per place</td></tr>
+<tr><td><strong>174K LLM-classified places</strong></td><td>Prompt context for LLM-agents</td><td>Best-in-class grounding. Very few cities have this.</td></tr>
+</table>
+<p class="q" style="margin-top:8px">This alone is a differentiator &mdash; even if we never build a simulator, we're a credible <em>substrate</em> for one.</p>
+</div>
+
+<!-- ===== GAPS ===== -->
+<h2>3. What We're Missing <span class="tag tr">honest gaps</span></h2>
+<div class="s">
+<table>
+<tr><th>Missing</th><th>Why It Matters</th><th>Realistic Source</th></tr>
+<tr><td><strong>Temporal signal</strong></td><td>Simulation = dynamics. We have a snapshot.</td><td>Historical snapshots; we have 1, need 2+ for training</td></tr>
+<tr><td><strong>Origin-destination flows</strong></td><td>Nothing moves without flows</td><td>LTA MyTransport, passenger O-D, Grab traces</td></tr>
+<tr><td><strong>Trip-chain behavior</strong></td><td>Who goes where, when, how</td><td>HITS (Household Interview Travel Survey), SimMobility output</td></tr>
+<tr><td><strong>Synthetic population</strong></td><td>ABM needs agent demographics</td><td>SingStat census microdata</td></tr>
+<tr><td><strong>Market clearing</strong></td><td>Rent / price equilibrium mechanics</td><td>JLL/CBRE rent data, HDB resale (we have partial)</td></tr>
+<tr><td><strong>Ground-truth outcomes</strong></td><td>Without it, sim is narrative</td><td>Requires partnerships or historical panels</td></tr>
+</table>
+<p><strong>The core gap:</strong> we have <em>state</em>, we don't have <em>dynamics</em>. State is a photograph; dynamics is a movie. Every level above is a different way to add dynamics.</p>
+</div>
+
+<!-- ===== AMBITION LADDER ===== -->
+<h2>4. The Ambition Ladder &mdash; Level by Level</h2>
+
+<div class="level l1">
+<h3><span class="badge">L1</span> Static Scenario Scorer <span class="tag tg">feasible &mdash; 2 weeks</span></h3>
+<p><strong>What:</strong> User specifies an intervention (new MRT at hex X, +5K residents to subzone Y, rezone Z to commercial). Modify feature inputs, re-run the 24 XGBoost predictors, show ripple effects via the influence graph (one or few hops).</p>
+<div class="box">
+<strong>Mechanics:</strong> intervention vector <span class="arrow">&rarr;</span> perturbed features <span class="arrow">&rarr;</span> XGBoost predictions <span class="arrow">&rarr;</span> delta vs baseline <span class="arrow">&rarr;</span> propagate via graph
+</div>
+<table style="margin-top:8px">
+<tr><td><strong>Honest name</strong></td><td>Partial-equilibrium delta engine, not a simulator</td></tr>
+<tr><td><strong>Good for</strong></td><td>Interactive UX, policy pitches, what-if demos</td></tr>
+<tr><td><strong>Bad for</strong></td><td>Anything with temporal feedback loops</td></tr>
+<tr><td><strong>Uses</strong></td><td>Existing 24 XGBoost JSONs + 391 features + graph</td></tr>
+<tr><td><strong>Example output</strong></td><td>"Adding MRT at hex X &rarr; +12% commerce density within 600m; cafe shifts most (+18%), hospitality +8%"</td></tr>
+<tr><td><strong>Effort</strong></td><td>2 weeks (80% of logic exists in scenario_sim at subzone)</td></tr>
+</table>
+</div>
+
+<div class="level l2">
+<h3><span class="badge">L2</span> Hex-Level Equilibrium Simulator <span class="tag tb">feasible &mdash; 1-2 months</span></h3>
+<p><strong>What:</strong> Add demand-supply loops. Each iteration: Huff gravity allocates consumer spend across hexes <span class="arrow">&rarr;</span> place densities update <span class="arrow">&rarr;</span> amenity attractiveness changes <span class="arrow">&rarr;</span> re-allocate. Converge to a new steady state.</p>
+<div class="box">
+<strong>Mechanics:</strong> Huff allocation + entropy maximization + iterative place-density update. Output: new equilibrium hex state + cross-hex flows.
+</div>
+<table style="margin-top:8px">
+<tr><td><strong>Honest name</strong></td><td>Static equilibrium with cross-hex feedback (no time axis)</td></tr>
+<tr><td><strong>Good for</strong></td><td>Retail impact, MRT ROI, amenity policy sizing</td></tr>
+<tr><td><strong>Bad for</strong></td><td>Daily / seasonal dynamics (converges, doesn't animate)</td></tr>
+<tr><td><strong>Uses</strong></td><td>Bundle + proxy OD matrix (synthesized from pop &times; transit &times; walkability)</td></tr>
+<tr><td><strong>Example output</strong></td><td>"New MRT station: converged steady state has +8% equilibrium employment in 3 subzones, &minus;3% in CBD overflow, cafe market shifts 11%"</td></tr>
+<tr><td><strong>Effort</strong></td><td>1&ndash;2 months; scenario_sim has the math at subzone level &mdash; we'd rebuild at hex</td></tr>
+</table>
+</div>
+
+<div class="level l3">
+<h3><span class="badge">L3</span> Full Agent-Based Simulation <span class="tag to">don't rebuild &mdash; integrate with SimMobility</span></h3>
+<p><strong>What:</strong> 5.9M synthetic agents, demographics, jobs, daily activity schedules, trip chains, mode choice. A full ABM.</p>
+<div class="box" style="border-left:3px solid var(--o)">
+<strong>Reality check:</strong> SimMobility already exists, calibrated on SGP, used by LTA. Rebuilding it is 2&ndash;3 FTE-years for something that ships on day 0 of the partnership.
+</div>
+<table style="margin-top:8px">
+<tr><td><strong>Our play</strong></td><td>Offer the bundle as SimMobility's <strong>rich geography layer</strong></td></tr>
+<tr><td><strong>Value-add</strong></td><td>Our 460 features, GCN-64 similarity, and micrographs are better than what most ABMs consume as input</td></tr>
+<tr><td><strong>Partnership path</strong></td><td>SMART / SUTD / LTA &mdash; joint publication potential</td></tr>
+<tr><td><strong>Political outcome</strong></td><td>Credible "our research integrates with established SGP agent-based simulation"</td></tr>
+<tr><td><strong>Effort</strong></td><td>Mostly relationship-building, integration scripting. Months, not years.</td></tr>
+</table>
+</div>
+
+<div class="level l4">
+<h3><span class="badge">L4</span> LLM-Agent Generative Simulation <span class="tag tp">research spike &mdash; 2-3 months, genuinely novel</span></h3>
+<p><strong>What:</strong> 1K&ndash;10K synthetic residents as LLM personas (young professional in Tiong Bahru, retiree in Bedok, tourist in Marina Bay). Each simulated day, each agent picks 3&ndash;5 hexes to visit based on persona + hex embeddings + weather + events.</p>
+<div class="box">
+<strong>Why this is compelling for us specifically:</strong> Our 174K LLM-classified places + 42K micrographs + 12 category contexts produce <em>best-in-class prompt grounding for agent decisions</em>. Very few cities in the world have this substrate.
+</div>
+<table style="margin-top:8px">
+<tr><td><strong>Outputs</strong></td><td>Per-hex footfall, flow patterns, substitution under intervention</td></tr>
+<tr><td><strong>Interventions</strong></td><td>Modify hex embedding <span class="arrow">&rarr;</span> agents re-plan <span class="arrow">&rarr;</span> measure emergent effect</td></tr>
+<tr><td><strong>Cost (naive)</strong></td><td>10K agents &times; 5 decisions/day &times; 30 days = 1.5M LLM calls/month of sim &asymp; $1.5K</td></tr>
+<tr><td><strong>Cost (distilled)</strong></td><td>Train smaller classifier from LLM outputs, drop cost 100&times;</td></tr>
+<tr><td><strong>Feasibility</strong></td><td>Yes for research demo, borderline for production without distillation</td></tr>
+<tr><td><strong>Research contribution</strong></td><td>"Generative Urban Agents grounded in rich place embeddings" &mdash; genuinely publishable</td></tr>
+</table>
+</div>
+
+<div class="level l5">
+<h3><span class="badge">L5</span> Neural World Model <span class="tag tr">out of scope today</span></h3>
+<p><strong>What:</strong> GNN/Transformer that predicts hex-state(t+1) given hex-state(t) + action vector.</p>
+<div class="box" style="border-left:3px solid var(--r)">
+<strong>The killer problem:</strong> we don't have training data. Neural world models learn from history. We have one snapshot.
+</div>
+<p><strong>Future path only.</strong> Revisit when we have 2&ndash;3 more annual snapshots, or a SimMobility partnership yields synthetic trajectories at scale.</p>
+</div>
+
+<!-- ===== STRATEGY ===== -->
+<div class="strategy">
+<h2>5. The Recommended Strategy</h2>
+<p style="color:var(--t);font-size:13.5px;font-weight:500">Don't build "a city simulator." Build <strong>three targeted artifacts</strong> under a credible simulation umbrella.</p>
+<div class="grid3" style="margin-top:10px">
+<div class="s" style="margin:0">
+<h3 style="color:var(--g)">Artifact 1 &mdash; HexScenarioEngine</h3>
+<p><strong>Level:</strong> L1 (static scorer)</p>
+<p><strong>Time:</strong> 2 weeks</p>
+<p><strong>Stack:</strong> FastAPI on top of 24 XGBoost JSONs + influence graph</p>
+<p><strong>Endpoint:</strong> <code>POST /scenario</code> &rarr; delta map</p>
+<p><strong>Why:</strong> Fast demo, interactive map UX, immediate planning value</p>
+</div>
+<div class="s" style="margin:0">
+<h3 style="color:var(--a)">Artifact 2 &mdash; HexEquilibriumSim</h3>
+<p><strong>Level:</strong> L2 (Huff equilibrium)</p>
+<p><strong>Time:</strong> 1&ndash;2 months</p>
+<p><strong>Stack:</strong> Iterative solver on hex graph with Huff + entropy-max</p>
+<p><strong>Output:</strong> converged state + inter-hex flows</p>
+<p><strong>Why:</strong> Real planning value; novel at hex granularity for SGP</p>
+</div>
+<div class="s" style="margin:0">
+<h3 style="color:var(--p)">Artifact 3 &mdash; GenerativeUrbanAgents</h3>
+<p><strong>Level:</strong> L4 (LLM agents)</p>
+<p><strong>Time:</strong> 2&ndash;3 months (parallel research track)</p>
+<p><strong>Stack:</strong> 1K LLM personas + our embedding/micrograph grounding</p>
+<p><strong>Output:</strong> emergent footfall, flow patterns</p>
+<p><strong>Why:</strong> Genuine research differentiation, paper potential</p>
+</div>
+</div>
+<p style="margin-top:10px"><strong>Plus:</strong> a SimMobility integration path for L3 credibility. Don't rebuild what SMART/SUTD already runs.</p>
+</div>
+
+<!-- ===== QUESTIONS TO ANSWER ===== -->
+<h2>6. Questions to Answer Before Starting</h2>
+<div class="s">
+<div class="ask"><strong>Who is the target user?</strong> PR/policy demos &rarr; Artifact 1 is enough. Urban research &rarr; Artifact 2. Product differentiation / "AI city twin" narrative &rarr; Artifact 3.</div>
+<div class="ask"><strong>What's the simulation's purpose?</strong> Intervention testing (Artifact 1), forecasting (Artifact 2), optimization (Artifact 2), or research novelty (Artifact 3)? Each dictates different depth.</div>
+<div class="ask"><strong>What's "good enough"?</strong> A sim that's wrong in details but right in trends (Artifact 1-2) is more valuable than one that strives for perfection but can't be validated (Artifact 5).</div>
+<div class="ask"><strong>Do we have ground truth?</strong> Without validation data, a sim is narrative. What can we calibrate against? Our XGBoost predictions, SingStat projections, LTA passenger flows, HITS survey, SimMobility output.</div>
+<div class="ask"><strong>What's the partnership strategy?</strong> Going alone limits us to L1/L2/L4. SimMobility integration opens L3 and L5 within 6&ndash;12 months.</div>
+</div>
+
+<!-- ===== HONEST RISKS ===== -->
+<h2>7. Honest Risks &amp; Failure Modes</h2>
+<div class="s">
+<table>
+<tr><th>Risk</th><th>Mitigation</th></tr>
+<tr><td><strong>Overpromise "city twin":</strong> L1-2 is not a digital twin, it's a scenario scorer</td><td>Name it honestly. "Scenario engine" not "simulator"</td></tr>
+<tr><td><strong>SimMobility overlap:</strong> Look like we're duplicating institutional work</td><td>Position as substrate + complementary research, seek partnership</td></tr>
+<tr><td><strong>LLM-agent cost:</strong> Naive implementation burns $1.5K/sim-month</td><td>Distill agents into classifier post-calibration</td></tr>
+<tr><td><strong>No ground truth:</strong> Outputs feel plausible but unvalidated</td><td>Use XGBoost preds as internal consistency check; partner for external data</td></tr>
+<tr><td><strong>Scope creep:</strong> "Just add one more feature" never ends</td><td>Ship Artifact 1 in 2 weeks, fence each artifact explicitly</td></tr>
+<tr><td><strong>Overclaim novelty:</strong> Pretending L4 is solved when it's a research spike</td><td>Position as research demo, not product</td></tr>
+</table>
+</div>
+
+<!-- ===== SUMMARY ===== -->
+<h2>8. One-Sentence Strategy</h2>
+<div class="strategy" style="text-align:center">
+<p style="font-size:14px;color:var(--t);font-weight:500;line-height:1.7">
+&ldquo;We are the richest grounded geography layer for Singapore. Build a hex-level scenario engine + equilibrium sim on top of it, partner with SimMobility for ABM, spike on LLM-agents for research differentiation.&rdquo;
+</p>
+<p style="margin-top:10px;color:var(--t2);font-size:12px">Not a "city simulator" &mdash; a <strong>simulation substrate + targeted scenario tools</strong>. Honest, defensible, achievable.</p>
+</div>
+
+<hr>
+<p class="q" style="text-align:center">Propheus Digital Atlas &nbsp;&bull;&nbsp; SGP Hex Bundle v1 &nbsp;&bull;&nbsp; City Simulation Feasibility &nbsp;&bull;&nbsp; Ideation doc, not a build plan</p>
+
+</body>
+</html>

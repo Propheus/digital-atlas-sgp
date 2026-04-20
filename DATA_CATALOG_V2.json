@@ -1,0 +1,4174 @@
+{
+  "data/places": {
+    "description": "Places \u2014 Core place data",
+    "file_count": 2,
+    "total_size": "33.2 MB",
+    "files": [
+      {
+        "path": "data/places/sgp_brands.jsonl",
+        "size_bytes": 32653,
+        "size_human": "32 KB",
+        "format": "jsonl",
+        "records": 233,
+        "columns": 5,
+        "sample_fields": [
+          "brand",
+          "parent",
+          "locations",
+          "primary_category",
+          "primary_place_type"
+        ],
+        "description": "",
+        "directory": "data/places",
+        "directory_desc": "Places \u2014 Core place data"
+      },
+      {
+        "path": "data/places/sgp_places.jsonl",
+        "size_bytes": 34822318,
+        "size_human": "33.2 MB",
+        "format": "jsonl",
+        "records": 66851,
+        "columns": 16,
+        "sample_fields": [
+          "id",
+          "name",
+          "address",
+          "latitude",
+          "longitude",
+          "main_category",
+          "sub_category",
+          "phone",
+          "website",
+          "geohash9",
+          "place_type",
+          "subzone",
+          "subzone_code",
+          "planning_area",
+          "planning_area_code"
+        ],
+        "description": "",
+        "directory": "data/places",
+        "directory_desc": "Places \u2014 Core place data"
+      }
+    ]
+  },
+  "data/places_consolidated": {
+    "description": "Places \u2014 Consolidated v2 with tiers",
+    "file_count": 10,
+    "total_size": "440.3 MB",
+    "files": [
+      {
+        "path": "data/places_consolidated/classify.log",
+        "size_bytes": 5442,
+        "size_human": "5 KB",
+        "format": "log",
+        "records": null,
+        "columns": null,
+        "sample_fields": null,
+        "description": "",
+        "directory": "data/places_consolidated",
+        "directory_desc": "Places \u2014 Consolidated v2 with tiers"
+      },
+      {
+        "path": "data/places_consolidated/enrich.log",
+        "size_bytes": 2623,
+        "size_human": "3 KB",
+        "format": "log",
+        "records": null,
+        "columns": null,
+        "sample_fields": null,
+        "description": "",
+        "directory": "data/places_consolidated",
+        "directory_desc": "Places \u2014 Consolidated v2 with tiers"
+      },
+      {
+        "path": "data/places_consolidated/llm_classified.jsonl",
+        "size_bytes": 4896709,
+        "size_human": "4.7 MB",
+        "format": "jsonl",
+        "records": 53584,
+        "columns": 3,
+        "sample_fields": [
+          "id",
+          "main_category",
+          "place_type"
+        ],
+        "description": "",
+        "directory": "data/places_consolidated",
+        "directory_desc": "Places \u2014 Consolidated v2 with tiers"
+      },
+      {
+        "path": "data/places_consolidated/needs_llm_classification.jsonl",
+        "size_bytes": 8310087,
+        "size_human": "7.9 MB",
+        "format": "jsonl",
+        "records": 53597,
+        "columns": 5,
+        "sample_fields": [
+          "id",
+          "name",
+          "ov_category",
+          "address",
+          "brand"
+        ],
+        "description": "",
+        "directory": "data/places_consolidated",
+        "directory_desc": "Places \u2014 Consolidated v2 with tiers"
+      },
+      {
+        "path": "data/places_consolidated/sgp_places_clean.jsonl",
+        "size_bytes": 78322644,
+        "size_human": "74.7 MB",
+        "format": "jsonl",
+        "records": 174713,
+        "columns": 16,
+        "sample_fields": [
+          "id",
+          "name",
+          "address",
+          "latitude",
+          "longitude",
+          "main_category",
+          "place_type",
+          "phone",
+          "website",
+          "ov_category",
+          "confidence",
+          "subzone",
+          "subzone_code",
+          "planning_area",
+          "region"
+        ],
+        "description": "",
+        "directory": "data/places_consolidated",
+        "directory_desc": "Places \u2014 Consolidated v2 with tiers"
+      },
+      {
+        "path": "data/places_consolidated/sgp_places_consolidated.jsonl",
+        "size_bytes": 101650335,
+        "size_human": "96.9 MB",
+        "format": "jsonl",
+        "records": 175627,
+        "columns": 19,
+        "sample_fields": [
+          "id",
+          "ov_id",
+          "name",
+          "address",
+          "latitude",
+          "longitude",
+          "main_category",
+          "sub_category",
+          "place_type",
+          "brand",
+          "phone",
+          "website",
+          "ov_category",
+          "confidence",
+          "subzone"
+        ],
+        "description": "",
+        "directory": "data/places_consolidated",
+        "directory_desc": "Places \u2014 Consolidated v2 with tiers"
+      },
+      {
+        "path": "data/places_consolidated/sgp_places_enriched.jsonl",
+        "size_bytes": 78390348,
+        "size_human": "74.8 MB",
+        "format": "jsonl",
+        "records": 174713,
+        "columns": 16,
+        "sample_fields": [
+          "id",
+          "name",
+          "address",
+          "latitude",
+          "longitude",
+          "main_category",
+          "place_type",
+          "phone",
+          "website",
+          "ov_category",
+          "confidence",
+          "subzone",
+          "subzone_code",
+          "planning_area",
+          "region"
+        ],
+        "description": "",
+        "directory": "data/places_consolidated",
+        "directory_desc": "Places \u2014 Consolidated v2 with tiers"
+      },
+      {
+        "path": "data/places_consolidated/sgp_places_final.jsonl",
+        "size_bytes": 103064084,
+        "size_human": "98.3 MB",
+        "format": "jsonl",
+        "records": 175627,
+        "columns": 19,
+        "sample_fields": [
+          "id",
+          "ov_id",
+          "name",
+          "address",
+          "latitude",
+          "longitude",
+          "main_category",
+          "sub_category",
+          "place_type",
+          "brand",
+          "phone",
+          "website",
+          "ov_category",
+          "confidence",
+          "subzone"
+        ],
+        "description": "",
+        "directory": "data/places_consolidated",
+        "directory_desc": "Places \u2014 Consolidated v2 with tiers"
+      },
+      {
+        "path": "data/places_consolidated/sgp_places_v2.jsonl",
+        "size_bytes": 87085476,
+        "size_human": "83.1 MB",
+        "format": "jsonl",
+        "records": 174713,
+        "columns": 18,
+        "sample_fields": [
+          "id",
+          "name",
+          "address",
+          "latitude",
+          "longitude",
+          "main_category",
+          "place_type",
+          "phone",
+          "website",
+          "ov_category",
+          "confidence",
+          "subzone",
+          "subzone_code",
+          "planning_area",
+          "region"
+        ],
+        "description": "",
+        "directory": "data/places_consolidated",
+        "directory_desc": "Places \u2014 Consolidated v2 with tiers"
+      },
+      {
+        "path": "data/places_consolidated/tier.log",
+        "size_bytes": 3466,
+        "size_human": "3 KB",
+        "format": "log",
+        "records": null,
+        "columns": null,
+        "sample_fields": null,
+        "description": "",
+        "directory": "data/places_consolidated",
+        "directory_desc": "Places \u2014 Consolidated v2 with tiers"
+      }
+    ]
+  },
+  "data/overture_places_2025": {
+    "description": "Places \u2014 Raw Overture download",
+    "file_count": 2,
+    "total_size": "26.0 MB",
+    "files": [
+      {
+        "path": "data/overture_places_2025/sgp_places.parquet",
+        "size_bytes": 27285375,
+        "size_human": "26.0 MB",
+        "format": "parquet",
+        "records": 147501,
+        "columns": 17,
+        "sample_fields": [
+          "id",
+          "geometry",
+          "categories",
+          "confidence",
+          "websites",
+          "emails",
+          "socials",
+          "phones",
+          "brand",
+          "addresses",
+          "names",
+          "sources",
+          "operating_status",
+          "basic_category",
+          "taxonomy"
+        ],
+        "description": "",
+        "directory": "data/overture_places_2025",
+        "directory_desc": "Places \u2014 Raw Overture download"
+      },
+      {
+        "path": "data/overture_places_2025/sgp_places.parquet.state",
+        "size_bytes": 337,
+        "size_human": "0 KB",
+        "format": "state",
+        "records": null,
+        "columns": null,
+        "sample_fields": null,
+        "description": "",
+        "directory": "data/overture_places_2025",
+        "directory_desc": "Places \u2014 Raw Overture download"
+      }
+    ]
+  },
+  "data/boundaries": {
+    "description": "Boundaries \u2014 Subzone and planning area geometries",
+    "file_count": 2,
+    "total_size": "5.0 MB",
+    "files": [
+      {
+        "path": "data/boundaries/planning_areas.geojson",
+        "size_bytes": 2092229,
+        "size_human": "2.0 MB",
+        "format": "geojson",
+        "records": 55,
+        "columns": 10,
+        "sample_fields": [
+          "OBJECTID",
+          "PLN_AREA_N",
+          "PLN_AREA_C",
+          "CA_IND",
+          "REGION_N",
+          "REGION_C",
+          "INC_CRC",
+          "FMEL_UPD_D",
+          "SHAPE.AREA",
+          "SHAPE.LEN"
+        ],
+        "description": "",
+        "directory": "data/boundaries",
+        "directory_desc": "Boundaries \u2014 Subzone and planning area geometries"
+      },
+      {
+        "path": "data/boundaries/subzones.geojson",
+        "size_bytes": 3180569,
+        "size_human": "3.0 MB",
+        "format": "geojson",
+        "records": 332,
+        "columns": 13,
+        "sample_fields": [
+          "OBJECTID",
+          "SUBZONE_NO",
+          "SUBZONE_N",
+          "SUBZONE_C",
+          "CA_IND",
+          "PLN_AREA_N",
+          "PLN_AREA_C",
+          "REGION_N",
+          "REGION_C",
+          "INC_CRC",
+          "FMEL_UPD_D",
+          "SHAPE.AREA",
+          "SHAPE.LEN"
+        ],
+        "description": "",
+        "directory": "data/boundaries",
+        "directory_desc": "Boundaries \u2014 Subzone and planning area geometries"
+      }
+    ]
+  },
+  "data/demographics": {
+    "description": "Demographics \u2014 Census population data",
+    "file_count": 6,
+    "total_size": "34.3 MB",
+    "files": [
+      {
+        "path": "data/demographics/dwellings_subzone_2020_2024.csv",
+        "size_bytes": 340112,
+        "size_human": "332 KB",
+        "format": "csv",
+        "records": 8300,
+        "columns": 5,
+        "sample_fields": [
+          "PA",
+          "SZ",
+          "FA",
+          "HSE",
+          "Time"
+        ],
+        "description": "",
+        "directory": "data/demographics",
+        "directory_desc": "Demographics \u2014 Census population data"
+      },
+      {
+        "path": "data/demographics/dwellings_subzone_2025.csv",
+        "size_bytes": 68112,
+        "size_human": "67 KB",
+        "format": "csv",
+        "records": 1660,
+        "columns": 5,
+        "sample_fields": [
+          "PA",
+          "SZ",
+          "FA",
+          "HSE",
+          "Time"
+        ],
+        "description": "",
+        "directory": "data/demographics",
+        "directory_desc": "Demographics \u2014 Census population data"
+      },
+      {
+        "path": "data/demographics/pop_age_sex_fa_2020_2024.csv",
+        "size_bytes": 17697749,
+        "size_human": "16.9 MB",
+        "format": "csv",
+        "records": 315400,
+        "columns": 7,
+        "sample_fields": [
+          "PA",
+          "SZ",
+          "AG",
+          "Sex",
+          "FA",
+          "Pop",
+          "Time"
+        ],
+        "description": "",
+        "directory": "data/demographics",
+        "directory_desc": "Demographics \u2014 Census population data"
+      },
+      {
+        "path": "data/demographics/pop_age_sex_fa_2025.csv",
+        "size_bytes": 3541506,
+        "size_human": "3.4 MB",
+        "format": "csv",
+        "records": 63080,
+        "columns": 7,
+        "sample_fields": [
+          "PA",
+          "SZ",
+          "AG",
+          "Sex",
+          "FA",
+          "Pop",
+          "Time"
+        ],
+        "description": "",
+        "directory": "data/demographics",
+        "directory_desc": "Demographics \u2014 Census population data"
+      },
+      {
+        "path": "data/demographics/pop_age_sex_tod_2024.csv",
+        "size_bytes": 7142005,
+        "size_human": "6.8 MB",
+        "format": "csv",
+        "records": 100928,
+        "columns": 7,
+        "sample_fields": [
+          "\ufeffPA",
+          "SZ",
+          "AG",
+          "Sex",
+          "TOD",
+          "Pop",
+          "Time"
+        ],
+        "description": "",
+        "directory": "data/demographics",
+        "directory_desc": "Demographics \u2014 Census population data"
+      },
+      {
+        "path": "data/demographics/pop_age_sex_tod_2025.csv",
+        "size_bytes": 7142528,
+        "size_human": "6.8 MB",
+        "format": "csv",
+        "records": 100928,
+        "columns": 7,
+        "sample_fields": [
+          "PA",
+          "SZ",
+          "AG",
+          "Sex",
+          "TOD",
+          "Pop",
+          "Time"
+        ],
+        "description": "",
+        "directory": "data/demographics",
+        "directory_desc": "Demographics \u2014 Census population data"
+      }
+    ]
+  },
+  "data/census": {
+    "description": "Census \u2014 Household and population statistics",
+    "file_count": 7,
+    "total_size": "281 KB",
+    "files": [
+      {
+        "path": "data/census/hh_dwelling.csv",
+        "size_bytes": 1955,
+        "size_human": "2 KB",
+        "format": "csv",
+        "records": 32,
+        "columns": 10,
+        "sample_fields": [
+          "Number",
+          "Total",
+          "HDBDwellings_Total",
+          "HDBDwellings_1_and2_RoomFlats1",
+          "HDBDwellings_3_RoomFlats",
+          "HDBDwellings_4_RoomFlats",
+          "HDBDwellings_5_RoomandExecutiveFlats",
+          "CondominiumsandOtherApartments",
+          "LandedProperties",
+          "Others"
+        ],
+        "description": "",
+        "directory": "data/census",
+        "directory_desc": "Census \u2014 Household and population statistics"
+      },
+      {
+        "path": "data/census/hh_income.csv",
+        "size_bytes": 3626,
+        "size_human": "4 KB",
+        "format": "csv",
+        "records": 32,
+        "columns": 21,
+        "sample_fields": [
+          "Number",
+          "Total",
+          "NoEmployedPerson",
+          "Below_1_000",
+          "1_000_1_999",
+          "2_000_2_999",
+          "3_000_3_999",
+          "4_000_4_999",
+          "5_000_5_999",
+          "6_000_6_999",
+          "7_000_7_999",
+          "8_000_8_999",
+          "9_000_9_999",
+          "10_000_10_999",
+          "11_000_11_999"
+        ],
+        "description": "",
+        "directory": "data/census",
+        "directory_desc": "Census \u2014 Household and population statistics"
+      },
+      {
+        "path": "data/census/hh_size.csv",
+        "size_bytes": 1873,
+        "size_human": "2 KB",
+        "format": "csv",
+        "records": 32,
+        "columns": 10,
+        "sample_fields": [
+          "Number",
+          "Total",
+          "1Person",
+          "2Persons",
+          "3Persons",
+          "4Persons",
+          "5Persons",
+          "6Persons",
+          "7Persons",
+          "8orMorePersons"
+        ],
+        "description": "",
+        "directory": "data/census",
+        "directory_desc": "Census \u2014 Household and population statistics"
+      },
+      {
+        "path": "data/census/pop_age_floor_area.csv",
+        "size_bytes": 148849,
+        "size_human": "145 KB",
+        "format": "csv",
+        "records": 388,
+        "columns": 121,
+        "sample_fields": [
+          "Number",
+          "Total1_Total",
+          "Total1_0_4",
+          "Total1_5_9",
+          "Total1_10_14",
+          "Total1_15_19",
+          "Total1_20_24",
+          "Total1_25_29",
+          "Total1_30_34",
+          "Total1_35_39",
+          "Total1_40_44",
+          "Total1_45_49",
+          "Total1_50_54",
+          "Total1_55_59",
+          "Total1_60_64"
+        ],
+        "description": "",
+        "directory": "data/census",
+        "directory_desc": "Census \u2014 Household and population statistics"
+      },
+      {
+        "path": "data/census/pop_age_sex.csv",
+        "size_bytes": 85943,
+        "size_human": "84 KB",
+        "format": "csv",
+        "records": 388,
+        "columns": 61,
+        "sample_fields": [
+          "Number",
+          "Total_Total",
+          "Total_0_4",
+          "Total_5_9",
+          "Total_10_14",
+          "Total_15_19",
+          "Total_20_24",
+          "Total_25_29",
+          "Total_30_34",
+          "Total_35_39",
+          "Total_40_44",
+          "Total_45_49",
+          "Total_50_54",
+          "Total_55_59",
+          "Total_60_64"
+        ],
+        "description": "",
+        "directory": "data/census",
+        "directory_desc": "Census \u2014 Household and population statistics"
+      },
+      {
+        "path": "data/census/pop_dwelling.csv",
+        "size_bytes": 17653,
+        "size_human": "17 KB",
+        "format": "csv",
+        "records": 388,
+        "columns": 10,
+        "sample_fields": [
+          "Number",
+          "Total",
+          "HDBDwellings_Total",
+          "HDBDwellings_1_and2_RoomFlats1",
+          "HDBDwellings_3_RoomFlats",
+          "HDBDwellings_4_RoomFlats",
+          "HDBDwellings_5_RoomandExecutiveFlats",
+          "CondominiumsandOtherApartments",
+          "LandedProperties",
+          "Others"
+        ],
+        "description": "",
+        "directory": "data/census",
+        "directory_desc": "Census \u2014 Household and population statistics"
+      },
+      {
+        "path": "data/census/pop_ethnic_sex.csv",
+        "size_bytes": 27630,
+        "size_human": "27 KB",
+        "format": "csv",
+        "records": 388,
+        "columns": 16,
+        "sample_fields": [
+          "Number",
+          "Total_Total",
+          "Total_Males",
+          "Total_Females",
+          "Chinese_Total",
+          "Chinese_Males",
+          "Chinese_Females",
+          "Malays_Total",
+          "Malays_Males",
+          "Malays_Females",
+          "Indians_Total",
+          "Indians_Males",
+          "Indians_Females",
+          "Others_Total",
+          "Others_Males"
+        ],
+        "description": "",
+        "directory": "data/census",
+        "directory_desc": "Census \u2014 Household and population statistics"
+      }
+    ]
+  },
+  "data/population": {
+    "description": "Population \u2014 Population by subzone",
+    "file_count": 2,
+    "total_size": "205 KB",
+    "files": [
+      {
+        "path": "data/population/sgp_pop_1km_2020.tif",
+        "size_bytes": 5124,
+        "size_human": "5 KB",
+        "format": "tif",
+        "records": null,
+        "columns": null,
+        "sample_fields": null,
+        "description": "",
+        "directory": "data/population",
+        "directory_desc": "Population \u2014 Population by subzone"
+      },
+      {
+        "path": "data/population/sgp_population_2020.tif",
+        "size_bytes": 205162,
+        "size_human": "200 KB",
+        "format": "tif",
+        "records": null,
+        "columns": null,
+        "sample_fields": null,
+        "description": "",
+        "directory": "data/population",
+        "directory_desc": "Population \u2014 Population by subzone"
+      }
+    ]
+  },
+  "data/housing": {
+    "description": "Housing \u2014 HDB buildings, resale prices",
+    "file_count": 3,
+    "total_size": "76.2 MB",
+    "files": [
+      {
+        "path": "data/housing/hdb_existing_buildings.geojson",
+        "size_bytes": 56592298,
+        "size_human": "54.0 MB",
+        "format": "geojson",
+        "records": 13386,
+        "columns": 9,
+        "sample_fields": [
+          "OBJECTID",
+          "BLK_NO",
+          "ST_COD",
+          "ENTITYID",
+          "POSTAL_COD",
+          "INC_CRC",
+          "FMEL_UPD_D",
+          "SHAPE.AREA",
+          "SHAPE.LEN"
+        ],
+        "description": "",
+        "directory": "data/housing",
+        "directory_desc": "Housing \u2014 HDB buildings, resale prices"
+      },
+      {
+        "path": "data/housing/hdb_property_info.csv",
+        "size_bytes": 939659,
+        "size_human": "918 KB",
+        "format": "csv",
+        "records": 13267,
+        "columns": 24,
+        "sample_fields": [
+          "blk_no",
+          "street",
+          "max_floor_lvl",
+          "year_completed",
+          "residential",
+          "commercial",
+          "market_hawker",
+          "miscellaneous",
+          "multistorey_carpark",
+          "precinct_pavilion",
+          "bldg_contract_town",
+          "total_dwelling_units",
+          "1room_sold",
+          "2room_sold",
+          "3room_sold"
+        ],
+        "description": "",
+        "directory": "data/housing",
+        "directory_desc": "Housing \u2014 HDB buildings, resale prices"
+      },
+      {
+        "path": "data/housing/hdb_resale_2017_onwards.csv",
+        "size_bytes": 22408682,
+        "size_human": "21.4 MB",
+        "format": "csv",
+        "records": 226743,
+        "columns": 11,
+        "sample_fields": [
+          "month",
+          "town",
+          "flat_type",
+          "block",
+          "street_name",
+          "storey_range",
+          "floor_area_sqm",
+          "flat_model",
+          "lease_commence_date",
+          "remaining_lease",
+          "resale_price"
+        ],
+        "description": "",
+        "directory": "data/housing",
+        "directory_desc": "Housing \u2014 HDB buildings, resale prices"
+      }
+    ]
+  },
+  "data/property": {
+    "description": "Property \u2014 Property transactions",
+    "file_count": 3,
+    "total_size": "64.4 MB",
+    "files": [
+      {
+        "path": "data/property/hdb_resale_prices.csv",
+        "size_bytes": 22455153,
+        "size_human": "21.4 MB",
+        "format": "csv",
+        "records": 227207,
+        "columns": 11,
+        "sample_fields": [
+          "month",
+          "town",
+          "flat_type",
+          "block",
+          "street_name",
+          "storey_range",
+          "floor_area_sqm",
+          "flat_model",
+          "lease_commence_date",
+          "remaining_lease",
+          "resale_price"
+        ],
+        "description": "",
+        "directory": "data/property",
+        "directory_desc": "Property \u2014 Property transactions"
+      },
+      {
+        "path": "data/property/hdb_resale_prices_latest.csv",
+        "size_bytes": 22455153,
+        "size_human": "21.4 MB",
+        "format": "csv",
+        "records": 227207,
+        "columns": 11,
+        "sample_fields": [
+          "month",
+          "town",
+          "flat_type",
+          "block",
+          "street_name",
+          "storey_range",
+          "floor_area_sqm",
+          "flat_model",
+          "lease_commence_date",
+          "remaining_lease",
+          "resale_price"
+        ],
+        "description": "",
+        "directory": "data/property",
+        "directory_desc": "Property \u2014 Property transactions"
+      },
+      {
+        "path": "data/property/private_resi_transactions.csv",
+        "size_bytes": 22635623,
+        "size_human": "21.6 MB",
+        "format": "csv",
+        "records": 287196,
+        "columns": 10,
+        "sample_fields": [
+          "month",
+          "town",
+          "flat_type",
+          "block",
+          "street_name",
+          "storey_range",
+          "floor_area_sqm",
+          "flat_model",
+          "lease_commence_date",
+          "resale_price"
+        ],
+        "description": "",
+        "directory": "data/property",
+        "directory_desc": "Property \u2014 Property transactions"
+      }
+    ]
+  },
+  "data/transit": {
+    "description": "Transit \u2014 MRT, bus, rail network",
+    "file_count": 7,
+    "total_size": "39.7 MB",
+    "files": [
+      {
+        "path": "data/transit/bus_stops_osm.json",
+        "size_bytes": 749747,
+        "size_human": "732 KB",
+        "format": "json",
+        "records": 5574,
+        "columns": 5,
+        "sample_fields": [
+          "name",
+          "ref",
+          "operator",
+          "lat",
+          "lon"
+        ],
+        "description": "",
+        "directory": "data/transit",
+        "directory_desc": "Transit \u2014 MRT, bus, rail network"
+      },
+      {
+        "path": "data/transit/mrt_exits.geojson",
+        "size_bytes": 207783,
+        "size_human": "203 KB",
+        "format": "geojson",
+        "records": 597,
+        "columns": 5,
+        "sample_fields": [
+          "OBJECTID",
+          "STATION_NA",
+          "EXIT_CODE",
+          "INC_CRC",
+          "FMEL_UPD_D"
+        ],
+        "description": "",
+        "directory": "data/transit",
+        "directory_desc": "Transit \u2014 MRT, bus, rail network"
+      },
+      {
+        "path": "data/transit/mrt_lrt_stations.json",
+        "size_bytes": 34216,
+        "size_human": "33 KB",
+        "format": "json",
+        "records": 236,
+        "columns": 6,
+        "sample_fields": [
+          "name",
+          "lat",
+          "lon",
+          "exit_count",
+          "type",
+          "source"
+        ],
+        "description": "",
+        "directory": "data/transit",
+        "directory_desc": "Transit \u2014 MRT, bus, rail network"
+      },
+      {
+        "path": "data/transit/mrt_station_names.geojson",
+        "size_bytes": 33018,
+        "size_human": "32 KB",
+        "format": "geojson",
+        "records": 35,
+        "columns": 27,
+        "sample_fields": [
+          "OBJECTID",
+          "FEATUREID",
+          "ZORDER",
+          "ANNOTATIONCLASSID",
+          "SYMBOLID",
+          "STATUS",
+          "TEXTSTRING",
+          "FONTNAME",
+          "FONTSIZE",
+          "BOLD",
+          "ITALIC",
+          "UNDERLINE",
+          "VERTICALALIGNMENT",
+          "HORIZONTALALIGNMENT",
+          "XOFFSET"
+        ],
+        "description": "",
+        "directory": "data/transit",
+        "directory_desc": "Transit \u2014 MRT, bus, rail network"
+      },
+      {
+        "path": "data/transit/rail_lines.geojson",
+        "size_bytes": 23325141,
+        "size_human": "22.2 MB",
+        "format": "geojson",
+        "records": 1366,
+        "columns": 6,
+        "sample_fields": [
+          "OBJECTID",
+          "GRND_LEVEL",
+          "RAIL_TYPE",
+          "INC_CRC",
+          "FMEL_UPD_D",
+          "SHAPE.LEN"
+        ],
+        "description": "",
+        "directory": "data/transit",
+        "directory_desc": "Transit \u2014 MRT, bus, rail network"
+      },
+      {
+        "path": "data/transit/rail_stations.geojson",
+        "size_bytes": 784676,
+        "size_human": "766 KB",
+        "format": "geojson",
+        "records": 257,
+        "columns": 8,
+        "sample_fields": [
+          "OBJECTID",
+          "GRND_LEVEL",
+          "RAIL_TYPE",
+          "NAME",
+          "INC_CRC",
+          "FMEL_UPD_D",
+          "SHAPE.AREA",
+          "SHAPE.LEN"
+        ],
+        "description": "",
+        "directory": "data/transit",
+        "directory_desc": "Transit \u2014 MRT, bus, rail network"
+      },
+      {
+        "path": "data/transit/traffic_signals.geojson",
+        "size_bytes": 16478088,
+        "size_human": "15.7 MB",
+        "format": "geojson",
+        "records": 44922,
+        "columns": 6,
+        "sample_fields": [
+          "OBJECTID_1",
+          "BEARG_NUM",
+          "TYP_NAM",
+          "UNIQUE_ID",
+          "INC_CRC",
+          "FMEL_UPD_D"
+        ],
+        "description": "",
+        "directory": "data/transit",
+        "directory_desc": "Transit \u2014 MRT, bus, rail network"
+      }
+    ]
+  },
+  "data/transit_updated": {
+    "description": "Transit \u2014 Updated stations (Mar 2026)",
+    "file_count": 4,
+    "total_size": "2.0 MB",
+    "files": [
+      {
+        "path": "data/transit_updated/bus_stops_mar2026.geojson",
+        "size_bytes": 961802,
+        "size_human": "939 KB",
+        "format": "geojson",
+        "records": 5177,
+        "columns": 2,
+        "sample_fields": [
+          "BUS_STOP_N",
+          "LOC_DESC"
+        ],
+        "description": "",
+        "directory": "data/transit_updated",
+        "directory_desc": "Transit \u2014 Updated stations (Mar 2026)"
+      },
+      {
+        "path": "data/transit_updated/ev_charging_points.json",
+        "size_bytes": 2323,
+        "size_human": "2 KB",
+        "format": "json",
+        "records": 1,
+        "columns": null,
+        "sample_fields": [
+          "value"
+        ],
+        "description": "",
+        "directory": "data/transit_updated",
+        "directory_desc": "Transit \u2014 Updated stations (Mar 2026)"
+      },
+      {
+        "path": "data/transit_updated/train_station_exits_feb2025.geojson",
+        "size_bytes": 115143,
+        "size_human": "112 KB",
+        "format": "geojson",
+        "records": 595,
+        "columns": 2,
+        "sample_fields": [
+          "stn_name",
+          "exit_code"
+        ],
+        "description": "",
+        "directory": "data/transit_updated",
+        "directory_desc": "Transit \u2014 Updated stations (Mar 2026)"
+      },
+      {
+        "path": "data/transit_updated/train_stations_mar2026.geojson",
+        "size_bytes": 1067846,
+        "size_human": "1.0 MB",
+        "format": "geojson",
+        "records": 231,
+        "columns": 7,
+        "sample_fields": [
+          "TYP_CD",
+          "STN_NAM",
+          "ATTACHEMEN",
+          "SHAPE_AREA",
+          "SHAPE_LEN",
+          "TYP_CD_DES",
+          "STN_NAM_DE"
+        ],
+        "description": "",
+        "directory": "data/transit_updated",
+        "directory_desc": "Transit \u2014 Updated stations (Mar 2026)"
+      }
+    ]
+  },
+  "data/lta": {
+    "description": "Transit \u2014 LTA bus routes and services",
+    "file_count": 6,
+    "total_size": "90 KB",
+    "files": [
+      {
+        "path": "data/lta/BusRoutes.json",
+        "size_bytes": 64256,
+        "size_human": "63 KB",
+        "format": "json",
+        "records": 2,
+        "columns": null,
+        "sample_fields": [
+          "odata.metadata",
+          "value"
+        ],
+        "description": "",
+        "directory": "data/lta",
+        "directory_desc": "Transit \u2014 LTA bus routes and services"
+      },
+      {
+        "path": "data/lta/BusRoutes.xml",
+        "size_bytes": 8284,
+        "size_human": "8 KB",
+        "format": "xml",
+        "records": null,
+        "columns": null,
+        "sample_fields": null,
+        "description": "",
+        "directory": "data/lta",
+        "directory_desc": "Transit \u2014 LTA bus routes and services"
+      },
+      {
+        "path": "data/lta/BusServices.json",
+        "size_bytes": 2995,
+        "size_human": "3 KB",
+        "format": "json",
+        "records": 2,
+        "columns": null,
+        "sample_fields": [
+          "odata.metadata",
+          "value"
+        ],
+        "description": "",
+        "directory": "data/lta",
+        "directory_desc": "Transit \u2014 LTA bus routes and services"
+      },
+      {
+        "path": "data/lta/BusServices.xml",
+        "size_bytes": 9367,
+        "size_human": "9 KB",
+        "format": "xml",
+        "records": null,
+        "columns": null,
+        "sample_fields": null,
+        "description": "",
+        "directory": "data/lta",
+        "directory_desc": "Transit \u2014 LTA bus routes and services"
+      },
+      {
+        "path": "data/lta/bus_routes.zip",
+        "size_bytes": 5484,
+        "size_human": "5 KB",
+        "format": "zip",
+        "records": null,
+        "columns": null,
+        "sample_fields": null,
+        "description": "",
+        "directory": "data/lta",
+        "directory_desc": "Transit \u2014 LTA bus routes and services"
+      },
+      {
+        "path": "data/lta/bus_services.zip",
+        "size_bytes": 1521,
+        "size_human": "1 KB",
+        "format": "zip",
+        "records": null,
+        "columns": null,
+        "sample_fields": null,
+        "description": "",
+        "directory": "data/lta",
+        "directory_desc": "Transit \u2014 LTA bus routes and services"
+      }
+    ]
+  },
+  "data/demand": {
+    "description": "Demand \u2014 Footfall, ridership, crowd, travel times",
+    "file_count": 7,
+    "total_size": "18 KB",
+    "files": [
+      {
+        "path": "data/demand/carpark_availability.json",
+        "size_bytes": 1479,
+        "size_human": "1 KB",
+        "format": "json",
+        "records": 2,
+        "columns": null,
+        "sample_fields": [
+          "odata.metadata",
+          "value"
+        ],
+        "description": "",
+        "directory": "data/demand",
+        "directory_desc": "Demand \u2014 Footfall, ridership, crowd, travel times"
+      },
+      {
+        "path": "data/demand/passenger_vol_bus.json",
+        "size_bytes": 1678,
+        "size_human": "2 KB",
+        "format": "json",
+        "records": 2,
+        "columns": null,
+        "sample_fields": [
+          "odata.metadata",
+          "value"
+        ],
+        "description": "",
+        "directory": "data/demand",
+        "directory_desc": "Demand \u2014 Footfall, ridership, crowd, travel times"
+      },
+      {
+        "path": "data/demand/passenger_vol_od_bus.json",
+        "size_bytes": 1668,
+        "size_human": "2 KB",
+        "format": "json",
+        "records": 2,
+        "columns": null,
+        "sample_fields": [
+          "odata.metadata",
+          "value"
+        ],
+        "description": "",
+        "directory": "data/demand",
+        "directory_desc": "Demand \u2014 Footfall, ridership, crowd, travel times"
+      },
+      {
+        "path": "data/demand/passenger_vol_od_train.json",
+        "size_bytes": 1680,
+        "size_human": "2 KB",
+        "format": "json",
+        "records": 2,
+        "columns": null,
+        "sample_fields": [
+          "odata.metadata",
+          "value"
+        ],
+        "description": "",
+        "directory": "data/demand",
+        "directory_desc": "Demand \u2014 Footfall, ridership, crowd, travel times"
+      },
+      {
+        "path": "data/demand/passenger_vol_train.json",
+        "size_bytes": 1686,
+        "size_human": "2 KB",
+        "format": "json",
+        "records": 2,
+        "columns": null,
+        "sample_fields": [
+          "odata.metadata",
+          "value"
+        ],
+        "description": "",
+        "directory": "data/demand",
+        "directory_desc": "Demand \u2014 Footfall, ridership, crowd, travel times"
+      },
+      {
+        "path": "data/demand/platform_crowd.json",
+        "size_bytes": 2635,
+        "size_human": "3 KB",
+        "format": "json",
+        "records": 2,
+        "columns": null,
+        "sample_fields": [
+          "odata.metadata",
+          "value"
+        ],
+        "description": "",
+        "directory": "data/demand",
+        "directory_desc": "Demand \u2014 Footfall, ridership, crowd, travel times"
+      },
+      {
+        "path": "data/demand/travel_times.json",
+        "size_bytes": 7910,
+        "size_human": "8 KB",
+        "format": "json",
+        "records": 2,
+        "columns": null,
+        "sample_fields": [
+          "odata.metadata",
+          "value"
+        ],
+        "description": "",
+        "directory": "data/demand",
+        "directory_desc": "Demand \u2014 Footfall, ridership, crowd, travel times"
+      }
+    ]
+  },
+  "data/amenities": {
+    "description": "Amenities \u2014 Original amenity datasets",
+    "file_count": 11,
+    "total_size": "11.4 MB",
+    "files": [
+      {
+        "path": "data/amenities/eating_establishments.csv",
+        "size_bytes": 3579329,
+        "size_human": "3.4 MB",
+        "format": "csv",
+        "records": 36687,
+        "columns": 7,
+        "sample_fields": [
+          "licensee_name",
+          "licence_number",
+          "premises_address",
+          "grade",
+          "demerit_points",
+          "suspension_start_date",
+          "suspension_end_date"
+        ],
+        "description": "",
+        "directory": "data/amenities",
+        "directory_desc": "Amenities \u2014 Original amenity datasets"
+      },
+      {
+        "path": "data/amenities/hawker_centres.geojson",
+        "size_bytes": 140459,
+        "size_human": "137 KB",
+        "format": "geojson",
+        "records": 129,
+        "columns": 20,
+        "sample_fields": [
+          "OBJECTID",
+          "LANDXADDRESSPOINT",
+          "LANDYADDRESSPOINT",
+          "ADDRESSBUILDINGNAME",
+          "ADDRESSPOSTALCODE",
+          "ADDRESSSTREETNAME",
+          "DESCRIPTION",
+          "NAME",
+          "PHOTOURL",
+          "ADDRESSBLOCKHOUSENUMBER",
+          "STATUS",
+          "AWARDED_DATE",
+          "IMPLEMENTATION_DATE",
+          "INFO_ON_CO_LOCATORS",
+          "ADDRESS_MYENV"
+        ],
+        "description": "",
+        "directory": "data/amenities",
+        "directory_desc": "Amenities \u2014 Original amenity datasets"
+      },
+      {
+        "path": "data/amenities/healthcare_facilities.csv",
+        "size_bytes": 6200,
+        "size_human": "6 KB",
+        "format": "csv",
+        "records": 112,
+        "columns": 5,
+        "sample_fields": [
+          "year",
+          "institution_type",
+          "sector",
+          "facility_type_b",
+          "no_of_facilities"
+        ],
+        "description": "",
+        "directory": "data/amenities",
+        "directory_desc": "Amenities \u2014 Original amenity datasets"
+      },
+      {
+        "path": "data/amenities/hotels.geojson",
+        "size_bytes": 223082,
+        "size_human": "218 KB",
+        "format": "geojson",
+        "records": 468,
+        "columns": 9,
+        "sample_fields": [
+          "OBJECTID",
+          "HYPERLINK",
+          "DESCRIPTION",
+          "POSTALCODE",
+          "KEEPERNAME",
+          "TOTALROOMS",
+          "INC_CRC",
+          "FMEL_UPD_D",
+          "NAME"
+        ],
+        "description": "",
+        "directory": "data/amenities",
+        "directory_desc": "Amenities \u2014 Original amenity datasets"
+      },
+      {
+        "path": "data/amenities/park_connector.geojson",
+        "size_bytes": 2043547,
+        "size_human": "1.9 MB",
+        "format": "geojson",
+        "records": 883,
+        "columns": 7,
+        "sample_fields": [
+          "OBJECTID",
+          "PARK",
+          "PCN_LOOP",
+          "MORE_INFO",
+          "INC_CRC",
+          "FMEL_UPD_D",
+          "SHAPE.LEN"
+        ],
+        "description": "",
+        "directory": "data/amenities",
+        "directory_desc": "Amenities \u2014 Original amenity datasets"
+      },
+      {
+        "path": "data/amenities/park_facilities.geojson",
+        "size_bytes": 2250249,
+        "size_human": "2.1 MB",
+        "format": "geojson",
+        "records": 5393,
+        "columns": 7,
+        "sample_fields": [
+          "OBJECTID",
+          "UNIQUEID",
+          "NAME",
+          "CLASS",
+          "ADDITIONAL_INFO",
+          "INC_CRC",
+          "FMEL_UPD_D"
+        ],
+        "description": "",
+        "directory": "data/amenities",
+        "directory_desc": "Amenities \u2014 Original amenity datasets"
+      },
+      {
+        "path": "data/amenities/parks.geojson",
+        "size_bytes": 162657,
+        "size_human": "159 KB",
+        "format": "geojson",
+        "records": 450,
+        "columns": 6,
+        "sample_fields": [
+          "OBJECTID",
+          "NAME",
+          "X",
+          "Y",
+          "INC_CRC",
+          "FMEL_UPD_D"
+        ],
+        "description": "",
+        "directory": "data/amenities",
+        "directory_desc": "Amenities \u2014 Original amenity datasets"
+      },
+      {
+        "path": "data/amenities/parks_nature_reserves.geojson",
+        "size_bytes": 2865278,
+        "size_human": "2.7 MB",
+        "format": "geojson",
+        "records": 450,
+        "columns": 8,
+        "sample_fields": [
+          "OBJECTID_1",
+          "L_CODE",
+          "NAME",
+          "N_RESERVE",
+          "INC_CRC",
+          "FMEL_UPD_D",
+          "SHAPE_1.AREA",
+          "SHAPE_1.LEN"
+        ],
+        "description": "",
+        "directory": "data/amenities",
+        "directory_desc": "Amenities \u2014 Original amenity datasets"
+      },
+      {
+        "path": "data/amenities/schools.csv",
+        "size_bytes": 134116,
+        "size_human": "131 KB",
+        "format": "csv",
+        "records": 337,
+        "columns": 31,
+        "sample_fields": [
+          "school_name",
+          "url_address",
+          "address",
+          "postal_code",
+          "telephone_no",
+          "telephone_no_2",
+          "fax_no",
+          "fax_no_2",
+          "email_address",
+          "mrt_desc",
+          "bus_desc",
+          "principal_name",
+          "first_vp_name",
+          "second_vp_name",
+          "third_vp_name"
+        ],
+        "description": "",
+        "directory": "data/amenities",
+        "directory_desc": "Amenities \u2014 Original amenity datasets"
+      },
+      {
+        "path": "data/amenities/schools_geocoded.json",
+        "size_bytes": 75076,
+        "size_human": "73 KB",
+        "format": "json",
+        "records": 337,
+        "columns": 7,
+        "sample_fields": [
+          "name",
+          "postal_code",
+          "address",
+          "zone",
+          "type",
+          "lat",
+          "lon"
+        ],
+        "description": "",
+        "directory": "data/amenities",
+        "directory_desc": "Amenities \u2014 Original amenity datasets"
+      },
+      {
+        "path": "data/amenities/supermarkets.geojson",
+        "size_bytes": 437568,
+        "size_human": "427 KB",
+        "format": "geojson",
+        "records": 526,
+        "columns": 2,
+        "sample_fields": [
+          "Name",
+          "Description"
+        ],
+        "description": "",
+        "directory": "data/amenities",
+        "directory_desc": "Amenities \u2014 Original amenity datasets"
+      }
+    ]
+  },
+  "data/amenities_updated": {
+    "description": "Amenities \u2014 Updated (hawkers, schools, clinics, tourist)",
+    "file_count": 8,
+    "total_size": "39.8 MB",
+    "files": [
+      {
+        "path": "data/amenities_updated/chas_clinics.geojson",
+        "size_bytes": 1581372,
+        "size_human": "1.5 MB",
+        "format": "geojson",
+        "records": 1193,
+        "columns": 2,
+        "sample_fields": [
+          "Name",
+          "Description"
+        ],
+        "description": "",
+        "directory": "data/amenities_updated",
+        "directory_desc": "Amenities \u2014 Updated (hawkers, schools, clinics, tourist)"
+      },
+      {
+        "path": "data/amenities_updated/eating_establishments_sfa.geojson",
+        "size_bytes": 37996716,
+        "size_human": "36.2 MB",
+        "format": "geojson",
+        "records": 34378,
+        "columns": 2,
+        "sample_fields": [
+          "Name",
+          "Description"
+        ],
+        "description": "",
+        "directory": "data/amenities_updated",
+        "directory_desc": "Amenities \u2014 Updated (hawkers, schools, clinics, tourist)"
+      },
+      {
+        "path": "data/amenities_updated/hawker_centres.geojson",
+        "size_bytes": 140561,
+        "size_human": "137 KB",
+        "format": "geojson",
+        "records": 129,
+        "columns": 20,
+        "sample_fields": [
+          "OBJECTID",
+          "LANDXADDRESSPOINT",
+          "LANDYADDRESSPOINT",
+          "ADDRESSBUILDINGNAME",
+          "ADDRESSPOSTALCODE",
+          "ADDRESSSTREETNAME",
+          "DESCRIPTION",
+          "NAME",
+          "PHOTOURL",
+          "ADDRESSBLOCKHOUSENUMBER",
+          "STATUS",
+          "AWARDED_DATE",
+          "IMPLEMENTATION_DATE",
+          "INFO_ON_CO_LOCATORS",
+          "ADDRESS_MYENV"
+        ],
+        "description": "",
+        "directory": "data/amenities_updated",
+        "directory_desc": "Amenities \u2014 Updated (hawkers, schools, clinics, tourist)"
+      },
+      {
+        "path": "data/amenities_updated/preschools.geojson",
+        "size_bytes": 1302081,
+        "size_human": "1.2 MB",
+        "format": "geojson",
+        "records": 2290,
+        "columns": 2,
+        "sample_fields": [
+          "Name",
+          "Description"
+        ],
+        "description": "",
+        "directory": "data/amenities_updated",
+        "directory_desc": "Amenities \u2014 Updated (hawkers, schools, clinics, tourist)"
+      },
+      {
+        "path": "data/amenities_updated/school_zones.geojson",
+        "size_bytes": 149544,
+        "size_human": "146 KB",
+        "format": "geojson",
+        "records": 211,
+        "columns": 3,
+        "sample_fields": [
+          "SITENAME",
+          "INC_CRC",
+          "FMEL_UPD_D"
+        ],
+        "description": "",
+        "directory": "data/amenities_updated",
+        "directory_desc": "Amenities \u2014 Updated (hawkers, schools, clinics, tourist)"
+      },
+      {
+        "path": "data/amenities_updated/schools_directory.csv",
+        "size_bytes": 134116,
+        "size_human": "131 KB",
+        "format": "csv",
+        "records": 337,
+        "columns": 31,
+        "sample_fields": [
+          "school_name",
+          "url_address",
+          "address",
+          "postal_code",
+          "telephone_no",
+          "telephone_no_2",
+          "fax_no",
+          "fax_no_2",
+          "email_address",
+          "mrt_desc",
+          "bus_desc",
+          "principal_name",
+          "first_vp_name",
+          "second_vp_name",
+          "third_vp_name"
+        ],
+        "description": "",
+        "directory": "data/amenities_updated",
+        "directory_desc": "Amenities \u2014 Updated (hawkers, schools, clinics, tourist)"
+      },
+      {
+        "path": "data/amenities_updated/silver_zones.geojson",
+        "size_bytes": 311447,
+        "size_human": "304 KB",
+        "format": "geojson",
+        "records": 42,
+        "columns": 3,
+        "sample_fields": [
+          "SITENAME",
+          "INC_CRC",
+          "FMEL_UPD_D"
+        ],
+        "description": "",
+        "directory": "data/amenities_updated",
+        "directory_desc": "Amenities \u2014 Updated (hawkers, schools, clinics, tourist)"
+      },
+      {
+        "path": "data/amenities_updated/tourist_attractions.geojson",
+        "size_bytes": 143746,
+        "size_human": "140 KB",
+        "format": "geojson",
+        "records": 109,
+        "columns": 17,
+        "sample_fields": [
+          "OBJECTID_1",
+          "URL_PATH",
+          "IMAGE_PATH",
+          "IMAGE_ALT_TEXT",
+          "PHOTOCREDITS",
+          "PAGETITLE",
+          "LASTMODIFIED",
+          "LATITUDE",
+          "LONGTITUDE",
+          "ADDRESS",
+          "POSTALCODE",
+          "OVERVIEW",
+          "EXTERNAL_LINK",
+          "META_DESCRIPTION",
+          "OPENING_HOURS"
+        ],
+        "description": "",
+        "directory": "data/amenities_updated",
+        "directory_desc": "Amenities \u2014 Updated (hawkers, schools, clinics, tourist)"
+      }
+    ]
+  },
+  "data/roads": {
+    "description": "Infrastructure \u2014 Road network",
+    "file_count": 1,
+    "total_size": "219.9 MB",
+    "files": [
+      {
+        "path": "data/roads/roads.geojson",
+        "size_bytes": 230575346,
+        "size_human": "219.9 MB",
+        "format": "geojson",
+        "records": 550991,
+        "columns": 12,
+        "sample_fields": [
+          "u",
+          "v",
+          "key",
+          "osmid",
+          "name",
+          "highway",
+          "oneway",
+          "length",
+          "lanes",
+          "maxspeed",
+          "bridge",
+          "tunnel"
+        ],
+        "description": "",
+        "directory": "data/roads",
+        "directory_desc": "Infrastructure \u2014 Road network"
+      }
+    ]
+  },
+  "data/buildings": {
+    "description": "Infrastructure \u2014 Building footprints",
+    "file_count": 1,
+    "total_size": "81.3 MB",
+    "files": [
+      {
+        "path": "data/buildings/buildings.geojson",
+        "size_bytes": 85234383,
+        "size_human": "81.3 MB",
+        "format": "geojson",
+        "records": 125973,
+        "columns": 11,
+        "sample_fields": [
+          "element",
+          "id",
+          "building",
+          "name",
+          "building:levels",
+          "height",
+          "building:material",
+          "addr:street",
+          "addr:housenumber",
+          "addr:postcode",
+          "area_sqm"
+        ],
+        "description": "",
+        "directory": "data/buildings",
+        "directory_desc": "Infrastructure \u2014 Building footprints"
+      }
+    ]
+  },
+  "data/land_use": {
+    "description": "Land Use \u2014 URA zoning and master plan",
+    "file_count": 1,
+    "total_size": "166.1 MB",
+    "files": [
+      {
+        "path": "data/land_use/master_plan_land_use.geojson",
+        "size_bytes": 174200577,
+        "size_human": "166.1 MB",
+        "format": "geojson",
+        "records": 113212,
+        "columns": 10,
+        "sample_fields": [
+          "OBJECTID",
+          "LU_DESC",
+          "LU_TEXT",
+          "GPR",
+          "WHI_Q_MX",
+          "GPR_B_MN",
+          "INC_CRC",
+          "FMEL_UPD_D",
+          "SHAPE.AREA",
+          "SHAPE.LEN"
+        ],
+        "description": "",
+        "directory": "data/land_use",
+        "directory_desc": "Land Use \u2014 URA zoning and master plan"
+      }
+    ]
+  },
+  "data/business": {
+    "description": "Business \u2014 Business establishment data",
+    "file_count": 3,
+    "total_size": "221.5 MB",
+    "files": [
+      {
+        "path": "data/business/acra_entities.csv",
+        "size_bytes": 228866180,
+        "size_human": "218.3 MB",
+        "format": "csv",
+        "records": 2076437,
+        "columns": 8,
+        "sample_fields": [
+          "uen",
+          "issuance_agency_desc",
+          "uen_status_desc",
+          "entity_name",
+          "entity_type_desc",
+          "uen_issue_date",
+          "reg_street_name",
+          "reg_postal_code"
+        ],
+        "description": "",
+        "directory": "data/business",
+        "directory_desc": "Business \u2014 Business establishment data"
+      },
+      {
+        "path": "data/business/acra_other_entities.csv",
+        "size_bytes": 3121263,
+        "size_human": "3.0 MB",
+        "format": "csv",
+        "records": 22915,
+        "columns": 8,
+        "sample_fields": [
+          "uen",
+          "issuance_agency_desc",
+          "uen_status_desc",
+          "entity_name",
+          "entity_type_desc",
+          "uen_issue_date",
+          "reg_street_name",
+          "reg_postal_code"
+        ],
+        "description": "",
+        "directory": "data/business",
+        "directory_desc": "Business \u2014 Business establishment data"
+      },
+      {
+        "path": "data/business/graduate_employment.csv",
+        "size_bytes": 230024,
+        "size_human": "225 KB",
+        "format": "csv",
+        "records": 1550,
+        "columns": 12,
+        "sample_fields": [
+          "year",
+          "university",
+          "school",
+          "degree",
+          "employment_rate_overall",
+          "employment_rate_ft_perm",
+          "basic_monthly_mean",
+          "basic_monthly_median",
+          "gross_monthly_mean",
+          "gross_monthly_median",
+          "gross_mthly_25_percentile",
+          "gross_mthly_75_percentile"
+        ],
+        "description": "",
+        "directory": "data/business",
+        "directory_desc": "Business \u2014 Business establishment data"
+      }
+    ]
+  },
+  "data/osm": {
+    "description": "OSM \u2014 Raw OpenStreetMap data",
+    "file_count": 1,
+    "total_size": "231.3 MB",
+    "files": [
+      {
+        "path": "data/osm/singapore-latest.osm.pbf",
+        "size_bytes": 242525238,
+        "size_human": "231.3 MB",
+        "format": "pbf",
+        "records": null,
+        "columns": null,
+        "sample_fields": null,
+        "description": "",
+        "directory": "data/osm",
+        "directory_desc": "OSM \u2014 Raw OpenStreetMap data"
+      }
+    ]
+  },
+  "data/osm_pois": {
+    "description": "OSM \u2014 Extracted POIs",
+    "file_count": 4,
+    "total_size": "17.5 MB",
+    "files": [
+      {
+        "path": "data/osm_pois/amenities.geojson",
+        "size_bytes": 9994725,
+        "size_human": "9.5 MB",
+        "format": "geojson",
+        "records": 28888,
+        "columns": 12,
+        "sample_fields": [
+          "element",
+          "id",
+          "name",
+          "amenity",
+          "shop",
+          "tourism",
+          "leisure",
+          "cuisine",
+          "opening_hours",
+          "phone",
+          "website",
+          "brand"
+        ],
+        "description": "",
+        "directory": "data/osm_pois",
+        "directory_desc": "OSM \u2014 Extracted POIs"
+      },
+      {
+        "path": "data/osm_pois/leisure.geojson",
+        "size_bytes": 4449608,
+        "size_human": "4.2 MB",
+        "format": "geojson",
+        "records": 12552,
+        "columns": 12,
+        "sample_fields": [
+          "element",
+          "id",
+          "name",
+          "amenity",
+          "shop",
+          "tourism",
+          "leisure",
+          "cuisine",
+          "opening_hours",
+          "phone",
+          "website",
+          "brand"
+        ],
+        "description": "",
+        "directory": "data/osm_pois",
+        "directory_desc": "OSM \u2014 Extracted POIs"
+      },
+      {
+        "path": "data/osm_pois/shops.geojson",
+        "size_bytes": 3005939,
+        "size_human": "2.9 MB",
+        "format": "geojson",
+        "records": 8667,
+        "columns": 12,
+        "sample_fields": [
+          "element",
+          "id",
+          "name",
+          "amenity",
+          "shop",
+          "tourism",
+          "leisure",
+          "cuisine",
+          "opening_hours",
+          "phone",
+          "website",
+          "brand"
+        ],
+        "description": "",
+        "directory": "data/osm_pois",
+        "directory_desc": "OSM \u2014 Extracted POIs"
+      },
+      {
+        "path": "data/osm_pois/tourism.geojson",
+        "size_bytes": 875557,
+        "size_human": "855 KB",
+        "format": "geojson",
+        "records": 2641,
+        "columns": 11,
+        "sample_fields": [
+          "element",
+          "id",
+          "name",
+          "amenity",
+          "shop",
+          "tourism",
+          "leisure",
+          "opening_hours",
+          "phone",
+          "website",
+          "brand"
+        ],
+        "description": "",
+        "directory": "data/osm_pois",
+        "directory_desc": "OSM \u2014 Extracted POIs"
+      }
+    ]
+  },
+  "data/new_datasets": {
+    "description": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions",
+    "file_count": 31,
+    "total_size": "394.6 MB",
+    "files": [
+      {
+        "path": "data/new_datasets/acra_entities.csv",
+        "size_bytes": 228866180,
+        "size_human": "218.3 MB",
+        "format": "csv",
+        "records": 2076437,
+        "columns": 8,
+        "sample_fields": [
+          "uen",
+          "issuance_agency_desc",
+          "uen_status_desc",
+          "entity_name",
+          "entity_type_desc",
+          "uen_issue_date",
+          "reg_street_name",
+          "reg_postal_code"
+        ],
+        "description": "",
+        "directory": "data/new_datasets",
+        "directory_desc": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions"
+      },
+      {
+        "path": "data/new_datasets/acra_other_entities.csv",
+        "size_bytes": 3121263,
+        "size_human": "3.0 MB",
+        "format": "csv",
+        "records": 22915,
+        "columns": 8,
+        "sample_fields": [
+          "uen",
+          "issuance_agency_desc",
+          "uen_status_desc",
+          "entity_name",
+          "entity_type_desc",
+          "uen_issue_date",
+          "reg_street_name",
+          "reg_postal_code"
+        ],
+        "description": "",
+        "directory": "data/new_datasets",
+        "directory_desc": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions"
+      },
+      {
+        "path": "data/new_datasets/bus_stops_mar2026.geojson",
+        "size_bytes": 961802,
+        "size_human": "939 KB",
+        "format": "geojson",
+        "records": 5177,
+        "columns": 2,
+        "sample_fields": [
+          "BUS_STOP_N",
+          "LOC_DESC"
+        ],
+        "description": "",
+        "directory": "data/new_datasets",
+        "directory_desc": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions"
+      },
+      {
+        "path": "data/new_datasets/carpark_availability.json",
+        "size_bytes": 1479,
+        "size_human": "1 KB",
+        "format": "json",
+        "records": 2,
+        "columns": null,
+        "sample_fields": [
+          "odata.metadata",
+          "value"
+        ],
+        "description": "",
+        "directory": "data/new_datasets",
+        "directory_desc": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions"
+      },
+      {
+        "path": "data/new_datasets/chas_clinics.geojson",
+        "size_bytes": 1581372,
+        "size_human": "1.5 MB",
+        "format": "geojson",
+        "records": 1193,
+        "columns": 2,
+        "sample_fields": [
+          "Name",
+          "Description"
+        ],
+        "description": "",
+        "directory": "data/new_datasets",
+        "directory_desc": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions"
+      },
+      {
+        "path": "data/new_datasets/dwellings_subzone_2020_2024.csv",
+        "size_bytes": 340112,
+        "size_human": "332 KB",
+        "format": "csv",
+        "records": 8300,
+        "columns": 5,
+        "sample_fields": [
+          "PA",
+          "SZ",
+          "FA",
+          "HSE",
+          "Time"
+        ],
+        "description": "",
+        "directory": "data/new_datasets",
+        "directory_desc": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions"
+      },
+      {
+        "path": "data/new_datasets/dwellings_subzone_2025.csv",
+        "size_bytes": 68112,
+        "size_human": "67 KB",
+        "format": "csv",
+        "records": 1660,
+        "columns": 5,
+        "sample_fields": [
+          "PA",
+          "SZ",
+          "FA",
+          "HSE",
+          "Time"
+        ],
+        "description": "",
+        "directory": "data/new_datasets",
+        "directory_desc": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions"
+      },
+      {
+        "path": "data/new_datasets/eating_establishments_sfa.geojson",
+        "size_bytes": 37996716,
+        "size_human": "36.2 MB",
+        "format": "geojson",
+        "records": 34378,
+        "columns": 2,
+        "sample_fields": [
+          "Name",
+          "Description"
+        ],
+        "description": "",
+        "directory": "data/new_datasets",
+        "directory_desc": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions"
+      },
+      {
+        "path": "data/new_datasets/ev_charging_points.json",
+        "size_bytes": 2323,
+        "size_human": "2 KB",
+        "format": "json",
+        "records": 1,
+        "columns": null,
+        "sample_fields": [
+          "value"
+        ],
+        "description": "",
+        "directory": "data/new_datasets",
+        "directory_desc": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions"
+      },
+      {
+        "path": "data/new_datasets/graduate_employment.csv",
+        "size_bytes": 230024,
+        "size_human": "225 KB",
+        "format": "csv",
+        "records": 1550,
+        "columns": 12,
+        "sample_fields": [
+          "year",
+          "university",
+          "school",
+          "degree",
+          "employment_rate_overall",
+          "employment_rate_ft_perm",
+          "basic_monthly_mean",
+          "basic_monthly_median",
+          "gross_monthly_mean",
+          "gross_monthly_median",
+          "gross_mthly_25_percentile",
+          "gross_mthly_75_percentile"
+        ],
+        "description": "",
+        "directory": "data/new_datasets",
+        "directory_desc": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions"
+      },
+      {
+        "path": "data/new_datasets/hawker_centres.geojson",
+        "size_bytes": 140561,
+        "size_human": "137 KB",
+        "format": "geojson",
+        "records": 129,
+        "columns": 20,
+        "sample_fields": [
+          "OBJECTID",
+          "LANDXADDRESSPOINT",
+          "LANDYADDRESSPOINT",
+          "ADDRESSBUILDINGNAME",
+          "ADDRESSPOSTALCODE",
+          "ADDRESSSTREETNAME",
+          "DESCRIPTION",
+          "NAME",
+          "PHOTOURL",
+          "ADDRESSBLOCKHOUSENUMBER",
+          "STATUS",
+          "AWARDED_DATE",
+          "IMPLEMENTATION_DATE",
+          "INFO_ON_CO_LOCATORS",
+          "ADDRESS_MYENV"
+        ],
+        "description": "",
+        "directory": "data/new_datasets",
+        "directory_desc": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions"
+      },
+      {
+        "path": "data/new_datasets/hdb_buildings.geojson",
+        "size_bytes": 56592298,
+        "size_human": "54.0 MB",
+        "format": "geojson",
+        "records": 13386,
+        "columns": 9,
+        "sample_fields": [
+          "OBJECTID",
+          "BLK_NO",
+          "ST_COD",
+          "ENTITYID",
+          "POSTAL_COD",
+          "INC_CRC",
+          "FMEL_UPD_D",
+          "SHAPE.AREA",
+          "SHAPE.LEN"
+        ],
+        "description": "",
+        "directory": "data/new_datasets",
+        "directory_desc": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions"
+      },
+      {
+        "path": "data/new_datasets/hdb_resale_prices.csv",
+        "size_bytes": 22455153,
+        "size_human": "21.4 MB",
+        "format": "csv",
+        "records": 227207,
+        "columns": 11,
+        "sample_fields": [
+          "month",
+          "town",
+          "flat_type",
+          "block",
+          "street_name",
+          "storey_range",
+          "floor_area_sqm",
+          "flat_model",
+          "lease_commence_date",
+          "remaining_lease",
+          "resale_price"
+        ],
+        "description": "",
+        "directory": "data/new_datasets",
+        "directory_desc": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions"
+      },
+      {
+        "path": "data/new_datasets/passenger_vol_bus.json",
+        "size_bytes": 1678,
+        "size_human": "2 KB",
+        "format": "json",
+        "records": 2,
+        "columns": null,
+        "sample_fields": [
+          "odata.metadata",
+          "value"
+        ],
+        "description": "",
+        "directory": "data/new_datasets",
+        "directory_desc": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions"
+      },
+      {
+        "path": "data/new_datasets/passenger_vol_od_bus.json",
+        "size_bytes": 1668,
+        "size_human": "2 KB",
+        "format": "json",
+        "records": 2,
+        "columns": null,
+        "sample_fields": [
+          "odata.metadata",
+          "value"
+        ],
+        "description": "",
+        "directory": "data/new_datasets",
+        "directory_desc": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions"
+      },
+      {
+        "path": "data/new_datasets/passenger_vol_od_train.json",
+        "size_bytes": 1680,
+        "size_human": "2 KB",
+        "format": "json",
+        "records": 2,
+        "columns": null,
+        "sample_fields": [
+          "odata.metadata",
+          "value"
+        ],
+        "description": "",
+        "directory": "data/new_datasets",
+        "directory_desc": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions"
+      },
+      {
+        "path": "data/new_datasets/passenger_vol_train.json",
+        "size_bytes": 1686,
+        "size_human": "2 KB",
+        "format": "json",
+        "records": 2,
+        "columns": null,
+        "sample_fields": [
+          "odata.metadata",
+          "value"
+        ],
+        "description": "",
+        "directory": "data/new_datasets",
+        "directory_desc": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions"
+      },
+      {
+        "path": "data/new_datasets/platform_crowd.json",
+        "size_bytes": 2635,
+        "size_human": "3 KB",
+        "format": "json",
+        "records": 2,
+        "columns": null,
+        "sample_fields": [
+          "odata.metadata",
+          "value"
+        ],
+        "description": "",
+        "directory": "data/new_datasets",
+        "directory_desc": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions"
+      },
+      {
+        "path": "data/new_datasets/pop_age_sex_fa_2020_2024.csv",
+        "size_bytes": 17697749,
+        "size_human": "16.9 MB",
+        "format": "csv",
+        "records": 315400,
+        "columns": 7,
+        "sample_fields": [
+          "PA",
+          "SZ",
+          "AG",
+          "Sex",
+          "FA",
+          "Pop",
+          "Time"
+        ],
+        "description": "",
+        "directory": "data/new_datasets",
+        "directory_desc": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions"
+      },
+      {
+        "path": "data/new_datasets/pop_age_sex_fa_2025.csv",
+        "size_bytes": 3541506,
+        "size_human": "3.4 MB",
+        "format": "csv",
+        "records": 63080,
+        "columns": 7,
+        "sample_fields": [
+          "PA",
+          "SZ",
+          "AG",
+          "Sex",
+          "FA",
+          "Pop",
+          "Time"
+        ],
+        "description": "",
+        "directory": "data/new_datasets",
+        "directory_desc": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions"
+      },
+      {
+        "path": "data/new_datasets/pop_age_sex_tod_2024.csv",
+        "size_bytes": 7142005,
+        "size_human": "6.8 MB",
+        "format": "csv",
+        "records": 100928,
+        "columns": 7,
+        "sample_fields": [
+          "\ufeffPA",
+          "SZ",
+          "AG",
+          "Sex",
+          "TOD",
+          "Pop",
+          "Time"
+        ],
+        "description": "",
+        "directory": "data/new_datasets",
+        "directory_desc": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions"
+      },
+      {
+        "path": "data/new_datasets/pop_age_sex_tod_2025.csv",
+        "size_bytes": 7142528,
+        "size_human": "6.8 MB",
+        "format": "csv",
+        "records": 100928,
+        "columns": 7,
+        "sample_fields": [
+          "PA",
+          "SZ",
+          "AG",
+          "Sex",
+          "TOD",
+          "Pop",
+          "Time"
+        ],
+        "description": "",
+        "directory": "data/new_datasets",
+        "directory_desc": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions"
+      },
+      {
+        "path": "data/new_datasets/preschools.geojson",
+        "size_bytes": 1302081,
+        "size_human": "1.2 MB",
+        "format": "geojson",
+        "records": 2290,
+        "columns": 2,
+        "sample_fields": [
+          "Name",
+          "Description"
+        ],
+        "description": "",
+        "directory": "data/new_datasets",
+        "directory_desc": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions"
+      },
+      {
+        "path": "data/new_datasets/private_resi_transactions.csv",
+        "size_bytes": 22635623,
+        "size_human": "21.6 MB",
+        "format": "csv",
+        "records": 287196,
+        "columns": 10,
+        "sample_fields": [
+          "month",
+          "town",
+          "flat_type",
+          "block",
+          "street_name",
+          "storey_range",
+          "floor_area_sqm",
+          "flat_model",
+          "lease_commence_date",
+          "resale_price"
+        ],
+        "description": "",
+        "directory": "data/new_datasets",
+        "directory_desc": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions"
+      },
+      {
+        "path": "data/new_datasets/school_zones.geojson",
+        "size_bytes": 149544,
+        "size_human": "146 KB",
+        "format": "geojson",
+        "records": 211,
+        "columns": 3,
+        "sample_fields": [
+          "SITENAME",
+          "INC_CRC",
+          "FMEL_UPD_D"
+        ],
+        "description": "",
+        "directory": "data/new_datasets",
+        "directory_desc": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions"
+      },
+      {
+        "path": "data/new_datasets/schools_directory.csv",
+        "size_bytes": 134116,
+        "size_human": "131 KB",
+        "format": "csv",
+        "records": 337,
+        "columns": 31,
+        "sample_fields": [
+          "school_name",
+          "url_address",
+          "address",
+          "postal_code",
+          "telephone_no",
+          "telephone_no_2",
+          "fax_no",
+          "fax_no_2",
+          "email_address",
+          "mrt_desc",
+          "bus_desc",
+          "principal_name",
+          "first_vp_name",
+          "second_vp_name",
+          "third_vp_name"
+        ],
+        "description": "",
+        "directory": "data/new_datasets",
+        "directory_desc": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions"
+      },
+      {
+        "path": "data/new_datasets/silver_zones.geojson",
+        "size_bytes": 311447,
+        "size_human": "304 KB",
+        "format": "geojson",
+        "records": 42,
+        "columns": 3,
+        "sample_fields": [
+          "SITENAME",
+          "INC_CRC",
+          "FMEL_UPD_D"
+        ],
+        "description": "",
+        "directory": "data/new_datasets",
+        "directory_desc": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions"
+      },
+      {
+        "path": "data/new_datasets/tourist_attractions.geojson",
+        "size_bytes": 143746,
+        "size_human": "140 KB",
+        "format": "geojson",
+        "records": 109,
+        "columns": 17,
+        "sample_fields": [
+          "OBJECTID_1",
+          "URL_PATH",
+          "IMAGE_PATH",
+          "IMAGE_ALT_TEXT",
+          "PHOTOCREDITS",
+          "PAGETITLE",
+          "LASTMODIFIED",
+          "LATITUDE",
+          "LONGTITUDE",
+          "ADDRESS",
+          "POSTALCODE",
+          "OVERVIEW",
+          "EXTERNAL_LINK",
+          "META_DESCRIPTION",
+          "OPENING_HOURS"
+        ],
+        "description": "",
+        "directory": "data/new_datasets",
+        "directory_desc": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions"
+      },
+      {
+        "path": "data/new_datasets/train_station_exits_feb2025.geojson",
+        "size_bytes": 115143,
+        "size_human": "112 KB",
+        "format": "geojson",
+        "records": 595,
+        "columns": 2,
+        "sample_fields": [
+          "stn_name",
+          "exit_code"
+        ],
+        "description": "",
+        "directory": "data/new_datasets",
+        "directory_desc": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions"
+      },
+      {
+        "path": "data/new_datasets/train_stations_mar2026.geojson",
+        "size_bytes": 1067846,
+        "size_human": "1.0 MB",
+        "format": "geojson",
+        "records": 231,
+        "columns": 7,
+        "sample_fields": [
+          "TYP_CD",
+          "STN_NAM",
+          "ATTACHEMEN",
+          "SHAPE_AREA",
+          "SHAPE_LEN",
+          "TYP_CD_DES",
+          "STN_NAM_DE"
+        ],
+        "description": "",
+        "directory": "data/new_datasets",
+        "directory_desc": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions"
+      },
+      {
+        "path": "data/new_datasets/travel_times.json",
+        "size_bytes": 7910,
+        "size_human": "8 KB",
+        "format": "json",
+        "records": 2,
+        "columns": null,
+        "sample_fields": [
+          "odata.metadata",
+          "value"
+        ],
+        "description": "",
+        "directory": "data/new_datasets",
+        "directory_desc": "New Datasets \u2014 ACRA, footfall, HDB, resi transactions"
+      }
+    ]
+  },
+  "data/education": {
+    "description": "Education \u2014 Schools data",
+    "file_count": 1,
+    "total_size": "131 KB",
+    "files": [
+      {
+        "path": "data/education/school_directory.csv",
+        "size_bytes": 134116,
+        "size_human": "131 KB",
+        "format": "csv",
+        "records": 337,
+        "columns": 31,
+        "sample_fields": [
+          "school_name",
+          "url_address",
+          "address",
+          "postal_code",
+          "telephone_no",
+          "telephone_no_2",
+          "fax_no",
+          "fax_no_2",
+          "email_address",
+          "mrt_desc",
+          "bus_desc",
+          "principal_name",
+          "first_vp_name",
+          "second_vp_name",
+          "third_vp_name"
+        ],
+        "description": "",
+        "directory": "data/education",
+        "directory_desc": "Education \u2014 Schools data"
+      }
+    ]
+  },
+  "data/results": {
+    "description": "Pipeline \u2014 Processed place results",
+    "file_count": 8,
+    "total_size": "246.0 MB",
+    "files": [
+      {
+        "path": "data/results/sgp_boundary.geojson",
+        "size_bytes": 14486,
+        "size_human": "14 KB",
+        "format": "geojson",
+        "records": 1,
+        "columns": 2,
+        "sample_fields": [
+          "GID_0",
+          "COUNTRY"
+        ],
+        "description": "",
+        "directory": "data/results",
+        "directory_desc": "Pipeline \u2014 Processed place results"
+      },
+      {
+        "path": "data/results/sgp_brands.jsonl",
+        "size_bytes": 32653,
+        "size_human": "32 KB",
+        "format": "jsonl",
+        "records": 233,
+        "columns": 5,
+        "sample_fields": [
+          "brand",
+          "parent",
+          "locations",
+          "primary_category",
+          "primary_place_type"
+        ],
+        "description": "",
+        "directory": "data/results",
+        "directory_desc": "Pipeline \u2014 Processed place results"
+      },
+      {
+        "path": "data/results/sgp_places.jsonl",
+        "size_bytes": 25643120,
+        "size_human": "24.5 MB",
+        "format": "jsonl",
+        "records": 66851,
+        "columns": 11,
+        "sample_fields": [
+          "id",
+          "name",
+          "address",
+          "latitude",
+          "longitude",
+          "main_category",
+          "sub_category",
+          "phone",
+          "website",
+          "geohash9",
+          "place_type"
+        ],
+        "description": "",
+        "directory": "data/results",
+        "directory_desc": "Pipeline \u2014 Processed place results"
+      },
+      {
+        "path": "data/results/sgp_places_curated.jsonl",
+        "size_bytes": 101161040,
+        "size_human": "96.5 MB",
+        "format": "jsonl",
+        "records": 79257,
+        "columns": 3,
+        "sample_fields": [
+          "place_id",
+          "status",
+          "candidates"
+        ],
+        "description": "",
+        "directory": "data/results",
+        "directory_desc": "Pipeline \u2014 Processed place results"
+      },
+      {
+        "path": "data/results/sgp_places_deduped.jsonl",
+        "size_bytes": 45593157,
+        "size_human": "43.5 MB",
+        "format": "jsonl",
+        "records": 68269,
+        "columns": 15,
+        "sample_fields": [
+          "place_id",
+          "name",
+          "lat",
+          "lon",
+          "geohash9",
+          "address",
+          "category",
+          "rating",
+          "review_count",
+          "phone",
+          "website",
+          "website_url",
+          "plus_code",
+          "google_place_id",
+          "google_url"
+        ],
+        "description": "",
+        "directory": "data/results",
+        "directory_desc": "Pipeline \u2014 Processed place results"
+      },
+      {
+        "path": "data/results/sgp_places_final.jsonl",
+        "size_bytes": 46541622,
+        "size_human": "44.4 MB",
+        "format": "jsonl",
+        "records": 68269,
+        "columns": 15,
+        "sample_fields": [
+          "id",
+          "name",
+          "address",
+          "latitude",
+          "longitude",
+          "category",
+          "rating",
+          "review_count",
+          "phone",
+          "website",
+          "plus_code",
+          "google_place_id",
+          "google_url",
+          "geohash9",
+          "source_place_id"
+        ],
+        "description": "",
+        "directory": "data/results",
+        "directory_desc": "Pipeline \u2014 Processed place results"
+      },
+      {
+        "path": "data/results/sgp_places_kepler.csv",
+        "size_bytes": 11660874,
+        "size_human": "11.1 MB",
+        "format": "csv",
+        "records": 66851,
+        "columns": 12,
+        "sample_fields": [
+          "id",
+          "name",
+          "latitude",
+          "longitude",
+          "main_category",
+          "place_type",
+          "sub_category",
+          "rating",
+          "review_count",
+          "brand",
+          "is_luxury",
+          "address"
+        ],
+        "description": "",
+        "directory": "data/results",
+        "directory_desc": "Pipeline \u2014 Processed place results"
+      },
+      {
+        "path": "data/results/sgp_places_kepler.geojson",
+        "size_bytes": 27324032,
+        "size_human": "26.1 MB",
+        "format": "geojson",
+        "records": 66851,
+        "columns": 10,
+        "sample_fields": [
+          "id",
+          "name",
+          "main_category",
+          "place_type",
+          "sub_category",
+          "rating",
+          "review_count",
+          "brand",
+          "is_luxury",
+          "address"
+        ],
+        "description": "",
+        "directory": "data/results",
+        "directory_desc": "Pipeline \u2014 Processed place results"
+      }
+    ]
+  },
+  "data/satellite": {
+    "description": "Satellite \u2014 Satellite imagery metadata",
+    "file_count": 1,
+    "total_size": "9 KB",
+    "files": [
+      {
+        "path": "data/satellite/nightlights_202401.tif",
+        "size_bytes": 8781,
+        "size_human": "9 KB",
+        "format": "tif",
+        "records": null,
+        "columns": null,
+        "sample_fields": null,
+        "description": "",
+        "directory": "data/satellite",
+        "directory_desc": "Satellite \u2014 Satellite imagery metadata"
+      }
+    ]
+  },
+  "micrograph_output": {
+    "description": "Micrographs \u2014 Per-place micro-graph output",
+    "file_count": 36,
+    "total_size": "294.9 MB",
+    "files": [
+      {
+        "path": "micrograph_output/bakery_pastry_micrographs.jsonl",
+        "size_bytes": 6395101,
+        "size_human": "6.1 MB",
+        "format": "jsonl",
+        "records": 928,
+        "columns": 22,
+        "sample_fields": [
+          "place_id",
+          "name",
+          "brand",
+          "address",
+          "place_type",
+          "latitude",
+          "longitude",
+          "subzone",
+          "subzone_code",
+          "density_band",
+          "anchor_count",
+          "anchors",
+          "eligible_counts",
+          "context_vector",
+          "transit_access"
+        ],
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/bakery_pastry_slim.json",
+        "size_bytes": 105702,
+        "size_human": "103 KB",
+        "format": "json",
+        "records": 928,
+        "columns": null,
+        "sample_fields": null,
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/bakery_pastry_stats.json",
+        "size_bytes": 532,
+        "size_human": "1 KB",
+        "format": "json",
+        "records": 11,
+        "columns": null,
+        "sample_fields": [
+          "category",
+          "total",
+          "density_bands",
+          "anchor_count_mean",
+          "anchor_count_min",
+          "anchor_count_max",
+          "with_gaps",
+          "tier_distribution",
+          "mean_context_vector",
+          "branded",
+          "independent"
+        ],
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/bar_nightlife_micrographs.jsonl",
+        "size_bytes": 8437216,
+        "size_human": "8.0 MB",
+        "format": "jsonl",
+        "records": 1322,
+        "columns": 22,
+        "sample_fields": [
+          "place_id",
+          "name",
+          "brand",
+          "address",
+          "place_type",
+          "latitude",
+          "longitude",
+          "subzone",
+          "subzone_code",
+          "density_band",
+          "anchor_count",
+          "anchors",
+          "eligible_counts",
+          "context_vector",
+          "transit_access"
+        ],
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/bar_nightlife_slim.json",
+        "size_bytes": 152138,
+        "size_human": "149 KB",
+        "format": "json",
+        "records": 1322,
+        "columns": null,
+        "sample_fields": null,
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/bar_nightlife_stats.json",
+        "size_bytes": 534,
+        "size_human": "1 KB",
+        "format": "json",
+        "records": 11,
+        "columns": null,
+        "sample_fields": [
+          "category",
+          "total",
+          "density_bands",
+          "anchor_count_mean",
+          "anchor_count_min",
+          "anchor_count_max",
+          "with_gaps",
+          "tier_distribution",
+          "mean_context_vector",
+          "branded",
+          "independent"
+        ],
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/beauty_personal_care_micrographs.jsonl",
+        "size_bytes": 20578962,
+        "size_human": "19.6 MB",
+        "format": "jsonl",
+        "records": 3768,
+        "columns": 22,
+        "sample_fields": [
+          "place_id",
+          "name",
+          "brand",
+          "address",
+          "place_type",
+          "latitude",
+          "longitude",
+          "subzone",
+          "subzone_code",
+          "density_band",
+          "anchor_count",
+          "anchors",
+          "eligible_counts",
+          "context_vector",
+          "transit_access"
+        ],
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/beauty_personal_care_slim.json",
+        "size_bytes": 428023,
+        "size_human": "418 KB",
+        "format": "json",
+        "records": 3768,
+        "columns": null,
+        "sample_fields": null,
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/beauty_personal_care_stats.json",
+        "size_bytes": 540,
+        "size_human": "1 KB",
+        "format": "json",
+        "records": 11,
+        "columns": null,
+        "sample_fields": [
+          "category",
+          "total",
+          "density_bands",
+          "anchor_count_mean",
+          "anchor_count_min",
+          "anchor_count_max",
+          "with_gaps",
+          "tier_distribution",
+          "mean_context_vector",
+          "branded",
+          "independent"
+        ],
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/cafe_micrographs.jsonl",
+        "size_bytes": 23104030,
+        "size_human": "22.0 MB",
+        "format": "jsonl",
+        "records": 2924,
+        "columns": 22,
+        "sample_fields": [
+          "place_id",
+          "name",
+          "brand",
+          "address",
+          "place_type",
+          "latitude",
+          "longitude",
+          "subzone",
+          "subzone_code",
+          "density_band",
+          "anchor_count",
+          "anchors",
+          "eligible_counts",
+          "context_vector",
+          "transit_access"
+        ],
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/cafe_slim.json",
+        "size_bytes": 345487,
+        "size_human": "337 KB",
+        "format": "json",
+        "records": 2924,
+        "columns": null,
+        "sample_fields": null,
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/cafe_stats.json",
+        "size_bytes": 530,
+        "size_human": "1 KB",
+        "format": "json",
+        "records": 11,
+        "columns": null,
+        "sample_fields": [
+          "category",
+          "total",
+          "density_bands",
+          "anchor_count_mean",
+          "anchor_count_min",
+          "anchor_count_max",
+          "with_gaps",
+          "tier_distribution",
+          "mean_context_vector",
+          "branded",
+          "independent"
+        ],
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/convenience_daily_needs_micrographs.jsonl",
+        "size_bytes": 20345612,
+        "size_human": "19.4 MB",
+        "format": "jsonl",
+        "records": 3895,
+        "columns": 22,
+        "sample_fields": [
+          "place_id",
+          "name",
+          "brand",
+          "address",
+          "place_type",
+          "latitude",
+          "longitude",
+          "subzone",
+          "subzone_code",
+          "density_band",
+          "anchor_count",
+          "anchors",
+          "eligible_counts",
+          "context_vector",
+          "transit_access"
+        ],
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/convenience_daily_needs_slim.json",
+        "size_bytes": 448283,
+        "size_human": "438 KB",
+        "format": "json",
+        "records": 3895,
+        "columns": null,
+        "sample_fields": null,
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/convenience_daily_needs_stats.json",
+        "size_bytes": 545,
+        "size_human": "1 KB",
+        "format": "json",
+        "records": 11,
+        "columns": null,
+        "sample_fields": [
+          "category",
+          "total",
+          "density_bands",
+          "anchor_count_mean",
+          "anchor_count_min",
+          "anchor_count_max",
+          "with_gaps",
+          "tier_distribution",
+          "mean_context_vector",
+          "branded",
+          "independent"
+        ],
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/education_micrographs.jsonl",
+        "size_bytes": 28009136,
+        "size_human": "26.7 MB",
+        "format": "jsonl",
+        "records": 3938,
+        "columns": 22,
+        "sample_fields": [
+          "place_id",
+          "name",
+          "brand",
+          "address",
+          "place_type",
+          "latitude",
+          "longitude",
+          "subzone",
+          "subzone_code",
+          "density_band",
+          "anchor_count",
+          "anchors",
+          "eligible_counts",
+          "context_vector",
+          "transit_access"
+        ],
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/education_slim.json",
+        "size_bytes": 489608,
+        "size_human": "478 KB",
+        "format": "json",
+        "records": 3938,
+        "columns": null,
+        "sample_fields": null,
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/education_stats.json",
+        "size_bytes": 536,
+        "size_human": "1 KB",
+        "format": "json",
+        "records": 11,
+        "columns": null,
+        "sample_fields": [
+          "category",
+          "total",
+          "density_bands",
+          "anchor_count_mean",
+          "anchor_count_min",
+          "anchor_count_max",
+          "with_gaps",
+          "tier_distribution",
+          "mean_context_vector",
+          "branded",
+          "independent"
+        ],
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/fast_food_qsr_micrographs.jsonl",
+        "size_bytes": 9024683,
+        "size_human": "8.6 MB",
+        "format": "jsonl",
+        "records": 1198,
+        "columns": 22,
+        "sample_fields": [
+          "place_id",
+          "name",
+          "brand",
+          "address",
+          "place_type",
+          "latitude",
+          "longitude",
+          "subzone",
+          "subzone_code",
+          "density_band",
+          "anchor_count",
+          "anchors",
+          "eligible_counts",
+          "context_vector",
+          "transit_access"
+        ],
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/fast_food_qsr_slim.json",
+        "size_bytes": 141923,
+        "size_human": "139 KB",
+        "format": "json",
+        "records": 1198,
+        "columns": null,
+        "sample_fields": null,
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/fast_food_qsr_stats.json",
+        "size_bytes": 534,
+        "size_human": "1 KB",
+        "format": "json",
+        "records": 11,
+        "columns": null,
+        "sample_fields": [
+          "category",
+          "total",
+          "density_bands",
+          "anchor_count_mean",
+          "anchor_count_min",
+          "anchor_count_max",
+          "with_gaps",
+          "tier_distribution",
+          "mean_context_vector",
+          "branded",
+          "independent"
+        ],
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/fitness_recreation_micrographs.jsonl",
+        "size_bytes": 12312356,
+        "size_human": "11.7 MB",
+        "format": "jsonl",
+        "records": 1898,
+        "columns": 22,
+        "sample_fields": [
+          "place_id",
+          "name",
+          "brand",
+          "address",
+          "place_type",
+          "latitude",
+          "longitude",
+          "subzone",
+          "subzone_code",
+          "density_band",
+          "anchor_count",
+          "anchors",
+          "eligible_counts",
+          "context_vector",
+          "transit_access"
+        ],
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/fitness_recreation_slim.json",
+        "size_bytes": 229778,
+        "size_human": "224 KB",
+        "format": "json",
+        "records": 1898,
+        "columns": null,
+        "sample_fields": null,
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/fitness_recreation_stats.json",
+        "size_bytes": 543,
+        "size_human": "1 KB",
+        "format": "json",
+        "records": 11,
+        "columns": null,
+        "sample_fields": [
+          "category",
+          "total",
+          "density_bands",
+          "anchor_count_mean",
+          "anchor_count_min",
+          "anchor_count_max",
+          "with_gaps",
+          "tier_distribution",
+          "mean_context_vector",
+          "branded",
+          "independent"
+        ],
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/hawker_micrographs.jsonl",
+        "size_bytes": 29143475,
+        "size_human": "27.8 MB",
+        "format": "jsonl",
+        "records": 3564,
+        "columns": 22,
+        "sample_fields": [
+          "place_id",
+          "name",
+          "brand",
+          "address",
+          "place_type",
+          "latitude",
+          "longitude",
+          "subzone",
+          "subzone_code",
+          "density_band",
+          "anchor_count",
+          "anchors",
+          "eligible_counts",
+          "context_vector",
+          "transit_access"
+        ],
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/hawker_slim.json",
+        "size_bytes": 443184,
+        "size_human": "433 KB",
+        "format": "json",
+        "records": 3564,
+        "columns": null,
+        "sample_fields": null,
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/hawker_stats.json",
+        "size_bytes": 533,
+        "size_human": "1 KB",
+        "format": "json",
+        "records": 11,
+        "columns": null,
+        "sample_fields": [
+          "category",
+          "total",
+          "density_bands",
+          "anchor_count_mean",
+          "anchor_count_min",
+          "anchor_count_max",
+          "with_gaps",
+          "tier_distribution",
+          "mean_context_vector",
+          "branded",
+          "independent"
+        ],
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/health_medical_micrographs.jsonl",
+        "size_bytes": 6914367,
+        "size_human": "6.6 MB",
+        "format": "jsonl",
+        "records": 1296,
+        "columns": 22,
+        "sample_fields": [
+          "place_id",
+          "name",
+          "brand",
+          "address",
+          "place_type",
+          "latitude",
+          "longitude",
+          "subzone",
+          "subzone_code",
+          "density_band",
+          "anchor_count",
+          "anchors",
+          "eligible_counts",
+          "context_vector",
+          "transit_access"
+        ],
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/health_medical_slim.json",
+        "size_bytes": 158442,
+        "size_human": "155 KB",
+        "format": "json",
+        "records": 1296,
+        "columns": null,
+        "sample_fields": null,
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/health_medical_stats.json",
+        "size_bytes": 536,
+        "size_human": "1 KB",
+        "format": "json",
+        "records": 11,
+        "columns": null,
+        "sample_fields": [
+          "category",
+          "total",
+          "density_bands",
+          "anchor_count_mean",
+          "anchor_count_min",
+          "anchor_count_max",
+          "with_gaps",
+          "tier_distribution",
+          "mean_context_vector",
+          "branded",
+          "independent"
+        ],
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/restaurant_micrographs.jsonl",
+        "size_bytes": 45683245,
+        "size_human": "43.6 MB",
+        "format": "jsonl",
+        "records": 5682,
+        "columns": 22,
+        "sample_fields": [
+          "place_id",
+          "name",
+          "brand",
+          "address",
+          "place_type",
+          "latitude",
+          "longitude",
+          "subzone",
+          "subzone_code",
+          "density_band",
+          "anchor_count",
+          "anchors",
+          "eligible_counts",
+          "context_vector",
+          "transit_access"
+        ],
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/restaurant_slim.json",
+        "size_bytes": 682248,
+        "size_human": "666 KB",
+        "format": "json",
+        "records": 5682,
+        "columns": null,
+        "sample_fields": null,
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/restaurant_stats.json",
+        "size_bytes": 540,
+        "size_human": "1 KB",
+        "format": "json",
+        "records": 11,
+        "columns": null,
+        "sample_fields": [
+          "category",
+          "total",
+          "density_bands",
+          "anchor_count_mean",
+          "anchor_count_min",
+          "anchor_count_max",
+          "with_gaps",
+          "tier_distribution",
+          "mean_context_vector",
+          "branded",
+          "independent"
+        ],
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/shopping_retail_micrographs.jsonl",
+        "size_bytes": 94208582,
+        "size_human": "89.8 MB",
+        "format": "jsonl",
+        "records": 12190,
+        "columns": 22,
+        "sample_fields": [
+          "place_id",
+          "name",
+          "brand",
+          "address",
+          "place_type",
+          "latitude",
+          "longitude",
+          "subzone",
+          "subzone_code",
+          "density_band",
+          "anchor_count",
+          "anchors",
+          "eligible_counts",
+          "context_vector",
+          "transit_access"
+        ],
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/shopping_retail_slim.json",
+        "size_bytes": 1431152,
+        "size_human": "1.4 MB",
+        "format": "json",
+        "records": 12190,
+        "columns": null,
+        "sample_fields": null,
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      },
+      {
+        "path": "micrograph_output/shopping_retail_stats.json",
+        "size_bytes": 547,
+        "size_human": "1 KB",
+        "format": "json",
+        "records": 11,
+        "columns": null,
+        "sample_fields": [
+          "category",
+          "total",
+          "density_bands",
+          "anchor_count_mean",
+          "anchor_count_min",
+          "anchor_count_max",
+          "with_gaps",
+          "tier_distribution",
+          "mean_context_vector",
+          "branded",
+          "independent"
+        ],
+        "description": "",
+        "directory": "micrograph_output",
+        "directory_desc": "Micrographs \u2014 Per-place micro-graph output"
+      }
+    ]
+  },
+  "micrograph_pipeline": {
+    "description": "Micrographs \u2014 Pipeline code",
+    "file_count": 4,
+    "total_size": "91 KB",
+    "files": [
+      {
+        "path": "micrograph_pipeline/config.py",
+        "size_bytes": 19204,
+        "size_human": "19 KB",
+        "format": "py",
+        "records": null,
+        "columns": null,
+        "sample_fields": null,
+        "description": "",
+        "directory": "micrograph_pipeline",
+        "directory_desc": "Micrographs \u2014 Pipeline code"
+      },
+      {
+        "path": "micrograph_pipeline/run_all.log",
+        "size_bytes": 22604,
+        "size_human": "22 KB",
+        "format": "log",
+        "records": null,
+        "columns": null,
+        "sample_fields": null,
+        "description": "",
+        "directory": "micrograph_pipeline",
+        "directory_desc": "Micrographs \u2014 Pipeline code"
+      },
+      {
+        "path": "micrograph_pipeline/run_cafe_v2.py",
+        "size_bytes": 18213,
+        "size_human": "18 KB",
+        "format": "py",
+        "records": null,
+        "columns": null,
+        "sample_fields": null,
+        "description": "",
+        "directory": "micrograph_pipeline",
+        "directory_desc": "Micrographs \u2014 Pipeline code"
+      },
+      {
+        "path": "micrograph_pipeline/run_pipeline.py",
+        "size_bytes": 33130,
+        "size_human": "32 KB",
+        "format": "py",
+        "records": null,
+        "columns": null,
+        "sample_fields": null,
+        "description": "",
+        "directory": "micrograph_pipeline",
+        "directory_desc": "Micrographs \u2014 Pipeline code"
+      }
+    ]
+  },
+  "model_results_v5": {
+    "description": "Model \u2014 Density prediction model (latest)",
+    "file_count": 3,
+    "total_size": "259 KB",
+    "files": [
+      {
+        "path": "model_results_v5/gap_analysis_v5.csv",
+        "size_bytes": 129125,
+        "size_human": "126 KB",
+        "format": "csv",
+        "records": 332,
+        "columns": 77,
+        "sample_fields": [
+          "subzone_code",
+          "subzone_name",
+          "is_viable",
+          "actual_total",
+          "predicted_total",
+          "actual_automotive",
+          "predicted_automotive",
+          "gap_automotive",
+          "actual_bakery_pastry",
+          "predicted_bakery_pastry",
+          "gap_bakery_pastry",
+          "actual_bar_nightlife",
+          "predicted_bar_nightlife",
+          "gap_bar_nightlife",
+          "actual_beauty_personal_care"
+        ],
+        "description": "",
+        "directory": "model_results_v5",
+        "directory_desc": "Model \u2014 Density prediction model (latest)"
+      },
+      {
+        "path": "model_results_v5/gap_analysis_v5.parquet",
+        "size_bytes": 130313,
+        "size_human": "127 KB",
+        "format": "parquet",
+        "records": 332,
+        "columns": 77,
+        "sample_fields": [
+          "subzone_code",
+          "subzone_name",
+          "is_viable",
+          "actual_total",
+          "predicted_total",
+          "actual_automotive",
+          "predicted_automotive",
+          "gap_automotive",
+          "actual_bakery_pastry",
+          "predicted_bakery_pastry",
+          "gap_bakery_pastry",
+          "actual_bar_nightlife",
+          "predicted_bar_nightlife",
+          "gap_bar_nightlife",
+          "actual_beauty_personal_care"
+        ],
+        "description": "",
+        "directory": "model_results_v5",
+        "directory_desc": "Model \u2014 Density prediction model (latest)"
+      },
+      {
+        "path": "model_results_v5/report_v5.json",
+        "size_bytes": 5642,
+        "size_human": "6 KB",
+        "format": "json",
+        "records": 13,
+        "columns": null,
+        "sample_fields": [
+          "version",
+          "timestamp",
+          "description",
+          "stage1_density_r2",
+          "stage2_loo_mean_r2",
+          "stage2_loo_mean_mae",
+          "stage2b_multimask_r2",
+          "stage2b_multimask_mae",
+          "comparison",
+          "per_category_r2",
+          "per_category_mae",
+          "top_features",
+          "tests_passed"
+        ],
+        "description": "",
+        "directory": "model_results_v5",
+        "directory_desc": "Model \u2014 Density prediction model (latest)"
+      }
+    ]
+  },
+  "final": {
+    "description": "Final \u2014 Final processed outputs",
+    "file_count": 4,
+    "total_size": "4.4 MB",
+    "files": [
+      {
+        "path": "final/feature_catalog.csv",
+        "size_bytes": 9358,
+        "size_human": "9 KB",
+        "format": "csv",
+        "records": 202,
+        "columns": 7,
+        "sample_fields": [
+          "feature",
+          "non_null",
+          "null_pct",
+          "mean",
+          "std",
+          "min",
+          "max"
+        ],
+        "description": "",
+        "directory": "final",
+        "directory_desc": "Final \u2014 Final processed outputs"
+      },
+      {
+        "path": "final/place_features.parquet",
+        "size_bytes": 3924445,
+        "size_human": "3.7 MB",
+        "format": "parquet",
+        "records": 66851,
+        "columns": 13,
+        "sample_fields": [
+          "place_id",
+          "latitude",
+          "longitude",
+          "main_category",
+          "place_type",
+          "subzone_code",
+          "dist_nearest_mrt",
+          "dist_nearest_bus",
+          "bus_stops_300m",
+          "mrt_within_500m",
+          "rating",
+          "review_count",
+          "has_brand"
+        ],
+        "description": "",
+        "directory": "final",
+        "directory_desc": "Final \u2014 Final processed outputs"
+      },
+      {
+        "path": "final/subzone_features.parquet",
+        "size_bytes": 370175,
+        "size_human": "361 KB",
+        "format": "parquet",
+        "records": 332,
+        "columns": 205,
+        "sample_fields": [
+          "subzone_code",
+          "subzone_name",
+          "planning_area",
+          "area_km2",
+          "total_population",
+          "pop_density",
+          "age_65_plus_pct",
+          "male_pct",
+          "female_pct",
+          "Condominiums and Other Apartments_pct",
+          "HDB 1- and 2-Room Flats_pct",
+          "HDB 3-Room Flats_pct",
+          "HDB 4-Room Flats_pct",
+          "HDB 5-Room and Executive Flats_pct",
+          "HUDC Flats (excluding those privatised)_pct"
+        ],
+        "description": "",
+        "directory": "final",
+        "directory_desc": "Final \u2014 Final processed outputs"
+      },
+      {
+        "path": "final/subzone_features_raw.parquet",
+        "size_bytes": 349125,
+        "size_human": "341 KB",
+        "format": "parquet",
+        "records": 332,
+        "columns": 205,
+        "sample_fields": [
+          "subzone_code",
+          "subzone_name",
+          "planning_area",
+          "area_km2",
+          "total_population",
+          "pop_density",
+          "age_65_plus_pct",
+          "male_pct",
+          "female_pct",
+          "Condominiums and Other Apartments_pct",
+          "HDB 1- and 2-Room Flats_pct",
+          "HDB 3-Room Flats_pct",
+          "HDB 4-Room Flats_pct",
+          "HDB 5-Room and Executive Flats_pct",
+          "HUDC Flats (excluding those privatised)_pct"
+        ],
+        "description": "",
+        "directory": "final",
+        "directory_desc": "Final \u2014 Final processed outputs"
+      }
+    ]
+  },
+  "intermediate": {
+    "description": "Intermediate \u2014 Processing intermediates",
+    "file_count": 11,
+    "total_size": "2.7 MB",
+    "files": [
+      {
+        "path": "intermediate/amenity_by_subzone.parquet",
+        "size_bytes": 22410,
+        "size_human": "22 KB",
+        "format": "parquet",
+        "records": 332,
+        "columns": 10,
+        "sample_fields": [
+          "subzone_code",
+          "dist_nearest_park",
+          "parks_within_1km",
+          "dist_nearest_hawker",
+          "hawkers_within_1km",
+          "dist_nearest_supermarket",
+          "supermarkets_within_1km",
+          "dist_nearest_school",
+          "schools_within_1km",
+          "hotel_count_1km"
+        ],
+        "description": "",
+        "directory": "intermediate",
+        "directory_desc": "Intermediate \u2014 Processing intermediates"
+      },
+      {
+        "path": "intermediate/brand_quality_by_subzone.parquet",
+        "size_bytes": 28120,
+        "size_human": "27 KB",
+        "format": "parquet",
+        "records": 326,
+        "columns": 11,
+        "sample_fields": [
+          "subzone_code",
+          "branded_count",
+          "branded_pct",
+          "unique_brand_count",
+          "avg_rating",
+          "median_rating",
+          "rating_std",
+          "high_rated_pct",
+          "total_reviews",
+          "has_phone_pct",
+          "has_website_pct"
+        ],
+        "description": "",
+        "directory": "intermediate",
+        "directory_desc": "Intermediate \u2014 Processing intermediates"
+      },
+      {
+        "path": "intermediate/demographics_by_subzone.parquet",
+        "size_bytes": 40827,
+        "size_human": "40 KB",
+        "format": "parquet",
+        "records": 332,
+        "columns": 17,
+        "sample_fields": [
+          "subzone_code",
+          "subzone_name",
+          "planning_area",
+          "area_km2",
+          "total_population",
+          "pop_density",
+          "age_65_plus_pct",
+          "male_pct",
+          "female_pct",
+          "Condominiums and Other Apartments_pct",
+          "HDB 1- and 2-Room Flats_pct",
+          "HDB 3-Room Flats_pct",
+          "HDB 4-Room Flats_pct",
+          "HDB 5-Room and Executive Flats_pct",
+          "HUDC Flats (excluding those privatised)_pct"
+        ],
+        "description": "",
+        "directory": "intermediate",
+        "directory_desc": "Intermediate \u2014 Processing intermediates"
+      },
+      {
+        "path": "intermediate/landuse_by_subzone.parquet",
+        "size_bytes": 40496,
+        "size_human": "40 KB",
+        "format": "parquet",
+        "records": 332,
+        "columns": 14,
+        "sample_fields": [
+          "subzone_code",
+          "lu_residential_pct",
+          "lu_commercial_pct",
+          "lu_industrial_pct",
+          "lu_mixed_use_pct",
+          "lu_open_space_pct",
+          "lu_institutional_pct",
+          "lu_transport_pct",
+          "lu_reserve_pct",
+          "lu_nature_pct",
+          "lu_other_pct",
+          "avg_gpr",
+          "lu_entropy",
+          "green_ratio"
+        ],
+        "description": "",
+        "directory": "intermediate",
+        "directory_desc": "Intermediate \u2014 Processing intermediates"
+      },
+      {
+        "path": "intermediate/place_composition_by_subzone.parquet",
+        "size_bytes": 100472,
+        "size_human": "98 KB",
+        "format": "parquet",
+        "records": 326,
+        "columns": 52,
+        "sample_fields": [
+          "subzone_code",
+          "total_place_count",
+          "cat_automotive",
+          "cat_bakery_pastry",
+          "cat_bar_nightlife",
+          "cat_beauty_personal_care",
+          "cat_business",
+          "cat_cafe_coffee",
+          "cat_civic_government",
+          "cat_convenience_daily_needs",
+          "cat_culture_entertainment",
+          "cat_education",
+          "cat_fast_food_qsr",
+          "cat_fitness_recreation",
+          "cat_general"
+        ],
+        "description": "",
+        "directory": "intermediate",
+        "directory_desc": "Intermediate \u2014 Processing intermediates"
+      },
+      {
+        "path": "intermediate/place_types_by_subzone.parquet",
+        "size_bytes": 73063,
+        "size_human": "71 KB",
+        "format": "parquet",
+        "records": 326,
+        "columns": 81,
+        "sample_fields": [
+          "subzone_code",
+          "type_atm",
+          "type_aged_care",
+          "type_apartment",
+          "type_arts_academy",
+          "type_auto_services",
+          "type_auto_workshop",
+          "type_bakery",
+          "type_bar",
+          "type_barber",
+          "type_beauty_salon",
+          "type_bubble_tea",
+          "type_buddhist_temple",
+          "type_bus_stop",
+          "type_business"
+        ],
+        "description": "",
+        "directory": "intermediate",
+        "directory_desc": "Intermediate \u2014 Processing intermediates"
+      },
+      {
+        "path": "intermediate/property_by_subzone.parquet",
+        "size_bytes": 12420,
+        "size_human": "12 KB",
+        "format": "parquet",
+        "records": 332,
+        "columns": 7,
+        "sample_fields": [
+          "subzone_code",
+          "subzone_name",
+          "planning_area",
+          "median_hdb_psf",
+          "hdb_transaction_count",
+          "median_hdb_price",
+          "hdb_price_yoy_pct"
+        ],
+        "description": "",
+        "directory": "intermediate",
+        "directory_desc": "Intermediate \u2014 Processing intermediates"
+      },
+      {
+        "path": "intermediate/roads_by_subzone.parquet",
+        "size_bytes": 37080,
+        "size_human": "36 KB",
+        "format": "parquet",
+        "records": 332,
+        "columns": 12,
+        "sample_fields": [
+          "subzone_code",
+          "total_road_length_km",
+          "road_density_km_per_km2",
+          "road_motorway_km",
+          "road_trunk_km",
+          "road_primary_km",
+          "road_secondary_km",
+          "road_tertiary_km",
+          "road_residential_km",
+          "road_service_km",
+          "road_footway_km",
+          "road_cycleway_km"
+        ],
+        "description": "",
+        "directory": "intermediate",
+        "directory_desc": "Intermediate \u2014 Processing intermediates"
+      },
+      {
+        "path": "intermediate/transit_by_place.parquet",
+        "size_bytes": 2480885,
+        "size_human": "2.4 MB",
+        "format": "parquet",
+        "records": 66851,
+        "columns": 6,
+        "sample_fields": [
+          "place_id",
+          "subzone_code",
+          "dist_nearest_mrt",
+          "dist_nearest_bus",
+          "bus_stops_300m",
+          "mrt_within_500m"
+        ],
+        "description": "",
+        "directory": "intermediate",
+        "directory_desc": "Intermediate \u2014 Processing intermediates"
+      },
+      {
+        "path": "intermediate/transit_by_subzone.parquet",
+        "size_bytes": 12359,
+        "size_human": "12 KB",
+        "format": "parquet",
+        "records": 332,
+        "columns": 5,
+        "sample_fields": [
+          "subzone_code",
+          "dist_nearest_mrt",
+          "mrt_stations_1km",
+          "bus_stop_count_1km",
+          "bus_density_per_km2"
+        ],
+        "description": "",
+        "directory": "intermediate",
+        "directory_desc": "Intermediate \u2014 Processing intermediates"
+      },
+      {
+        "path": "intermediate/validation_by_subzone.parquet",
+        "size_bytes": 12830,
+        "size_human": "13 KB",
+        "format": "parquet",
+        "records": 332,
+        "columns": 7,
+        "sample_fields": [
+          "subzone_code",
+          "sfa_eating_count",
+          "chas_clinic_count",
+          "preschool_count_gov",
+          "our_place_count",
+          "our_fnb_count",
+          "fnb_coverage_ratio"
+        ],
+        "description": "",
+        "directory": "intermediate",
+        "directory_desc": "Intermediate \u2014 Processing intermediates"
+      }
+    ]
+  },
+  "graphs": {
+    "description": "Graphs \u2014 Co-location and graph data",
+    "file_count": 3,
+    "total_size": "1.0 MB",
+    "files": [
+      {
+        "path": "graphs/colocation_pmi.json",
+        "size_bytes": 692221,
+        "size_human": "676 KB",
+        "format": "json",
+        "records": 4,
+        "columns": null,
+        "sample_fields": [
+          "type",
+          "place_types",
+          "edge_count",
+          "edges"
+        ],
+        "description": "",
+        "directory": "graphs",
+        "directory_desc": "Graphs \u2014 Co-location and graph data"
+      },
+      {
+        "path": "graphs/subzone_adjacency.json",
+        "size_bytes": 214045,
+        "size_human": "209 KB",
+        "format": "json",
+        "records": 5,
+        "columns": null,
+        "sample_fields": [
+          "type",
+          "node_count",
+          "edge_count",
+          "nodes",
+          "edges"
+        ],
+        "description": "",
+        "directory": "graphs",
+        "directory_desc": "Graphs \u2014 Co-location and graph data"
+      },
+      {
+        "path": "graphs/transit_connectivity.json",
+        "size_bytes": 158299,
+        "size_human": "155 KB",
+        "format": "json",
+        "records": 6,
+        "columns": null,
+        "sample_fields": [
+          "type",
+          "subzones_with_mrt",
+          "mrt_stations",
+          "edge_count",
+          "nodes_with_mrt",
+          "edges"
+        ],
+        "description": "",
+        "directory": "graphs",
+        "directory_desc": "Graphs \u2014 Co-location and graph data"
+      }
+    ]
+  }
+}
