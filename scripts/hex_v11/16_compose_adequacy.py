@@ -23,15 +23,51 @@ from pathlib import Path
 
 HEX_PATH = Path('data/hex_v11/hex8_adequacy_features.parquet')
 
-# Quality-only weights (renormalised — excludes availability).
-# Used to compute quality_only, which is then floored at availability.
-# Adequacy CANNOT be better than availability — quality only compounds the gap.
-QUALITY_WEIGHTS = {
-    'frequency':    0.42,   # = 0.25 / 0.60
-    'reach':        0.33,   # = 0.20 / 0.60
-    'crowding':     0.17,   # = 0.10 / 0.60
-    'resilience':   0.08,   # = 0.05 / 0.60
+# === Per-profile factor weights ===
+# Each profile re-weights both the availability composite AND the quality-only
+# composite to reflect what that population actually cares about. Toggling
+# Profile in the UI is no longer cosmetic — it genuinely re-scores the map.
+
+# Availability composite weights (sum to 1, four factors).
+# default — balanced across all 4 spatial-proximity factors.
+# elderly — distance + accessibility dominate; connectivity to far places is
+#           less important (rarely commute to CBD).
+# family  — last-mile and walkability matter most (kids in tow).
+# workers — connectivity + last-mile dominate (industrial commutes).
+AVAIL_WEIGHTS = {
+    'default': {'f_distance': 0.30, 'f_accessibility': 0.25, 'f_last_mile': 0.25, 'f_connectivity': 0.20},
+    'elderly': {'f_distance': 0.40, 'f_accessibility': 0.35, 'f_last_mile': 0.20, 'f_connectivity': 0.05},
+    'family':  {'f_distance': 0.25, 'f_accessibility': 0.35, 'f_last_mile': 0.30, 'f_connectivity': 0.10},
+    'workers': {'f_distance': 0.20, 'f_accessibility': 0.15, 'f_last_mile': 0.30, 'f_connectivity': 0.35},
 }
+
+# Quality-only composite weights (sum to 1, four quality dimensions).
+# default — balanced.
+# elderly — frequency matters most (can't wait long); crowding matters; reach
+#           to CBD doesn't (don't commute).
+# family  — frequency + crowding (peak times); reach to school not measured here.
+# workers — reach (commute) dominates; crowding for peak; frequency moderate.
+QUALITY_WEIGHTS = {
+    'default': {'frequency': 0.42, 'reach': 0.33, 'crowding': 0.17, 'resilience': 0.08},
+    'elderly': {'frequency': 0.55, 'reach': 0.15, 'crowding': 0.25, 'resilience': 0.05},
+    'family':  {'frequency': 0.40, 'reach': 0.20, 'crowding': 0.30, 'resilience': 0.10},
+    'workers': {'frequency': 0.30, 'reach': 0.40, 'crowding': 0.20, 'resilience': 0.10},
+}
+
+# Vulnerability multiplier — universal (applies regardless of profile).
+# When a cell has an UNUSUALLY high share of vulnerable residents AND
+# notably poor access, adequacy gets pushed worse. Double threshold:
+#  - vuln_share must exceed VULN_SHARE_BASELINE (typical SG residential is
+#    ~22%; the penalty only fires for cells above this baseline)
+#  - avail_gap must exceed VULN_GAP_THRESHOLD (cells with Excellent access
+#    don't get penalised — vulnerable people there are fine)
+# This keeps the average score stable while sharply penalising cells that
+# combine high vulnerability with poor access.
+VULN_SHARE_BASELINE = 0.20    # baseline residential SG cell — no penalty below this
+VULN_GAP_THRESHOLD  = 0.20    # Excellent access — no penalty below this
+VULN_AMPLIFIER      = 2.5     # penalty = max(0, vuln-base) × max(0, gap-thresh) × 2.5
+VULN_SHARE_CAP      = 0.55    # hard ceiling on vulnerable_share
+VULN_PENALTY_CAP    = 0.25    # max penalty per cell (prevents runaway in extremes)
 
 def main():
     h = pd.read_parquet(HEX_PATH)
@@ -61,46 +97,96 @@ def main():
             h[col] = 0.5
         h[col] = h[col].fillna(0.5).clip(0, 1)
 
-    # === Quality-only composite (NO availability weight) ===
-    # Renormalised weights, captures service-quality dimensions only.
-    h['quality_only_gap'] = (
-        QUALITY_WEIGHTS['frequency']  * h['frequency_adequacy_gap'] +
-        QUALITY_WEIGHTS['reach']      * h['reach_adequacy_gap'] +
-        QUALITY_WEIGHTS['crowding']   * h['crowding_adequacy_gap'] +
-        QUALITY_WEIGHTS['resilience'] * h['resilience_adequacy_gap']
-    ).clip(0, 1)
+    # === Universal vulnerability share (used by all profiles) ===
+    # We have FOUR vulnerable groups: walking-dep (elderly + children),
+    # low-income (HDB 1-3R), dorm workers, FDWs. But walking-dep and low-income
+    # OVERLAP heavily — an elderly person in HDB 1-3R is in BOTH. So we take
+    # the MAX of those two (conservative, no double-count) and add the
+    # non-overlapping NR groups (dorm + FDW are separate populations).
+    walking_dep   = h.get('walking_dependent_count', pd.Series(0, index=h.index)).fillna(0)
+    low_income    = h.get('low_income_pop',          pd.Series(0, index=h.index)).fillna(0)
+    pop_dorm      = h.get('pop_nr_dorm',             pd.Series(0, index=h.index)).fillna(0)
+    pop_fdw       = h.get('pop_nr_fdw',              pd.Series(0, index=h.index)).fillna(0)
+    pop_tot_safe  = h['pop_total'].clip(lower=1)
 
-    # === HARD FLOOR — adequacy ≥ availability ALWAYS ===
-    # If you can't comfortably reach transit, great service quality doesn't
-    # help — adequacy is capped at the availability gap.
-    # If service quality is BAD, it compounds the gap → adequacy = quality_only.
-    # Quality dimensions can ONLY make adequacy WORSE than availability, never better.
-    h['adequacy_core'] = np.maximum(
-        h['availability_adequacy_gap'],
-        h['quality_only_gap']
-    ).clip(0, 1)
+    walking_dep_share = walking_dep / pop_tot_safe
+    low_income_share  = low_income  / pop_tot_safe
+    # Resident vulnerability = max of age-based and income-based (no double-count)
+    # + a 30% bump for the non-max one (some incremental overlap)
+    resident_max = np.maximum(walking_dep_share, low_income_share)
+    resident_min = np.minimum(walking_dep_share, low_income_share)
+    resident_vuln = resident_max + 0.30 * resident_min
+    # NR groups — separate populations
+    nr_vuln = (pop_dorm + pop_fdw) / pop_tot_safe
 
-    # Adequacy_default = adequacy_core blended with the same equity overlay
-    # we use for gap_default, so the equity story stays coherent across both scores.
-    # Note: the floor (adequacy ≥ availability) is already enforced in adequacy_core;
-    # the equity overlay can only further increase the gap (worsen the score).
+    h['vulnerability_share'] = (resident_vuln + nr_vuln).clip(0, VULN_SHARE_CAP)
+
     eq_max = h.get('gap_equity_max', pd.Series(0, index=h.index)).fillna(0)
-    h['adequacy_default'] = (h['adequacy_core'] * 0.7 + eq_max * 0.3).clip(0, 1)
-    # Re-apply the availability floor AFTER equity blend so equity damping can't
-    # push adequacy back below availability.
-    h['adequacy_default'] = np.maximum(
-        h['adequacy_default'],
-        h['availability_adequacy_gap']
-    ).clip(0, 1)
+
+    # === Per-profile composite ===
+    for profile in ('default', 'elderly', 'family', 'workers'):
+        aw = AVAIL_WEIGHTS[profile]
+        qw = QUALITY_WEIGHTS[profile]
+
+        # Availability composite for this profile
+        avail = (
+            aw['f_distance']      * h['f_distance']      +
+            aw['f_accessibility'] * h['f_accessibility'] +
+            aw['f_last_mile']     * h['f_last_mile']     +
+            aw['f_connectivity']  * h['f_connectivity']
+        ).clip(0, 1)
+
+        # Quality-only composite for this profile
+        qual = (
+            qw['frequency']  * h['frequency_adequacy_gap']  +
+            qw['reach']      * h['reach_adequacy_gap']      +
+            qw['crowding']   * h['crowding_adequacy_gap']   +
+            qw['resilience'] * h['resilience_adequacy_gap']
+        ).clip(0, 1)
+
+        # Hard floor: adequacy_core = max(availability, quality_only)
+        core = np.maximum(avail, qual).clip(0, 1)
+
+        # Equity overlay (30%), re-apply availability floor
+        blend = (core * 0.7 + eq_max * 0.3).clip(0, 1)
+        blend = np.maximum(blend, avail).clip(0, 1)
+
+        # Vulnerability multiplier — additive penalty kicks in only when
+        # BOTH thresholds are exceeded (vuln > baseline AND access > threshold).
+        # Capped at VULN_PENALTY_CAP to prevent runaway in extreme cells.
+        excess_vuln   = (h['vulnerability_share'] - VULN_SHARE_BASELINE).clip(lower=0)
+        access_excess = (avail - VULN_GAP_THRESHOLD).clip(lower=0)
+        penalty = (excess_vuln * access_excess * VULN_AMPLIFIER).clip(0, VULN_PENALTY_CAP)
+
+        adq = (blend + penalty).clip(0, 1)
+
+        suffix = '' if profile == 'default' else f'_{profile}'
+        h[f'availability_adequacy_gap{suffix}'] = avail
+        h[f'quality_only_gap{suffix}']          = qual
+        h[f'adequacy_core{suffix}']             = core
+        h[f'vulnerability_penalty{suffix}']     = penalty
+        h[f'adequacy_default{suffix}']          = adq
+
+    # Aliases for back-compat with downstream consumers that don't know about profiles
+    h['adequacy_default'] = h['adequacy_default']    # already set above (default profile)
+    h['adequacy_core']    = h['adequacy_core']
+    # availability_adequacy_gap / quality_only_gap also set above for default profile
 
     h.to_parquet(HEX_PATH, index=False)
     print(f'Wrote {HEX_PATH}')
 
     active = h[h['cell_active_flag'] == 1]
-    print('\n=== ADEQUACY COMPOSITE ===')
-    for f in ['availability_adequacy_gap','frequency_adequacy_gap','reach_adequacy_gap',
-              'crowding_adequacy_gap','resilience_adequacy_gap','adequacy_core','adequacy_default']:
-        print(f'  {f:>28s}: mean={active[f].mean():.3f}  median={active[f].median():.3f}')
+    print('\n=== PER-PROFILE ADEQUACY COMPOSITE ===')
+    print(f'  vulnerability_share: mean={active["vulnerability_share"].mean():.3f}  median={active["vulnerability_share"].median():.3f}  max={active["vulnerability_share"].max():.3f}')
+    print()
+    for profile in ('default','elderly','family','workers'):
+        sfx = '' if profile == 'default' else f'_{profile}'
+        avail = active[f'availability_adequacy_gap{sfx}'].mean()
+        adq = active[f'adequacy_default{sfx}'].mean()
+        pen = active[f'vulnerability_penalty{sfx}'].mean()
+        n_penalized = int((active[f'vulnerability_penalty{sfx}'] > 0.05).sum())
+        print(f'  {profile:>10s} | avail mean={avail:.3f}  adeq mean={adq:.3f}  penalty mean={pen:.3f}  '
+              f'(penalty >0.05 in {n_penalized} cells)')
 
     # Compare vs gap_default
     print('\n=== ADEQUACY vs GAP DEFAULT ===')

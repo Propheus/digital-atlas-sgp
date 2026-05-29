@@ -79,7 +79,15 @@ KEEP_COLS = [
     'pct_dest_within_45min','pct_dest_within_60min','n_dest_within_45min','n_dest_reachable',
     'nearest_mrt_st_peak_taps','crowding_load_factor','n_lines_to_cbd','n_stations_walking',
     'frequency_adequacy_gap','reach_adequacy_gap','crowding_adequacy_gap','resilience_adequacy_gap',
-    'availability_adequacy_gap','adequacy_core','adequacy_default',
+    'availability_adequacy_gap','quality_only_gap','adequacy_core','adequacy_default',
+    'vulnerability_share','vulnerability_penalty',
+    # Per-profile (default profile already covered above by the bare names)
+    'availability_adequacy_gap_elderly','quality_only_gap_elderly','adequacy_core_elderly',
+    'vulnerability_penalty_elderly','adequacy_default_elderly',
+    'availability_adequacy_gap_family','quality_only_gap_family','adequacy_core_family',
+    'vulnerability_penalty_family','adequacy_default_family',
+    'availability_adequacy_gap_workers','quality_only_gap_workers','adequacy_core_workers',
+    'vulnerability_penalty_workers','adequacy_default_workers',
 ]
 
 def band(v):
