@@ -72,6 +72,10 @@ WMEAN_FIELDS = [
     'pct_dest_within_45min','pct_dest_within_60min',
     'crowding_load_factor','nearest_mrt_st_peak_taps',
     'n_lines_to_cbd',
+    # 15-min city scores (composite + 4 buckets)
+    'min15_score','min15_essentials','min15_school','min15_retail','min15_health',
+    'min15_nearest_hawker_m','min15_nearest_super_m','min15_nearest_clinic_m',
+    'min15_nearest_park_m','min15_nearest_school_m',
 ]
 
 REASON_LABELS = {
