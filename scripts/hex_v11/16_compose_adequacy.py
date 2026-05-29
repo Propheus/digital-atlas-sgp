@@ -23,12 +23,14 @@ from pathlib import Path
 
 HEX_PATH = Path('data/hex_v11/hex8_adequacy_features.parquet')
 
-WEIGHTS = {
-    'availability': 0.40,
-    'frequency':    0.25,
-    'reach':        0.20,
-    'crowding':     0.10,
-    'resilience':   0.05,
+# Quality-only weights (renormalised — excludes availability).
+# Used to compute quality_only, which is then floored at availability.
+# Adequacy CANNOT be better than availability — quality only compounds the gap.
+QUALITY_WEIGHTS = {
+    'frequency':    0.42,   # = 0.25 / 0.60
+    'reach':        0.33,   # = 0.20 / 0.60
+    'crowding':     0.17,   # = 0.10 / 0.60
+    'resilience':   0.08,   # = 0.05 / 0.60
 }
 
 def main():
@@ -59,26 +61,37 @@ def main():
             h[col] = 0.5
         h[col] = h[col].fillna(0.5).clip(0, 1)
 
-    h['adequacy_core'] = (
-        WEIGHTS['availability'] * h['availability_adequacy_gap'] +
-        WEIGHTS['frequency']    * h['frequency_adequacy_gap'] +
-        WEIGHTS['reach']        * h['reach_adequacy_gap'] +
-        WEIGHTS['crowding']     * h['crowding_adequacy_gap'] +
-        WEIGHTS['resilience']   * h['resilience_adequacy_gap']
+    # === Quality-only composite (NO availability weight) ===
+    # Renormalised weights, captures service-quality dimensions only.
+    h['quality_only_gap'] = (
+        QUALITY_WEIGHTS['frequency']  * h['frequency_adequacy_gap'] +
+        QUALITY_WEIGHTS['reach']      * h['reach_adequacy_gap'] +
+        QUALITY_WEIGHTS['crowding']   * h['crowding_adequacy_gap'] +
+        QUALITY_WEIGHTS['resilience'] * h['resilience_adequacy_gap']
+    ).clip(0, 1)
+
+    # === HARD FLOOR — adequacy ≥ availability ALWAYS ===
+    # If you can't comfortably reach transit, great service quality doesn't
+    # help — adequacy is capped at the availability gap.
+    # If service quality is BAD, it compounds the gap → adequacy = quality_only.
+    # Quality dimensions can ONLY make adequacy WORSE than availability, never better.
+    h['adequacy_core'] = np.maximum(
+        h['availability_adequacy_gap'],
+        h['quality_only_gap']
     ).clip(0, 1)
 
     # Adequacy_default = adequacy_core blended with the same equity overlay
     # we use for gap_default, so the equity story stays coherent across both scores.
+    # Note: the floor (adequacy ≥ availability) is already enforced in adequacy_core;
+    # the equity overlay can only further increase the gap (worsen the score).
     eq_max = h.get('gap_equity_max', pd.Series(0, index=h.index)).fillna(0)
-    raw_adequacy = (h['adequacy_core'] * 0.7 + eq_max * 0.3).clip(0, 1)
-
-    # === LOGICAL FLOOR ===
-    # Adequacy cannot be dramatically better than availability. If you can't
-    # comfortably reach transit (high availability gap), the great frequency /
-    # reach / crowding don't fully help. Floor at availability × 0.75 — adequacy
-    # is allowed to be up to 25% better than availability, no more.
-    floor = h['availability_adequacy_gap'] * 0.75
-    h['adequacy_default'] = np.maximum(raw_adequacy, floor).clip(0, 1)
+    h['adequacy_default'] = (h['adequacy_core'] * 0.7 + eq_max * 0.3).clip(0, 1)
+    # Re-apply the availability floor AFTER equity blend so equity damping can't
+    # push adequacy back below availability.
+    h['adequacy_default'] = np.maximum(
+        h['adequacy_default'],
+        h['availability_adequacy_gap']
+    ).clip(0, 1)
 
     h.to_parquet(HEX_PATH, index=False)
     print(f'Wrote {HEX_PATH}')
