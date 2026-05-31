@@ -88,6 +88,11 @@ KEEP_COLS = [
     'vulnerability_penalty_family','adequacy_default_family',
     'availability_adequacy_gap_workers','quality_only_gap_workers','adequacy_core_workers',
     'vulnerability_penalty_workers','adequacy_default_workers',
+    # Pre-built per-profile tooltip strings (compact UI cache)
+    'primary_factor_default','primary_text_default','pop_callout_default',
+    'primary_factor_elderly','primary_text_elderly','pop_callout_elderly',
+    'primary_factor_family', 'primary_text_family', 'pop_callout_family',
+    'primary_factor_workers','primary_text_workers','pop_callout_workers',
 ]
 
 def band(v):
