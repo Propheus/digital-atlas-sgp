@@ -1,0 +1,40 @@
+{
+  "checks": [
+    {
+      "check": "P1_all_pa_covered",
+      "status": "PASS",
+      "detail": "55/55 in both tables"
+    },
+    {
+      "check": "P2_all_regions_covered",
+      "status": "PASS",
+      "detail": "5/5 in both tables"
+    },
+    {
+      "check": "P3_all_hdb_towns_covered",
+      "status": "PASS",
+      "detail": "27/27 in both tables"
+    },
+    {
+      "check": "P4_parent_pa_consistent",
+      "status": "WARN",
+      "detail": "12 mismatches (likely tiny-subzone edge effects)"
+    },
+    {
+      "check": "P5_parent_region_consistent",
+      "status": "WARN",
+      "detail": "2 mismatches"
+    },
+    {
+      "check": "P6_hdb_blocks_inside_towns",
+      "status": "PASS",
+      "detail": "13,386/13,386 (100.00%)"
+    },
+    {
+      "check": "P7_hdb_area_reasonable",
+      "status": "PASS",
+      "detail": "152.1 km\u00b2 = 19.4% (expected 20\u201340%)"
+    }
+  ],
+  "generated_at": "2026-04-25T03:17:13"
+}

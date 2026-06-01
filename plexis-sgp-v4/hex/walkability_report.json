@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-04-25T03:51:26",
+  "wall_clock_s": 5.38,
+  "shapes": {
+    "hex9": [
+      7318,
+      27
+    ],
+    "hex8": [
+      1191,
+      21
+    ],
+    "subzone": [
+      270,
+      8
+    ]
+  },
+  "totals": {
+    "hexes_with_ped_path": 4161,
+    "median_walkability_score": 0.23510214281875202,
+    "max_walkability_score": 0.9586706746854827,
+    "hexes_with_severance": 78
+  }
+}

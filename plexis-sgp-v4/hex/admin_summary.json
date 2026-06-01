@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-04-25T03:17:11",
+  "planning_areas": 55,
+  "regions": 5,
+  "hdb_towns": 27,
+  "blocks_assigned": 13383,
+  "blocks_total": 13386,
+  "overlap_rows": {
+    "hex9_pa": 8492,
+    "hex8_pa": 1656,
+    "hex9_region": 7592,
+    "hex8_region": 1285,
+    "hex9_hdb_town": 1945,
+    "hex8_hdb_town": 432
+  },
+  "wall_clock_s": 23.11
+}

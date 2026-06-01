@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-06-01T16:33:34",
+  "source": "nvidia/Nemotron-Personas-Singapore",
+  "personas": 148000,
+  "planning_areas": 48,
+  "nvidia_PA_not_in_atlas": [],
+  "atlas_PA_not_in_nvidia": [
+    "CENTRAL WATER CATCHMENT",
+    "CHANGI BAY",
+    "MARINA EAST",
+    "MARINA SOUTH",
+    "SIMPANG",
+    "STRAITS VIEW",
+    "WESTERN ISLANDS"
+  ],
+  "hex8_coverage_pct": 83.12,
+  "low_n_PAs": [
+    "BOON LAY",
+    "LIM CHU KANG",
+    "MUSEUM",
+    "NORTH-EASTERN ISLANDS",
+    "PAYA LEBAR",
+    "PIONEER",
+    "SELETAR",
+    "SUNGEI KADUT",
+    "TENGAH",
+    "TUAS",
+    "WESTERN WATER CATCHMENT"
+  ],
+  "n_feature_cols": 33,
+  "wall_clock_s": 0.36
+}

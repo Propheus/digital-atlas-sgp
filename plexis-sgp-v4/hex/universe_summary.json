@@ -1,0 +1,14 @@
+{
+  "generated_at": "2026-04-25T03:16:21",
+  "subzones": 332,
+  "total_area_km2": 784.78,
+  "hex8": {
+    "count": 1191,
+    "m2m_overlap_rows": 2553
+  },
+  "hex9": {
+    "count": 7314,
+    "m2m_overlap_rows": 10449
+  },
+  "wall_clock_s": 6.53
+}

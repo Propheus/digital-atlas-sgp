@@ -1,0 +1,42 @@
+{
+  "generated_at": "2026-04-25T03:18:17",
+  "parcels_input": 113212,
+  "hex_count": 7318,
+  "hexes_with_lu_data": 7318,
+  "buckets": [
+    "residential",
+    "mixed_use",
+    "commercial",
+    "hotel",
+    "business",
+    "business_park",
+    "educational",
+    "health",
+    "institutional",
+    "open_space",
+    "transport",
+    "utility",
+    "water",
+    "reserve",
+    "other"
+  ],
+  "ura_parcel_area_km2": 784.85,
+  "hex_lu_intersected_area_km2": 784.7,
+  "dominant_use_distribution": {
+    "residential": 1587,
+    "open_space": 1549,
+    "business": 1355,
+    "reserve": 983,
+    "transport": 730,
+    "institutional": 464,
+    "water": 292,
+    "utility": 134,
+    "educational": 101,
+    "commercial": 40,
+    "business_park": 37,
+    "mixed_use": 23,
+    "health": 16,
+    "hotel": 7
+  },
+  "wall_clock_s": 17.95
+}

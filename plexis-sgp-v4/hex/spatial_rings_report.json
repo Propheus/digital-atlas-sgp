@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-04-29T16:53:46",
+  "wall_clock_s": 0.69,
+  "ring1_features_computed": [
+    "pop_resident",
+    "pop_nonresident",
+    "pc_total",
+    "pc_magnets",
+    "walkability_score",
+    "transit_score",
+    "nl_2024",
+    "hdb_resale_4r_median_psm",
+    "school_count_total"
+  ],
+  "shapes": {
+    "hex9": [
+      7318,
+      19
+    ],
+    "hex8": [
+      1191,
+      19
+    ]
+  }
+}

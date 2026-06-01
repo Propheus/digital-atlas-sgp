@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-04-30T00:54:02",
+  "wall_clock_s": 0.94,
+  "input_signals": 44917,
+  "by_bucket": {
+    "sig_total": 44917,
+    "sig_overhead": 4743,
+    "sig_ground": 16885,
+    "sig_pedestrian": 12950,
+    "sig_beacon": 5414,
+    "sig_rag": 2020,
+    "sig_filter_arrow": 2642,
+    "sig_bicycle": 32,
+    "ped_countdown": 1549
+  },
+  "shapes": {
+    "hex9": [
+      7318,
+      10
+    ],
+    "hex8": [
+      1191,
+      10
+    ],
+    "subzone": [
+      326,
+      10
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "checks": [
+    {
+      "check": "C1_bounds",
+      "status": "PASS",
+      "detail": "all 6 indices in [0,1]"
+    },
+    {
+      "check": "C2_vibrancy_top_in_cbd",
+      "status": "PASS",
+      "detail": "19/20 top vibrancy hexes in CBD-cluster (top PAs: {'SINGAPORE RIVER', 'ORCHARD', 'OUTRAM', 'DOWNTOWN CORE', 'ROCHOR', 'JURONG EAST'})"
+    },
+    {
+      "check": "C3_commercial_top_in_cbd_cluster",
+      "status": "PASS",
+      "detail": "17/20 top commercial hexes in CBD cluster"
+    },
+    {
+      "check": "C4_family_top_in_hdb_pas",
+      "status": "PASS",
+      "detail": "12/20 top family hexes in HDB PAs"
+    },
+    {
+      "check": "C5_livability_top_in_residential",
+      "status": "WARN",
+      "detail": "4/20"
+    },
+    {
+      "check": "C6_density_top_in_dense_pas",
+      "status": "PASS",
+      "detail": "12/20 top density hexes in dense PAs"
+    }
+  ],
+  "generated_at": "2026-04-29T11:04:15"
+}

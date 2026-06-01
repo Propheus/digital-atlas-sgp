@@ -1,0 +1,64 @@
+{
+  "generated_at": "2026-04-25T04:34:18",
+  "wall_clock_s": 0.09,
+  "shapes": {
+    "hex9": [
+      7318,
+      41
+    ],
+    "hex8": [
+      1191,
+      40
+    ],
+    "subzone": [
+      270,
+      38
+    ]
+  },
+  "feature_groups": {
+    "buildings": [
+      "parent_hex8",
+      "parent_subzone",
+      "bldg_count",
+      "bldg_density_per_km2",
+      "bldg_footprint_m2",
+      "bldg_footprint_share",
+      "bldg_residential_count",
+      "bldg_commercial_count",
+      "bldg_industrial_count",
+      "bldg_institutional_count",
+      "best_max_floors",
+      "n_highrise_bldgs",
+      "is_highrise",
+      "est_total_floor_area_m2",
+      "est_built_far",
+      "hdb_block_count",
+      "hdb_dwelling_units",
+      "hdb_max_floors",
+      "hdb_avg_age_years"
+    ],
+    "land_use": [
+      "lu_total_m2",
+      "lu_residential_pct",
+      "lu_mixed_use_pct",
+      "lu_commercial_pct",
+      "lu_hotel_pct",
+      "lu_business_pct",
+      "lu_business_park_pct",
+      "lu_educational_pct",
+      "lu_health_pct",
+      "lu_institutional_pct",
+      "lu_open_space_pct",
+      "lu_transport_pct",
+      "lu_utility_pct",
+      "lu_water_pct",
+      "lu_reserve_pct",
+      "lu_other_pct",
+      "lu_entropy",
+      "dominant_use",
+      "avg_gpr",
+      "max_gpr",
+      "lu_parcel_count"
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "checks": [
+    {
+      "check": "S1_conservation_h9",
+      "status": "PASS",
+      "detail": "hex9 sum 337 \u2248 input 337"
+    },
+    {
+      "check": "S2_hex9_to_hex8_conservation",
+      "status": "PASS",
+      "detail": "exact match"
+    },
+    {
+      "check": "S3_populous_pas_have_schools",
+      "status": "PASS",
+      "detail": "8/8 populous PAs have \u226510 schools"
+    },
+    {
+      "check": "S4_primary_catchment_share",
+      "status": "PASS",
+      "detail": "29.9% of hex9 have \u22651 primary within 1km"
+    },
+    {
+      "check": "S5_nearest_primary_in_hdb_towns",
+      "status": "PASS",
+      "detail": "median 512m to nearest primary (HDB hexes)"
+    },
+    {
+      "check": "S6_premium_count",
+      "status": "PASS",
+      "detail": "41 premium (SAP/Gifted/IP) schools nationally"
+    }
+  ],
+  "generated_at": "2026-04-29T10:41:33"
+}

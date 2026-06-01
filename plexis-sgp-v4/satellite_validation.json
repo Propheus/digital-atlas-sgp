@@ -1,0 +1,30 @@
+{
+  "checks": [
+    {
+      "check": "S1_nl_2024_range",
+      "status": "PASS",
+      "detail": "range [0.0, 179.5]"
+    },
+    {
+      "check": "S2_top_nl_in_cbd",
+      "status": "WARN",
+      "detail": "13/20"
+    },
+    {
+      "check": "S3_nl_change_distribution",
+      "status": "PASS",
+      "detail": "median 4.4%, p1 -12.8%, p99 46.1%"
+    },
+    {
+      "check": "S4_wp_pop_total",
+      "status": "PASS",
+      "detail": "7,777,771 (SGP scale 4-9M)"
+    },
+    {
+      "check": "S5_commercial_indicator_in_cbd",
+      "status": "WARN",
+      "detail": "6/15"
+    }
+  ],
+  "generated_at": "2026-04-29T04:16:15"
+}

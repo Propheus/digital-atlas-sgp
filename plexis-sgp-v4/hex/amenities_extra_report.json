@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-04-29T11:00:10",
+  "wall_clock_s": 0.46,
+  "input_counts": {
+    "tourist": 109,
+    "hawker": 129,
+    "chas": 1193,
+    "preschool": 2290,
+    "silver": 42
+  },
+  "shapes": {
+    "hex9": [
+      7318,
+      13
+    ],
+    "hex8": [
+      1191,
+      13
+    ],
+    "subzone": [
+      326,
+      13
+    ]
+  }
+}

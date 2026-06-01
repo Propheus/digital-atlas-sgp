@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-04-29T10:12:27",
+  "wall_clock_s": 0.73,
+  "input_txns": 227207,
+  "month_range": [
+    "2017-01-01",
+    "2026-03-01"
+  ],
+  "towns": 26,
+  "shapes": {
+    "hex9": [
+      7318,
+      10
+    ],
+    "hex8": [
+      1191,
+      10
+    ],
+    "subzone": [
+      326,
+      10
+    ]
+  },
+  "national_median_price": 496688.0,
+  "national_median_psm": 5230.7692307692305
+}

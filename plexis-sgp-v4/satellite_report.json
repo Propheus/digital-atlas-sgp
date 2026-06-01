@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-04-29T04:15:26",
+  "wall_clock_s": 9.35,
+  "shapes": {
+    "hex9": [
+      7318,
+      11
+    ],
+    "hex8": [
+      1191,
+      9
+    ],
+    "subzone": [
+      326,
+      9
+    ]
+  },
+  "totals": {
+    "median_nl_2024": 48.4937,
+    "max_nl_2024": 179.5402,
+    "growth_corridor_hexes": 774,
+    "decline_zone_hexes": 17,
+    "wp_pop_total": 7777771
+  }
+}

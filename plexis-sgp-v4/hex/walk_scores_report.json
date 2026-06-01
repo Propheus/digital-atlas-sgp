@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-04-30T00:35:14",
+  "wall_clock_s": 0.1,
+  "decay_L_m": 400.0,
+  "score_cols": [
+    "walk_mrt_score",
+    "walk_bus_score",
+    "walk_school_score",
+    "walk_clinic_score",
+    "walk_hawker_score",
+    "walk_supermarket_score",
+    "walk_park_score",
+    "walk_food_score",
+    "walk_convenience_score",
+    "walk_score_avg"
+  ]
+}

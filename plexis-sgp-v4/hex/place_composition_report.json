@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-04-29T05:55:20",
+  "wall_clock_s": 1.54,
+  "input_places": 190591,
+  "shapes": {
+    "hex9": [
+      7318,
+      34
+    ],
+    "hex8": [
+      1191,
+      34
+    ],
+    "subzone": [
+      326,
+      34
+    ]
+  },
+  "totals": {
+    "places_in_hex9_universe": 190559,
+    "places_in_hex8_universe": 190559,
+    "places_in_subzone_universe": 190559,
+    "hex9_with_places": 4193,
+    "hex8_with_places": 883,
+    "subzone_with_places": 326
+  }
+}

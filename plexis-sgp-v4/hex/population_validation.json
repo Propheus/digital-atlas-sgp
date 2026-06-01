@@ -1,0 +1,35 @@
+{
+  "checks": [
+    {
+      "check": "P1_global_total",
+      "status": "PASS",
+      "detail": "4,212,800 == 4,212,800"
+    },
+    {
+      "check": "P2_hdb_total",
+      "status": "PASS",
+      "detail": "3,197,740 == 3,197,740"
+    },
+    {
+      "check": "P3_non_hdb_total",
+      "status": "PASS",
+      "detail": "1,015,060 == 1,015,060"
+    },
+    {
+      "check": "P4_per_subzone_chunk_alloc",
+      "status": "PASS",
+      "detail": "mean |drift|=0.0000%, max=0.0000%"
+    },
+    {
+      "check": "P5_age_sums_match_total",
+      "status": "PASS",
+      "detail": "max discrepancy 0.0000"
+    },
+    {
+      "check": "P6_valid_values",
+      "status": "PASS",
+      "detail": "no negatives, no nulls"
+    }
+  ],
+  "generated_at": "2026-04-25T03:17:59"
+}

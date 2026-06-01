@@ -1,0 +1,35 @@
+{
+  "checks": [
+    {
+      "check": "P1_totals_conserved",
+      "status": "PASS",
+      "detail": "hex9=190559 (drift 32) hex8=190559 (drift 32) sz=190559 (drift 32)"
+    },
+    {
+      "check": "P2_hex9_to_hex8_conservation",
+      "status": "PASS",
+      "detail": "exact match"
+    },
+    {
+      "check": "P3_top_pc_total_in_hubs",
+      "status": "PASS",
+      "detail": "10/10 in known activity hubs"
+    },
+    {
+      "check": "P4_top_magnets_in_hubs",
+      "status": "PASS",
+      "detail": "9/10 in hubs"
+    },
+    {
+      "check": "P5_diversity_bounds",
+      "status": "PASS",
+      "detail": "all in [0, 3.178]; max=2.925"
+    },
+    {
+      "check": "P6_top_pop_subzones_residential",
+      "status": "PASS",
+      "detail": "10/10 dominant=residential"
+    }
+  ],
+  "generated_at": "2026-04-29T05:55:21"
+}

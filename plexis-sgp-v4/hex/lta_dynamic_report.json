@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-04-30T01:08:38",
+  "wall_clock_s": 169.16,
+  "carparks_fetched": 2592,
+  "speed_segments_fetched": 56785,
+  "shapes": {
+    "hex9": [
+      7318,
+      7
+    ],
+    "hex8": [
+      1191,
+      7
+    ],
+    "subzone": [
+      326,
+      7
+    ]
+  },
+  "totals": {
+    "carpark_count_avail_total": 2592,
+    "carpark_lots_avail_total": 512764,
+    "speed_band_count_total": 56785
+  }
+}

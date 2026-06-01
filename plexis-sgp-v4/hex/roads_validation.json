@@ -1,0 +1,45 @@
+{
+  "checks": [
+    {
+      "check": "R1_total_length_in_range",
+      "status": "PASS",
+      "detail": "28,407 km (expected 25K-32K)"
+    },
+    {
+      "check": "R2_class_shares_sum_to_1",
+      "status": "PASS",
+      "detail": "100.0% of rows have shares \u2211\u22481 or 0; range [0.000, 1.000]"
+    },
+    {
+      "check": "R3_ped_plus_veh_close_to_total",
+      "status": "PASS",
+      "detail": "mean unaccounted share -0.00% (cycleway/track/other)"
+    },
+    {
+      "check": "R4_lane_km_on_vehicular_hexes",
+      "status": "WARN",
+      "detail": "982 vehicular hexes have lane_km=0"
+    },
+    {
+      "check": "R5_cbd_walkable_share_reasonable",
+      "status": "PASS",
+      "detail": "mean walkable share in CBD = 0.64 (expected 0.2-0.7)"
+    },
+    {
+      "check": "R6_expressway_corridors_sane",
+      "status": "WARN",
+      "detail": "1362/1817 (75%)"
+    },
+    {
+      "check": "R7_marina_parking_present",
+      "status": "PASS",
+      "detail": "6/12 Marina/Raffles hexes have parking lots"
+    },
+    {
+      "check": "R8_hdb_mscp_count_in_range",
+      "status": "PASS",
+      "detail": "1235 MSCPs (expected ~1114, \u00b1200)"
+    }
+  ],
+  "generated_at": "2026-04-25T03:19:41"
+}

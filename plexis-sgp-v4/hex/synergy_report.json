@@ -1,0 +1,14 @@
+{
+  "generated_at": "2026-04-29T16:53:47",
+  "wall_clock_s": 0.13,
+  "interactions": [
+    "syn_pop_x_walk",
+    "syn_pop_x_transit",
+    "syn_office_x_transit",
+    "syn_retail_x_anchors",
+    "syn_density_x_amenities",
+    "syn_far_x_transit",
+    "syn_residential_x_school",
+    "syn_premium_school_x_4r"
+  ]
+}

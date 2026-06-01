@@ -1,0 +1,30 @@
+{
+  "checks": [
+    {
+      "check": "C1_coverage",
+      "status": "WARN",
+      "detail": "2231/7318 (30%) \u2014 expected major-road network \u226550% of hexes"
+    },
+    {
+      "check": "C2_top_betweenness_in_hubs",
+      "status": "PASS",
+      "detail": "13/15 in known hub PAs"
+    },
+    {
+      "check": "C3_pagerank_non_degenerate",
+      "status": "PASS",
+      "detail": "max/min ratio = 23.3"
+    },
+    {
+      "check": "C4_bridges_present",
+      "status": "PASS",
+      "detail": "2297 bridge endpoints across 604 hexes"
+    },
+    {
+      "check": "C5_no_inf_nan",
+      "status": "PASS",
+      "detail": "no inf/nan values across all numeric cols"
+    }
+  ],
+  "generated_at": "2026-04-25T01:46:00"
+}

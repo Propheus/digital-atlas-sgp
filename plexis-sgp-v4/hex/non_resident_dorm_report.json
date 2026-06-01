@@ -1,0 +1,13 @@
+{
+  "generated_at": "2026-06-01T16:07:38",
+  "method": "official_2024_recal + dorm_point_allocation",
+  "resident_total": 4179800.0,
+  "nonresident_total": 1857100.0,
+  "dorm_total": 439198.0,
+  "grand_total": 6036900.0,
+  "dorms_geocoded": 1121,
+  "dorms_in_universe": 1121,
+  "dorm_hexes": 399,
+  "resident_rescale_factor": 0.992167,
+  "wall_clock_s": 0.04
+}

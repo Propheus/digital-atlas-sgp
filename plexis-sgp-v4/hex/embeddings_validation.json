@@ -1,0 +1,30 @@
+{
+  "checks": [
+    {
+      "check": "E1_shapes",
+      "status": "PASS",
+      "detail": "hex_where=(7318, 65) hex_comb=(7318, 129) place_what=(190591, 65) place_comb=(190591, 129)"
+    },
+    {
+      "check": "E2_no_nan_inf",
+      "status": "PASS",
+      "detail": "all embeddings clean"
+    },
+    {
+      "check": "E3_cbd_hex_nn",
+      "status": "PASS",
+      "detail": "NN of Cecil hex: 5/5 in CBD (['DOWNTOWN CORE', 'OUTRAM', 'DOWNTOWN CORE', 'DOWNTOWN CORE', 'OUTRAM'])"
+    },
+    {
+      "check": "E4_cafe_place_nn",
+      "status": "PASS",
+      "detail": "NN of cafe: 10/10 are F&B ({'cafe_coffee': 10})"
+    },
+    {
+      "check": "E5_variance_explained",
+      "status": "PASS",
+      "detail": "where=0.84 what=0.71"
+    }
+  ],
+  "generated_at": "2026-04-30T02:12:08"
+}

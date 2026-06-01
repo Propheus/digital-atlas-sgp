@@ -1,0 +1,12 @@
+{
+  "generated_at": "2026-04-25T03:17:47",
+  "buildings_input_total": 377331,
+  "buildings_allocated_to_hexes": 244177,
+  "hdb_blocks_input": 13386,
+  "hdb_blocks_allocated": 13386,
+  "hexes_with_buildings": 5676,
+  "hexes_with_hdb": 1184,
+  "hexes_highrise": 1545,
+  "max_floors_observed": 70,
+  "wall_clock_s": 2.56
+}

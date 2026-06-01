@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-04-25T01:37:02",
+  "wall_clock_s": 1042.28,
+  "graph": {
+    "major_roads_input": 30682,
+    "G_nodes": 26417,
+    "G_edges": 30161,
+    "G_main_nodes": 26385,
+    "G_main_edges": 30131,
+    "components_total": 3,
+    "bridges": 2071
+  },
+  "hexes_with_centrality": 2231,
+  "max_betweenness": 0.10798559678580905,
+  "max_pagerank": 0.00017633208106628521,
+  "max_bridge_count": 31
+}

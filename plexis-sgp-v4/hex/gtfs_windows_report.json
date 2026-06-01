@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-04-30T00:53:28",
+  "wall_clock_s": 56.14,
+  "input_stop_times_rows": "8M+",
+  "stops_with_weekday_service": 5305,
+  "windows": {
+    "am": "07:00-09:00",
+    "midday": "11:00-14:00",
+    "pm": "17:00-19:00",
+    "night": "22:00-28:00"
+  },
+  "shapes": {
+    "hex9": [
+      7318,
+      12
+    ],
+    "hex8": [
+      1191,
+      12
+    ],
+    "subzone": [
+      326,
+      12
+    ]
+  }
+}

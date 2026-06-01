@@ -1,0 +1,55 @@
+{
+  "checks": [
+    {
+      "check": "A1_conservation_tourist",
+      "status": "PASS",
+      "detail": "sum 109 \u2248 input 109"
+    },
+    {
+      "check": "A1_conservation_hawker",
+      "status": "PASS",
+      "detail": "sum 129 \u2248 input 129"
+    },
+    {
+      "check": "A1_conservation_chas",
+      "status": "PASS",
+      "detail": "sum 1192 \u2248 input 1193"
+    },
+    {
+      "check": "A1_conservation_preschool",
+      "status": "PASS",
+      "detail": "sum 2290 \u2248 input 2290"
+    },
+    {
+      "check": "A2_hex9_to_hex8_conservation",
+      "status": "PASS",
+      "detail": "exact match (chas_clinic_count)"
+    },
+    {
+      "check": "A3_tourist_in_hubs",
+      "status": "PASS",
+      "detail": "top5={'DOWNTOWN CORE', 'MUSEUM', 'OUTRAM', 'ROCHOR', 'BUKIT MERAH'}, hits 4/5 in tourist hubs"
+    },
+    {
+      "check": "A4_hawker_in_hdb_pas",
+      "status": "PASS",
+      "detail": "11/11 HDB PAs have a hawker centre"
+    },
+    {
+      "check": "A5_chas_dist_hdb",
+      "status": "PASS",
+      "detail": "median 287m to nearest CHAS in HDB hexes"
+    },
+    {
+      "check": "A6_preschools_400m_hdb",
+      "status": "PASS",
+      "detail": "avg 4.60 preschools within 400m of HDB hexes"
+    },
+    {
+      "check": "A7_silver_in_elderly_pas",
+      "status": "PASS",
+      "detail": "9 elderly PAs have silver zones"
+    }
+  ],
+  "generated_at": "2026-04-29T11:00:10"
+}
