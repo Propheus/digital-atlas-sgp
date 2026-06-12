@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-04-25T04:34:17",
+  "wall_clock_s": 17.43,
+  "shapes": {
+    "hex9": [
+      7318,
+      20
+    ],
+    "hex8": [
+      1191,
+      19
+    ],
+    "subzone": [
+      270,
+      17
+    ]
+  },
+  "totals": {
+    "buildings": 273541,
+    "hdb_blocks": 13386,
+    "hdb_dwelling_units": 1166564,
+    "max_floors": 70,
+    "max_footprint_share": 1.0,
+    "max_built_far": 10.02607069931707,
+    "footprint_share_violations": 0
+  }
+}

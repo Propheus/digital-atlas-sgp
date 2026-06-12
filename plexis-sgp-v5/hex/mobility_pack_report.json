@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-06-11T04:14:38",
+  "spec": "S11_MOBILITY_PACK.md",
+  "source": "/home/azureuser/sgp-mobility-v2/dist/data/hex8_adequacy.geojson",
+  "cols_shipped": 98,
+  "deduped_dropped": {
+    "mrt_reach_eff_min": "dist_mrt_exit_m (r=0.990)",
+    "mrt_reach_walk_min": "dist_mrt_exit_m (r=0.999)",
+    "min15_nearest_clinic_m": "nearest_chas_clinic_dist_m (r=0.999)",
+    "min15_nearest_hawker_m": "nearest_hawker_centre_dist_m (r=1.000)",
+    "min15_nearest_park_m": "dist_walk_park_m (r=0.995)",
+    "min15_nearest_school_m": "nearest_school_dist_m (r=0.999)",
+    "pop_resident_citizen": "pop_resident (r=0.982)",
+    "pop_resident_pr": "pop_resident (r=0.982)",
+    "low_income_pop": "pop_hdb (r=0.981)",
+    "ped_crossings_count": "sig_pedestrian (r=0.990)"
+  },
+  "missing_in_source": [],
+  "anchors": {
+    "min_time_to_cbd": 6.5773630512497165,
+    "max_time_to_cbd": 66.29249976660222,
+    "min15_max": 100.0,
+    "linkway_total_km": 245.3,
+    "cycling_total_km": 896.6
+  },
+  "wall_clock_s": 18.14
+}

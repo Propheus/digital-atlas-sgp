@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-04-25T03:19:40",
+  "wall_clock_s": 74.02,
+  "roads": {
+    "input_segments": 550991,
+    "clipped_segments": 644352,
+    "total_road_length_km": 28407.08,
+    "total_pedestrian_length_km": 12787.92,
+    "total_vehicular_length_km": 15619.16,
+    "total_lane_km": 20687.54,
+    "hexes_with_road": 5729,
+    "hexes_with_motorway_through": 558,
+    "hexes_within_200m_expressway": 791,
+    "hexes_near_expressway_exit_400m": 1419,
+    "max_intersection_density_per_km2": 1247.6190476190477,
+    "max_road_density_km_per_km2": 271.0190736923977
+  },
+  "parking": {
+    "total_parking_lots": 3156,
+    "total_parking_lot_area_km2_est": 4.734,
+    "total_parking_entrances": 1908,
+    "total_bicycle_parking": 646,
+    "total_hdb_mscp": 1235,
+    "total_hdb_surface_carpark": 3549,
+    "hexes_parking_dominant": 3
+  }
+}

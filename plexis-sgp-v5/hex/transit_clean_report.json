@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-04-25T03:20:02",
+  "wall_clock_s": 0.05,
+  "shapes": {
+    "hex9": [
+      7318,
+      19
+    ],
+    "hex8": [
+      1191,
+      18
+    ],
+    "subzone": [
+      270,
+      14
+    ]
+  },
+  "subzone_summary": {
+    "subzones_with_mrt": 132,
+    "subzones_with_interchange": 31,
+    "subzones_total": 270
+  }
+}

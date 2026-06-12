@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-04-29T16:55:35",
+  "wall_clock_s": 0.14,
+  "k": 8,
+  "hex9_archetype_labels": [
+    "CBD_office",
+    "Family_residential",
+    "Retail_hub",
+    "Mature_HDB",
+    "Industrial",
+    "Transit_hub",
+    "Green_open",
+    "Family_residential_2"
+  ],
+  "subzone_archetype_labels": [
+    "Industrial",
+    "Industrial_2",
+    "CBD_office",
+    "Mature_HDB",
+    "Family_residential",
+    "Industrial_3",
+    "Retail_hub",
+    "Retail_hub_2"
+  ]
+}

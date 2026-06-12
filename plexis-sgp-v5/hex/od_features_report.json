@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-06-01T16:30:40",
+  "month": "2026-04",
+  "trip_basis": "monthly_weekday_totals",
+  "matrix_pairs": 56530,
+  "hex8_with_od": 547,
+  "total_trips_mapped_wd": 151714051.0,
+  "feature_cols": [
+    "od_out_trips",
+    "od_out_am",
+    "od_out_pm",
+    "od_n_dest_hex",
+    "od_in_trips",
+    "od_in_am",
+    "od_in_pm",
+    "od_self_trips",
+    "od_dest_entropy",
+    "od_throughput",
+    "od_net_flow",
+    "od_self_containment",
+    "od_am_pm_out_ratio"
+  ],
+  "wall_clock_s": 20.34
+}

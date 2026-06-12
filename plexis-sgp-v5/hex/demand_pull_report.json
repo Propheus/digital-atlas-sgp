@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-04-29T16:51:20",
+  "wall_clock_s": 0.23,
+  "decay_scales_m": {
+    "pull_cbd": 6000.0,
+    "pull_mall": 2500.0,
+    "pull_hospital": 4000.0,
+    "pull_mrt_interchange": 2000.0,
+    "pull_school_premium": 3000.0,
+    "pull_airport": 15000.0
+  },
+  "shapes": {
+    "hex9": [
+      7318,
+      8
+    ],
+    "hex8": [
+      1191,
+      8
+    ],
+    "subzone": [
+      326,
+      8
+    ]
+  },
+  "destination_counts": {
+    "cbd": 39,
+    "mall": 366,
+    "hospital": 371,
+    "mrt_interchange": 38,
+    "school_premium": 39,
+    "airport": 416
+  }
+}

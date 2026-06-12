@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-04-25T03:17:44",
+  "total_places": 190591,
+  "has_rating": 109400,
+  "has_reviews": 109864,
+  "pct_with_rating": 57.4,
+  "pct_with_reviews": 57.64,
+  "magnets": 21570,
+  "long_tail": 108378,
+  "bucket_distribution": {
+    "none": 80727,
+    "1-9": 40788,
+    "10-99": 43694,
+    "100-999": 21629,
+    "1000+": 3753
+  },
+  "region_magnets": {
+    "CENTRAL REGION": 12858,
+    "WEST REGION": 2452,
+    "EAST REGION": 2396,
+    "NORTH-EAST REGION": 2270,
+    "NORTH REGION": 1594
+  },
+  "wall_clock_s": 0.38
+}

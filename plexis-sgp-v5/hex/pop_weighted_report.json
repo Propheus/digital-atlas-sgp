@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-04-30T00:52:04",
+  "wall_clock_s": 2.28,
+  "features_used": [
+    "pc_total",
+    "pc_magnets",
+    "pc_unique_brands",
+    "pc_cat_business_office",
+    "pc_cat_shopping_retail",
+    "pc_cat_hawker",
+    "pc_cat_residential",
+    "pc_cat_industrial_mfg",
+    "pc_cat_cafe_coffee",
+    "pc_cat_restaurant",
+    "pc_cat_education",
+    "pc_cat_health_medical",
+    "transit_score",
+    "walkability_score",
+    "nl_2024",
+    "nl_commercial_indicator",
+    "hdb_resale_4r_median_psm",
+    "primary_schools_within_1km",
+    "preschools_within_400m",
+    "chas_clinic_count",
+    "hawker_centre_count",
+    "tourist_attraction_count",
+    "vibrancy_index",
+    "commercial_intensity",
+    "family_index",
+    "density_pressure",
+    "pull_cbd",
+    "pull_mall",
+    "pull_mrt_interchange",
+    "wc_built_share",
+    "wc_tree_share"
+  ],
+  "shapes": {
+    "hex9": [
+      7318,
+      125
+    ],
+    "hex8": [
+      1191,
+      125
+    ]
+  }
+}

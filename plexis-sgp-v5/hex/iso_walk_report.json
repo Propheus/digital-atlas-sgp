@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-06-10T10:23:30",
+  "spec": "SITE_SELECTION_METRICS.md S2a (walk)",
+  "limit_m": 800.0,
+  "edges_walkable": 546340,
+  "nodes": 213979,
+  "giant_component_share": 0.999,
+  "snap_gt150m_share": {
+    "hex8": 0.33753148614609574,
+    "places": 0.003756735627600464
+  },
+  "populated_hex9_with_node": "3357/3693",
+  "orphan_pop_to_nearest_node": 10134.569168928692,
+  "places_used": 190591,
+  "median_iso_pop": 2.649,
+  "median_severance_ratio": 0.219,
+  "feature_cols": [
+    "iso_walk10_pop",
+    "iso_walk10_spend",
+    "iso_reached_node_n",
+    "iso_walk10_unserved_pop_cafe_coffee",
+    "iso_walk10_unserved_pop_supermarket",
+    "iso_walk10_unserved_pop_restaurant",
+    "iso_walk10_unserved_pop_fitness_recreation",
+    "iso_walk10_places",
+    "iso_walk10_magnets",
+    "iso_walk10_competitors_cafe_coffee",
+    "iso_walk10_competitors_supermarket",
+    "iso_walk10_competitors_restaurant",
+    "iso_walk10_competitors_fitness_recreation",
+    "iso_euclid800_pop",
+    "iso_severance_ratio",
+    "iso_snap_dist_m"
+  ],
+  "wall_clock_s": 20.92
+}

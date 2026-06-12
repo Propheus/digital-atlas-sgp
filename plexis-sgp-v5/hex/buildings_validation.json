@@ -1,0 +1,35 @@
+{
+  "checks": [
+    {
+      "check": "B1_hdb_block_total",
+      "status": "PASS",
+      "detail": "13,386 == 13,386"
+    },
+    {
+      "check": "B2_hdb_hexes_have_residential",
+      "status": "PASS",
+      "detail": "1181/1184 (99.7%)"
+    },
+    {
+      "check": "B3_buildings_in_sgp_bounds",
+      "status": "PASS",
+      "detail": "244,177 buildings (230K\u2013260K expected for SGP-only)"
+    },
+    {
+      "check": "B4_bucket_sums_match_total",
+      "status": "PASS",
+      "detail": "all hexes consistent (max disc 0e+00)"
+    },
+    {
+      "check": "B5_highrise_in_known_dense_pas",
+      "status": "WARN",
+      "detail": "1245/1545 (81%)"
+    },
+    {
+      "check": "B6_sanity_ranges",
+      "status": "PASS",
+      "detail": "no negatives; max floors 70"
+    }
+  ],
+  "generated_at": "2026-04-25T03:17:47"
+}

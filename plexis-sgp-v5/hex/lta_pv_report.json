@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-04-30T01:09:07",
+  "wall_clock_s": 0.58,
+  "input_pv_bus_rows": 203124,
+  "input_pv_train_rows": 7259,
+  "shapes": {
+    "hex9": [
+      7318,
+      13
+    ],
+    "hex8": [
+      1191,
+      13
+    ],
+    "subzone": [
+      326,
+      13
+    ]
+  },
+  "totals": {
+    "bus_taps_in_total": 73105389,
+    "bus_taps_out_total": 73426685
+  }
+}

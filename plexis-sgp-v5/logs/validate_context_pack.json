@@ -1,0 +1,26 @@
+{
+  "layer": "context_pack",
+  "checks": [
+    {
+      "check": "X1_conservation",
+      "status": "PASS",
+      "detail": "all national sums match the delivered pack"
+    },
+    {
+      "check": "X2_archetypes",
+      "status": "PASS",
+      "detail": "conservation top-5 heritage 4/5; wet-market dist mature 483m < populated median 1380m; BTO top-8 in launch towns 8/8"
+    },
+    {
+      "check": "X3_invariants",
+      "status": "PASS",
+      "detail": "all hold; female NaN==zero-pop exact; BTO allocated 100.0% of 91,941 FY2024 units"
+    },
+    {
+      "check": "X4_redundancy",
+      "status": "PASS",
+      "detail": "no non-source |r|>0.9"
+    }
+  ],
+  "verdict": "PASS"
+}

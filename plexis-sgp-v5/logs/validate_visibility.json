@@ -1,0 +1,68 @@
+{
+  "layer": "visibility",
+  "checks": [
+    {
+      "check": "V1_exit_join",
+      "status": "PASS",
+      "detail": "597 exits, 186 stations, 98.9% taps-matched"
+    },
+    {
+      "check": "V2_footfall_archetypes",
+      "status": "PASS",
+      "detail": "6/8 top per-exit hexes at top-30-total-taps stations: MATILDA(PUNGGOL LRT STATION), MOULMEIN(NOVENA MRT STATION), MOULMEIN(NEWTON MRT STATION), SIMEI(SIMEI MRT STATION)"
+    },
+    {
+      "check": "V3_traffic_proxy",
+      "status": "PASS",
+      "detail": "expressway-adjacent mean 118.7 vs >1km 7.2"
+    },
+    {
+      "check": "V4_redundancy",
+      "status": "PASS",
+      "detail": "no non-source |r|>0.9"
+    }
+  ],
+  "top_exit_footfall": [
+    {
+      "parent_subzone_name": "MATILDA",
+      "vis_exit_station": "PUNGGOL LRT STATION",
+      "vis_exit_footfall": 40845.0
+    },
+    {
+      "parent_subzone_name": "MOULMEIN",
+      "vis_exit_station": "NOVENA MRT STATION",
+      "vis_exit_footfall": 39380.0
+    },
+    {
+      "parent_subzone_name": "MOULMEIN",
+      "vis_exit_station": "NEWTON MRT STATION",
+      "vis_exit_footfall": 37356.0
+    },
+    {
+      "parent_subzone_name": "SIMEI",
+      "vis_exit_station": "SIMEI MRT STATION",
+      "vis_exit_footfall": 34698.0
+    },
+    {
+      "parent_subzone_name": "LAKESIDE (BUSINESS)",
+      "vis_exit_station": "JURONG EAST MRT STATION",
+      "vis_exit_footfall": 33352.0
+    },
+    {
+      "parent_subzone_name": "TOH GUAN",
+      "vis_exit_station": "JURONG EAST MRT STATION",
+      "vis_exit_footfall": 33352.0
+    },
+    {
+      "parent_subzone_name": "JURONG WEST CENTRAL",
+      "vis_exit_station": "PIONEER MRT STATION",
+      "vis_exit_footfall": 30562.0
+    },
+    {
+      "parent_subzone_name": "PASIR RIS CENTRAL",
+      "vis_exit_station": "PASIR RIS MRT STATION",
+      "vis_exit_footfall": 28849.0
+    }
+  ],
+  "verdict": "PASS"
+}

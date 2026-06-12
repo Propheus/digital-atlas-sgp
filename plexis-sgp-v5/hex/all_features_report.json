@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-06-11T08:10:21",
+  "wall_clock_s": 0.65,
+  "shapes": {
+    "hex9_all_features": [
+      7318,
+      583
+    ],
+    "hex8_all_features": [
+      1191,
+      703
+    ],
+    "subzone_all_features": [
+      326,
+      389
+    ]
+  }
+}

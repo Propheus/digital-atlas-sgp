@@ -1,0 +1,76 @@
+{
+  "atlas_name": "Plexis SGP",
+  "version": "5.3.0",
+  "generated_at": "2026-06-11T05:06:07",
+  "scales": {
+    "hex9": {
+      "resolution": "H3 res-9 (~174m edge, ~0.105 km\u00b2)",
+      "n_cells": 7318
+    },
+    "hex8": {
+      "resolution": "H3 res-8 (~461m edge, ~0.737 km\u00b2)",
+      "n_cells": 1191
+    },
+    "subzone": {
+      "resolution": "URA Master Plan 2019 subzone",
+      "n_cells": 326
+    },
+    "place": {
+      "resolution": "individual venue/POI",
+      "n_places": 190591
+    }
+  },
+  "primary_keys": {
+    "hex9": "hex9_id (H3 cell index)",
+    "hex8": "hex8_id (H3 cell index)",
+    "subzone": "subzone_c (URA code, e.g. AMSZ01)",
+    "place": "id (12-char unique place ID)"
+  },
+  "master_bundles": {
+    "hex9_all_features": {
+      "path": "hex/hex9_all_features.parquet",
+      "shape": [
+        7318,
+        583
+      ]
+    },
+    "hex8_all_features": {
+      "path": "hex/hex8_all_features.parquet",
+      "shape": [
+        1191,
+        801
+      ]
+    },
+    "subzone_all_features": {
+      "path": "hex/subzone_all_features.parquet",
+      "shape": [
+        326,
+        389
+      ]
+    },
+    "places_final": {
+      "path": "places/sgp_places_final.parquet",
+      "shape": [
+        190591,
+        27
+      ]
+    },
+    "places_micrograph": {
+      "path": "places/sgp_places_micrograph.parquet",
+      "shape": [
+        190591,
+        20
+      ]
+    }
+  },
+  "catalogs": {
+    "datasets": "catalog/dataset_catalog.json",
+    "features": "catalog/feature_catalog.json",
+    "embeddings": "catalog/embedding_catalog.json",
+    "report_html": "PLEXIS_v4_FINAL_REPORT.html"
+  },
+  "embedding_count": 10,
+  "feature_count": 2735,
+  "dataset_count": 50,
+  "pipeline_stages": 47
+}

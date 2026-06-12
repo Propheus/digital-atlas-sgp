@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-04-30T02:11:16",
+  "wall_clock_s": 2.74,
+  "where_input_features": 545,
+  "where_explained_variance": 0.8433305941028463,
+  "what_input_features": 137,
+  "what_explained_variance": 0.7099746973755664,
+  "shapes": {
+    "hex9_where_64d": [
+      7318,
+      65
+    ],
+    "place_what_64d": [
+      190591,
+      65
+    ],
+    "place_combined_128d": [
+      190591,
+      129
+    ],
+    "hex9_combined_128d": [
+      7318,
+      129
+    ]
+  }
+}

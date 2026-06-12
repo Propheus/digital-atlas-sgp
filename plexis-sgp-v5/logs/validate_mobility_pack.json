@@ -1,0 +1,39 @@
+{
+  "layer": "mobility_pack",
+  "checks": [
+    {
+      "check": "M1_join_integrity",
+      "status": "PASS",
+      "detail": "1191 rows; id match 1191/1191; 98 cols shipped, 10 deduped away (['mrt_reach_eff_min', 'mrt_reach_walk_min', 'min15_nearest_clinic_m', 'min15_nearest_hawker_m']...)"
+    },
+    {
+      "check": "M2_dedupe_held",
+      "status": "PASS",
+      "detail": "max |r| vs existing master = 0.977 (walking_dependent_count~pop_resident)"
+    },
+    {
+      "check": "M3_archetypes",
+      "status": "PASS",
+      "detail": "CBD min time 9min; LCK NA (non-scored, correct); national max 66min; Toa Payoh min15 max 100; Telok Blangah elderly vuln penalty>0: True (max 0.1pts); linkway top-10 mature 7/10"
+    },
+    {
+      "check": "M4_zone_type",
+      "status": "PASS",
+      "detail": "zone_type_broad coverage 100%; non-res hexes n=497, adequacy NA share 100% (rule: NA, never scored)"
+    },
+    {
+      "check": "M5_ranges",
+      "status": "PASS",
+      "detail": "times/scores/lengths all in range; adq NaN shares logged"
+    }
+  ],
+  "nan_share_adq": {
+    "adq_default": 0.417,
+    "adq_core": 0.417,
+    "adq_v2": 0.417,
+    "adq_default_elderly": 0.417,
+    "adq_default_family": 0.417,
+    "adq_default_workers": 0.417
+  },
+  "verdict": "PASS"
+}

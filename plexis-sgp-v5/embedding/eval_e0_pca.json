@@ -1,0 +1,18 @@
+{
+ "twin_toa_payoh_mature": true,
+ "twin_cbd_core": true,
+ "twin_matilda_newtown": true,
+ "twin_tuas_industrial": true,
+ "twin_yishun_heartland": true,
+ "twin_hitrate": 1.0,
+ "contrast_pct_min": 0.9965483422588178,
+ "probe_hdb_psm_r2": 0.7920316980758173,
+ "probe_od_r2": 0.9578455707624594,
+ "probe_adq_r2": 0.9839887273376807,
+ "zone_ari": 0.26070645628495903,
+ "dist_rankcorr_raw": 0.9999679503354317,
+ "negctrl_r2": -0.9784459300906576,
+ "zone_silhouette": 0.06526644916779394,
+ "perhex_zone_coherence_pass": 0.9151973131821999,
+ "locality_pa_share_top50": 0.4313182199832074
+}

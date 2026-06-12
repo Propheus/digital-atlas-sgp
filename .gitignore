@@ -44,3 +44,13 @@ app/dist/
 merlion-app/frontend/node_modules/
 apps/hex-adequacy/dist/
 dist/
+
+# session 2026-06: artifacts too big / reproducible — live on servers, not git
+backups/
+data/gtfs/singapore-gtfs/
+data/plexis/*.npz
+plexis-sgp-v5/plexis_gnn/*.npz
+plexis-sgp-v5/data/nvidia_personas/
+school_travel_friendliness/data/sg_walk.graphml
+school_travel_friendliness/scripts/cache/
+.next/

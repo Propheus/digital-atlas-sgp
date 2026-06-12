@@ -1,0 +1,154 @@
+{
+  "critiques": [
+    {
+      "feature": "hotel_competitive_density",
+      "strengths": [
+        "Room inventory data provides capacity-weighted competition signal that place counts cannot capture",
+        "Directly actionable for revenue management and pricing strategy decisions"
+      ],
+      "weaknesses": [
+        "External source 'hotel_room_inventory_database' is vague \u2014 no clear API or data provider specified; likely requires expensive commercial data (STR, OTA scraping)",
+        "Description says 'count of hotel/hospitality places' but rationale mentions 'room count data' \u2014 inconsistent specification",
+        "Hex8 aggregation may be too coarse for competitive analysis; hotels 500m apart in different hex8s would be missed"
+      ],
+      "redundancy_with": "mg_hotel_hospitality_pressure_400m",
+      "implementation_risk": "high",
+      "confidence": 0.35
+    },
+    {
+      "feature": "dist_changi_airport_km",
+      "strengths": [
+        "Airport proximity is a genuine demand driver for transit hotels and business travelers",
+        "Simple, deterministic calculation with no external dependencies"
+      ],
+      "weaknesses": [
+        "Euclidean distance ignores actual travel time \u2014 hotels near ECP vs. those requiring PIE detour have same distance but different accessibility",
+        "Single hardcoded coordinate (1.3644, 103.9915) doesn't account for multiple terminals spread over ~3km",
+        "111.32 km/degree approximation introduces ~0.3% error at Singapore's latitude; minor but sloppy"
+      ],
+      "redundancy_with": "pull_airport",
+      "implementation_risk": "low",
+      "confidence": 0.6
+    },
+    {
+      "feature": "dist_marina_bay_km",
+      "strengths": [
+        "CBD proximity is a validated predictor of corporate hotel demand and ADR",
+        "Computationally trivial with existing lat/lng columns"
+      ],
+      "weaknesses": [
+        "Single point (1.2816, 103.8636) poorly represents CBD which spans Raffles Place to Tanjong Pagar \u2014 ~2km spread",
+        "Euclidean distance meaningless for hotels separated by Marina Bay water body requiring bridge/tunnel access",
+        "Does not differentiate between CBD-facing (premium views) vs. CBD-adjacent (no view premium)"
+      ],
+      "redundancy_with": "pull_cbd",
+      "implementation_risk": "low",
+      "confidence": 0.55
+    },
+    {
+      "feature": "is_orchard_belt",
+      "strengths": [
+        "Orchard Road is a distinct hotel micro-market with documented rate premiums",
+        "Binary flag enables clean segmentation for pricing models"
+      ],
+      "weaknesses": [
+        "Hardcoded bounding box (1.298-1.310, 103.825-103.845) is arbitrary \u2014 excludes Tanglin hotels (Shangri-La, St. Regis) which are considered Orchard market",
+        "No validation that box actually captures Orchard Road hotels vs. nearby residential areas",
+        "Boolean loses gradient information \u2014 hotel at edge of Orchard vs. center of ION treated identically"
+      ],
+      "redundancy_with": null,
+      "implementation_risk": "medium",
+      "confidence": 0.5
+    },
+    {
+      "feature": "is_sentosa_area",
+      "strengths": [
+        "Sentosa hotels have genuinely distinct demand patterns (leisure, weekend-heavy, event-driven)",
+        "Clean geographic isolation makes binary classification defensible"
+      ],
+      "weaknesses": [
+        "Bounding box (1.245-1.260, 103.815-103.865) may include Harbourfront hotels which have different demand profile than island resorts",
+        "Misses Sentosa Cove eastern edge hotels if coordinates are slightly off",
+        "Only ~15-20 hotels in Sentosa \u2014 feature will be extremely sparse with near-zero variance"
+      ],
+      "redundancy_with": null,
+      "implementation_risk": "low",
+      "confidence": 0.6
+    },
+    {
+      "feature": "review_volume_indicator",
+      "strengths": [
+        "Log-transform handles heavy-tailed distribution appropriately",
+        "Review count is a reasonable proxy for booking volume and property maturity"
+      ],
+      "weaknesses": [
+        "reviews_count source unclear \u2014 Google reviews? Booking.com? TripAdvisor? Each has different coverage and bias",
+        "New hotels with excellent occupancy but few reviews will be systematically undervalued",
+        "fillna(0) then log1p means missing data treated same as genuinely zero-review properties"
+      ],
+      "redundancy_with": "review_bucket",
+      "implementation_risk": "low",
+      "confidence": 0.65
+    },
+    {
+      "feature": "event_calendar_impact",
+      "strengths": [
+        "F1 GP and MICE events cause documented 2-3x rate spikes \u2014 high signal value",
+        "Temporal feature adds dimension not captured by static location features"
+      ],
+      "weaknesses": [
+        "External source 'singapore_events_calendar_api' does not exist as a unified API \u2014 would require scraping STB, Sistic, MBS, etc.",
+        "Description says 'daily' but hotel pricing is set weeks in advance \u2014 need forward-looking calendar, not current-day",
+        "Place-level assignment unclear \u2014 how does a Marina Bay event impact a Geylang hotel? Distance decay function unspecified"
+      ],
+      "redundancy_with": null,
+      "implementation_risk": "high",
+      "confidence": 0.3
+    },
+    {
+      "feature": "daily_weather_rainfall_mm",
+      "strengths": [
+        "Weather does impact tourist behavior and last-minute booking patterns",
+        "NEA provides reliable weather data for Singapore"
+      ],
+      "weaknesses": [
+        "Place-level rainfall makes no sense \u2014 Singapore is 50km across; NEA provides station-level data, not hotel-level",
+        "Rainfall affects same-day walk-ins but hotel pricing is set days/weeks ahead \u2014 temporal mismatch",
+        "Monsoon seasonality already captured by booking date features; daily noise adds little predictive value"
+      ],
+      "redundancy_with": null,
+      "implementation_risk": "medium",
+      "confidence": 0.25
+    },
+    {
+      "feature": "is_branded_hotel",
+      "strengths": [
+        "Brand affiliation genuinely affects pricing power, distribution channels, and demand stability",
+        "Leverages existing brand column with minimal computation"
+      ],
+      "weaknesses": [
+        "brand column quality unknown \u2014 does 'brand' contain 'Marriott' or 'JW Marriott Singapore'? Normalization needed",
+        "Code checks brand.notna() & brand != '' but doesn't validate against known hotel brands \u2014 'ABC Pte Ltd' would pass",
+        "plexis_category filter assumes perfect categorization \u2014 miscategorized serviced apartments would be excluded"
+      ],
+      "redundancy_with": null,
+      "implementation_risk": "medium",
+      "confidence": 0.55
+    },
+    {
+      "feature": "rating_premium_score",
+      "strengths": [
+        "Rating-based quality tiers are standard in hotel revenue management",
+        "Normalization to 0-1 range enables direct use in pricing models"
+      ],
+      "weaknesses": [
+        "fillna(3.5) assumes missing ratings are average \u2014 but missing often means new/unlisted properties which skew higher or lower",
+        "Formula (rating - 3.0) / 2.0 assumes 3.0-5.0 range but Google ratings can be 1.0-5.0; a 2.5-rated hotel gets negative score before clip",
+        "Does not account for review count \u2014 a 4.8 with 5 reviews vs. 4.5 with 2000 reviews have different reliability"
+      ],
+      "redundancy_with": "rating",
+      "implementation_risk": "low",
+      "confidence": 0.5
+    }
+  ]
+}

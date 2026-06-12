@@ -1,0 +1,35 @@
+{
+  "checks": [
+    {
+      "check": "L1_total_area_match",
+      "status": "PASS",
+      "detail": "hex=784.70 km\u00b2 vs ura=784.85 km\u00b2, diff=0.019%"
+    },
+    {
+      "check": "L2_full_coverage",
+      "status": "PASS",
+      "detail": "7,318/7,318 hexes have land-use data"
+    },
+    {
+      "check": "L3_shares_sum_to_1",
+      "status": "PASS",
+      "detail": "all 7,318 hexes have shares \u2211\u22481 (or 0)"
+    },
+    {
+      "check": "L4_entropy_bounds",
+      "status": "PASS",
+      "detail": "all entropies in [0, ln(15)=2.708]"
+    },
+    {
+      "check": "L5_dominant_use_present",
+      "status": "PASS",
+      "detail": "all 7,318 non-empty hexes have dominant_use"
+    },
+    {
+      "check": "L6_landmark_spot_checks",
+      "status": "PASS",
+      "detail": "5/5 landmark predicates have matching hexes"
+    }
+  ],
+  "generated_at": "2026-04-25T03:18:24"
+}

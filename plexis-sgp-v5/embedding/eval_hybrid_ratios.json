@@ -1,0 +1,38 @@
+{
+ "192/64": {
+  "twin_toa_payoh_mature": true,
+  "twin_cbd_core": true,
+  "twin_matilda_newtown": true,
+  "twin_tuas_industrial": true,
+  "twin_yishun_heartland": true,
+  "twin_hitrate": 1.0,
+  "contrast_pct_min": 0.9968221041565241,
+  "probe_hdb_psm_r2": 0.7851079019142952,
+  "probe_od_r2": 0.905675961313537,
+  "probe_adq_r2": 0.9178808140276604,
+  "zone_ari": 0.2973644645524211,
+  "dist_rankcorr_raw": 0.9425563445824924,
+  "negctrl_r2": -0.010587746101944129,
+  "zone_silhouette": 0.1311572343781684,
+  "perhex_zone_coherence_pass": 0.9252728799328296,
+  "locality_pa_share_top50": 0.47143576826196476
+ },
+ "160/96": {
+  "twin_toa_payoh_mature": true,
+  "twin_cbd_core": true,
+  "twin_matilda_newtown": true,
+  "twin_tuas_industrial": true,
+  "twin_yishun_heartland": true,
+  "twin_hitrate": 1.0,
+  "contrast_pct_min": 0.9968108150061032,
+  "probe_hdb_psm_r2": 0.8097699819643828,
+  "probe_od_r2": 0.8972171631797601,
+  "probe_adq_r2": 0.9296696915546152,
+  "zone_ari": 0.28053321010172294,
+  "dist_rankcorr_raw": 0.9434426653783755,
+  "negctrl_r2": -0.013948354672030483,
+  "zone_silhouette": 0.13134950925608385,
+  "perhex_zone_coherence_pass": 0.9252728799328296,
+  "locality_pa_share_top50": 0.47116708648194794
+ }
+}

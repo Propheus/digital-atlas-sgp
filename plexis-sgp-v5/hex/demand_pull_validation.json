@@ -1,0 +1,40 @@
+{
+  "checks": [
+    {
+      "check": "D1_bounds",
+      "status": "PASS",
+      "detail": "all 7 pull cols in [0,1]"
+    },
+    {
+      "check": "D2_cbd_top20_in_cbd_cluster",
+      "status": "PASS",
+      "detail": "20/20 in CBD cluster"
+    },
+    {
+      "check": "D3_mall_top20_near_retail_clusters",
+      "status": "PASS",
+      "detail": "16/20"
+    },
+    {
+      "check": "D4_airport_top20_in_east",
+      "status": "PASS",
+      "detail": "20/20 in East SGP"
+    },
+    {
+      "check": "D5_mrt_intch_near_hubs",
+      "status": "PASS",
+      "detail": "18/20"
+    },
+    {
+      "check": "D6_composite_spread",
+      "status": "PASS",
+      "detail": "p10=0.019  p90=0.411"
+    },
+    {
+      "check": "D7_hex9_to_hex8_mean",
+      "status": "PASS",
+      "detail": "max abs diff 0.0005"
+    }
+  ],
+  "generated_at": "2026-04-29T16:51:21"
+}

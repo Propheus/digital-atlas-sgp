@@ -1,0 +1,164 @@
+{
+  "critiques": [
+    {
+      "feature": "office_transit_synergy",
+      "strengths": [
+        "Captures the intersection of two key demand drivers for specialty cafes - office workers and transit accessibility",
+        "Normalization approach prevents extreme values from dominating",
+        "Directly addresses the stated use case of young professional targeting"
+      ],
+      "weaknesses": [
+        "Highly redundant with existing syn_office_x_transit which already captures office-transit interaction",
+        "Max-based normalization is unstable across data updates - a single outlier hex changes all values",
+        "Multiplicative combination means zero in either input yields zero output, losing partial signal"
+      ],
+      "redundancy_with": "syn_office_x_transit",
+      "implementation_risk": "low",
+      "confidence": 0.35
+    },
+    {
+      "feature": "specialty_cafe_competition_gap",
+      "strengths": [
+        "Simple interpretable ratio of demand proxy to supply",
+        "The +1 denominator correctly handles zero-cafe hexes",
+        "Identifies underserved office areas which is actionable for site selection"
+      ],
+      "weaknesses": [
+        "Assumes linear relationship between office count and cafe demand - ignores office size/employee density",
+        "Does not account for nearby hexes' cafes - a hex with 0 cafes but 10 cafes in adjacent hex shows as underserved",
+        "Existing gap_cafe_coffee already captures cafe undersupply using more sophisticated population-based methodology"
+      ],
+      "redundancy_with": "gap_cafe_coffee",
+      "implementation_risk": "low",
+      "confidence": 0.45
+    },
+    {
+      "feature": "lunch_rush_potential",
+      "strengths": [
+        "Combines midday transit activity with food venue scarcity - logical for lunch opportunity",
+        "Uses both bus and GTFS data for more complete transit picture",
+        "Denominator includes both cafes and restaurants for realistic competition assessment"
+      ],
+      "weaknesses": [
+        "bus_taps_in_midday and gtfs_dep_midday have different units/scales - raw addition is meaningless without normalization",
+        "Midday departures measure people leaving, not arriving - may inversely correlate with lunch crowd presence",
+        "Industrial areas with bus routes but no food will score high despite being poor cafe locations"
+      ],
+      "redundancy_with": null,
+      "implementation_risk": "medium",
+      "confidence": 0.55
+    },
+    {
+      "feature": "afterwork_vibrancy",
+      "strengths": [
+        "Targets evening economy which is distinct from daytime office demand",
+        "Multiplicative weighting with nightlife presence adds relevant context",
+        "PM transit captures commuter outflow timing well"
+      ],
+      "weaknesses": [
+        "The 0.1 multiplier on bar_nightlife is arbitrary and untested - why not 0.05 or 0.2?",
+        "Specialty cafes typically close by 6-8pm - afterwork vibrancy may be irrelevant for the stated use case",
+        "Existing vibrancy_index already captures evening activity patterns more comprehensively"
+      ],
+      "redundancy_with": "vibrancy_index",
+      "implementation_risk": "low",
+      "confidence": 0.4
+    },
+    {
+      "feature": "coworking_proximity_score",
+      "strengths": [
+        "Three-way interaction captures walkable commercial office zones well",
+        "Targets freelancer/remote worker segment which is high-value for specialty cafes",
+        "All three inputs are meaningful and complementary"
+      ],
+      "weaknesses": [
+        "pc_cat_business_office counts all offices, not specifically coworking spaces - misleading feature name",
+        "Triple multiplication means any zero input kills the signal entirely - very sparse output expected",
+        "Existing commercial_intensity already captures commercial zone density; this adds marginal value"
+      ],
+      "redundancy_with": "commercial_intensity",
+      "implementation_risk": "low",
+      "confidence": 0.5
+    },
+    {
+      "feature": "young_professional_residential_proxy",
+      "strengths": [
+        "Non-HDB as affluence proxy is reasonable for Singapore context",
+        "Working-age population filter adds demographic relevance",
+        "Simple and interpretable calculation"
+      ],
+      "weaknesses": [
+        "pop_hdb_share fillna(1) means missing data defaults to 100% HDB, yielding zero - may mask data gaps",
+        "Conflates condo residents with landed property owners - very different demographics",
+        "pop_15_64 is too broad - includes 60-year-olds who are not 'young professionals'"
+      ],
+      "redundancy_with": "pop_non_hdb",
+      "implementation_risk": "low",
+      "confidence": 0.5
+    },
+    {
+      "feature": "mixed_use_cafe_appeal",
+      "strengths": [
+        "Mixed-use zones do generate all-day foot traffic from diverse sources",
+        "Weighting by commercial_intensity adds demand signal",
+        "Targets live-work-play areas which are prime specialty cafe locations"
+      ],
+      "weaknesses": [
+        "lu_mixed_use_pct is often zero or very low in Singapore - sparse signal expected",
+        "Multiplicative combination with commercial_intensity is partially redundant - mixed-use already implies commercial presence",
+        "Does not distinguish between mixed-use types (residential-retail vs office-retail)"
+      ],
+      "redundancy_with": null,
+      "implementation_risk": "low",
+      "confidence": 0.6
+    },
+    {
+      "feature": "daytime_population_estimate",
+      "strengths": [
+        "Attempts to solve the critical daytime vs resident population problem",
+        "Combines multiple demand signals (residents, offices, transit)",
+        "Directly addresses a stated constraint in the use case"
+      ],
+      "weaknesses": [
+        "Magic numbers (0.3, 50, 0.1, 0.1) are completely arbitrary - 50 employees per office POI is unsupported",
+        "Transit taps are double-counted if someone takes bus then train",
+        "wp_pop (workplace population) already exists and is likely more accurate than this heuristic"
+      ],
+      "redundancy_with": "wp_pop",
+      "implementation_risk": "medium",
+      "confidence": 0.4
+    },
+    {
+      "feature": "premium_location_indicator",
+      "strengths": [
+        "HDB resale prices are a strong affluence signal in Singapore",
+        "Median-based normalization is more robust than max-based",
+        "Simple and interpretable"
+      ],
+      "weaknesses": [
+        "Only uses 4-room HDB prices - excludes areas with predominantly 3-room or 5-room flats",
+        "HDB prices are irrelevant in non-HDB areas (CBD, Sentosa) - these will show as zero despite being premium",
+        "Existing hdb_resale_4r_median_psm provides the raw signal; this normalization adds little value"
+      ],
+      "redundancy_with": "hdb_resale_4r_median_psm",
+      "implementation_risk": "low",
+      "confidence": 0.35
+    },
+    {
+      "feature": "mrt_exit_cafe_opportunity",
+      "strengths": [
+        "MRT exits are high-value locations for grab-and-go coffee",
+        "Combining with cafe gap identifies specific underserved transit nodes",
+        "Actionable for site selection near specific MRT stations"
+      ],
+      "weaknesses": [
+        "np.maximum(0, gap_cafe_coffee) clips negative gaps but gap_cafe_coffee methodology may already handle this",
+        "mrt_exit_count is sparse - most hexes have 0 exits, making this feature mostly zeros",
+        "Does not account for exit quality - underground vs street-level, pedestrian flow direction"
+      ],
+      "redundancy_with": null,
+      "implementation_risk": "low",
+      "confidence": 0.65
+    }
+  ]
+}

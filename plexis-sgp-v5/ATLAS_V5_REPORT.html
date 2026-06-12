@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Digital Atlas Singapore — Plexis v5.3.0 Report</title>
+<style>
+:root{--bg:#0b1220;--card:#101a2c;--line:#1e293b;--t1:#e2e8f0;--t2:#94a3b8;--acc:#fcd34d;--ok:#34d399;--warn:#f59e0b;--bad:#ef4444}
+body{background:var(--bg);color:var(--t1);font:14px/1.55 -apple-system,Segoe UI,Roboto,sans-serif;margin:0;padding:32px 20px}
+.wrap{max-width:1080px;margin:0 auto}
+h1{font-size:26px;margin:0 0 4px} h2{font-size:18px;color:var(--acc);margin:34px 0 10px;border-bottom:1px solid var(--line);padding-bottom:6px}
+h3{font-size:15px;margin:18px 0 6px;color:var(--t1)}
+.sub{color:var(--t2)} .small{font-size:12px;color:var(--t2)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:18px 0}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}
+.tile b{display:block;font-size:22px;color:var(--acc)} .tile span{color:var(--t2);font-size:12px}
+table{border-collapse:collapse;width:100%;margin:10px 0;font-size:13px}
+th{color:var(--t2);text-align:left;border-bottom:1px solid var(--line);padding:6px 8px;font-weight:600}
+td{border-bottom:1px solid #16213a;padding:6px 8px;vertical-align:top}
+.pass{color:var(--ok);font-weight:600} .warn{color:var(--warn)} .hot{color:var(--acc)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:10px 0}
+code{background:#0f172a;border:1px solid var(--line);padding:1px 5px;border-radius:4px;font-size:12px;color:#bae6fd}
+ul{margin:6px 0 6px 18px;padding:0} li{margin:3px 0}
+.glow{ text-shadow:0 0 14px #fcd34d44 }
+</style>
+</head>
+<body><div class="wrap">
+
+<h1>Digital Atlas Singapore — <span class="glow hot">Plexis v5.3.0</span></h1>
+<div class="sub">Atlas release report · validations &amp; runs · 2026-06-11 · authoritative copies: <code>azold:/home/azureuser/da-sgp/v5/</code> ↔ local <code>plexis-sgp-v5/</code></div>
+
+<div class="tiles">
+<div class="tile"><b>1,191 × 801</b><span>hex8 master (was 601 in v4.9)</span></div>
+<div class="tile"><b>200</b><span>new S1–S11 columns in master</span></div>
+<div class="tile"><b>64 / 64</b><span>validation gate checks PASS</span></div>
+<div class="tile"><b>2,735</b><span>catalogued features, 100% described</span></div>
+<div class="tile"><b>50</b><span>datasets indexed</span></div>
+<div class="tile"><b>256-d</b><span>gated hex8 similarity embedding</span></div>
+<div class="tile"><b>6,036,900</b><span>population (SingStat Jun-2024 calibrated)</span></div>
+</div>
+
+<h2>1 · What v5 is</h2>
+<div class="card">
+v5 turns the atlas from a <i>descriptive</i> instrument (what is each hex) into a
+<b>decision instrument</b> (what would a new outlet capture, who can reach it, what does it cost,
+what is coming). Eleven validated layer families were added one at a time, each behind a
+five-part gate; every number in the master traces to a source, a validator, and a one-page
+validation entry. The release closes with a gated 256-d similarity embedding over the full
+feature set. Every claim in this report is reproducible from <code>logs/validate_*.json</code>.
+</div>
+
+<h2>2 · Version timeline</h2>
+<table>
+<tr><th>Version</th><th>Date</th><th>Content</th><th>Master</th></tr>
+<tr><td><b>v5.0.0</b></td><td>06-10</td><td>V5 release: site-selection layers S1–S9 (capture, isochrones, daytime pop, ACRA churn, co-location, labor shed, visibility, rent, pipeline)</td><td>1,191 × 687</td></tr>
+<tr><td><b>v5.1.0</b></td><td>06-11</td><td>S10 context pack (conservation/shophouse, carpark capacity, polyclinics, wet markets, petrol, coworking, condos, female share, BTO pipeline) + catalog overhaul to 100% described</td><td>1,191 × 703</td></tr>
+<tr><td><b>v5.2.0</b></td><td>06-11</td><td>S11 mobility pack (travel-time anchors, MRT reach, waits/crowding, adequacy v3, 15-min city, pass-type splits, linkways) — built on server</td><td>1,191 × 801</td></tr>
+<tr><td><b>v5.3.0</b></td><td>06-11</td><td>Plexis-E v1 embedding (hybrid 160 PCA + 96 contrastive) trained, gated, registered</td><td>+ 256-d space</td></tr>
+</table>
+
+<h2>3 · New layer families (S1–S11) and their headline validations</h2>
+<table>
+<tr><th>Layer</th><th>Cols</th><th>What it answers</th><th>Gate</th><th>Headline validation result</th></tr>
+<tr><td>S1 Huff capture <code>cap_*</code></td><td>13</td><td>Demand a NEW outlet would win vs competition (outlet-equivalents, 11 categories)</td><td class="pass">5/5</td><td><b>Yunnan ranks p96 for supermarket capture</b> — independently re-derives the known FairPrice desert; saturated Orchard ranks p03 for cafés (the inversion is the point). Synthetic competitor reduces capture 40/40.</td></tr>
+<tr><td>S2a walk isochrones <code>iso_walk10_*</code> (12) + <code>iso_reached_node_n / iso_euclid800_pop / iso_severance_ratio / iso_snap_dist_m</code></td><td>16</td><td>True 800 m network catchment (pop/spend/places/competitors), severance-aware</td><td class="pass">6/6</td><td><code>iso_walk10_unserved_pop_supermarket</code> max |r| = 0.14 vs all prior columns — the most novel feature in the atlas. Severance signal confirmed vs expressways.</td></tr>
+<tr><td>S2b transit reach <code>iso_transit15_*</code></td><td>4</td><td>15-min weekday-AM door-to-door reach (GTFS graph)</td><td class="pass">7/7</td><td>Interchange towns peak ~250K reach; within density terciles, reach tracks transit quantity ρ≈0.70–0.74.</td></tr>
+<tr><td>S3 daytime population <code>dt_*</code></td><td>8</td><td>Who is actually present by day (OD-based)</td><td class="pass">8/8</td><td>National conservation +0.20%; CBD/bedroom archetypes 18/20; exposed direction-blind <code>breathing_idx</code> (fixed in explorer).</td></tr>
+<tr><td>S4 ACRA churn <code>biz_*</code></td><td>10</td><td>Business formation, mortality, registration density</td><td class="pass">6/6</td><td>94.2% of 2.07M entities geocoded offline; churn family fully novel (max |r| 0.38–0.64); registered-agent artifact winsorized + detectable via <code>biz_per_address</code>.</td></tr>
+<tr><td>S5 labor shed <code>labor_*</code></td><td>5</td><td>Workers reachable in 30/45-min transit; jobs reach</td><td class="pass">5/5</td><td>CBD pool 1.68M (59.6% of workforce); Tuas at p0 — the jobs-without-transit gap quantified.</td></tr>
+<tr><td>S6 co-location lift <code>colo_*</code></td><td>11 + 24×24 matrix</td><td>Which categories empirically thrive near which</td><td class="pass">5/5</td><td>Split-half stability r=0.988; bar→bar 3.0, industrial→residential 0.50; <b>cafés do NOT follow offices (0.87)</b>.</td></tr>
+<tr><td>S7 visibility <code>vis_*</code></td><td>6</td><td>Per-exit MRT footfall, traffic exposure, corners</td><td class="pass">4/4</td><td>Per-exit construct validated: few-exit busy stations (Punggol concourse, Novena) legitimately beat 13-exit Orchard.</td></tr>
+<tr><td>S8 rent surface <code>rent_*</code>/<code>roi_*</code></td><td>8</td><td>Spatial occupancy-cost proxy + capture-per-rent</td><td class="pass">5/5</td><td>913 URA projects, 99.7% populated-hex coverage; psf rents peak at new-build CBD + prime D9/10, not old Orchard stock. (Commercial rent: Realis-only — documented gap.)</td></tr>
+<tr><td>S9 pipeline <code>pipe_*</code></td><td>5</td><td>Future rail + development capacity</td><td class="pass">4/4</td><td>37 future stations (full JRL + Keppel CCL6) from MP19-delta; FAR-headroom ranks Matilda 0.50 / Bidadari 0.34 / built-out Toa Payoh = 0.</td></tr>
+<tr><td>S10 context pack <code>cons_/carpark_/…</code></td><td>16</td><td>Heritage, parking capacity, polyclinics, wet markets, coworking, condos, BTO towns</td><td class="pass">4/4</td><td>All national sums conserve exactly; BTO top towns = Kallang/Whampoa 11.5K, Tengah 11.1K (FY2024 reality).</td></tr>
+<tr><td>S11 mobility pack <code>time_to_/adq_/min15_/…</code></td><td>98</td><td>Functional position (12 travel-time anchors), adequacy v3, 15-min city, service quality, linkways</td><td class="pass">5/5</td><td>Curation enforced by code: |r|≥0.98 auto-dropped 10 duplicates; zone-NA rule moved from display-time into the data (497 non-res hexes); 245 km covered linkways quantified.</td></tr>
+</table>
+
+<h2>4 · Validation: protocol, totals, and what it forced</h2>
+<div class="card">
+<b>Protocol (every layer, no exceptions):</b> numbered machine checks → redundancy audit vs all
+existing columns (|r| &gt; 0.9 ⇒ drop/redefine) → hand-reviewed archetype table → NaN/zone-type
+accounting (NaN ≠ 0, non-residential = Not-Applicable) → one-page signed entry in
+<code>SITE_SELECTION_VALIDATION.md</code> before merge.
+<br><br><b>Totals: 64/64 checks PASS across 12 layer validators.</b> Nothing in the v5 S-layers shipped on a WARN (legacy core validators — buildings, roads, satellite, composites, road centrality — retain 8 historical WARNs that pre-date S1–S11).
+</div>
+<h3>Design amendments the gates forced (the honest-engineering ledger)</h3>
+<table>
+<tr><th>#</th><th>What validation caught</th><th>Amendment</th></tr>
+<tr><td>1</td><td><code>breathing_idx</code> was direction-blind — full-day in≈out (ρ=.996), collapsing to throughput-vs-pop (ρ=.999); interchange towns mislabeled job centers</td><td>Redefined to AM-directional <code>z(dt_net_am_persons)</code>; explorer updated</td></tr>
+<tr><td>2</td><td>hex9-centroid catchments undercounted ~2.5× at 800 m budget</td><td>Node-field demand distribution (pop on network nodes)</td></tr>
+<tr><td>3</td><td>Geometric-centroid snap hostage to road enclaves (Lorong 8 Toa Payoh: 56/870 nodes reachable)</td><td>Activity-centroid origins + k=4 multi-source Dijkstra</td></tr>
+<tr><td>4</td><td><b>Huff λ not identifiable</b>: placement test → absurd 100 m decay (zoning overfit); allocation test never beats its degenerate baseline</td><td>λ assumed from behavioral priors (500/700/1000/1500 m), defended by rank stability ρ≥0.83; <code>cap_bar_nightlife</code> dropped (bars follow culture, not demand)</td></tr>
+<tr><td>5</td><td>Presence-based co-location lift saturated (P(office nearby)≈1)</td><td>Count-based lift; presence-fit also collapsed into walkability (r=.95) → share-based mix-match fit (r=.45)</td></tr>
+<tr><td>6</td><td>Hex-aggregated taps credited single-exit LRT stations with interchange volume (Petir “saw” 160K)</td><td>Real per-station PV; sg-rail exit-label points filtered (they poisoned the code→name map)</td></tr>
+<tr><td>7</td><td>Footprint-share dev capacity inverted archetypes (towers cover little ground → built-out Toa Payoh read “empty”)</td><td>FAR-headroom construct (avg_gpr − est_built_far)</td></tr>
+<tr><td>8</td><td>Source app masks non-residential adequacy only at display time</td><td>Zone-NA rule enforced in the data layer (497 hexes NaN)</td></tr>
+<tr><td>9</td><td>Embedding probe comparisons were scale-biased (raw-scale ridge under-regularizes PCA)</td><td>Harness fixed: StandardScaler + RidgeCV; all candidates re-scored</td></tr>
+<tr><td>10</td><td>Pure contrastive space distorted global geometry (contrast pairs p68; rank-corr .109)</td><td>Hybrid 160 PCA + 96 contrastive — locked gates, not the composite score, made the call</td></tr>
+</table>
+
+<h2>5 · Findings ledger (new urban insights from v5 validation)</h2>
+<div class="card"><ul>
+<li><b>Yunnan p96 supermarket capture</b> — the capture model re-derives the FairPrice desert from structure alone; Orchard p03 for cafés (saturation inversion works).</li>
+<li><b>Cafés don’t follow offices in Singapore</b> (lift 0.87) — they are heartland/mall creatures; bars follow bars (3.0), hotels pull bars (2.75), industry repels homes (0.50).</li>
+<li><b>The bus city nobody sees</b>: Yishun East reaches 190K people in 15 min on buses alone despite “rail-poor” metrics; breathing/interchange confusion resolved.</li>
+<li><b>Per-exit footfall beats per-station</b>: one Punggol-concourse or Novena exit out-foots any single Orchard exit (volume splits 13 ways).</li>
+<li><b>The 45-min centre of gravity is Little India/Bendemeer (1.9–2.1M reach), not Raffles Place</b>; Jurong East commands only the western shed (p70); Tuas labor pool p0.</li>
+<li><b>Chinatown/Telok Ayer is the registration belt</b> — 10.5K live entities even after winsorizing agent buildings; <code>biz_per_address</code> detects corporate-secretary towers (City Hall 109–131/address).</li>
+<li><b>psf rents peak at new-build CBD (City Hall/Midtown era) and Nassim/Leedon</b>, not the older large-format Orchard stock.</li>
+<li><b>245 km of covered linkways quantified</b> — top-decile density in mature HDB towns; the most Singapore feature in the atlas.</li>
+</ul></div>
+
+<h2>6 · Run report: Plexis-E v1 embedding (the v5.3.0 run)</h2>
+<div class="card">
+<b>Program:</b> staged E0→E1→E2→hybrid, one screen (<code>plexis-e1</code>) on azold (16-core CPU),
+<b>8 minutes end-to-end</b>; per-eval audit trail in <code>embedding/runs.jsonl</code>.
+Input: 739 prepared features (OPPORTUNITY view + probe targets excluded; log1p+z; NaN indicators).
+</div>
+<table>
+<tr><th>Metric (scale-invariant probes, PA-blocked CV)</th><th>E0 PCA</th><th>E1 contrastive</th><th>E2 +view-mask</th><th class="hot">SHIPPED hybrid 160/96</th></tr>
+<tr><td>Twin panel (5 anchors)</td><td>5/5</td><td>5/5</td><td>5/5</td><td class="pass">5/5</td></tr>
+<tr><td>Contrast pairs percentile (gate ≥.90)</td><td>.997</td><td class="warn">.493 ✗</td><td class="warn">.684 ✗</td><td class="pass">.997</td></tr>
+<tr><td>Probe R²: HDB psm / OD / adequacy</td><td>.714 / .935 / .950</td><td>.774 / .876 / .959</td><td>.834 / .862 / .955</td><td>.810 / .897 / .930</td></tr>
+<tr><td>Zone silhouette (structure)</td><td>.065</td><td>.126</td><td>.143</td><td class="pass">.133 (2× PCA)</td></tr>
+<tr><td>Per-hex zone coherence</td><td>.915</td><td>.919</td><td>.924</td><td class="pass">.925 (best)</td></tr>
+<tr><td>Distance rank-corr vs raw</td><td>1.0 (baseline)</td><td class="warn">.231 ✗</td><td class="warn">.109 ✗</td><td>.943</td></tr>
+<tr><td>Negative control (must ≈ 0)</td><td>−.02</td><td>−.00</td><td>−.00</td><td class="pass">−.01</td></tr>
+<tr><td>Seed stability (Procrustes, gate ≥.90)</td><td>—</td><td>.948</td><td>.961</td><td class="pass">.987</td></tr>
+</table>
+<div class="card small">
+<b>Verdict:</b> pure E2 “won” the composite score but failed two locked gates (InfoNCE uniformity
+compressed the extreme tails — Tuas drifted toward Orchard). The shipped hybrid keeps PCA’s global
+geometry and E2’s learned zone structure. Honest trade documented: OD/adequacy probes concede
+.038/.020 vs PCA (.897/.930, both stay &gt;0.89; source <code>eval_final_plexis_e1.json</code> —
+table corrected 2026-06-11). <b>Use plexis-e1 for similarity/twins/clustering; use raw
+features for ceiling prediction tasks.</b> Full story: <code>embedding/PLEXIS_E1_REPORT.md</code>.
+</div>
+
+<h2>7 · Ops &amp; runs log (how it was built)</h2>
+<table>
+<tr><th>Run</th><th>Where</th><th>Notes</th></tr>
+<tr><td>S1–S9 builders + validators</td><td>local → synced</td><td>walk graph 546K edges / 214K nodes; GTFS route-dir-stop graph 24K nodes; Huff 2.5M hex-pairs — all sub-minute builds</td></tr>
+<tr><td>ACRA geocoding</td><td>local</td><td><b>Pivot:</b> OneMap API now token-walled (~18/min unauth, HTTP-200 error bodies) → offline postal dump (141,726 buildings), 94.2% coverage in 6 s instead of 7 h</td></tr>
+<tr><td>URA data pulls</td><td>API (user access key)</td><td>Daily token flow verified; resi rental medians (913 projects, 2023Q2–2026Q1); <b>no commercial-rent services exist</b> (probed)</td></tr>
+<tr><td>S11 build</td><td><b>on azold</b></td><td>Mobility-v2 join + overlay clipping; |r|≥0.98 auto-dedupe; 17.8 s build</td></tr>
+<tr><td>Embedding program</td><td><b>on azold, screen</b></td><td>torch CPU; prep→E0→E1 screen(6 cfg)→finals(3 seeds)→E2→hybrids; 8 min; evals every 150–200 epochs to <code>runs.jsonl</code></td></tr>
+<tr><td>Catalogs + checkpoints</td><td>both sides</td><td>4 checkpoints (v5.0.0→v5.3.0), manifest live-computed (no more hardcoded shapes), broken JSON symlinks on server fixed</td></tr>
+</table>
+
+<h2>8 · Known limitations &amp; deferred</h2>
+<div class="card"><ul>
+<li><b>Commercial (shop) rent</b> — Realis-only; <code>rent_resi_psf_med</code> is the documented gradient proxy.</li>
+<li><b>BTO project-level locations</b> — no longer openly published; town table + FAR-headroom allocation is the modeled estimate.</li>
+<li><b>Huff λ is assumed</b> (behaviorally prior-set, rank-stable) — not empirically identifiable from cross-sectional data.</li>
+<li>OD is transit-only (single national mode-share constant); dorm private buses invisible.</li>
+<li>Embedding deferred checks: per-hex Haiku explainability pass, leave-one-family-out, counterfactual-direction.</li>
+<li>5 legacy graph-embedding families (6 catalog entries: node2vec, gcn, super ×2, place2vec, mega) remain unavailable locally; GNN v3/v6 + plexis-e1 are synced — 7/13 catalog entries available.</li>
+<li>Population vintage Jun-2024; consider re-anchoring to SingStat 2025 at the next data refresh.</li>
+</ul></div>
+
+<h2>9 · Artifact map</h2>
+<table>
+<tr><th>Artifact</th><th>Path (both sides)</th></tr>
+<tr><td>Masters</td><td><code>hex/hex8_all_features.parquet</code> (1,191×801) · hex9 583 · subzone 389</td></tr>
+<tr><td>Layer parquets + caches</td><td><code>hex/hex8_&lt;layer&gt;.parquet</code> (S1–S11) · transit minute matrix · Huff pairs</td></tr>
+<tr><td>Embedding</td><td><code>hex/hex8_embedding_plexis_e1_256d.parquet</code> + weights + <code>embedding/PLEXIS_E1_REPORT.md</code></td></tr>
+<tr><td>Catalogs</td><td><code>catalog/{feature,dataset}_catalog.{parquet,md,json}</code> · <code>atlas_manifest.json</code> · <code>embedding_catalog.json</code></td></tr>
+<tr><td>Specs &amp; validation</td><td><code>SITE_SELECTION_METRICS.md</code> · <code>SITE_SELECTION_VALIDATION.md</code> · <code>S11_MOBILITY_PACK.md</code> · <code>EMBEDDING_V5_DESIGN.md</code> · <code>logs/validate_*.json</code></td></tr>
+<tr><td>Checkpoints</td><td><code>CHECKPOINT_v5.{0,1,2,3}.0.{json,md}</code></td></tr>
+<tr><td>Downstream deliveries</td><td>nous pack <code>nous_export/</code> (also in nous <code>context/external/</code>) · explorer <code>explorer_export/</code></td></tr>
+</table>
+
+<div class="small" style="margin-top:26px;border-top:1px solid var(--line);padding-top:10px">
+Generated 2026-06-11 · Plexis v5.3.0 · every table reproducible from <code>logs/</code> and <code>catalog/</code> · report lives at <code>ATLAS_V5_REPORT.html</code> on both local and azold v5.
+</div>
+</div></body></html>

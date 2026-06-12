@@ -1,0 +1,86 @@
+{
+  "generated_at": "2026-04-25T03:19:43",
+  "wall_clock_s": 0.98,
+  "shapes": {
+    "hex9_roads_clean": [
+      7318,
+      18
+    ],
+    "hex8_roads_clean": [
+      1191,
+      18
+    ],
+    "subzone_roads_clean": [
+      270,
+      18
+    ]
+  },
+  "hex9_clean_cols": [
+    "hex9_id",
+    "parent_hex8",
+    "parent_subzone",
+    "road_length_total_m",
+    "road_density_km_per_km2",
+    "road_walkable_share",
+    "road_max_class_through",
+    "road_intersection_density_per_km2",
+    "dist_expressway_m",
+    "near_expressway_exit_400m",
+    "lane_km_per_km2",
+    "oneway_pct",
+    "bridge_length_m",
+    "signalized_crossing_count",
+    "parking_lot_count",
+    "hdb_mscp_count",
+    "centr_betweenness_max",
+    "centr_bridge_count"
+  ],
+  "hex8_clean_cols": [
+    "hex8_id",
+    "n_children",
+    "road_length_total_m",
+    "road_density_km_per_km2",
+    "road_walkable_share",
+    "road_max_class_through",
+    "road_intersection_count_total",
+    "road_intersection_density_per_km2",
+    "dist_expressway_m",
+    "near_expressway_exit_400m",
+    "lane_km_per_km2",
+    "oneway_pct",
+    "bridge_length_m",
+    "signalized_crossing_count",
+    "parking_lot_count",
+    "hdb_mscp_count",
+    "centr_betweenness_max",
+    "centr_bridge_count"
+  ],
+  "subzone_clean_cols": [
+    "subzone_c",
+    "subzone_area_km2",
+    "n_hex8",
+    "road_length_total_m",
+    "road_density_km_per_km2",
+    "road_walkable_share",
+    "road_max_class_through",
+    "road_intersection_count_total",
+    "road_intersection_density_per_km2",
+    "dist_expressway_m",
+    "expressway_in_subzone",
+    "lane_km_per_km2",
+    "bridge_length_m",
+    "signalized_crossing_count",
+    "parking_lot_count",
+    "hdb_mscp_count",
+    "centr_betweenness_max",
+    "centr_bridge_count"
+  ],
+  "totals": {
+    "subzones_with_road_data": 266,
+    "subzones_with_expressway": 163,
+    "total_road_km": 28407.1,
+    "total_lane_km": 20687.5,
+    "total_parking_lots": 3156,
+    "total_mscps": 1235
+  }
+}

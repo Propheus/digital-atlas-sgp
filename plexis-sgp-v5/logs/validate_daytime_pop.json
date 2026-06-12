@@ -1,0 +1,185 @@
+{
+  "layer": "daytime_pop",
+  "checks": [
+    {
+      "check": "D1_conservation",
+      "status": "PASS",
+      "detail": "dt_pop 4,188,323 vs pop 4,179,800 (+0.20%)"
+    },
+    {
+      "check": "D2_clip_accounting",
+      "status": "PASS",
+      "detail": "12 hexes clipped (1.0%), 7,868 persons (0.19%)"
+    },
+    {
+      "check": "D3_archetypes",
+      "status": "PASS",
+      "detail": "top-10 gainers in CBD/job set: 8/10; top-10 losers bedroom: 10/10"
+    },
+    {
+      "check": "D4_discriminant_vs_breathing",
+      "status": "PASS",
+      "detail": "pc_cat_business_office: dt_net 0.214 vs breathing 0.130; pc2_cat_biz_office_count: dt_net 0.309 vs breathing 0.195; (agreement rho=0.526; divergence expected \u2014 breathing is direction-blind)"
+    },
+    {
+      "check": "D5_formula_guard",
+      "status": "PASS",
+      "detail": "0 violations"
+    },
+    {
+      "check": "D6_modeshare_sensitivity",
+      "status": "PASS",
+      "detail": "Spearman(dt_pop@0.50, dt_pop@0.75) = 0.9925"
+    },
+    {
+      "check": "D7_coverage",
+      "status": "PASS",
+      "detail": "644 hexes w/o OD (dt_pop==pop max dev 0.005); dt_class no_data: 704"
+    },
+    {
+      "check": "D8_redundancy",
+      "status": "PASS",
+      "detail": "no |r|>0.9 vs non-source columns"
+    }
+  ],
+  "clipped_examples": [
+    {
+      "hex8_id": "886520c94dfffff",
+      "parent_subzone_name": "KRANJI",
+      "pop_resident": 66.82904376401136,
+      "dt_net_am_persons": -3778.15
+    },
+    {
+      "hex8_id": "88652634d5fffff",
+      "parent_subzone_name": "MANDAI EAST",
+      "pop_resident": 1383.7768187038216,
+      "dt_net_am_persons": -2966.79
+    },
+    {
+      "hex8_id": "886520ca97fffff",
+      "parent_subzone_name": "TUAS PROMENADE",
+      "pop_resident": 0.0,
+      "dt_net_am_persons": -1760.26
+    },
+    {
+      "hex8_id": "886520ca47fffff",
+      "parent_subzone_name": "LAKESIDE (BUSINESS)",
+      "pop_resident": 713.811509007994,
+      "dt_net_am_persons": -1274.71
+    },
+    {
+      "hex8_id": "886520db03fffff",
+      "parent_subzone_name": "MARINA SOUTH",
+      "pop_resident": 0.0,
+      "dt_net_am_persons": -90.03
+    }
+  ],
+  "top_gainers": [
+    {
+      "parent_subzone_name": "CENTRAL SUBZONE",
+      "dt_net_am_persons": 87236.0
+    },
+    {
+      "parent_subzone_name": "CENTRAL SUBZONE",
+      "dt_net_am_persons": 55234.0
+    },
+    {
+      "parent_subzone_name": "CHINATOWN",
+      "dt_net_am_persons": 36031.0
+    },
+    {
+      "parent_subzone_name": "CITY HALL",
+      "dt_net_am_persons": 29302.0
+    },
+    {
+      "parent_subzone_name": "CITY HALL",
+      "dt_net_am_persons": 29243.0
+    },
+    {
+      "parent_subzone_name": "BOULEVARD",
+      "dt_net_am_persons": 25020.0
+    },
+    {
+      "parent_subzone_name": "MOULMEIN",
+      "dt_net_am_persons": 21655.0
+    },
+    {
+      "parent_subzone_name": "TOH GUAN",
+      "dt_net_am_persons": 19466.0
+    },
+    {
+      "parent_subzone_name": "ONE NORTH",
+      "dt_net_am_persons": 19378.0
+    },
+    {
+      "parent_subzone_name": "TAI SENG",
+      "dt_net_am_persons": 17840.0
+    }
+  ],
+  "top_losers": [
+    {
+      "parent_subzone_name": "SEMBAWANG NORTH",
+      "dt_net_am_persons": -18870.0
+    },
+    {
+      "parent_subzone_name": "WOODLANDS EAST",
+      "dt_net_am_persons": -14005.0
+    },
+    {
+      "parent_subzone_name": "JELEBU",
+      "dt_net_am_persons": -13782.0
+    },
+    {
+      "parent_subzone_name": "RIVERVALE",
+      "dt_net_am_persons": -12936.0
+    },
+    {
+      "parent_subzone_name": "MATILDA",
+      "dt_net_am_persons": -12883.0
+    },
+    {
+      "parent_subzone_name": "TAMPINES EAST",
+      "dt_net_am_persons": -12835.0
+    },
+    {
+      "parent_subzone_name": "SENGKANG TOWN CENTRE",
+      "dt_net_am_persons": -12790.0
+    },
+    {
+      "parent_subzone_name": "JURONG WEST CENTRAL",
+      "dt_net_am_persons": -12235.0
+    },
+    {
+      "parent_subzone_name": "TAMPINES EAST",
+      "dt_net_am_persons": -11734.0
+    },
+    {
+      "parent_subzone_name": "COMPASSVALE",
+      "dt_net_am_persons": -11580.0
+    }
+  ],
+  "redundancy_top5": {
+    "dt_pop": {
+      "pc2_cat_transport_ev_count": 0.846,
+      "pc_cat_transportation": 0.835,
+      "chas_clinics_within_500m": 0.827,
+      "pop_resident": 0.806,
+      "est_built_far": 0.804
+    },
+    "dt_net_am_persons": {
+      "pc2_cat_service_legal_finance_count": 0.715,
+      "pc2_cat_biz_office_count": 0.648,
+      "pw1_tourist_attraction_count": 0.635,
+      "pc_cat_business_office": 0.595,
+      "sat_beauty_personal_per_1k": 0.594
+    },
+    "dt_ratio": {
+      "pw1_pc_cat_business_office": 0.518,
+      "sat_cafe_coffee_per_1k": 0.495,
+      "pw1_tourist_attraction_count": 0.485,
+      "pw2_tourist_attraction_count": 0.465,
+      "nonres_share": 0.462
+    }
+  },
+  "verdict": "PASS"
+}

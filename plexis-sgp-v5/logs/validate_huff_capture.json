@@ -1,0 +1,101 @@
+{
+  "layer": "huff_capture",
+  "checks": [
+    {
+      "check": "H1_diagnostics",
+      "status": "PASS",
+      "detail": "placement>0.2: 11/11; rank-stability min 0.826"
+    },
+    {
+      "check": "H2_marginality",
+      "status": "PASS",
+      "detail": "0 non-decreasing cases out of ~40 (competitor 150-450 m away)"
+    },
+    {
+      "check": "H3_conservation",
+      "status": "PASS",
+      "detail": "max alloc/demand = 1.0000"
+    },
+    {
+      "check": "H4_saturation_inversion",
+      "status": "PASS",
+      "detail": "Yunnan cap_supermarket max pctile 0.96 (n=18); Orchard-corridor cap_cafe max pctile 0.03"
+    },
+    {
+      "check": "H5_redundancy",
+      "status": "PASS",
+      "detail": "no |r|>0.9 vs non-source cols; gap alignment {'cafe_coffee': -0.671, 'restaurant': -0.612, 'hawker': -0.572}"
+    }
+  ],
+  "top_supermarket_sites": [
+    {
+      "parent_subzone_name": "YEW TEE",
+      "pop_resident": 7145.121,
+      "cap_supermarket": 3.31
+    },
+    {
+      "parent_subzone_name": "YEW TEE",
+      "pop_resident": 3810.556,
+      "cap_supermarket": 3.271
+    },
+    {
+      "parent_subzone_name": "YEW TEE",
+      "pop_resident": 4582.949,
+      "cap_supermarket": 3.074
+    },
+    {
+      "parent_subzone_name": "KEAT HONG",
+      "pop_resident": 6173.161,
+      "cap_supermarket": 3.018
+    },
+    {
+      "parent_subzone_name": "KEAT HONG",
+      "pop_resident": 6695.189,
+      "cap_supermarket": 2.984
+    },
+    {
+      "parent_subzone_name": "CHOA CHU KANG NORTH",
+      "pop_resident": 3663.399,
+      "cap_supermarket": 2.953
+    },
+    {
+      "parent_subzone_name": "YEW TEE",
+      "pop_resident": 6025.748,
+      "cap_supermarket": 2.941
+    },
+    {
+      "parent_subzone_name": "KEAT HONG",
+      "pop_resident": 3465.55,
+      "cap_supermarket": 2.924
+    }
+  ],
+  "redundancy_top5": {
+    "cap_supermarket": {
+      "max1_primary_schools_within_1km": 0.893,
+      "pw1_primary_schools_within_1km": 0.89,
+      "ring1_pop_resident": 0.877,
+      "pw1_family_index": 0.87,
+      "primary_schools_within_2km": 0.868
+    },
+    "cap_cafe_coffee": {
+      "max1_primary_schools_within_1km": 0.86,
+      "pw1_density_pressure": 0.857,
+      "pw1_family_index": 0.857,
+      "pw1_primary_schools_within_1km": 0.855,
+      "max1_preschools_within_400m": 0.852
+    },
+    "cap_total": {
+      "max1_primary_schools_within_1km": 0.913,
+      "pw1_primary_schools_within_1km": 0.912,
+      "pw1_family_index": 0.885,
+      "primary_schools_within_2km": 0.884,
+      "pw1_density_pressure": 0.883
+    }
+  },
+  "gap_alignment": {
+    "cafe_coffee": -0.671,
+    "restaurant": -0.612,
+    "hawker": -0.572
+  },
+  "verdict": "PASS"
+}

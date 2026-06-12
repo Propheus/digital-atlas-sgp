@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-06-10T11:18:09",
+  "spec": "SITE_SELECTION_METRICS.md S8 (amended: resi-only)",
+  "projects": 913,
+  "coverage": {
+    "local": 346,
+    "idw": 279,
+    "none": 566
+  },
+  "rent_range_psf": [
+    2.02,
+    8.174105418904443
+  ],
+  "commercial_rent": "NOT AVAILABLE via URA API/data.gov.sg \u2014 Realis only",
+  "wall_clock_s": 0.2
+}

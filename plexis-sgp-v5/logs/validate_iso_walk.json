@@ -1,0 +1,162 @@
+{
+  "layer": "iso_walk",
+  "checks": [
+    {
+      "check": "I1_upper_bound",
+      "status": "PASS",
+      "detail": "0 material violations; 2 immaterial (max 10 persons, rural multi-source spread)"
+    },
+    {
+      "check": "I2_severance_signal",
+      "status": "PASS",
+      "detail": "ratio near-expressway 0.250 (n=142) vs far 0.295 (n=81), gap +0.045"
+    },
+    {
+      "check": "I3_redundancy",
+      "status": "PASS",
+      "detail": "no |r|>0.9 vs non-source cols"
+    },
+    {
+      "check": "I4_graph_snap_qa",
+      "status": "PASS",
+      "detail": "giant 99.9%; populated-hex snap>150m 0.55%; orphan pop 0.24%"
+    },
+    {
+      "check": "I5_archetypes",
+      "status": "PASS",
+      "detail": "CBD places=3618; see table"
+    },
+    {
+      "check": "I6_consistency",
+      "status": "PASS",
+      "detail": "all invariants hold"
+    }
+  ],
+  "lowest_ratio_populated": [
+    {
+      "parent_subzone_name": "GALI BATU",
+      "pop_resident": 3978.58,
+      "iso_walk10_pop": 0.13,
+      "iso_severance_ratio": 0.0
+    },
+    {
+      "parent_subzone_name": "RIDOUT",
+      "pop_resident": 4153.58,
+      "iso_walk10_pop": 134.01,
+      "iso_severance_ratio": 0.01
+    },
+    {
+      "parent_subzone_name": "ONE NORTH",
+      "pop_resident": 4070.77,
+      "iso_walk10_pop": 108.6,
+      "iso_severance_ratio": 0.01
+    },
+    {
+      "parent_subzone_name": "XILIN",
+      "pop_resident": 5132.12,
+      "iso_walk10_pop": 276.1,
+      "iso_severance_ratio": 0.02
+    },
+    {
+      "parent_subzone_name": "SELETAR HILLS",
+      "pop_resident": 3690.51,
+      "iso_walk10_pop": 413.71,
+      "iso_severance_ratio": 0.03
+    },
+    {
+      "parent_subzone_name": "LEEDON PARK",
+      "pop_resident": 2927.91,
+      "iso_walk10_pop": 652.05,
+      "iso_severance_ratio": 0.03
+    },
+    {
+      "parent_subzone_name": "KALLANG BAHRU",
+      "pop_resident": 2024.69,
+      "iso_walk10_pop": 709.58,
+      "iso_severance_ratio": 0.03
+    },
+    {
+      "parent_subzone_name": "KEMBANGAN",
+      "pop_resident": 10377.35,
+      "iso_walk10_pop": 1168.13,
+      "iso_severance_ratio": 0.03
+    },
+    {
+      "parent_subzone_name": "TELOK BLANGAH DRIVE",
+      "pop_resident": 9781.58,
+      "iso_walk10_pop": 631.02,
+      "iso_severance_ratio": 0.04
+    },
+    {
+      "parent_subzone_name": "MURAI",
+      "pop_resident": 3154.69,
+      "iso_walk10_pop": 326.33,
+      "iso_severance_ratio": 0.04
+    }
+  ],
+  "redundancy_top5": {
+    "iso_walk10_pop": {
+      "pop_15_64": 0.895,
+      "pop_resident": 0.894,
+      "pop_0_14": 0.882,
+      "syn_pop_x_transit": 0.88,
+      "pop_hdb": 0.876
+    },
+    "iso_walk10_spend": {
+      "pop_0_14": 0.889,
+      "pop_15_64": 0.887,
+      "pop_resident": 0.886,
+      "syn_pop_x_transit": 0.873,
+      "hdb_dwelling_units": 0.869
+    },
+    "iso_walk10_places": {
+      "mg_transportation_support_400m": 0.92,
+      "pc_cat_other_uncategorized": 0.919,
+      "pc_with_rating": 0.918,
+      "pc_total": 0.917,
+      "pc2_total": 0.917
+    },
+    "iso_severance_ratio": {
+      "mg_convenience_support_400m": 0.468,
+      "mg_education_support_400m": 0.426,
+      "mg_residential_support_400m": 0.423,
+      "hdb_max_floors": 0.401,
+      "best_max_floors": 0.399
+    },
+    "iso_walk10_unserved_pop_supermarket": {
+      "pw1_wc_tree_share": 0.139,
+      "walk_park_score": 0.13,
+      "nvp_persona_n": 0.123,
+      "nvp_occ_unemployed": 0.114,
+      "pull_school_premium": 0.11
+    }
+  },
+  "archetype_anchors": {
+    "CENTRAL SUBZONE (CBD)": {
+      "pop": 4608,
+      "places": 3618,
+      "ratio": 0.36
+    },
+    "TOA PAYOH CENTRAL (town ctr)": {
+      "pop": 15665,
+      "places": 476,
+      "ratio": 0.27
+    },
+    "TAMPINES EAST (town)": {
+      "pop": 17941,
+      "places": 914,
+      "ratio": 0.37
+    },
+    "GUL CIRCLE (industrial)": {
+      "pop": 0,
+      "places": 19,
+      "ratio": null
+    },
+    "LIM CHU KANG (rural)": {
+      "pop": 1,
+      "places": 5,
+      "ratio": null
+    }
+  },
+  "verdict": "PASS"
+}

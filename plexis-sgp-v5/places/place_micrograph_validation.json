@@ -1,0 +1,45 @@
+{
+  "checks": [
+    {
+      "check": "M1_rowcount_no_nulls",
+      "status": "PASS",
+      "detail": "190,591 rows \u00d7 19 pmg_* cols, 0 nulls"
+    },
+    {
+      "check": "M2_cbd_cafe_competition_higher",
+      "status": "PASS",
+      "detail": "CBD cafe comp@400m 22.6 vs national 8.0"
+    },
+    {
+      "check": "M3_hdb_hawker_relative_complements",
+      "status": "PASS",
+      "detail": "HDB cplt/comp 0.46 > CBD 0.30"
+    },
+    {
+      "check": "M4_flagship_hotel_anchors_higher",
+      "status": "PASS",
+      "detail": "flagship 313.8 > industrial 32.9"
+    },
+    {
+      "check": "M5_orchard_retail_anchors_higher",
+      "status": "PASS",
+      "detail": "Orchard 28.7 vs national 7.5"
+    },
+    {
+      "check": "M6_residential_walk_higher_than_industrial",
+      "status": "PASS",
+      "detail": "residential 0.75 > industrial 0.66"
+    },
+    {
+      "check": "M7_walk_dist_mrt_cbd_lower",
+      "status": "PASS",
+      "detail": "CBD 465m < industrial 2138m | median 918m | within 400m: 20.0%"
+    },
+    {
+      "check": "M8_anchor_strength_distribution",
+      "status": "PASS",
+      "detail": "61.8% nonzero | p10=0.0 p50=9.9 p90=246.7 spread=24665\u00d7"
+    }
+  ],
+  "generated_at": "2026-04-29T07:19:13"
+}

@@ -1,0 +1,80 @@
+{
+  "layer": "acra_biz",
+  "checks": [
+    {
+      "check": "B1_coverage",
+      "status": "PASS",
+      "detail": "94.24% of 1,951,842 entities"
+    },
+    {
+      "check": "B2_novelty",
+      "status": "PASS",
+      "detail": "5/5 churn-family cols novel (max|r|<0.7): dead_share=0.38, recent_dead_share=0.39, median_age_yrs=0.52, per_address=0.64, company_share=0.56; count~pc_total r=0.94 (expected, counts ARE density)"
+    },
+    {
+      "check": "B3_spot_checks",
+      "status": "PASS",
+      "detail": "3/3 known buildings within 1 km"
+    },
+    {
+      "check": "B4_concentration",
+      "status": "PASS",
+      "detail": "top hex robust share 3.07% = Chinatown shophouse belt (raw 7.81% \u2014 agent-building artifact)"
+    },
+    {
+      "check": "B5_archetypes",
+      "status": "PASS",
+      "detail": "top-5 robust density: ['CHINATOWN', 'LAVENDER', 'LITTLE INDIA', 'CITY HALL', 'CITY HALL'] (5/5 central commercial)"
+    },
+    {
+      "check": "B6_redundancy",
+      "status": "PASS",
+      "detail": "no non-source |r|>0.9"
+    }
+  ],
+  "top_density": [
+    {
+      "parent_subzone_name": "CHINATOWN",
+      "biz_live_robust": 10466.0
+    },
+    {
+      "parent_subzone_name": "LAVENDER",
+      "biz_live_robust": 5361.0
+    },
+    {
+      "parent_subzone_name": "LITTLE INDIA",
+      "biz_live_robust": 5056.0
+    },
+    {
+      "parent_subzone_name": "CITY HALL",
+      "biz_live_robust": 4598.0
+    },
+    {
+      "parent_subzone_name": "CITY HALL",
+      "biz_live_robust": 4590.0
+    }
+  ],
+  "top_per_address": [
+    {
+      "parent_subzone_name": "CENTRAL SUBZONE",
+      "biz_per_address": 746.1
+    },
+    {
+      "parent_subzone_name": "CENTRAL SUBZONE",
+      "biz_per_address": 432.7
+    },
+    {
+      "parent_subzone_name": "INTERNATIONAL BUSINESS PARK",
+      "biz_per_address": 285.6
+    },
+    {
+      "parent_subzone_name": "SEMBAWANG NORTH",
+      "biz_per_address": 229.4
+    },
+    {
+      "parent_subzone_name": "CITY HALL",
+      "biz_per_address": 131.2
+    }
+  ],
+  "verdict": "PASS"
+}

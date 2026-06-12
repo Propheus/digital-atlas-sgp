@@ -1,0 +1,23 @@
+{
+  "use_case": "Engineer features that predict hotel occupancy rates and optimal room pricing by analyzing spatial, temporal, event-driven, weather, and competitive factors across Singapore's hospitality landscape",
+  "target_variable": "daily_occupancy_rate_and_average_room_rate",
+  "decision_type": "prediction",
+  "scale": "place",
+  "key_concepts": [
+    "proximity to tourist attractions and MRT stations",
+    "distance to CBD and Changi Airport",
+    "event calendar impact including F1 GP and MICE events",
+    "seasonal and holiday demand patterns",
+    "monsoon weather and rainfall effects",
+    "competitive hotel density and room supply",
+    "day-of-week and public holiday temporal cycles"
+  ],
+  "constraints": [
+    "pricing must comply with Singapore Tourism Board guidelines",
+    "data availability limited to publicly observable hotel listings",
+    "event calendars require integration with external sources"
+  ],
+  "evaluation_metric": "MAPE on occupancy prediction and revenue per available room (RevPAR) accuracy",
+  "decision_horizon_months": 3,
+  "stakeholder": "hotel revenue managers and hospitality asset owners"
+}

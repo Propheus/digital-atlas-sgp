@@ -1,0 +1,12 @@
+{
+  "generated_at": "2026-04-25T03:17:53",
+  "hex9_count": 7318,
+  "sgp_pop_expected": 4212800,
+  "sgp_pop_allocated": 4212800.0,
+  "drift_pct": 0.0,
+  "pop_hdb_allocated": 3197740.0,
+  "pop_non_hdb_allocated": 1015060.0,
+  "hexes_with_population": 3693,
+  "age_sum_max_discrepancy": 1.8189894035458565e-12,
+  "wall_clock_s": 5.43
+}

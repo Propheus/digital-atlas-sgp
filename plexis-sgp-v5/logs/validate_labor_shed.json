@@ -1,0 +1,63 @@
+{
+  "layer": "labor_shed",
+  "checks": [
+    {
+      "check": "L1_archetypes",
+      "status": "PASS",
+      "detail": "CBD 1,684,450 (p90=1,403,976); JurongE 850,859 at p70; Tuas median sits at p0"
+    },
+    {
+      "check": "L2_monotone",
+      "status": "PASS",
+      "detail": "0 hexes with 30m > 45m pool"
+    },
+    {
+      "check": "L3_plausibility",
+      "status": "PASS",
+      "detail": "CBD 45-min pool = 59.6% of working-age; 0 pools > national"
+    },
+    {
+      "check": "L4_divergence",
+      "status": "PASS",
+      "detail": "top job-rich/labor-poor: JURONG ISLAND AND BUKOM, MURAI, LIM CHU KANG"
+    },
+    {
+      "check": "L5_redundancy",
+      "status": "PASS",
+      "detail": "no non-source |r|>0.9"
+    }
+  ],
+  "jobs_rich_labor_poor": [
+    {
+      "parent_subzone_name": "JURONG ISLAND AND BUKOM",
+      "jobs_reach_45m": 8803.0,
+      "labor_pool_45m": 3.0,
+      "jl": 2934.33
+    },
+    {
+      "parent_subzone_name": "MURAI",
+      "jobs_reach_45m": 62765.0,
+      "labor_pool_45m": 79.0,
+      "jl": 794.49
+    },
+    {
+      "parent_subzone_name": "LIM CHU KANG",
+      "jobs_reach_45m": 19038.0,
+      "labor_pool_45m": 36.0,
+      "jl": 528.83
+    },
+    {
+      "parent_subzone_name": "JURONG ISLAND AND BUKOM",
+      "jobs_reach_45m": 2047.0,
+      "labor_pool_45m": 4.0,
+      "jl": 511.75
+    },
+    {
+      "parent_subzone_name": "CHANGI AIRPORT",
+      "jobs_reach_45m": 10932.0,
+      "labor_pool_45m": 22.0,
+      "jl": 496.91
+    }
+  ],
+  "verdict": "PASS"
+}

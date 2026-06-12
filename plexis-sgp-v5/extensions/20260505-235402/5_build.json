@@ -1,0 +1,53 @@
+{
+  "added": [
+    {
+      "feature": "specialty_cafe_competition_gap",
+      "dtype": "float32",
+      "non_null": 7318,
+      "null_pct": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 54.66666793823242
+    },
+    {
+      "feature": "lunch_rush_potential",
+      "dtype": "float32",
+      "non_null": 7318,
+      "null_pct": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.8156130909919739
+    },
+    {
+      "feature": "young_professional_residential_proxy",
+      "dtype": "float32",
+      "non_null": 7318,
+      "null_pct": 0.0,
+      "median": 0.01437666267156601,
+      "min": 0.0,
+      "max": 1478.3905029296875
+    },
+    {
+      "feature": "mixed_use_cafe_appeal",
+      "dtype": "float32",
+      "non_null": 7318,
+      "null_pct": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.33055049180984497
+    },
+    {
+      "feature": "mrt_exit_cafe_opportunity",
+      "dtype": "float32",
+      "non_null": 7318,
+      "null_pct": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 10.0
+    }
+  ],
+  "failed": [],
+  "source_path": "/home/azureuser/plexis-sgp-v4/hex/hex9_all_features.parquet",
+  "n_cols_before": 558,
+  "n_cols_after": 563
+}

@@ -1,0 +1,66 @@
+{
+  "version": "4.8.1",
+  "scale": "hex9",
+  "features": [
+    {
+      "dataset": "extension_4.8.1",
+      "scale": "hex9",
+      "column": "specialty_cafe_competition_gap",
+      "dtype": "float32",
+      "null_pct": 0.0,
+      "min": 0.0,
+      "max": 54.66666793823242,
+      "median": 0.0,
+      "source_stage": "atlas_extender",
+      "source_use_case": "Identify optimal locations for a new specialty cafe targeting young professionals in Singapore"
+    },
+    {
+      "dataset": "extension_4.8.1",
+      "scale": "hex9",
+      "column": "lunch_rush_potential",
+      "dtype": "float32",
+      "null_pct": 0.0,
+      "min": 0.0,
+      "max": 0.8156130909919739,
+      "median": 0.0,
+      "source_stage": "atlas_extender",
+      "source_use_case": "Identify optimal locations for a new specialty cafe targeting young professionals in Singapore"
+    },
+    {
+      "dataset": "extension_4.8.1",
+      "scale": "hex9",
+      "column": "young_professional_residential_proxy",
+      "dtype": "float32",
+      "null_pct": 0.0,
+      "min": 0.0,
+      "max": 1478.3905029296875,
+      "median": 0.01437666267156601,
+      "source_stage": "atlas_extender",
+      "source_use_case": "Identify optimal locations for a new specialty cafe targeting young professionals in Singapore"
+    },
+    {
+      "dataset": "extension_4.8.1",
+      "scale": "hex9",
+      "column": "mixed_use_cafe_appeal",
+      "dtype": "float32",
+      "null_pct": 0.0,
+      "min": 0.0,
+      "max": 0.33055049180984497,
+      "median": 0.0,
+      "source_stage": "atlas_extender",
+      "source_use_case": "Identify optimal locations for a new specialty cafe targeting young professionals in Singapore"
+    },
+    {
+      "dataset": "extension_4.8.1",
+      "scale": "hex9",
+      "column": "mrt_exit_cafe_opportunity",
+      "dtype": "float32",
+      "null_pct": 0.0,
+      "min": 0.0,
+      "max": 10.0,
+      "median": 0.0,
+      "source_stage": "atlas_extender",
+      "source_use_case": "Identify optimal locations for a new specialty cafe targeting young professionals in Singapore"
+    }
+  ]
+}

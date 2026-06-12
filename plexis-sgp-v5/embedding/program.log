@@ -1,0 +1,21 @@
+[04:53:41] === Plexis-E v1 program start ===
+[04:53:41] RUN /usr/bin/python3 prep_features.py
+[04:53:45] E0 PCA: score=1.4765 {"twin_hitrate": 1.0, "contrast_pct_min": 0.997, "probe_hdb_psm_r2": 0.792, "probe_od_r2": 0.958, "probe_adq_r2": 0.984, "zone_ari": 0.261, "dist_rankcorr_raw": 1.0, "negctrl_r2": -0.978, "zone_silhouette": 0.065, "perhex_zone_coherence_pass": 0.915, "locality_pa_share_top50": 0.431}
+[04:53:45] RUN /usr/bin/python3 train.py --epochs 300 --mask 0.2 --tau 0.1 --eval-every 150 --tag e1s_m0.2_t0.1
+[04:54:00] RUN /usr/bin/python3 train.py --epochs 300 --mask 0.2 --tau 0.5 --eval-every 150 --tag e1s_m0.2_t0.5
+[04:54:16] RUN /usr/bin/python3 train.py --epochs 300 --mask 0.3 --tau 0.1 --eval-every 150 --tag e1s_m0.3_t0.1
+[04:54:31] RUN /usr/bin/python3 train.py --epochs 300 --mask 0.3 --tau 0.5 --eval-every 150 --tag e1s_m0.3_t0.5
+[04:54:47] RUN /usr/bin/python3 train.py --epochs 300 --mask 0.4 --tau 0.1 --eval-every 150 --tag e1s_m0.4_t0.1
+[04:55:03] RUN /usr/bin/python3 train.py --epochs 300 --mask 0.4 --tau 0.5 --eval-every 150 --tag e1s_m0.4_t0.5
+[04:55:19] E1 screen ranking: [(1.4899, 0.3, 0.5), (1.4867, 0.4, 0.5), (1.4822, 0.4, 0.1), (1.478, 0.3, 0.1)]
+[04:55:19] RUN /usr/bin/python3 train.py --epochs 1200 --mask 0.3 --tau 0.5 --seed 0 --eval-every 200 --tag e1_final --out Z_e1_s0.npy
+[04:56:14] RUN /usr/bin/python3 train.py --epochs 1200 --mask 0.3 --tau 0.5 --seed 1 --eval-every 200 --tag e1_final --out Z_e1_s1.npy
+[04:57:08] RUN /usr/bin/python3 train.py --epochs 1200 --mask 0.3 --tau 0.5 --seed 2 --eval-every 200 --tag e1_final --out Z_e1_s2.npy
+[04:58:05] E1 final: score=1.4792 procrustes_min=0.948
+[04:58:05] RUN /usr/bin/python3 train.py --epochs 300 --mask 0.3 --tau 0.5 --view-mask-prob 0.3 --eval-every 150 --tag e2s_v0.3
+[04:58:21] RUN /usr/bin/python3 train.py --epochs 300 --mask 0.3 --tau 0.5 --view-mask-prob 0.5 --eval-every 150 --tag e2s_v0.5
+[04:58:37] RUN /usr/bin/python3 train.py --epochs 1200 --mask 0.3 --tau 0.5 --view-mask-prob 0.5 --seed 0 --eval-every 200 --tag e2_final --out Z_e2_s0.npy
+[04:59:32] RUN /usr/bin/python3 train.py --epochs 1200 --mask 0.3 --tau 0.5 --view-mask-prob 0.5 --seed 1 --eval-every 200 --tag e2_final --out Z_e2_s1.npy
+[05:00:27] RUN /usr/bin/python3 train.py --epochs 1200 --mask 0.3 --tau 0.5 --view-mask-prob 0.5 --seed 2 --eval-every 200 --tag e2_final --out Z_e2_s2.npy
+[05:01:23] E2 final: score=1.4906 procrustes_min=0.961
+[05:01:23] === DONE. board={'E0_pca': 1.4764652794632256, 'E1': 1.4792273352778298, 'E2': 1.4906275139386436} winner=E2 ===

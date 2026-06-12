@@ -1,0 +1,35 @@
+{
+  "checks": [
+    {
+      "check": "T1_mrt_count",
+      "status": "PASS",
+      "detail": "231 stations match geojson 231"
+    },
+    {
+      "check": "T2_bus_count",
+      "status": "PASS",
+      "detail": "5172 bus stops (expected ~5,177)"
+    },
+    {
+      "check": "T3_interchange_landmarks",
+      "status": "PASS",
+      "detail": "11/38 interchange hexes in known interchange subzones"
+    },
+    {
+      "check": "T4_cbd_mrt_walkable",
+      "status": "PASS",
+      "detail": "89/97 (92%) of CBD hexes within 400m of MRT"
+    },
+    {
+      "check": "T5_transit_score_bounds",
+      "status": "PASS",
+      "detail": "range [0.0000, 0.9879]"
+    },
+    {
+      "check": "T6_top_taps_in_mrt_rich_pas",
+      "status": "PASS",
+      "detail": "10/10 top-tap hexes in expected MRT-rich PAs"
+    }
+  ],
+  "generated_at": "2026-04-25T03:20:02"
+}

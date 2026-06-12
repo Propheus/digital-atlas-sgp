@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-06-01T16:32:01",
+  "components": [
+    "ca_nl",
+    "ca_spend",
+    "ca_taps",
+    "ca_places",
+    "ca_footfall"
+  ],
+  "corr_with_commercial_intensity": 0.8398,
+  "index_mean": 0.1395,
+  "index_p90": 0.2672,
+  "hex8_nonzero": 1170,
+  "wall_clock_s": 0.06
+}

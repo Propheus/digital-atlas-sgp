@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-04-25T03:20:01",
+  "wall_clock_s": 18.32,
+  "totals": {
+    "hexes_with_mrt_station": 209,
+    "hexes_with_bus_stop": 2212,
+    "hexes_within_400m_mrt": 1057,
+    "hexes_within_300m_bus": 2991,
+    "interchange_hexes": 38,
+    "total_daily_train_taps": 8288363.562211981,
+    "total_daily_bus_taps": 6345769.419354838,
+    "max_routes_per_stop": 50,
+    "median_headway_am_with_data_min": 2.4,
+    "max_transit_score": 0.9878872322838805
+  }
+}

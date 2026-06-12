@@ -1,0 +1,12 @@
+{
+  "generated_at": "2026-04-29T11:04:14",
+  "wall_clock_s": 0.16,
+  "indices": [
+    "vibrancy_index",
+    "livability_index",
+    "commercial_intensity",
+    "family_index",
+    "density_pressure",
+    "accessibility_composite"
+  ]
+}

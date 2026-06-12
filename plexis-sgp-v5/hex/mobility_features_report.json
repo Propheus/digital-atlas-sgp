@@ -1,0 +1,78 @@
+{
+  "generated_at": "2026-04-25T04:22:58",
+  "wall_clock_s": 0.1,
+  "shapes": {
+    "hex9": [
+      7318,
+      53
+    ],
+    "hex8": [
+      1191,
+      50
+    ],
+    "subzone": [
+      270,
+      38
+    ]
+  },
+  "feature_groups": {
+    "roads_parking_centrality": [
+      "parent_hex8",
+      "parent_subzone",
+      "road_length_total_m",
+      "road_density_km_per_km2",
+      "road_walkable_share",
+      "road_max_class_through",
+      "road_intersection_density_per_km2",
+      "dist_expressway_m",
+      "near_expressway_exit_400m",
+      "lane_km_per_km2",
+      "oneway_pct",
+      "bridge_length_m",
+      "signalized_crossing_count",
+      "parking_lot_count",
+      "hdb_mscp_count",
+      "centr_betweenness_max",
+      "centr_bridge_count"
+    ],
+    "transit": [
+      "mrt_station_count",
+      "mrt_exit_count",
+      "bus_stop_count",
+      "dist_mrt_m",
+      "dist_mrt_exit_m",
+      "dist_bus_m",
+      "near_mrt_400m",
+      "near_bus_300m",
+      "rail_line_through_m",
+      "daily_train_taps",
+      "daily_bus_taps",
+      "bus_routes_per_stop_max",
+      "bus_routes_per_stop_mean",
+      "gtfs_headway_am_min",
+      "is_mrt_interchange",
+      "transit_score"
+    ],
+    "walkability": [
+      "ped_path_length_m",
+      "ped_path_density_km_per_km2",
+      "dist_walk_hawker_m",
+      "dist_walk_clinic_m",
+      "dist_walk_supermarket_m",
+      "dist_walk_park_m",
+      "dist_walk_school_m",
+      "dist_walk_food_m",
+      "dist_walk_convenience_m",
+      "walk_amenities_400m",
+      "walk_food_400m",
+      "walk_hawker_400m",
+      "walk_clinic_400m",
+      "walk_supermarket_400m",
+      "walk_park_400m",
+      "walk_school_400m",
+      "walk_convenience_400m",
+      "expressway_severance",
+      "walkability_score"
+    ]
+  }
+}

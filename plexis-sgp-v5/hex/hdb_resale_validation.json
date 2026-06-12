@@ -1,0 +1,35 @@
+{
+  "checks": [
+    {
+      "check": "H1_hex9_in_hdb_town_count",
+      "status": "PASS",
+      "detail": "1769 hex9 in HDB town (universe 7318)"
+    },
+    {
+      "check": "H2_top5_in_central_hubs",
+      "status": "PASS",
+      "detail": "top5={'KALLANG/WHAMPOA', 'TOA PAYOH', 'BUKIT MERAH', 'QUEENSTOWN', 'CENTRAL AREA'} hits 5/5 expected central"
+    },
+    {
+      "check": "H3_bottom5_in_outer_towns",
+      "status": "PASS",
+      "detail": "bot5={'TENGAH', 'WOODLANDS', 'YISHUN', 'BUKIT PANJANG', 'JURONG WEST'} hits 5/5 expected outer"
+    },
+    {
+      "check": "H4_4r_psm_range",
+      "status": "PASS",
+      "detail": "4r psm range [4516, 9175] across 26 towns"
+    },
+    {
+      "check": "H5_no_broadcast_misses",
+      "status": "PASS",
+      "detail": "only 18 HDB-town hex9 have zero price (likely Tengah)"
+    },
+    {
+      "check": "H6_4r_median_in_plausible_band",
+      "status": "PASS",
+      "detail": "all 27 towns within $250K\u2013$1.5M"
+    }
+  ],
+  "generated_at": "2026-04-29T10:13:32"
+}

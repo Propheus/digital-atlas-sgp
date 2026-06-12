@@ -1,0 +1,71 @@
+{
+  "layer": "iso_transit",
+  "checks": [
+    {
+      "check": "T1_logic_floor",
+      "status": "PASS",
+      "detail": "1 hexes below 0.7x walk reach (0.08%)"
+    },
+    {
+      "check": "T2_archetypes",
+      "status": "PASS",
+      "detail": "interchange>=p90: 3/3 (YISHUN CENTRAL 251,357; TAMPINES EAST 243,016; WOODLANDS EAST 202,715); CBD 72,635; Lim Chu Kang 10"
+    },
+    {
+      "check": "T3_stratified_mechanics",
+      "status": "PASS",
+      "detail": "within-density-tercile Spearman(reach, stops): lo=0.70, mid=0.74, hi=0.74 (raw vs transit_score 0.16 \u2014 divergence is the documented finding)"
+    },
+    {
+      "check": "T4_plausibility",
+      "status": "PASS",
+      "detail": "populated median 72,662; max 312,084; NaN/inf 0"
+    },
+    {
+      "check": "T5_mrt_lift",
+      "status": "PASS",
+      "detail": "with-MRT mean 92,534 vs without 75,570 (x1.22)"
+    },
+    {
+      "check": "T6_redundancy",
+      "status": "PASS",
+      "detail": "no |r|>0.9 vs non-source cols"
+    },
+    {
+      "check": "T7_cached_matrix",
+      "status": "PASS",
+      "detail": "shape (1191, 7318); CBD 45-min pop reach 2,544,340"
+    }
+  ],
+  "t1_violators": [
+    {
+      "parent_subzone_name": "MURAI",
+      "iso_transit15_pop": 13.0,
+      "iso_walk10_pop": 21.0
+    }
+  ],
+  "redundancy_top5": {
+    "iso_transit15_pop": {
+      "ring1_pop_resident": 0.914,
+      "primary_schools_within_2km": 0.877,
+      "primary_schools_within_1km": 0.873,
+      "family_index": 0.854,
+      "ring1_school_count_total": 0.85
+    },
+    "iso_transit15_places": {
+      "ring1_pc_total": 0.901,
+      "walk_amenities_400m": 0.862,
+      "ring1_pc_magnets": 0.853,
+      "pc_total": 0.849,
+      "pc2_total": 0.849
+    },
+    "iso_transit15_stops_used": {
+      "gtfs_dep_am": 0.878,
+      "gtfs_daily_departures": 0.876,
+      "gtfs_dep_pm": 0.875,
+      "gtfs_dep_midday": 0.874,
+      "family_index": 0.871
+    }
+  },
+  "verdict": "PASS"
+}

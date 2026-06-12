@@ -1,0 +1,160 @@
+{
+  "generated_at": "2026-06-11T05:06:07",
+  "n_embeddings": 13,
+  "n_available": 7,
+  "embeddings": [
+    {
+      "name": "hex9_embedding_where_64d",
+      "scale": "hex9",
+      "dim": 64,
+      "method": "PCA",
+      "input": "hex_all_features (545 numeric cols)",
+      "var_explained": 0.843,
+      "purpose": "location-context embedding from feature compression",
+      "path": "hex/hex9_embedding_where_64d.parquet",
+      "key": "hex9_id",
+      "available": true,
+      "location": "v5 (local + azold)"
+    },
+    {
+      "name": "hex9_embedding_node2vec_64d",
+      "scale": "hex9",
+      "dim": 64,
+      "method": "Node2Vec (Word2Vec on H3 grid_ring random walks)",
+      "input": "H3 grid_ring(1) adjacency, 30 walks \u00d7 length 30",
+      "purpose": "pure-topology hex embedding",
+      "path": "hex/hex9_embedding_node2vec_64d.parquet",
+      "key": "hex9_id",
+      "available": false,
+      "location": "atlas-1 only \u2014 network-unreachable, intentionally not deployed"
+    },
+    {
+      "name": "hex9_embedding_gcn_64d",
+      "scale": "hex9",
+      "dim": 64,
+      "method": "2-hop GCN (A_sym \u00d7 A_sym \u00d7 X) + PCA-64",
+      "input": "hex_all_features over A_sym normalized adjacency",
+      "var_explained": 0.966,
+      "purpose": "graph-smoothed feature similarity",
+      "path": "hex/hex9_embedding_gcn_64d.parquet",
+      "key": "hex9_id",
+      "available": false,
+      "location": "atlas-1 only \u2014 network-unreachable, intentionally not deployed"
+    },
+    {
+      "name": "hex9_embedding_combined_128d",
+      "scale": "hex9",
+      "dim": 128,
+      "method": "PCA concat",
+      "input": "WHERE_64d + mean(place_what_64d in hex)",
+      "purpose": "PCA-based combined hex embedding",
+      "path": "hex/hex9_embedding_combined_128d.parquet",
+      "key": "hex9_id",
+      "available": true,
+      "location": "v5 (local + azold)"
+    },
+    {
+      "name": "hex9_embedding_super_128d",
+      "scale": "hex9",
+      "dim": 128,
+      "method": "concat[node2vec, gcn]",
+      "input": "hex_node2vec_64 + hex_gcn_64",
+      "purpose": "graph ensemble \u2014 topology + feature smoothing",
+      "path": "hex/hex9_embedding_super_128d.parquet",
+      "key": "hex9_id",
+      "available": false,
+      "location": "atlas-1 only \u2014 network-unreachable, intentionally not deployed"
+    },
+    {
+      "name": "place_embedding_what_64d",
+      "scale": "place",
+      "dim": 64,
+      "method": "PCA",
+      "input": "137 place features (cat one-hot + brand + numeric)",
+      "var_explained": 0.71,
+      "purpose": "intrinsic place identity (PCA)",
+      "path": "places/place_embedding_what_64d.parquet",
+      "key": "id",
+      "available": true,
+      "location": "v5 (local + azold)"
+    },
+    {
+      "name": "place_embedding_place2vec_64d",
+      "scale": "place",
+      "dim": 64,
+      "method": "Word2Vec skip-gram",
+      "input": "hex co-occurrence sentences (10 epochs of shuffled places per hex)",
+      "purpose": "co-location semantics via graph context",
+      "path": "places/place_embedding_place2vec_64d.parquet",
+      "key": "id",
+      "available": false,
+      "location": "atlas-1 only \u2014 network-unreachable, intentionally not deployed"
+    },
+    {
+      "name": "place_embedding_combined_128d",
+      "scale": "place",
+      "dim": 128,
+      "method": "PCA concat",
+      "input": "place_what_64d + place's hex's where_64d",
+      "purpose": "PCA-based combined place embedding",
+      "path": "places/place_embedding_combined_128d.parquet",
+      "key": "id",
+      "available": true,
+      "location": "v5 (local + azold)"
+    },
+    {
+      "name": "place_embedding_super_128d",
+      "scale": "place",
+      "dim": 128,
+      "method": "concat[place2vec, what_pca]",
+      "input": "place2vec_64 + place_what_64",
+      "purpose": "graph + identity ensemble",
+      "path": "places/place_embedding_super_128d.parquet",
+      "key": "id",
+      "available": false,
+      "location": "atlas-1 only \u2014 network-unreachable, intentionally not deployed"
+    },
+    {
+      "name": "place_embedding_mega_256d",
+      "scale": "place",
+      "dim": 256,
+      "method": "concat[place2vec, what_pca, hex_gcn, hex_where]",
+      "input": "all 4 64d embeddings",
+      "purpose": "full-ensemble (graph + identity + location-context)",
+      "path": "places/place_embedding_mega_256d.parquet",
+      "key": "id",
+      "available": false,
+      "location": "atlas-1 only \u2014 network-unreachable, intentionally not deployed"
+    },
+    {
+      "name": "hex8_embedding_plexis_e1_256d",
+      "scale": "hex8",
+      "dim": 256,
+      "method": "HYBRID 160 PCA + 96 contrastive(E2 view-masked SCARF, mask .3 tau .5 vp .5)",
+      "input": "739 prepared features from the 801-col v5.2 master (OPPORTUNITY view + probe targets excluded)",
+      "purpose": "primary hex8 similarity space \u2014 twins/clustering/site matching; validated vs 13-check harness (eval_final_plexis_e1.json)",
+      "path": "hex/hex8_embedding_plexis_e1_256d.parquet",
+      "key": "hex8_id",
+      "available": true,
+      "location": "v5 (local + azold)"
+    },
+    {
+      "name": "plexis_gnn_v3",
+      "scale": "place/hex9/hex8",
+      "dim": 128,
+      "method": "two-head R-GCN",
+      "path": "plexis_gnn/plexis_v3_embeddings.npz",
+      "available": true,
+      "location": "v5 (local + azold)"
+    },
+    {
+      "name": "plexis_gnn_v6",
+      "scale": "place/hex8",
+      "dim": 256,
+      "method": "GAT-R-GCN 4-layer",
+      "path": "plexis_gnn/plexis_v6_embeddings.npz",
+      "available": true,
+      "location": "v5 (local + azold)"
+    }
+  ]
+}

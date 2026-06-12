@@ -1,0 +1,128 @@
+# Plexis SGP — Checkpoint v5.2.0
+
+**Generated:** 2026-06-11T04:15:11  
+**Pipeline total:** 228s = 3.8 min  
+**Datasets:** 50 (in catalog) · **Features:** 2735 (2735 with curated descriptions)  
+**Files indexed:** 253 · **Total size:** 406.1 MB
+
+## Pipeline stages
+
+| Stage | Status | Time (s) |
+|---|---|---|
+| 0 | PASS | 7.0 |
+| 0b | PASS | 23.5 |
+| 0c | PASS | 23.6 |
+| 1a | PASS | 18.3 |
+| 1b1 | PASS | 0.7 |
+| 1b2 | PASS | 2.5 |
+| 1bf | PASS | 0.5 |
+| 1c | PASS | 7.6 |
+| 1d | PASS | 0.7 |
+| 2 | PASS | 3.0 |
+| 3 | PASS | 5.9 |
+| 4 | PASS | 18.5 |
+| 3b | PASS | 0.5 |
+| 6 | PASS | 75.1 |
+| 6c | PASS | 1.4 |
+| 5 | PASS | 18.8 |
+| 5c | PASS | 0.5 |
+
+## Validators
+
+| Validator | Pass | Warn | Fail | Total |
+|---|---|---|---|---|
+| `hdb_resale_validation` | 6 | 0 | 0 | 6 |
+| `amenities_extra_validation` | 10 | 0 | 0 | 10 |
+| `buildings_validation` | 5 | 1 | 0 | 6 |
+| `roads_validation` | 6 | 2 | 0 | 8 |
+| `buildings_clean_validation` | 5 | 1 | 0 | 6 |
+| `demand_pull_validation` | 7 | 0 | 0 | 7 |
+| `composites_validation` | 5 | 1 | 0 | 6 |
+| `embeddings_validation` | 5 | 0 | 0 | 5 |
+| `place_composition_validation` | 6 | 0 | 0 | 6 |
+| `land_use_validation` | 6 | 0 | 0 | 6 |
+| `satellite_validation` | 3 | 2 | 0 | 5 |
+| `schools_validation` | 6 | 0 | 0 | 6 |
+| `non_resident_validation` | 5 | 0 | 0 | 5 |
+| `population_validation` | 6 | 0 | 0 | 6 |
+| `road_centrality_validation` | 4 | 1 | 0 | 5 |
+| `transit_validation` | 6 | 0 | 0 | 6 |
+
+## Datasets in catalog
+
+| Dataset | Scale | Rows × Cols | Owner | Description |
+|---|---|---|---|---|
+| `hex/hex8_acra_biz.parquet` | hex8 | 1,191 × 11 | S4 | S4 ACRA business formation & churn (biz_*; 1.95M entities geocoded via offline OneMap dump) |
+| `hex/hex8_all_features.parquet` | hex8 | 1,191 × 801 | all | MASTER — all standalone layers joined per hex-8 |
+| `hex/hex8_buildings_clean.parquet` | hex8 | 1,191 × 19 | 2c | Buildings clean aggregated to hex-8 |
+| `hex/hex8_built_environment_features.parquet` | hex8 | 1,191 × 40 | 24 | BUNDLE — buildings + land_use aggregated to hex-8 |
+| `hex/hex8_colo_fit.parquet` | hex8 | 1,191 × 12 | S6 | S6 co-location fit rolled to hex-8 (MAX over children) |
+| `hex/hex8_context_pack.parquet` | hex8 | 1,191 × 17 | S10 | S10 context pack: conservation/shophouse, carpark capacity, polyclinics, wet markets, petrol, coworking, condos, female share, BTO pipeline |
+| `hex/hex8_daytime_pop.parquet` | hex8 | 1,191 × 9 | S3 | S3 daytime population from LTA OD AM window (dt_*) |
+| `hex/hex8_huff_capture.parquet` | hex8 | 1,191 × 14 | S1 | S1 Huff capture rolled to hex-8 (MAX over children = best site) |
+| `hex/hex8_iso_transit.parquet` | hex8 | 1,191 × 5 | S2b | S2b 15-min weekday-AM transit reach (iso_transit15_*; GTFS route-dir-stop graph) |
+| `hex/hex8_iso_walk.parquet` | hex8 | 1,191 × 17 | S2a | S2a 10-min walk isochrone catchments (iso_walk10_*; node-field demand, activity origins) |
+| `hex/hex8_labor_shed.parquet` | hex8 | 1,191 × 6 | S5 | S5 labor pool / jobs reach within 30/45-min transit (labor_*) |
+| `hex/hex8_land_use.parquet` | hex8 | 1,191 × 22 | 4agg | URA land-use aggregated to hex-8 (area-weighted) |
+| `hex/hex8_mobility_features.parquet` | hex8 | 1,191 × 50 | 56 | BUNDLE — roads + transit + walkability aggregated to hex-8 |
+| `hex/hex8_mobility_pack.parquet` | hex8 | 1,191 × 99 | S11 | S11 mobility pack: travel-time anchors, destination reach, MRT effective-reach, waits/crowding, adequacy v3 (adq_*), 15-min city, pop pass-type splits, vulnerability, linkways/cycling |
+| `hex/hex8_pipeline.parquet` | hex8 | 1,191 × 6 | S9 | S9 future rail (MP19 delta, 37 stations) + FAR-headroom dev capacity (pipe_*) |
+| `hex/hex8_population.parquet` | hex8 | 1,191 × 18 | 3agg | Population aggregated to hex-8 |
+| `hex/hex8_rent_surface.parquet` | hex8 | 1,191 × 9 | S8 | S8 URA resi rent surface + capture-per-rent ROI (rent_*, roi_*) |
+| `hex/hex8_roads_clean.parquet` | hex8 | 1,191 × 18 | 6c | Roads + parking + centrality aggregated to hex-8 |
+| `hex/hex8_satellite.parquet` | hex8 | 1,191 × 9 | 5b | VIIRS + WorldPop aggregated to hex-8 |
+| `hex/hex8_transit_clean.parquet` | hex8 | 1,191 × 18 | 5c | Transit aggregated to hex-8 |
+| `hex/hex8_universe.parquet` | hex8 | 1,191 × 7 | 0 | Hex-8 cell universe (1,191 cells) |
+| `hex/hex8_visibility.parquet` | hex8 | 1,191 × 7 | S7 | S7 MRT-exit footfall + traffic exposure (vis_*) |
+| `hex/hex8_walkability.parquet` | hex8 | 1,191 × 21 | 7w | Walkability aggregated to hex-8 |
+| `hex/hex9_all_features.parquet` | hex9 | 7,318 × 583 | all | MASTER — all standalone layers joined per hex-9 |
+| `hex/hex9_buildings.parquet` | hex9 | 7,318 × 39 | 2 | Buildings (counts, classes, floors, HDB) per hex-9 |
+| `hex/hex9_buildings_clean.parquet` | hex9 | 7,318 × 20 | 2c | Buildings clean (clipped, est-FAR, HDB age) per hex-9 |
+| `hex/hex9_built_environment_features.parquet` | hex9 | 7,318 × 41 | 24 | BUNDLE — buildings + land_use per hex-9 |
+| `hex/hex9_colo_fit.parquet` | hex9 | 7,318 × 12 | S6 | S6 co-location mix-match fit per hex-9 (colo_fit_*) |
+| `hex/hex9_huff_capture.parquet` | hex9 | 7,318 × 14 | S1 | S1 Huff capture potential per hex-9 (cap_*, 11 categories, outlet-equivalents) |
+| `hex/hex9_land_use.parquet` | hex9 | 7,318 × 22 | 4 | URA land-use 14-bucket shares per hex-9 |
+| `hex/hex9_mobility_features.parquet` | hex9 | 7,318 × 53 | 56 | BUNDLE — roads + transit + walkability per hex-9 |
+| `hex/hex9_population.parquet` | hex9 | 7,318 × 15 | 3+3b | Population (residents + non-residents) per hex-9 |
+| `hex/hex9_roads_clean.parquet` | hex9 | 7,318 × 18 | 6+6c | Roads + parking + centrality (clean) per hex-9 |
+| `hex/hex9_satellite.parquet` | hex9 | 7,318 × 11 | 5b | VIIRS night lights + WorldPop per hex-9 |
+| `hex/hex9_transit_clean.parquet` | hex9 | 7,318 × 19 | 5+5c | Transit (MRT/LRT/bus/GTFS/ridership) per hex-9 |
+| `hex/hex9_universe.parquet` | hex9 | 7,318 × 8 | 0 | Hex-9 cell universe (7,318 cells across SGP) |
+| `hex/hex9_walkability.parquet` | hex9 | 7,318 × 27 | 7w | Walkability composite + amenity walk distances per hex-9 |
+| `catalog/colo_lift_matrix.parquet` | matrix | 576 × 6 | S6 | S6 24×24 count-based co-location lift matrix with bootstrap CIs |
+| `places/sgp_places_final.parquet` | place | 190,591 × 27 | 1 | Stage-1 deliverable: 190,591 places × 27 cols (geo + cat + brand + quality) |
+| `places/sgp_places_micrograph.parquet` | place | 190,591 × 20 | 10p | Per-place micrograph (pmg_*): 400/800m competitors, complements, anchors, transit walk context — the per-venue site fingerprint |
+| `hex/subzone_all_features.parquet` | subzone | 326 × 389 | all | MASTER — all standalone layers joined per subzone |
+| `hex/subzone_buildings_clean.parquet` | subzone | 270 × 17 | 2c | Buildings clean aggregated to subzone |
+| `hex/subzone_built_environment_features.parquet` | subzone | 270 × 38 | 24 | BUNDLE — buildings + land_use aggregated to subzone |
+| `hex/subzone_land_use.parquet` | subzone | 326 × 22 | 4agg | URA land-use aggregated to subzone (area-weighted) |
+| `hex/subzone_mobility_features.parquet` | subzone | 270 × 38 | 56 | BUNDLE — roads + transit + walkability aggregated to subzone |
+| `hex/subzone_population.parquet` | subzone | 326 × 12 | 3agg | Population aggregated to subzone |
+| `hex/subzone_roads_clean.parquet` | subzone | 270 × 18 | 6c | Roads + parking + centrality aggregated to subzone |
+| `hex/subzone_satellite.parquet` | subzone | 326 × 9 | 5b | VIIRS + WorldPop aggregated to subzone |
+| `hex/subzone_transit_clean.parquet` | subzone | 270 × 14 | 5c | Transit aggregated to subzone |
+| `hex/subzone_walkability.parquet` | subzone | 270 × 8 | 7w | Walkability aggregated to subzone |
+
+## Top 15 files by size
+
+| Path | Size (MB) |
+|---|---|
+| `places/sgp_places_geoattached.jsonl` | 111.5 |
+| `places/sgp_place_V1.jsonl` | 61.2 |
+| `places/place_embedding_combined_128d.parquet` | 60.2 |
+| `places/place_embedding_what_64d.parquet` | 40.4 |
+| `hex/huff_pairs.npz` | 19.5 |
+| `places/sgp_places_final.parquet` | 12.0 |
+| `places/sgp_places_branded.parquet` | 10.9 |
+| `places/sgp_places_categorized.parquet` | 10.9 |
+| `places/sgp_places_geoattached.parquet` | 10.7 |
+| `places/sgp_places_micrograph.parquet` | 9.7 |
+| `hex/hex9_all_features.parquet` | 7.1 |
+| `hex/hex9_embedding_combined_128d.parquet` | 4.3 |
+| `hex/hex8_hex9_transit_min.npz` | 4.1 |
+| `hex/hex9_universe.geojson` | 3.5 |
+| `boundaries/subzones.geojson` | 3.2 |
+
+---
+
+_Checkpoint manifest: `CHECKPOINT_v5.2.0.json`. Atlas-1 backup: `plexis-sgp-v5.2.0.tar.gz`._

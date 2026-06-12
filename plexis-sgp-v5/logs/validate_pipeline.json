@@ -1,0 +1,52 @@
+{
+  "layer": "pipeline",
+  "checks": [
+    {
+      "check": "P1_future_set",
+      "status": "PASS",
+      "detail": "37 future stations; 9/9 expected JRL/CCL6 names present; 1 UNNAMED entries (reported)"
+    },
+    {
+      "check": "P2_capacity_archetypes",
+      "status": "PASS",
+      "detail": "Matilda/Bidadari max capacity 0.502 (p90=0.294); Toa Payoh Central 0.000"
+    },
+    {
+      "check": "P3_invariants",
+      "status": "PASS",
+      "detail": "all hold"
+    },
+    {
+      "check": "P4_redundancy",
+      "status": "PASS",
+      "detail": "no non-source |r|>0.9"
+    }
+  ],
+  "top_capacity": [
+    {
+      "parent_subzone_name": "NORTHSHORE",
+      "pipe_dev_capacity_res": 1.793
+    },
+    {
+      "parent_subzone_name": "JURONG RIVER",
+      "pipe_dev_capacity_res": 1.112
+    },
+    {
+      "parent_subzone_name": "ONE NORTH",
+      "pipe_dev_capacity_res": 1.067
+    },
+    {
+      "parent_subzone_name": "HONG KAH NORTH",
+      "pipe_dev_capacity_res": 0.94
+    },
+    {
+      "parent_subzone_name": "PUNGGOL CANAL",
+      "pipe_dev_capacity_res": 0.928
+    },
+    {
+      "parent_subzone_name": "ADMIRALTY",
+      "pipe_dev_capacity_res": 0.87
+    }
+  ],
+  "verdict": "PASS"
+}

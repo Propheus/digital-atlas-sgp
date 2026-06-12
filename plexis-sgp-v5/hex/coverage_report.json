@@ -1,0 +1,165 @@
+{
+  "checks": [
+    {
+      "check": "L1_subzones_in_hex9_overlap",
+      "status": "PASS",
+      "detail": "332/332 subzones represented"
+    },
+    {
+      "check": "L2_subzones_in_hex8_overlap",
+      "status": "PASS",
+      "detail": "332/332 subzones represented"
+    },
+    {
+      "check": "L3_no_dupes",
+      "status": "PASS",
+      "detail": "hex9_id unique, hex8_id unique"
+    },
+    {
+      "check": "L4_hex9_to_hex8_parent",
+      "status": "PASS",
+      "detail": "all 7,318 hex-9 map to an existing hex-8"
+    },
+    {
+      "check": "L5_areal_coverage",
+      "status": "PASS",
+      "detail": "100.0000% covered, gap=0 m\u00b2"
+    },
+    {
+      "check": "L6_per_subzone_coverage",
+      "status": "PASS",
+      "detail": "all 332 subzones at 100%"
+    }
+  ],
+  "generated_at": "2026-04-25T03:16:47",
+  "subzones": 332,
+  "hex9_count": 7318,
+  "hex8_count": 1191,
+  "areas": {
+    "subzones_km2": 784.784,
+    "hex9_union_km2": 871.6561,
+    "uncovered_km2": 0.0
+  },
+  "worst_subzones": [
+    {
+      "code": "LKSZ01",
+      "name": "LIM CHU KANG",
+      "km2": 17.4954,
+      "pct": 100.0
+    },
+    {
+      "code": "WCSZ01",
+      "name": "MURAI",
+      "km2": 68.5506,
+      "pct": 100.0
+    },
+    {
+      "code": "BTSZ05",
+      "name": "HILLCREST",
+      "km2": 2.6365,
+      "pct": 100.0
+    },
+    {
+      "code": "NESZ01",
+      "name": "NORTH-EASTERN ISLANDS",
+      "km2": 67.2505,
+      "pct": 100.0
+    },
+    {
+      "code": "DTSZ13",
+      "name": "NICOLL",
+      "km2": 0.6149,
+      "pct": 100.0
+    },
+    {
+      "code": "SISZ02",
+      "name": "SOUTHERN GROUP",
+      "km2": 2.2064,
+      "pct": 100.0
+    },
+    {
+      "code": "CLSZ07",
+      "name": "CLEMENTI WOODS",
+      "km2": 1.058,
+      "pct": 100.0
+    },
+    {
+      "code": "NTSZ06",
+      "name": "ISTANA NEGARA",
+      "km2": 0.5435,
+      "pct": 100.0
+    },
+    {
+      "code": "BKSZ01",
+      "name": "GOMBAK",
+      "km2": 2.4563,
+      "pct": 100.0
+    },
+    {
+      "code": "BDSZ08",
+      "name": "BAYSHORE",
+      "km2": 2.5505,
+      "pct": 100.0
+    },
+    {
+      "code": "NVSZ01",
+      "name": "BALESTIER",
+      "km2": 1.9266,
+      "pct": 100.0
+    },
+    {
+      "code": "CHSZ02",
+      "name": "CHANGI WEST",
+      "km2": 4.8039,
+      "pct": 100.0
+    },
+    {
+      "code": "PLSZ03",
+      "name": "PAYA LEBAR WEST",
+      "km2": 0.6017,
+      "pct": 100.0
+    },
+    {
+      "code": "WISZ01",
+      "name": "JURONG ISLAND AND BUKOM",
+      "km2": 36.6394,
+      "pct": 100.0
+    },
+    {
+      "code": "QTSZ13",
+      "name": "PASIR PANJANG 1",
+      "km2": 1.0848,
+      "pct": 100.0
+    },
+    {
+      "code": "QTSZ14",
+      "name": "PASIR PANJANG 2",
+      "km2": 0.8532,
+      "pct": 100.0
+    },
+    {
+      "code": "RCSZ03",
+      "name": "SUNGEI ROAD",
+      "km2": 0.1163,
+      "pct": 100.0
+    },
+    {
+      "code": "BTSZ04",
+      "name": "ULU PANDAN",
+      "km2": 1.2271,
+      "pct": 100.0
+    },
+    {
+      "code": "TMSZ01",
+      "name": "TAMPINES NORTH",
+      "km2": 2.5431,
+      "pct": 100.0
+    },
+    {
+      "code": "TSSZ02",
+      "name": "TUAS PROMENADE",
+      "km2": 4.1372,
+      "pct": 100.0
+    }
+  ]
+}
