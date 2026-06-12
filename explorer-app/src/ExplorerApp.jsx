@@ -14,6 +14,7 @@ const NODATA = '#1f2937'
 const fmt = (v, unit) => {
   if (v === null || v === undefined) return '—'
   if (typeof v === 'string') return v
+  if (typeof v === 'boolean') return v ? 'yes' : 'no'   // pipe_new_mrt_within_800m
   if (unit === 'ppl' || unit === 'trips/mo') return Math.round(v).toLocaleString()
   if (unit === '$/m2') return '$' + Math.round(v).toLocaleString()
   if (unit === 'frac') return (v * 100).toFixed(1) + '%'
@@ -23,7 +24,8 @@ const fmt = (v, unit) => {
 
 function colorExpr(metric) {
   const [lo, hi] = metric.domain
-  const pal = DIVERGING.has(metric.id) ? DIV : SEQ
+  let pal = DIVERGING.has(metric.id) ? DIV : SEQ
+  if (metric.reverse) pal = [...pal].reverse()   // e.g. future-MRT distance: closer = hotter
   const stops = []
   const n = pal.length
   for (let i = 0; i < n; i++) {
@@ -45,12 +47,21 @@ export default function ExplorerApp() {
   const [selected, setSelected] = useState(null)
   const [search, setSearch] = useState('')
   const [help, setHelp] = useState(false)
-  const [mrt, setMrt] = useState(true)
+  const [mrt, setMrt] = useState(false)
+  const [category, setCategory] = useState('Commercial')
   const dataRef = useRef({ hex8: null, subzone: null })
 
   const metric = useMemo(
     () => manifest?.metrics.find(m => m.id === metricId) || manifest?.metrics[0],
     [manifest, metricId])
+  const metricsInCat = useMemo(
+    () => manifest ? manifest.metrics.filter(m => m.group === category) : [],
+    [manifest, category])
+  const selectCategory = c => {
+    setCategory(c)
+    const ms = manifest.metrics.filter(m => m.group === c)
+    if (ms.length && !ms.some(m => m.id === metricId)) setMetricId(ms[0].id)
+  }
 
   // ---- init map + load data ----
   useEffect(() => {
@@ -87,10 +98,10 @@ export default function ExplorerApp() {
         map.addLayer({ id: 'sel-line', type: 'line', source: 'sel',
           paint: { 'line-color': '#fcd34d', 'line-width': 2.4 } })
         if (lines) { map.addSource('mrt', { type: 'geojson', data: lines })
-          map.addLayer({ id: 'mrt', type: 'line', source: 'mrt',
+          map.addLayer({ id: 'mrt', type: 'line', source: 'mrt', layout: { visibility: 'none' },
             paint: { 'line-color': '#67e8f9', 'line-width': 1.4, 'line-opacity': 0.6 } }) }
         if (stations) { map.addSource('stn', { type: 'geojson', data: stations })
-          map.addLayer({ id: 'stn', type: 'circle', source: 'stn',
+          map.addLayer({ id: 'stn', type: 'circle', source: 'stn', layout: { visibility: 'none' },
             paint: { 'circle-radius': 2.5, 'circle-color': '#a5f3fc', 'circle-opacity': 0.8 } }) }
 
         const onClick = e => {
@@ -162,38 +173,34 @@ export default function ExplorerApp() {
     }
   }
 
-  const groups = useMemo(() => {
-    if (!manifest) return []
-    const g = {}
-    manifest.metrics.forEach(m => { (g[m.group] = g[m.group] || []).push(m) })
-    return Object.entries(g)
-  }, [manifest])
-
   return (
     <div className="app">
       <div ref={mapDiv} className="map" />
 
       {/* top bar */}
       <header className="topbar">
-        <div className="brand"><span className="logo">◆</span> Plexis <b>Explorer</b><span className="sub">Singapore · hex8 atlas v4.9.0</span></div>
+        <div className="brand"><img src="/propheus.svg" className="logo-img" alt="Propheus" /><span className="brand-name">Digital&nbsp;<b>Atlas</b></span><span className="sub">Singapore · hex8 atlas v5.0.0</span></div>
         <div className="levels">
           <span className="lbl">LEVEL</span>
           {['hex8', 'subzone'].map(l =>
             <button key={l} className={'pill ' + (level === l ? 'on' : '')} onClick={() => setLevel(l)}>{l === 'hex8' ? 'Hex8' : 'Subzone'}</button>)}
         </div>
+        {manifest && <div className="levels cats">
+          <span className="lbl">LAYERS</span>
+          {manifest.categories.map(c =>
+            <button key={c} className={'pill ' + (category === c ? 'on' : '')} onClick={() => selectCategory(c)}>{c}</button>)}
+        </div>}
         <button className="help-btn" onClick={() => setHelp(true)}>?</button>
       </header>
 
-      {/* metric pills */}
+      {/* metric pills for the active category */}
       {manifest && <div className="metricbar">
-        {groups.map(([grp, ms]) =>
-          <div className="mgroup" key={grp}>
-            <span className="glabel">{grp}</span>
-            {ms.map(m =>
-              <button key={m.id} className={'pill ' + (metricId === m.id ? 'on' : '')} onClick={() => setMetricId(m.id)}>{m.label}</button>)}
-          </div>)}
-        <div className="mgroup"><span className="glabel">Overlay</span>
-          <button className={'pill ' + (mrt ? 'on' : '')} onClick={() => setMrt(v => !v)}>MRT/LRT</button></div>
+        <span className="glabel">METRIC</span>
+        {metricsInCat.map(m =>
+          <button key={m.id} className={'pill ' + (metricId === m.id ? 'on' : '')} onClick={() => setMetricId(m.id)}>{m.label}</button>)}
+        <div className="mbspacer" />
+        <span className="glabel">OVERLAY</span>
+        <button className={'pill ' + (mrt ? 'on' : '')} onClick={() => setMrt(v => !v)}>MRT/LRT</button>
       </div>}
 
       {/* left search */}
@@ -206,7 +213,7 @@ export default function ExplorerApp() {
       {/* legend */}
       {metric && <div className="legend">
         <div className="leg-title">{metric.label} <span className="unit">{metric.unit}</span></div>
-        <div className="leg-bar" style={{ background: `linear-gradient(to right, ${(DIVERGING.has(metric.id) ? DIV : SEQ).join(',')})` }} />
+        <div className="leg-bar" style={{ background: `linear-gradient(to right, ${(metric.reverse ? [...(DIVERGING.has(metric.id) ? DIV : SEQ)].reverse() : (DIVERGING.has(metric.id) ? DIV : SEQ)).join(',')})` }} />
         <div className="leg-ends"><span>{fmt(metric.domain[0], metric.unit)}</span><span>{fmt(metric.domain[1], metric.unit)}</span></div>
       </div>}
 
@@ -249,7 +256,7 @@ function DetailPanel({ p, manifest, onClose }) {
 function HelpModal({ manifest, onClose }) {
   const md = useMemo(() => {
     if (!manifest) return ''
-    let s = '# Plexis Explorer — layer guide\n\nEvery hex8 (~0.74 km²) carries 600+ features from the Plexis v4.9.0 atlas. Pick a metric up top to color the map; click any hex for the full breakdown. Singapore total population 6.04M (SingStat Jun-2024).\n\n'
+    let s = '# Digital Atlas — layer guide\n\nEvery hex8 (~0.74 km²) carries 687 features from the Plexis v5.0.0 atlas, including the validation-gated site-selection layers (Opportunity / Catchment / Business / Future). Pick a metric up top to color the map; click any hex for the full breakdown. Singapore total population 6.04M (SingStat Jun-2024). Site-selection metrics are hex8-only (gray at subzone level, like the OD group).\n\n'
     const g = {}
     manifest.metrics.forEach(m => { (g[m.group] = g[m.group] || []).push(m) })
     for (const [grp, ms] of Object.entries(g)) {

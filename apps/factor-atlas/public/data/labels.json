@@ -1,0 +1,10 @@
+{
+  "0": {"code":"M0","name":"Jurong Industrial Estate","blurb":"Pure business land — petrochemical and heavy industry. No demand, no anchors, no residents."},
+  "1": {"code":"M1","name":"Outer HDB Estates","blurb":"Population-dense residential rings with low amenity diversity — the heartland edge."},
+  "2": {"code":"M2","name":"Mixed-Use Activity Hubs","blurb":"Town cores stacked with beauty, retail and medical anchors — close to an MRT line."},
+  "3": {"code":"M3","name":"Off-Grid Outliers","blurb":"Four-plus hex rings to the nearest MRT — outlying islands and the Tuas extension."},
+  "4": {"code":"M4","name":"Civic & Resort Fringe","blurb":"Cafés, clinics, bars per resident skew high — Sentosa, the port, fringe estates."},
+  "5": {"code":"M5","name":"Tuas Industrial Frontier","blurb":"Active industrial coastline — heavy footprint, bus-served, no homes."},
+  "6": {"code":"M6","name":"Coastal Reserves","blurb":"Special-use coastline — airports, ports, islands with their own brand-mix signature."},
+  "7": {"code":"M7","name":"Mid-Density Mixed","blurb":"Walkable suburban hexes with a mid-tier shop layer — the residential connective tissue."}
+}

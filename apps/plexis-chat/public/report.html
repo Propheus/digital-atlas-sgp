@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alchemy — Fine-Tuning Report (Plexis-Mind v0)</title>
+<style>
+  :root{
+    --bg:#0B1A1C; --bg2:#0D1F21; --panel:#11282a;
+    --card:rgba(13,31,33,.72); --b:rgba(32,178,170,.18);
+    --teal:#20B2AA; --teal2:#17c7ba; --t1:#E6ECEC; --t2:#b9c6c6; --t3:#8aa0a0;
+    --amber:#f59e0b; --green:#34d399; --red:#f87171; --grey:#94a3b8;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:
+      radial-gradient(1100px 600px at 80% -10%,rgba(32,178,170,.10),transparent 60%),
+      radial-gradient(900px 500px at 0% 110%,rgba(23,199,186,.07),transparent 55%),var(--bg);
+      color:var(--t1);font:16px/1.65 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Inter,sans-serif;
+      -webkit-font-smoothing:antialiased}
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px}
+  a{color:var(--teal2);text-decoration:none}
+  /* hero */
+  header.hero{padding:64px 0 38px;border-bottom:1px solid var(--b);
+      background:linear-gradient(180deg,rgba(32,178,170,.05),transparent)}
+  .brand{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+  .logo{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;
+      font-weight:800;color:#06201e;background:linear-gradient(135deg,#20B2AA,#17c7ba);font-size:22px}
+  .brand b{font-size:18px;letter-spacing:.5px;color:var(--teal)}
+  .brand span{color:var(--t3);font-size:12px;display:block;margin-top:2px}
+  h1{font-size:40px;line-height:1.12;margin:.1em 0 .25em;letter-spacing:-.5px}
+  h1 em{font-style:normal;color:var(--teal2)}
+  .sub{color:var(--t2);font-size:18px;max-width:760px}
+  .pill{display:inline-block;font-size:12px;color:var(--teal2);background:rgba(32,178,170,.1);
+      border:1px solid var(--b);border-radius:20px;padding:3px 11px;margin:14px 6px 0 0}
+  /* stat strip */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:34px 0 6px}
+  .stat{background:var(--card);border:1px solid var(--b);border-radius:14px;padding:18px;backdrop-filter:blur(10px)}
+  .stat .n{font-size:27px;font-weight:700;color:var(--teal2)}
+  .stat .l{font-size:12.5px;color:var(--t3);margin-top:3px}
+  /* sections */
+  section{padding:40px 0;border-bottom:1px solid rgba(32,178,170,.10)}
+  h2{font-size:26px;margin:0 0 6px;letter-spacing:-.3px}
+  h2 .k{color:var(--teal);font-weight:700;margin-right:10px}
+  .lead{color:var(--t2);margin:0 0 22px;max-width:800px}
+  h3{font-size:17px;margin:26px 0 10px;color:var(--t1)}
+  p{color:var(--t2)} p strong{color:var(--t1)}
+  .num{color:var(--teal2);font-weight:600;background:rgba(32,178,170,.10);padding:0 4px;border-radius:4px;white-space:nowrap}
+  .card{background:var(--card);border:1px solid var(--b);border-radius:14px;padding:20px 22px;margin:16px 0;backdrop-filter:blur(10px)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  ul.clean{list-style:none;padding:0;margin:0}
+  ul.clean li{padding:8px 0 8px 26px;position:relative;color:var(--t2);border-bottom:1px solid rgba(255,255,255,.04)}
+  ul.clean li:before{content:"▸";position:absolute;left:4px;color:var(--teal)}
+  ol.why{counter-reset:n;list-style:none;padding:0;margin:0}
+  ol.why>li{counter-increment:n;position:relative;padding:14px 0 14px 50px;border-bottom:1px solid rgba(255,255,255,.05)}
+  ol.why>li:before{content:counter(n);position:absolute;left:0;top:12px;width:32px;height:32px;border-radius:9px;
+      background:rgba(32,178,170,.14);border:1px solid var(--b);color:var(--teal2);font-weight:700;
+      display:flex;align-items:center;justify-content:center;font-size:15px}
+  ol.why b{color:var(--t1)}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--b)}
+  th{color:var(--t1);background:rgba(32,178,170,.07);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.4px}
+  td{color:var(--t2)} td b{color:var(--t1)}
+  .bar{height:8px;border-radius:6px;background:rgba(255,255,255,.06);overflow:hidden;min-width:90px}
+  .bar>i{display:block;height:100%;background:linear-gradient(90deg,#20B2AA,#17c7ba)}
+  .tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;border:1px solid var(--b)}
+  .tag.g{color:var(--green);background:rgba(52,211,153,.1)} .tag.a{color:var(--amber);background:rgba(245,158,11,.1)}
+  .tag.r{color:var(--red);background:rgba(248,113,113,.1)} .tag.t{color:var(--teal2);background:rgba(32,178,170,.1)}
+  .callout{border-left:3px solid var(--teal);padding:12px 18px;background:rgba(32,178,170,.05);border-radius:0 10px 10px 0;margin:16px 0}
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--b);border-radius:14px;overflow:hidden;margin:16px 0}
+  .compare>div{padding:18px 20px}
+  .compare .h{font-weight:700;font-size:14px;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .dot{width:9px;height:9px;border-radius:50%}
+  .quote{font-size:14px;color:var(--t2);font-style:italic;line-height:1.55}
+  footer{padding:40px 0 70px;color:var(--t3);font-size:13px}
+  .muted{color:var(--t3);font-size:13px}
+  @media(max-width:760px){.stats,.grid2,.compare{grid-template-columns:1fr}h1{font-size:31px}}
+</style>
+</head>
+<body>
+
+<header class="hero"><div class="wrap">
+  <div class="brand">
+    <div class="logo">A</div>
+    <div><b>ALCHEMY</b><span>Singapore spatial-reasoning model · by Propheus</span></div>
+  </div>
+  <h1>Fine-tuning a model that <em>reasons</em> about Singapore</h1>
+  <p class="sub">How we built <strong>Alchemy</strong> (internally <em>Plexis-Mind v0</em>) — a Gemma-12B model fine-tuned on a
+  deterministically-generated Q&amp;A corpus so it reasons over Singapore's urban geography, stays grounded in the
+  Plexis atlas, and refuses to bluff. This report focuses on the <strong>diversity of the Q&amp;A pairs</strong> and the
+  <strong>enhanced reasoning capability</strong>.</p>
+  <div>
+    <span class="pill">Gemma-4-12B · QLoRA</span>
+    <span class="pill">~160K Q&amp;A · 3 registers</span>
+    <span class="pill">deterministic ground-truth</span>
+    <span class="pill">~88% on held-out areas</span>
+    <span class="pill">v0 · Jun 2026</span>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="n">174,713</div><div class="l">places across the atlas</div></div>
+    <div class="stat"><div class="n">~160K</div><div class="l">curated Q&amp;A pairs</div></div>
+    <div class="stat"><div class="n">50+</div><div class="l">distinct question kinds</div></div>
+    <div class="stat"><div class="n">~$25</div><div class="l">total data-generation cost</div></div>
+  </div>
+</div></header>
+
+<!-- KEYSTONE -->
+<section><div class="wrap">
+  <h2><span class="k">01</span>The keystone idea</h2>
+  <p class="lead">One design decision shapes everything below.</p>
+  <div class="callout">
+    <p style="margin:0"><strong>Python computes every ground-truth answer deterministically from the atlas parquet;
+    the model only learns to PHRASE and REASON — never to memorise a number.</strong></p>
+  </div>
+  <p>Because correctness is computed, not trusted, the same engine plays <strong>four roles</strong> — and that is what makes
+  a small budget produce a reliable model:</p>
+  <ul class="clean">
+    <li><b>Data generator</b> — emits exhaustive, correct Q&amp;A across every area and metric.</li>
+    <li><b>Quality verifier</b> — recomputes and rejects any pair whose numbers don't trace to the source.</li>
+    <li><b>Reward oracle</b> — the verifier doubles as a verifiable RL reward (planned for v1 / GRPO).</li>
+    <li><b>Live tool source</b> — the same functions serve fresh, exact facts at inference (RAG grounding).</li>
+  </ul>
+  <p class="muted">Consequence: we could phrase the bulk with a cheap model and spend the expensive model only where
+  reasoning is hard — total data cost <span class="num">~$25</span> instead of ~$150.</p>
+</div></section>
+
+<!-- DATASET DIVERSITY -->
+<section><div class="wrap">
+  <h2><span class="k">02</span>The Q&amp;A corpus — built for diversity</h2>
+  <p class="lead">A model is only as broad as its questions. We deliberately spread the corpus across three
+  <strong>registers</strong> (how people actually ask), five <strong>categories</strong>, and 50+ <strong>question kinds</strong>.</p>
+
+  <h3>Three registers — so it handles real users, not just analysts</h3>
+  <table>
+    <tr><th>Register</th><th>~Count</th><th>Style</th><th>Why it matters</th></tr>
+    <tr><td><b>Casual / human</b></td><td>~51.5K</td><td>short, conversational</td><td>“Any good hawker food near Clementi?”</td></tr>
+    <tr><td><b>Standard / factual</b></td><td>~94K</td><td>grounded, precise</td><td>counts, demographics, walkability, mix</td></tr>
+    <tr><td><b>Deep reasoning</b></td><td>15K</td><td>full multi-step chain-of-thought</td><td>verified traces from a frontier model</td></tr>
+  </table>
+
+  <h3>Five categories × 50+ question kinds</h3>
+  <div class="grid2">
+    <div class="card">
+      <h3 style="margin-top:0">Factual <span class="tag t">subzone · PA · region · hex8</span></h3>
+      <p style="margin:0">Population, demographics, land-use, walkability, transit, night-lights, HDB resale. Hex8 keyed
+      to the nearest landmark to solve the 91% name-collision problem.</p>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Places <span class="tag t">55 categories · brands</span></h3>
+      <p style="margin:0">Counts, existence, category mix, dominant use, brand presence — “how many clinics”, “any cafés”.</p>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Reasoning <span class="tag t">multi-step</span></h3>
+      <p style="margin:0">top-N (normalised), compare, OD flows, rank/percentile, multi-hop aggregation, multi-constraint
+      superlatives, arithmetic, synthesis, profile analogy.</p>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Patterns &amp; Planning <span class="tag t">directional</span></h3>
+      <p style="margin:0">Weekday commuter flows; observed change, supply-gap vs national median, MRT-analog estimates,
+      assumption→inference→caveat scenarios.</p>
+    </div>
+  </div>
+
+  <h3>The reasoning families (the heart of the diversity)</h3>
+  <table>
+    <tr><th>Family</th><th>What it trains</th></tr>
+    <tr><td><b>od_flow / od_asym / od_share</b></td><td>read an origin-destination matrix; A↔B asymmetry + ratio; corridor share</td></tr>
+    <tr><td><b>filt_super</b></td><td>multi-constraint superlative — filter, then rank (the hardest kind)</td></tr>
+    <tr><td><b>multihop_pa / multihop_share</b></td><td>subzone → parent planning-area aggregation</td></tr>
+    <tr><td><b>quant_diff / quant_combine</b></td><td>arithmetic across multiple entities</td></tr>
+    <tr><td><b>synthesis</b></td><td>satisfy two conditions at once</td></tr>
+    <tr><td><b>similar</b></td><td>z-scored profile cosine analogy (“which area is most like X?”)</td></tr>
+    <tr><td><b>abstain / why_composite / multirank / concept</b></td><td>refuse out-of-scope · explain a composite by its drivers · order 3–4 entities · define a concept</td></tr>
+  </table>
+  <p class="muted">Distinctness was enforced (small families enumerated, large pair-families de-duplicated with seen-sets)
+  so the model learns the <em>pattern</em>, not a template.</p>
+
+  <h3>Data-honesty rules baked in at generation</h3>
+  <ul class="clean">
+    <li><b>Normalise concentration</b> — elder <em>share</em>, not raw count (else you just rank by population).</li>
+    <li><b>Percentile semantics</b> — “#194 of 214 = bottom 9%”, never “top 91%”.</li>
+    <li><b>Structural zeros</b> — HDB resale 0 = a no-HDB private enclave, not “cheap”.</li>
+    <li><b>Label honesty</b> — hawker <em>eateries</em> (POIs) ≠ gazetted hawker <em>centres</em>.</li>
+    <li><b>OD = weekday monthly aggregate</b>; no weekend / time-of-day data (a stated gap, not a guess).</li>
+  </ul>
+
+  <h3>So what did we actually fine-tune <em>on</em>?</h3>
+  <p>Every training pair's <strong>answer is computed from real atlas facts</strong> — so the data is full of facts. But
+  the model is <strong>not</strong> meant to memorise them. It learns the <em>behaviour shown over</em> the facts. The split:</p>
+  <div class="compare">
+    <div style="background:rgba(32,178,170,.05)">
+      <div class="h"><span class="dot" style="background:var(--teal2)"></span>Learned into the weights</div>
+      <ul class="clean" style="margin:0">
+        <li>How to reason over facts (compare, rank, aggregate, read OD)</li>
+        <li>Singapore-calibrated interpretation of a number</li>
+        <li>Data-semantics &amp; honest abstention</li>
+        <li>Verdict-first voice &amp; register</li>
+        <li>A thin layer of <em>stable</em> geography (region, concepts)</li>
+      </ul>
+    </div>
+    <div style="background:rgba(148,163,184,.05)">
+      <div class="h"><span class="dot" style="background:var(--grey)"></span>Stays in the atlas (RAG at inference)</div>
+      <ul class="clean" style="margin:0">
+        <li>The 174,713 place stats &amp; per-area numbers</li>
+        <li>Populations, counts, walkability scores, distances</li>
+        <li>The full OD matrix</li>
+        <li>Anything that changes when the data refreshes</li>
+        <li>→ injected into the prompt at query time, not baked in</li>
+      </ul>
+    </div>
+  </div>
+  <p class="muted">A 12B can't hold 174K facts — and we didn't want it to. Ask “is Bedok North good for families?” and the
+  <em>numbers</em> (86% HDB, 39 preschools) come from RAG; the <em>reasoning, interpretation, abstention and voice</em> come
+  from the fine-tune.</p>
+
+  <h3>Real training pairs (verbatim from the corpus)</h3>
+
+  <div class="card">
+    <div class="muted" style="margin-bottom:4px">Reasoning · OD asymmetry</div>
+    <p style="margin:.2em 0"><b>Prompt →</b> Context: 8,636 weekday trips Bedok North→Kampong Bugis, 9,210 the reverse. Which direction has more, and by what factor?</p>
+    <p style="margin:.2em 0;color:var(--teal2)"><b>Trained answer →</b> 9,210 &gt; 8,636 → Kampong Bugis→Bedok North dominates; 9,210 / 8,636 ≈ <span class="num">1.1×</span>.</p>
+    <p class="muted" style="margin:.3em 0 0">Learns: read an OD matrix, pick the larger, compute the ratio — <em>not</em> these specific trip counts.</p>
+  </div>
+
+  <div class="card">
+    <div class="muted" style="margin-bottom:4px">Planning · analog estimate (deep reasoning)</div>
+    <p style="margin:.2em 0"><b>Prompt →</b> Teban Gardens (~16,759 residents) sits ~963 m from rail — under-served. By analogy with rail-served Fajar (walkability 0.69 vs Teban's 0.35)… what would a station do?</p>
+    <p style="margin:.2em 0;color:var(--teal2)"><b>Trained answer →</b> Direction well-grounded (accessibility &amp; commercial activity likely rise), but magnitude uncertain — “an estimate, not a forecast.”</p>
+    <p class="muted" style="margin:.3em 0 0">Learns: reason by analogy, commit to a <em>direction</em>, and preserve the caveat — never fabricate a magnitude.</p>
+  </div>
+
+  <div class="card">
+    <div class="muted" style="margin-bottom:4px">Abstention</div>
+    <p style="margin:.2em 0"><b>Prompt →</b> How many golf courses are in Clementi Woods according to the atlas?</p>
+    <p style="margin:.2em 0;color:var(--teal2)"><b>Trained answer →</b> “The atlas does not track golf courses, so I cannot provide a count.”</p>
+    <p class="muted" style="margin:.3em 0 0">Learns: recognise an untracked category and refuse — the discipline base models lack.</p>
+  </div>
+
+  <div class="card">
+    <div class="muted" style="margin-bottom:4px">Fact-grounded (reason-in-context)</div>
+    <p style="margin:.2em 0"><b>Prompt →</b> Context: Serangoon Central has 88 beauty/salon services. How many beauty/salon services are there?</p>
+    <p style="margin:.2em 0;color:var(--teal2)"><b>Trained answer →</b> <span class="num">88</span> — lifted from the provided context, not from memory.</p>
+    <p class="muted" style="margin:.3em 0 0">Learns: trust and extract the provided fact rather than guess — the core RAG behaviour.</p>
+  </div>
+</div></section>
+
+<!-- REASONING -->
+<section><div class="wrap">
+  <h2><span class="k">03</span>Enhanced reasoning — and why it's better</h2>
+  <p class="lead">The goal was never a memorised database. It was a <strong>reasoner that stays honest</strong>: skill in the
+  weights, facts from the atlas. Here is why the reasoning is genuinely stronger than an off-the-shelf model.</p>
+
+  <ol class="why">
+    <li><b>Reason-in-context is the trained default.</b> ~70% of the corpus puts the atlas facts in the prompt and asks
+      the model to extract, compare, aggregate and read OD flows over them — the exact production pattern, scored
+      <span class="num">88%</span> on unseen areas.</li>
+    <li><b>Multi-step chains, distilled and verified.</b> 15K deep traces came from a frontier model, but only chains whose
+      final answer matched the deterministic gold were kept (rejection sampling, ~81% accept). The model learns reasoning
+      that is <em>known to be correct</em>, not merely fluent.</li>
+    <li><b>It covers reasoning shapes most models fumble.</b> OD asymmetry, multi-hop aggregation, arithmetic over entities,
+      two-condition synthesis, and cosine-similarity analogy were each their own family — breadth a generic model has
+      never been drilled on.</li>
+    <li><b>Singapore-calibrated judgment.</b> It knows what the numbers <em>mean</em> locally — that a walkability of
+      <span class="num">0.45</span> is mediocre on a 0–1 scale, that a high HDB share signals a heartland, that
+      <span class="num">15%</span> self-containment means residents commute out. A raw model recites; this one interprets.</li>
+    <li><b>Data-semantics awareness.</b> It distinguishes hawker <em>centres</em> from hawker <em>eateries</em>, and knows
+      commuter flows are weekday-monthly — quirks a generic model conflates and gets quietly wrong.</li>
+    <li><b>Honest abstention — the discipline prompt-engineering can't buy.</b> Out-of-scope questions (crime, weather,
+      future prices) are refused cleanly. In testing, the base model <em>ignored an explicit instruction to decline</em>
+      and described the area instead; the fine-tune refuses and answers the actual question asked.</li>
+    <li><b>It answers the question, not “the area”.</b> Trained to lead with a verdict and justify it, rather than emit a
+      generic description — so “is X good for families?” returns a reasoned yes/no with the trade-offs, not a brochure.</li>
+  </ol>
+
+  <div class="callout">
+    <p style="margin:0"><strong>The structural truth this validated:</strong> reasoning lives in the weights; facts come
+    from the atlas. With context it reasons at ~88% and does not hallucinate; closed-book it refuses to invent — and the
+    tool layer fills the gap.</p>
+  </div>
+</div></section>
+
+<!-- METHODOLOGY -->
+<section><div class="wrap">
+  <h2><span class="k">04</span>Methodology</h2>
+  <p class="lead">Generation, then a lean supervised fine-tune on a single rented GPU.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3 style="margin-top:0">Generation</h3>
+      <ul class="clean">
+        <li>Ground-truth from the Plexis v4.9.0 parquet (Python).</li>
+        <li>Phrasing by a cheap flash model; deep traces by a frontier model.</li>
+        <li>Numeric-fidelity QC + dedup; <b>entity-holdout</b> split (whole areas held out).</li>
+        <li>~220K raw → ~160K curated; formulaic giants down-sampled for balance.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Training (SFT)</h3>
+      <table style="margin:0">
+        <tr><td>Base</td><td><b>google/gemma-4-12b-it</b></td></tr>
+        <tr><td>Method</td><td>QLoRA — 4-bit nf4, r32, all 7 proj</td></tr>
+        <tr><td>Seq / batch</td><td>512 · eff-batch 16</td></tr>
+        <tr><td>LR / epochs</td><td>1e-4 cosine · 2</td></tr>
+        <tr><td>Hardware</td><td>1× RTX PRO 4500 (Blackwell, 32 GB), ~30 h</td></tr>
+      </table>
+    </div>
+  </div>
+  <p class="muted">Eval is generation-based and scored by the same deterministic verifier, on
+  <span class="num">4,385</span> held-out subzones the model never saw in training.</p>
+</div></section>
+
+<!-- UTILITY / RESULTS -->
+<section><div class="wrap">
+  <h2><span class="k">05</span>Utility — what v0 can do</h2>
+  <p class="lead">Strong where it counts for a grounded assistant; honest about its edges.</p>
+  <table>
+    <tr><th>Capability</th><th>Score</th><th></th><th>Note</th></tr>
+    <tr><td><b>Place questions</b></td><td>95%</td><td><div class="bar"><i style="width:95%"></i></div></td><td>counts, existence, mix</td></tr>
+    <tr><td><b>Factual attributes</b></td><td>93%</td><td><div class="bar"><i style="width:93%"></i></div></td><td>population, demographics, walkability</td></tr>
+    <tr><td><b>Reasoning (in-context)</b></td><td>88%</td><td><div class="bar"><i style="width:88%"></i></div></td><td>the production mode</td></tr>
+    <tr><td><b>Honest abstention</b></td><td>~99%</td><td><div class="bar"><i style="width:99%"></i></div></td><td>refuses out-of-scope cleanly</td></tr>
+    <tr><td><b>Overall (held-out)</b></td><td>~88%</td><td><div class="bar"><i style="width:88%"></i></div></td><td>areas never seen in training</td></tr>
+  </table>
+  <h3>Known limits <span class="tag a">v1 targets</span></h3>
+  <ul class="clean">
+    <li><b>filter-then-rank from scratch</b> (filt_super) — the hardest multi-step kind; the clearest reasoning gap.</li>
+    <li><b>precise closed-book recall</b> — a 12B can't memorise 300+ areas × N stats; that's the tool layer's job.</li>
+    <li><b>over-abstention without context</b> — over-anchored to the coverage list; tools make it moot.</li>
+  </ul>
+
+  <h3>An honest finding: the writing trade-off</h3>
+  <p>Fine-tuning on a largely terse, factual corpus dulled the base model's natural eloquence (an “alignment tax”). But the
+  trade runs both ways — and that is the real case for the fine-tune:</p>
+  <div class="compare">
+    <div style="background:rgba(32,178,170,.05)">
+      <div class="h"><span class="dot" style="background:var(--teal2)"></span>Alchemy (fine-tuned)</div>
+      <p class="quote">Disciplined: answers the actual question, refuses out-of-scope, never invents a figure. With a light
+      “voice” instruction it also writes with character — “grandparents and toddlers sharing the void deck”.</p>
+    </div>
+    <div style="background:rgba(148,163,184,.05)">
+      <div class="h"><span class="dot" style="background:var(--grey)"></span>Raw Gemma 12B + RAG</div>
+      <p class="quote">More flair out of the box — but undisciplined: asked for a crime rate (untracked), it ignored the
+      question and described the area instead, even when explicitly told to decline.</p>
+    </div>
+  </div>
+  <p class="muted">Takeaway: prose can be recovered with a prompt; <em>trustworthy abstention and calibration cannot</em> —
+  that is what the fine-tuning buys.</p>
+</div></section>
+
+<!-- NEXT -->
+<section><div class="wrap">
+  <h2><span class="k">06</span>Next steps</h2>
+  <ol class="why">
+    <li><b>Wire the atlas tools at inference.</b> Closes the closed-book gap and returns exact, fresh figures — the single
+      biggest lift, and the tool layer is already built.</li>
+    <li><b>Fold in the 15K deep traces + GRPO.</b> Reward = the deterministic verifier (a rare, free, verifiable signal) —
+      directly targets filter-then-rank and other multi-step reasoning.</li>
+    <li><b>Rebalance abstention.</b> Fewer coverage-list anchors, more closed-book positives, so it's confident on
+      in-scope casual questions.</li>
+    <li><b>Retrain with richer, characterful answers.</b> Keep the discipline, restore eloquence by default rather than by
+      prompt — so flair and trustworthiness ship together.</li>
+    <li><b>Productionise.</b> Multi-turn, citations/provenance, a public URL, and a merged 16-bit serve.</li>
+  </ol>
+  <div class="callout">
+    <p style="margin:0"><strong>One-liner:</strong> owning a deterministic atlas — generator, verifier, reward, and tool —
+    let a small team build a grounded Singapore reasoning model that scores ~88% on unseen areas, abstains honestly, and
+    is conservative rather than hallucinatory, for ~$25 of data plus a GPU rental.</p>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <p>Alchemy / Plexis-Mind v0 · Gemma-4-12B QLoRA · model: <span class="muted">paperclip123/plexis-mind-v0-gemma4-12b-lora</span><br/>
+  Grounded in the Plexis v4.9.0 atlas — 332 subzones · 55 planning areas · 5 regions · H3-8 hexes. Figures are v0
+  evaluation results on entity-held-out data. © Propheus.</p>
+</div></footer>
+
+</body>
+</html>

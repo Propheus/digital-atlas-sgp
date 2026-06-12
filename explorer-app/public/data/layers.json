@@ -43,7 +43,7 @@
       "id": "nl_2024",
       "col": "nl_2024",
       "label": "Night lights 2024",
-      "group": "Night lights",
+      "group": "Commercial",
       "unit": "rad",
       "domain": [
         0,
@@ -56,7 +56,7 @@
       "id": "nl_change",
       "col": "nl_change_pct",
       "label": "Night-light growth",
-      "group": "Night lights",
+      "group": "Commercial",
       "unit": "%",
       "domain": [
         -50,
@@ -95,7 +95,7 @@
       "id": "od_throughput",
       "col": "od_throughput",
       "label": "OD throughput",
-      "group": "Mobility (OD)",
+      "group": "Mobility",
       "unit": "trips/mo",
       "domain": [
         0,
@@ -108,7 +108,7 @@
       "id": "od_net",
       "col": "od_net_flow",
       "label": "OD net flow (in-out)",
-      "group": "Mobility (OD)",
+      "group": "Mobility",
       "unit": "trips/mo",
       "domain": [
         -27589.0,
@@ -124,8 +124,8 @@
       "group": "Emergent",
       "unit": "z",
       "domain": [
-        -2.466,
-        3.502
+        -2.213,
+        2.809
       ],
       "reverse": false,
       "desc": "EMERGENT: z(OD inflow) - z(resident pop). High = fills by day, empties at night (job center). Low = empties by day (bedroom community)."
@@ -173,7 +173,7 @@
       "id": "vibrancy",
       "col": "vibrancy_index",
       "label": "Vibrancy",
-      "group": "Composites",
+      "group": "Living",
       "unit": "0-1",
       "domain": [
         0,
@@ -186,7 +186,7 @@
       "id": "livability",
       "col": "livability_index",
       "label": "Livability",
-      "group": "Composites",
+      "group": "Living",
       "unit": "0-1",
       "domain": [
         0,
@@ -199,7 +199,7 @@
       "id": "density",
       "col": "density_pressure",
       "label": "Density pressure",
-      "group": "Composites",
+      "group": "Living",
       "unit": "0-1",
       "domain": [
         0,
@@ -212,7 +212,7 @@
       "id": "affluence",
       "col": "nvp_affluence_idx",
       "label": "Persona affluence",
-      "group": "Personas",
+      "group": "People",
       "unit": "0-1",
       "domain": [
         0,
@@ -225,7 +225,7 @@
       "id": "median_age",
       "col": "nvp_median_age",
       "label": "Persona median age",
-      "group": "Personas",
+      "group": "People",
       "unit": "yrs",
       "domain": [
         20,
@@ -238,7 +238,7 @@
       "id": "pct_univ",
       "col": "nvp_pct_univ",
       "label": "% university-educated",
-      "group": "Personas",
+      "group": "People",
       "unit": "frac",
       "domain": [
         0,
@@ -251,7 +251,7 @@
       "id": "hdb_resale",
       "col": "hdb_resale_4r_median_psm",
       "label": "HDB resale 4-room $/sqm",
-      "group": "Housing",
+      "group": "Living",
       "unit": "$/m2",
       "domain": [
         0,
@@ -259,6 +259,305 @@
       ],
       "reverse": false,
       "desc": "Median 4-room HDB resale price per sqm (227k transactions, town-broadcast)."
+    },
+    {
+      "id": "place_density",
+      "col": "pc_total",
+      "label": "Place density",
+      "group": "Places",
+      "unit": "places",
+      "domain": [
+        0,
+        1177.6
+      ],
+      "reverse": false,
+      "desc": "Total mapped places (POIs) per hex8 (~0.74 km2) \u2014 overall point-of-interest density."
+    },
+    {
+      "id": "place_diversity",
+      "col": "pc_diversity",
+      "label": "Place-mix diversity",
+      "group": "Places",
+      "unit": "0-1",
+      "domain": [
+        0,
+        1
+      ],
+      "reverse": false,
+      "desc": "Category diversity (entropy) of the place mix. High = mixed-use; low = monofunctional."
+    },
+    {
+      "id": "magnets",
+      "col": "pc_magnets",
+      "label": "Magnet anchors",
+      "group": "Places",
+      "unit": "count",
+      "domain": [
+        0,
+        173.4
+      ],
+      "reverse": false,
+      "desc": "High-draw anchor places (malls, hubs, major attractions; 30+ review demand magnets)."
+    },
+    {
+      "id": "brands",
+      "col": "pc_unique_brands",
+      "label": "Unique brands",
+      "group": "Places",
+      "unit": "count",
+      "domain": [
+        0,
+        75.6
+      ],
+      "reverse": false,
+      "desc": "Distinct retail/F&B brands present \u2014 chain/commercial richness."
+    },
+    {
+      "id": "avg_rating",
+      "col": "pc_avg_rating",
+      "label": "Avg place rating",
+      "group": "Places",
+      "unit": "stars",
+      "domain": [
+        2.5,
+        5
+      ],
+      "reverse": false,
+      "desc": "Mean rating of rated places \u2014 quality proxy."
+    },
+    {
+      "id": "reviews",
+      "col": "pc_total_reviews",
+      "label": "Total reviews",
+      "group": "Places",
+      "unit": "count",
+      "domain": [
+        0,
+        163650.0
+      ],
+      "reverse": false,
+      "desc": "Sum of place review counts \u2014 popularity / footfall proxy."
+    },
+    {
+      "id": "fnb",
+      "col": "pc_cat_restaurant",
+      "label": "F&B (restaurants)",
+      "group": "Places",
+      "unit": "count",
+      "domain": [
+        0,
+        77.0
+      ],
+      "reverse": false,
+      "desc": "Restaurant place count (see hawker/cafe/fast-food in the detail panel)."
+    },
+    {
+      "id": "retail",
+      "col": "pc_cat_shopping_retail",
+      "label": "Retail shops",
+      "group": "Places",
+      "unit": "count",
+      "domain": [
+        0,
+        107.4
+      ],
+      "reverse": false,
+      "desc": "Shopping / retail place count."
+    },
+    {
+      "id": "cap_total",
+      "col": "cap_total",
+      "label": "Capture potential (all)",
+      "group": "Opportunity",
+      "unit": "outlet-eq",
+      "domain": [
+        0,
+        27.289
+      ],
+      "reverse": false,
+      "desc": "S1 Huff model: demand (outlet-equivalents) a NEW outlet at the best spot in this hex would capture across 11 categories, net of existing competition. 1.0 = supports one average outlet."
+    },
+    {
+      "id": "cap_supermarket",
+      "col": "cap_supermarket",
+      "label": "Supermarket capture",
+      "group": "Opportunity",
+      "unit": "outlet-eq",
+      "domain": [
+        0,
+        2.33
+      ],
+      "reverse": false,
+      "desc": "Competition-adjusted demand winnable by a new supermarket. Yunnan (the known FairPrice desert) ranks p96."
+    },
+    {
+      "id": "cap_cafe",
+      "col": "cap_cafe_coffee",
+      "label": "Cafe capture",
+      "group": "Opportunity",
+      "unit": "outlet-eq",
+      "domain": [
+        0,
+        2.482
+      ],
+      "reverse": false,
+      "desc": "Competition-adjusted demand winnable by a new cafe. Saturated Orchard ranks p03 \u2014 the inversion is the point."
+    },
+    {
+      "id": "roi_rent",
+      "col": "roi_cap_per_rent_total",
+      "label": "Capture per rent (ROI)",
+      "group": "Opportunity",
+      "unit": "ratio",
+      "domain": [
+        0,
+        7.839
+      ],
+      "reverse": false,
+      "desc": "cap_total / residential rent $psf \u2014 opportunity per occupancy-cost proxy. Gray where no rent observation within 2.5 km."
+    },
+    {
+      "id": "unserved_sm",
+      "col": "iso_walk10_unserved_pop_supermarket",
+      "label": "Unserved pop (supermarket)",
+      "group": "Opportunity",
+      "unit": "ppl",
+      "domain": [
+        0,
+        218.91
+      ],
+      "reverse": false,
+      "desc": "Residents reachable in a 10-min walk who have NO supermarket within 800 m of home. Most novel column in the atlas (max |r|=0.14 vs all prior features)."
+    },
+    {
+      "id": "iso_walk_pop",
+      "col": "iso_walk10_pop",
+      "label": "10-min walk catchment",
+      "group": "Catchment",
+      "unit": "ppl",
+      "domain": [
+        0,
+        20818.446
+      ],
+      "reverse": false,
+      "desc": "Population within an 800 m NETWORK walk of the hex activity centre (node-field demand, k=4 multi-source). Severance-aware, unlike rings."
+    },
+    {
+      "id": "iso_transit_pop",
+      "col": "iso_transit15_pop",
+      "label": "15-min transit reach",
+      "group": "Catchment",
+      "unit": "ppl",
+      "domain": [
+        0,
+        154593.78
+      ],
+      "reverse": false,
+      "desc": "Population reachable door-to-door in 15 min by weekday-AM transit (GTFS graph + walk arms). Interchange towns peak ~250K."
+    },
+    {
+      "id": "dt_pop",
+      "col": "dt_pop",
+      "label": "Daytime population",
+      "group": "Catchment",
+      "unit": "ppl",
+      "domain": [
+        0,
+        23797.704
+      ],
+      "reverse": false,
+      "desc": "Commuter daytime headcount: residents - AM out + AM in (OD-based, 0.62 PT mode share)."
+    },
+    {
+      "id": "labor45",
+      "col": "labor_pool_45m",
+      "label": "Labor pool (45-min)",
+      "group": "Catchment",
+      "unit": "ppl",
+      "domain": [
+        0,
+        1720147.0
+      ],
+      "reverse": false,
+      "desc": "Working-age population that can reach this hex within 45-min transit. CBD = 1.68M (59.6% of workforce); Tuas = p0."
+    },
+    {
+      "id": "biz_live",
+      "col": "biz_live_robust",
+      "label": "Live businesses (robust)",
+      "group": "Business",
+      "unit": "count",
+      "domain": [
+        0,
+        1946.4
+      ],
+      "reverse": false,
+      "desc": "ACRA live entities, per-postal contribution capped at 100 (registered-agent buildings winsorized). 94% of 2.07M entities geocoded."
+    },
+    {
+      "id": "biz_mort",
+      "col": "biz_recent_dead_share",
+      "label": "Business mortality (2018+)",
+      "group": "Business",
+      "unit": "frac",
+      "domain": [
+        0,
+        1
+      ],
+      "reverse": false,
+      "desc": "Share of 2018+ registered entities now deregistered \u2014 churn-risk signal. Gray where no entities."
+    },
+    {
+      "id": "rent",
+      "col": "rent_resi_psf_med",
+      "label": "Resi rent $psf/mo",
+      "group": "Business",
+      "unit": "$psf",
+      "domain": [
+        3.156,
+        6.68
+      ],
+      "reverse": false,
+      "desc": "URA private rental medians (913 projects, last 4 quarters, IDW 2.5 km). Commercial rent not openly available \u2014 this is the spatial price surface."
+    },
+    {
+      "id": "exit_footfall",
+      "col": "vis_exit_footfall",
+      "label": "MRT exit footfall",
+      "group": "Business",
+      "unit": "taps/day",
+      "domain": [
+        0,
+        18463.214
+      ],
+      "reverse": false,
+      "desc": "Weekday taps at the nearest station exit (<=400 m), split per exit from per-station PV. Few-exit busy stations (Punggol, Novena) legitimately beat 13-exit Orchard."
+    },
+    {
+      "id": "pipe_mrt",
+      "col": "pipe_mrt_dist_m",
+      "label": "Future MRT distance",
+      "group": "Future",
+      "unit": "m",
+      "domain": [
+        354.16,
+        12772.54
+      ],
+      "reverse": true,
+      "desc": "Distance to the nearest FUTURE rail station (MP2019 minus existing Mar-2026: 37 stations \u2014 full JRL + Keppel CCL6). Reversed: closer = brighter."
+    },
+    {
+      "id": "pipe_cap",
+      "col": "pipe_dev_capacity_res",
+      "label": "Dev capacity (FAR headroom)",
+      "group": "Future",
+      "unit": "FAR-units",
+      "domain": [
+        0,
+        0.526
+      ],
+      "reverse": false,
+      "desc": "(allowed GPR - built FAR) x residential zoning share. Matilda 0.50 / Bidadari 0.34; built-out Toa Payoh Central = 0."
     }
   ],
   "detail_groups": {
@@ -304,11 +603,25 @@
     ],
     "Places": [
       "pc_total",
+      "pc_diversity",
+      "pc_dominant_category",
       "pc_magnets",
-      "pc_cat_business_office",
-      "pc_cat_shopping_retail",
+      "pc_unique_brands",
+      "pc_avg_rating",
+      "pc_total_reviews",
       "pc_cat_restaurant",
-      "pc_cat_cafe_coffee"
+      "pc_cat_cafe_coffee",
+      "pc_cat_hawker",
+      "pc_cat_fast_food",
+      "pc_cat_shopping_retail",
+      "pc_cat_supermarket",
+      "pc_cat_convenience",
+      "pc_cat_health_medical",
+      "pc_cat_education",
+      "pc_cat_park_open",
+      "pc_cat_business_office",
+      "pc_cat_fitness_recreation",
+      "pc_cat_beauty_personal"
     ],
     "Composites": [
       "vibrancy_index",
@@ -335,6 +648,108 @@
     "Emergent": [
       "breathing_idx",
       "latent_demand"
+    ],
+    "Opportunity (S1 capture)": [
+      "cap_total",
+      "cap_best_category",
+      "cap_supermarket",
+      "cap_cafe_coffee",
+      "cap_restaurant",
+      "cap_hawker",
+      "cap_convenience",
+      "cap_health_medical",
+      "cap_fitness_recreation",
+      "cap_shopping_retail",
+      "roi_cap_per_rent_total",
+      "roi_cap_per_rent_supermarket"
+    ],
+    "Catchment (S2/S3/S5)": [
+      "iso_walk10_pop",
+      "iso_walk10_spend",
+      "iso_walk10_places",
+      "iso_walk10_magnets",
+      "iso_severance_ratio",
+      "iso_walk10_unserved_pop_supermarket",
+      "iso_walk10_unserved_pop_cafe_coffee",
+      "iso_transit15_pop",
+      "iso_transit15_places",
+      "dt_pop",
+      "dt_ratio",
+      "dt_class",
+      "labor_pool_45m",
+      "labor_pool_30m",
+      "jobs_reach_45m",
+      "labor_jobs_balance_45m"
+    ],
+    "Business (S4 ACRA)": [
+      "biz_live_count",
+      "biz_live_robust",
+      "biz_formation_5y",
+      "biz_dead_share",
+      "biz_recent_dead_share",
+      "biz_median_age_yrs",
+      "biz_per_address",
+      "biz_company_share"
+    ],
+    "Site factors (S6-S9)": [
+      "colo_fit_cafe_coffee",
+      "colo_fit_supermarket",
+      "colo_fit_restaurant",
+      "vis_exit_footfall",
+      "vis_exit_station",
+      "vis_traffic_pass_proxy",
+      "vis_corner_premium",
+      "rent_resi_psf_med",
+      "rent_resolution",
+      "pipe_new_mrt_within_800m",
+      "pipe_mrt_name",
+      "pipe_mrt_dist_m",
+      "pipe_dev_capacity_res",
+      "pipe_dev_capacity_com"
+    ],
+    "Context (S10)": [
+      "cons_bldg_count",
+      "cons_cluster_flag",
+      "carpark_capacity_lots",
+      "dist_polyclinic_m",
+      "dist_wet_market_m",
+      "wet_market_count",
+      "petrol_station_count",
+      "coworking_count",
+      "condo_project_count",
+      "female_pop_share",
+      "bto_uc_units_town",
+      "bto_pipeline_est"
+    ],
+    "Mobility pack (S11)": [
+      "time_to_cbd_min",
+      "time_to_orchard_min",
+      "time_to_jurong_east_min",
+      "pct_dest_within_45min",
+      "n_lines_to_cbd",
+      "mrt_reach_eff_min",
+      "mrt_reach_mode",
+      "peak_wait_min",
+      "crowding_load_factor",
+      "adq_default",
+      "adq_worst_factor",
+      "min15_score",
+      "linkway_len_m",
+      "cycling_path_len_m",
+      "zone_type_broad"
     ]
-  }
+  },
+  "categories": [
+    "Population",
+    "Commercial",
+    "Mobility",
+    "Emergent",
+    "Living",
+    "People",
+    "Places",
+    "Opportunity",
+    "Catchment",
+    "Business",
+    "Future"
+  ]
 }
