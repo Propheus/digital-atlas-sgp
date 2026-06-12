@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><meta http-equiv="refresh" content="60">
+<title>Propheus — Embedding Validation Engine</title>
+<style>
+:root{--bg:#0d1f21;--bg2:#11282a;--bg3:#162f32;--a:#20b2aa;--a2:#2dd4bf;--ad:rgba(32,178,170,0.15);--t:#fff;--t2:#a0aeb0;--t3:#607274;--gd:rgba(32,178,170,0.2);--r:#ef4444;--g:#22c55e;--y:#eab308}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Inter','Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.6;max-width:1180px;margin:0 auto;padding:24px 20px}
+h1{font-size:18px;color:var(--a);border-bottom:1px solid var(--gd);padding-bottom:8px}h2{font-size:14px;color:var(--a);margin:20px 0 8px}
+.sub{font-size:11px;color:var(--t3);margin-bottom:20px}
+.kpis{display:flex;gap:6px;margin:10px 0}.kpi{flex:1;background:var(--bg2);border:1px solid var(--gd);border-radius:6px;padding:10px;text-align:center}.kpi .n{font-size:20px;font-weight:700;color:var(--a)}.kpi .l{font-size:9px;text-transform:uppercase;color:var(--t3)}
+table{border-collapse:collapse;width:100%;margin:8px 0;font-size:11.5px}th{background:var(--bg3);color:var(--a);padding:6px 8px;text-align:left}td{padding:5px 8px;color:var(--t2);border-bottom:1px solid rgba(255,255,255,0.03)}.r{text-align:right}
+.tag{display:inline-block;padding:2px 6px;border-radius:3px;font-size:9.5px;font-weight:600}.tg{background:rgba(34,197,94,0.15);color:var(--g)}.ty{background:rgba(234,179,8,0.15);color:var(--y)}.tr{background:rgba(239,68,68,0.15);color:var(--r)}
+.q{color:var(--t3);font-size:9.5px}
+.s{background:var(--bg2);border:1px solid var(--gd);border-radius:6px;padding:12px 14px;margin:8px 0}
+</style></head><body>
+<h1>Embedding Validation Engine</h1>
+<div class="sub">Continuous regression harness &mdash; 1 runs logged &mdash; Latest: 20260413T013406 &mdash; Auto-refresh 60s</div>
+
+<div class="kpis">
+<div class="kpi"><div class="n">186</div><div class="l">Tests per run</div></div>
+<div class="kpi"><div class="n">6</div><div class="l">Embeddings</div></div>
+<div class="kpi"><div class="n">1</div><div class="l">Runs logged</div></div>
+<div class="kpi"><div class="n">7</div><div class="l">Test categories</div></div>
+</div>
+
+<h2>Latest Run &mdash; Overall Pass Rate</h2>
+<div class="s"><table><tr><th>Embedding</th><th class="r">Dims</th><th class="r">Pass rate</th><th class="r">Tests</th></tr><tr><td><strong>GCN-64</strong></td><td class="r">64</td>
+<td class="r">73.7%</td>
+<td class="r">137/186</td></tr><tr><td><strong>GCN-32</strong></td><td class="r">32</td>
+<td class="r">41.4%</td>
+<td class="r">77/186</td></tr><tr><td><strong>GCN-128</strong></td><td class="r">128</td>
+<td class="r">46.2%</td>
+<td class="r">86/186</td></tr><tr><td><strong>GCN-256</strong></td><td class="r">256</td>
+<td class="r">41.9%</td>
+<td class="r">78/186</td></tr><tr><td><strong>PCA-128</strong></td><td class="r">128</td>
+<td class="r">55.9%</td>
+<td class="r">104/186</td></tr><tr><td><strong>Raw-460</strong></td><td class="r">460</td>
+<td class="r">68.8%</td>
+<td class="r">128/186</td></tr></table></div>
+
+<h2>Per-Category Pass Rate (Latest Run)</h2>
+<div class="s"><table><tr><th>Category</th><th class='r'>GCN-64</th><th class='r'>GCN-32</th><th class='r'>GCN-128</th><th class='r'>GCN-256</th><th class='r'>PCA-128</th><th class='r'>Raw-460</th></tr><tr><td><strong>pa_coherence</strong></td><td class="r"><span class="tag tr">54%</span></td><td class="r"><span class="tag tr">20%</span></td><td class="r"><span class="tag tr">28%</span></td><td class="r"><span class="tag tr">22%</span></td><td class="r"><span class="tag ty">60%</span></td><td class="r"><span class="tag tr">56%</span></td></tr><tr><td><strong>landmark</strong></td><td class="r"><span class="tag tr">47%</span></td><td class="r"><span class="tag tr">3%</span></td><td class="r"><span class="tag tr">17%</span></td><td class="r"><span class="tag tr">3%</span></td><td class="r"><span class="tag tr">30%</span></td><td class="r"><span class="tag tr">23%</span></td></tr><tr><td><strong>anti_similarity</strong></td><td class="r"><span class="tag tg">100%</span></td><td class="r"><span class="tag tg">100%</span></td><td class="r"><span class="tag tg">100%</span></td><td class="r"><span class="tag tg">100%</span></td><td class="r"><span class="tag tg">100%</span></td><td class="r"><span class="tag tg">100%</span></td></tr><tr><td><strong>graph_smoothness</strong></td><td class="r"><span class="tag tg">100%</span></td><td class="r"><span class="tag tr">53%</span></td><td class="r"><span class="tag tr">53%</span></td><td class="r"><span class="tag tr">53%</span></td><td class="r"><span class="tag tg">100%</span></td><td class="r"><span class="tag tg">100%</span></td></tr><tr><td><strong>archetype_stability</strong></td><td class="r"><span class="tag tg">100%</span></td><td class="r"><span class="tag tg">100%</span></td><td class="r"><span class="tag tg">100%</span></td><td class="r"><span class="tag tg">100%</span></td><td class="r"><span class="tag tr">0%</span></td><td class="r"><span class="tag tg">100%</span></td></tr><tr><td><strong>functional</strong></td><td class="r"><span class="tag tr">50%</span></td><td class="r"><span class="tag tr">0%</span></td><td class="r"><span class="tag tr">0%</span></td><td class="r"><span class="tag tr">0%</span></td><td class="r"><span class="tag tr">25%</span></td><td class="r"><span class="tag tr">40%</span></td></tr><tr><td><strong>feature_query</strong></td><td class="r"><span class="tag tg">100%</span></td><td class="r"><span class="tag tr">0%</span></td><td class="r"><span class="tag tr">17%</span></td><td class="r"><span class="tag tr">0%</span></td><td class="r"><span class="tag tr">0%</span></td><td class="r"><span class="tag tg">83%</span></td></tr></table></div>
+
+<h2>Trend Over Time</h2>
+<div class="s"><table><tr><th>Embedding</th><th>Trend</th><th class="r">Latest</th></tr><tr><td><strong>GCN-64</strong></td><td><span>74%</span></td><td class="r">73.7%</td></tr><tr><td><strong>GCN-32</strong></td><td><span>41%</span></td><td class="r">41.4%</td></tr><tr><td><strong>GCN-128</strong></td><td><span>46%</span></td><td class="r">46.2%</td></tr><tr><td><strong>GCN-256</strong></td><td><span>42%</span></td><td class="r">41.9%</td></tr><tr><td><strong>PCA-128</strong></td><td><span>56%</span></td><td class="r">55.9%</td></tr><tr><td><strong>Raw-460</strong></td><td><span>69%</span></td><td class="r">68.8%</td></tr></table></div>
+
+<h2>Recent Runs</h2>
+<div class="s"><table><tr><th>Run</th><th class='r'>GCN-64</th><th class='r'>GCN-32</th><th class='r'>GCN-128</th><th class='r'>GCN-256</th><th class='r'>PCA-128</th><th class='r'>Raw-460</th><th class='r'>Duration</th></tr><tr><td>2026-04-13 01:34:06</td><td class="r"><span class="tag ty">73.7%</span></td><td class="r"><span class="tag tr">41.4%</span></td><td class="r"><span class="tag tr">46.2%</span></td><td class="r"><span class="tag tr">41.9%</span></td><td class="r"><span class="tag tr">55.9%</span></td><td class="r"><span class="tag ty">68.8%</span></td><td class="r q">40s</td></tr></table></div>
+
+<p class="q" style="text-align:center;margin-top:16px">Propheus Digital Atlas &nbsp;&bull;&nbsp; Embedding Validation Engine &nbsp;&bull;&nbsp; Dashboard auto-refreshes every 60s</p>
+</body></html>

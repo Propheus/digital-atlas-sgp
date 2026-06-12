@@ -1,0 +1,31 @@
+{
+  "layer": "rent_surface",
+  "checks": [
+    {
+      "check": "R1_archetypes",
+      "status": "PASS",
+      "detail": "top-10 rent hexes in prime-CCR set: 8/10; Woodlands/CCK median 3.92 vs populated median 4.59"
+    },
+    {
+      "check": "R2_coverage",
+      "status": "PASS",
+      "detail": "99.7% of populated hexes covered; 'none' hexes median pop 0"
+    },
+    {
+      "check": "R3_sanity",
+      "status": "PASS",
+      "detail": "range [2.02, 8.17]; Central mean 5.30 > North mean 4.02"
+    },
+    {
+      "check": "R4_cross_source",
+      "status": "PASS",
+      "detail": "corr(private rent, HDB resale psm) = 0.616 on 281 hexes"
+    },
+    {
+      "check": "R5_redundancy",
+      "status": "PASS",
+      "detail": "no non-source |r|>0.9"
+    }
+  ],
+  "verdict": "PASS"
+}

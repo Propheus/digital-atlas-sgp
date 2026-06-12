@@ -1,0 +1,42 @@
+{
+  "0": {
+    "code": "M0",
+    "name": "Quiet Edge HDB",
+    "blurb": "Residential hexes far from MRT — outer rings of HDB estates and northern fringe towns."
+  },
+  "1": {
+    "code": "M1",
+    "name": "Tuas Industrial Frontier",
+    "blurb": "The far west: extreme business land-use, sparse demand, the working coastline."
+  },
+  "2": {
+    "code": "M2",
+    "name": "Vibrant Town Centers",
+    "blurb": "Cafés, restaurants, clinics — the dense civic chassis of every town and downtown."
+  },
+  "3": {
+    "code": "M3",
+    "name": "Mature HDB Heartland",
+    "blurb": "Population-dense estates with high walking-dependent share — the social bedrock of Singapore."
+  },
+  "4": {
+    "code": "M4",
+    "name": "Mixed-Use Activity Hubs",
+    "blurb": "Beauty, health, retail anchors stacked together — the high-diversity nodes inside town cores."
+  },
+  "5": {
+    "code": "M5",
+    "name": "Jurong Industrial Estate",
+    "blurb": "Singapore's chemical and heavy-industry belt — pure business, no residents."
+  },
+  "6": {
+    "code": "M6",
+    "name": "Offshore Disconnected",
+    "blurb": "Outlying islands and Tuas extension — four-plus hex rings to the nearest train."
+  },
+  "7": {
+    "code": "M7",
+    "name": "Special Zones",
+    "blurb": "Airport, port, and protected land — unique brand mix, unusual land-use signature."
+  }
+}

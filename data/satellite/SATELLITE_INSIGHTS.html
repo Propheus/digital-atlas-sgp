@@ -1,0 +1,853 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>What Space Sees — Digital Atlas SGP</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#0d1f21;color:#e5e7eb;line-height:1.7}
+.c{max-width:960px;margin:0 auto;padding:48px 24px}
+
+/* Header */
+.header{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.header svg{flex-shrink:0}
+h1{font-size:1.8rem;font-weight:800;color:#fff;letter-spacing:-0.02em}
+.subtitle{color:#6b9b9e;font-size:0.92rem;margin-bottom:40px}
+
+/* Stats grid */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin:24px 0 40px}
+.stat{background:rgba(32,178,170,0.06);border:1px solid rgba(32,178,170,0.15);border-radius:12px;padding:14px;text-align:center;animation:fadeUp 0.5s ease-out backwards}
+.stat .v{font-size:1.3rem;font-weight:700;color:#20b2aa}
+.stat .l{font-size:0.62rem;color:#6b9b9e;text-transform:uppercase;letter-spacing:0.06em;margin-top:2px}
+
+/* Sections */
+.section{margin:48px 0;animation:fadeUp 0.6s ease-out backwards}
+.section-header{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.section-header .icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0}
+.section-header h2{font-size:1.15rem;font-weight:700;color:#fff;flex:1}
+.section-desc{font-size:0.82rem;color:#6b9b9e;margin-bottom:16px;line-height:1.8}
+
+/* Rows */
+.row{display:flex;align-items:center;gap:14px;padding:14px 18px;background:rgba(13,31,33,0.8);border:1px solid rgba(255,255,255,0.06);border-radius:12px;margin:6px 0;backdrop-filter:blur(8px);transition:all 0.25s;animation:slideIn 0.4s ease-out backwards}
+.row:hover{border-color:rgba(32,178,170,0.3);transform:translateX(4px);background:rgba(17,40,42,0.9)}
+.rank{font-size:1rem;font-weight:800;width:28px;text-align:center;flex-shrink:0;opacity:0.7}
+.info{flex:1;min-width:0}
+.info .name{font-weight:700;color:#fff;font-size:0.9rem}
+.info .area{font-size:0.72rem;color:#4a7a7d}
+.info .detail{font-size:0.75rem;color:#6b9b9e;margin-top:3px}
+.bar{height:3px;border-radius:2px;background:rgba(255,255,255,0.05);margin-top:6px;overflow:hidden}
+.bar-f{height:100%;border-radius:2px;transition:width 1s ease-out}
+.metric{text-align:right;flex-shrink:0}
+.metric .val{font-size:1rem;font-weight:700}
+.metric .unit{font-size:0.6rem;color:#4a7a7d;display:block}
+
+/* Findings */
+.finding{background:rgba(32,178,170,0.05);border:1px solid rgba(32,178,170,0.15);border-radius:12px;padding:18px 20px;margin:16px 0;position:relative;overflow:hidden}
+.finding::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:2px}
+.finding .label{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.08em;font-weight:700;margin-bottom:6px}
+.finding p{font-size:0.82rem;color:#a3c4c7;line-height:1.8}
+.finding.validated{background:rgba(34,197,94,0.04);border-color:rgba(34,197,94,0.15)}
+.finding.validated::before{background:#22c55e}
+.finding.validated .label{color:#22c55e}
+
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideIn{from{opacity:0;transform:translateX(-20px)}to{opacity:1;transform:translateX(0)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.6}}
+
+/* Footer */
+.footer{margin-top:60px;padding-top:24px;border-top:1px solid rgba(32,178,170,0.15);display:flex;align-items:center;gap:10px;color:#4a7a7d;font-size:0.72rem}
+</style></head><body><div class="c">
+<div class="header"><svg width="28" height="28" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><g><g><path fill="#20b2aa" d="M45,64.2c-1.1,9.1-3.3,15.3-5.8,15.3c-0.1,0-0.1,0-0.2,0c-0.3,0-0.6-0.2-1-0.4c0,0,0,0,0,0c-3.1-2.5-5.4-14.5-5.4-29c0-14.4,2.3-26.4,5.4-29c0.3-0.3,0.7-0.5,1-0.5c0,0,0,0,0,0h0.2c2.6,0,4.9,6.8,6,16.6c-5.6,2-9.5,7.3-9.5,13.5C35.6,56.9,39.5,62.1,45,64.2z"/><path fill="#20b2aa" d="M67.4,50c0,14.5-2.3,26.5-5.4,29h0v0c-0.3,0.2-0.6,0.4-0.9,0.4c-0.1,0-0.2,0-0.2,0c-2.5,0-4.7-6.2-5.8-15.3c5.5-2,9.4-7.3,9.4-13.5c0-6.2-4-11.6-9.5-13.5c1.1-9.8,3.4-16.6,6-16.6H61v0c0.4,0,0.7,0.2,1,0.5c0,0,0,0,0,0C65.1,23.6,67.4,35.6,67.4,50z"/></g><path fill="#20b2aa" d="M30.2,50c0-14.4,2.3-26.4,5.4-29c-10.6,5.3-17.9,16.3-17.9,29c0,12.7,7.3,23.7,17.9,29C32.5,76.5,30.2,64.5,30.2,50z M64.4,21c3.1,2.6,5.4,14.5,5.4,29c0,14.5-2.3,26.5-5.4,29C75,73.7,82.3,62.7,82.3,50C82.3,37.3,75,26.4,64.4,21z"/><path fill="#20b2aa" d="M62.1,50.7c0,5-3,9.3-7.4,11.2c-1.5,0.6-3.1,1-4.8,1c-1.7,0-3.3-0.4-4.8-1c-4.3-1.9-7.4-6.2-7.4-11.2c0-5.1,3.1-9.4,7.5-11.2c1.4-0.6,3-0.9,4.7-0.9c1.7,0,3.2,0.3,4.7,0.9C59.1,41.3,62.1,45.6,62.1,50.7z"/></g></g></svg><h1>What Space Sees</h1></div>
+<div class="subtitle">Satellite-derived insights for 332 Singapore subzones — VIIRS night radiance, ESA WorldCover 10m, WorldPop density grid</div>
+<div class="stats">
+<div class="stat" style="animation-delay:0.0s"><div class="v">332</div><div class="l">Subzones</div></div>
+<div class="stat" style="animation-delay:0.1s"><div class="v">18</div><div class="l">Sat Features</div></div>
+<div class="stat" style="animation-delay:0.1s"><div class="v">VIIRS '24</div><div class="l">Night Lights</div></div>
+<div class="stat" style="animation-delay:0.2s"><div class="v">ESA 10m</div><div class="l">Land Cover</div></div>
+<div class="stat" style="animation-delay:0.2s"><div class="v">59%</div><div class="l">Avg Built</div></div>
+<div class="stat" style="animation-delay:0.2s"><div class="v">34%</div><div class="l">Avg Green</div></div>
+<div class="stat" style="animation-delay:0.3s"><div class="v">3—180 nW</div><div class="l">Night Range</div></div>
+<div class="stat" style="animation-delay:0.4s"><div class="v">3 satellites</div><div class="l">Sources</div></div>
+</div>
+<div class="section" style="animation-delay:0.0s">
+<div class="section-header">
+<div class="icon" style="background:#f59e0b18;color:#f59e0b">&#9679;</div>
+<h2 style="color:#f59e0b">Brightest at Night</h2>
+</div>
+<div class="section-desc">VIIRS satellite captures night-time radiance at 500m resolution. Brighter pixels = more commercial lighting, signage, and street illumination. These are Singapore's economic engines as seen from orbit.</div>
+<div class="row" style="animation-delay:0.00s">
+<div class="rank" style="color:#f59e0b">#1</div>
+<div class="info">
+<div class="name">Boulevard</div>
+<div class="area">ORSZ02 · Orchard</div>
+<div class="detail">Built: 76% | Green: 22% | Places: 660 | Pop: 310</div>
+<div class="bar"><div class="bar-f" style="width:100%;background:#f59e0b"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#f59e0b">179.5 nW</div></div>
+</div>
+<div class="row" style="animation-delay:0.04s">
+<div class="rank" style="color:#f59e0b">#2</div>
+<div class="info">
+<div class="name">Boat Quay</div>
+<div class="area">SRSZ03 · Singapore River</div>
+<div class="detail">Built: 74% | Green: 11% | Places: 97 | Pop: 20</div>
+<div class="bar"><div class="bar-f" style="width:96%;background:#f59e0b"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#f59e0b">172.1 nW</div></div>
+</div>
+<div class="row" style="animation-delay:0.08s">
+<div class="rank" style="color:#f59e0b">#3</div>
+<div class="info">
+<div class="name">City Hall</div>
+<div class="area">DTSZ02 · Downtown Core</div>
+<div class="detail">Built: 67% | Green: 26% | Places: 480 | Pop: 40</div>
+<div class="bar"><div class="bar-f" style="width:93%;background:#f59e0b"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#f59e0b">167.3 nW</div></div>
+</div>
+<div class="row" style="animation-delay:0.12s">
+<div class="rank" style="color:#f59e0b">#4</div>
+<div class="info">
+<div class="name">Cecil</div>
+<div class="area">DTSZ08 · Downtown Core</div>
+<div class="detail">Built: 96% | Green: 2% | Places: 36 | Pop: 520</div>
+<div class="bar"><div class="bar-f" style="width:92%;background:#f59e0b"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#f59e0b">164.9 nW</div></div>
+</div>
+<div class="row" style="animation-delay:0.16s">
+<div class="rank" style="color:#f59e0b">#5</div>
+<div class="info">
+<div class="name">Port</div>
+<div class="area">QTSZ15 · Queenstown</div>
+<div class="detail">Built: 75% | Green: 10% | Places: 166 | Pop: 60</div>
+<div class="bar"><div class="bar-f" style="width:88%;background:#f59e0b"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#f59e0b">158.6 nW</div></div>
+</div>
+<div class="row" style="animation-delay:0.20s">
+<div class="rank" style="color:#f59e0b">#6</div>
+<div class="info">
+<div class="name">Bugis</div>
+<div class="area">DTSZ01 · Downtown Core</div>
+<div class="detail">Built: 93% | Green: 4% | Places: 365 | Pop: 1,200</div>
+<div class="bar"><div class="bar-f" style="width:88%;background:#f59e0b"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#f59e0b">157.3 nW</div></div>
+</div>
+<div class="row" style="animation-delay:0.24s">
+<div class="rank" style="color:#f59e0b">#7</div>
+<div class="info">
+<div class="name">Jurong Port</div>
+<div class="area">JESZ10 · Jurong East</div>
+<div class="detail">Built: 74% | Green: 4% | Places: 72 | Pop: 0</div>
+<div class="bar"><div class="bar-f" style="width:86%;background:#f59e0b"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#f59e0b">154.3 nW</div></div>
+</div>
+<div class="row" style="animation-delay:0.28s">
+<div class="rank" style="color:#f59e0b">#8</div>
+<div class="info">
+<div class="name">Clarke Quay</div>
+<div class="area">SRSZ02 · Singapore River</div>
+<div class="detail">Built: 73% | Green: 12% | Places: 61 | Pop: 0</div>
+<div class="bar"><div class="bar-f" style="width:85%;background:#f59e0b"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#f59e0b">153.4 nW</div></div>
+</div>
+<div class="row" style="animation-delay:0.32s">
+<div class="rank" style="color:#f59e0b">#9</div>
+<div class="info">
+<div class="name">Victoria</div>
+<div class="area">RCSZ10 · Rochor</div>
+<div class="detail">Built: 96% | Green: 3% | Places: 415 | Pop: 1,660</div>
+<div class="bar"><div class="bar-f" style="width:85%;background:#f59e0b"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#f59e0b">151.8 nW</div></div>
+</div>
+<div class="row" style="animation-delay:0.36s">
+<div class="rank" style="color:#f59e0b">#10</div>
+<div class="info">
+<div class="name">Raffles Place</div>
+<div class="area">DTSZ05 · Downtown Core</div>
+<div class="detail">Built: 87% | Green: 5% | Places: 134 | Pop: 0</div>
+<div class="bar"><div class="bar-f" style="width:84%;background:#f59e0b"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#f59e0b">151.3 nW</div></div>
+</div>
+<div class="finding validated" style="border-color:#f59e0b20">
+<div class="label" style="color:#22c55e">Key Finding — Validated</div>
+<p>Raffles Place and Marina Bay lead — unsurprising for Singapore's CBD. But Jurong Gateway (#5-7) appearing alongside Orchard validates the government's 'second CBD' vision. The satellite sees Jurong's commercial intensity rivaling traditional prime districts.</p>
+</div>
+</div>
+<div class="section" style="animation-delay:0.1s">
+<div class="section-header">
+<div class="icon" style="background:#3b82f618;color:#3b82f6">&#9679;</div>
+<h2 style="color:#3b82f6">Darkest Populated Areas</h2>
+</div>
+<div class="section-desc">Subzones with 5,000+ residents but low night radiance. Low evening lights despite high population = potential gap in evening commercial activity — restaurants, retail, nightlife are underserved.</div>
+<div class="row" style="animation-delay:0.00s">
+<div class="rank" style="color:#3b82f6">#1</div>
+<div class="info">
+<div class="name">Swiss Club</div>
+<div class="area">BTSZ02 · Bukit Timah</div>
+<div class="detail">Pop: 6,120 | Places: 98 | Green: 63% | Built: 36%</div>
+<div class="bar"><div class="bar-f" style="width:74%;background:#3b82f6"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#3b82f6">25.4 nW</div></div>
+</div>
+<div class="row" style="animation-delay:0.04s">
+<div class="rank" style="color:#3b82f6">#2</div>
+<div class="info">
+<div class="name">Lower Seletar</div>
+<div class="area">YSSZ05 · Yishun</div>
+<div class="detail">Pop: 19,040 | Places: 119 | Green: 50% | Built: 9%</div>
+<div class="bar"><div class="bar-f" style="width:80%;background:#3b82f6"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#3b82f6">27.5 nW</div></div>
+</div>
+<div class="row" style="animation-delay:0.08s">
+<div class="rank" style="color:#3b82f6">#3</div>
+<div class="info">
+<div class="name">Hillcrest</div>
+<div class="area">BTSZ05 · Bukit Timah</div>
+<div class="detail">Pop: 9,600 | Places: 105 | Green: 51% | Built: 49%</div>
+<div class="bar"><div class="bar-f" style="width:86%;background:#3b82f6"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#3b82f6">29.7 nW</div></div>
+</div>
+<div class="row" style="animation-delay:0.12s">
+<div class="rank" style="color:#3b82f6">#4</div>
+<div class="info">
+<div class="name">Tagore</div>
+<div class="area">AMSZ08 · Ang Mo Kio</div>
+<div class="detail">Pop: 7,680 | Places: 321 | Green: 67% | Built: 33%</div>
+<div class="bar"><div class="bar-f" style="width:87%;background:#3b82f6"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#3b82f6">30.1 nW</div></div>
+</div>
+<div class="row" style="animation-delay:0.16s">
+<div class="rank" style="color:#3b82f6">#5</div>
+<div class="info">
+<div class="name">Garden</div>
+<div class="area">THSZ05 · Tengah</div>
+<div class="detail">Pop: 6,800 | Places: 56 | Green: 66% | Built: 3%</div>
+<div class="bar"><div class="bar-f" style="width:90%;background:#3b82f6"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#3b82f6">31.1 nW</div></div>
+</div>
+<div class="row" style="animation-delay:0.20s">
+<div class="rank" style="color:#3b82f6">#6</div>
+<div class="info">
+<div class="name">Holland Road</div>
+<div class="area">BTSZ03 · Bukit Timah</div>
+<div class="detail">Pop: 11,640 | Places: 173 | Green: 62% | Built: 38%</div>
+<div class="bar"><div class="bar-f" style="width:91%;background:#3b82f6"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#3b82f6">31.4 nW</div></div>
+</div>
+<div class="row" style="animation-delay:0.24s">
+<div class="rank" style="color:#3b82f6">#7</div>
+<div class="info">
+<div class="name">Hillview</div>
+<div class="area">BKSZ05 · Bukit Batok</div>
+<div class="detail">Pop: 20,480 | Places: 204 | Green: 58% | Built: 42%</div>
+<div class="bar"><div class="bar-f" style="width:92%;background:#3b82f6"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#3b82f6">31.7 nW</div></div>
+</div>
+<div class="row" style="animation-delay:0.28s">
+<div class="rank" style="color:#3b82f6">#8</div>
+<div class="info">
+<div class="name">Coronation Road</div>
+<div class="area">BTSZ06 · Bukit Timah</div>
+<div class="detail">Pop: 7,240 | Places: 182 | Green: 22% | Built: 77%</div>
+<div class="bar"><div class="bar-f" style="width:95%;background:#3b82f6"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#3b82f6">32.6 nW</div></div>
+</div>
+<div class="row" style="animation-delay:0.32s">
+<div class="rank" style="color:#3b82f6">#9</div>
+<div class="info">
+<div class="name">Leedon Park</div>
+<div class="area">BTSZ07 · Bukit Timah</div>
+<div class="detail">Pop: 7,480 | Places: 69 | Green: 37% | Built: 63%</div>
+<div class="bar"><div class="bar-f" style="width:96%;background:#3b82f6"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#3b82f6">33.0 nW</div></div>
+</div>
+<div class="row" style="animation-delay:0.36s">
+<div class="rank" style="color:#3b82f6">#10</div>
+<div class="info">
+<div class="name">Siglap</div>
+<div class="area">BDSZ07 · Bedok</div>
+<div class="detail">Pop: 7,310 | Places: 103 | Green: 58% | Built: 35%</div>
+<div class="bar"><div class="bar-f" style="width:100%;background:#3b82f6"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#3b82f6">34.5 nW</div></div>
+</div>
+<div class="finding validated" style="border-color:#3b82f620">
+<div class="label" style="color:#22c55e">Key Finding — Validated</div>
+<p>These residential areas go dark after sunset. Residents must travel to neighbouring subzones for dinner and evening activities. The satellite reveals an untapped evening economy — these subzones have the population to support more F&B and entertainment but don't have it yet.</p>
+</div>
+</div>
+<div class="section" style="animation-delay:0.2s">
+<div class="section-header">
+<div class="icon" style="background:#22c55e18;color:#22c55e">&#9679;</div>
+<h2 style="color:#22c55e">Singapore's Green Lungs</h2>
+</div>
+<div class="section-desc">Combined tree canopy + grassland + shrub cover from ESA WorldCover at 10m resolution. Singapore maintains 47% green cover despite being a city-state — but not all green subzones are nature reserves.</div>
+<div class="row" style="animation-delay:0.00s">
+<div class="rank" style="color:#22c55e">#1</div>
+<div class="info">
+<div class="name">Brickland</div>
+<div class="area">THSZ04 · Tengah</div>
+<div class="detail">Tree: 93% | Grass: 3% | Built: 4% | Pop: 0</div>
+<div class="bar"><div class="bar-f" style="width:100%;background:#22c55e"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#22c55e">96% green</div></div>
+</div>
+<div class="row" style="animation-delay:0.04s">
+<div class="rank" style="color:#22c55e">#2</div>
+<div class="info">
+<div class="name">Bahar</div>
+<div class="area">WCSZ03 · Western Water Catchment</div>
+<div class="detail">Tree: 90% | Grass: 3% | Built: 6% | Pop: 0</div>
+<div class="bar"><div class="bar-f" style="width:96%;background:#22c55e"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#22c55e">92% green</div></div>
+</div>
+<div class="row" style="animation-delay:0.08s">
+<div class="rank" style="color:#22c55e">#3</div>
+<div class="info">
+<div class="name">Nature Reserve</div>
+<div class="area">BPSZ07 · Bukit Panjang</div>
+<div class="detail">Tree: 87% | Grass: 2% | Built: 9% | Pop: 3,940</div>
+<div class="bar"><div class="bar-f" style="width:93%;background:#22c55e"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#22c55e">89% green</div></div>
+</div>
+<div class="row" style="animation-delay:0.12s">
+<div class="rank" style="color:#22c55e">#4</div>
+<div class="info">
+<div class="name">Istana Negara</div>
+<div class="area">NTSZ06 · Newton</div>
+<div class="detail">Tree: 77% | Grass: 12% | Built: 11% | Pop: 0</div>
+<div class="bar"><div class="bar-f" style="width:92%;background:#22c55e"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#22c55e">89% green</div></div>
+</div>
+<div class="row" style="animation-delay:0.16s">
+<div class="rank" style="color:#22c55e">#5</div>
+<div class="info">
+<div class="name">Mandai West</div>
+<div class="area">MDSZ01 · Mandai</div>
+<div class="detail">Tree: 84% | Grass: 4% | Built: 12% | Pop: 0</div>
+<div class="bar"><div class="bar-f" style="width:91%;background:#22c55e"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#22c55e">88% green</div></div>
+</div>
+<div class="row" style="animation-delay:0.20s">
+<div class="rank" style="color:#22c55e">#6</div>
+<div class="info">
+<div class="name">Park</div>
+<div class="area">THSZ03 · Tengah</div>
+<div class="detail">Tree: 80% | Grass: 8% | Built: 2% | Pop: 4,000</div>
+<div class="bar"><div class="bar-f" style="width:91%;background:#22c55e"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#22c55e">88% green</div></div>
+</div>
+<div class="row" style="animation-delay:0.24s">
+<div class="rank" style="color:#22c55e">#7</div>
+<div class="info">
+<div class="name">Forest Hill</div>
+<div class="area">THSZ01 · Tengah</div>
+<div class="detail">Tree: 85% | Grass: 2% | Built: 6% | Pop: 0</div>
+<div class="bar"><div class="bar-f" style="width:90%;background:#22c55e"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#22c55e">87% green</div></div>
+</div>
+<div class="row" style="animation-delay:0.28s">
+<div class="rank" style="color:#22c55e">#8</div>
+<div class="info">
+<div class="name">Lorong Halus</div>
+<div class="area">HGSZ10 · Hougang</div>
+<div class="detail">Tree: 64% | Grass: 20% | Built: 9% | Pop: 0</div>
+<div class="bar"><div class="bar-f" style="width:88%;background:#22c55e"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#22c55e">85% green</div></div>
+</div>
+<div class="row" style="animation-delay:0.32s">
+<div class="rank" style="color:#22c55e">#9</div>
+<div class="info">
+<div class="name">Lorong Halus North</div>
+<div class="area">SESZ01 · Sengkang</div>
+<div class="detail">Tree: 78% | Grass: 5% | Built: 9% | Pop: 0</div>
+<div class="bar"><div class="bar-f" style="width:86%;background:#22c55e"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#22c55e">83% green</div></div>
+</div>
+<div class="row" style="animation-delay:0.36s">
+<div class="rank" style="color:#22c55e">#10</div>
+<div class="info">
+<div class="name">East Coast</div>
+<div class="area">MPSZ04 · Marine Parade</div>
+<div class="detail">Tree: 72% | Grass: 11% | Built: 12% | Pop: 0</div>
+<div class="bar"><div class="bar-f" style="width:86%;background:#22c55e"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#22c55e">83% green</div></div>
+</div>
+<div class="finding validated" style="border-color:#22c55e20">
+<div class="label" style="color:#22c55e">Key Finding — Validated</div>
+<p>Central Water Catchment and Mandai dominate — these are genuine nature reserves. But some entries like Tengah and Simpang are green because they're UNDEVELOPED, not because they're parks. Tengah is Singapore's newest HDB town — the satellite shows it's still 90%+ vegetation, meaning massive construction is coming.</p>
+</div>
+</div>
+<div class="section" style="animation-delay:0.3s">
+<div class="section-header">
+<div class="icon" style="background:#ef444418;color:#ef4444">&#9679;</div>
+<h2 style="color:#ef4444">Concrete Intensity</h2>
+</div>
+<div class="section-desc">Percentage of land classified as impervious surface (buildings + roads + concrete) from 10m satellite classification. These are Singapore's densest urban cores where every square meter is built upon.</div>
+<div class="row" style="animation-delay:0.00s">
+<div class="rank" style="color:#ef4444">#1</div>
+<div class="info">
+<div class="name">Little India</div>
+<div class="area">RCSZ02 · Rochor</div>
+<div class="detail">Night: 117.2 nW | Green: 1% | Places: 408</div>
+<div class="bar"><div class="bar-f" style="width:100%;background:#ef4444"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#ef4444">99% built</div></div>
+</div>
+<div class="row" style="animation-delay:0.04s">
+<div class="rank" style="color:#ef4444">#2</div>
+<div class="info">
+<div class="name">China Square</div>
+<div class="area">OTSZ04 · Outram</div>
+<div class="detail">Night: 0.0 nW | Green: 2% | Places: 107</div>
+<div class="bar"><div class="bar-f" style="width:99%;background:#ef4444"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#ef4444">98% built</div></div>
+</div>
+<div class="row" style="animation-delay:0.08s">
+<div class="rank" style="color:#ef4444">#3</div>
+<div class="info">
+<div class="name">Selegie</div>
+<div class="area">RCSZ08 · Rochor</div>
+<div class="detail">Night: 101.8 nW | Green: 3% | Places: 83</div>
+<div class="bar"><div class="bar-f" style="width:98%;background:#ef4444"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#ef4444">97% built</div></div>
+</div>
+<div class="row" style="animation-delay:0.12s">
+<div class="rank" style="color:#ef4444">#4</div>
+<div class="info">
+<div class="name">Cecil</div>
+<div class="area">DTSZ08 · Downtown Core</div>
+<div class="detail">Night: 164.9 nW | Green: 2% | Places: 36</div>
+<div class="bar"><div class="bar-f" style="width:98%;background:#ef4444"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#ef4444">96% built</div></div>
+</div>
+<div class="row" style="animation-delay:0.16s">
+<div class="rank" style="color:#ef4444">#5</div>
+<div class="info">
+<div class="name">Victoria</div>
+<div class="area">RCSZ10 · Rochor</div>
+<div class="detail">Night: 151.8 nW | Green: 3% | Places: 415</div>
+<div class="bar"><div class="bar-f" style="width:98%;background:#ef4444"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#ef4444">96% built</div></div>
+</div>
+<div class="row" style="animation-delay:0.20s">
+<div class="rank" style="color:#ef4444">#6</div>
+<div class="info">
+<div class="name">Chin Bee</div>
+<div class="area">JWSZ05 · Jurong West</div>
+<div class="detail">Night: 56.5 nW | Green: 4% | Places: 132</div>
+<div class="bar"><div class="bar-f" style="width:96%;background:#ef4444"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#ef4444">94% built</div></div>
+</div>
+<div class="row" style="animation-delay:0.24s">
+<div class="rank" style="color:#ef4444">#7</div>
+<div class="info">
+<div class="name">Kovan</div>
+<div class="area">HGSZ06 · Hougang</div>
+<div class="detail">Night: 58.0 nW | Green: 6% | Places: 332</div>
+<div class="bar"><div class="bar-f" style="width:95%;background:#ef4444"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#ef4444">94% built</div></div>
+</div>
+<div class="row" style="animation-delay:0.28s">
+<div class="rank" style="color:#ef4444">#8</div>
+<div class="info">
+<div class="name">Kampong Glam</div>
+<div class="area">RCSZ05 · Rochor</div>
+<div class="detail">Night: 0.0 nW | Green: 6% | Places: 368</div>
+<div class="bar"><div class="bar-f" style="width:95%;background:#ef4444"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#ef4444">93% built</div></div>
+</div>
+<div class="row" style="animation-delay:0.32s">
+<div class="rank" style="color:#ef4444">#9</div>
+<div class="info">
+<div class="name">Bugis</div>
+<div class="area">DTSZ01 · Downtown Core</div>
+<div class="detail">Night: 157.3 nW | Green: 4% | Places: 365</div>
+<div class="bar"><div class="bar-f" style="width:94%;background:#ef4444"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#ef4444">93% built</div></div>
+</div>
+<div class="row" style="animation-delay:0.36s">
+<div class="rank" style="color:#ef4444">#10</div>
+<div class="info">
+<div class="name">Anson</div>
+<div class="area">DTSZ10 · Downtown Core</div>
+<div class="detail">Night: 0.0 nW | Green: 4% | Places: 52</div>
+<div class="bar"><div class="bar-f" style="width:93%;background:#ef4444"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#ef4444">92% built</div></div>
+</div>
+<div class="finding" style="border-color:#ef444420">
+<div class="label" style="color:#ef4444">Key Finding</div>
+<p>98-99% built-up means virtually zero green space. These subzones are fully maximized — any new development requires demolition. The correlation between built-up % and commercial place count is strong but not perfect: some fully built areas (like Anson) have few retail places because they're purely office.</p>
+</div>
+</div>
+<div class="section" style="animation-delay:0.4s">
+<div class="section-header">
+<div class="icon" style="background:#a855f718;color:#a855f7">&#9679;</div>
+<h2 style="color:#a855f7">Population: What Satellites See vs Census</h2>
+</div>
+<div class="section-desc">WorldPop estimates population from satellite imagery (building footprints, land use). When satellite pop >> census pop, it signals daytime worker influx. When satellite << census, it means the satellite model underestimates dense HDB areas.</div>
+<div class="row" style="animation-delay:0.00s">
+<div class="rank" style="color:#a855f7">#1</div>
+<div class="info">
+<div class="name">Port</div>
+<div class="area">QTSZ15 · Queenstown</div>
+<div class="detail">Satellite: 17,236 | Census: 60 | Ratio: 287.3</div>
+<div class="bar"><div class="bar-f" style="width:100%;background:#a855f7"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#a855f7">287.3x</div></div>
+</div>
+<div class="row" style="animation-delay:0.04s">
+<div class="rank" style="color:#a855f7">#2</div>
+<div class="info">
+<div class="name">Xilin</div>
+<div class="area">TMSZ05 · Tampines</div>
+<div class="detail">Satellite: 47,981 | Census: 1,750 | Ratio: 27.4</div>
+<div class="bar"><div class="bar-f" style="width:10%;background:#a855f7"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#a855f7">27.4x</div></div>
+</div>
+<div class="row" style="animation-delay:0.08s">
+<div class="rank" style="color:#a855f7">#3</div>
+<div class="info">
+<div class="name">Nee Soon</div>
+<div class="area">YSSZ07 · Yishun</div>
+<div class="detail">Satellite: 24,728 | Census: 940 | Ratio: 26.3</div>
+<div class="bar"><div class="bar-f" style="width:9%;background:#a855f7"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#a855f7">26.3x</div></div>
+</div>
+<div class="row" style="animation-delay:0.12s">
+<div class="rank" style="color:#a855f7">#4</div>
+<div class="info">
+<div class="name">Lakeside (Leisure)</div>
+<div class="area">JESZ04 · Jurong East</div>
+<div class="detail">Satellite: 6,029 | Census: 270 | Ratio: 22.3</div>
+<div class="bar"><div class="bar-f" style="width:8%;background:#a855f7"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#a855f7">22.3x</div></div>
+</div>
+<div class="row" style="animation-delay:0.16s">
+<div class="rank" style="color:#a855f7">#5</div>
+<div class="info">
+<div class="name">Queensway</div>
+<div class="area">QTSZ07 · Queenstown</div>
+<div class="detail">Satellite: 1,597 | Census: 140 | Ratio: 11.4</div>
+<div class="bar"><div class="bar-f" style="width:4%;background:#a855f7"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#a855f7">11.4x</div></div>
+</div>
+<div class="row" style="animation-delay:0.20s">
+<div class="rank" style="color:#a855f7">#6</div>
+<div class="info">
+<div class="name">Mount Pleasant</div>
+<div class="area">NVSZ05 · Novena</div>
+<div class="detail">Satellite: 7,839 | Census: 710 | Ratio: 11.0</div>
+<div class="bar"><div class="bar-f" style="width:4%;background:#a855f7"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#a855f7">11.0x</div></div>
+</div>
+<div class="row" style="animation-delay:0.24s">
+<div class="rank" style="color:#a855f7">#7</div>
+<div class="info">
+<div class="name">Jurong Gateway</div>
+<div class="area">JESZ06 · Jurong East</div>
+<div class="detail">Satellite: 4,266 | Census: 410 | Ratio: 10.4</div>
+<div class="bar"><div class="bar-f" style="width:4%;background:#a855f7"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#a855f7">10.4x</div></div>
+</div>
+<div class="row" style="animation-delay:0.28s">
+<div class="rank" style="color:#a855f7">#8</div>
+<div class="info">
+<div class="name">Changi West</div>
+<div class="area">CHSZ02 · Changi</div>
+<div class="detail">Satellite: 2,310 | Census: 270 | Ratio: 8.6</div>
+<div class="bar"><div class="bar-f" style="width:3%;background:#a855f7"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#a855f7">8.6x</div></div>
+</div>
+<div class="row" style="animation-delay:0.32s">
+<div class="rank" style="color:#a855f7">#9</div>
+<div class="info">
+<div class="name">One North</div>
+<div class="area">QTSZ08 · Queenstown</div>
+<div class="detail">Satellite: 10,020 | Census: 1,280 | Ratio: 7.8</div>
+<div class="bar"><div class="bar-f" style="width:3%;background:#a855f7"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#a855f7">7.8x</div></div>
+</div>
+<div class="row" style="animation-delay:0.36s">
+<div class="rank" style="color:#a855f7">#10</div>
+<div class="info">
+<div class="name">Nicoll</div>
+<div class="area">DTSZ13 · Downtown Core</div>
+<div class="detail">Satellite: 2,214 | Census: 290 | Ratio: 7.6</div>
+<div class="bar"><div class="bar-f" style="width:3%;background:#a855f7"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#a855f7">7.6x</div></div>
+</div>
+<div class="finding validated" style="border-color:#a855f720">
+<div class="label" style="color:#22c55e">Key Finding — Validated</div>
+<p>Large mismatches reveal the gap between where people LIVE (census) and where people ARE (satellite). A subzone with 3x satellite-to-census ratio is a major employment hub — workers flood in during the day. These are prime locations for lunch-focused F&B.</p>
+</div>
+</div>
+<div class="section" style="animation-delay:0.5s">
+<div class="section-header">
+<div class="icon" style="background:#14b8a618;color:#14b8a6">&#9679;</div>
+<h2 style="color:#14b8a6">Development Index (Satellite Composite)</h2>
+</div>
+<div class="section-desc">Composite 0-100 score combining: built-up area percentile (40%), night radiance percentile (40%), inverse green cover percentile (20%). SGP-relative — 100 = most urbanized subzone, 0 = most natural.</div>
+<div class="row" style="animation-delay:0.00s">
+<div class="rank" style="color:#14b8a6">#1</div>
+<div class="info">
+<div class="name">Cecil</div>
+<div class="area">DTSZ08 · Downtown Core</div>
+<div class="detail">Built P99 | Night P99 | Green P1</div>
+<div class="bar"><div class="bar-f" style="width:100%;background:#14b8a6"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#14b8a6">99</div></div>
+</div>
+<div class="row" style="animation-delay:0.04s">
+<div class="rank" style="color:#14b8a6">#2</div>
+<div class="info">
+<div class="name">Victoria</div>
+<div class="area">RCSZ10 · Rochor</div>
+<div class="detail">Built P99 | Night P98 | Green P2</div>
+<div class="bar"><div class="bar-f" style="width:99%;background:#14b8a6"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#14b8a6">98</div></div>
+</div>
+<div class="row" style="animation-delay:0.08s">
+<div class="rank" style="color:#14b8a6">#3</div>
+<div class="info">
+<div class="name">Bugis</div>
+<div class="area">DTSZ01 · Downtown Core</div>
+<div class="detail">Built P98 | Night P98 | Green P2</div>
+<div class="bar"><div class="bar-f" style="width:99%;background:#14b8a6"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#14b8a6">98</div></div>
+</div>
+<div class="row" style="animation-delay:0.12s">
+<div class="rank" style="color:#14b8a6">#4</div>
+<div class="info">
+<div class="name">Little India</div>
+<div class="area">RCSZ02 · Rochor</div>
+<div class="detail">Built P100 | Night P92 | Green P0</div>
+<div class="bar"><div class="bar-f" style="width:98%;background:#14b8a6"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#14b8a6">97</div></div>
+</div>
+<div class="row" style="animation-delay:0.16s">
+<div class="rank" style="color:#14b8a6">#5</div>
+<div class="info">
+<div class="name">Selegie</div>
+<div class="area">RCSZ08 · Rochor</div>
+<div class="detail">Built P99 | Night P89 | Green P2</div>
+<div class="bar"><div class="bar-f" style="width:96%;background:#14b8a6"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#14b8a6">95</div></div>
+</div>
+<div class="row" style="animation-delay:0.20s">
+<div class="rank" style="color:#14b8a6">#6</div>
+<div class="info">
+<div class="name">Raffles Place</div>
+<div class="area">DTSZ05 · Downtown Core</div>
+<div class="detail">Built P91 | Night P97 | Green P3</div>
+<div class="bar"><div class="bar-f" style="width:96%;background:#14b8a6"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#14b8a6">95</div></div>
+</div>
+<div class="row" style="animation-delay:0.24s">
+<div class="rank" style="color:#14b8a6">#7</div>
+<div class="info">
+<div class="name">Tanjong Pagar</div>
+<div class="area">DTSZ09 · Downtown Core</div>
+<div class="detail">Built P93 | Night P97 | Green P9</div>
+<div class="bar"><div class="bar-f" style="width:95%;background:#14b8a6"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#14b8a6">94</div></div>
+</div>
+<div class="row" style="animation-delay:0.28s">
+<div class="rank" style="color:#14b8a6">#8</div>
+<div class="info">
+<div class="name">Bencoolen</div>
+<div class="area">RCSZ09 · Rochor</div>
+<div class="detail">Built P96 | Night P91 | Green P5</div>
+<div class="bar"><div class="bar-f" style="width:95%;background:#14b8a6"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#14b8a6">94</div></div>
+</div>
+<div class="row" style="animation-delay:0.32s">
+<div class="rank" style="color:#14b8a6">#9</div>
+<div class="info">
+<div class="name">Chinatown</div>
+<div class="area">OTSZ03 · Outram</div>
+<div class="detail">Built P94 | Night P94 | Green P9</div>
+<div class="bar"><div class="bar-f" style="width:94%;background:#14b8a6"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#14b8a6">94</div></div>
+</div>
+<div class="row" style="animation-delay:0.36s">
+<div class="rank" style="color:#14b8a6">#10</div>
+<div class="info">
+<div class="name">Maxwell</div>
+<div class="area">DTSZ07 · Downtown Core</div>
+<div class="detail">Built P89 | Night P94 | Green P17</div>
+<div class="bar"><div class="bar-f" style="width:91%;background:#14b8a6"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#14b8a6">90</div></div>
+</div>
+<div class="finding" style="border-color:#14b8a620">
+<div class="label" style="color:#14b8a6">Key Finding</div>
+<p>The Development Index identifies Singapore's most intensely urbanized areas purely from satellite signals — no ground survey needed. When this index is high but commercial place count is low, there's a gap. When it's low but population is high, the area is developing but commercial infrastructure hasn't caught up.</p>
+</div>
+</div>
+<div class="section" style="animation-delay:0.6s">
+<div class="section-header">
+<div class="icon" style="background:#06b6d418;color:#06b6d4">&#9679;</div>
+<h2 style="color:#06b6d4">Waterfront Premium</h2>
+</div>
+<div class="section-desc">Subzones with >3% water body coverage from satellite. Waterfront locations command premium real estate and are prime for hospitality, dining, and recreation.</div>
+<div class="row" style="animation-delay:0.00s">
+<div class="rank" style="color:#06b6d4">#1</div>
+<div class="info">
+<div class="name">Pulau Seletar</div>
+<div class="area">SMSZ04 · Simpang</div>
+<div class="detail">Built: 0% | Green: 14% | Night: 5.9 | Places: 0</div>
+<div class="bar"><div class="bar-f" style="width:100%;background:#06b6d4"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#06b6d4">78% water</div></div>
+</div>
+<div class="row" style="animation-delay:0.04s">
+<div class="rank" style="color:#06b6d4">#2</div>
+<div class="info">
+<div class="name">Clifford Pier</div>
+<div class="area">DTSZ06 · Downtown Core</div>
+<div class="detail">Built: 26% | Green: 2% | Night: 145.8 | Places: 12</div>
+<div class="bar"><div class="bar-f" style="width:87%;background:#06b6d4"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#06b6d4">68% water</div></div>
+</div>
+<div class="row" style="animation-delay:0.08s">
+<div class="rank" style="color:#06b6d4">#3</div>
+<div class="info">
+<div class="name">Tanjong Irau</div>
+<div class="area">SMSZ02 · Simpang</div>
+<div class="detail">Built: 0% | Green: 28% | Night: 6.2 | Places: 0</div>
+<div class="bar"><div class="bar-f" style="width:83%;background:#06b6d4"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#06b6d4">64% water</div></div>
+</div>
+<div class="row" style="animation-delay:0.12s">
+<div class="rank" style="color:#06b6d4">#4</div>
+<div class="info">
+<div class="name">Teban Gardens</div>
+<div class="area">JESZ09 · Jurong East</div>
+<div class="detail">Built: 22% | Green: 18% | Night: 41.2 | Places: 159</div>
+<div class="bar"><div class="bar-f" style="width:78%;background:#06b6d4"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#06b6d4">61% water</div></div>
+</div>
+<div class="row" style="animation-delay:0.16s">
+<div class="rank" style="color:#06b6d4">#5</div>
+<div class="info">
+<div class="name">Southern Group</div>
+<div class="area">SISZ02 · Southern Islands</div>
+<div class="detail">Built: 1% | Green: 50% | Night: 4.0 | Places: 9</div>
+<div class="bar"><div class="bar-f" style="width:61%;background:#06b6d4"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#06b6d4">48% water</div></div>
+</div>
+<div class="row" style="animation-delay:0.20s">
+<div class="rank" style="color:#06b6d4">#6</div>
+<div class="info">
+<div class="name">Semakau</div>
+<div class="area">WISZ02 · Western Islands</div>
+<div class="detail">Built: 13% | Green: 27% | Night: 6.3 | Places: 3</div>
+<div class="bar"><div class="bar-f" style="width:57%;background:#06b6d4"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#06b6d4">44% water</div></div>
+</div>
+<div class="row" style="animation-delay:0.24s">
+<div class="rank" style="color:#06b6d4">#7</div>
+<div class="info">
+<div class="name">Reservoir View</div>
+<div class="area">SKSZ05 · Sungei Kadut</div>
+<div class="detail">Built: 44% | Green: 14% | Night: 19.7 | Places: 168</div>
+<div class="bar"><div class="bar-f" style="width:52%;background:#06b6d4"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#06b6d4">40% water</div></div>
+</div>
+<div class="row" style="animation-delay:0.28s">
+<div class="rank" style="color:#06b6d4">#8</div>
+<div class="info">
+<div class="name">Lower Seletar</div>
+<div class="area">YSSZ05 · Yishun</div>
+<div class="detail">Built: 9% | Green: 50% | Night: 27.5 | Places: 119</div>
+<div class="bar"><div class="bar-f" style="width:49%;background:#06b6d4"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#06b6d4">38% water</div></div>
+</div>
+<div class="row" style="animation-delay:0.32s">
+<div class="rank" style="color:#06b6d4">#9</div>
+<div class="info">
+<div class="name">Bayfront Subzone</div>
+<div class="area">DTSZ12 · Downtown Core</div>
+<div class="detail">Built: 40% | Green: 14% | Night: 137.7 | Places: 176</div>
+<div class="bar"><div class="bar-f" style="width:48%;background:#06b6d4"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#06b6d4">38% water</div></div>
+</div>
+<div class="row" style="animation-delay:0.36s">
+<div class="rank" style="color:#06b6d4">#10</div>
+<div class="info">
+<div class="name">Tuas View Extension</div>
+<div class="area">TSSZ06 · Tuas</div>
+<div class="detail">Built: 20% | Green: 19% | Night: 61.7 | Places: 130</div>
+<div class="bar"><div class="bar-f" style="width:47%;background:#06b6d4"></div></div>
+</div>
+<div class="metric"><div class="val" style="color:#06b6d4">36% water</div></div>
+</div>
+<div class="finding" style="border-color:#06b6d420">
+<div class="label" style="color:#06b6d4">Key Finding</div>
+<p>Marina Bay and Sentosa lead — Singapore's most iconic waterfront destinations. But subzones like Punggol and Sengkang also score high due to reservoir and river proximity. These are emerging waterfront lifestyle areas with growing F&B demand.</p>
+</div>
+</div>
+<div class="footer">
+<svg width="20" height="20" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><g><g><path fill="#20b2aa" d="M45,64.2c-1.1,9.1-3.3,15.3-5.8,15.3c-0.1,0-0.1,0-0.2,0c-0.3,0-0.6-0.2-1-0.4c0,0,0,0,0,0c-3.1-2.5-5.4-14.5-5.4-29c0-14.4,2.3-26.4,5.4-29c0.3-0.3,0.7-0.5,1-0.5c0,0,0,0,0,0h0.2c2.6,0,4.9,6.8,6,16.6c-5.6,2-9.5,7.3-9.5,13.5C35.6,56.9,39.5,62.1,45,64.2z"/><path fill="#20b2aa" d="M67.4,50c0,14.5-2.3,26.5-5.4,29h0v0c-0.3,0.2-0.6,0.4-0.9,0.4c-0.1,0-0.2,0-0.2,0c-2.5,0-4.7-6.2-5.8-15.3c5.5-2,9.4-7.3,9.4-13.5c0-6.2-4-11.6-9.5-13.5c1.1-9.8,3.4-16.6,6-16.6H61v0c0.4,0,0.7,0.2,1,0.5c0,0,0,0,0,0C65.1,23.6,67.4,35.6,67.4,50z"/></g><path fill="#20b2aa" d="M30.2,50c0-14.4,2.3-26.4,5.4-29c-10.6,5.3-17.9,16.3-17.9,29c0,12.7,7.3,23.7,17.9,29C32.5,76.5,30.2,64.5,30.2,50z M64.4,21c3.1,2.6,5.4,14.5,5.4,29c0,14.5-2.3,26.5-5.4,29C75,73.7,82.3,62.7,82.3,50C82.3,37.3,75,26.4,64.4,21z"/><path fill="#20b2aa" d="M62.1,50.7c0,5-3,9.3-7.4,11.2c-1.5,0.6-3.1,1-4.8,1c-1.7,0-3.3-0.4-4.8-1c-4.3-1.9-7.4-6.2-7.4-11.2c0-5.1,3.1-9.4,7.5-11.2c1.4-0.6,3-0.9,4.7-0.9c1.7,0,3.2,0.3,4.7,0.9C59.1,41.3,62.1,45.6,62.1,50.7z"/></g></g></svg>
+<span>Propheus Digital Atlas SGP · Satellite: VIIRS 2024 (EOG/NASA), ESA WorldCover 2021 (Copernicus), WorldPop 2020 · 332 subzones × 18 features</span>
+</div>
+</div></body></html>

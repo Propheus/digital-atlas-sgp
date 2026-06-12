@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SGP Feature Inventory — Propheus</title>
+<style>
+:root{--bg:#0a0f1a;--card:#111827;--border:#1e2a3a;--text:#e5e7eb;--muted:#9ca3af;--dim:#6b7280;--accent:#14b8a6;--accent2:#6366f1;--green:#10b981;--yellow:#f59e0b;--red:#ef4444;--purple:#8b5cf6;--pink:#ec4899;--orange:#f97316;--blue:#3b82f6}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,system-ui,sans-serif;line-height:1.6}
+.c{max-width:1100px;margin:0 auto;padding:2.5rem 2rem}
+.hdr{text-align:center;padding:2rem 0 2.5rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+.hdr-logo{font-size:0.72rem;color:var(--dim);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.4rem}
+h1{font-size:2.3rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.2;margin-bottom:0.4rem}
+.sub{color:var(--muted);font-size:1rem}
+.kpis{display:flex;gap:10px;justify-content:center;margin-top:1.5rem;flex-wrap:wrap}
+.kpi{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:0.7rem 1.3rem;text-align:center;min-width:110px}
+.kpi b{font-size:1.5rem;font-weight:800;color:var(--accent);display:block;line-height:1.2}
+.kpi span{font-size:0.62rem;color:var(--dim);text-transform:uppercase;letter-spacing:0.05em}
+
+h2{font-size:1.3rem;color:var(--accent);margin:2.5rem 0 0.5rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border)}
+h3{font-size:1rem;font-weight:700;margin:1.5rem 0 0.4rem}
+p{color:var(--muted);font-size:0.88rem;margin:0.3rem 0}
+
+/* Data flow diagram */
+.flow{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:2rem;margin:1.5rem 0;overflow-x:auto}
+.flow-row{display:flex;gap:12px;align-items:stretch;margin:8px 0;flex-wrap:wrap}
+.flow-box{border-radius:10px;padding:12px 16px;min-width:140px;flex:1}
+.flow-src{background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.25)}
+.flow-proc{background:rgba(20,184,166,0.1);border:1px solid rgba(20,184,166,0.25)}
+.flow-out{background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.25)}
+.flow-box b{font-size:0.82rem;display:block;margin-bottom:2px}
+.flow-box span{font-size:0.68rem;color:var(--muted)}
+.flow-arrow{display:flex;align-items:center;color:var(--dim);font-size:1.2rem;padding:0 4px}
+
+/* Source cards */
+.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin:1rem 0}
+.src{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;transition:border-color 0.2s}
+.src:hover{border-color:rgba(20,184,166,0.3)}
+.src-icon{font-size:1.3rem;margin-bottom:4px}
+.src-name{font-size:0.85rem;font-weight:700;margin-bottom:2px}
+.src-desc{font-size:0.7rem;color:var(--muted);line-height:1.4}
+.src-count{font-size:0.65rem;color:var(--accent);font-weight:700;margin-top:4px}
+
+/* Feature group table */
+.fg{background:var(--card);border:1px solid var(--border);border-radius:12px;margin:12px 0;overflow:hidden}
+.fg-h{display:flex;align-items:center;gap:10px;padding:12px 18px;cursor:pointer;transition:background 0.15s}
+.fg-h:hover{background:rgba(20,184,166,0.03)}
+.fg-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.fg-name{font-size:0.88rem;font-weight:700;flex:1}
+.fg-count{font-size:0.75rem;color:var(--accent);font-weight:700;background:rgba(20,184,166,0.1);padding:2px 10px;border-radius:12px}
+.fg-src{font-size:0.65rem;color:var(--dim)}
+.fg-desc{font-size:0.78rem;color:var(--muted);padding:0 18px 12px;border-top:1px solid var(--border);margin-top:0}
+.fg-examples{display:flex;flex-wrap:wrap;gap:4px;padding:4px 18px 14px}
+.fg-ex{font-size:0.62rem;color:var(--text);background:var(--bg);padding:3px 8px;border-radius:5px;border:1px solid var(--border);font-family:'SF Mono',Monaco,monospace}
+
+/* Summary table */
+table{width:100%;border-collapse:collapse;font-size:0.82rem;margin:1rem 0}
+th{text-align:left;padding:9px 12px;background:var(--card);color:var(--accent);border-bottom:2px solid var(--border);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.04em}
+td{padding:7px 12px;border-bottom:1px solid var(--border)}
+tr:hover td{background:rgba(20,184,166,0.02)}
+.bar-c{width:120px}
+.bar-bg{height:8px;background:var(--border);border-radius:4px;overflow:hidden}
+.bar-fg{height:100%;border-radius:4px;background:var(--accent)}
+
+footer{text-align:center;color:var(--dim);padding:2.5rem 0 1rem;font-size:0.72rem;border-top:1px solid var(--border);margin-top:3rem}
+</style>
+</head>
+<body>
+<div class="c">
+
+<div class="hdr">
+  <div class="hdr-logo">Propheus Intelligence</div>
+  <h1>Feature Inventory</h1>
+  <p class="sub">Every signal flowing into the Singapore Digital Atlas — 484 features from 13 sources</p>
+  <div class="kpis">
+    <div class="kpi"><b>484</b><span>Total Features</span></div>
+    <div class="kpi"><b>13</b><span>Data Sources</span></div>
+    <div class="kpi"><b>332</b><span>Subzones</span></div>
+    <div class="kpi"><b>174,713</b><span>Places</span></div>
+    <div class="kpi"><b>148,000</b><span>Personas</span></div>
+  </div>
+</div>
+
+<!-- ═══ DATA FLOW ═══ -->
+<h2>Data Flow</h2>
+<div class="flow">
+  <div class="flow-row">
+    <div class="flow-box flow-src"><b>13 Raw Sources</b><span>Census, HDB, URA, OSM, LTA, Google Places, SFA, MOH, ECDA, ACRA, NVIDIA, VIIRS, WorldCover</span></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box flow-proc"><b>Feature Engine</b><span>19-step pipeline: join, aggregate, normalize, compute distances, build graphs, run micrographs</span></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box flow-out"><b>484 Features × 332 Subzones</b><span>Structural, micrograph, persona, satellite — fed into embedding models + gap analysis</span></div>
+  </div>
+</div>
+
+<!-- ═══ 13 DATA SOURCES ═══ -->
+<h2>13 Data Sources</h2>
+<div class="sgrid">
+  <div class="src"><div class="src-icon">📊</div><div class="src-name">DOS Census</div><div class="src-desc">Population by age, sex, dwelling type. 2020 + 2025 estimates.</div><div class="src-count">23 features</div></div>
+  <div class="src"><div class="src-icon">🏠</div><div class="src-name">HDB Resale</div><div class="src-desc">227K transactions. Median PSF, price trends, volume by subzone.</div><div class="src-count">11 features</div></div>
+  <div class="src"><div class="src-icon">🗺️</div><div class="src-name">URA Master Plan</div><div class="src-desc">113K zoning parcels. 10 land use types, GPR, entropy.</div><div class="src-count">13 features</div></div>
+  <div class="src"><div class="src-icon">🛣️</div><div class="src-name">OpenStreetMap</div><div class="src-desc">551K road edges, 126K buildings. Road types, building density.</div><div class="src-count">10+ features</div></div>
+  <div class="src"><div class="src-icon">🚇</div><div class="src-name">LTA Transit</div><div class="src-desc">231 MRT stations, 5.2K bus stops, ridership, interchanges.</div><div class="src-count">12 features</div></div>
+  <div class="src"><div class="src-icon">📍</div><div class="src-name">Google Places</div><div class="src-desc">174,713 places. Categories, ratings, reviews, brands.</div><div class="src-count">58+ features</div></div>
+  <div class="src"><div class="src-icon">🍜</div><div class="src-name">SFA (Food Agency)</div><div class="src-desc">34K licensed food establishments. The strongest market predictor.</div><div class="src-count">3 features</div></div>
+  <div class="src"><div class="src-icon">🏥</div><div class="src-name">MOH CHAS</div><div class="src-desc">1.2K community health clinics. Proxy for residential foot traffic.</div><div class="src-count">2 features</div></div>
+  <div class="src"><div class="src-icon">👶</div><div class="src-name">ECDA Preschools</div><div class="src-desc">2.3K government preschools. Predicts family-driven commerce.</div><div class="src-count">1 feature</div></div>
+  <div class="src"><div class="src-icon">🏢</div><div class="src-name">ACRA Registry</div><div class="src-desc">2M registered entities. Business churn rate, avg age, density.</div><div class="src-count">3 features</div></div>
+  <div class="src"><div class="src-icon">🤖</div><div class="src-name">NVIDIA Nemotron</div><div class="src-desc">148K synthetic personas. Demographics, industry, hobbies, lifestyle indices.</div><div class="src-count">35 features</div></div>
+  <div class="src"><div class="src-icon">🌃</div><div class="src-name">VIIRS Night Lights</div><div class="src-desc">2022 + 2024 annual composites. Brightness, temporal change, growth detection.</div><div class="src-count">6 features</div></div>
+  <div class="src"><div class="src-icon">🛰️</div><div class="src-name">ESA WorldCover + WorldPop</div><div class="src-desc">10m land cover (built-up, tree, water, grass). Population density grid.</div><div class="src-count">12 features</div></div>
+</div>
+
+<!-- ═══ 17 FEATURE GROUPS ═══ -->
+<h2>17 Feature Groups</h2>
+
+<div class="fg">
+  <div class="fg-h"><div class="fg-dot" style="background:var(--blue)"></div><div class="fg-name">Demographics</div><div class="fg-count">16</div><div class="fg-src">Census</div></div>
+  <div class="fg-desc">Population, density, age distribution (young/working/elderly %), gender split. The base layer — everything correlates with population.</div>
+  <div class="fg-examples"><span class="fg-ex">total_population</span><span class="fg-ex">pop_density</span><span class="fg-ex">age_65_plus_pct</span><span class="fg-ex">male_pct</span><span class="fg-ex">daytime_workers</span><span class="fg-ex">resident_workers</span></div>
+</div>
+
+<div class="fg">
+  <div class="fg-h"><div class="fg-dot" style="background:var(--purple)"></div><div class="fg-name">Dwelling Type</div><div class="fg-count">7</div><div class="fg-src">Census</div></div>
+  <div class="fg-desc">HDB room sizes (1-2Rm through 5Rm/Exec), condo %, landed %. Singapore's best income proxy — condo% predicts premium commerce.</div>
+  <div class="fg-examples"><span class="fg-ex">HDB_4-Room_pct</span><span class="fg-ex">Condo_pct</span><span class="fg-ex">Landed_pct</span><span class="fg-ex">HDB_5-Room_Exec_pct</span></div>
+</div>
+
+<div class="fg">
+  <div class="fg-h"><div class="fg-dot" style="background:var(--pink)"></div><div class="fg-name">Property Market</div><div class="fg-count">11</div><div class="fg-src">HDB + URA</div></div>
+  <div class="fg-desc">Median HDB $/psf, YoY price change, transaction volume. Private market vacancy and rent. Real-time market temperature per zone.</div>
+  <div class="fg-examples"><span class="fg-ex">median_hdb_psf</span><span class="fg-ex">hdb_price_yoy_pct</span><span class="fg-ex">hdb_transaction_count</span><span class="fg-ex">vacancy_rate</span><span class="fg-ex">median_rent</span></div>
+</div>
+
+<div class="fg">
+  <div class="fg-h"><div class="fg-dot" style="background:var(--dim)"></div><div class="fg-name">Road Network</div><div class="fg-count">10</div><div class="fg-src">OSM</div></div>
+  <div class="fg-desc">Road density (km/km²), total road km, breakdown by type (motorway, primary, residential, service, cycleway). Building density and avg height.</div>
+  <div class="fg-examples"><span class="fg-ex">road_density_km_per_km2</span><span class="fg-ex">road_primary_km</span><span class="fg-ex">road_residential_km</span><span class="fg-ex">building_density</span><span class="fg-ex">avg_height</span></div>
+</div>
+
+<div class="fg">
+  <div class="fg-h"><div class="fg-dot" style="background:var(--green)"></div><div class="fg-name">Land Use Zoning</div><div class="fg-count">13</div><div class="fg-src">URA Master Plan</div></div>
+  <div class="fg-desc">10 zoning types (residential, commercial, industrial, mixed, open space, institutional, transport, nature, reserve, other). Entropy, GPR, green ratio. Industrial zoning secretly predicts office markets.</div>
+  <div class="fg-examples"><span class="fg-ex">lu_residential_pct</span><span class="fg-ex">lu_commercial_pct</span><span class="fg-ex">lu_industrial_pct</span><span class="fg-ex">lu_entropy</span><span class="fg-ex">avg_gpr</span><span class="fg-ex">green_ratio</span></div>
+</div>
+
+<div class="fg">
+  <div class="fg-h"><div class="fg-dot" style="background:var(--accent2)"></div><div class="fg-name">Transit Access</div><div class="fg-count">12</div><div class="fg-src">LTA + OSM</div></div>
+  <div class="fg-desc">MRT distance and count within 1km, bus stop count and density, nearby daily ridership, interchange presence. Transit degree from connectivity graph.</div>
+  <div class="fg-examples"><span class="fg-ex">dist_nearest_mrt</span><span class="fg-ex">mrt_stations_1km</span><span class="fg-ex">bus_stop_count_1km</span><span class="fg-ex">nearby_daily_ridership</span><span class="fg-ex">has_interchange</span><span class="fg-ex">transit_degree</span></div>
+</div>
+
+<div class="fg">
+  <div class="fg-h"><div class="fg-dot" style="background:var(--yellow)"></div><div class="fg-name">Amenity Access</div><div class="fg-count">12</div><div class="fg-src">Computed</div></div>
+  <div class="fg-desc">Distance to nearest + count within 1km for: parks, hawkers, schools, supermarkets, hotels. Amenity score composite. Walk-time based.</div>
+  <div class="fg-examples"><span class="fg-ex">dist_nearest_hawker</span><span class="fg-ex">hawkers_within_1km</span><span class="fg-ex">dist_nearest_park</span><span class="fg-ex">schools_within_1km</span><span class="fg-ex">hotel_count_1km</span></div>
+</div>
+
+<div class="fg">
+  <div class="fg-h"><div class="fg-dot" style="background:var(--accent)"></div><div class="fg-name">Micrograph Aggregates</div><div class="fg-count">142</div><div class="fg-src">12-category pipeline</div></div>
+  <div class="fg-desc">The largest feature block. Per-category (×12): density band distribution (sparse/moderate/dense/hyperdense %), avg walk time, T1 transit diversity. Per-subzone: context vector means (transit/competitor/complementary/demand), anchor tier counts, competitive pressure, walkability index.</div>
+  <div class="fg-examples"><span class="fg-ex">mg_cafe_pct_dense</span><span class="fg-ex">mg_cafe_avg_walk</span><span class="fg-ex">mg_rest_t1_diversity</span><span class="fg-ex">mg_hawk_pct_hyperdense</span><span class="fg-ex">cv_transit</span><span class="fg-ex">cv_competitor</span><span class="fg-ex">avg_pressure</span><span class="fg-ex">avg_walkability</span></div>
+</div>
+
+<div class="fg">
+  <div class="fg-h"><div class="fg-dot" style="background:var(--orange)"></div><div class="fg-name">Neighbor Ego-graph</div><div class="fg-count">35</div><div class="fg-src">Adjacency matrix</div></div>
+  <div class="fg-desc">For each subzone: mean, max, std of key metrics across adjacent neighbors. Permeability scores (how porous the boundary is). Contrast features (how different from neighbors). Rank among neighbors.</div>
+  <div class="fg-examples"><span class="fg-ex">nbr_mean_total_places</span><span class="fg-ex">nbr_max_total_places</span><span class="fg-ex">nbr_std_total_places</span><span class="fg-ex">avg_permeability</span><span class="fg-ex">min_permeability</span><span class="fg-ex">adjacency_degree</span></div>
+</div>
+
+<div class="fg">
+  <div class="fg-h"><div class="fg-dot" style="background:var(--red)"></div><div class="fg-name">Demand & Gravity</div><div class="fg-count">19</div><div class="fg-src">Computed</div></div>
+  <div class="fg-desc">Effective demand (population-weighted), gravity model catchment, commute inflow/outflow, daytime-to-nighttime ratio, trade area tracts, buzz score. Models how demand flows between zones.</div>
+  <div class="fg-examples"><span class="fg-ex">effective_demand</span><span class="fg-ex">commute_inflow</span><span class="fg-ex">commute_outflow</span><span class="fg-ex">daytime_ratio</span><span class="fg-ex">trade_area_tracts</span><span class="fg-ex">buzz</span><span class="fg-ex">synergy</span><span class="fg-ex">tension</span></div>
+</div>
+
+<div class="fg">
+  <div class="fg-h"><div class="fg-dot" style="background:#78716C"></div><div class="fg-name">ACRA Business</div><div class="fg-count">3</div><div class="fg-src">ACRA Registry</div></div>
+  <div class="fg-desc">Business churn rate (what % of businesses close per year), average business age, total registered entities. Singapore-specific business mortality data from 2M ACRA records.</div>
+  <div class="fg-examples"><span class="fg-ex">acra_churn</span><span class="fg-ex">acra_avg_age</span><span class="fg-ex">acra_total</span></div>
+</div>
+
+<div class="fg">
+  <div class="fg-h"><div class="fg-dot" style="background:var(--green)"></div><div class="fg-name">Government Cross-ref</div><div class="fg-count">8</div><div class="fg-src">SFA + MOH + ECDA</div></div>
+  <div class="fg-desc">SFA licensed food establishments (34K — the strongest F&B predictor), CHAS community clinics (1.2K — residential foot traffic proxy), government preschools (2.3K — family demand signal), F&B coverage ratio.</div>
+  <div class="fg-examples"><span class="fg-ex">sfa_eating_count</span><span class="fg-ex">chas_clinic_count</span><span class="fg-ex">preschool_count_gov</span><span class="fg-ex">fnb_coverage_ratio</span><span class="fg-ex">cafes_per_1000pop</span></div>
+</div>
+
+<div class="fg">
+  <div class="fg-h"><div class="fg-dot" style="background:var(--yellow)"></div><div class="fg-name">Brand & Quality</div><div class="fg-count">11</div><div class="fg-src">Google Places</div></div>
+  <div class="fg-desc">Average/median rating, review volume, brand entropy (how diverse brands are), chain-to-indie ratio, high-rated %. Quality signals from customer reviews. <em>Excluded from gap model to prevent leakage.</em></div>
+  <div class="fg-examples"><span class="fg-ex">avg_rating</span><span class="fg-ex">brand_entropy</span><span class="fg-ex">chain_indie_ratio</span><span class="fg-ex">high_rated_pct</span><span class="fg-ex">avg_reviews</span></div>
+</div>
+
+<div class="fg">
+  <div class="fg-h"><div class="fg-dot" style="background:var(--orange)"></div><div class="fg-name">Place Composition</div><div class="fg-count">58</div><div class="fg-src">174K Places</div></div>
+  <div class="fg-desc">24 category counts + proportions. Category entropy (diversity). Per-1000-pop ratios for key categories. Segment entropy. These are the TARGET variables for gap analysis — not used as inputs.</div>
+  <div class="fg-examples"><span class="fg-ex">n_cafe_coffee</span><span class="fg-ex">n_restaurant</span><span class="fg-ex">n_shopping_retail</span><span class="fg-ex">category_entropy</span><span class="fg-ex">food_drink_pct</span><span class="fg-ex">diversity_index</span></div>
+</div>
+
+<div class="fg">
+  <div class="fg-h"><div class="fg-dot" style="background:#76B900"></div><div class="fg-name">NVIDIA Personas</div><div class="fg-count">35</div><div class="fg-src">Nemotron-SGP</div></div>
+  <div class="fg-desc">148K synthetic personas aggregated to planning areas → subzones. Age/education/occupation/industry distributions. Hobby-derived demand signals (food, fitness, culture, nature, social, shopping interest %). Composite indices: affluence, youth, family, retirement.</div>
+  <div class="fg-examples"><span class="fg-ex">p_median_age</span><span class="fg-ex">p_pct_university</span><span class="fg-ex">p_pct_finance</span><span class="fg-ex">p_hobby_food</span><span class="fg-ex">p_hobby_fitness</span><span class="fg-ex">p_affluence</span><span class="fg-ex">p_youth_idx</span></div>
+</div>
+
+<div class="fg">
+  <div class="fg-h"><div class="fg-dot" style="background:#0EA5E9"></div><div class="fg-name">Satellite Imagery</div><div class="fg-count">18</div><div class="fg-src">VIIRS + WorldCover + WorldPop</div></div>
+  <div class="fg-desc">VIIRS night light radiance (2022, 2024, temporal change — detects growth like Tengah +120%). ESA WorldCover land cover (built-up %, tree %, water %, grass %). WorldPop population density grid (2020, 2025). Validates model predictions from space.</div>
+  <div class="fg-examples"><span class="fg-ex">sat_viirs_2022_mean</span><span class="fg-ex">sat_viirs_2024_mean</span><span class="fg-ex">sat_viirs_change_pct</span><span class="fg-ex">sat_pct_built_up</span><span class="fg-ex">sat_pct_tree</span><span class="fg-ex">sat_pop_2025_density</span></div>
+</div>
+
+<div class="fg">
+  <div class="fg-h"><div class="fg-dot" style="background:var(--dim)"></div><div class="fg-name">Derived Metrics</div><div class="fg-count">20+</div><div class="fg-src">Computed</div></div>
+  <div class="fg-desc">Gap scores (predicted − actual per category), density gap, distance to CBD, CBD flag, predicted totals, diversity index, zoning percentages (commercial, manufacturing, residential from OSM-derived). Model outputs that feed back into the explorer.</div>
+  <div class="fg-examples"><span class="fg-ex">density_gap</span><span class="fg-ex">predicted_total</span><span class="fg-ex">dist_to_cbd_m</span><span class="fg-ex">is_cbd_area</span><span class="fg-ex">cafe_gap_score</span><span class="fg-ex">diversity_index</span></div>
+</div>
+
+<!-- ═══ SUMMARY TABLE ═══ -->
+<h2>Summary</h2>
+<table>
+<tr><th>Feature Group</th><th>Count</th><th></th><th>Source</th><th>Role</th></tr>
+<tr><td>Micrograph Aggregates</td><td><b>142</b></td><td class="bar-c"><div class="bar-bg"><div class="bar-fg" style="width:100%"></div></div></td><td>12-cat pipeline</td><td>Input (embedding)</td></tr>
+<tr><td>Place Composition</td><td><b>58</b></td><td class="bar-c"><div class="bar-bg"><div class="bar-fg" style="width:41%;background:var(--yellow)"></div></div></td><td>174K Places</td><td>Target (gap model)</td></tr>
+<tr><td>Neighbor Ego-graph</td><td><b>35</b></td><td class="bar-c"><div class="bar-bg"><div class="bar-fg" style="width:25%"></div></div></td><td>Adjacency</td><td>Input (embedding)</td></tr>
+<tr><td>NVIDIA Personas</td><td><b>35</b></td><td class="bar-c"><div class="bar-bg"><div class="bar-fg" style="width:25%;background:#76B900"></div></div></td><td>Nemotron 148K</td><td>Input (V6 model)</td></tr>
+<tr><td>Derived Metrics</td><td><b>20+</b></td><td class="bar-c"><div class="bar-bg"><div class="bar-fg" style="width:14%;background:var(--dim)"></div></div></td><td>Computed</td><td>Output</td></tr>
+<tr><td>Demand & Gravity</td><td><b>19</b></td><td class="bar-c"><div class="bar-bg"><div class="bar-fg" style="width:13%"></div></div></td><td>Computed</td><td>Input</td></tr>
+<tr><td>Satellite Imagery</td><td><b>18</b></td><td class="bar-c"><div class="bar-bg"><div class="bar-fg" style="width:13%;background:#0EA5E9"></div></div></td><td>VIIRS+WorldCover</td><td>Input (validation)</td></tr>
+<tr><td>Demographics</td><td><b>16</b></td><td class="bar-c"><div class="bar-bg"><div class="bar-fg" style="width:11%"></div></div></td><td>Census</td><td>Input</td></tr>
+<tr><td>Land Use Zoning</td><td><b>13</b></td><td class="bar-c"><div class="bar-bg"><div class="bar-fg" style="width:9%"></div></div></td><td>URA Master Plan</td><td>Input</td></tr>
+<tr><td>Transit Access</td><td><b>12</b></td><td class="bar-c"><div class="bar-bg"><div class="bar-fg" style="width:8%"></div></div></td><td>LTA</td><td>Input</td></tr>
+<tr><td>Amenity Access</td><td><b>12</b></td><td class="bar-c"><div class="bar-bg"><div class="bar-fg" style="width:8%"></div></div></td><td>Computed</td><td>Input</td></tr>
+<tr><td>Property Market</td><td><b>11</b></td><td class="bar-c"><div class="bar-bg"><div class="bar-fg" style="width:8%"></div></div></td><td>HDB + URA</td><td>Input</td></tr>
+<tr><td>Brand & Quality</td><td><b>11</b></td><td class="bar-c"><div class="bar-bg"><div class="bar-fg" style="width:8%;background:var(--yellow)"></div></div></td><td>Google Places</td><td>Excluded (leak)</td></tr>
+<tr><td>Road Network</td><td><b>10</b></td><td class="bar-c"><div class="bar-bg"><div class="bar-fg" style="width:7%"></div></div></td><td>OSM</td><td>Input</td></tr>
+<tr><td>Gov Cross-ref</td><td><b>8</b></td><td class="bar-c"><div class="bar-bg"><div class="bar-fg" style="width:6%"></div></div></td><td>SFA/MOH/ECDA</td><td>Input</td></tr>
+<tr><td>Dwelling Type</td><td><b>7</b></td><td class="bar-c"><div class="bar-bg"><div class="bar-fg" style="width:5%"></div></div></td><td>Census</td><td>Input</td></tr>
+<tr><td>ACRA Business</td><td><b>3</b></td><td class="bar-c"><div class="bar-bg"><div class="bar-fg" style="width:2%"></div></div></td><td>ACRA</td><td>Input</td></tr>
+</table>
+
+<footer>
+Feature Inventory — Propheus<br>
+484 features &middot; 13 sources &middot; 332 subzones &middot; 174,713 places &middot; 148K personas<br>
+April 2026
+</footer>
+
+</div>
+</body>
+</html>

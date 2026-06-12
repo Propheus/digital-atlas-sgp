@@ -1,0 +1,13 @@
+{
+  "datasets": [
+    {
+      "dataset": "extension_4.8.1",
+      "scale": "hex9",
+      "description": "Atlas extension for use case: Identify optimal locations for a new specialty cafe targeting young professionals in Singapore",
+      "owner_stage": "atlas_extender",
+      "n_cols_added": 5,
+      "use_case": "Identify optimal locations for a new specialty cafe targeting young professionals in Singapore",
+      "version": "4.8.1"
+    }
+  ]
+}

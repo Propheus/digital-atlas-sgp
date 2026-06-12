@@ -1,0 +1,120 @@
+{
+  "shape": [
+    7318,
+    472
+  ],
+  "feat_count": 460,
+  "knn_acc": 0.374,
+  "pillar_var": {
+    "micrograph": 33.7,
+    "place_composition": 14.4,
+    "influence_transit": 13.6,
+    "influence_spatial": 13.3,
+    "walkability": 5.5,
+    "roads_signals": 4.8,
+    "buildings": 4.2,
+    "amenities": 3.1,
+    "land_use": 2.6,
+    "population": 1.3,
+    "transit": 1.3,
+    "dev_gaps": 0.9,
+    "mobility": 0.9,
+    "derived": 0.4
+  },
+  "clusters": [
+    {
+      "n": 993,
+      "pc": 2.49043303121853,
+      "pop": 0.0,
+      "hdb": 0.0,
+      "lux": 0.007049345417925478,
+      "lu_res": 0.0,
+      "lu_bus": 0.5744820490303516,
+      "top_pa": "TUAS(424), WESTERN ISLANDS(248), WESTERN WATER CATCHMENT(179)",
+      "label": "Industrial"
+    },
+    {
+      "n": 1876,
+      "pc": 2.8358208955223883,
+      "pop": 39.33957407307167,
+      "hdb": 0.06769722814498934,
+      "lux": 0.022388059701492536,
+      "lu_res": 0.09178941261590613,
+      "lu_bus": 0.13396341161545935,
+      "top_pa": "CENTRAL WATER CATCHMENT(161), CHANGI(156), SUNGEI KADUT(119)",
+      "label": "Low-density / transitional"
+    },
+    {
+      "n": 273,
+      "pc": 199.01098901098902,
+      "pop": 1486.3107782508175,
+      "hdb": 4.915750915750916,
+      "lux": 1.989010989010989,
+      "lu_res": 0.29308792550366264,
+      "lu_bus": 0.14283538935232987,
+      "top_pa": "GEYLANG(36), BUKIT MERAH(18), KALLANG(17)",
+      "label": "Urban mixed"
+    },
+    {
+      "n": 341,
+      "pc": 0.002932551319648094,
+      "pop": 0.0,
+      "hdb": 0.0,
+      "lux": 0.0,
+      "lu_res": 0.0,
+      "lu_bus": 0.049384484508403666,
+      "top_pa": "NORTH-EASTERN ISLANDS(160), WESTERN ISLANDS(99), TUAS(79)",
+      "label": "Void / water"
+    },
+    {
+      "n": 1220,
+      "pc": 23.754918032786886,
+      "pop": 1093.7912572824664,
+      "hdb": 2.9360655737704917,
+      "lux": 0.230327868852459,
+      "lu_res": 0.3805396627048685,
+      "lu_bus": 0.10580400606756458,
+      "top_pa": "BEDOK(94), QUEENSTOWN(76), TAMPINES(70)",
+      "label": "Medium-density residential"
+    },
+    {
+      "n": 60,
+      "pc": 631.1666666666666,
+      "pop": 686.7686815341367,
+      "hdb": 1.9166666666666667,
+      "lux": 12.35,
+      "lu_res": 0.09301907424774172,
+      "lu_bus": 0.027588126933218916,
+      "top_pa": "DOWNTOWN CORE(16), OUTRAM(8), ROCHOR(8)",
+      "label": "CBD / premium"
+    },
+    {
+      "n": 1851,
+      "pc": 0.44192328471096703,
+      "pop": 0.9900968754585606,
+      "hdb": 0.0,
+      "lux": 0.002701242571582928,
+      "lu_res": 0.0034996566707407918,
+      "lu_bus": 0.07958178088650515,
+      "top_pa": "NORTH-EASTERN ISLANDS(508), WESTERN WATER CATCHMENT(322), WESTERN ISLANDS(212)",
+      "label": "Void / water"
+    },
+    {
+      "n": 704,
+      "pc": 56.109375,
+      "pop": 3345.585216595616,
+      "hdb": 11.676136363636363,
+      "lux": 0.14772727272727273,
+      "lu_res": 0.5440057008237565,
+      "lu_bus": 0.037006349151754284,
+      "top_pa": "BEDOK(51), WOODLANDS(41), TAMPINES(40)",
+      "label": "HDB town centers"
+    }
+  ],
+  "totals": {
+    "places": 169294,
+    "pop": 5982320,
+    "hdb": 13386,
+    "mrt": 231
+  }
+}

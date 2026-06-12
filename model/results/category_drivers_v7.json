@@ -1,0 +1,722 @@
+[
+  {
+    "category": "Convenience & Daily Needs",
+    "code": "convenience_daily_needs",
+    "r2": 0.8818829364879047,
+    "transform": "raw",
+    "mean_count": 11.837349397590362,
+    "max_count": 112.0,
+    "drivers": [
+      [
+        "Total Places",
+        0.3995100179412194
+      ],
+      [
+        "CHAS Clinics",
+        0.35982912992419286
+      ],
+      [
+        "SFA Eateries",
+        0.08845332542113753
+      ],
+      [
+        "Population",
+        0.036719402503804975
+      ],
+      [
+        "Resid Rd",
+        0.012076167671642442
+      ]
+    ]
+  },
+  {
+    "category": "Cafe & Coffee",
+    "code": "cafe_coffee",
+    "r2": 0.8562467017559287,
+    "transform": "raw",
+    "mean_count": 10.141566265060241,
+    "max_count": 83.0,
+    "drivers": [
+      [
+        "Total Places",
+        0.4799992242416806
+      ],
+      [
+        "SFA Eateries",
+        0.2855720657222978
+      ],
+      [
+        "Gov Preschools",
+        0.06251386513602636
+      ],
+      [
+        "CHAS Clinics",
+        0.025651427826382838
+      ],
+      [
+        "HDB 3Rm",
+        0.016778338405676108
+      ]
+    ]
+  },
+  {
+    "category": "Beauty & Personal Care",
+    "code": "beauty_personal_care",
+    "r2": 0.8505079959381066,
+    "transform": "raw",
+    "mean_count": 11.948795180722891,
+    "max_count": 133.0,
+    "drivers": [
+      [
+        "Total Places",
+        0.2907241129038365
+      ],
+      [
+        "SFA Eateries",
+        0.27653387360198
+      ],
+      [
+        "CHAS Clinics",
+        0.21688590225740081
+      ],
+      [
+        "Population",
+        0.03670614691348874
+      ],
+      [
+        "HDB 3Rm",
+        0.016537885250380562
+      ]
+    ]
+  },
+  {
+    "category": "Shopping & Retail",
+    "code": "shopping_retail",
+    "r2": 0.8295412510786603,
+    "transform": "raw",
+    "mean_count": 36.98795180722892,
+    "max_count": 525.0,
+    "drivers": [
+      [
+        "Total Places",
+        0.8343667196193315
+      ],
+      [
+        "LU Industrial",
+        0.021621526673416765
+      ],
+      [
+        "Tertiary Rd",
+        0.021048674313377303
+      ],
+      [
+        "Dist MRT",
+        0.017554384395230816
+      ],
+      [
+        "HDB 4Rm",
+        0.017209440415935227
+      ]
+    ]
+  },
+  {
+    "category": "Restaurant",
+    "code": "restaurant",
+    "r2": 0.7667712402987887,
+    "transform": "raw",
+    "mean_count": 17.03614457831325,
+    "max_count": 179.0,
+    "drivers": [
+      [
+        "SFA Eateries",
+        0.390106321270884
+      ],
+      [
+        "Total Places",
+        0.37380047166323477
+      ],
+      [
+        "Hotels",
+        0.026914636147913715
+      ],
+      [
+        "Green Ratio",
+        0.02116549428249635
+      ],
+      [
+        "LU Commercial",
+        0.017645657772903216
+      ]
+    ]
+  },
+  {
+    "category": "Fitness & Recreation",
+    "code": "fitness_recreation",
+    "r2": 0.738237422821967,
+    "transform": "4rt",
+    "mean_count": 8.487951807228916,
+    "max_count": 58.0,
+    "drivers": [
+      [
+        "Population",
+        0.26231032134885424
+      ],
+      [
+        "Gov Preschools",
+        0.2524921116913469
+      ],
+      [
+        "Total Places",
+        0.11885314108296097
+      ],
+      [
+        "LU Industrial",
+        0.044259607805124515
+      ],
+      [
+        "SFA Eateries",
+        0.043052537890657584
+      ]
+    ]
+  },
+  {
+    "category": "Services",
+    "code": "services",
+    "r2": 0.7356002565848808,
+    "transform": "raw",
+    "mean_count": 14.602409638554217,
+    "max_count": 279.0,
+    "drivers": [
+      [
+        "Total Places",
+        0.6905464495301774
+      ],
+      [
+        "LU Industrial",
+        0.0948911090691726
+      ],
+      [
+        "HDB 4Rm",
+        0.041198778038589054
+      ],
+      [
+        "Tertiary Rd",
+        0.04106383676097085
+      ],
+      [
+        "SFA Eateries",
+        0.0126244757495897
+      ]
+    ]
+  },
+  {
+    "category": "Office & Workspace",
+    "code": "office_workspace",
+    "r2": 0.7316448514652933,
+    "transform": "raw",
+    "mean_count": 7.9397590361445785,
+    "max_count": 134.0,
+    "drivers": [
+      [
+        "Total Places",
+        0.35566435153464915
+      ],
+      [
+        "LU Industrial",
+        0.3373325758032573
+      ],
+      [
+        "Tertiary Rd",
+        0.05417577347571999
+      ],
+      [
+        "Service Rd",
+        0.02810943668181967
+      ],
+      [
+        "MRT Count",
+        0.02756130114458388
+      ]
+    ]
+  },
+  {
+    "category": "Hawker & Street Food",
+    "code": "hawker_street_food",
+    "r2": 0.7293897487969561,
+    "transform": "raw",
+    "mean_count": 9.509036144578314,
+    "max_count": 111.0,
+    "drivers": [
+      [
+        "Total Places",
+        0.23347569780817676
+      ],
+      [
+        "CHAS Clinics",
+        0.2265730741627391
+      ],
+      [
+        "Dist Hawker",
+        0.09212113026879154
+      ],
+      [
+        "SFA Eateries",
+        0.07562844435979353
+      ],
+      [
+        "HDB 5Rm/Exec",
+        0.06027324270759056
+      ]
+    ]
+  },
+  {
+    "category": "Transport",
+    "code": "transport",
+    "r2": 0.7178480882517374,
+    "transform": "raw",
+    "mean_count": 6.975903614457831,
+    "max_count": 49.0,
+    "drivers": [
+      [
+        "Total Places",
+        0.5073582172789963
+      ],
+      [
+        "Population",
+        0.12434763419743165
+      ],
+      [
+        "Secondary Rd",
+        0.0500058838949959
+      ],
+      [
+        "Service Rd",
+        0.04680664648329662
+      ],
+      [
+        "Road km",
+        0.041793347407480606
+      ]
+    ]
+  },
+  {
+    "category": "Business",
+    "code": "business",
+    "r2": 0.6666893877276272,
+    "transform": "raw",
+    "mean_count": 6.780120481927711,
+    "max_count": 111.0,
+    "drivers": [
+      [
+        "Total Places",
+        0.5561802063272234
+      ],
+      [
+        "LU Industrial",
+        0.1234750435664948
+      ],
+      [
+        "Tertiary Rd",
+        0.04328599281622803
+      ],
+      [
+        "LU Open Space",
+        0.028350681786684564
+      ],
+      [
+        "HDB 4Rm",
+        0.025953948650189268
+      ]
+    ]
+  },
+  {
+    "category": "Fast Food & QSR",
+    "code": "fast_food_qsr",
+    "r2": 0.656739255995596,
+    "transform": "raw",
+    "mean_count": 3.6234939759036147,
+    "max_count": 35.0,
+    "drivers": [
+      [
+        "SFA Eateries",
+        0.5468505137401573
+      ],
+      [
+        "Total Places",
+        0.09600556902359055
+      ],
+      [
+        "Population",
+        0.035575123157424095
+      ],
+      [
+        "CHAS Clinics",
+        0.03435414383833769
+      ],
+      [
+        "Dist MRT",
+        0.018812916675993788
+      ]
+    ]
+  },
+  {
+    "category": "Education",
+    "code": "education",
+    "r2": 0.6306604118048316,
+    "transform": "4rt",
+    "mean_count": 11.894578313253012,
+    "max_count": 123.0,
+    "drivers": [
+      [
+        "Gov Preschools",
+        0.38486757035718516
+      ],
+      [
+        "Total Places",
+        0.11610797755876773
+      ],
+      [
+        "SFA Eateries",
+        0.09089964818046377
+      ],
+      [
+        "LU Institutional",
+        0.05082433503394931
+      ],
+      [
+        "Bus Stops",
+        0.05005208892487259
+      ]
+    ]
+  },
+  {
+    "category": "Health & Medical",
+    "code": "health_medical",
+    "r2": 0.61030215995343,
+    "transform": "raw",
+    "mean_count": 4.701807228915663,
+    "max_count": 45.0,
+    "drivers": [
+      [
+        "Total Places",
+        0.37384095319901617
+      ],
+      [
+        "CHAS Clinics",
+        0.233937136713938
+      ],
+      [
+        "Dist Super",
+        0.029408654049928897
+      ],
+      [
+        "Hotels",
+        0.023522393854832613
+      ],
+      [
+        "Condo %",
+        0.02176763415250894
+      ]
+    ]
+  },
+  {
+    "category": "Bakery & Pastry",
+    "code": "bakery_pastry",
+    "r2": 0.6041318613927634,
+    "transform": "raw",
+    "mean_count": 2.786144578313253,
+    "max_count": 25.0,
+    "drivers": [
+      [
+        "Total Places",
+        0.4398934720706073
+      ],
+      [
+        "CHAS Clinics",
+        0.10064509202614746
+      ],
+      [
+        "SFA Eateries",
+        0.0676770456429237
+      ],
+      [
+        "Population",
+        0.04724683684397996
+      ],
+      [
+        "Supermarkets",
+        0.04073143569387917
+      ]
+    ]
+  },
+  {
+    "category": "Residential",
+    "code": "residential",
+    "r2": 0.5763614932973142,
+    "transform": "4rt",
+    "mean_count": 7.349397590361446,
+    "max_count": 152.0,
+    "drivers": [
+      [
+        "Population",
+        0.21334872248270453
+      ],
+      [
+        "Condo %",
+        0.16308055442810782
+      ],
+      [
+        "Pop Density",
+        0.09825918388364956
+      ],
+      [
+        "Total Places",
+        0.07022105938028649
+      ],
+      [
+        "Resid Rd",
+        0.05396111012159885
+      ]
+    ]
+  },
+  {
+    "category": "General",
+    "code": "general",
+    "r2": 0.5713505355146177,
+    "transform": "4rt",
+    "mean_count": 5.942771084337349,
+    "max_count": 68.0,
+    "drivers": [
+      [
+        "Total Places",
+        0.5670690372548443
+      ],
+      [
+        "Road km",
+        0.037121690282331914
+      ],
+      [
+        "Road Density",
+        0.03452203426660694
+      ],
+      [
+        "SFA Eateries",
+        0.02651478287767968
+      ],
+      [
+        "LU Entropy",
+        0.025750969314082266
+      ]
+    ]
+  },
+  {
+    "category": "Bar & Nightlife",
+    "code": "bar_nightlife",
+    "r2": 0.43827056860916525,
+    "transform": "raw",
+    "mean_count": 4.180722891566265,
+    "max_count": 45.0,
+    "drivers": [
+      [
+        "Total Places",
+        0.35628756581203247
+      ],
+      [
+        "SFA Eateries",
+        0.15511744601635752
+      ],
+      [
+        "LU Open Space",
+        0.04724029247306806
+      ],
+      [
+        "Plot Ratio",
+        0.029712412843038938
+      ],
+      [
+        "LU Transport",
+        0.029596510117912346
+      ]
+    ]
+  },
+  {
+    "category": "Culture & Entertainment",
+    "code": "culture_entertainment",
+    "r2": 0.41990540511504604,
+    "transform": "raw",
+    "mean_count": 3.8825301204819276,
+    "max_count": 40.0,
+    "drivers": [
+      [
+        "Total Places",
+        0.1286820575606327
+      ],
+      [
+        "Road km",
+        0.10917115559919989
+      ],
+      [
+        "LU Open Space",
+        0.08717872060876487
+      ],
+      [
+        "Area",
+        0.07785934827335236
+      ],
+      [
+        "LU Entropy",
+        0.05330215774234144
+      ]
+    ]
+  },
+  {
+    "category": "Civic & Government",
+    "code": "civic_government",
+    "r2": 0.40908658181799284,
+    "transform": "4rt",
+    "mean_count": 4.822289156626506,
+    "max_count": 47.0,
+    "drivers": [
+      [
+        "Total Places",
+        0.3016489030750806
+      ],
+      [
+        "Road km",
+        0.1628973010888672
+      ],
+      [
+        "LU Open Space",
+        0.05743789642108233
+      ],
+      [
+        "SFA Eateries",
+        0.03135146482007092
+      ],
+      [
+        "Area",
+        0.031022161174898265
+      ]
+    ]
+  },
+  {
+    "category": "NGO",
+    "code": "ngo",
+    "r2": 0.3889648007952671,
+    "transform": "raw",
+    "mean_count": 1.6686746987951808,
+    "max_count": 31.0,
+    "drivers": [
+      [
+        "Total Places",
+        0.4444710444802923
+      ],
+      [
+        "Gov Preschools",
+        0.07053653750220559
+      ],
+      [
+        "Primary Rd",
+        0.0371189003673139
+      ],
+      [
+        "SFA Eateries",
+        0.036816244952352535
+      ],
+      [
+        "Area",
+        0.03606631466487527
+      ]
+    ]
+  },
+  {
+    "category": "Religious",
+    "code": "religious",
+    "r2": 0.27815693191323576,
+    "transform": "4rt",
+    "mean_count": 2.825301204819277,
+    "max_count": 114.0,
+    "drivers": [
+      [
+        "Total Places",
+        0.23593868880194402
+      ],
+      [
+        "Gov Preschools",
+        0.09481549848860571
+      ],
+      [
+        "LU Institutional",
+        0.07114344395453098
+      ],
+      [
+        "Elderly %",
+        0.04031075110576655
+      ],
+      [
+        "Female %",
+        0.03481829029480837
+      ]
+    ]
+  },
+  {
+    "category": "Automotive",
+    "code": "automotive",
+    "r2": 0.2533928721180898,
+    "transform": "raw",
+    "mean_count": 4.0843373493975905,
+    "max_count": 153.0,
+    "drivers": [
+      [
+        "Total Places",
+        0.6225311978795703
+      ],
+      [
+        "LU Industrial",
+        0.0936162225471301
+      ],
+      [
+        "SFA Eateries",
+        0.08212770585664278
+      ],
+      [
+        "Gov Preschools",
+        0.04549423830306932
+      ],
+      [
+        "Dist Super",
+        0.02024282940142141
+      ]
+    ]
+  },
+  {
+    "category": "Hospitality",
+    "code": "hospitality",
+    "r2": 0.21456241930253572,
+    "transform": "4rt",
+    "mean_count": 1.3313253012048192,
+    "max_count": 55.0,
+    "drivers": [
+      [
+        "Total Places",
+        0.23618184456234181
+      ],
+      [
+        "Hotels",
+        0.10552002622991863
+      ],
+      [
+        "Resid Rd",
+        0.0532709767963003
+      ],
+      [
+        "LU Entropy",
+        0.04633233412268712
+      ],
+      [
+        "Plot Ratio",
+        0.031113755735525647
+      ]
+    ]
+  }
+]

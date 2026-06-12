@@ -1,0 +1,219 @@
+[
+  {
+    "method": "raw_features",
+    "dims": 457,
+    "t1_knn_pa": 0.3742,
+    "t2_cat_r2_mean": 0.8961,
+    "t2_cat_r2_std": 0.0525,
+    "t4_cluster_ami": 0.2251,
+    "t5_sentosa_mbs": true,
+    "t5_sentosa_top": [
+      "SOUTHERN ISLANDS",
+      "SOUTHERN ISLANDS",
+      "SOUTHERN ISLANDS",
+      "DOWNTOWN CORE",
+      "DOWNTOWN CORE"
+    ],
+    "t5_bedok_unique_pas": 10,
+    "t5_bedok_top": [
+      "JURONG WEST",
+      "BEDOK",
+      "BUKIT BATOK",
+      "GEYLANG",
+      "TENGAH"
+    ]
+  },
+  {
+    "method": "pca_32",
+    "dims": 32,
+    "t1_knn_pa": 0.3256,
+    "t2_cat_r2_mean": 0.5786,
+    "t2_cat_r2_std": 0.1474,
+    "t4_cluster_ami": 0.2639,
+    "t5_sentosa_mbs": true,
+    "t5_sentosa_top": [
+      "SOUTHERN ISLANDS",
+      "SOUTHERN ISLANDS",
+      "MARINA SOUTH",
+      "SINGAPORE RIVER",
+      "DOWNTOWN CORE"
+    ],
+    "t5_bedok_unique_pas": 9,
+    "t5_bedok_top": [
+      "BEDOK",
+      "WOODLANDS",
+      "JURONG WEST",
+      "BUKIT MERAH",
+      "BUKIT BATOK"
+    ],
+    "explained_var": 0.768
+  },
+  {
+    "method": "ae_32",
+    "dims": 32,
+    "t1_knn_pa": 0.3227,
+    "t2_cat_r2_mean": 0.5372,
+    "t2_cat_r2_std": 0.1629,
+    "t4_cluster_ami": 0.2555,
+    "t5_sentosa_mbs": true,
+    "t5_sentosa_top": [
+      "SOUTHERN ISLANDS",
+      "SOUTHERN ISLANDS",
+      "KALLANG",
+      "SOUTHERN ISLANDS",
+      "SOUTHERN ISLANDS"
+    ],
+    "t5_bedok_unique_pas": 7,
+    "t5_bedok_top": [
+      "BEDOK",
+      "JURONG WEST",
+      "BUKIT BATOK",
+      "YISHUN",
+      "CLEMENTI"
+    ],
+    "val_loss": 0.356538,
+    "recon_r2": 0.6426
+  },
+  {
+    "method": "masked_ae_32",
+    "dims": 32,
+    "t1_knn_pa": 0.3203,
+    "t2_cat_r2_mean": 0.5445,
+    "t2_cat_r2_std": 0.1623,
+    "t4_cluster_ami": 0.2228,
+    "t5_sentosa_mbs": true,
+    "t5_sentosa_top": [
+      "SOUTHERN ISLANDS",
+      "SOUTHERN ISLANDS",
+      "SOUTHERN ISLANDS",
+      "DOWNTOWN CORE",
+      "KALLANG"
+    ],
+    "t5_bedok_unique_pas": 9,
+    "t5_bedok_top": [
+      "HOUGANG",
+      "CLEMENTI",
+      "SERANGOON",
+      "BEDOK",
+      "JURONG WEST"
+    ],
+    "val_loss": 0.37409,
+    "recon_r2": 0.6236
+  },
+  {
+    "method": "mv_mae_32",
+    "dims": 32,
+    "t1_knn_pa": 0.2901,
+    "t2_cat_r2_mean": 0.5603,
+    "t2_cat_r2_std": 0.1646,
+    "t4_cluster_ami": 0.2217,
+    "t5_sentosa_mbs": true,
+    "t5_sentosa_top": [
+      "SOUTHERN ISLANDS",
+      "SOUTHERN ISLANDS",
+      "DOWNTOWN CORE",
+      "MARINA SOUTH",
+      "BUKIT MERAH"
+    ],
+    "t5_bedok_unique_pas": 7,
+    "t5_bedok_top": [
+      "ANG MO KIO",
+      "BUKIT BATOK",
+      "YISHUN",
+      "CLEMENTI",
+      "YISHUN"
+    ],
+    "val_loss": 0.363559,
+    "recon_r2": 0.6352,
+    "t3_cross_view_r2": 0.4211
+  },
+  {
+    "method": "mv_mae_mt_32",
+    "dims": 32,
+    "t1_knn_pa": 0.2549,
+    "t2_cat_r2_mean": 0.4885,
+    "t2_cat_r2_std": 0.1217,
+    "t4_cluster_ami": 0.2191,
+    "t5_sentosa_mbs": true,
+    "t5_sentosa_top": [
+      "SOUTHERN ISLANDS",
+      "SOUTHERN ISLANDS",
+      "SOUTHERN ISLANDS",
+      "SOUTHERN ISLANDS",
+      "CENTRAL WATER CATCHMENT"
+    ],
+    "t5_bedok_unique_pas": 6,
+    "t5_bedok_top": [
+      "WOODLANDS",
+      "YISHUN",
+      "ANG MO KIO",
+      "CLEMENTI",
+      "BUKIT BATOK"
+    ],
+    "val_loss": 1.783627,
+    "recon_r2": 0.6989,
+    "t3_cross_view_r2": 0.4881
+  },
+  {
+    "method": "pca_64",
+    "dims": 64,
+    "t1_knn_pa": 0.3486,
+    "t2_cat_r2": 0.6898,
+    "t4_ami": 0.2645,
+    "t5_mbs": true,
+    "explained_var": 0.8606
+  },
+  {
+    "method": "pca_128",
+    "dims": 128,
+    "t1_knn_pa": 0.359,
+    "t2_cat_r2": 0.746,
+    "t4_ami": 0.2648,
+    "t5_mbs": true,
+    "explained_var": 0.9445
+  },
+  {
+    "method": "ae_64",
+    "dims": 64,
+    "t1_knn_pa": 0.3139,
+    "t2_cat_r2": 0.5792,
+    "t4_ami": 0.1918,
+    "t5_mbs": true,
+    "recon_r2": 0.7289
+  },
+  {
+    "method": "ae_128",
+    "dims": 128,
+    "t1_knn_pa": 0.3191,
+    "t2_cat_r2": 0.6025,
+    "t4_ami": 0.1766,
+    "t5_mbs": true,
+    "recon_r2": 0.7317
+  },
+  {
+    "method": "mv_mae_64",
+    "dims": 64,
+    "t1_knn_pa": 0.2991,
+    "t2_cat_r2": 0.5807,
+    "t4_ami": 0.2309,
+    "t5_mbs": true,
+    "recon_r2": 0.7071,
+    "t3_cross_view": 0.4497
+  },
+  {
+    "method": "contrastive_32",
+    "dims": 32,
+    "t1_knn_pa": 0.2304,
+    "t2_cat_r2": 0.4668,
+    "t4_ami": 0.2414,
+    "t5_mbs": true
+  },
+  {
+    "method": "contrastive_64",
+    "dims": 64,
+    "t1_knn_pa": 0.3402,
+    "t2_cat_r2": 0.5202,
+    "t4_ami": 0.2222,
+    "t5_mbs": true
+  }
+]

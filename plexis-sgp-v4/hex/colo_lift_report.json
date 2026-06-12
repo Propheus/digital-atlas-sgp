@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-06-10T10:50:47",
+  "spec": "SITE_SELECTION_METRICS.md S6",
+  "radius_m": 400.0,
+  "min_support": 200,
+  "n_boot": 200,
+  "categories": 24,
+  "pairs_total": 576,
+  "pairs_significant": 518,
+  "cats_below_support": [],
+  "key_pairs": {
+    "cafe_coffee->business_office": 0.873,
+    "bar_nightlife->bar_nightlife": 3.0,
+    "fitness_recreation->residential": 1.218,
+    "supermarket->supermarket": 1.132,
+    "hawker->business_office": 0.573
+  },
+  "wall_clock_s": 1.85
+}

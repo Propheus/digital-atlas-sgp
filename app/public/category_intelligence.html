@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SGP Category Intelligence — Propheus</title>
+<style>
+:root{--bg:#0a0f1a;--card:#111827;--card2:#0d1520;--border:#1e2a3a;--text:#e5e7eb;--muted:#9ca3af;--dim:#6b7280;--accent:#14b8a6;--accent2:#6366f1;--green:#10b981;--yellow:#f59e0b;--red:#ef4444;--pink:#ec4899;--purple:#8b5cf6;--orange:#f97316}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,system-ui,sans-serif;line-height:1.65}
+.ctr{max-width:1100px;margin:0 auto;padding:2.5rem 2rem}
+
+/* Header */
+.hdr{text-align:center;padding:2rem 0 2.5rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+.hdr-logo{font-size:0.72rem;color:var(--dim);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.4rem}
+.hdr h1{font-size:2.4rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:0.4rem;line-height:1.2}
+.hdr-sub{color:var(--muted);font-size:1rem}
+.kpis{display:flex;gap:12px;justify-content:center;margin-top:1.5rem;flex-wrap:wrap}
+.kpi{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:0.8rem 1.4rem;text-align:center;min-width:120px}
+.kpi-v{font-size:1.6rem;font-weight:800;color:var(--accent);display:block;line-height:1.2}
+.kpi-l{font-size:0.65rem;color:var(--dim);text-transform:uppercase;letter-spacing:0.05em}
+
+/* Insights */
+.insights{margin:2rem 0 2.5rem}
+.insights-title{font-size:0.7rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:1rem}
+.igrid{display:grid;grid-template-columns:1fr;gap:0}
+.ins{padding:1.5rem 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start}
+.ins:last-child{border-bottom:none}
+.ins-num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:800;flex-shrink:0}
+.ins-body{}
+.ins-head{font-size:1.05rem;font-weight:700;margin-bottom:5px;line-height:1.3}
+.ins-text{font-size:0.88rem;color:var(--muted);line-height:1.6}
+.ins-text b{color:var(--text)}
+.ins-text em{color:var(--accent);font-style:normal;font-weight:600}
+.ins-evidence{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px}
+.ev{font-size:0.7rem;padding:3px 10px;border-radius:6px;font-weight:600;border:1px solid}
+
+/* Section titles */
+h2{font-size:1.3rem;color:var(--accent);margin:2.5rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border)}
+
+/* Tier headers */
+.tier{margin:1.5rem 0 0.8rem;display:flex;align-items:center;gap:10px}
+.tbadge{padding:4px 14px;border-radius:20px;font-size:0.68rem;font-weight:700;letter-spacing:0.03em}
+.tier-s .tbadge{background:rgba(16,185,129,0.15);color:var(--green)}
+.tier-g .tbadge{background:rgba(245,158,11,0.15);color:var(--yellow)}
+.tier-w .tbadge{background:rgba(239,68,68,0.15);color:var(--red)}
+.tcount{color:var(--dim);font-size:0.82rem}
+
+/* Category cards */
+.cards{display:flex;flex-direction:column;gap:10px;margin:0.5rem 0}
+.cc{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;transition:border-color 0.2s}
+.cc:hover{border-color:rgba(20,184,166,0.25)}
+.cc-top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.cc-name{font-size:0.95rem;font-weight:700;flex:1}
+.cc-tf{font-size:0.58rem;padding:2px 7px;border-radius:4px;background:rgba(99,102,241,0.12);color:var(--accent2);font-weight:600}
+.cc-r2{font-size:1.05rem;font-weight:800;min-width:60px;text-align:right}
+.r2bar{height:5px;background:var(--border);border-radius:3px;overflow:hidden;margin-bottom:8px}
+.r2fill{height:100%;border-radius:3px}
+.cc-stats{display:flex;gap:16px;font-size:0.75rem;color:var(--dim);margin-bottom:8px}
+.cc-stats b{color:var(--text)}
+.drvs{display:flex;flex-wrap:wrap;gap:5px}
+.drv{display:flex;align-items:center;gap:5px;background:rgba(20,184,166,0.05);border:1px solid rgba(20,184,166,0.1);border-radius:7px;padding:4px 9px;font-size:0.72rem}
+.drv-bar{width:36px;height:3px;background:var(--border);border-radius:2px;overflow:hidden}
+.drv-fill{height:100%;border-radius:2px;background:var(--accent)}
+.drv-n{color:var(--text);font-weight:500}
+.drv-p{color:var(--accent);font-weight:700;font-size:0.68rem}
+
+/* Table */
+table{width:100%;border-collapse:collapse;font-size:0.82rem;margin:1rem 0}
+th{text-align:left;padding:9px 10px;background:var(--card);color:var(--accent);border-bottom:2px solid var(--border);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.04em}
+td{padding:7px 10px;border-bottom:1px solid var(--border)}
+tr:hover td{background:rgba(20,184,166,0.02)}
+.bc{width:100px}.bbg{height:7px;background:var(--border);border-radius:4px;overflow:hidden}.bfg{height:100%;border-radius:4px}
+
+/* Driver deep-dive */
+.dd{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;margin:1rem 0}
+.ddc{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem}
+.ddc-t{font-size:0.88rem;font-weight:700;color:var(--accent);margin-bottom:4px}
+.ddc-p{font-size:0.8rem;color:var(--muted);line-height:1.55}
+.ddc-p b{color:var(--text)}
+
+/* Method */
+.meth{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin:1.5rem 0;font-size:0.8rem;color:var(--muted)}
+.meth code{background:rgba(20,184,166,0.08);color:var(--accent);padding:1px 5px;border-radius:3px;font-size:0.78rem}
+.meth li{margin:3px 0}
+
+footer{text-align:center;color:var(--dim);padding:2.5rem 0 1rem;font-size:0.72rem;border-top:1px solid var(--border);margin-top:3rem}
+</style>
+</head>
+<body>
+<div class="ctr">
+
+<div class="hdr">
+  <div class="hdr-logo">Propheus Intelligence</div>
+  <h1>Category Intelligence</h1>
+  <p class="hdr-sub">What drives each place category across Singapore &mdash; and what the model cannot see</p>
+  <div class="kpis">
+    <div class="kpi"><span class="kpi-v">24</span><span class="kpi-l">Categories</span></div>
+    <div class="kpi"><span class="kpi-v">174,713</span><span class="kpi-l">Places</span></div>
+    <div class="kpi"><span class="kpi-v">332</span><span class="kpi-l">Subzones</span></div>
+    <div class="kpi"><span class="kpi-v">0.607</span><span class="kpi-l">Mean R²</span></div>
+  </div>
+</div>
+
+<!-- ═══════ TRUE INSIGHTS ═══════ -->
+<div class="insights">
+  <div class="insights-title">True Insights &mdash; What the Data Reveals</div>
+  <div class="igrid">
+
+    <div class="ins">
+      <div class="ins-num" style="background:rgba(20,184,166,0.15);color:var(--accent)">1</div>
+      <div class="ins-body">
+        <div class="ins-head">The government builds the scaffolding &mdash; the market fills it in</div>
+        <div class="ins-text">
+          The strongest predictor for private F&B is <em>SFA food licensing</em> (55% for Fast Food, 39% for Restaurants). 
+          For private education, it's <em>government preschools</em> (39%). For convenience stores and beauty salons, 
+          it's <em>CHAS clinics</em> (36% and 22%). The pattern is unmistakable: <b>government infrastructure doesn't just 
+          correlate with commercial activity &mdash; it creates the conditions for it.</b> Where the government places a 
+          hawker centre, private restaurants follow. Where it builds preschools, tuition centres emerge. Public services 
+          generate the foot traffic that private commerce needs.
+        </div>
+        <div class="ins-evidence">
+          <span class="ev" style="color:var(--green);border-color:rgba(16,185,129,0.3)">SFA → Fast Food R²=0.66</span>
+          <span class="ev" style="color:var(--green);border-color:rgba(16,185,129,0.3)">Preschools → Education R²=0.63</span>
+          <span class="ev" style="color:var(--green);border-color:rgba(16,185,129,0.3)">CHAS → Convenience R²=0.88</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ins">
+      <div class="ins-num" style="background:rgba(239,68,68,0.15);color:var(--red)">2</div>
+      <div class="ins-body">
+        <div class="ins-head">Bar districts and nightlife emerge from culture, not zoning</div>
+        <div class="ins-text">
+          <b>Bars are the 6th hardest category to predict</b> (R²=0.44). No structural feature &mdash; not commercial zoning, 
+          not population density, not transit access &mdash; explains where bars cluster. Clarke Quay, Boat Quay, Ann Siang Hill 
+          became bar districts through <em>cultural momentum and reputation</em>, not because zoning maps said they should. 
+          The model's top predictor is just "total places" (36%) &mdash; a non-explanation. Similarly, <b>culture & entertainment 
+          venues</b> (R²=0.42) follow open space and road networks, not any demand signal. These are <em>taste-driven categories</em> 
+          that data infrastructure cannot predict.
+        </div>
+        <div class="ins-evidence">
+          <span class="ev" style="color:var(--red);border-color:rgba(239,68,68,0.3)">Bar R²=0.44</span>
+          <span class="ev" style="color:var(--red);border-color:rgba(239,68,68,0.3)">Culture R²=0.42</span>
+          <span class="ev" style="color:var(--red);border-color:rgba(239,68,68,0.3)">No zoning signal found</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ins">
+      <div class="ins-num" style="background:rgba(245,158,11,0.15);color:var(--yellow)">3</div>
+      <div class="ins-body">
+        <div class="ins-head">Shopping is the most boring prediction &mdash; and that's the insight</div>
+        <div class="ins-text">
+          <b>83% of shopping prediction comes from a single feature: total place count.</b> Where there are many places, 
+          there are many shops. This isn't a finding &mdash; it's a tautology. But it reveals something important: 
+          <em>retail in Singapore has no structural preference.</em> It doesn't care about transit, income, age, or zoning. 
+          It goes wherever commercial density exists. This makes retail the <b>hardest category to create gap opportunities for</b> &mdash; 
+          if a zone has retail gaps, it probably has gaps in everything.
+        </div>
+        <div class="ins-evidence">
+          <span class="ev" style="color:var(--yellow);border-color:rgba(245,158,11,0.3)">Shopping: Total Places = 83%</span>
+          <span class="ev" style="color:var(--yellow);border-color:rgba(245,158,11,0.3)">R²=0.83</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ins">
+      <div class="ins-num" style="background:rgba(139,92,246,0.15);color:var(--purple)">4</div>
+      <div class="ins-body">
+        <div class="ins-head">Gyms follow families, not fitness culture</div>
+        <div class="ins-text">
+          The #1 predictor for fitness centres isn't distance to MRT, commercial zoning, or income. It's <em>population</em> (26%) 
+          and <em>government preschools</em> (25%). Gyms in Singapore are a <b>family-life amenity, not a lifestyle destination.</b> 
+          They cluster where young families live &mdash; the same zones with preschools, HDB 4-5 room flats, and high residential density. 
+          The "hip boutique gym" narrative exists in Orchard and Tanjong Pagar, but the data says <b>most of Singapore's 
+          fitness market is driven by parents who want a gym near their kids' school.</b>
+        </div>
+        <div class="ins-evidence">
+          <span class="ev" style="color:var(--purple);border-color:rgba(139,92,246,0.3)">Population = 26%</span>
+          <span class="ev" style="color:var(--purple);border-color:rgba(139,92,246,0.3)">Gov Preschools = 25%</span>
+          <span class="ev" style="color:var(--purple);border-color:rgba(139,92,246,0.3)">R²=0.74</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ins">
+      <div class="ins-num" style="background:rgba(236,72,153,0.15);color:var(--pink)">5</div>
+      <div class="ins-body">
+        <div class="ins-head">Industrial zoning is a secret office market signal</div>
+        <div class="ins-text">
+          <b>Industrial land use percentage is the #2 predictor for offices</b> (34%) and a top-5 driver for business services, 
+          automotive, and general commerce. Singapore's "industrial" zones are not factories &mdash; they're <em>JTC one-north, 
+          Changi Business Park, Mapletree Industrial parks</em>. The zoning label "industrial" actually means "affordable commercial space." 
+          <b>If you're looking for office market gaps, look at industrial zones with low office counts</b> &mdash; that's where 
+          the next co-working hub lands.
+        </div>
+        <div class="ins-evidence">
+          <span class="ev" style="color:var(--pink);border-color:rgba(236,72,153,0.3)">LU Industrial → Office = 34%</span>
+          <span class="ev" style="color:var(--pink);border-color:rgba(236,72,153,0.3)">LU Industrial → Business = 12%</span>
+          <span class="ev" style="color:var(--pink);border-color:rgba(236,72,153,0.3)">LU Industrial → Services = 10%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ins">
+      <div class="ins-num" style="background:rgba(249,115,22,0.15);color:var(--orange)">6</div>
+      <div class="ins-body">
+        <div class="ins-head">Hawker culture is self-reinforcing &mdash; proximity to hawkers breeds more hawkers</div>
+        <div class="ins-text">
+          <em>Distance to nearest hawker centre</em> is the #3 driver for hawker stalls (9%), alongside CHAS clinics (23%) and 
+          total places (23%). This means <b>hawker food concentrates near existing hawker infrastructure</b> &mdash; a self-reinforcing 
+          loop. The government builds the hawker centre; private street food stalls cluster within walking distance; 
+          the area becomes a "food zone." <b>HDB 5-room flats</b> (6%) also matter &mdash; hawker culture is strongest in 
+          mature HDB heartland estates, not new developments.
+        </div>
+        <div class="ins-evidence">
+          <span class="ev" style="color:var(--orange);border-color:rgba(249,115,22,0.3)">Dist Hawker = 9%</span>
+          <span class="ev" style="color:var(--orange);border-color:rgba(249,115,22,0.3)">HDB 5-Rm = 6%</span>
+          <span class="ev" style="color:var(--orange);border-color:rgba(249,115,22,0.3)">R²=0.73</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ins">
+      <div class="ins-num" style="background:rgba(99,102,241,0.15);color:var(--accent2)">7</div>
+      <div class="ins-body">
+        <div class="ins-head">Hotels predict hotels &mdash; tourism is an enclave economy</div>
+        <div class="ins-text">
+          Hospitality is the <b>hardest commercial category to predict</b> (R²=0.22). The best structural predictor is 
+          "hotels within 1km" (11%) &mdash; meaning the only thing that predicts a hotel is other hotels nearby. 
+          Tourism in Singapore operates as <em>enclave economies</em>: Marina Bay, Orchard, Sentosa, Bugis. 
+          <b>No amount of population, transit, or zoning data predicts where tourists stay.</b> Tourism demand comes from 
+          international markets, not local infrastructure. This is a fundamentally different economic logic from every other category.
+        </div>
+        <div class="ins-evidence">
+          <span class="ev" style="color:var(--accent2);border-color:rgba(99,102,241,0.3)">Hospitality R²=0.22</span>
+          <span class="ev" style="color:var(--accent2);border-color:rgba(99,102,241,0.3)">Hotels nearby = 11%</span>
+          <span class="ev" style="color:var(--accent2);border-color:rgba(99,102,241,0.3)">Self-referential only</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ins">
+      <div class="ins-num" style="background:rgba(20,184,166,0.15);color:var(--accent)">8</div>
+      <div class="ins-body">
+        <div class="ins-head">Condo percentage is Singapore's stealth income proxy</div>
+        <div class="ins-text">
+          Singapore doesn't publish subzone-level income data. But <em>condominium percentage</em> acts as a near-perfect proxy. 
+          It's a top-5 driver for <b>residential services</b> (16%), <b>health</b> (2.2%), and influences premium categories. 
+          Zones with >30% condos (Cairnhill, River Valley, Bukit Timah) have categorically different commercial DNA than 
+          80% HDB zones (Yishun, Woodlands, Jurong West). <b>Dwelling type doesn't just describe who lives there &mdash; 
+          it predicts what commerce is viable.</b>
+        </div>
+        <div class="ins-evidence">
+          <span class="ev" style="color:var(--accent);border-color:rgba(20,184,166,0.3)">Condo % → Residential = 16%</span>
+          <span class="ev" style="color:var(--accent);border-color:rgba(20,184,166,0.3)">Proxy for income</span>
+          <span class="ev" style="color:var(--accent);border-color:rgba(20,184,166,0.3)">No direct income data exists</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<h2>All 24 Categories &mdash; Performance & Drivers</h2><div class="tier tier-s"><span class="tbadge">Strong Prediction</span><span class="tcount">10 categories &mdash; R² ≥ 0.7 — structure explains >70%</span></div><div class="cards"><div class="cc"><div class="cc-top"><span class="cc-name">Convenience & Daily Needs</span><span class="cc-tf">raw</span><span class="cc-r2" style="color:#10b981">0.882</span></div><div class="r2bar"><div class="r2fill" style="width:88.18829364879048%;background:#10b981"></div></div><div class="cc-stats"><span>avg <b>12</b>/zone</span><span>max <b>112</b></span></div><div class="drvs"><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:100.0%"></div></div><span class="drv-n">Total Places</span><span class="drv-p">40%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:90.06761126504095%"></div></div><span class="drv-n">CHAS Clinics</span><span class="drv-p">36%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:22.14045241642772%"></div></div><span class="drv-n">SFA Eateries</span><span class="drv-p">9%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:9.191109322622184%"></div></div><span class="drv-n">Population</span><span class="drv-p">4%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:3.0227446445208366%"></div></div><span class="drv-n">Resid Rd</span><span class="drv-p">1%</span></div></div></div><div class="cc"><div class="cc-top"><span class="cc-name">Cafe & Coffee</span><span class="cc-tf">raw</span><span class="cc-r2" style="color:#10b981">0.856</span></div><div class="r2bar"><div class="r2fill" style="width:85.62467017559287%;background:#10b981"></div></div><div class="cc-stats"><span>avg <b>10</b>/zone</span><span>max <b>83</b></span></div><div class="drvs"><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:100.0%"></div></div><span class="drv-n">Total Places</span><span class="drv-p">48%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:59.49427651127029%"></div></div><span class="drv-n">SFA Eateries</span><span class="drv-p">29%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:13.023742951832459%"></div></div><span class="drv-n">Gov Preschools</span><span class="drv-p">6%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:5.344056100696381%"></div></div><span class="drv-n">CHAS Clinics</span><span class="drv-p">3%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:3.4954928171359247%"></div></div><span class="drv-n">HDB 3Rm</span><span class="drv-p">2%</span></div></div></div><div class="cc"><div class="cc-top"><span class="cc-name">Beauty & Personal Care</span><span class="cc-tf">raw</span><span class="cc-r2" style="color:#10b981">0.851</span></div><div class="r2bar"><div class="r2fill" style="width:85.05079959381065%;background:#10b981"></div></div><div class="cc-stats"><span>avg <b>12</b>/zone</span><span>max <b>133</b></span></div><div class="drvs"><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:100.0%"></div></div><span class="drv-n">Total Places</span><span class="drv-p">29%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:95.11900159910361%"></div></div><span class="drv-n">SFA Eateries</span><span class="drv-p">28%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:74.60196544795743%"></div></div><span class="drv-n">CHAS Clinics</span><span class="drv-p">22%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:12.625766245137745%"></div></div><span class="drv-n">Population</span><span class="drv-p">4%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:5.688515164839745%"></div></div><span class="drv-n">HDB 3Rm</span><span class="drv-p">2%</span></div></div></div><div class="cc"><div class="cc-top"><span class="cc-name">Shopping & Retail</span><span class="cc-tf">raw</span><span class="cc-r2" style="color:#10b981">0.830</span></div><div class="r2bar"><div class="r2fill" style="width:82.95412510786603%;background:#10b981"></div></div><div class="cc-stats"><span>avg <b>37</b>/zone</span><span>max <b>525</b></span></div><div class="drvs"><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:100.0%"></div></div><span class="drv-n">Total Places</span><span class="drv-p">83%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:2.5913697376713793%"></div></div><span class="drv-n">LU Industrial</span><span class="drv-p">2%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:2.522712593687878%"></div></div><span class="drv-n">Tertiary Rd</span><span class="drv-p">2%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:2.1039171364888287%"></div></div><span class="drv-n">Dist MRT</span><span class="drv-p">2%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:2.0625751256937477%"></div></div><span class="drv-n">HDB 4Rm</span><span class="drv-p">2%</span></div></div></div><div class="cc"><div class="cc-top"><span class="cc-name">Restaurant</span><span class="cc-tf">raw</span><span class="cc-r2" style="color:#10b981">0.767</span></div><div class="r2bar"><div class="r2fill" style="width:76.67712402987887%;background:#10b981"></div></div><div class="cc-stats"><span>avg <b>17</b>/zone</span><span>max <b>179</b></span></div><div class="drvs"><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:100.0%"></div></div><span class="drv-n">SFA Eateries</span><span class="drv-p">39%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:95.8201524254905%"></div></div><span class="drv-n">Total Places</span><span class="drv-p">37%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:6.899307875922521%"></div></div><span class="drv-n">Hotels</span><span class="drv-p">3%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:5.4255707043002115%"></div></div><span class="drv-n">Green Ratio</span><span class="drv-p">2%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:4.523294499668037%"></div></div><span class="drv-n">LU Commercial</span><span class="drv-p">2%</span></div></div></div><div class="cc"><div class="cc-top"><span class="cc-name">Fitness & Recreation</span><span class="cc-tf">4rt</span><span class="cc-r2" style="color:#10b981">0.738</span></div><div class="r2bar"><div class="r2fill" style="width:73.8237422821967%;background:#10b981"></div></div><div class="cc-stats"><span>avg <b>8</b>/zone</span><span>max <b>58</b></span></div><div class="drvs"><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:100.0%"></div></div><span class="drv-n">Population</span><span class="drv-p">26%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:96.25702503545416%"></div></div><span class="drv-n">Gov Preschools</span><span class="drv-p">25%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:45.31012751301336%"></div></div><span class="drv-n">Total Places</span><span class="drv-p">12%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:16.872995152280858%"></div></div><span class="drv-n">LU Industrial</span><span class="drv-p">4%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:16.41282648325559%"></div></div><span class="drv-n">SFA Eateries</span><span class="drv-p">4%</span></div></div></div><div class="cc"><div class="cc-top"><span class="cc-name">Services</span><span class="cc-tf">raw</span><span class="cc-r2" style="color:#10b981">0.736</span></div><div class="r2bar"><div class="r2fill" style="width:73.56002565848809%;background:#10b981"></div></div><div class="cc-stats"><span>avg <b>15</b>/zone</span><span>max <b>279</b></span></div><div class="drvs"><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:100.0%"></div></div><span class="drv-n">Total Places</span><span class="drv-p">69%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:13.741452024513782%"></div></div><span class="drv-n">LU Industrial</span><span class="drv-p">9%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:5.966112499256089%"></div></div><span class="drv-n">HDB 4Rm</span><span class="drv-p">4%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:5.9465712681470135%"></div></div><span class="drv-n">Tertiary Rd</span><span class="drv-p">4%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:1.8281863237699554%"></div></div><span class="drv-n">SFA Eateries</span><span class="drv-p">1%</span></div></div></div><div class="cc"><div class="cc-top"><span class="cc-name">Office & Workspace</span><span class="cc-tf">raw</span><span class="cc-r2" style="color:#10b981">0.732</span></div><div class="r2bar"><div class="r2fill" style="width:73.16448514652933%;background:#10b981"></div></div><div class="cc-stats"><span>avg <b>8</b>/zone</span><span>max <b>134</b></span></div><div class="drvs"><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:100.0%"></div></div><span class="drv-n">Total Places</span><span class="drv-p">36%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:94.84576521310262%"></div></div><span class="drv-n">LU Industrial</span><span class="drv-p">34%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:15.232275386036864%"></div></div><span class="drv-n">Tertiary Rd</span><span class="drv-p">5%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:7.903360727756609%"></div></div><span class="drv-n">Service Rd</span><span class="drv-p">3%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:7.74924476565058%"></div></div><span class="drv-n">MRT Count</span><span class="drv-p">3%</span></div></div></div><div class="cc"><div class="cc-top"><span class="cc-name">Hawker & Street Food</span><span class="cc-tf">raw</span><span class="cc-r2" style="color:#10b981">0.729</span></div><div class="r2bar"><div class="r2fill" style="width:72.9389748796956%;background:#10b981"></div></div><div class="cc-stats"><span>avg <b>10</b>/zone</span><span>max <b>111</b></span></div><div class="drvs"><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:100.0%"></div></div><span class="drv-n">Total Places</span><span class="drv-p">23%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:97.04353656066216%"></div></div><span class="drv-n">CHAS Clinics</span><span class="drv-p">23%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:39.4564107243736%"></div></div><span class="drv-n">Dist Hawker</span><span class="drv-p">9%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:32.392426736391954%"></div></div><span class="drv-n">SFA Eateries</span><span class="drv-p">8%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:25.81563874674055%"></div></div><span class="drv-n">HDB 5Rm/Exec</span><span class="drv-p">6%</span></div></div></div><div class="cc"><div class="cc-top"><span class="cc-name">Transport</span><span class="cc-tf">raw</span><span class="cc-r2" style="color:#10b981">0.718</span></div><div class="r2bar"><div class="r2fill" style="width:71.78480882517374%;background:#10b981"></div></div><div class="cc-stats"><span>avg <b>7</b>/zone</span><span>max <b>49</b></span></div><div class="drvs"><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:100.0%"></div></div><span class="drv-n">Total Places</span><span class="drv-p">51%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:24.50884404007847%"></div></div><span class="drv-n">Population</span><span class="drv-p">12%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:9.856129691400595%"></div></div><span class="drv-n">Secondary Rd</span><span class="drv-p">5%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:9.225561918426097%"></div></div><span class="drv-n">Service Rd</span><span class="drv-p">5%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:8.237443680644763%"></div></div><span class="drv-n">Road km</span><span class="drv-p">4%</span></div></div></div></div><div class="tier tier-g"><span class="tbadge">Good Prediction</span><span class="tcount">7 categories &mdash; R² 0.5–0.7 — moderately structural</span></div><div class="cards"><div class="cc"><div class="cc-top"><span class="cc-name">Business</span><span class="cc-tf">raw</span><span class="cc-r2" style="color:#f59e0b">0.667</span></div><div class="r2bar"><div class="r2fill" style="width:66.66893877276271%;background:#f59e0b"></div></div><div class="cc-stats"><span>avg <b>7</b>/zone</span><span>max <b>111</b></span></div><div class="drvs"><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:100.0%"></div></div><span class="drv-n">Total Places</span><span class="drv-p">56%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:22.200546183020656%"></div></div><span class="drv-n">LU Industrial</span><span class="drv-p">12%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:7.782728030195509%"></div></div><span class="drv-n">Tertiary Rd</span><span class="drv-p">4%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:5.0973913605988175%"></div></div><span class="drv-n">LU Open Space</span><span class="drv-p">3%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:4.6664639185162775%"></div></div><span class="drv-n">HDB 4Rm</span><span class="drv-p">3%</span></div></div></div><div class="cc"><div class="cc-top"><span class="cc-name">Fast Food & QSR</span><span class="cc-tf">raw</span><span class="cc-r2" style="color:#f59e0b">0.657</span></div><div class="r2bar"><div class="r2fill" style="width:65.6739255995596%;background:#f59e0b"></div></div><div class="cc-stats"><span>avg <b>4</b>/zone</span><span>max <b>35</b></span></div><div class="drvs"><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:100.0%"></div></div><span class="drv-n">SFA Eateries</span><span class="drv-p">55%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:17.556090121771152%"></div></div><span class="drv-n">Total Places</span><span class="drv-p">10%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:6.505456658367162%"></div></div><span class="drv-n">Population</span><span class="drv-p">4%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:6.282181871490658%"></div></div><span class="drv-n">CHAS Clinics</span><span class="drv-p">3%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:3.440230228060639%"></div></div><span class="drv-n">Dist MRT</span><span class="drv-p">2%</span></div></div></div><div class="cc"><div class="cc-top"><span class="cc-name">Education</span><span class="cc-tf">4rt</span><span class="cc-r2" style="color:#f59e0b">0.631</span></div><div class="r2bar"><div class="r2fill" style="width:63.066041180483154%;background:#f59e0b"></div></div><div class="cc-stats"><span>avg <b>12</b>/zone</span><span>max <b>123</b></span></div><div class="drvs"><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:100.0%"></div></div><span class="drv-n">Gov Preschools</span><span class="drv-p">38%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:30.16829333035544%"></div></div><span class="drv-n">Total Places</span><span class="drv-p">12%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:23.61842233059602%"></div></div><span class="drv-n">SFA Eateries</span><span class="drv-p">9%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:13.205668377509857%"></div></div><span class="drv-n">LU Institutional</span><span class="drv-p">5%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:13.005015953518923%"></div></div><span class="drv-n">Bus Stops</span><span class="drv-p">5%</span></div></div></div><div class="cc"><div class="cc-top"><span class="cc-name">Health & Medical</span><span class="cc-tf">raw</span><span class="cc-r2" style="color:#f59e0b">0.610</span></div><div class="r2bar"><div class="r2fill" style="width:61.030215995343%;background:#f59e0b"></div></div><div class="cc-stats"><span>avg <b>5</b>/zone</span><span>max <b>45</b></span></div><div class="drvs"><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:100.0%"></div></div><span class="drv-n">Total Places</span><span class="drv-p">37%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:62.57664782632853%"></div></div><span class="drv-n">CHAS Clinics</span><span class="drv-p">23%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:7.86662183430531%"></div></div><span class="drv-n">Dist Super</span><span class="drv-p">3%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:6.292085886671261%"></div></div><span class="drv-n">Hotels</span><span class="drv-p">2%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:5.822699189652672%"></div></div><span class="drv-n">Condo %</span><span class="drv-p">2%</span></div></div></div><div class="cc"><div class="cc-top"><span class="cc-name">Bakery & Pastry</span><span class="cc-tf">raw</span><span class="cc-r2" style="color:#f59e0b">0.604</span></div><div class="r2bar"><div class="r2fill" style="width:60.41318613927634%;background:#f59e0b"></div></div><div class="cc-stats"><span>avg <b>3</b>/zone</span><span>max <b>25</b></span></div><div class="drvs"><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:100.0%"></div></div><span class="drv-n">Total Places</span><span class="drv-p">44%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:22.879423864237957%"></div></div><span class="drv-n">CHAS Clinics</span><span class="drv-p">10%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:15.384871551824453%"></div></div><span class="drv-n">SFA Eateries</span><span class="drv-p">7%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:10.74051783982745%"></div></div><span class="drv-n">Population</span><span class="drv-p">5%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:9.259386255984579%"></div></div><span class="drv-n">Supermarkets</span><span class="drv-p">4%</span></div></div></div><div class="cc"><div class="cc-top"><span class="cc-name">Residential</span><span class="cc-tf">4rt</span><span class="cc-r2" style="color:#f59e0b">0.576</span></div><div class="r2bar"><div class="r2fill" style="width:57.636149329731424%;background:#f59e0b"></div></div><div class="cc-stats"><span>avg <b>7</b>/zone</span><span>max <b>152</b></span></div><div class="drvs"><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:100.0%"></div></div><span class="drv-n">Population</span><span class="drv-p">21%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:76.43849587209421%"></div></div><span class="drv-n">Condo %</span><span class="drv-p">16%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:46.055670144270536%"></div></div><span class="drv-n">Pop Density</span><span class="drv-p">10%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:32.91374729744588%"></div></div><span class="drv-n">Total Places</span><span class="drv-p">7%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:25.29244585749666%"></div></div><span class="drv-n">Resid Rd</span><span class="drv-p">5%</span></div></div></div><div class="cc"><div class="cc-top"><span class="cc-name">General</span><span class="cc-tf">4rt</span><span class="cc-r2" style="color:#f59e0b">0.571</span></div><div class="r2bar"><div class="r2fill" style="width:57.135053551461766%;background:#f59e0b"></div></div><div class="cc-stats"><span>avg <b>6</b>/zone</span><span>max <b>68</b></span></div><div class="drvs"><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:100.0%"></div></div><span class="drv-n">Total Places</span><span class="drv-p">57%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:6.546238260871435%"></div></div><span class="drv-n">Road km</span><span class="drv-p">4%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:6.08780095519349%"></div></div><span class="drv-n">Road Density</span><span class="drv-p">3%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:4.6757592348960815%"></div></div><span class="drv-n">SFA Eateries</span><span class="drv-p">3%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:4.541064248321783%"></div></div><span class="drv-n">LU Entropy</span><span class="drv-p">3%</span></div></div></div></div><div class="tier tier-w"><span class="tbadge">Weak Prediction</span><span class="tcount">7 categories &mdash; R² < 0.5 — non-structural drivers dominate</span></div><div class="cards"><div class="cc"><div class="cc-top"><span class="cc-name">Bar & Nightlife</span><span class="cc-tf">raw</span><span class="cc-r2" style="color:#ef4444">0.438</span></div><div class="r2bar"><div class="r2fill" style="width:43.82705686091653%;background:#ef4444"></div></div><div class="cc-stats"><span>avg <b>4</b>/zone</span><span>max <b>45</b></span></div><div class="drvs"><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:100.0%"></div></div><span class="drv-n">Total Places</span><span class="drv-p">36%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:43.53714833208443%"></div></div><span class="drv-n">SFA Eateries</span><span class="drv-p">16%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:13.259034837603831%"></div></div><span class="drv-n">LU Open Space</span><span class="drv-p">5%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:8.339447034958944%"></div></div><span class="drv-n">Plot Ratio</span><span class="drv-p">3%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:8.306916366968206%"></div></div><span class="drv-n">LU Transport</span><span class="drv-p">3%</span></div></div></div><div class="cc"><div class="cc-top"><span class="cc-name">Culture & Entertainment</span><span class="cc-tf">raw</span><span class="cc-r2" style="color:#ef4444">0.420</span></div><div class="r2bar"><div class="r2fill" style="width:41.990540511504605%;background:#ef4444"></div></div><div class="cc-stats"><span>avg <b>4</b>/zone</span><span>max <b>40</b></span></div><div class="drvs"><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:100.0%"></div></div><span class="drv-n">Total Places</span><span class="drv-p">13%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:84.83790022378247%"></div></div><span class="drv-n">Road km</span><span class="drv-p">11%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:67.74737850899517%"></div></div><span class="drv-n">LU Open Space</span><span class="drv-p">9%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:60.50520931145853%"></div></div><span class="drv-n">Area</span><span class="drv-p">8%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:41.42159268569856%"></div></div><span class="drv-n">LU Entropy</span><span class="drv-p">5%</span></div></div></div><div class="cc"><div class="cc-top"><span class="cc-name">Civic & Government</span><span class="cc-tf">4rt</span><span class="cc-r2" style="color:#ef4444">0.409</span></div><div class="r2bar"><div class="r2fill" style="width:40.90865818179928%;background:#ef4444"></div></div><div class="cc-stats"><span>avg <b>5</b>/zone</span><span>max <b>47</b></span></div><div class="drvs"><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:100.0%"></div></div><span class="drv-n">Total Places</span><span class="drv-p">30%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:54.00228524892795%"></div></div><span class="drv-n">Road km</span><span class="drv-p">16%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:19.041307903177092%"></div></div><span class="drv-n">LU Open Space</span><span class="drv-p">6%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:10.393362780526182%"></div></div><span class="drv-n">SFA Eateries</span><span class="drv-p">3%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:10.284194922856004%"></div></div><span class="drv-n">Area</span><span class="drv-p">3%</span></div></div></div><div class="cc"><div class="cc-top"><span class="cc-name">NGO</span><span class="cc-tf">raw</span><span class="cc-r2" style="color:#ef4444">0.389</span></div><div class="r2bar"><div class="r2fill" style="width:38.89648007952671%;background:#ef4444"></div></div><div class="cc-stats"><span>avg <b>2</b>/zone</span><span>max <b>31</b></span></div><div class="drvs"><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:100.0%"></div></div><span class="drv-n">Total Places</span><span class="drv-p">44%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:15.869771130914053%"></div></div><span class="drv-n">Gov Preschools</span><span class="drv-p">7%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:8.351252759494379%"></div></div><span class="drv-n">Primary Rd</span><span class="drv-p">4%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:8.283159366523133%"></div></div><span class="drv-n">SFA Eateries</span><span class="drv-p">4%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:8.114435149998716%"></div></div><span class="drv-n">Area</span><span class="drv-p">4%</span></div></div></div><div class="cc"><div class="cc-top"><span class="cc-name">Religious</span><span class="cc-tf">4rt</span><span class="cc-r2" style="color:#ef4444">0.278</span></div><div class="r2bar"><div class="r2fill" style="width:27.815693191323575%;background:#ef4444"></div></div><div class="cc-stats"><span>avg <b>3</b>/zone</span><span>max <b>114</b></span></div><div class="drvs"><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:100.0%"></div></div><span class="drv-n">Total Places</span><span class="drv-p">24%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:40.18649886123487%"></div></div><span class="drv-n">Gov Preschools</span><span class="drv-p">9%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:30.153360737819273%"></div></div><span class="drv-n">LU Institutional</span><span class="drv-p">7%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:17.085265375703152%"></div></div><span class="drv-n">Elderly %</span><span class="drv-p">4%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:14.757346695283271%"></div></div><span class="drv-n">Female %</span><span class="drv-p">3%</span></div></div></div><div class="cc"><div class="cc-top"><span class="cc-name">Automotive</span><span class="cc-tf">raw</span><span class="cc-r2" style="color:#ef4444">0.253</span></div><div class="r2bar"><div class="r2fill" style="width:25.33928721180898%;background:#ef4444"></div></div><div class="cc-stats"><span>avg <b>4</b>/zone</span><span>max <b>153</b></span></div><div class="drvs"><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:100.0%"></div></div><span class="drv-n">Total Places</span><span class="drv-p">62%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:15.03799694955052%"></div></div><span class="drv-n">LU Industrial</span><span class="drv-p">9%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:13.19254458834857%"></div></div><span class="drv-n">SFA Eateries</span><span class="drv-p">8%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:7.307945121148812%"></div></div><span class="drv-n">Gov Preschools</span><span class="drv-p">5%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:3.2516971792532425%"></div></div><span class="drv-n">Dist Super</span><span class="drv-p">2%</span></div></div></div><div class="cc"><div class="cc-top"><span class="cc-name">Hospitality</span><span class="cc-tf">4rt</span><span class="cc-r2" style="color:#ef4444">0.215</span></div><div class="r2bar"><div class="r2fill" style="width:21.456241930253572%;background:#ef4444"></div></div><div class="cc-stats"><span>avg <b>1</b>/zone</span><span>max <b>55</b></span></div><div class="drvs"><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:100.0%"></div></div><span class="drv-n">Total Places</span><span class="drv-p">24%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:44.67745030336822%"></div></div><span class="drv-n">Hotels</span><span class="drv-p">11%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:22.55506848759455%"></div></div><span class="drv-n">Resid Rd</span><span class="drv-p">5%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:19.617229346541656%"></div></div><span class="drv-n">LU Entropy</span><span class="drv-p">5%</span></div><div class="drv"><div class="drv-bar"><div class="drv-fill" style="width:13.173644144062461%"></div></div><span class="drv-n">Plot Ratio</span><span class="drv-p">3%</span></div></div></div></div><h2>Comparison Table</h2><table><tr><th>Category</th><th>R²</th><th></th><th>Transform</th><th>#1 Driver</th><th>#2 Driver</th><th>Avg</th></tr><tr><td><b>Convenience & Daily Needs</b></td><td style="color:#10b981;font-weight:700">0.882</td><td class="bc"><div class="bbg"><div class="bfg" style="width:88.18829364879048%;background:#10b981"></div></div></td><td>raw</td><td>Total Places (40%)</td><td>CHAS Clinics (36%)</td><td>12</td></tr><tr><td><b>Cafe & Coffee</b></td><td style="color:#10b981;font-weight:700">0.856</td><td class="bc"><div class="bbg"><div class="bfg" style="width:85.62467017559287%;background:#10b981"></div></div></td><td>raw</td><td>Total Places (48%)</td><td>SFA Eateries (29%)</td><td>10</td></tr><tr><td><b>Beauty & Personal Care</b></td><td style="color:#10b981;font-weight:700">0.851</td><td class="bc"><div class="bbg"><div class="bfg" style="width:85.05079959381065%;background:#10b981"></div></div></td><td>raw</td><td>Total Places (29%)</td><td>SFA Eateries (28%)</td><td>12</td></tr><tr><td><b>Shopping & Retail</b></td><td style="color:#10b981;font-weight:700">0.830</td><td class="bc"><div class="bbg"><div class="bfg" style="width:82.95412510786603%;background:#10b981"></div></div></td><td>raw</td><td>Total Places (83%)</td><td>LU Industrial (2%)</td><td>37</td></tr><tr><td><b>Restaurant</b></td><td style="color:#10b981;font-weight:700">0.767</td><td class="bc"><div class="bbg"><div class="bfg" style="width:76.67712402987887%;background:#10b981"></div></div></td><td>raw</td><td>SFA Eateries (39%)</td><td>Total Places (37%)</td><td>17</td></tr><tr><td><b>Fitness & Recreation</b></td><td style="color:#10b981;font-weight:700">0.738</td><td class="bc"><div class="bbg"><div class="bfg" style="width:73.8237422821967%;background:#10b981"></div></div></td><td>4rt</td><td>Population (26%)</td><td>Gov Preschools (25%)</td><td>8</td></tr><tr><td><b>Services</b></td><td style="color:#10b981;font-weight:700">0.736</td><td class="bc"><div class="bbg"><div class="bfg" style="width:73.56002565848809%;background:#10b981"></div></div></td><td>raw</td><td>Total Places (69%)</td><td>LU Industrial (9%)</td><td>15</td></tr><tr><td><b>Office & Workspace</b></td><td style="color:#10b981;font-weight:700">0.732</td><td class="bc"><div class="bbg"><div class="bfg" style="width:73.16448514652933%;background:#10b981"></div></div></td><td>raw</td><td>Total Places (36%)</td><td>LU Industrial (34%)</td><td>8</td></tr><tr><td><b>Hawker & Street Food</b></td><td style="color:#10b981;font-weight:700">0.729</td><td class="bc"><div class="bbg"><div class="bfg" style="width:72.9389748796956%;background:#10b981"></div></div></td><td>raw</td><td>Total Places (23%)</td><td>CHAS Clinics (23%)</td><td>10</td></tr><tr><td><b>Transport</b></td><td style="color:#10b981;font-weight:700">0.718</td><td class="bc"><div class="bbg"><div class="bfg" style="width:71.78480882517374%;background:#10b981"></div></div></td><td>raw</td><td>Total Places (51%)</td><td>Population (12%)</td><td>7</td></tr><tr><td><b>Business</b></td><td style="color:#f59e0b;font-weight:700">0.667</td><td class="bc"><div class="bbg"><div class="bfg" style="width:66.66893877276271%;background:#f59e0b"></div></div></td><td>raw</td><td>Total Places (56%)</td><td>LU Industrial (12%)</td><td>7</td></tr><tr><td><b>Fast Food & QSR</b></td><td style="color:#f59e0b;font-weight:700">0.657</td><td class="bc"><div class="bbg"><div class="bfg" style="width:65.6739255995596%;background:#f59e0b"></div></div></td><td>raw</td><td>SFA Eateries (55%)</td><td>Total Places (10%)</td><td>4</td></tr><tr><td><b>Education</b></td><td style="color:#f59e0b;font-weight:700">0.631</td><td class="bc"><div class="bbg"><div class="bfg" style="width:63.066041180483154%;background:#f59e0b"></div></div></td><td>4rt</td><td>Gov Preschools (38%)</td><td>Total Places (12%)</td><td>12</td></tr><tr><td><b>Health & Medical</b></td><td style="color:#f59e0b;font-weight:700">0.610</td><td class="bc"><div class="bbg"><div class="bfg" style="width:61.030215995343%;background:#f59e0b"></div></div></td><td>raw</td><td>Total Places (37%)</td><td>CHAS Clinics (23%)</td><td>5</td></tr><tr><td><b>Bakery & Pastry</b></td><td style="color:#f59e0b;font-weight:700">0.604</td><td class="bc"><div class="bbg"><div class="bfg" style="width:60.41318613927634%;background:#f59e0b"></div></div></td><td>raw</td><td>Total Places (44%)</td><td>CHAS Clinics (10%)</td><td>3</td></tr><tr><td><b>Residential</b></td><td style="color:#f59e0b;font-weight:700">0.576</td><td class="bc"><div class="bbg"><div class="bfg" style="width:57.636149329731424%;background:#f59e0b"></div></div></td><td>4rt</td><td>Population (21%)</td><td>Condo % (16%)</td><td>7</td></tr><tr><td><b>General</b></td><td style="color:#f59e0b;font-weight:700">0.571</td><td class="bc"><div class="bbg"><div class="bfg" style="width:57.135053551461766%;background:#f59e0b"></div></div></td><td>4rt</td><td>Total Places (57%)</td><td>Road km (4%)</td><td>6</td></tr><tr><td><b>Bar & Nightlife</b></td><td style="color:#ef4444;font-weight:700">0.438</td><td class="bc"><div class="bbg"><div class="bfg" style="width:43.82705686091653%;background:#ef4444"></div></div></td><td>raw</td><td>Total Places (36%)</td><td>SFA Eateries (16%)</td><td>4</td></tr><tr><td><b>Culture & Entertainment</b></td><td style="color:#ef4444;font-weight:700">0.420</td><td class="bc"><div class="bbg"><div class="bfg" style="width:41.990540511504605%;background:#ef4444"></div></div></td><td>raw</td><td>Total Places (13%)</td><td>Road km (11%)</td><td>4</td></tr><tr><td><b>Civic & Government</b></td><td style="color:#ef4444;font-weight:700">0.409</td><td class="bc"><div class="bbg"><div class="bfg" style="width:40.90865818179928%;background:#ef4444"></div></div></td><td>4rt</td><td>Total Places (30%)</td><td>Road km (16%)</td><td>5</td></tr><tr><td><b>NGO</b></td><td style="color:#ef4444;font-weight:700">0.389</td><td class="bc"><div class="bbg"><div class="bfg" style="width:38.89648007952671%;background:#ef4444"></div></div></td><td>raw</td><td>Total Places (44%)</td><td>Gov Preschools (7%)</td><td>2</td></tr><tr><td><b>Religious</b></td><td style="color:#ef4444;font-weight:700">0.278</td><td class="bc"><div class="bbg"><div class="bfg" style="width:27.815693191323575%;background:#ef4444"></div></div></td><td>4rt</td><td>Total Places (24%)</td><td>Gov Preschools (9%)</td><td>3</td></tr><tr><td><b>Automotive</b></td><td style="color:#ef4444;font-weight:700">0.253</td><td class="bc"><div class="bbg"><div class="bfg" style="width:25.33928721180898%;background:#ef4444"></div></div></td><td>raw</td><td>Total Places (62%)</td><td>LU Industrial (9%)</td><td>4</td></tr><tr><td><b>Hospitality</b></td><td style="color:#ef4444;font-weight:700">0.215</td><td class="bc"><div class="bbg"><div class="bfg" style="width:21.456241930253572%;background:#ef4444"></div></div></td><td>4rt</td><td>Total Places (24%)</td><td>Hotels (11%)</td><td>1</td></tr></table>
+<h2>Methodology</h2>
+<div class="meth">
+<ul>
+<li><b>Model:</b> Gradient Boosted Trees (300 trees, depth 5, lr 0.05, subsample 0.8)</li>
+<li><b>Validation:</b> 10-fold cross-validation, 5× repeated for stability. R² on original scale.</li>
+<li><b>Features:</b> 56 structural features. <b>Zero place-derived features</b> (no ratings, brands, reviews) to prevent leakage.</li>
+<li><b>Transform:</b> Best of <code>raw</code> vs <code>y^0.25</code> (4th root) per target. Reduces skew, helps small-count zones.</li>
+<li><b>Stage 1:</b> Structural → total places (R²=0.772). Stage 2: Structural + total → each category.</li>
+<li><b>Gap bands:</b> Percentile-based. Top/bottom 15% = high signal. Middle 40% = within model noise.</li>
+</ul>
+</div>
+
+<footer>
+Category Intelligence Report &mdash; Propheus<br>
+V7 Model &middot; 4th-root transform &middot; 56 structural features &middot; 332 subzones &middot; 174,713 places<br>
+April 2026
+</footer>
+</div>
+</body>
+</html>

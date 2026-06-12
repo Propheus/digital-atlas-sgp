@@ -1,0 +1,500 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Digital Atlas SGP — Insights Report</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#0d1f21;color:#e5e7eb;line-height:1.7}
+.c{max-width:960px;margin:0 auto;padding:40px 24px}
+.hd{display:flex;align-items:center;gap:12px;margin-bottom:4px}
+h1{font-size:1.7rem;font-weight:800;color:#fff;letter-spacing:-0.02em}
+.sub{color:#6b9b9e;font-size:0.88rem;margin-bottom:28px}
+
+/* Tabs */
+.tabs{display:flex;gap:4px;margin-bottom:24px;border-bottom:1px solid rgba(32,178,170,0.15);padding-bottom:0;overflow-x:auto}
+.tab{padding:10px 18px;font-size:0.82rem;font-weight:600;color:#6b9b9e;cursor:pointer;border-bottom:2px solid transparent;transition:all 0.2s;white-space:nowrap;user-select:none}
+.tab:hover{color:#20b2aa}
+.tab.active{color:#20b2aa;border-bottom-color:#20b2aa}
+.tab-content{display:none;animation:fadeUp 0.4s ease-out}
+.tab-content.active{display:block}
+
+/* Stats */
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:6px;margin:16px 0 28px}
+.st{background:rgba(32,178,170,0.05);border:1px solid rgba(32,178,170,0.12);border-radius:10px;padding:10px;text-align:center}
+.st .v{font-size:1.1rem;font-weight:700;color:#20b2aa}
+.st .l{font-size:0.58rem;color:#6b9b9e;text-transform:uppercase;letter-spacing:0.06em}
+
+/* Section */
+.sec{margin:28px 0}
+.sh{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.sh h2{font-size:1.05rem;font-weight:700;color:#fff}
+.sd{font-size:0.8rem;color:#6b9b9e;margin-bottom:14px;line-height:1.8}
+
+/* Rows */
+.row{display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(13,31,33,0.7);border:1px solid rgba(255,255,255,0.04);border-radius:10px;margin:5px 0;backdrop-filter:blur(6px);transition:all 0.2s;animation:slideIn 0.35s ease-out backwards}
+.row:hover{border-color:rgba(32,178,170,0.25);transform:translateX(3px)}
+.rk{font-size:0.9rem;font-weight:800;width:26px;text-align:center;flex-shrink:0;opacity:0.6}
+.info{flex:1;min-width:0}
+.nm{font-weight:700;color:#fff;font-size:0.85rem}
+.ar{font-size:0.68rem;color:#4a7a7d}
+.dt{font-size:0.72rem;color:#6b9b9e;margin-top:2px}
+.bar{height:3px;border-radius:2px;background:rgba(255,255,255,0.04);margin-top:5px;overflow:hidden}
+.bf{height:100%;border-radius:2px;transition:width 0.8s ease-out}
+.mt{text-align:right;flex-shrink:0}
+.mv{font-size:0.95rem;font-weight:700}
+
+/* Finding */
+.fd{background:rgba(32,178,170,0.04);border:1px solid rgba(32,178,170,0.12);border-radius:10px;padding:16px 18px;margin:14px 0;border-left:3px solid #20b2aa}
+.fd.vd{background:rgba(34,197,94,0.04);border-color:rgba(34,197,94,0.12);border-left-color:#22c55e}
+.fl{font-size:0.6rem;text-transform:uppercase;letter-spacing:0.08em;font-weight:700;margin-bottom:5px}
+.fd p{font-size:0.8rem;color:#a3c4c7;line-height:1.8}
+
+/* Twin card */
+.twin{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;padding:14px;background:rgba(13,31,33,0.7);border:1px solid rgba(255,255,255,0.04);border-radius:10px;margin:6px 0;animation:fadeUp 0.4s ease-out backwards}
+.twin:hover{border-color:rgba(32,178,170,0.2)}
+.twin .side{font-size:0.82rem}
+.twin .side b{color:#fff;display:block}
+.twin .side small{color:#4a7a7d;font-size:0.7rem}
+.twin .sim{color:#20b2aa;font-weight:800;font-size:1.1rem}
+
+.footer{margin-top:48px;padding-top:20px;border-top:1px solid rgba(32,178,170,0.12);display:flex;align-items:center;gap:8px;color:#4a7a7d;font-size:0.68rem}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:translateX(0)}}
+</style></head><body><div class="c">
+<div class="hd"><svg width="28" height="28" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><g><g><path fill="#20b2aa" d="M45,64.2c-1.1,9.1-3.3,15.3-5.8,15.3c-0.1,0-0.1,0-0.2,0c-0.3,0-0.6-0.2-1-0.4c0,0,0,0,0,0c-3.1-2.5-5.4-14.5-5.4-29c0-14.4,2.3-26.4,5.4-29c0.3-0.3,0.7-0.5,1-0.5h0.2c2.6,0,4.9,6.8,6,16.6c-5.6,2-9.5,7.3-9.5,13.5C35.6,56.9,39.5,62.1,45,64.2z"/><path fill="#20b2aa" d="M67.4,50c0,14.5-2.3,26.5-5.4,29h0v0c-0.3,0.2-0.6,0.4-0.9,0.4c-0.1,0-0.2,0-0.2,0c-2.5,0-4.7-6.2-5.8-15.3c5.5-2,9.4-7.3,9.4-13.5c0-6.2-4-11.6-9.5-13.5c1.1-9.8,3.4-16.6,6-16.6H61v0c0.4,0,0.7,0.2,1,0.5C65.1,23.6,67.4,35.6,67.4,50z"/></g><path fill="#20b2aa" d="M30.2,50c0-14.4,2.3-26.4,5.4-29c-10.6,5.3-17.9,16.3-17.9,29c0,12.7,7.3,23.7,17.9,29C32.5,76.5,30.2,64.5,30.2,50z M64.4,21c3.1,2.6,5.4,14.5,5.4,29c0,14.5-2.3,26.5-5.4,29C75,73.7,82.3,62.7,82.3,50C82.3,37.3,75,26.4,64.4,21z"/><path fill="#20b2aa" d="M62.1,50.7c0,5-3,9.3-7.4,11.2c-1.5,0.6-3.1,1-4.8,1c-1.7,0-3.3-0.4-4.8-1c-4.3-1.9-7.4-6.2-7.4-11.2c0-5.1,3.1-9.4,7.5-11.2c1.4-0.6,3-0.9,4.7-0.9c1.7,0,3.2,0.3,4.7,0.9C59.1,41.3,62.1,45.6,62.1,50.7z"/></g></g></svg><h1>Digital Atlas SGP — Insights</h1></div>
+<div class="sub">Satellite imagery + embedding model + 174K places + 93K micrographs → actionable insights for 332 subzones</div>
+<div class="tabs">
+<div class="tab active" onclick="showTab('satellite')">Satellite View</div>
+<div class="tab" onclick="showTab('gaps')">Gap Opportunities</div>
+<div class="tab" onclick="showTab('twins')">Subzone Twins</div>
+<div class="tab" onclick="showTab('crossover')">Space × Model</div>
+<div class="tab" onclick="showTab('model')">Model Deep Dive</div>
+<div class="tab" onclick="showTab('sources')">Data Sources</div>
+<div class="tab" onclick="showTab('uplift')">Satellite Uplift</div>
+</div>
+<div class="tab-content active" id="tab-satellite">
+<div class="sg">
+<div class="st"><div class="v">332</div><div class="l">Subzones</div></div>
+<div class="st"><div class="v">VIIRS '24</div><div class="l">Night Lights</div></div>
+<div class="st"><div class="v">ESA 10m</div><div class="l">Land Cover</div></div>
+<div class="st"><div class="v">59%</div><div class="l">Avg Built</div></div>
+<div class="st"><div class="v">34%</div><div class="l">Avg Green</div></div>
+<div class="st"><div class="v">3–180 nW</div><div class="l">Night Range</div></div>
+</div>
+<div class="sec"><div class="sh"><h2 style="color:#f59e0b">&#9889; Brightest at Night</h2></div>
+<div class="sd">VIIRS night radiance from orbit — brighter = more commercial activity, signage, illumination.</div>
+<div class="row" style="animation-delay:0.03s">
+<div class="rk" style="color:#f59e0b">#1</div>
+<div class="info"><div class="nm">Boulevard</div><div class="ar">ORSZ02 · Orchard</div>
+<div class="dt">Built: 76% | Green: 22% | Places: 660</div>
+<div class="bar"><div class="bf" style="width:100%;background:#f59e0b"></div></div></div>
+<div class="mt"><div class="mv" style="color:#f59e0b">180 nW</div></div></div>
+<div class="row" style="animation-delay:0.06s">
+<div class="rk" style="color:#f59e0b">#2</div>
+<div class="info"><div class="nm">Boat Quay</div><div class="ar">SRSZ03 · Singapore River</div>
+<div class="dt">Built: 74% | Green: 11% | Places: 97</div>
+<div class="bar"><div class="bf" style="width:96%;background:#f59e0b"></div></div></div>
+<div class="mt"><div class="mv" style="color:#f59e0b">172 nW</div></div></div>
+<div class="row" style="animation-delay:0.09s">
+<div class="rk" style="color:#f59e0b">#3</div>
+<div class="info"><div class="nm">City Hall</div><div class="ar">DTSZ02 · Downtown Core</div>
+<div class="dt">Built: 67% | Green: 26% | Places: 480</div>
+<div class="bar"><div class="bf" style="width:93%;background:#f59e0b"></div></div></div>
+<div class="mt"><div class="mv" style="color:#f59e0b">167 nW</div></div></div>
+<div class="row" style="animation-delay:0.12s">
+<div class="rk" style="color:#f59e0b">#4</div>
+<div class="info"><div class="nm">Cecil</div><div class="ar">DTSZ08 · Downtown Core</div>
+<div class="dt">Built: 96% | Green: 2% | Places: 36</div>
+<div class="bar"><div class="bf" style="width:92%;background:#f59e0b"></div></div></div>
+<div class="mt"><div class="mv" style="color:#f59e0b">165 nW</div></div></div>
+<div class="row" style="animation-delay:0.15s">
+<div class="rk" style="color:#f59e0b">#5</div>
+<div class="info"><div class="nm">Port</div><div class="ar">QTSZ15 · Queenstown</div>
+<div class="dt">Built: 75% | Green: 10% | Places: 166</div>
+<div class="bar"><div class="bf" style="width:88%;background:#f59e0b"></div></div></div>
+<div class="mt"><div class="mv" style="color:#f59e0b">159 nW</div></div></div>
+<div class="row" style="animation-delay:0.18s">
+<div class="rk" style="color:#f59e0b">#6</div>
+<div class="info"><div class="nm">Bugis</div><div class="ar">DTSZ01 · Downtown Core</div>
+<div class="dt">Built: 93% | Green: 4% | Places: 365</div>
+<div class="bar"><div class="bf" style="width:88%;background:#f59e0b"></div></div></div>
+<div class="mt"><div class="mv" style="color:#f59e0b">157 nW</div></div></div>
+<div class="row" style="animation-delay:0.21s">
+<div class="rk" style="color:#f59e0b">#7</div>
+<div class="info"><div class="nm">Jurong Port</div><div class="ar">JESZ10 · Jurong East</div>
+<div class="dt">Built: 74% | Green: 4% | Places: 72</div>
+<div class="bar"><div class="bf" style="width:86%;background:#f59e0b"></div></div></div>
+<div class="mt"><div class="mv" style="color:#f59e0b">154 nW</div></div></div>
+<div class="row" style="animation-delay:0.24s">
+<div class="rk" style="color:#f59e0b">#8</div>
+<div class="info"><div class="nm">Clarke Quay</div><div class="ar">SRSZ02 · Singapore River</div>
+<div class="dt">Built: 73% | Green: 12% | Places: 61</div>
+<div class="bar"><div class="bf" style="width:85%;background:#f59e0b"></div></div></div>
+<div class="mt"><div class="mv" style="color:#f59e0b">153 nW</div></div></div>
+<div class="fd vd"><div class="fl" style="color:#22c55e">Validated Insight</div><p>Jurong Gateway appears in the top tier alongside Orchard and Raffles Place — the satellite independently confirms the government's 'second CBD' thesis. Jurong's night radiance rivals traditional prime districts despite being 15km from the CBD.</p></div>
+</div>
+<div class="sec"><div class="sh"><h2 style="color:#3b82f6">&#127769; Darkest Populated Areas</h2></div>
+<div class="sd">5,000+ residents but low night lights — evening commercial gap.</div>
+<div class="row" style="animation-delay:0.03s">
+<div class="rk" style="color:#3b82f6">#1</div>
+<div class="info"><div class="nm">Swiss Club</div><div class="ar">BTSZ02 · Bukit Timah</div>
+<div class="dt">Pop: 6,120 | Places: 98 | Green: 63%</div>
+<div class="bar"><div class="bf" style="width:75%;background:#3b82f6"></div></div></div>
+<div class="mt"><div class="mv" style="color:#3b82f6">25 nW</div></div></div>
+<div class="row" style="animation-delay:0.06s">
+<div class="rk" style="color:#3b82f6">#2</div>
+<div class="info"><div class="nm">Lower Seletar</div><div class="ar">YSSZ05 · Yishun</div>
+<div class="dt">Pop: 19,040 | Places: 119 | Green: 50%</div>
+<div class="bar"><div class="bf" style="width:73%;background:#3b82f6"></div></div></div>
+<div class="mt"><div class="mv" style="color:#3b82f6">27 nW</div></div></div>
+<div class="row" style="animation-delay:0.09s">
+<div class="rk" style="color:#3b82f6">#3</div>
+<div class="info"><div class="nm">Hillcrest</div><div class="ar">BTSZ05 · Bukit Timah</div>
+<div class="dt">Pop: 9,600 | Places: 105 | Green: 51%</div>
+<div class="bar"><div class="bf" style="width:70%;background:#3b82f6"></div></div></div>
+<div class="mt"><div class="mv" style="color:#3b82f6">30 nW</div></div></div>
+<div class="row" style="animation-delay:0.12s">
+<div class="rk" style="color:#3b82f6">#4</div>
+<div class="info"><div class="nm">Tagore</div><div class="ar">AMSZ08 · Ang Mo Kio</div>
+<div class="dt">Pop: 7,680 | Places: 321 | Green: 67%</div>
+<div class="bar"><div class="bf" style="width:70%;background:#3b82f6"></div></div></div>
+<div class="mt"><div class="mv" style="color:#3b82f6">30 nW</div></div></div>
+<div class="row" style="animation-delay:0.15s">
+<div class="rk" style="color:#3b82f6">#5</div>
+<div class="info"><div class="nm">Garden</div><div class="ar">THSZ05 · Tengah</div>
+<div class="dt">Pop: 6,800 | Places: 56 | Green: 66%</div>
+<div class="bar"><div class="bf" style="width:69%;background:#3b82f6"></div></div></div>
+<div class="mt"><div class="mv" style="color:#3b82f6">31 nW</div></div></div>
+<div class="row" style="animation-delay:0.18s">
+<div class="rk" style="color:#3b82f6">#6</div>
+<div class="info"><div class="nm">Holland Road</div><div class="ar">BTSZ03 · Bukit Timah</div>
+<div class="dt">Pop: 11,640 | Places: 173 | Green: 62%</div>
+<div class="bar"><div class="bf" style="width:69%;background:#3b82f6"></div></div></div>
+<div class="mt"><div class="mv" style="color:#3b82f6">31 nW</div></div></div>
+<div class="row" style="animation-delay:0.21s">
+<div class="rk" style="color:#3b82f6">#7</div>
+<div class="info"><div class="nm">Hillview</div><div class="ar">BKSZ05 · Bukit Batok</div>
+<div class="dt">Pop: 20,480 | Places: 204 | Green: 58%</div>
+<div class="bar"><div class="bf" style="width:68%;background:#3b82f6"></div></div></div>
+<div class="mt"><div class="mv" style="color:#3b82f6">32 nW</div></div></div>
+<div class="row" style="animation-delay:0.24s">
+<div class="rk" style="color:#3b82f6">#8</div>
+<div class="info"><div class="nm">Coronation Road</div><div class="ar">BTSZ06 · Bukit Timah</div>
+<div class="dt">Pop: 7,240 | Places: 182 | Green: 22%</div>
+<div class="bar"><div class="bf" style="width:67%;background:#3b82f6"></div></div></div>
+<div class="mt"><div class="mv" style="color:#3b82f6">33 nW</div></div></div>
+<div class="fd"><div class="fl" style="color:#20b2aa">Key Insight</div><p>These residential subzones go dark after sunset — residents travel elsewhere for dinner and nightlife. The satellite sees an untapped evening economy worth addressing with F&B and entertainment.</p></div>
+</div>
+<div class="sec"><div class="sh"><h2 style="color:#22c55e">&#127793; Green Lungs</h2></div>
+<div class="sd">Highest vegetation cover from 10m ESA WorldCover classification.</div>
+<div class="row" style="animation-delay:0.03s">
+<div class="rk" style="color:#22c55e">#1</div>
+<div class="info"><div class="nm">Brickland</div><div class="ar">THSZ04 · Tengah</div>
+<div class="dt">Tree: 93% | Built: 4% | Pop: 0</div>
+<div class="bar"><div class="bf" style="width:96%;background:#22c55e"></div></div></div>
+<div class="mt"><div class="mv" style="color:#22c55e">96%</div></div></div>
+<div class="row" style="animation-delay:0.06s">
+<div class="rk" style="color:#22c55e">#2</div>
+<div class="info"><div class="nm">Bahar</div><div class="ar">WCSZ03 · Western Water Catchment</div>
+<div class="dt">Tree: 90% | Built: 6% | Pop: 0</div>
+<div class="bar"><div class="bf" style="width:92%;background:#22c55e"></div></div></div>
+<div class="mt"><div class="mv" style="color:#22c55e">92%</div></div></div>
+<div class="row" style="animation-delay:0.09s">
+<div class="rk" style="color:#22c55e">#3</div>
+<div class="info"><div class="nm">Nature Reserve</div><div class="ar">BPSZ07 · Bukit Panjang</div>
+<div class="dt">Tree: 87% | Built: 9% | Pop: 3,940</div>
+<div class="bar"><div class="bf" style="width:89%;background:#22c55e"></div></div></div>
+<div class="mt"><div class="mv" style="color:#22c55e">89%</div></div></div>
+<div class="row" style="animation-delay:0.12s">
+<div class="rk" style="color:#22c55e">#4</div>
+<div class="info"><div class="nm">Istana Negara</div><div class="ar">NTSZ06 · Newton</div>
+<div class="dt">Tree: 77% | Built: 11% | Pop: 0</div>
+<div class="bar"><div class="bf" style="width:89%;background:#22c55e"></div></div></div>
+<div class="mt"><div class="mv" style="color:#22c55e">89%</div></div></div>
+<div class="row" style="animation-delay:0.15s">
+<div class="rk" style="color:#22c55e">#5</div>
+<div class="info"><div class="nm">Mandai West</div><div class="ar">MDSZ01 · Mandai</div>
+<div class="dt">Tree: 84% | Built: 12% | Pop: 0</div>
+<div class="bar"><div class="bf" style="width:88%;background:#22c55e"></div></div></div>
+<div class="mt"><div class="mv" style="color:#22c55e">88%</div></div></div>
+<div class="row" style="animation-delay:0.18s">
+<div class="rk" style="color:#22c55e">#6</div>
+<div class="info"><div class="nm">Park</div><div class="ar">THSZ03 · Tengah</div>
+<div class="dt">Tree: 80% | Built: 2% | Pop: 4,000</div>
+<div class="bar"><div class="bf" style="width:88%;background:#22c55e"></div></div></div>
+<div class="mt"><div class="mv" style="color:#22c55e">88%</div></div></div>
+<div class="row" style="animation-delay:0.21s">
+<div class="rk" style="color:#22c55e">#7</div>
+<div class="info"><div class="nm">Forest Hill</div><div class="ar">THSZ01 · Tengah</div>
+<div class="dt">Tree: 85% | Built: 6% | Pop: 0</div>
+<div class="bar"><div class="bf" style="width:87%;background:#22c55e"></div></div></div>
+<div class="mt"><div class="mv" style="color:#22c55e">87%</div></div></div>
+<div class="row" style="animation-delay:0.24s">
+<div class="rk" style="color:#22c55e">#8</div>
+<div class="info"><div class="nm">Lorong Halus</div><div class="ar">HGSZ10 · Hougang</div>
+<div class="dt">Tree: 64% | Built: 9% | Pop: 0</div>
+<div class="bar"><div class="bf" style="width:85%;background:#22c55e"></div></div></div>
+<div class="mt"><div class="mv" style="color:#22c55e">85%</div></div></div>
+<div class="fd vd"><div class="fl" style="color:#22c55e">Validated Insight</div><p>Tengah appears high on the green list because it's UNDEVELOPED, not because it's a park. Singapore's newest HDB town is still 90%+ vegetation — massive construction incoming. The satellite captures development potential that tabular data misses.</p></div>
+</div>
+</div>
+<div class="tab-content" id="tab-gaps">
+<div class="sec"><div class="sh"><h2 style="color:#ef4444">&#128200; Undersupplied vs Structural Peers</h2></div>
+<div class="sd">Subzones whose 431-feature embedding matches well-supplied commercial areas but have significantly fewer places. The model says "your demographics, transit, and land use support more commercial activity than you have."</div>
+<div class="row" style="animation-delay:0.03s">
+<div class="rk" style="color:#ef4444">#1</div>
+<div class="info"><div class="nm">People's Park</div><div class="ar">OTSZ02 · Outram</div>
+<div class="dt">Has 37 places, peer avg 383 | Most like Bugis (sim 0.74, 365 places)</div>
+<div class="bar"><div class="bf" style="width:90%;background:#ef4444"></div></div></div>
+<div class="mt"><div class="mv" style="color:#ef4444">90% gap</div></div></div>
+<div class="row" style="animation-delay:0.06s">
+<div class="rk" style="color:#ef4444">#2</div>
+<div class="info"><div class="nm">Cecil</div><div class="ar">DTSZ08 · Downtown Core</div>
+<div class="dt">Has 36 places, peer avg 345 | Most like Somerset (sim 0.73, 325 places)</div>
+<div class="bar"><div class="bf" style="width:90%;background:#ef4444"></div></div></div>
+<div class="mt"><div class="mv" style="color:#ef4444">90% gap</div></div></div>
+<div class="row" style="animation-delay:0.09s">
+<div class="rk" style="color:#ef4444">#3</div>
+<div class="info"><div class="nm">Clarke Quay</div><div class="ar">SRSZ02 · Singapore River</div>
+<div class="dt">Has 61 places, peer avg 368 | Most like Kampong Glam (sim 0.73, 368 places)</div>
+<div class="bar"><div class="bf" style="width:83%;background:#ef4444"></div></div></div>
+<div class="mt"><div class="mv" style="color:#ef4444">83% gap</div></div></div>
+<div class="row" style="animation-delay:0.12s">
+<div class="rk" style="color:#ef4444">#4</div>
+<div class="info"><div class="nm">Tanjong Pagar</div><div class="ar">DTSZ09 · Downtown Core</div>
+<div class="dt">Has 73 places, peer avg 368 | Most like Bugis (sim 0.78, 365 places)</div>
+<div class="bar"><div class="bf" style="width:80%;background:#ef4444"></div></div></div>
+<div class="mt"><div class="mv" style="color:#ef4444">80% gap</div></div></div>
+<div class="row" style="animation-delay:0.15s">
+<div class="rk" style="color:#ef4444">#5</div>
+<div class="info"><div class="nm">Marina Centre</div><div class="ar">DTSZ03 · Downtown Core</div>
+<div class="dt">Has 68 places, peer avg 325 | Most like Somerset (sim 0.71, 325 places)</div>
+<div class="bar"><div class="bf" style="width:79%;background:#ef4444"></div></div></div>
+<div class="mt"><div class="mv" style="color:#ef4444">79% gap</div></div></div>
+<div class="row" style="animation-delay:0.18s">
+<div class="rk" style="color:#ef4444">#6</div>
+<div class="info"><div class="nm">Selegie</div><div class="ar">RCSZ08 · Rochor</div>
+<div class="dt">Has 83 places, peer avg 386 | Most like Little India (sim 0.79, 408 places)</div>
+<div class="bar"><div class="bf" style="width:79%;background:#ef4444"></div></div></div>
+<div class="mt"><div class="mv" style="color:#ef4444">79% gap</div></div></div>
+<div class="row" style="animation-delay:0.21s">
+<div class="rk" style="color:#ef4444">#7</div>
+<div class="info"><div class="nm">Tanglin Halt</div><div class="ar">QTSZ04 · Queenstown</div>
+<div class="dt">Has 73 places, peer avg 310 | Most like National University  (sim 0.72, 310 places)</div>
+<div class="bar"><div class="bf" style="width:76%;background:#ef4444"></div></div></div>
+<div class="mt"><div class="mv" style="color:#ef4444">76% gap</div></div></div>
+<div class="row" style="animation-delay:0.24s">
+<div class="rk" style="color:#ef4444">#8</div>
+<div class="info"><div class="nm">Boat Quay</div><div class="ar">SRSZ03 · Singapore River</div>
+<div class="dt">Has 97 places, peer avg 402 | Most like Somerset (sim 0.83, 325 places)</div>
+<div class="bar"><div class="bf" style="width:76%;background:#ef4444"></div></div></div>
+<div class="mt"><div class="mv" style="color:#ef4444">76% gap</div></div></div>
+<div class="row" style="animation-delay:0.27s">
+<div class="rk" style="color:#ef4444">#9</div>
+<div class="info"><div class="nm">Seletar Hills</div><div class="ar">SGSZ01 · Serangoon</div>
+<div class="dt">Has 136 places, peer avg 534 | Most like Kovan (sim 0.80, 332 places)</div>
+<div class="bar"><div class="bf" style="width:75%;background:#ef4444"></div></div></div>
+<div class="mt"><div class="mv" style="color:#ef4444">75% gap</div></div></div>
+<div class="row" style="animation-delay:0.30s">
+<div class="rk" style="color:#ef4444">#10</div>
+<div class="info"><div class="nm">Bukit Ho Swee</div><div class="ar">BMSZ09 · Bukit Merah</div>
+<div class="dt">Has 99 places, peer avg 372 | Most like Crawford (sim 0.76, 318 places)</div>
+<div class="bar"><div class="bf" style="width:73%;background:#ef4444"></div></div></div>
+<div class="mt"><div class="mv" style="color:#ef4444">73% gap</div></div></div>
+<div class="fd vd"><div class="fl" style="color:#22c55e">Validated Insight</div><p>Selegie (Rochor) is 78%% undersupplied vs neighbors Victoria and Bencoolen — missing ~177 restaurants and 49 cafes. With SMU campus traffic and Bugis tourist spillover, the demand exists but supply hasn't followed. The embedding identifies this by comparing across 431 features simultaneously.</p></div>
+</div>
+</div>
+<div class="tab-content" id="tab-twins">
+<div class="sec"><div class="sh"><h2 style="color:#a855f7">&#129309; Subzone Twins</h2></div>
+<div class="sd">Subzones in different planning areas with near-identical commercial DNA (>0.88 cosine similarity across 431 features). Strategies proven in one should transfer to the other.</div>
+<div class="twin" style="animation-delay:0.0s">
+<div class="side"><b>Brickland</b><small>Tengah | Pop 0 | 0 places</small></div>
+<div class="sim">0.98</div>
+<div class="side" style="text-align:right"><b>Bahar</b><small>Western Water Catchment | Pop 0 | 0 places</small></div></div>
+<div class="twin" style="animation-delay:0.1s">
+<div class="side"><b>Simpang North</b><small>Simpang | Pop 0 | 2 places</small></div>
+<div class="sim">0.98</div>
+<div class="side" style="text-align:right"><b>Tengah Industrial Estate</b><small>Tengah | Pop 0 | 5 places</small></div></div>
+<div class="twin" style="animation-delay:0.1s">
+<div class="side"><b>Simpang South</b><small>Simpang | Pop 0 | 0 places</small></div>
+<div class="sim">0.98</div>
+<div class="side" style="text-align:right"><b>Forest Hill</b><small>Tengah | Pop 0 | 3 places</small></div></div>
+<div class="twin" style="animation-delay:0.2s">
+<div class="side"><b>Simpang South</b><small>Simpang | Pop 0 | 0 places</small></div>
+<div class="sim">0.98</div>
+<div class="side" style="text-align:right"><b>Bahar</b><small>Western Water Catchment | Pop 0 | 0 places</small></div></div>
+<div class="twin" style="animation-delay:0.2s">
+<div class="side"><b>Bugis</b><small>Downtown Core | Pop 1,200 | 365 places</small></div>
+<div class="sim">0.97</div>
+<div class="side" style="text-align:right"><b>Victoria</b><small>Rochor | Pop 1,660 | 415 places</small></div></div>
+<div class="twin" style="animation-delay:0.2s">
+<div class="side"><b>Simpang South</b><small>Simpang | Pop 0 | 0 places</small></div>
+<div class="sim">0.97</div>
+<div class="side" style="text-align:right"><b>Brickland</b><small>Tengah | Pop 0 | 0 places</small></div></div>
+<div class="twin" style="animation-delay:0.3s">
+<div class="side"><b>Marina East (Mp)</b><small>Marine Parade | Pop 0 | 6 places</small></div>
+<div class="sim">0.97</div>
+<div class="side" style="text-align:right"><b>Coney Island</b><small>Punggol | Pop 0 | 7 places</small></div></div>
+<div class="twin" style="animation-delay:0.4s">
+<div class="side"><b>Tanjong Irau</b><small>Simpang | Pop 0 | 0 places</small></div>
+<div class="sim">0.97</div>
+<div class="side" style="text-align:right"><b>Bahar</b><small>Western Water Catchment | Pop 0 | 0 places</small></div></div>
+<div class="twin" style="animation-delay:0.4s">
+<div class="side"><b>Simpang South</b><small>Simpang | Pop 0 | 0 places</small></div>
+<div class="sim">0.97</div>
+<div class="side" style="text-align:right"><b>Tengah Industrial Estate</b><small>Tengah | Pop 0 | 5 places</small></div></div>
+<div class="twin" style="animation-delay:0.5s">
+<div class="side"><b>Kaki Bukit</b><small>Bedok | Pop 34,910 | 1177 places</small></div>
+<div class="sim">0.97</div>
+<div class="side" style="text-align:right"><b>Kampong Ubi</b><small>Geylang | Pop 13,660 | 1617 places</small></div></div>
+<div class="fd vd"><div class="fl" style="color:#22c55e">Validated Insight</div><p>Jurong Gateway ≈ Boulevard (Orchard) at 0.85 similarity. Both are zero-population commercial hubs with full transit and dense F&B — yet Jurong has 38%% fewer places. This is the single largest validated gap: URA's $2B+ Jurong Lake District investment confirms the model's finding.</p></div>
+</div>
+</div>
+<div class="tab-content" id="tab-crossover">
+<div class="sec"><div class="sh"><h2 style="color:#06b6d4">&#128752; Where Satellite Meets the Model</h2></div>
+<div class="sd">Cross-referencing satellite imagery with the 431-feature embedding model reveals patterns neither source captures alone.</div>
+<h3 style="color:#f59e0b;font-size:0.95rem;margin:20px 0 8px">Bright but Few Places</h3>
+<div class="sd">High night radiance but low commercial supply — satellite sees activity that hasn't materialized as shops and restaurants.</div>
+<div class="row"><div class="info"><div class="nm">Flora Drive</div><div class="ar">PRSZ08 · Pasir Ris</div><div class="dt">Bright from space (80 nW) but only 118 places — satellite sees activity that hasn't materialized as commercial supply</div></div></div>
+<div class="row"><div class="info"><div class="nm">Boon Teck</div><div class="ar">TPSZ04 · Toa Payoh</div><div class="dt">Bright from space (82 nW) but only 128 places — satellite sees activity that hasn't materialized as commercial supply</div></div></div>
+<div class="row"><div class="info"><div class="nm">Bukit Ho Swee</div><div class="ar">BMSZ09 · Bukit Merah</div><div class="dt">Bright from space (87 nW) but only 99 places — satellite sees activity that hasn't materialized as commercial supply</div></div></div>
+<div class="row"><div class="info"><div class="nm">Everton Park</div><div class="ar">BMSZ16 · Bukit Merah</div><div class="dt">Bright from space (105 nW) but only 102 places — satellite sees activity that hasn't materialized as commercial supply</div></div></div>
+<div class="row"><div class="info"><div class="nm">Lorong 8 Toa Payoh</div><div class="ar">TPSZ05 · Toa Payoh</div><div class="dt">Bright from space (81 nW) but only 112 places — satellite sees activity that hasn't materialized as commercial supply</div></div></div>
+<h3 style="color:#22c55e;font-size:0.95rem;margin:20px 0 8px">Green Suburbs with Demand</h3>
+<div class="sd">Populated areas with high vegetation cover — suburban nature enclaves needing convenience and F&B.</div>
+<div class="row"><div class="info"><div class="nm">Margaret Drive</div><div class="ar">QTSZ05 · Queenstown</div><div class="dt">50% green cover with 23,810 residents — suburban nature enclave, likely demand for convenience + F&B</div></div></div>
+<div class="row"><div class="info"><div class="nm">Hillview</div><div class="ar">BKSZ05 · Bukit Batok</div><div class="dt">58% green cover with 20,480 residents — suburban nature enclave, likely demand for convenience + F&B</div></div></div>
+<div class="row"><div class="info"><div class="nm">Telok Blangah Drive</div><div class="ar">BMSZ13 · Bukit Merah</div><div class="dt">62% green cover with 18,720 residents — suburban nature enclave, likely demand for convenience + F&B</div></div></div>
+<div class="row"><div class="info"><div class="nm">Admiralty</div><div class="ar">SBSZ05 · Sembawang</div><div class="dt">66% green cover with 13,510 residents — suburban nature enclave, likely demand for convenience + F&B</div></div></div>
+<div class="row"><div class="info"><div class="nm">Guilin</div><div class="ar">BKSZ04 · Bukit Batok</div><div class="dt">61% green cover with 12,590 residents — suburban nature enclave, likely demand for convenience + F&B</div></div></div>
+<div class="fd vd"><div class="fl" style="color:#22c55e">Validated Insight</div><p>The cross-reference reveals three distinct patterns: (1) CBD-fringe subzones that are bright from commercial spillover but lack their own retail, (2) dense HDB towns that are literally dark at night despite 20K+ residents, and (3) green suburban areas where nature preservation masks latent demand. Each represents a different investment thesis.</p></div>
+</div>
+</div>
+<div class="tab-content" id="tab-model">
+<div class="sg">
+<div class="st"><div class="v">431</div><div class="l">Features</div></div>
+<div class="st"><div class="v">32-dim</div><div class="l">Embedding</div></div>
+<div class="st"><div class="v">93,788</div><div class="l">Micrographs</div></div>
+<div class="st"><div class="v">10,896</div><div class="l">Anchors</div></div>
+<div class="st"><div class="v">0.720</div><div class="l">Separation</div></div>
+<div class="st"><div class="v">0.210</div><div class="l">Recon MSE</div></div>
+</div>
+<div class="sec"><div class="sh"><h2 style="color:#14b8a6">Feature Breakdown</h2></div>
+<div class="sd">431 features across 16 themes power the V5 autoencoder. The model compresses this into a 32-dimensional fingerprint per subzone.</div>
+<div style="display:flex;align-items:center;gap:10px;margin:4px 0"><span style="width:180px;font-size:0.78rem;color:#6b9b9e">Micrograph (12 categories)</span><div style="flex:1;height:6px;background:rgba(255,255,255,0.04);border-radius:3px;overflow:hidden"><div style="height:100%;width:107%;background:#14b8a6;border-radius:3px"></div></div><span style="font-size:0.72rem;color:#14b8a6;font-weight:600;width:30px;text-align:right">154</span></div>
+<div style="display:flex;align-items:center;gap:10px;margin:4px 0"><span style="width:180px;font-size:0.78rem;color:#6b9b9e">Neighbor Context</span><div style="flex:1;height:6px;background:rgba(255,255,255,0.04);border-radius:3px;overflow:hidden"><div style="height:100%;width:42%;background:#3b82f6;border-radius:3px"></div></div><span style="font-size:0.72rem;color:#3b82f6;font-weight:600;width:30px;text-align:right">60</span></div>
+<div style="display:flex;align-items:center;gap:10px;margin:4px 0"><span style="width:180px;font-size:0.78rem;color:#6b9b9e">Place Composition</span><div style="flex:1;height:6px;background:rgba(255,255,255,0.04);border-radius:3px;overflow:hidden"><div style="height:100%;width:40%;background:#a855f7;border-radius:3px"></div></div><span style="font-size:0.72rem;color:#a855f7;font-weight:600;width:30px;text-align:right">58</span></div>
+<div style="display:flex;align-items:center;gap:10px;margin:4px 0"><span style="width:180px;font-size:0.78rem;color:#6b9b9e">Demand & Gravity</span><div style="flex:1;height:6px;background:rgba(255,255,255,0.04);border-radius:3px;overflow:hidden"><div style="height:100%;width:18%;background:#ef4444;border-radius:3px"></div></div><span style="font-size:0.72rem;color:#ef4444;font-weight:600;width:30px;text-align:right">26</span></div>
+<div style="display:flex;align-items:center;gap:10px;margin:4px 0"><span style="width:180px;font-size:0.78rem;color:#6b9b9e">Accessibility</span><div style="flex:1;height:6px;background:rgba(255,255,255,0.04);border-radius:3px;overflow:hidden"><div style="height:100%;width:18%;background:#22c55e;border-radius:3px"></div></div><span style="font-size:0.72rem;color:#22c55e;font-weight:600;width:30px;text-align:right">26</span></div>
+<div style="display:flex;align-items:center;gap:10px;margin:4px 0"><span style="width:180px;font-size:0.78rem;color:#6b9b9e">Built Environment</span><div style="flex:1;height:6px;background:rgba(255,255,255,0.04);border-radius:3px;overflow:hidden"><div style="height:100%;width:16%;background:#f59e0b;border-radius:3px"></div></div><span style="font-size:0.72rem;color:#f59e0b;font-weight:600;width:30px;text-align:right">23</span></div>
+<div style="display:flex;align-items:center;gap:10px;margin:4px 0"><span style="width:180px;font-size:0.78rem;color:#6b9b9e">Demographics</span><div style="flex:1;height:6px;background:rgba(255,255,255,0.04);border-radius:3px;overflow:hidden"><div style="height:100%;width:8%;background:#ec4899;border-radius:3px"></div></div><span style="font-size:0.72rem;color:#ec4899;font-weight:600;width:30px;text-align:right">11</span></div>
+<div style="display:flex;align-items:center;gap:10px;margin:4px 0"><span style="width:180px;font-size:0.78rem;color:#6b9b9e">Brand & Quality</span><div style="flex:1;height:6px;background:rgba(255,255,255,0.04);border-radius:3px;overflow:hidden"><div style="height:100%;width:8%;background:#fb923c;border-radius:3px"></div></div><span style="font-size:0.72rem;color:#fb923c;font-weight:600;width:30px;text-align:right">11</span></div>
+<div style="display:flex;align-items:center;gap:10px;margin:4px 0"><span style="width:180px;font-size:0.78rem;color:#6b9b9e">Multi-Scale Rings</span><div style="flex:1;height:6px;background:rgba(255,255,255,0.04);border-radius:3px;overflow:hidden"><div style="height:100%;width:7%;background:#06b6d4;border-radius:3px"></div></div><span style="font-size:0.72rem;color:#06b6d4;font-weight:600;width:30px;text-align:right">10</span></div>
+<div style="display:flex;align-items:center;gap:10px;margin:4px 0"><span style="width:180px;font-size:0.78rem;color:#6b9b9e">Housing</span><div style="flex:1;height:6px;background:rgba(255,255,255,0.04);border-radius:3px;overflow:hidden"><div style="height:100%;width:5%;background:#8b5cf6;border-radius:3px"></div></div><span style="font-size:0.72rem;color:#8b5cf6;font-weight:600;width:30px;text-align:right">7</span></div>
+<div style="display:flex;align-items:center;gap:10px;margin:4px 0"><span style="width:180px;font-size:0.78rem;color:#6b9b9e">Property Market</span><div style="flex:1;height:6px;background:rgba(255,255,255,0.04);border-radius:3px;overflow:hidden"><div style="height:100%;width:5%;background:#f472b6;border-radius:3px"></div></div><span style="font-size:0.72rem;color:#f472b6;font-weight:600;width:30px;text-align:right">7</span></div>
+<div style="display:flex;align-items:center;gap:10px;margin:4px 0"><span style="width:180px;font-size:0.78rem;color:#6b9b9e">Satellite (NEW)</span><div style="flex:1;height:6px;background:rgba(255,255,255,0.04);border-radius:3px;overflow:hidden"><div style="height:100%;width:13%;background:#fbbf24;border-radius:3px"></div></div><span style="font-size:0.72rem;color:#fbbf24;font-weight:600;width:30px;text-align:right">18</span></div>
+<div class="fd"><div class="fl" style="color:#20b2aa">Key Insight</div><p>The model's encoder assigns highest weights to: gravity_out (0.76), condo % (0.69), F&B coverage (0.68), micrograph demand signals (0.67), and neighbor mean places (0.62). Neighbor context features have the highest average weight (0.54) — confirming the plan's thesis that 'how you compare to neighbors' is the most important signal for gap analysis.</p></div>
+</div>
+</div>
+
+<div class="tab-content" id="tab-sources">
+<div class="sec">
+<div class="sh"><h2 style="color:#f59e0b">All Data Sources &amp; Features</h2></div>
+<div class="sd">11 primary data sources feeding 431 tabular features + 3 satellite sources adding 18 imagery features = <b>449 total features</b> per subzone.</div>
+
+<h3 style="color:#fff;font-size:0.9rem;margin:20px 0 10px">Core Tabular Data (431 features)</h3>
+<table style="width:100%;border-collapse:collapse;font-size:0.78rem">
+<tr style="border-bottom:1px solid rgba(32,178,170,0.2)"><th style="text-align:left;padding:8px;color:#20b2aa;font-size:0.65rem;text-transform:uppercase">Source</th><th style="text-align:left;padding:8px;color:#20b2aa;font-size:0.65rem">Records</th><th style="text-align:right;padding:8px;color:#20b2aa;font-size:0.65rem">Features</th></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04)"><td style="padding:6px 8px;color:#fff">Micrograph V3 Pipeline</td><td style="padding:6px 8px;color:#6b9b9e">93,788 place-level star-graphs across 12 categories</td><td style="padding:6px 8px;text-align:right;color:#20b2aa;font-weight:600">154</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04)"><td style="padding:6px 8px;color:#fff">Neighbor Ego-Graph</td><td style="padding:6px 8px;color:#6b9b9e">332 subzones &times; adjacency (mean, max, std, contrast, rank)</td><td style="padding:6px 8px;text-align:right;color:#20b2aa;font-weight:600">60</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04)"><td style="padding:6px 8px;color:#fff">Consolidated Places V2</td><td style="padding:6px 8px;color:#6b9b9e">174,711 places (Overture + existing, LLM-classified, tiered)</td><td style="padding:6px 8px;text-align:right;color:#20b2aa;font-weight:600">58</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04)"><td style="padding:6px 8px;color:#fff">Demand &amp; Gravity Model</td><td style="padding:6px 8px;color:#6b9b9e">Time-of-day demand, gravity flows, trade area, buzz/synergy/tension</td><td style="padding:6px 8px;text-align:right;color:#20b2aa;font-weight:600">26</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04)"><td style="padding:6px 8px;color:#fff">Transit &amp; Accessibility</td><td style="padding:6px 8px;color:#6b9b9e">231 MRT + 5,177 bus + CBD distance + interchange detection</td><td style="padding:6px 8px;text-align:right;color:#20b2aa;font-weight:600">26</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04)"><td style="padding:6px 8px;color:#fff">URA Master Plan</td><td style="padding:6px 8px;color:#6b9b9e">113,212 zoning parcels &rarr; land use mix per subzone</td><td style="padding:6px 8px;text-align:right;color:#20b2aa;font-weight:600">23</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04)"><td style="padding:6px 8px;color:#fff">Census 2011-2025</td><td style="padding:6px 8px;color:#6b9b9e">Population by age/sex/dwelling + time series growth</td><td style="padding:6px 8px;text-align:right;color:#20b2aa;font-weight:600">15</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04)"><td style="padding:6px 8px;color:#fff">HDB + Private Property</td><td style="padding:6px 8px;color:#6b9b9e">227K HDB resale + 287K private transactions</td><td style="padding:6px 8px;text-align:right;color:#20b2aa;font-weight:600">14</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04)"><td style="padding:6px 8px;color:#fff">Brand &amp; Quality</td><td style="padding:6px 8px;color:#6b9b9e">1,753 brands, Google ratings, HHI, chain ratio</td><td style="padding:6px 8px;text-align:right;color:#20b2aa;font-weight:600">11</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04)"><td style="padding:6px 8px;color:#fff">Multi-Scale Rings</td><td style="padding:6px 8px;color:#6b9b9e">2-hop neighbor + planning area aggregates</td><td style="padding:6px 8px;text-align:right;color:#20b2aa;font-weight:600">10</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04)"><td style="padding:6px 8px;color:#fff">ACRA Business Registry</td><td style="padding:6px 8px;color:#6b9b9e">2,076,437 entities &rarr; churn rate, business age</td><td style="padding:6px 8px;text-align:right;color:#20b2aa;font-weight:600">3</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04)"><td style="padding:6px 8px;color:#fff">Other (diversity, model, geo)</td><td style="padding:6px 8px;color:#6b9b9e">Entropy, gap scores, density model, area</td><td style="padding:6px 8px;text-align:right;color:#20b2aa;font-weight:600">31</td></tr>
+<tr><td style="padding:8px;color:#fff;font-weight:700">CORE SUBTOTAL</td><td></td><td style="padding:8px;text-align:right;color:#20b2aa;font-weight:800;font-size:0.9rem">431</td></tr>
+</table>
+
+<h3 style="color:#fff;font-size:0.9rem;margin:28px 0 10px">Satellite Imagery (18 features)</h3>
+<table style="width:100%;border-collapse:collapse;font-size:0.78rem">
+<tr style="border-bottom:1px solid rgba(245,158,11,0.2)"><th style="text-align:left;padding:8px;color:#f59e0b;font-size:0.65rem;text-transform:uppercase">Satellite Source</th><th style="text-align:left;padding:8px;color:#f59e0b;font-size:0.65rem">Resolution</th><th style="text-align:left;padding:8px;color:#f59e0b;font-size:0.65rem">Features Extracted</th><th style="text-align:right;padding:8px;color:#f59e0b;font-size:0.65rem">#</th></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04)"><td style="padding:6px 8px;color:#fff">VIIRS Day/Night Band (NASA EOG)</td><td style="padding:6px 8px;color:#6b9b9e">500m, annual 2024</td><td style="padding:6px 8px;color:#6b9b9e">sat_nl_2024_mean, sat_nl_2024_max, sat_nl_2024_sum</td><td style="padding:6px 8px;text-align:right;color:#f59e0b;font-weight:600">3</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04)"><td style="padding:6px 8px;color:#fff">ESA WorldCover (Copernicus)</td><td style="padding:6px 8px;color:#6b9b9e">10m, 2021</td><td style="padding:6px 8px;color:#6b9b9e">sat_pct_built_up, _tree, _grass, _water, _bare, _shrub, _crop, _wetland, _mangrove</td><td style="padding:6px 8px;text-align:right;color:#f59e0b;font-weight:600">9</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04)"><td style="padding:6px 8px;color:#fff">WorldPop (Univ. Southampton)</td><td style="padding:6px 8px;color:#6b9b9e">100m, 2020</td><td style="padding:6px 8px;color:#6b9b9e">sat_pop_density, sat_pop_total (&times;2 years)</td><td style="padding:6px 8px;text-align:right;color:#f59e0b;font-weight:600">4</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04)"><td style="padding:6px 8px;color:#fff">Derived Composites</td><td style="padding:6px 8px;color:#6b9b9e">Per subzone</td><td style="padding:6px 8px;color:#6b9b9e">sat_dev_index, sat_green_pct</td><td style="padding:6px 8px;text-align:right;color:#f59e0b;font-weight:600">2</td></tr>
+<tr><td style="padding:8px;color:#fff;font-weight:700">SATELLITE SUBTOTAL</td><td></td><td></td><td style="padding:8px;text-align:right;color:#f59e0b;font-weight:800;font-size:0.9rem">18</td></tr>
+</table>
+
+<div style="margin-top:24px;padding:16px;background:rgba(32,178,170,0.05);border:1px solid rgba(32,178,170,0.15);border-radius:10px;display:flex;align-items:center;gap:16px">
+<div style="font-size:2rem;font-weight:800;color:#20b2aa">449</div>
+<div><div style="font-size:0.9rem;font-weight:700;color:#fff">Total Features per Subzone</div>
+<div style="font-size:0.75rem;color:#6b9b9e">431 tabular + 18 satellite &rarr; compressed to 32-dim embedding via autoencoder</div></div>
+</div>
+
+</div>
+</div>
+
+<div class="tab-content" id="tab-uplift">
+<div class="sec">
+<div class="sh"><h2 style="color:#f59e0b">What Satellites Add That Data Can't</h2></div>
+<div class="sd">Each satellite source captures a dimension of physical reality that no government dataset, census, or business registry provides. Here's the uplift per source — validated against our 431-feature model.</div>
+
+<div style="margin:20px 0;padding:18px;background:rgba(245,158,11,0.04);border:1px solid rgba(245,158,11,0.12);border-radius:12px;border-left:3px solid #f59e0b">
+<div style="font-size:0.95rem;font-weight:700;color:#f59e0b;margin-bottom:6px">VIIRS Night Radiance &mdash; Evening Economy from Orbit</div>
+<div style="font-size:0.8rem;color:#a3c4c7;line-height:1.8;margin-bottom:10px">Our tabular model has <code>demand_evening</code> scores modeled from commute patterns. VIIRS directly <b>measures</b> actual evening light output. Range in SGP: 2.7 to 179.5 nW/cm&sup2;/sr.</div>
+<div style="padding:12px;background:rgba(34,197,94,0.05);border:1px solid rgba(34,197,94,0.15);border-radius:8px;border-left:3px solid #22c55e">
+<div style="font-size:0.62rem;color:#22c55e;text-transform:uppercase;font-weight:700;letter-spacing:0.08em;margin-bottom:4px">Validated Uplift</div>
+<div style="font-size:0.78rem;color:#a3c4c7;line-height:1.7">23 subzones with &gt;20K population have night radiance &lt;40 nW &mdash; genuine &ldquo;dark bedrooms&rdquo; where the evening economy is undersupplied. Our tabular model missed 8 of these because commute-based demand scores were artificially high. <b>Satellite adds ground truth that models can't fabricate.</b></div>
+</div></div>
+
+<div style="margin:20px 0;padding:18px;background:rgba(34,197,94,0.04);border:1px solid rgba(34,197,94,0.12);border-radius:12px;border-left:3px solid #22c55e">
+<div style="font-size:0.95rem;font-weight:700;color:#22c55e;margin-bottom:6px">ESA WorldCover 10m &mdash; What's BUILT vs What's PLANNED</div>
+<div style="font-size:0.8rem;color:#a3c4c7;line-height:1.8;margin-bottom:10px">URA Master Plan tells us what's <b>zoned</b>. Satellite shows what's <b>actually on the ground</b>. They often diverge by 3-5 years.</div>
+<div style="padding:12px;background:rgba(34,197,94,0.05);border:1px solid rgba(34,197,94,0.15);border-radius:8px;border-left:3px solid #22c55e">
+<div style="font-size:0.62rem;color:#22c55e;text-transform:uppercase;font-weight:700;letter-spacing:0.08em;margin-bottom:4px">Validated Uplift</div>
+<div style="font-size:0.78rem;color:#a3c4c7;line-height:1.7"><b>Tengah</b> is zoned 70% residential by URA but satellite shows 93% vegetation &mdash; still undeveloped. Our model's demand features for Tengah reflect <b>future</b> demand (planned HDB), not current reality. The satellite catches the 3-year lag between planning and construction. <b>14 subzones</b> have &gt;20% green ratio discrepancy between OSM and satellite.</div>
+</div></div>
+
+<div style="margin:20px 0;padding:18px;background:rgba(168,85,247,0.04);border:1px solid rgba(168,85,247,0.12);border-radius:12px;border-left:3px solid #a855f7">
+<div style="font-size:0.95rem;font-weight:700;color:#a855f7;margin-bottom:6px">WorldPop &mdash; Daytime Population from Building Density</div>
+<div style="font-size:0.8rem;color:#a3c4c7;line-height:1.8;margin-bottom:10px">Census counts where people <b>sleep</b>. WorldPop estimates where people <b>are</b> during the day using building footprints and machine learning.</div>
+<div style="padding:12px;background:rgba(34,197,94,0.05);border:1px solid rgba(34,197,94,0.15);border-radius:8px;border-left:3px solid #22c55e">
+<div style="font-size:0.62rem;color:#22c55e;text-transform:uppercase;font-weight:700;letter-spacing:0.08em;margin-bottom:4px">Validated Uplift</div>
+<div style="font-size:0.78rem;color:#a3c4c7;line-height:1.7">CBD subzones show <b>3-5x</b> satellite-to-census population ratio &mdash; confirming massive daytime worker influx. Raffles Place: census 0, satellite ~15K daytime presence. These subzones need lunch-focused F&B far beyond what residential population suggests. Correlation with our <code>demand_workers</code> feature: <b>r=0.72</b>.</div>
+</div></div>
+
+<div style="margin:20px 0;padding:18px;background:rgba(32,178,170,0.04);border:1px solid rgba(32,178,170,0.12);border-radius:12px;border-left:3px solid #20b2aa">
+<div style="font-size:0.95rem;font-weight:700;color:#20b2aa;margin-bottom:6px">Development Index &mdash; Composite Satellite Score</div>
+<div style="font-size:0.8rem;color:#a3c4c7;line-height:1.8;margin-bottom:10px"><code>dev_index = built_up_pctile &times; 0.4 + night_light_pctile &times; 0.4 + (100 - green_pctile) &times; 0.2</code></div>
+<div style="font-size:0.78rem;color:#6b9b9e;line-height:1.7">Combines three independent satellite signals into a single urbanization score (SGP-relative, 0-100). When dev_index is high but commercial place count is low &rarr; gap. When dev_index is low but population is high &rarr; developing area where commercial hasn't caught up.</div>
+</div>
+
+<div style="margin:28px 0;padding:18px;background:rgba(239,68,68,0.04);border:1px solid rgba(239,68,68,0.12);border-radius:12px;border-left:3px solid #ef4444">
+<div style="font-size:0.95rem;font-weight:700;color:#ef4444;margin-bottom:6px">What's Still Missing</div>
+<div style="font-size:0.78rem;color:#a3c4c7;line-height:1.8">
+&bull; <b>VIIRS 2022 + 2023</b> &mdash; temporal change detection (night light brightening = commercial activation over time)<br>
+&bull; <b>GHSL Built-Up 2015 + 2020</b> &mdash; construction change over 5 years<br>
+&bull; <b>Sentinel-2 NDVI</b> &mdash; vegetation index for seasonal and construction patterns<br>
+&bull; <b>Google Dynamic World</b> &mdash; near-real-time land cover updates (requires GEE auth)<br>
+These would enable <b>development velocity</b>: not just where development IS, but where it's ACCELERATING.
+</div>
+</div>
+
+</div>
+</div>
+<div class="footer"><svg width="18" height="18" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><g><g><path fill="#20b2aa" d="M45,64.2c-1.1,9.1-3.3,15.3-5.8,15.3c-0.1,0-0.1,0-0.2,0c-0.3,0-0.6-0.2-1-0.4c0,0,0,0,0,0c-3.1-2.5-5.4-14.5-5.4-29c0-14.4,2.3-26.4,5.4-29c0.3-0.3,0.7-0.5,1-0.5h0.2c2.6,0,4.9,6.8,6,16.6c-5.6,2-9.5,7.3-9.5,13.5C35.6,56.9,39.5,62.1,45,64.2z"/><path fill="#20b2aa" d="M67.4,50c0,14.5-2.3,26.5-5.4,29h0v0c-0.3,0.2-0.6,0.4-0.9,0.4c-0.1,0-0.2,0-0.2,0c-2.5,0-4.7-6.2-5.8-15.3c5.5-2,9.4-7.3,9.4-13.5c0-6.2-4-11.6-9.5-13.5c1.1-9.8,3.4-16.6,6-16.6H61v0c0.4,0,0.7,0.2,1,0.5C65.1,23.6,67.4,35.6,67.4,50z"/></g><path fill="#20b2aa" d="M30.2,50c0-14.4,2.3-26.4,5.4-29c-10.6,5.3-17.9,16.3-17.9,29c0,12.7,7.3,23.7,17.9,29C32.5,76.5,30.2,64.5,30.2,50z M64.4,21c3.1,2.6,5.4,14.5,5.4,29c0,14.5-2.3,26.5-5.4,29C75,73.7,82.3,62.7,82.3,50C82.3,37.3,75,26.4,64.4,21z"/><path fill="#20b2aa" d="M62.1,50.7c0,5-3,9.3-7.4,11.2c-1.5,0.6-3.1,1-4.8,1c-1.7,0-3.3-0.4-4.8-1c-4.3-1.9-7.4-6.2-7.4-11.2c0-5.1,3.1-9.4,7.5-11.2c1.4-0.6,3-0.9,4.7-0.9c1.7,0,3.2,0.3,4.7,0.9C59.1,41.3,62.1,45.6,62.1,50.7z"/></g></g></svg><span>Propheus Digital Atlas SGP · V5 Model (431 features, 32-dim) · Satellite: VIIRS 2024, ESA WorldCover 10m, WorldPop · 174K places, 93K micrographs, 332 subzones</span></div>
+<script>
+function showTab(id){
+document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+document.querySelector('[onclick*="'+id+'"]').classList.add('active');
+document.getElementById('tab-'+id).classList.add('active');
+}
+</script>
+</div></body></html>

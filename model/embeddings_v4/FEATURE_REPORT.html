@@ -1,0 +1,544 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Feature Report — Subzone Embedding V4</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0f1a;color:#e5e7eb;line-height:1.6}
+.c{max-width:1100px;margin:0 auto;padding:40px 24px}
+h1{font-size:2rem;font-weight:800;color:#fff}
+h2{font-size:1.3rem;font-weight:700;color:#14b8a6;margin:40px 0 12px;padding-bottom:6px;border-bottom:2px solid #14b8a620}
+.sub{color:#9ca3af;font-size:0.9rem;margin-bottom:32px}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:16px 0}
+.sc{background:#111827;border:1px solid #1f2937;border-radius:10px;padding:14px;text-align:center}
+.sc .v{font-size:1.4rem;font-weight:700;color:#14b8a6}
+.sc .l{font-size:0.68rem;color:#6b7280;text-transform:uppercase}
+.grp{background:#111827;border-radius:12px;margin:12px 0;border:1px solid #1f2937;overflow:hidden}
+.grp-header{padding:16px 20px;cursor:pointer;display:flex;align-items:center;gap:12px}
+.grp-header:hover{background:#1f293740}
+.grp-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.grp-title{font-weight:700;color:#fff;font-size:0.95rem;flex:1}
+.grp-count{font-size:0.78rem;color:#9ca3af;background:#1f2937;padding:2px 8px;border-radius:4px}
+.grp-arrow{color:#6b7280;font-size:0.8rem;transition:transform 0.2s}
+.grp-body{display:none;padding:0 20px 16px;border-top:1px solid #1f2937}
+.grp.open .grp-body{display:block}
+.grp.open .grp-arrow{transform:rotate(90deg)}
+.grp-desc{font-size:0.82rem;color:#9ca3af;margin:10px 0 8px}
+.grp-source{font-size:0.72rem;color:#6b7280;margin-bottom:10px}
+.feat-list{display:flex;flex-wrap:wrap;gap:4px}
+.feat{background:#1f2937;padding:2px 8px;border-radius:4px;font-size:0.72rem;font-family:monospace;color:#d1d5db}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+th{text-align:left;padding:8px;background:#111827;color:#14b8a6;font-size:0.72rem;text-transform:uppercase;border-bottom:2px solid #1f2937}
+td{padding:6px 8px;border-bottom:1px solid #1f2937}
+.bar{height:8px;border-radius:4px;background:#1f2937;overflow:hidden}
+.bar-f{height:100%;border-radius:4px}
+.mg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px;margin:12px 0}
+.mg-card{background:#1f2937;border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:10px}
+.mg-card .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.mg-card .info{flex:1}
+.mg-card .cat{font-weight:600;color:#fff;font-size:0.82rem}
+.mg-card .meta{font-size:0.7rem;color:#9ca3af}
+</style></head><body><div class="c">
+<h1>Feature Inventory</h1>
+<p class="sub">351 features powering the V4 Subzone Embedding Model — 332 Singapore subzones</p>
+<div class="g">
+<div class="sc"><div class="v">351</div><div class="l">Total Features</div></div>
+<div class="sc"><div class="v">332</div><div class="l">Subzones</div></div>
+<div class="sc"><div class="v">32</div><div class="l">Embedding Dims</div></div>
+<div class="sc"><div class="v">154</div><div class="l">Micrograph Features</div></div>
+<div class="sc"><div class="v">11</div><div class="l">Data Sources</div></div>
+<div class="sc"><div class="v">93,788</div><div class="l">Micrographs Used</div></div>
+<div class="sc"><div class="v">0.179</div><div class="l">AE Recon MSE</div></div>
+<div class="sc"><div class="v">0.110</div><div class="l">GNN Recon MSE</div></div>
+</div>
+<h2>Feature Composition</h2>
+<div style="display:flex;height:24px;border-radius:6px;overflow:hidden;margin:12px 0">
+<div style="width:43.9%;background:#14b8a6;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#fff;font-weight:600" title="Micrograph (12 categories): 154 features">154</div>
+<div style="width:9.1%;background:#60a5fa;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#fff;font-weight:600" title="Place Counts: 32 features">32</div>
+<div style="width:7.4%;background:#f87171;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#fff;font-weight:600" title="Demand & Gravity: 26 features">26</div>
+<div style="width:6.8%;background:#c084fc;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#fff;font-weight:600" title="V2 Categories: 24 features">24</div>
+<div style="width:3.1%;background:#fbbf24;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#fff;font-weight:600" title="Land Use: 11 features">11</div>
+<div style="width:3.1%;background:#2dd4bf;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#fff;font-weight:600" title="Transit: 11 features">11</div>
+<div style="width:3.1%;background:#fb923c;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#fff;font-weight:600" title="Brand/Quality: 11 features">11</div>
+<div style="width:2.8%;background:#a78bfa" title="Demographics: 10 features"></div>
+<div style="width:2.8%;background:#f9a8d4" title="Housing: 10 features"></div>
+<div style="width:17.7%;background:#6b7280;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#fff;font-weight:600" title="Other: 62 features">62</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin:8px 0">
+<span style="font-size:0.72rem;color:#9ca3af"><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#14b8a6;margin-right:4px"></span>Micrograph (12 categories) (154)</span>
+<span style="font-size:0.72rem;color:#9ca3af"><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#60a5fa;margin-right:4px"></span>Place Counts (32)</span>
+<span style="font-size:0.72rem;color:#9ca3af"><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#f87171;margin-right:4px"></span>Demand & Gravity (26)</span>
+<span style="font-size:0.72rem;color:#9ca3af"><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#c084fc;margin-right:4px"></span>V2 Categories (24)</span>
+<span style="font-size:0.72rem;color:#9ca3af"><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#fbbf24;margin-right:4px"></span>Land Use (11)</span>
+<span style="font-size:0.72rem;color:#9ca3af"><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#2dd4bf;margin-right:4px"></span>Transit (11)</span>
+<span style="font-size:0.72rem;color:#9ca3af"><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#fb923c;margin-right:4px"></span>Brand/Quality (11)</span>
+<span style="font-size:0.72rem;color:#9ca3af"><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#a78bfa;margin-right:4px"></span>Demographics (10)</span>
+<span style="font-size:0.72rem;color:#9ca3af"><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#f9a8d4;margin-right:4px"></span>Housing (10)</span>
+<span style="font-size:0.72rem;color:#9ca3af"><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6b7280;margin-right:4px"></span>Other (62)</span>
+</div>
+<h2>Micrograph Features (156 features, 44%%)</h2>
+<p style="font-size:0.82rem;color:#9ca3af;margin-bottom:12px">Per-subzone aggregations from 93,788 place-level micrographs. Each category contributes ~13 features: context vector means, anchor stats, density distribution, walk times, and competitive metrics.</p>
+<div class="mg-grid">
+<div class="mg-card"><div class="dot" style="background:#14b8a6"></div><div class="info"><div class="cat">Cafe</div><div class="meta">13 features · 6,749 places</div></div></div>
+<div class="mg-card"><div class="dot" style="background:#ef4444"></div><div class="info"><div class="cat">Restaurant</div><div class="meta">13 features · 16,753 places</div></div></div>
+<div class="mg-card"><div class="dot" style="background:#f59e0b"></div><div class="info"><div class="cat">Hawker</div><div class="meta">13 features · 6,016 places</div></div></div>
+<div class="mg-card"><div class="dot" style="background:#a855f7"></div><div class="info"><div class="cat">Fast Food/QSR</div><div class="meta">13 features · 3,314 places</div></div></div>
+<div class="mg-card"><div class="dot" style="background:#ec4899"></div><div class="info"><div class="cat">Bakery</div><div class="meta">13 features · 2,645 places</div></div></div>
+<div class="mg-card"><div class="dot" style="background:#8b5cf6"></div><div class="info"><div class="cat">Bar & Nightlife</div><div class="meta">13 features · 3,307 places</div></div></div>
+<div class="mg-card"><div class="dot" style="background:#f472b6"></div><div class="info"><div class="cat">Beauty</div><div class="meta">12 features · 10,678 places</div></div></div>
+<div class="mg-card"><div class="dot" style="background:#22c55e"></div><div class="info"><div class="cat">Health</div><div class="meta">13 features · 5,849 places</div></div></div>
+<div class="mg-card"><div class="dot" style="background:#06b6d4"></div><div class="info"><div class="cat">Fitness</div><div class="meta">13 features · 3,527 places</div></div></div>
+<div class="mg-card"><div class="dot" style="background:#3b82f6"></div><div class="info"><div class="cat">Education</div><div class="meta">13 features · 8,677 places</div></div></div>
+<div class="mg-card"><div class="dot" style="background:#f97316"></div><div class="info"><div class="cat">Shopping</div><div class="meta">13 features · 19,874 places</div></div></div>
+<div class="mg-card"><div class="dot" style="background:#84cc16"></div><div class="info"><div class="cat">Convenience</div><div class="meta">12 features · 6,399 places</div></div></div>
+</div>
+<p style="font-size:0.78rem;color:#6b7280;margin:8px 0">Per-category features: <code>cv_transit</code>, <code>cv_competitor</code>, <code>cv_complementary</code>, <code>cv_demand</code>, <code>anchor_count</code>, <code>competitive_pressure</code>, <code>pct_hyperdense</code>, <code>pct_dense</code>, <code>pct_moderate</code>, <code>pct_sparse</code>, <code>avg_walk</code>, <code>t1_diversity</code>, <code>count</code></p>
+<h2>All Feature Groups (click to expand)</h2>
+<div class="grp" id="place_counts">
+<div class="grp-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="grp-dot" style="background:#60a5fa"></div>
+<div class="grp-title">Place Counts</div>
+<div class="grp-count">32 features</div>
+<div class="grp-arrow">▶</div>
+</div>
+<div class="grp-body">
+<div class="grp-desc">Raw count of places per category per subzone from 174K places</div>
+<div class="grp-source">Source: 174K consolidated places</div>
+<div class="feat-list">
+<span class="feat">n_automotive</span>
+<span class="feat">n_bakery_pastry</span>
+<span class="feat">n_bar_nightlife</span>
+<span class="feat">n_beauty</span>
+<span class="feat">n_beauty_personal_care</span>
+<span class="feat">n_buildings</span>
+<span class="feat">n_bus_stops</span>
+<span class="feat">n_business</span>
+<span class="feat">n_cafe_coffee</span>
+<span class="feat">n_civic_government</span>
+<span class="feat">n_convenience_daily_needs</span>
+<span class="feat">n_culture_entertainment</span>
+<span class="feat">n_education</span>
+<span class="feat">n_fast_food_qsr</span>
+<span class="feat">n_fitness_recreation</span>
+<span class="feat">n_food_drink</span>
+<span class="feat">n_general</span>
+<span class="feat">n_hawker_street_food</span>
+<span class="feat">n_health_medical</span>
+<span class="feat">n_hospitality</span>
+<span class="feat">n_ngo</span>
+<span class="feat">n_office_workspace</span>
+<span class="feat">n_places</span>
+<span class="feat">n_raw_categories</span>
+<span class="feat">n_religious</span>
+<span class="feat">n_residential</span>
+<span class="feat">n_restaurant</span>
+<span class="feat">n_retail</span>
+<span class="feat">n_services</span>
+<span class="feat">n_shopping_retail</span>
+<span class="feat">n_subway_stations</span>
+<span class="feat">n_transport</span>
+</div></div></div>
+<div class="grp" id="demand__gravity">
+<div class="grp-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="grp-dot" style="background:#f87171"></div>
+<div class="grp-title">Demand & Gravity</div>
+<div class="grp-count">39 features</div>
+<div class="grp-arrow">▶</div>
+</div>
+<div class="grp-body">
+<div class="grp-desc">Demand signals by time of day, gravity flows, trade area</div>
+<div class="grp-source">Source: Demand model + commute data</div>
+<div class="feat-list">
+<span class="feat">buzz</span>
+<span class="feat">commute_inflow</span>
+<span class="feat">commute_outflow</span>
+<span class="feat">commute_ratio</span>
+<span class="feat">demand_evening</span>
+<span class="feat">demand_evening_score</span>
+<span class="feat">demand_local</span>
+<span class="feat">demand_lunch</span>
+<span class="feat">demand_lunch_score</span>
+<span class="feat">demand_morning</span>
+<span class="feat">demand_morning_score</span>
+<span class="feat">demand_weekend</span>
+<span class="feat">demand_workers</span>
+<span class="feat">effective_demand</span>
+<span class="feat">effective_demand_score</span>
+<span class="feat">gravity_in</span>
+<span class="feat">gravity_in_score</span>
+<span class="feat">gravity_net</span>
+<span class="feat">gravity_net_score</span>
+<span class="feat">gravity_out</span>
+<span class="feat">inbound_tract_count</span>
+<span class="feat">inbound_tract_count_score</span>
+<span class="feat">mg_bake_cv_demand</span>
+<span class="feat">mg_bar__cv_demand</span>
+<span class="feat">mg_beau_cv_demand</span>
+<span class="feat">mg_cafe_cv_demand</span>
+<span class="feat">mg_conv_cv_demand</span>
+<span class="feat">mg_educ_cv_demand</span>
+<span class="feat">mg_fast_cv_demand</span>
+<span class="feat">mg_fitn_cv_demand</span>
+<span class="feat">mg_hawk_cv_demand</span>
+<span class="feat">mg_heal_cv_demand</span>
+<span class="feat">mg_rest_cv_demand</span>
+<span class="feat">mg_shop_cv_demand</span>
+<span class="feat">pct_transit_commuters</span>
+<span class="feat">synergy</span>
+<span class="feat">tension</span>
+<span class="feat">trade_area_tracts</span>
+<span class="feat">trade_area_tracts_score</span>
+</div></div></div>
+<div class="grp" id="v2_category_counts">
+<div class="grp-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="grp-dot" style="background:#c084fc"></div>
+<div class="grp-title">V2 Category Counts</div>
+<div class="grp-count">24 features</div>
+<div class="grp-arrow">▶</div>
+</div>
+<div class="grp-body">
+<div class="grp-desc">Category counts from 174K V2 consolidated places</div>
+<div class="grp-source">Source: sgp_places_v2.jsonl</div>
+<div class="feat-list">
+<span class="feat">v2_cat_automotive</span>
+<span class="feat">v2_cat_bakery_&_p</span>
+<span class="feat">v2_cat_bar_&_nigh</span>
+<span class="feat">v2_cat_beauty_&_p</span>
+<span class="feat">v2_cat_business</span>
+<span class="feat">v2_cat_cafe_&_cof</span>
+<span class="feat">v2_cat_civic_&_go</span>
+<span class="feat">v2_cat_convenienc</span>
+<span class="feat">v2_cat_culture_&_</span>
+<span class="feat">v2_cat_education</span>
+<span class="feat">v2_cat_fast_food_</span>
+<span class="feat">v2_cat_fitness_&_</span>
+<span class="feat">v2_cat_general</span>
+<span class="feat">v2_cat_hawker_&_s</span>
+<span class="feat">v2_cat_health_&_m</span>
+<span class="feat">v2_cat_hospitalit</span>
+<span class="feat">v2_cat_ngo</span>
+<span class="feat">v2_cat_office_&_w</span>
+<span class="feat">v2_cat_religious</span>
+<span class="feat">v2_cat_residentia</span>
+<span class="feat">v2_cat_restaurant</span>
+<span class="feat">v2_cat_services</span>
+<span class="feat">v2_cat_shopping_&</span>
+<span class="feat">v2_cat_transport</span>
+</div></div></div>
+<div class="grp" id="land_use__zoning">
+<div class="grp-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="grp-dot" style="background:#fbbf24"></div>
+<div class="grp-title">Land Use / Zoning</div>
+<div class="grp-count">11 features</div>
+<div class="grp-arrow">▶</div>
+</div>
+<div class="grp-body">
+<div class="grp-desc">URA Master Plan zoning distribution per subzone</div>
+<div class="grp-source">Source: URA Master Plan (113K parcels)</div>
+<div class="feat-list">
+<span class="feat">lu_commercial_pct</span>
+<span class="feat">lu_entropy</span>
+<span class="feat">lu_industrial_pct</span>
+<span class="feat">lu_institutional_pct</span>
+<span class="feat">lu_mixed_use_pct</span>
+<span class="feat">lu_nature_pct</span>
+<span class="feat">lu_open_space_pct</span>
+<span class="feat">lu_other_pct</span>
+<span class="feat">lu_reserve_pct</span>
+<span class="feat">lu_residential_pct</span>
+<span class="feat">lu_transport_pct</span>
+</div></div></div>
+<div class="grp" id="transit__mobility">
+<div class="grp-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="grp-dot" style="background:#2dd4bf"></div>
+<div class="grp-title">Transit & Mobility</div>
+<div class="grp-count">28 features</div>
+<div class="grp-arrow">▶</div>
+</div>
+<div class="grp-body">
+<div class="grp-desc">MRT, bus, and transit accessibility metrics</div>
+<div class="grp-source">Source: LTA (231 MRT + 5,177 bus stops)</div>
+<div class="feat-list">
+<span class="feat">bus_density</span>
+<span class="feat">bus_density_score</span>
+<span class="feat">bus_stop_count_1km</span>
+<span class="feat">dist_nearest_mrt</span>
+<span class="feat">mg_bake_cv_transit</span>
+<span class="feat">mg_bar__cv_transit</span>
+<span class="feat">mg_beau_cv_transit</span>
+<span class="feat">mg_cafe_cv_transit</span>
+<span class="feat">mg_conv_cv_transit</span>
+<span class="feat">mg_educ_cv_transit</span>
+<span class="feat">mg_fast_cv_transit</span>
+<span class="feat">mg_fitn_cv_transit</span>
+<span class="feat">mg_hawk_cv_transit</span>
+<span class="feat">mg_heal_cv_transit</span>
+<span class="feat">mg_rest_cv_transit</span>
+<span class="feat">mg_shop_cv_transit</span>
+<span class="feat">mrt_stations_1km</span>
+<span class="feat">n_bus_stops</span>
+<span class="feat">n_business</span>
+<span class="feat">n_subway_stations</span>
+<span class="feat">nearby_daily_ridership</span>
+<span class="feat">nearby_daily_ridership_score</span>
+<span class="feat">nearest_subway_m</span>
+<span class="feat">pct_transit_commuters</span>
+<span class="feat">transit_combined_score</span>
+<span class="feat">transit_degree</span>
+<span class="feat">transit_score</span>
+<span class="feat">v2_cat_business</span>
+</div></div></div>
+<div class="grp" id="brand__quality">
+<div class="grp-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="grp-dot" style="background:#fb923c"></div>
+<div class="grp-title">Brand & Quality</div>
+<div class="grp-count">12 features</div>
+<div class="grp-arrow">▶</div>
+</div>
+<div class="grp-body">
+<div class="grp-desc">Brand penetration, ratings, chain vs independent ratio</div>
+<div class="grp-source">Source: Google ratings + brand registry</div>
+<div class="feat-list">
+<span class="feat">avg_rating</span>
+<span class="feat">avg_reviews</span>
+<span class="feat">brand_entropy</span>
+<span class="feat">brand_hhi</span>
+<span class="feat">branded_count</span>
+<span class="feat">branded_pct</span>
+<span class="feat">cafes_branded</span>
+<span class="feat">chain_indie_ratio</span>
+<span class="feat">median_rating</span>
+<span class="feat">total_reviews</span>
+<span class="feat">unique_brand_count</span>
+<span class="feat">v2_branded</span>
+</div></div></div>
+<div class="grp" id="demographics">
+<div class="grp-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="grp-dot" style="background:#a78bfa"></div>
+<div class="grp-title">Demographics</div>
+<div class="grp-count">13 features</div>
+<div class="grp-arrow">▶</div>
+</div>
+<div class="grp-body">
+<div class="grp-desc">Population, age profile, worker density</div>
+<div class="grp-source">Source: Census 2025</div>
+<div class="feat-list">
+<span class="feat">cafes_per_1000pop</span>
+<span class="feat">crime_per_1000pop_score</span>
+<span class="feat">elderly_pct</span>
+<span class="feat">lu_residential_pct</span>
+<span class="feat">male_pct</span>
+<span class="feat">median_age</span>
+<span class="feat">n_residential</span>
+<span class="feat">pop_density</span>
+<span class="feat">population</span>
+<span class="feat">resident_workers</span>
+<span class="feat">restaurants_per_1000pop</span>
+<span class="feat">v2_cat_residentia</span>
+<span class="feat">zoning_residential_pct</span>
+</div></div></div>
+<div class="grp" id="housing__property">
+<div class="grp-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="grp-dot" style="background:#f9a8d4"></div>
+<div class="grp-title">Housing & Property</div>
+<div class="grp-count">10 features</div>
+<div class="grp-arrow">▶</div>
+</div>
+<div class="grp-body">
+<div class="grp-desc">Dwelling type mix and property values</div>
+<div class="grp-source">Source: HDB resale (227K) + private (287K)</div>
+<div class="feat-list">
+<span class="feat">condominiums_and_other_apartments_pct</span>
+<span class="feat">hdb_1__and_2_room_flats_pct</span>
+<span class="feat">hdb_3_room_flats_pct</span>
+<span class="feat">hdb_4_room_flats_pct</span>
+<span class="feat">hdb_5_room_and_executive_flats_pct</span>
+<span class="feat">hdb_price_yoy</span>
+<span class="feat">landed_properties_pct</span>
+<span class="feat">median_hdb_psf</span>
+<span class="feat">median_rent</span>
+<span class="feat">pct_renters</span>
+</div></div></div>
+<div class="grp" id="amenity_proximity">
+<div class="grp-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="grp-dot" style="background:#86efac"></div>
+<div class="grp-title">Amenity Proximity</div>
+<div class="grp-count">9 features</div>
+<div class="grp-arrow">▶</div>
+</div>
+<div class="grp-body">
+<div class="grp-desc">Distance to nearest amenities and counts within 1km</div>
+<div class="grp-source">Source: data.gov.sg amenities</div>
+<div class="feat-list">
+<span class="feat">dist_nearest_hawker</span>
+<span class="feat">dist_nearest_mrt</span>
+<span class="feat">dist_nearest_park</span>
+<span class="feat">dist_nearest_school</span>
+<span class="feat">dist_nearest_supermarket</span>
+<span class="feat">hawkers_within_1km</span>
+<span class="feat">parks_within_1km</span>
+<span class="feat">schools_within_1km</span>
+<span class="feat">supermarkets_within_1km</span>
+</div></div></div>
+<div class="grp" id="infrastructure">
+<div class="grp-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="grp-dot" style="background:#93c5fd"></div>
+<div class="grp-title">Infrastructure</div>
+<div class="grp-count">8 features</div>
+<div class="grp-arrow">▶</div>
+</div>
+<div class="grp-body">
+<div class="grp-desc">Road and building density, height</div>
+<div class="grp-source">Source: OSM roads (551K) + buildings (126K)</div>
+<div class="feat-list">
+<span class="feat">avg_height</span>
+<span class="feat">building_density</span>
+<span class="feat">building_density_score</span>
+<span class="feat">n_buildings</span>
+<span class="feat">road_density</span>
+<span class="feat">road_density_score</span>
+<span class="feat">total_road_km</span>
+<span class="feat">total_road_km_score</span>
+</div></div></div>
+<div class="grp" id="socioeconomic">
+<div class="grp-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="grp-dot" style="background:#fca5a5"></div>
+<div class="grp-title">Socioeconomic</div>
+<div class="grp-count">5 features</div>
+<div class="grp-arrow">▶</div>
+</div>
+<div class="grp-body">
+<div class="grp-desc">Income distribution, poverty, vehicle ownership</div>
+<div class="grp-source">Source: Census + HDB data</div>
+<div class="feat-list">
+<span class="feat">median_income</span>
+<span class="feat">pct_high_income_hh</span>
+<span class="feat">pct_low_income_hh</span>
+<span class="feat">pct_zero_vehicle</span>
+<span class="feat">poverty_rate</span>
+</div></div></div>
+<div class="grp" id="cross-boundary_flows">
+<div class="grp-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="grp-dot" style="background:#67e8f9"></div>
+<div class="grp-title">Cross-Boundary Flows</div>
+<div class="grp-count">4 features</div>
+<div class="grp-arrow">▶</div>
+</div>
+<div class="grp-body">
+<div class="grp-desc">Micrograph anchors crossing subzone boundaries</div>
+<div class="grp-source">Source: 93K micrographs</div>
+<div class="feat-list">
+<span class="feat">flow_inflow</span>
+<span class="feat">flow_outflow</span>
+<span class="feat">flow_ratio</span>
+<span class="feat">flow_total</span>
+</div></div></div>
+<div class="grp" id="model_predictions">
+<div class="grp-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="grp-dot" style="background:#d8b4fe"></div>
+<div class="grp-title">Model Predictions</div>
+<div class="grp-count">4 features</div>
+<div class="grp-arrow">▶</div>
+</div>
+<div class="grp-body">
+<div class="grp-desc">Density model predictions and gap scores</div>
+<div class="grp-source">Source: Density model V5 (R²=0.773)</div>
+<div class="feat-list">
+<span class="feat">cafe_gap_score</span>
+<span class="feat">density_gap</span>
+<span class="feat">predicted_total</span>
+<span class="feat">vacancy_rate</span>
+</div></div></div>
+<div class="grp" id="acra_business">
+<div class="grp-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="grp-dot" style="background:#fdba74"></div>
+<div class="grp-title">ACRA Business</div>
+<div class="grp-count">3 features</div>
+<div class="grp-arrow">▶</div>
+</div>
+<div class="grp-body">
+<div class="grp-desc">Business registry: entity count, churn, age</div>
+<div class="grp-source">Source: ACRA (2M entities)</div>
+<div class="feat-list">
+<span class="feat">acra_avg_age</span>
+<span class="feat">acra_churn</span>
+<span class="feat">acra_total</span>
+</div></div></div>
+<div class="grp" id="price__diversity">
+<div class="grp-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="grp-dot" style="background:#a5b4fc"></div>
+<div class="grp-title">Price & Diversity</div>
+<div class="grp-count">6 features</div>
+<div class="grp-arrow">▶</div>
+</div>
+<div class="grp-body">
+<div class="grp-desc">Tier distribution, segment diversity, graph degree</div>
+<div class="grp-source">Source: V2 places + graph analysis</div>
+<div class="feat-list">
+<span class="feat">adjacency_degree</span>
+<span class="feat">place_type_diversity</span>
+<span class="feat">segment_entropy</span>
+<span class="feat">v2_branded</span>
+<span class="feat">v2_pct_mid</span>
+<span class="feat">v2_tier_mid</span>
+</div></div></div>
+<div class="grp" id="other">
+<div class="grp-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="grp-dot" style="background:#6b7280"></div>
+<div class="grp-title">Other / Base</div>
+<div class="grp-count">24 features</div>
+<div class="grp-arrow">▶</div></div>
+<div class="grp-body"><div class="grp-desc">Miscellaneous base features from tract profiles</div>
+<div class="feat-list">
+<span class="feat">amenity_score</span>
+<span class="feat">area_km2</span>
+<span class="feat">avg_gpr</span>
+<span class="feat">cafe_count</span>
+<span class="feat">cafes_independent</span>
+<span class="feat">category_entropy</span>
+<span class="feat">category_entropy_score</span>
+<span class="feat">chas_clinic_count</span>
+<span class="feat">daytime_ratio</span>
+<span class="feat">daytime_workers</span>
+<span class="feat">diversity_index</span>
+<span class="feat">fnb_coverage_ratio</span>
+<span class="feat">food_drink_pct</span>
+<span class="feat">green_ratio</span>
+<span class="feat">high_rated_pct</span>
+<span class="feat">hotel_count_1km</span>
+<span class="feat">our_place_count</span>
+<span class="feat">place_density</span>
+<span class="feat">place_density_score</span>
+<span class="feat">preschool_count_gov</span>
+<span class="feat">sfa_eating_count</span>
+<span class="feat">total_places</span>
+<span class="feat">zoning_commercial_pct</span>
+<span class="feat">zoning_manufacturing_pct</span>
+</div></div></div>
+<h2>Data Sources</h2>
+<table><tr><th>#</th><th>Source</th><th>Records</th><th>Features</th></tr>
+<tr><td>1</td><td>Micrograph V3 pipeline</td><td>93,788 micrographs</td><td>156</td></tr>
+<tr><td>2</td><td>Consolidated places V2</td><td>174,711 places</td><td>51</td></tr>
+<tr><td>3</td><td>Tract profiles (pre-computed)</td><td>332 subzones × 173 fields</td><td>81</td></tr>
+<tr><td>4</td><td>URA Master Plan</td><td>113,212 land parcels</td><td>11</td></tr>
+<tr><td>5</td><td>Census 2025</td><td>332 subzones</td><td>10</td></tr>
+<tr><td>6</td><td>HDB resale + private property</td><td>514K transactions</td><td>10</td></tr>
+<tr><td>7</td><td>LTA transit data</td><td>231 MRT + 5,177 bus stops</td><td>11</td></tr>
+<tr><td>8</td><td>ACRA business registry</td><td>2,076,437 entities</td><td>3</td></tr>
+<tr><td>9</td><td>Amenities (data.gov.sg)</td><td>Hawkers, schools, parks, clinics</td><td>9</td></tr>
+<tr><td>10</td><td>Graph analysis</td><td>Adjacency + transit + cross-boundary</td><td>5</td></tr>
+<tr><td>11</td><td>Density model V5</td><td>R²=0.773 predictions</td><td>4</td></tr>
+</table>
+<h2>Model Performance</h2>
+<table><tr><th>Metric</th><th>Autoencoder</th><th>GNN</th></tr>
+<tr><td>Architecture</td><td>351→[128,64]→32→[64,128]→351</td><td>351→256→GNN(128)→GNN(64)→GNN(32)→351</td></tr>
+<tr><td>Reconstruction MSE</td><td>0.179</td><td><b>0.110</b></td></tr>
+<tr><td>Separation</td><td><b>0.683</b></td><td>0.595</td></tr>
+<tr><td>Silhouette</td><td>0.101</td><td><b>0.363</b></td></tr>
+<tr><td>Active dimensions</td><td><b>32/32</b></td><td>20/32</td></tr>
+<tr><td>Graph edges</td><td>N/A</td><td>5,846</td></tr>
+<tr><td>Best for</td><td>Global comparison, gap analysis</td><td>Spatial clustering, neighborhood context</td></tr>
+</table>
+<div style="margin-top:40px;padding-top:20px;border-top:1px solid #1f2937;color:#6b7280;font-size:0.75rem">
+<p>Digital Atlas SGP | V4 Embedding Model | 332 subzones × 351 features → 32-dim embeddings | 93,788 micrographs from 174K places</p>
+</div>
+</div></body></html>

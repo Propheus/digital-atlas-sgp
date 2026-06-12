@@ -33,10 +33,21 @@ def safe_merge(left, right, on, label, drop_cols=None):
     return left.merge(right[rcols], on=on, how="left")
 
 
+# Site-selection columns where NaN means "not applicable / no data", NOT zero
+# (SITE_SELECTION_METRICS.md gate 4: NaN != 0). Zero-filling dt_ratio or
+# rent would fabricate "empties by day" / "free rent" hexes.
+NAN_KEEP = ("dt_ratio", "iso_severance_ratio", "rent_resi_psf_med",
+            "roi_cap_per_rent_", "biz_dead_share", "biz_recent_dead_share",
+            "biz_median_age_yrs", "biz_per_address", "biz_company_share",
+            "female_pop_share")   # NaN = zero-population subzone, not 0.0
+
+
 def fill_defaults(df, key_col):
     """Fill numeric NaN with 0; categorical with empty; bool with False."""
     for c in df.columns:
         if c == key_col: continue
+        if c.startswith(NAN_KEEP):
+            continue
         if df[c].dtype == bool:
             df[c] = df[c].fillna(False)
         elif df[c].dtype.kind in "if":
@@ -131,6 +142,13 @@ def main():
     if h9_pc2 is not None: layers9.append(("pc2", h9_pc2))
     if h9_lpv is not None: layers9.append(("lpv", h9_lpv))
     if h9_ldn is not None: layers9.append(("ldn", h9_ldn))
+    # site-selection layers (hex9-grain: Huff capture + co-location fit)
+    for name in ["hex9_huff_capture", "hex9_colo_fit"]:
+        p = ROOT / f"hex/{name}.parquet"
+        if p.exists():
+            layers9.append((name.replace("hex9_", ""),
+                            pd.read_parquet(p).drop(columns=["hex8_of"],
+                                                    errors="ignore")))
     for label, df in layers9:
         h9 = safe_merge(h9, df, "hex9_id", label, drop_cols=["parent_hex8", "parent_subzone"])
     h9 = fill_defaults(h9, "hex9_id")
@@ -193,6 +211,12 @@ def main():
     h8_nvp_path = ROOT / "hex/hex8_personas_nv.parquet"
     h8_nvp = pd.read_parquet(h8_nvp_path) if h8_nvp_path.exists() else None
 
+    # site-selection layers (S1-S9, all gated — SITE_SELECTION_VALIDATION.md)
+    SS_LAYERS8 = ["hex8_daytime_pop", "hex8_iso_walk", "hex8_iso_transit",
+                  "hex8_huff_capture", "hex8_acra_biz", "hex8_colo_fit",
+                  "hex8_labor_shed", "hex8_visibility", "hex8_rent_surface",
+                  "hex8_pipeline", "hex8_context_pack"]
+
     h8 = h8_uni.copy()
     layers8 = [("pop", h8_pop), ("lu", h8_lu), ("bld", h8_bld),
                 ("rd", h8_rd), ("tr", h8_tr), ("wk", h8_wk)]
@@ -219,6 +243,10 @@ def main():
     if h8_od is not None: layers8.append(("od", h8_od))
     if h8_ca is not None: layers8.append(("ca", h8_ca))
     if h8_nvp is not None: layers8.append(("nvp", h8_nvp))
+    for name in SS_LAYERS8:
+        p = ROOT / f"hex/{name}.parquet"
+        if p.exists():
+            layers8.append((name.replace("hex8_", ""), pd.read_parquet(p)))
     for label, df in layers8:
         h8 = safe_merge(h8, df, "hex8_id", label)
     h8 = fill_defaults(h8, "hex8_id")

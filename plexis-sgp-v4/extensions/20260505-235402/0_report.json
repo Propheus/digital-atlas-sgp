@@ -1,0 +1,62 @@
+{
+  "timestamp": "20260505-235402",
+  "use_case": "Where should we open a new specialty cafe targeting young professionals in Singapore?",
+  "base_version": "4.8.0",
+  "new_version": "4.8.1",
+  "scale": "hex9",
+  "n_proposed": 10,
+  "n_kept": 2,
+  "n_revised": 3,
+  "n_rejected": 5,
+  "n_added": 5,
+  "n_failed": 0,
+  "added_features": [
+    {
+      "feature": "specialty_cafe_competition_gap",
+      "dtype": "float32",
+      "non_null": 7318,
+      "null_pct": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 54.66666793823242
+    },
+    {
+      "feature": "lunch_rush_potential",
+      "dtype": "float32",
+      "non_null": 7318,
+      "null_pct": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.8156130909919739
+    },
+    {
+      "feature": "young_professional_residential_proxy",
+      "dtype": "float32",
+      "non_null": 7318,
+      "null_pct": 0.0,
+      "median": 0.01437666267156601,
+      "min": 0.0,
+      "max": 1478.3905029296875
+    },
+    {
+      "feature": "mixed_use_cafe_appeal",
+      "dtype": "float32",
+      "non_null": 7318,
+      "null_pct": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.33055049180984497
+    },
+    {
+      "feature": "mrt_exit_cafe_opportunity",
+      "dtype": "float32",
+      "non_null": 7318,
+      "null_pct": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 10.0
+    }
+  ],
+  "failed_features": [],
+  "extended_parquet": "extensions/20260505-235402/hex9_extended.parquet"
+}

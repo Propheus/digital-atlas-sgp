@@ -1,0 +1,9 @@
+{
+  "generated_at": "2026-06-10T10:52:01",
+  "spec": "SITE_SELECTION_METRICS.md S5",
+  "national_working_age": 2825333.666919863,
+  "jobs_proxy": "places ['business_office', 'industrial_mfg', 'services'] scaled to 2,400,000",
+  "median_labor_pool_45m": 141918.0,
+  "max_labor_pool_45m": 2116188.0,
+  "wall_clock_s": 0.17
+}

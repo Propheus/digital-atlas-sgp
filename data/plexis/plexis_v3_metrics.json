@@ -1,0 +1,7 @@
+{
+  "version": "v3",
+  "nodes": 195758,
+  "edges": 1505685,
+  "relations": 24,
+  "cat_accuracy": 0.698,
+  "separability": 

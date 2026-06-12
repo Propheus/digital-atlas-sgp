@@ -1,0 +1,536 @@
+{
+  "shape": [
+    169292,
+    76
+  ],
+  "vec_dim": 68,
+  "brand_consistency": {
+    "7-Eleven": {
+      "n_locations": 239,
+      "mean_sim": 0.727,
+      "std_sim": 0.136,
+      "min_sim": 0.338,
+      "max_sim": 0.999
+    },
+    "Starbucks": {
+      "n_locations": 186,
+      "mean_sim": 0.681,
+      "std_sim": 0.136,
+      "min_sim": 0.254,
+      "max_sim": 1.0
+    },
+    "Shell": {
+      "n_locations": 178,
+      "mean_sim": 0.476,
+      "std_sim": 0.316,
+      "min_sim": -0.109,
+      "max_sim": 1.0
+    },
+    "McDonald's": {
+      "n_locations": 168,
+      "mean_sim": 0.828,
+      "std_sim": 0.086,
+      "min_sim": 0.472,
+      "max_sim": 0.991
+    },
+    "My First Skool": {
+      "n_locations": 161,
+      "mean_sim": 0.765,
+      "std_sim": 0.175,
+      "min_sim": 0.171,
+      "max_sim": 1.0
+    },
+    "Cheers": {
+      "n_locations": 160,
+      "mean_sim": 0.644,
+      "std_sim": 0.192,
+      "min_sim": -0.004,
+      "max_sim": 1.0
+    },
+    "Subway": {
+      "n_locations": 158,
+      "mean_sim": 0.743,
+      "std_sim": 0.21,
+      "min_sim": 0.066,
+      "max_sim": 1.0
+    },
+    "NTUC FairPrice": {
+      "n_locations": 151,
+      "mean_sim": 0.717,
+      "std_sim": 0.189,
+      "min_sim": 0.038,
+      "max_sim": 1.0
+    },
+    "FairPrice": {
+      "n_locations": 143,
+      "mean_sim": 0.756,
+      "std_sim": 0.122,
+      "min_sim": 0.204,
+      "max_sim": 1.0
+    },
+    "POSB": {
+      "n_locations": 143,
+      "mean_sim": 0.732,
+      "std_sim": 0.17,
+      "min_sim": 0.059,
+      "max_sim": 1.0
+    },
+    "iJooz": {
+      "n_locations": 143,
+      "mean_sim": 0.643,
+      "std_sim": 0.164,
+      "min_sim": 0.071,
+      "max_sim": 0.999
+    },
+    "SingPost": {
+      "n_locations": 138,
+      "mean_sim": 0.601,
+      "std_sim": 0.26,
+      "min_sim": -0.07,
+      "max_sim": 1.0
+    },
+    "Anytime Fitness": {
+      "n_locations": 127,
+      "mean_sim": 0.78,
+      "std_sim": 0.108,
+      "min_sim": 0.333,
+      "max_sim": 1.0
+    },
+    "PCF Sparkletots": {
+      "n_locations": 122,
+      "mean_sim": 0.807,
+      "std_sim": 0.147,
+      "min_sim": 0.206,
+      "max_sim": 0.996
+    },
+    "DBS Bank": {
+      "n_locations": 119,
+      "mean_sim": 0.714,
+      "std_sim": 0.16,
+      "min_sim": 0.024,
+      "max_sim": 0.999
+    },
+    "Kopitiam": {
+      "n_locations": 117,
+      "mean_sim": 0.735,
+      "std_sim": 0.139,
+      "min_sim": 0.156,
+      "max_sim": 0.999
+    },
+    "Watsons": {
+      "n_locations": 111,
+      "mean_sim": 0.468,
+      "std_sim": 0.249,
+      "min_sim": -0.114,
+      "max_sim": 1.0
+    },
+    "AXS": {
+      "n_locations": 97,
+      "mean_sim": 0.569,
+      "std_sim": 0.208,
+      "min_sim": 0.015,
+      "max_sim": 0.999
+    },
+    "KFC": {
+      "n_locations": 93,
+      "mean_sim": 0.811,
+      "std_sim": 0.095,
+      "min_sim": 0.477,
+      "max_sim": 1.0
+    }
+  },
+  "category_separation": {
+    "Shopping & Retail": {
+      "within": 0.441,
+      "across": -0.048,
+      "separation": 0.488,
+      "n_places": 26552
+    },
+    "Restaurant": {
+      "within": 0.366,
+      "across": -0.048,
+      "separation": 0.414,
+      "n_places": 20037
+    },
+    "Services": {
+      "within": 0.593,
+      "across": -0.069,
+      "separation": 0.662,
+      "n_places": 16487
+    },
+    "Business": {
+      "within": 0.526,
+      "across": -0.041,
+      "separation": 0.568,
+      "n_places": 16077
+    },
+    "Beauty & Personal Care": {
+      "within": 0.566,
+      "across": -0.032,
+      "separation": 0.598,
+      "n_places": 11259
+    },
+    "Education": {
+      "within": 0.521,
+      "across": -0.037,
+      "separation": 0.559,
+      "n_places": 10193
+    },
+    "Health & Medical": {
+      "within": 0.562,
+      "across": -0.028,
+      "separation": 0.59,
+      "n_places": 7677
+    },
+    "Cafe & Coffee": {
+      "within": 0.591,
+      "across": -0.03,
+      "separation": 0.622,
+      "n_places": 6394
+    },
+    "Fitness & Recreation": {
+      "within": 0.538,
+      "across": -0.012,
+      "separation": 0.55,
+      "n_places": 6183
+    },
+    "Convenience & Daily Needs": {
+      "within": 0.624,
+      "across": -0.026,
+      "separation": 0.65,
+      "n_places": 5906
+    },
+    "Hawker & Street Food": {
+      "within": 0.66,
+      "across": -0.021,
+      "separation": 0.68,
+      "n_places": 5790
+    },
+    "Automotive": {
+      "within": 0.785,
+      "across": -0.02,
+      "separation": 0.805,
+      "n_places": 5334
+    }
+  },
+  "tier_gradient": {},
+  "knn_category_prediction": {
+    "k1_accuracy": 0.995,
+    "k5_hit_rate": 0.998,
+    "n_sample": 5000
+  },
+  "knn_tier_prediction": {
+    "k1_exact": 1.0,
+    "k1_adjacent": 1.0,
+    "n_tiered": 5000
+  },
+  "micrograph_impact": {
+    "n_with": 90885,
+    "n_without": 78407,
+    "per_category": {
+      "Cafe & Coffee": {
+        "with_micrograph": 0.591,
+        "without_micrograph": 0.67,
+        "difference": -0.079
+      },
+      "Restaurant": {
+        "with_micrograph": 0.416,
+        "without_micrograph": 0.527,
+        "difference": -0.111
+      },
+      "Shopping & Retail": {
+        "with_micrograph": 0.526,
+        "without_micrograph": 0.624,
+        "difference": -0.097
+      }
+    }
+  },
+  "layer_ablation": {
+    "baseline": 0.992,
+    "identity": {
+      "accuracy_without": 0.534,
+      "drop": 0.459,
+      "n_dims": 31
+    },
+    "spatial_context": {
+      "accuracy_without": 0.998,
+      "drop": -0.005,
+      "n_dims": 12
+    },
+    "hex_context": {
+      "accuracy_without": 0.996,
+      "drop": -0.004,
+      "n_dims": 14
+    },
+    "influence": {
+      "accuracy_without": 0.991,
+      "drop": 0.001,
+      "n_dims": 7
+    },
+    "competitive_position": {
+      "accuracy_without": 0.996,
+      "drop": -0.004,
+      "n_dims": 4
+    }
+  },
+  "hex_pool": {
+    "n_hexes": 3934,
+    "pool_dim": 136,
+    "knn_pa_accuracy": 0.13,
+    "note": "Compare to hex feature table kNN = 0.374 with 460 features"
+  },
+  "named_examples": {
+    "Starbucks ION Orchard": {
+      "category": "Cafe & Coffee",
+      "tier": "Mid",
+      "pa": "ORCHARD",
+      "neighbors": [
+        {
+          "name": "Starbucks",
+          "category": "Cafe & Coffee",
+          "tier": "Mid",
+          "brand": "Starbucks",
+          "pa": "ORCHARD",
+          "sim": 1.0
+        },
+        {
+          "name": "Starbucks Orchard Gateway",
+          "category": "Cafe & Coffee",
+          "tier": "Mid",
+          "brand": "Starbucks",
+          "pa": "ORCHARD",
+          "sim": 1.0
+        },
+        {
+          "name": "Starbucks Singapore",
+          "category": "Cafe & Coffee",
+          "tier": "Mid",
+          "brand": "Starbucks",
+          "pa": "ORCHARD",
+          "sim": 0.999
+        },
+        {
+          "name": "Starbucks",
+          "category": "Cafe & Coffee",
+          "tier": "Mid",
+          "brand": "Starbucks",
+          "pa": "ORCHARD",
+          "sim": 0.999
+        },
+        {
+          "name": "Ya Kun Kaya Toast",
+          "category": "Cafe & Coffee",
+          "tier": "Mid",
+          "brand": "Ya Kun Kaya Toast",
+          "pa": "ORCHARD",
+          "sim": 0.991
+        },
+        {
+          "name": "The Coffee Bean and Tea Leaf",
+          "category": "Cafe & Coffee",
+          "tier": "Mid",
+          "brand": "The Coffee Bean & Tea Leaf",
+          "pa": "ORCHARD",
+          "sim": 0.991
+        },
+        {
+          "name": "Ya Kun Kaya Toast",
+          "category": "Cafe & Coffee",
+          "tier": "Mid",
+          "brand": "Ya Kun Kaya Toast",
+          "pa": "ORCHARD",
+          "sim": 0.991
+        }
+      ]
+    },
+    "McDonald's Bedok": {
+      "category": "Fast Food & QSR",
+      "tier": "Mid",
+      "pa": "BEDOK",
+      "neighbors": [
+        {
+          "name": "Wingstop",
+          "category": "Fast Food & QSR",
+          "tier": "Mid",
+          "brand": "Wingstop",
+          "pa": "BEDOK",
+          "sim": 1.0
+        },
+        {
+          "name": "McDonald's",
+          "category": "Fast Food & QSR",
+          "tier": "Mid",
+          "brand": "McDonald's",
+          "pa": "BEDOK",
+          "sim": 0.997
+        },
+        {
+          "name": "Chicha San Chen @ Bedok Mall",
+          "category": "Fast Food & QSR",
+          "tier": "Mid",
+          "brand": "Chicha San Chen",
+          "pa": "BEDOK",
+          "sim": 0.982
+        },
+        {
+          "name": "Subway",
+          "category": "Fast Food & QSR",
+          "tier": "Mid",
+          "brand": "Subway",
+          "pa": "BEDOK",
+          "sim": 0.981
+        },
+        {
+          "name": "Baskin-Robbins",
+          "category": "Fast Food & QSR",
+          "tier": "Mid",
+          "brand": "Baskin-Robbins",
+          "pa": "BEDOK",
+          "sim": 0.981
+        },
+        {
+          "name": "Boost Juice @ Bedok Mall",
+          "category": "Fast Food & QSR",
+          "tier": "Mid",
+          "brand": "Boost Juice Bars Singapore",
+          "pa": "BEDOK",
+          "sim": 0.981
+        },
+        {
+          "name": "KFC",
+          "category": "Fast Food & QSR",
+          "tier": "Mid",
+          "brand": "KFC",
+          "pa": "BEDOK",
+          "sim": 0.981
+        }
+      ]
+    },
+    "Din Tai Fung": {
+      "category": "Cafe & Coffee",
+      "tier": "Mid",
+      "pa": "JURONG EAST",
+      "neighbors": [
+        {
+          "name": "The Coffee Bean & Tea Leaf",
+          "category": "Cafe & Coffee",
+          "tier": "Mid",
+          "brand": "The Coffee Bean & Tea Leaf",
+          "pa": "JURONG EAST",
+          "sim": 1.0
+        },
+        {
+          "name": "Tim Hortons Jem",
+          "category": "Cafe & Coffee",
+          "tier": "Mid",
+          "brand": "Tim Hortons",
+          "pa": "JURONG EAST",
+          "sim": 1.0
+        },
+        {
+          "name": "Fong Sheng Hao",
+          "category": "Cafe & Coffee",
+          "tier": "Mid",
+          "brand": "Fong Sheng Hao \u8c50\u76db\u865f Singapore",
+          "pa": "JURONG EAST",
+          "sim": 1.0
+        },
+        {
+          "name": "D\u00e9lifrance",
+          "category": "Cafe & Coffee",
+          "tier": "Mid",
+          "brand": "Delifrance Singapore",
+          "pa": "JURONG EAST",
+          "sim": 0.999
+        },
+        {
+          "name": "Starbucks - JEM",
+          "category": "Cafe & Coffee",
+          "tier": "Mid",
+          "brand": "Starbucks",
+          "pa": "JURONG EAST",
+          "sim": 0.976
+        },
+        {
+          "name": "Ya Kun Kaya Toast",
+          "category": "Cafe & Coffee",
+          "tier": "Mid",
+          "brand": "Ya Kun Kaya Toast",
+          "pa": "JURONG EAST",
+          "sim": 0.976
+        },
+        {
+          "name": "Ya Kun Kaya Toast (JEM)",
+          "category": "Cafe & Coffee",
+          "tier": "Mid",
+          "brand": "Ya Kun Kaya Toast",
+          "pa": "JURONG EAST",
+          "sim": 0.976
+        }
+      ]
+    },
+    "Watsons": {
+      "category": "Convenience & Daily Needs",
+      "tier": "Mid",
+      "pa": "BEDOK",
+      "neighbors": [
+        {
+          "name": "Watsons Health",
+          "category": "Convenience & Daily Needs",
+          "tier": "Mid",
+          "brand": "Watsons",
+          "pa": "BEDOK",
+          "sim": 1.0
+        },
+        {
+          "name": "Singapore Pools @ NTUC FairPrice (Marine",
+          "category": "Convenience & Daily Needs",
+          "tier": "Mid",
+          "brand": "FairPrice",
+          "pa": "MARINE PARADE",
+          "sim": 0.974
+        },
+        {
+          "name": "FairPrice Finest Marine Parade Central",
+          "category": "Convenience & Daily Needs",
+          "tier": "Mid",
+          "brand": "FairPrice",
+          "pa": "MARINE PARADE",
+          "sim": 0.973
+        },
+        {
+          "name": "FairPrice Bedok",
+          "category": "Convenience & Daily Needs",
+          "tier": "Mid",
+          "brand": "FairPrice",
+          "pa": "BEDOK",
+          "sim": 0.966
+        },
+        {
+          "name": "Singapore Pools @ NTUC FairPrice (Bedok ",
+          "category": "Convenience & Daily Needs",
+          "tier": "Mid",
+          "brand": "FairPrice",
+          "pa": "BEDOK",
+          "sim": 0.966
+        },
+        {
+          "name": "Guardian Health & Beauty + Pharmacy \u2013 Su",
+          "category": "Convenience & Daily Needs",
+          "tier": "Mid",
+          "brand": "Guardian Health & Beauty",
+          "pa": "SEMBAWANG",
+          "sim": 0.96
+        },
+        {
+          "name": "Guardian Health and Beauty",
+          "category": "Convenience & Daily Needs",
+          "tier": "Mid",
+          "brand": "Guardian Health & Beauty",
+          "pa": "SEMBAWANG",
+          "sim": 0.96
+        }
+      ]
+    }
+  }
+}

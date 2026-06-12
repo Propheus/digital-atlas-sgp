@@ -1,0 +1,63 @@
+{
+  "layer": "colo_lift",
+  "checks": [
+    {
+      "check": "C1_face_validity",
+      "status": "PASS",
+      "detail": "all 7 directional priors hold"
+    },
+    {
+      "check": "C2_stability",
+      "status": "PASS",
+      "detail": "log-lift split-half Pearson r = 0.988 over 576 pairs"
+    },
+    {
+      "check": "C3_anti_collapse",
+      "status": "PASS",
+      "detail": "max |r(colo_fit_*, pc_total)| = 0.236; no non-source |r|>0.9"
+    },
+    {
+      "check": "C4_asymmetry",
+      "status": "PASS",
+      "detail": "bar_nightlife->park_open 1.10 vs park_open->bar_nightlife 0.30; bar_nightlife->residential 0.78 vs residential->bar_nightlife 0.22; business_office->park_open 0.76 vs park_open->business_office 0.27 (informational)"
+    },
+    {
+      "check": "C5_accounting",
+      "status": "PASS",
+      "detail": "518/576 pairs significant; below-support cats: none; NaN fits: 0"
+    }
+  ],
+  "top_asymmetries": [
+    {
+      "a": "bar_nightlife",
+      "b": "park_open",
+      "lift_ab": 1.1,
+      "lift_ba": 0.3
+    },
+    {
+      "a": "bar_nightlife",
+      "b": "residential",
+      "lift_ab": 0.78,
+      "lift_ba": 0.22
+    },
+    {
+      "a": "business_office",
+      "b": "park_open",
+      "lift_ab": 0.76,
+      "lift_ba": 0.27
+    },
+    {
+      "a": "hotel_hospitality",
+      "b": "park_open",
+      "lift_ab": 0.96,
+      "lift_ba": 0.33
+    },
+    {
+      "a": "park_open",
+      "b": "services",
+      "lift_ab": 0.32,
+      "lift_ba": 0.92
+    }
+  ],
+  "verdict": "PASS"
+}

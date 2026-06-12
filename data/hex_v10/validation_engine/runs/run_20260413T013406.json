@@ -1,0 +1,7021 @@
+{
+  "timestamp": "20260413T013406",
+  "duration_s": 39.9,
+  "n_tests": 186,
+  "results": {
+    "GCN-64": {
+      "name": "GCN-64",
+      "dims": 64,
+      "per_test": [
+        {
+          "id": "pa_coh_2903",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_3750",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "pa_coh_3257",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.5
+        },
+        {
+          "id": "pa_coh_637",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_5723",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.3
+        },
+        {
+          "id": "pa_coh_7103",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_4739",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.5
+        },
+        {
+          "id": "pa_coh_5158",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_1988",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_3235",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.3
+        },
+        {
+          "id": "pa_coh_2549",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_4999",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_3123",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_488",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_5751",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_3842",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_3660",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_7309",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.7
+        },
+        {
+          "id": "pa_coh_1441",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.8
+        },
+        {
+          "id": "pa_coh_6138",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.9
+        },
+        {
+          "id": "pa_coh_4079",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "pa_coh_6024",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_1187",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.9
+        },
+        {
+          "id": "pa_coh_5110",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_6497",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_6547",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.3
+        },
+        {
+          "id": "pa_coh_3164",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.3
+        },
+        {
+          "id": "pa_coh_661",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "pa_coh_6262",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.7
+        },
+        {
+          "id": "pa_coh_6766",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_4661",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_4801",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "pa_coh_5389",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_3262",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_7105",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.3
+        },
+        {
+          "id": "pa_coh_5259",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.8
+        },
+        {
+          "id": "pa_coh_458",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_5571",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_3211",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_6287",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_3987",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_1631",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_614",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.8
+        },
+        {
+          "id": "pa_coh_5726",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_5654",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_1308",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_2657",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.7
+        },
+        {
+          "id": "pa_coh_917",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_673",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.8
+        },
+        {
+          "id": "pa_coh_6067",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "landmark_raffles_place",
+          "category": "landmark",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "landmark_marina_bay_sands",
+          "category": "landmark",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "landmark_orchard_road",
+          "category": "landmark",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "landmark_tiong_bahru",
+          "category": "landmark",
+          "passed": true,
+          "score": 0.8
+        },
+        {
+          "id": "landmark_changi_airport",
+          "category": "landmark",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "landmark_sentosa_rws",
+          "category": "landmark",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "landmark_tampines_hub",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_jurong_east",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_tuas_industrial",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_bedok_hdb",
+          "category": "landmark",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "landmark_nus_kent_ridge",
+          "category": "landmark",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "landmark_woodlands",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "landmark_ang_mo_kio",
+          "category": "landmark",
+          "passed": true,
+          "score": 0.8
+        },
+        {
+          "id": "landmark_toa_payoh",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "landmark_hougang",
+          "category": "landmark",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "landmark_yishun",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_choa_chu_kang",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_bukit_batok",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_jurong_west",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_pasir_ris",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_serangoon",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_punggol",
+          "category": "landmark",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "landmark_sengkang",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_clementi",
+          "category": "landmark",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "landmark_queenstown",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_geylang",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_kallang",
+          "category": "landmark",
+          "passed": true,
+          "score": 0.8
+        },
+        {
+          "id": "landmark_novena",
+          "category": "landmark",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "landmark_bukit_timah",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "landmark_marina_south",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "anti_0",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.016261203214526176
+        },
+        {
+          "id": "anti_1",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.37413567304611206
+        },
+        {
+          "id": "anti_2",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.031033487990498543
+        },
+        {
+          "id": "anti_3",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.1400475651025772
+        },
+        {
+          "id": "anti_4",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.2590126097202301
+        },
+        {
+          "id": "anti_5",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.009859566576778889
+        },
+        {
+          "id": "anti_6",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.27660802006721497
+        },
+        {
+          "id": "anti_7",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.2543931007385254
+        },
+        {
+          "id": "anti_8",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.2153482437133789
+        },
+        {
+          "id": "anti_9",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.18088681995868683
+        },
+        {
+          "id": "anti_10",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.22338919341564178
+        },
+        {
+          "id": "anti_11",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.29956650733947754
+        },
+        {
+          "id": "anti_12",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.23368054628372192
+        },
+        {
+          "id": "anti_13",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.009859566576778889
+        },
+        {
+          "id": "anti_14",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.29809704422950745
+        },
+        {
+          "id": "anti_random_15",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.11475489288568497
+        },
+        {
+          "id": "anti_random_16",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.7928205728530884
+        },
+        {
+          "id": "anti_random_17",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.9158565402030945
+        },
+        {
+          "id": "anti_random_18",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.5561621189117432
+        },
+        {
+          "id": "anti_random_19",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.09379830211400986
+        },
+        {
+          "id": "anti_random_20",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.2703106999397278
+        },
+        {
+          "id": "anti_random_21",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.32916259765625
+        },
+        {
+          "id": "anti_random_22",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.16861718893051147
+        },
+        {
+          "id": "anti_random_23",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.04911069571971893
+        },
+        {
+          "id": "anti_random_24",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.16866129636764526
+        },
+        {
+          "id": "anti_random_25",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.43657186627388
+        },
+        {
+          "id": "anti_random_26",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.1973613202571869
+        },
+        {
+          "id": "anti_random_27",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.8567028045654297
+        },
+        {
+          "id": "anti_random_28",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.4766566753387451
+        },
+        {
+          "id": "anti_random_29",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.9041367769241333
+        },
+        {
+          "id": "smooth_4710",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.8760897646968564
+        },
+        {
+          "id": "smooth_3844",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.5131615806370973
+        },
+        {
+          "id": "smooth_3161",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 1.0852627766629062
+        },
+        {
+          "id": "smooth_6265",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.6469687365693971
+        },
+        {
+          "id": "smooth_651",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.8636061330558732
+        },
+        {
+          "id": "smooth_688",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.7343090737704188
+        },
+        {
+          "id": "smooth_1338",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 1.1157650182644525
+        },
+        {
+          "id": "smooth_6018",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.633530039836963
+        },
+        {
+          "id": "smooth_5740",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.5045505573973059
+        },
+        {
+          "id": "smooth_5088",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.877713192316393
+        },
+        {
+          "id": "smooth_940",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.6634945947652644
+        },
+        {
+          "id": "smooth_1473",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.5641596261411905
+        },
+        {
+          "id": "smooth_7122",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 1.0643381875008344
+        },
+        {
+          "id": "smooth_3750",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.9968975000083447
+        },
+        {
+          "id": "smooth_6135",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.7514292107895016
+        },
+        {
+          "id": "smooth_5714",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.8206566032953561
+        },
+        {
+          "id": "smooth_2714",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.8204747847591838
+        },
+        {
+          "id": "smooth_5371",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.713773662224412
+        },
+        {
+          "id": "smooth_2947",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.6803947322070598
+        },
+        {
+          "id": "smooth_3203",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.9184954494160289
+        },
+        {
+          "id": "smooth_3247",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.671693022052447
+        },
+        {
+          "id": "smooth_3993",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.47187920556558915
+        },
+        {
+          "id": "smooth_3294",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.5978798121679574
+        },
+        {
+          "id": "smooth_3659",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.7475855476067712
+        },
+        {
+          "id": "smooth_5641",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.637271006902059
+        },
+        {
+          "id": "smooth_6777",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.48989762042959534
+        },
+        {
+          "id": "smooth_5239",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 1.1942968045671782
+        },
+        {
+          "id": "smooth_4773",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.6368623800575733
+        },
+        {
+          "id": "smooth_628",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.8934591393607357
+        },
+        {
+          "id": "smooth_5557",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.5400416584685445
+        },
+        {
+          "id": "archetype_k10_seed0",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9272133029972245
+        },
+        {
+          "id": "archetype_k11_seed1",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9428498243813654
+        },
+        {
+          "id": "archetype_k12_seed2",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9232365616978419
+        },
+        {
+          "id": "archetype_k13_seed3",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.8153730436288694
+        },
+        {
+          "id": "archetype_k14_seed4",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9756316998502423
+        },
+        {
+          "id": "archetype_k15_seed5",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.876709757255039
+        },
+        {
+          "id": "archetype_k10_seed6",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.922988977000953
+        },
+        {
+          "id": "archetype_k11_seed7",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9040019076038555
+        },
+        {
+          "id": "archetype_k12_seed8",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9082543770401847
+        },
+        {
+          "id": "archetype_k13_seed9",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9831068241438945
+        },
+        {
+          "id": "archetype_k14_seed10",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.8616712352673036
+        },
+        {
+          "id": "archetype_k15_seed11",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9385967426453093
+        },
+        {
+          "id": "archetype_k10_seed12",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.8664372212009633
+        },
+        {
+          "id": "archetype_k11_seed13",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9584565186323966
+        },
+        {
+          "id": "archetype_k12_seed14",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9718690721522039
+        },
+        {
+          "id": "archetype_k13_seed15",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.8389645466429115
+        },
+        {
+          "id": "archetype_k14_seed16",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9685797710687444
+        },
+        {
+          "id": "archetype_k15_seed17",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.8572274310531839
+        },
+        {
+          "id": "archetype_k10_seed18",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9680212428200125
+        },
+        {
+          "id": "archetype_k11_seed19",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9419581280806771
+        },
+        {
+          "id": "func_mrt_nodes",
+          "category": "functional",
+          "passed": false,
+          "score": 0.4087911678832911
+        },
+        {
+          "id": "func_industrial",
+          "category": "functional",
+          "passed": true,
+          "score": 0.9097613949524729
+        },
+        {
+          "id": "func_cbd",
+          "category": "functional",
+          "passed": false,
+          "score": 0.5815513157236732
+        },
+        {
+          "id": "func_changi_airport",
+          "category": "functional",
+          "passed": false,
+          "score": 0.35712294562198665
+        },
+        {
+          "id": "func_sentosa",
+          "category": "functional",
+          "passed": false,
+          "score": 0.6320757801301385
+        },
+        {
+          "id": "func_pa_north-eastern_islands",
+          "category": "functional",
+          "passed": true,
+          "score": 0.9636960258609371
+        },
+        {
+          "id": "func_pa_western_water_catchment",
+          "category": "functional",
+          "passed": true,
+          "score": 0.9543215143053155
+        },
+        {
+          "id": "func_pa_western_islands",
+          "category": "functional",
+          "passed": true,
+          "score": 0.9430025935173034
+        },
+        {
+          "id": "func_pa_tuas",
+          "category": "functional",
+          "passed": true,
+          "score": 0.9141375836573149
+        },
+        {
+          "id": "func_pa_changi",
+          "category": "functional",
+          "passed": false,
+          "score": 0.321660464617583
+        },
+        {
+          "id": "func_pa_central_water_catchment",
+          "category": "functional",
+          "passed": true,
+          "score": 0.4634777385716964
+        },
+        {
+          "id": "func_pa_queenstown",
+          "category": "functional",
+          "passed": false,
+          "score": 0.24490673712356703
+        },
+        {
+          "id": "func_pa_bedok",
+          "category": "functional",
+          "passed": false,
+          "score": 0.35027500268464024
+        },
+        {
+          "id": "func_pa_tampines",
+          "category": "functional",
+          "passed": true,
+          "score": 0.6251202157845622
+        },
+        {
+          "id": "func_pa_yishun",
+          "category": "functional",
+          "passed": false,
+          "score": 0.328585863329078
+        },
+        {
+          "id": "func_pa_jurong_east",
+          "category": "functional",
+          "passed": false,
+          "score": 0.06253689319679612
+        },
+        {
+          "id": "func_pa_lim_chu_kang",
+          "category": "functional",
+          "passed": true,
+          "score": 0.8459798986974515
+        },
+        {
+          "id": "func_pa_sungei_kadut",
+          "category": "functional",
+          "passed": false,
+          "score": 0.38820907116475467
+        },
+        {
+          "id": "func_pa_bukit_timah",
+          "category": "functional",
+          "passed": true,
+          "score": 0.5609533925589762
+        },
+        {
+          "id": "func_pa_bukit_merah",
+          "category": "functional",
+          "passed": true,
+          "score": 0.5741632599971797
+        },
+        {
+          "id": "query_pred_cafe_coffee",
+          "category": "feature_query",
+          "passed": true,
+          "score": 0.7937679946422577
+        },
+        {
+          "id": "query_pred_hawker_street_food",
+          "category": "feature_query",
+          "passed": true,
+          "score": 0.6594678282737731
+        },
+        {
+          "id": "query_pred_office_workspace",
+          "category": "feature_query",
+          "passed": true,
+          "score": 0.7104195863008499
+        },
+        {
+          "id": "query_pred_residential",
+          "category": "feature_query",
+          "passed": true,
+          "score": 0.6564878582954407
+        },
+        {
+          "id": "query_pred_hospitality",
+          "category": "feature_query",
+          "passed": true,
+          "score": 0.7639258801937103
+        },
+        {
+          "id": "query_pred_transport",
+          "category": "feature_query",
+          "passed": true,
+          "score": 0.5991559654474259
+        }
+      ],
+      "per_category": {
+        "pa_coherence": {
+          "n": 50,
+          "passed": 27,
+          "pass_rate": 0.54,
+          "mean_score": 0.54
+        },
+        "landmark": {
+          "n": 30,
+          "passed": 14,
+          "pass_rate": 0.4666666666666667,
+          "mean_score": 0.45999999999999996
+        },
+        "anti_similarity": {
+          "n": 30,
+          "passed": 30,
+          "pass_rate": 1.0,
+          "mean_score": 0.0885515075797836
+        },
+        "graph_smoothness": {
+          "n": 30,
+          "passed": 30,
+          "pass_rate": 1.0,
+          "mean_score": 0.7575312473831096
+        },
+        "archetype_stability": {
+          "n": 20,
+          "passed": 20,
+          "pass_rate": 1.0,
+          "mean_score": 0.9175574092581588
+        },
+        "functional": {
+          "n": 20,
+          "passed": 10,
+          "pass_rate": 0.5,
+          "mean_score": 0.5715164429689359
+        },
+        "feature_query": {
+          "n": 6,
+          "passed": 6,
+          "pass_rate": 1.0,
+          "mean_score": 0.6972041855255763
+        }
+      },
+      "overall_pass_rate": 0.7365591397849462,
+      "total_tests": 186,
+      "passed_tests": 137
+    },
+    "GCN-32": {
+      "name": "GCN-32",
+      "dims": 32,
+      "per_test": [
+        {
+          "id": "pa_coh_2903",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_3750",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_3257",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_637",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "pa_coh_5723",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_7103",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_4739",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_5158",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_1988",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.8
+        },
+        {
+          "id": "pa_coh_3235",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_2549",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_4999",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.5
+        },
+        {
+          "id": "pa_coh_3123",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_488",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.9
+        },
+        {
+          "id": "pa_coh_5751",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_3842",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_3660",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_7309",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_1441",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_6138",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.5
+        },
+        {
+          "id": "pa_coh_4079",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_6024",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "pa_coh_1187",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.8
+        },
+        {
+          "id": "pa_coh_5110",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_6497",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.5
+        },
+        {
+          "id": "pa_coh_6547",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_3164",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_661",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.8
+        },
+        {
+          "id": "pa_coh_6262",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_6766",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.3
+        },
+        {
+          "id": "pa_coh_4661",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_4801",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_5389",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_3262",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_7105",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_5259",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_458",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_5571",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_3211",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_6287",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_3987",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "pa_coh_1631",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_614",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "pa_coh_5726",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_5654",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_1308",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_2657",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_917",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "pa_coh_673",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "pa_coh_6067",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "landmark_raffles_place",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "landmark_marina_bay_sands",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "landmark_orchard_road",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "landmark_tiong_bahru",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "landmark_changi_airport",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "landmark_sentosa_rws",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_tampines_hub",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_jurong_east",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_tuas_industrial",
+          "category": "landmark",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "landmark_bedok_hdb",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_nus_kent_ridge",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_woodlands",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_ang_mo_kio",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_toa_payoh",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_hougang",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_yishun",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_choa_chu_kang",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_bukit_batok",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_jurong_west",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_pasir_ris",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_serangoon",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_punggol",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_sengkang",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_clementi",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_queenstown",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_geylang",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_kallang",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_novena",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_bukit_timah",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_marina_south",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "anti_0",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.5104491710662842
+        },
+        {
+          "id": "anti_1",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.1588442474603653
+        },
+        {
+          "id": "anti_2",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.016831785440444946
+        },
+        {
+          "id": "anti_3",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.5825952887535095
+        },
+        {
+          "id": "anti_4",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.2732554078102112
+        },
+        {
+          "id": "anti_5",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.06970617920160294
+        },
+        {
+          "id": "anti_6",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.1450759768486023
+        },
+        {
+          "id": "anti_7",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.008578389883041382
+        },
+        {
+          "id": "anti_8",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.011518062092363834
+        },
+        {
+          "id": "anti_9",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.08049266785383224
+        },
+        {
+          "id": "anti_10",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.08878356218338013
+        },
+        {
+          "id": "anti_11",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.3151211142539978
+        },
+        {
+          "id": "anti_12",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.7031260132789612
+        },
+        {
+          "id": "anti_13",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.06970617920160294
+        },
+        {
+          "id": "anti_14",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.29325181245803833
+        },
+        {
+          "id": "anti_random_15",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.1638893336057663
+        },
+        {
+          "id": "anti_random_16",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.13537904620170593
+        },
+        {
+          "id": "anti_random_17",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.11231738328933716
+        },
+        {
+          "id": "anti_random_18",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.8051207661628723
+        },
+        {
+          "id": "anti_random_19",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.17087557911872864
+        },
+        {
+          "id": "anti_random_20",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.5370187759399414
+        },
+        {
+          "id": "anti_random_21",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.05151880532503128
+        },
+        {
+          "id": "anti_random_22",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.025684071704745293
+        },
+        {
+          "id": "anti_random_23",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.2679291367530823
+        },
+        {
+          "id": "anti_random_24",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.06072438880801201
+        },
+        {
+          "id": "anti_random_25",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.15729723870754242
+        },
+        {
+          "id": "anti_random_26",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.06862543523311615
+        },
+        {
+          "id": "anti_random_27",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.11827880889177322
+        },
+        {
+          "id": "anti_random_28",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.24096527695655823
+        },
+        {
+          "id": "anti_random_29",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.3328005075454712
+        },
+        {
+          "id": "smooth_4710",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.1998653990526994
+        },
+        {
+          "id": "smooth_3844",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.014014304243028164
+        },
+        {
+          "id": "smooth_3161",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.24178284518420695
+        },
+        {
+          "id": "smooth_6265",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": 0.0047221590066328645
+        },
+        {
+          "id": "smooth_651",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.3130680064360301
+        },
+        {
+          "id": "smooth_688",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.009079353759686153
+        },
+        {
+          "id": "smooth_1338",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.43675637513709564
+        },
+        {
+          "id": "smooth_6018",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.16668046007398515
+        },
+        {
+          "id": "smooth_5740",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": 0.0057155508858462226
+        },
+        {
+          "id": "smooth_5088",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.05808851228406031
+        },
+        {
+          "id": "smooth_940",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.19294625421365103
+        },
+        {
+          "id": "smooth_1473",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.4055688017358382
+        },
+        {
+          "id": "smooth_7122",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.2793433664211383
+        },
+        {
+          "id": "smooth_3750",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.34344184534274974
+        },
+        {
+          "id": "smooth_6135",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": 0.03137189042754471
+        },
+        {
+          "id": "smooth_5714",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.11427809366335472
+        },
+        {
+          "id": "smooth_2714",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.06298242509365082
+        },
+        {
+          "id": "smooth_5371",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.16247750362381339
+        },
+        {
+          "id": "smooth_2947",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.2832580922171474
+        },
+        {
+          "id": "smooth_3203",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.18091306928545237
+        },
+        {
+          "id": "smooth_3247",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.30196309358191986
+        },
+        {
+          "id": "smooth_3993",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.3472433348574365
+        },
+        {
+          "id": "smooth_3294",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.017915214877575636
+        },
+        {
+          "id": "smooth_3659",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.19143104917214565
+        },
+        {
+          "id": "smooth_5641",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": 0.04940282102519026
+        },
+        {
+          "id": "smooth_6777",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.26349629890173676
+        },
+        {
+          "id": "smooth_5239",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.1922463355275492
+        },
+        {
+          "id": "smooth_4773",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.10796117251738906
+        },
+        {
+          "id": "smooth_628",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.25860970420762897
+        },
+        {
+          "id": "smooth_5557",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.226399486612839
+        },
+        {
+          "id": "archetype_k10_seed0",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9988311270596382
+        },
+        {
+          "id": "archetype_k11_seed1",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9343823572890176
+        },
+        {
+          "id": "archetype_k12_seed2",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9993929158666489
+        },
+        {
+          "id": "archetype_k13_seed3",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9876656051729714
+        },
+        {
+          "id": "archetype_k14_seed4",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.8917184440217025
+        },
+        {
+          "id": "archetype_k15_seed5",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9629742291272954
+        },
+        {
+          "id": "archetype_k10_seed6",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.8530360670352449
+        },
+        {
+          "id": "archetype_k11_seed7",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.8999341195074874
+        },
+        {
+          "id": "archetype_k12_seed8",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.966268891226332
+        },
+        {
+          "id": "archetype_k13_seed9",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9379541176364703
+        },
+        {
+          "id": "archetype_k14_seed10",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9179667582298605
+        },
+        {
+          "id": "archetype_k15_seed11",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9687283556514625
+        },
+        {
+          "id": "archetype_k10_seed12",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9173600267528697
+        },
+        {
+          "id": "archetype_k11_seed13",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9856109860909493
+        },
+        {
+          "id": "archetype_k12_seed14",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9521519613762258
+        },
+        {
+          "id": "archetype_k13_seed15",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9637695928070824
+        },
+        {
+          "id": "archetype_k14_seed16",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9497066721373181
+        },
+        {
+          "id": "archetype_k15_seed17",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9336046115420807
+        },
+        {
+          "id": "archetype_k10_seed18",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9455154142681068
+        },
+        {
+          "id": "archetype_k11_seed19",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9974604377613926
+        },
+        {
+          "id": "func_mrt_nodes",
+          "category": "functional",
+          "passed": false,
+          "score": 0.10077354435343296
+        },
+        {
+          "id": "func_industrial",
+          "category": "functional",
+          "passed": false,
+          "score": 0.04238856566187583
+        },
+        {
+          "id": "func_cbd",
+          "category": "functional",
+          "passed": false,
+          "score": 0.05476902149568655
+        },
+        {
+          "id": "func_changi_airport",
+          "category": "functional",
+          "passed": false,
+          "score": 0.09194961673624459
+        },
+        {
+          "id": "func_sentosa",
+          "category": "functional",
+          "passed": false,
+          "score": 0.03347399414633401
+        },
+        {
+          "id": "func_pa_north-eastern_islands",
+          "category": "functional",
+          "passed": false,
+          "score": 0.13577245816980538
+        },
+        {
+          "id": "func_pa_western_water_catchment",
+          "category": "functional",
+          "passed": false,
+          "score": 0.04765693376723089
+        },
+        {
+          "id": "func_pa_western_islands",
+          "category": "functional",
+          "passed": false,
+          "score": 0.04421586781789206
+        },
+        {
+          "id": "func_pa_tuas",
+          "category": "functional",
+          "passed": false,
+          "score": 0.04271769564794867
+        },
+        {
+          "id": "func_pa_changi",
+          "category": "functional",
+          "passed": false,
+          "score": 0.06088807385868246
+        },
+        {
+          "id": "func_pa_central_water_catchment",
+          "category": "functional",
+          "passed": false,
+          "score": 0.059501500177736345
+        },
+        {
+          "id": "func_pa_queenstown",
+          "category": "functional",
+          "passed": false,
+          "score": -0.0009228404507188029
+        },
+        {
+          "id": "func_pa_bedok",
+          "category": "functional",
+          "passed": false,
+          "score": 0.0011937408125959337
+        },
+        {
+          "id": "func_pa_tampines",
+          "category": "functional",
+          "passed": false,
+          "score": 0.03603639267568819
+        },
+        {
+          "id": "func_pa_yishun",
+          "category": "functional",
+          "passed": false,
+          "score": 0.027551396465615222
+        },
+        {
+          "id": "func_pa_jurong_east",
+          "category": "functional",
+          "passed": false,
+          "score": 0.051641237965515376
+        },
+        {
+          "id": "func_pa_lim_chu_kang",
+          "category": "functional",
+          "passed": false,
+          "score": 0.06571451442953395
+        },
+        {
+          "id": "func_pa_sungei_kadut",
+          "category": "functional",
+          "passed": false,
+          "score": 0.023009838002096664
+        },
+        {
+          "id": "func_pa_bukit_timah",
+          "category": "functional",
+          "passed": false,
+          "score": 0.04868918905328763
+        },
+        {
+          "id": "func_pa_bukit_merah",
+          "category": "functional",
+          "passed": false,
+          "score": 0.11788050682210413
+        },
+        {
+          "id": "query_pred_cafe_coffee",
+          "category": "feature_query",
+          "passed": false,
+          "score": 0.5337423235177994
+        },
+        {
+          "id": "query_pred_hawker_street_food",
+          "category": "feature_query",
+          "passed": false,
+          "score": 0.11973666457924992
+        },
+        {
+          "id": "query_pred_office_workspace",
+          "category": "feature_query",
+          "passed": false,
+          "score": 0.08271018285304307
+        },
+        {
+          "id": "query_pred_residential",
+          "category": "feature_query",
+          "passed": false,
+          "score": 0.06271025650203228
+        },
+        {
+          "id": "query_pred_hospitality",
+          "category": "feature_query",
+          "passed": false,
+          "score": 0.1477832928299904
+        },
+        {
+          "id": "query_pred_transport",
+          "category": "feature_query",
+          "passed": false,
+          "score": 0.3343107372522354
+        }
+      ],
+      "per_category": {
+        "pa_coherence": {
+          "n": 50,
+          "passed": 10,
+          "pass_rate": 0.2,
+          "mean_score": 0.242
+        },
+        "landmark": {
+          "n": 30,
+          "passed": 1,
+          "pass_rate": 0.03333333333333333,
+          "mean_score": 0.12000000000000002
+        },
+        "anti_similarity": {
+          "n": 30,
+          "passed": 30,
+          "pass_rate": 1.0,
+          "mean_score": 0.07776695331558585
+        },
+        "graph_smoothness": {
+          "n": 30,
+          "passed": 16,
+          "pass_rate": 0.5333333333333333,
+          "mean_score": 0.06861974032925597
+        },
+        "archetype_stability": {
+          "n": 20,
+          "passed": 20,
+          "pass_rate": 1.0,
+          "mean_score": 0.948201634528008
+        },
+        "functional": {
+          "n": 20,
+          "passed": 0,
+          "pass_rate": 0.0,
+          "mean_score": 0.0542450623804294
+        },
+        "feature_query": {
+          "n": 6,
+          "passed": 0,
+          "pass_rate": 0.0,
+          "mean_score": 0.2134989095890584
+        }
+      },
+      "overall_pass_rate": 0.41397849462365593,
+      "total_tests": 186,
+      "passed_tests": 77
+    },
+    "GCN-128": {
+      "name": "GCN-128",
+      "dims": 128,
+      "per_test": [
+        {
+          "id": "pa_coh_2903",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_3750",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_3257",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_637",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.8
+        },
+        {
+          "id": "pa_coh_5723",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_7103",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_4739",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_5158",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_1988",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.7
+        },
+        {
+          "id": "pa_coh_3235",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_2549",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_4999",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_3123",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_488",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_5751",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_3842",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_3660",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_7309",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_1441",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_6138",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "pa_coh_4079",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_6024",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "pa_coh_1187",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "pa_coh_5110",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_6497",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.3
+        },
+        {
+          "id": "pa_coh_6547",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_3164",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_661",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_6262",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_6766",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.5
+        },
+        {
+          "id": "pa_coh_4661",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_4801",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_5389",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_3262",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_7105",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_5259",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_458",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_5571",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_3211",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_6287",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_3987",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.7
+        },
+        {
+          "id": "pa_coh_1631",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_614",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "pa_coh_5726",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_5654",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.5
+        },
+        {
+          "id": "pa_coh_1308",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_2657",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.3
+        },
+        {
+          "id": "pa_coh_917",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.8
+        },
+        {
+          "id": "pa_coh_673",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.5
+        },
+        {
+          "id": "pa_coh_6067",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "landmark_raffles_place",
+          "category": "landmark",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "landmark_marina_bay_sands",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_orchard_road",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "landmark_tiong_bahru",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_changi_airport",
+          "category": "landmark",
+          "passed": true,
+          "score": 0.8
+        },
+        {
+          "id": "landmark_sentosa_rws",
+          "category": "landmark",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "landmark_tampines_hub",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_jurong_east",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_tuas_industrial",
+          "category": "landmark",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "landmark_bedok_hdb",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_nus_kent_ridge",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_woodlands",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_ang_mo_kio",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_toa_payoh",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_hougang",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_yishun",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_choa_chu_kang",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_bukit_batok",
+          "category": "landmark",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "landmark_jurong_west",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_pasir_ris",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_serangoon",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_punggol",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_sengkang",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_clementi",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_queenstown",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_geylang",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_kallang",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "landmark_novena",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_bukit_timah",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_marina_south",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "anti_0",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.24266238510608673
+        },
+        {
+          "id": "anti_1",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.08470406383275986
+        },
+        {
+          "id": "anti_2",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.14672085642814636
+        },
+        {
+          "id": "anti_3",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.4906895160675049
+        },
+        {
+          "id": "anti_4",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.19491907954216003
+        },
+        {
+          "id": "anti_5",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.023701205849647522
+        },
+        {
+          "id": "anti_6",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.04646461829543114
+        },
+        {
+          "id": "anti_7",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.1499665379524231
+        },
+        {
+          "id": "anti_8",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.07614830881357193
+        },
+        {
+          "id": "anti_9",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.07972753047943115
+        },
+        {
+          "id": "anti_10",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.009838970378041267
+        },
+        {
+          "id": "anti_11",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.24978694319725037
+        },
+        {
+          "id": "anti_12",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.5805702209472656
+        },
+        {
+          "id": "anti_13",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.023701205849647522
+        },
+        {
+          "id": "anti_14",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.026925694197416306
+        },
+        {
+          "id": "anti_random_15",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.19644132256507874
+        },
+        {
+          "id": "anti_random_16",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.07307343184947968
+        },
+        {
+          "id": "anti_random_17",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.30826812982559204
+        },
+        {
+          "id": "anti_random_18",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.7904478311538696
+        },
+        {
+          "id": "anti_random_19",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.2128925770521164
+        },
+        {
+          "id": "anti_random_20",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.6758939623832703
+        },
+        {
+          "id": "anti_random_21",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.06234578788280487
+        },
+        {
+          "id": "anti_random_22",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.0016215848736464977
+        },
+        {
+          "id": "anti_random_23",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.16276338696479797
+        },
+        {
+          "id": "anti_random_24",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.058447569608688354
+        },
+        {
+          "id": "anti_random_25",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.21987873315811157
+        },
+        {
+          "id": "anti_random_26",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.21396411955356598
+        },
+        {
+          "id": "anti_random_27",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.29917845129966736
+        },
+        {
+          "id": "anti_random_28",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.01626063883304596
+        },
+        {
+          "id": "anti_random_29",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.17553049325942993
+        },
+        {
+          "id": "smooth_4710",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": 0.031004618046184387
+        },
+        {
+          "id": "smooth_3844",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.14027976691722868
+        },
+        {
+          "id": "smooth_3161",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.2734349114994984
+        },
+        {
+          "id": "smooth_6265",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": 0.0292106273273627
+        },
+        {
+          "id": "smooth_651",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.3729577229106023
+        },
+        {
+          "id": "smooth_688",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.12556683234870433
+        },
+        {
+          "id": "smooth_1338",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.32618278414011004
+        },
+        {
+          "id": "smooth_6018",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.1189589542026321
+        },
+        {
+          "id": "smooth_5740",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": 0.00222364633809774
+        },
+        {
+          "id": "smooth_5088",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.01534366064782565
+        },
+        {
+          "id": "smooth_940",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.17506331137071052
+        },
+        {
+          "id": "smooth_1473",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.4243595723683635
+        },
+        {
+          "id": "smooth_7122",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.22137737868276114
+        },
+        {
+          "id": "smooth_3750",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.31300703532372914
+        },
+        {
+          "id": "smooth_6135",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.16601549349725248
+        },
+        {
+          "id": "smooth_5714",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.11193144439409176
+        },
+        {
+          "id": "smooth_2714",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.034867299029914034
+        },
+        {
+          "id": "smooth_5371",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.39067759343112507
+        },
+        {
+          "id": "smooth_2947",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.18599292047632238
+        },
+        {
+          "id": "smooth_3203",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.1355432259539763
+        },
+        {
+          "id": "smooth_3247",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.10448065229381125
+        },
+        {
+          "id": "smooth_3993",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.15285657923668622
+        },
+        {
+          "id": "smooth_3294",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.13648755125856646
+        },
+        {
+          "id": "smooth_3659",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.24264809517189861
+        },
+        {
+          "id": "smooth_5641",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.13583323415368795
+        },
+        {
+          "id": "smooth_6777",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.1260639335727319
+        },
+        {
+          "id": "smooth_5239",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.23789067053391288
+        },
+        {
+          "id": "smooth_4773",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.2188492670034369
+        },
+        {
+          "id": "smooth_628",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.11210941508373556
+        },
+        {
+          "id": "smooth_5557",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.15006350589295228
+        },
+        {
+          "id": "archetype_k10_seed0",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9965263341978097
+        },
+        {
+          "id": "archetype_k11_seed1",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9145506677463725
+        },
+        {
+          "id": "archetype_k12_seed2",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9203810903160374
+        },
+        {
+          "id": "archetype_k13_seed3",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.8961684547268447
+        },
+        {
+          "id": "archetype_k14_seed4",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9592413534307695
+        },
+        {
+          "id": "archetype_k15_seed5",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9360656899451455
+        },
+        {
+          "id": "archetype_k10_seed6",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9957236605460952
+        },
+        {
+          "id": "archetype_k11_seed7",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.8744366562134772
+        },
+        {
+          "id": "archetype_k12_seed8",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9498617674372755
+        },
+        {
+          "id": "archetype_k13_seed9",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9595633117491752
+        },
+        {
+          "id": "archetype_k14_seed10",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9151520545444372
+        },
+        {
+          "id": "archetype_k15_seed11",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9562223496218745
+        },
+        {
+          "id": "archetype_k10_seed12",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9158235892915167
+        },
+        {
+          "id": "archetype_k11_seed13",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9177389032624025
+        },
+        {
+          "id": "archetype_k12_seed14",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.931398222327874
+        },
+        {
+          "id": "archetype_k13_seed15",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.8548507968807916
+        },
+        {
+          "id": "archetype_k14_seed16",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9470409514753911
+        },
+        {
+          "id": "archetype_k15_seed17",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9689559282736983
+        },
+        {
+          "id": "archetype_k10_seed18",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.8628908163500414
+        },
+        {
+          "id": "archetype_k11_seed19",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9618750498744173
+        },
+        {
+          "id": "func_mrt_nodes",
+          "category": "functional",
+          "passed": false,
+          "score": 0.06137877483186977
+        },
+        {
+          "id": "func_industrial",
+          "category": "functional",
+          "passed": false,
+          "score": 0.04000022610707674
+        },
+        {
+          "id": "func_cbd",
+          "category": "functional",
+          "passed": false,
+          "score": 0.06135378671123793
+        },
+        {
+          "id": "func_changi_airport",
+          "category": "functional",
+          "passed": false,
+          "score": 0.06060897638256262
+        },
+        {
+          "id": "func_sentosa",
+          "category": "functional",
+          "passed": false,
+          "score": 0.04746955708174746
+        },
+        {
+          "id": "func_pa_north-eastern_islands",
+          "category": "functional",
+          "passed": false,
+          "score": 0.10094034907800195
+        },
+        {
+          "id": "func_pa_western_water_catchment",
+          "category": "functional",
+          "passed": false,
+          "score": 0.07072283155039737
+        },
+        {
+          "id": "func_pa_western_islands",
+          "category": "functional",
+          "passed": false,
+          "score": 0.014776181846268867
+        },
+        {
+          "id": "func_pa_tuas",
+          "category": "functional",
+          "passed": false,
+          "score": 0.05081470578182856
+        },
+        {
+          "id": "func_pa_changi",
+          "category": "functional",
+          "passed": false,
+          "score": 0.04216139444523785
+        },
+        {
+          "id": "func_pa_central_water_catchment",
+          "category": "functional",
+          "passed": false,
+          "score": 0.02275633679604844
+        },
+        {
+          "id": "func_pa_queenstown",
+          "category": "functional",
+          "passed": false,
+          "score": -0.0011792224317200874
+        },
+        {
+          "id": "func_pa_bedok",
+          "category": "functional",
+          "passed": false,
+          "score": 0.03258240352335729
+        },
+        {
+          "id": "func_pa_tampines",
+          "category": "functional",
+          "passed": false,
+          "score": -0.0005900165568547029
+        },
+        {
+          "id": "func_pa_yishun",
+          "category": "functional",
+          "passed": false,
+          "score": 0.044369202624320196
+        },
+        {
+          "id": "func_pa_jurong_east",
+          "category": "functional",
+          "passed": false,
+          "score": 0.07560251975358513
+        },
+        {
+          "id": "func_pa_lim_chu_kang",
+          "category": "functional",
+          "passed": false,
+          "score": 0.004204515851789007
+        },
+        {
+          "id": "func_pa_sungei_kadut",
+          "category": "functional",
+          "passed": false,
+          "score": 0.015941517457586565
+        },
+        {
+          "id": "func_pa_bukit_timah",
+          "category": "functional",
+          "passed": false,
+          "score": 0.03982586022466421
+        },
+        {
+          "id": "func_pa_bukit_merah",
+          "category": "functional",
+          "passed": false,
+          "score": 0.05055915780463501
+        },
+        {
+          "id": "query_pred_cafe_coffee",
+          "category": "feature_query",
+          "passed": true,
+          "score": 0.5566870815353469
+        },
+        {
+          "id": "query_pred_hawker_street_food",
+          "category": "feature_query",
+          "passed": false,
+          "score": 0.0536253365688026
+        },
+        {
+          "id": "query_pred_office_workspace",
+          "category": "feature_query",
+          "passed": false,
+          "score": 0.025993240950629114
+        },
+        {
+          "id": "query_pred_residential",
+          "category": "feature_query",
+          "passed": false,
+          "score": 0.008187455363804474
+        },
+        {
+          "id": "query_pred_hospitality",
+          "category": "feature_query",
+          "passed": false,
+          "score": 0.121847262699157
+        },
+        {
+          "id": "query_pred_transport",
+          "category": "feature_query",
+          "passed": false,
+          "score": 0.12951628686860203
+        }
+      ],
+      "per_category": {
+        "pa_coherence": {
+          "n": 50,
+          "passed": 14,
+          "pass_rate": 0.28,
+          "mean_score": 0.262
+        },
+        "landmark": {
+          "n": 30,
+          "passed": 5,
+          "pass_rate": 0.16666666666666666,
+          "mean_score": 0.20000000000000004
+        },
+        "anti_similarity": {
+          "n": 30,
+          "passed": 30,
+          "pass_rate": 1.0,
+          "mean_score": 0.018886276163781683
+        },
+        "graph_smoothness": {
+          "n": 30,
+          "passed": 16,
+          "pass_rate": 0.5333333333333333,
+          "mean_score": 0.07069986957998481
+        },
+        "archetype_stability": {
+          "n": 20,
+          "passed": 20,
+          "pass_rate": 1.0,
+          "mean_score": 0.9317233824105724
+        },
+        "functional": {
+          "n": 20,
+          "passed": 0,
+          "pass_rate": 0.0,
+          "mean_score": 0.04171495294318201
+        },
+        "feature_query": {
+          "n": 6,
+          "passed": 1,
+          "pass_rate": 0.16666666666666666,
+          "mean_score": 0.1493094439977237
+        }
+      },
+      "overall_pass_rate": 0.46236559139784944,
+      "total_tests": 186,
+      "passed_tests": 86
+    },
+    "GCN-256": {
+      "name": "GCN-256",
+      "dims": 256,
+      "per_test": [
+        {
+          "id": "pa_coh_2903",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_3750",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.3
+        },
+        {
+          "id": "pa_coh_3257",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_637",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.9
+        },
+        {
+          "id": "pa_coh_5723",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_7103",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_4739",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_5158",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_1988",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "pa_coh_3235",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_2549",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_4999",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_3123",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_488",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_5751",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_3842",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_3660",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_7309",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_1441",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_6138",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.5
+        },
+        {
+          "id": "pa_coh_4079",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_6024",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "pa_coh_1187",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "pa_coh_5110",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_6497",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "pa_coh_6547",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.3
+        },
+        {
+          "id": "pa_coh_3164",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_661",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.5
+        },
+        {
+          "id": "pa_coh_6262",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.3
+        },
+        {
+          "id": "pa_coh_6766",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "pa_coh_4661",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_4801",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_5389",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_3262",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_7105",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_5259",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_458",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.9
+        },
+        {
+          "id": "pa_coh_5571",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.3
+        },
+        {
+          "id": "pa_coh_3211",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_6287",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_3987",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "pa_coh_1631",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_614",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.3
+        },
+        {
+          "id": "pa_coh_5726",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_5654",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.3
+        },
+        {
+          "id": "pa_coh_1308",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_2657",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_917",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.7
+        },
+        {
+          "id": "pa_coh_673",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "pa_coh_6067",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "landmark_raffles_place",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "landmark_marina_bay_sands",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "landmark_orchard_road",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "landmark_tiong_bahru",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_changi_airport",
+          "category": "landmark",
+          "passed": true,
+          "score": 0.8
+        },
+        {
+          "id": "landmark_sentosa_rws",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_tampines_hub",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_jurong_east",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_tuas_industrial",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "landmark_bedok_hdb",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_nus_kent_ridge",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_woodlands",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_ang_mo_kio",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_toa_payoh",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_hougang",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_yishun",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_choa_chu_kang",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_bukit_batok",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_jurong_west",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_pasir_ris",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_serangoon",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_punggol",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_sengkang",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_clementi",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_queenstown",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_geylang",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_kallang",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_novena",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "landmark_bukit_timah",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_marina_south",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "anti_0",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.419191837310791
+        },
+        {
+          "id": "anti_1",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.10725853592157364
+        },
+        {
+          "id": "anti_2",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.1210465058684349
+        },
+        {
+          "id": "anti_3",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.23998862504959106
+        },
+        {
+          "id": "anti_4",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.3189343512058258
+        },
+        {
+          "id": "anti_5",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.1468651443719864
+        },
+        {
+          "id": "anti_6",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.03935880586504936
+        },
+        {
+          "id": "anti_7",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.12531502544879913
+        },
+        {
+          "id": "anti_8",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.09630801528692245
+        },
+        {
+          "id": "anti_9",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.11542431265115738
+        },
+        {
+          "id": "anti_10",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.07830563932657242
+        },
+        {
+          "id": "anti_11",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.11175933480262756
+        },
+        {
+          "id": "anti_12",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.666665256023407
+        },
+        {
+          "id": "anti_13",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.1468651443719864
+        },
+        {
+          "id": "anti_14",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.056455355137586594
+        },
+        {
+          "id": "anti_random_15",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.17160284519195557
+        },
+        {
+          "id": "anti_random_16",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.20450152456760406
+        },
+        {
+          "id": "anti_random_17",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.197953999042511
+        },
+        {
+          "id": "anti_random_18",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.8098272085189819
+        },
+        {
+          "id": "anti_random_19",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.19708505272865295
+        },
+        {
+          "id": "anti_random_20",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.6780587434768677
+        },
+        {
+          "id": "anti_random_21",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.14750248193740845
+        },
+        {
+          "id": "anti_random_22",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.09419836848974228
+        },
+        {
+          "id": "anti_random_23",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.16377119719982147
+        },
+        {
+          "id": "anti_random_24",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.09757398068904877
+        },
+        {
+          "id": "anti_random_25",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.1949130892753601
+        },
+        {
+          "id": "anti_random_26",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.17006301879882812
+        },
+        {
+          "id": "anti_random_27",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.2231767475605011
+        },
+        {
+          "id": "anti_random_28",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.00447938684374094
+        },
+        {
+          "id": "anti_random_29",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.2414914071559906
+        },
+        {
+          "id": "smooth_4710",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.06716202075282732
+        },
+        {
+          "id": "smooth_3844",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.1085419423878193
+        },
+        {
+          "id": "smooth_3161",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.22394652092674125
+        },
+        {
+          "id": "smooth_6265",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": 0.011148732590178649
+        },
+        {
+          "id": "smooth_651",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.24580935910344123
+        },
+        {
+          "id": "smooth_688",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": 0.0490295414153176
+        },
+        {
+          "id": "smooth_1338",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.353909441952904
+        },
+        {
+          "id": "smooth_6018",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.1294947199523449
+        },
+        {
+          "id": "smooth_5740",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": 0.014320620506380985
+        },
+        {
+          "id": "smooth_5088",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.054576726133624714
+        },
+        {
+          "id": "smooth_940",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.15292050006488958
+        },
+        {
+          "id": "smooth_1473",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.4034109118666189
+        },
+        {
+          "id": "smooth_7122",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.22906880219622205
+        },
+        {
+          "id": "smooth_3750",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.3537733826475839
+        },
+        {
+          "id": "smooth_6135",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.19382123947143554
+        },
+        {
+          "id": "smooth_5714",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.17646522211531798
+        },
+        {
+          "id": "smooth_2714",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.12845279386577507
+        },
+        {
+          "id": "smooth_5371",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.32447034095724425
+        },
+        {
+          "id": "smooth_2947",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.19785152859985827
+        },
+        {
+          "id": "smooth_3203",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.2118547854324182
+        },
+        {
+          "id": "smooth_3247",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.1983347059537967
+        },
+        {
+          "id": "smooth_3993",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.23011827195684115
+        },
+        {
+          "id": "smooth_3294",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.1641845140606165
+        },
+        {
+          "id": "smooth_3659",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.26894963656862575
+        },
+        {
+          "id": "smooth_5641",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.12068706564605236
+        },
+        {
+          "id": "smooth_6777",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.11963590557376542
+        },
+        {
+          "id": "smooth_5239",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.1412739299237728
+        },
+        {
+          "id": "smooth_4773",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.11167141407107313
+        },
+        {
+          "id": "smooth_628",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.10351726985536516
+        },
+        {
+          "id": "smooth_5557",
+          "category": "graph_smoothness",
+          "passed": false,
+          "score": -0.1130663935871174
+        },
+        {
+          "id": "archetype_k10_seed0",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9076422070483287
+        },
+        {
+          "id": "archetype_k11_seed1",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9075762758756641
+        },
+        {
+          "id": "archetype_k12_seed2",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9327499677552363
+        },
+        {
+          "id": "archetype_k13_seed3",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9161782879157325
+        },
+        {
+          "id": "archetype_k14_seed4",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.855136610037285
+        },
+        {
+          "id": "archetype_k15_seed5",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.7776139043093652
+        },
+        {
+          "id": "archetype_k10_seed6",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9321723303128996
+        },
+        {
+          "id": "archetype_k11_seed7",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.8897444679152942
+        },
+        {
+          "id": "archetype_k12_seed8",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.8827695597118476
+        },
+        {
+          "id": "archetype_k13_seed9",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9242865836619827
+        },
+        {
+          "id": "archetype_k14_seed10",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.8864132556962123
+        },
+        {
+          "id": "archetype_k15_seed11",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9415463856178166
+        },
+        {
+          "id": "archetype_k10_seed12",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.8160385324638815
+        },
+        {
+          "id": "archetype_k11_seed13",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.8266176786049051
+        },
+        {
+          "id": "archetype_k12_seed14",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9971843243996391
+        },
+        {
+          "id": "archetype_k13_seed15",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.7900574957005978
+        },
+        {
+          "id": "archetype_k14_seed16",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.6929283004498288
+        },
+        {
+          "id": "archetype_k15_seed17",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.8525442098077964
+        },
+        {
+          "id": "archetype_k10_seed18",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.8252074258288835
+        },
+        {
+          "id": "archetype_k11_seed19",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.7780088859444424
+        },
+        {
+          "id": "func_mrt_nodes",
+          "category": "functional",
+          "passed": false,
+          "score": 0.057580066870321474
+        },
+        {
+          "id": "func_industrial",
+          "category": "functional",
+          "passed": false,
+          "score": 0.026223219421349073
+        },
+        {
+          "id": "func_cbd",
+          "category": "functional",
+          "passed": false,
+          "score": 0.06481463738707947
+        },
+        {
+          "id": "func_changi_airport",
+          "category": "functional",
+          "passed": false,
+          "score": 0.06293475244726454
+        },
+        {
+          "id": "func_sentosa",
+          "category": "functional",
+          "passed": false,
+          "score": 0.050635490799322724
+        },
+        {
+          "id": "func_pa_north-eastern_islands",
+          "category": "functional",
+          "passed": false,
+          "score": 0.10196623978646178
+        },
+        {
+          "id": "func_pa_western_water_catchment",
+          "category": "functional",
+          "passed": false,
+          "score": 0.05419981197306984
+        },
+        {
+          "id": "func_pa_western_islands",
+          "category": "functional",
+          "passed": false,
+          "score": 0.02489444817367353
+        },
+        {
+          "id": "func_pa_tuas",
+          "category": "functional",
+          "passed": false,
+          "score": 0.03070268999589117
+        },
+        {
+          "id": "func_pa_changi",
+          "category": "functional",
+          "passed": false,
+          "score": 0.04365909611316104
+        },
+        {
+          "id": "func_pa_central_water_catchment",
+          "category": "functional",
+          "passed": false,
+          "score": 0.01250928687421899
+        },
+        {
+          "id": "func_pa_queenstown",
+          "category": "functional",
+          "passed": false,
+          "score": -0.0038682545780351287
+        },
+        {
+          "id": "func_pa_bedok",
+          "category": "functional",
+          "passed": false,
+          "score": 0.009101970807502144
+        },
+        {
+          "id": "func_pa_tampines",
+          "category": "functional",
+          "passed": false,
+          "score": 0.005271233559439057
+        },
+        {
+          "id": "func_pa_yishun",
+          "category": "functional",
+          "passed": false,
+          "score": 0.058986333716587215
+        },
+        {
+          "id": "func_pa_jurong_east",
+          "category": "functional",
+          "passed": false,
+          "score": 0.05229933479506718
+        },
+        {
+          "id": "func_pa_lim_chu_kang",
+          "category": "functional",
+          "passed": false,
+          "score": 0.02078880027524735
+        },
+        {
+          "id": "func_pa_sungei_kadut",
+          "category": "functional",
+          "passed": false,
+          "score": -0.0012359489147600374
+        },
+        {
+          "id": "func_pa_bukit_timah",
+          "category": "functional",
+          "passed": false,
+          "score": 0.02950364113050072
+        },
+        {
+          "id": "func_pa_bukit_merah",
+          "category": "functional",
+          "passed": false,
+          "score": 0.05855911032321225
+        },
+        {
+          "id": "query_pred_cafe_coffee",
+          "category": "feature_query",
+          "passed": false,
+          "score": 0.5251971871126443
+        },
+        {
+          "id": "query_pred_hawker_street_food",
+          "category": "feature_query",
+          "passed": false,
+          "score": 0.003514488763175905
+        },
+        {
+          "id": "query_pred_office_workspace",
+          "category": "feature_query",
+          "passed": false,
+          "score": 0.043572504469193515
+        },
+        {
+          "id": "query_pred_residential",
+          "category": "feature_query",
+          "passed": false,
+          "score": 0.022812697594054042
+        },
+        {
+          "id": "query_pred_hospitality",
+          "category": "feature_query",
+          "passed": false,
+          "score": 0.08508021919988096
+        },
+        {
+          "id": "query_pred_transport",
+          "category": "feature_query",
+          "passed": false,
+          "score": 0.08186387624591589
+        }
+      ],
+      "per_category": {
+        "pa_coherence": {
+          "n": 50,
+          "passed": 11,
+          "pass_rate": 0.22,
+          "mean_score": 0.252
+        },
+        "landmark": {
+          "n": 30,
+          "passed": 1,
+          "pass_rate": 0.03333333333333333,
+          "mean_score": 0.1466666666666667
+        },
+        "anti_similarity": {
+          "n": 30,
+          "passed": 30,
+          "pass_rate": 1.0,
+          "mean_score": -0.003721670775363843
+        },
+        "graph_smoothness": {
+          "n": 30,
+          "passed": 16,
+          "pass_rate": 0.5333333333333333,
+          "mean_score": 0.058462487038276674
+        },
+        "archetype_stability": {
+          "n": 20,
+          "passed": 20,
+          "pass_rate": 1.0,
+          "mean_score": 0.8666208344528818
+        },
+        "functional": {
+          "n": 20,
+          "passed": 0,
+          "pass_rate": 0.0,
+          "mean_score": 0.03797629804782872
+        },
+        "feature_query": {
+          "n": 6,
+          "passed": 0,
+          "pass_rate": 0.0,
+          "mean_score": 0.12700682889747741
+        }
+      },
+      "overall_pass_rate": 0.41935483870967744,
+      "total_tests": 186,
+      "passed_tests": 78
+    },
+    "PCA-128": {
+      "name": "PCA-128",
+      "dims": 128,
+      "per_test": [
+        {
+          "id": "pa_coh_2903",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_3750",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_3257",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_637",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_5723",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_7103",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.8
+        },
+        {
+          "id": "pa_coh_4739",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_5158",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_1988",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_3235",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.3
+        },
+        {
+          "id": "pa_coh_2549",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_4999",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.7
+        },
+        {
+          "id": "pa_coh_3123",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "pa_coh_488",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_5751",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.8
+        },
+        {
+          "id": "pa_coh_3842",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "pa_coh_3660",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_7309",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_1441",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.7
+        },
+        {
+          "id": "pa_coh_6138",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_4079",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_6024",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_1187",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.8
+        },
+        {
+          "id": "pa_coh_5110",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_6497",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_6547",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_3164",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_661",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_6262",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "pa_coh_6766",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.7
+        },
+        {
+          "id": "pa_coh_4661",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "pa_coh_4801",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.7
+        },
+        {
+          "id": "pa_coh_5389",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_3262",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_7105",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.5
+        },
+        {
+          "id": "pa_coh_5259",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_458",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.8
+        },
+        {
+          "id": "pa_coh_5571",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.9
+        },
+        {
+          "id": "pa_coh_3211",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_6287",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.3
+        },
+        {
+          "id": "pa_coh_3987",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_1631",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "pa_coh_614",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.9
+        },
+        {
+          "id": "pa_coh_5726",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_5654",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.9
+        },
+        {
+          "id": "pa_coh_1308",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_2657",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "pa_coh_917",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "pa_coh_673",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_6067",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "landmark_raffles_place",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_marina_bay_sands",
+          "category": "landmark",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "landmark_orchard_road",
+          "category": "landmark",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "landmark_tiong_bahru",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "landmark_changi_airport",
+          "category": "landmark",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "landmark_sentosa_rws",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "landmark_tampines_hub",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_jurong_east",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_tuas_industrial",
+          "category": "landmark",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "landmark_bedok_hdb",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "landmark_nus_kent_ridge",
+          "category": "landmark",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "landmark_woodlands",
+          "category": "landmark",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "landmark_ang_mo_kio",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "landmark_toa_payoh",
+          "category": "landmark",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "landmark_hougang",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_yishun",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_choa_chu_kang",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_bukit_batok",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_jurong_west",
+          "category": "landmark",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "landmark_pasir_ris",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_serangoon",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_punggol",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_sengkang",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "landmark_clementi",
+          "category": "landmark",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "landmark_queenstown",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_geylang",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_kallang",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "landmark_novena",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "landmark_bukit_timah",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_marina_south",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "anti_0",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.06877031922340393
+        },
+        {
+          "id": "anti_1",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.09366808086633682
+        },
+        {
+          "id": "anti_2",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.046332649886608124
+        },
+        {
+          "id": "anti_3",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.005381117109209299
+        },
+        {
+          "id": "anti_4",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.09431596100330353
+        },
+        {
+          "id": "anti_5",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.0695454552769661
+        },
+        {
+          "id": "anti_6",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.04856523126363754
+        },
+        {
+          "id": "anti_7",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.06604377925395966
+        },
+        {
+          "id": "anti_8",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.0046790484338998795
+        },
+        {
+          "id": "anti_9",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.003213565330952406
+        },
+        {
+          "id": "anti_10",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.06210702657699585
+        },
+        {
+          "id": "anti_11",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.1372358351945877
+        },
+        {
+          "id": "anti_12",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.07870236039161682
+        },
+        {
+          "id": "anti_13",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.0695454552769661
+        },
+        {
+          "id": "anti_14",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.01576952636241913
+        },
+        {
+          "id": "anti_random_15",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.15887054800987244
+        },
+        {
+          "id": "anti_random_16",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.15010040998458862
+        },
+        {
+          "id": "anti_random_17",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.09583233296871185
+        },
+        {
+          "id": "anti_random_18",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.1578083485364914
+        },
+        {
+          "id": "anti_random_19",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.01915794610977173
+        },
+        {
+          "id": "anti_random_20",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.13027285039424896
+        },
+        {
+          "id": "anti_random_21",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.06813577562570572
+        },
+        {
+          "id": "anti_random_22",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.0782788023352623
+        },
+        {
+          "id": "anti_random_23",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.1419948786497116
+        },
+        {
+          "id": "anti_random_24",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.03905225545167923
+        },
+        {
+          "id": "anti_random_25",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.031463623046875
+        },
+        {
+          "id": "anti_random_26",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.03922533243894577
+        },
+        {
+          "id": "anti_random_27",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.18136292695999146
+        },
+        {
+          "id": "anti_random_28",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.052875079214572906
+        },
+        {
+          "id": "anti_random_29",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.040755193680524826
+        },
+        {
+          "id": "smooth_4710",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.441701314986373
+        },
+        {
+          "id": "smooth_3844",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.5904922435332991
+        },
+        {
+          "id": "smooth_3161",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.11962452407633464
+        },
+        {
+          "id": "smooth_6265",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.36213324949688586
+        },
+        {
+          "id": "smooth_651",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.313597713430742
+        },
+        {
+          "id": "smooth_688",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.5628347310237587
+        },
+        {
+          "id": "smooth_1338",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.8570646503329045
+        },
+        {
+          "id": "smooth_6018",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.8564274964078019
+        },
+        {
+          "id": "smooth_5740",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.5700688634688655
+        },
+        {
+          "id": "smooth_5088",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.11359734988266912
+        },
+        {
+          "id": "smooth_940",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.842530189557389
+        },
+        {
+          "id": "smooth_1473",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.532519870687247
+        },
+        {
+          "id": "smooth_7122",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.2534153827543681
+        },
+        {
+          "id": "smooth_3750",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.20844887338656312
+        },
+        {
+          "id": "smooth_6135",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.8215088342200033
+        },
+        {
+          "id": "smooth_5714",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.24766087865379327
+        },
+        {
+          "id": "smooth_2714",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.29539711283675085
+        },
+        {
+          "id": "smooth_5371",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.8154420882541066
+        },
+        {
+          "id": "smooth_2947",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.5962263984178814
+        },
+        {
+          "id": "smooth_3203",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.36735365085769445
+        },
+        {
+          "id": "smooth_3247",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.1327736529211203
+        },
+        {
+          "id": "smooth_3993",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.7730667892261408
+        },
+        {
+          "id": "smooth_3294",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.23147418564379527
+        },
+        {
+          "id": "smooth_3659",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.26990694951188443
+        },
+        {
+          "id": "smooth_5641",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.5773199387321559
+        },
+        {
+          "id": "smooth_6777",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.6856768249068409
+        },
+        {
+          "id": "smooth_5239",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.20216555688530208
+        },
+        {
+          "id": "smooth_4773",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.22505065312919517
+        },
+        {
+          "id": "smooth_628",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.19221983772004023
+        },
+        {
+          "id": "smooth_5557",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.5149767406401224
+        },
+        {
+          "id": "archetype_k10_seed0",
+          "category": "archetype_stability",
+          "passed": false,
+          "score": 0.2918551339009649
+        },
+        {
+          "id": "archetype_k11_seed1",
+          "category": "archetype_stability",
+          "passed": false,
+          "score": 0.4715815091062813
+        },
+        {
+          "id": "archetype_k12_seed2",
+          "category": "archetype_stability",
+          "passed": false,
+          "score": 0.48634022034807173
+        },
+        {
+          "id": "archetype_k13_seed3",
+          "category": "archetype_stability",
+          "passed": false,
+          "score": 0.24372965068066374
+        },
+        {
+          "id": "archetype_k14_seed4",
+          "category": "archetype_stability",
+          "passed": false,
+          "score": 0.46314807385049295
+        },
+        {
+          "id": "archetype_k15_seed5",
+          "category": "archetype_stability",
+          "passed": false,
+          "score": 0.37161357358758007
+        },
+        {
+          "id": "archetype_k10_seed6",
+          "category": "archetype_stability",
+          "passed": false,
+          "score": 0.2472923576835262
+        },
+        {
+          "id": "archetype_k11_seed7",
+          "category": "archetype_stability",
+          "passed": false,
+          "score": 0.2853088402011715
+        },
+        {
+          "id": "archetype_k12_seed8",
+          "category": "archetype_stability",
+          "passed": false,
+          "score": 0.3957446302199434
+        },
+        {
+          "id": "archetype_k13_seed9",
+          "category": "archetype_stability",
+          "passed": false,
+          "score": 0.21126680252045538
+        },
+        {
+          "id": "archetype_k14_seed10",
+          "category": "archetype_stability",
+          "passed": false,
+          "score": 0.4037792336271551
+        },
+        {
+          "id": "archetype_k15_seed11",
+          "category": "archetype_stability",
+          "passed": false,
+          "score": 0.3122818938476418
+        },
+        {
+          "id": "archetype_k10_seed12",
+          "category": "archetype_stability",
+          "passed": false,
+          "score": 0.26627031291655096
+        },
+        {
+          "id": "archetype_k11_seed13",
+          "category": "archetype_stability",
+          "passed": false,
+          "score": 0.17789196647244343
+        },
+        {
+          "id": "archetype_k12_seed14",
+          "category": "archetype_stability",
+          "passed": false,
+          "score": 0.24398852551631814
+        },
+        {
+          "id": "archetype_k13_seed15",
+          "category": "archetype_stability",
+          "passed": false,
+          "score": 0.3828081131199896
+        },
+        {
+          "id": "archetype_k14_seed16",
+          "category": "archetype_stability",
+          "passed": false,
+          "score": 0.3368974991735482
+        },
+        {
+          "id": "archetype_k15_seed17",
+          "category": "archetype_stability",
+          "passed": false,
+          "score": 0.13636352504388172
+        },
+        {
+          "id": "archetype_k10_seed18",
+          "category": "archetype_stability",
+          "passed": false,
+          "score": 0.45334414887244945
+        },
+        {
+          "id": "archetype_k11_seed19",
+          "category": "archetype_stability",
+          "passed": false,
+          "score": 0.30052313045395224
+        },
+        {
+          "id": "func_mrt_nodes",
+          "category": "functional",
+          "passed": false,
+          "score": 0.1638896367485965
+        },
+        {
+          "id": "func_industrial",
+          "category": "functional",
+          "passed": false,
+          "score": 0.6832372024655342
+        },
+        {
+          "id": "func_cbd",
+          "category": "functional",
+          "passed": false,
+          "score": 0.12185504994673753
+        },
+        {
+          "id": "func_changi_airport",
+          "category": "functional",
+          "passed": false,
+          "score": 0.17555045895832813
+        },
+        {
+          "id": "func_sentosa",
+          "category": "functional",
+          "passed": false,
+          "score": 0.27852658526481766
+        },
+        {
+          "id": "func_pa_north-eastern_islands",
+          "category": "functional",
+          "passed": true,
+          "score": 0.6428576154144187
+        },
+        {
+          "id": "func_pa_western_water_catchment",
+          "category": "functional",
+          "passed": true,
+          "score": 0.6294210481800531
+        },
+        {
+          "id": "func_pa_western_islands",
+          "category": "functional",
+          "passed": true,
+          "score": 0.6514434704262959
+        },
+        {
+          "id": "func_pa_tuas",
+          "category": "functional",
+          "passed": true,
+          "score": 0.6884043577470278
+        },
+        {
+          "id": "func_pa_changi",
+          "category": "functional",
+          "passed": false,
+          "score": 0.16367754899761885
+        },
+        {
+          "id": "func_pa_central_water_catchment",
+          "category": "functional",
+          "passed": false,
+          "score": 0.24101284125476682
+        },
+        {
+          "id": "func_pa_queenstown",
+          "category": "functional",
+          "passed": false,
+          "score": 0.23117335677012116
+        },
+        {
+          "id": "func_pa_bedok",
+          "category": "functional",
+          "passed": false,
+          "score": 0.1903617596921609
+        },
+        {
+          "id": "func_pa_tampines",
+          "category": "functional",
+          "passed": false,
+          "score": 0.32692149994698794
+        },
+        {
+          "id": "func_pa_yishun",
+          "category": "functional",
+          "passed": false,
+          "score": 0.1730511776196133
+        },
+        {
+          "id": "func_pa_jurong_east",
+          "category": "functional",
+          "passed": false,
+          "score": 0.17558885354569373
+        },
+        {
+          "id": "func_pa_lim_chu_kang",
+          "category": "functional",
+          "passed": true,
+          "score": 0.567719200880904
+        },
+        {
+          "id": "func_pa_sungei_kadut",
+          "category": "functional",
+          "passed": false,
+          "score": 0.3629725638188814
+        },
+        {
+          "id": "func_pa_bukit_timah",
+          "category": "functional",
+          "passed": false,
+          "score": 0.18324315289746185
+        },
+        {
+          "id": "func_pa_bukit_merah",
+          "category": "functional",
+          "passed": false,
+          "score": 0.14345828263934604
+        },
+        {
+          "id": "query_pred_cafe_coffee",
+          "category": "feature_query",
+          "passed": false,
+          "score": 0.4252973958849907
+        },
+        {
+          "id": "query_pred_hawker_street_food",
+          "category": "feature_query",
+          "passed": false,
+          "score": 0.3213182412087917
+        },
+        {
+          "id": "query_pred_office_workspace",
+          "category": "feature_query",
+          "passed": false,
+          "score": 0.21630174070596694
+        },
+        {
+          "id": "query_pred_residential",
+          "category": "feature_query",
+          "passed": false,
+          "score": 0.11243588784709573
+        },
+        {
+          "id": "query_pred_hospitality",
+          "category": "feature_query",
+          "passed": false,
+          "score": 0.4673528730869293
+        },
+        {
+          "id": "query_pred_transport",
+          "category": "feature_query",
+          "passed": false,
+          "score": 0.3541150204837322
+        }
+      ],
+      "per_category": {
+        "pa_coherence": {
+          "n": 50,
+          "passed": 30,
+          "pass_rate": 0.6,
+          "mean_score": 0.5740000000000001
+        },
+        "landmark": {
+          "n": 30,
+          "passed": 9,
+          "pass_rate": 0.3,
+          "mean_score": 0.38
+        },
+        "anti_similarity": {
+          "n": 30,
+          "passed": 30,
+          "pass_rate": 1.0,
+          "mean_score": -0.0236068496791025
+        },
+        "graph_smoothness": {
+          "n": 30,
+          "passed": 30,
+          "pass_rate": 1.0,
+          "mean_score": 0.4524225515194009
+        },
+        "archetype_stability": {
+          "n": 20,
+          "passed": 0,
+          "pass_rate": 0.0,
+          "mean_score": 0.32410145705715415
+        },
+        "functional": {
+          "n": 20,
+          "passed": 5,
+          "pass_rate": 0.25,
+          "mean_score": 0.3397182831607683
+        },
+        "feature_query": {
+          "n": 6,
+          "passed": 0,
+          "pass_rate": 0.0,
+          "mean_score": 0.31613685986958445
+        }
+      },
+      "overall_pass_rate": 0.5591397849462365,
+      "total_tests": 186,
+      "passed_tests": 104
+    },
+    "Raw-460": {
+      "name": "Raw-460",
+      "dims": 460,
+      "per_test": [
+        {
+          "id": "pa_coh_2903",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_3750",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_3257",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_637",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_5723",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.3
+        },
+        {
+          "id": "pa_coh_7103",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.5
+        },
+        {
+          "id": "pa_coh_4739",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_5158",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_1988",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_3235",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_2549",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_4999",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.5
+        },
+        {
+          "id": "pa_coh_3123",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "pa_coh_488",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_5751",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_3842",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_3660",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_7309",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_1441",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.7
+        },
+        {
+          "id": "pa_coh_6138",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_4079",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_6024",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_1187",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.8
+        },
+        {
+          "id": "pa_coh_5110",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_6497",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_6547",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_3164",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_661",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_6262",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.7
+        },
+        {
+          "id": "pa_coh_6766",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "pa_coh_4661",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "pa_coh_4801",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "pa_coh_5389",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_3262",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_7105",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.5
+        },
+        {
+          "id": "pa_coh_5259",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_458",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.9
+        },
+        {
+          "id": "pa_coh_5571",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_3211",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_6287",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_3987",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_1631",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "pa_coh_614",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_5726",
+          "category": "pa_coherence",
+          "passed": false,
+          "score": 0.1
+        },
+        {
+          "id": "pa_coh_5654",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_1308",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.8
+        },
+        {
+          "id": "pa_coh_2657",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "pa_coh_917",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 0.5
+        },
+        {
+          "id": "pa_coh_673",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "pa_coh_6067",
+          "category": "pa_coherence",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "landmark_raffles_place",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "landmark_marina_bay_sands",
+          "category": "landmark",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "landmark_orchard_road",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "landmark_tiong_bahru",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_changi_airport",
+          "category": "landmark",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "landmark_sentosa_rws",
+          "category": "landmark",
+          "passed": true,
+          "score": 0.8
+        },
+        {
+          "id": "landmark_tampines_hub",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_jurong_east",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_tuas_industrial",
+          "category": "landmark",
+          "passed": true,
+          "score": 1.0
+        },
+        {
+          "id": "landmark_bedok_hdb",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "landmark_nus_kent_ridge",
+          "category": "landmark",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "landmark_woodlands",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_ang_mo_kio",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_toa_payoh",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "landmark_hougang",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_yishun",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_choa_chu_kang",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_bukit_batok",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_jurong_west",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_pasir_ris",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_serangoon",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "landmark_punggol",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.2
+        },
+        {
+          "id": "landmark_sengkang",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "landmark_clementi",
+          "category": "landmark",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "landmark_queenstown",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_geylang",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_kallang",
+          "category": "landmark",
+          "passed": true,
+          "score": 0.6
+        },
+        {
+          "id": "landmark_novena",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.0
+        },
+        {
+          "id": "landmark_bukit_timah",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "landmark_marina_south",
+          "category": "landmark",
+          "passed": false,
+          "score": 0.4
+        },
+        {
+          "id": "anti_0",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.06259384006261826
+        },
+        {
+          "id": "anti_1",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.31839126348495483
+        },
+        {
+          "id": "anti_2",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.12067757546901703
+        },
+        {
+          "id": "anti_3",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.4024300277233124
+        },
+        {
+          "id": "anti_4",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.08525050431489944
+        },
+        {
+          "id": "anti_5",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.1263219714164734
+        },
+        {
+          "id": "anti_6",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.6096342206001282
+        },
+        {
+          "id": "anti_7",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.08832775056362152
+        },
+        {
+          "id": "anti_8",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.08695594221353531
+        },
+        {
+          "id": "anti_9",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.09657133370637894
+        },
+        {
+          "id": "anti_10",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.42327025532722473
+        },
+        {
+          "id": "anti_11",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.2538653314113617
+        },
+        {
+          "id": "anti_12",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.14317700266838074
+        },
+        {
+          "id": "anti_13",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.1263219714164734
+        },
+        {
+          "id": "anti_14",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.4548550546169281
+        },
+        {
+          "id": "anti_random_15",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.016576798632740974
+        },
+        {
+          "id": "anti_random_16",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.4283750355243683
+        },
+        {
+          "id": "anti_random_17",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.645658552646637
+        },
+        {
+          "id": "anti_random_18",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.20324353873729706
+        },
+        {
+          "id": "anti_random_19",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.17793606221675873
+        },
+        {
+          "id": "anti_random_20",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.657097339630127
+        },
+        {
+          "id": "anti_random_21",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.06547204405069351
+        },
+        {
+          "id": "anti_random_22",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.1907358467578888
+        },
+        {
+          "id": "anti_random_23",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.030140910297632217
+        },
+        {
+          "id": "anti_random_24",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.356087327003479
+        },
+        {
+          "id": "anti_random_25",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.4197925925254822
+        },
+        {
+          "id": "anti_random_26",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.25087082386016846
+        },
+        {
+          "id": "anti_random_27",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.5545127987861633
+        },
+        {
+          "id": "anti_random_28",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": -0.29501545429229736
+        },
+        {
+          "id": "anti_random_29",
+          "category": "anti_similarity",
+          "passed": true,
+          "score": 0.329076886177063
+        },
+        {
+          "id": "smooth_4710",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.698663502295191
+        },
+        {
+          "id": "smooth_3844",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.6055361427366733
+        },
+        {
+          "id": "smooth_3161",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.8758760341753562
+        },
+        {
+          "id": "smooth_6265",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.33057416686012103
+        },
+        {
+          "id": "smooth_651",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.6617758995232483
+        },
+        {
+          "id": "smooth_688",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.6217841108562425
+        },
+        {
+          "id": "smooth_1338",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 1.073294352181256
+        },
+        {
+          "id": "smooth_6018",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.7267662765613446
+        },
+        {
+          "id": "smooth_5740",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.4576687764376402
+        },
+        {
+          "id": "smooth_5088",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.6537808046365778
+        },
+        {
+          "id": "smooth_940",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.823572692895929
+        },
+        {
+          "id": "smooth_1473",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.48318670547256865
+        },
+        {
+          "id": "smooth_7122",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.7092773235791052
+        },
+        {
+          "id": "smooth_3750",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.7863690798636526
+        },
+        {
+          "id": "smooth_6135",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.8418435201048851
+        },
+        {
+          "id": "smooth_5714",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.5779515333473683
+        },
+        {
+          "id": "smooth_2714",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.4481660267648598
+        },
+        {
+          "id": "smooth_5371",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.8212288515487065
+        },
+        {
+          "id": "smooth_2947",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.650750073014448
+        },
+        {
+          "id": "smooth_3203",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.6766041469449798
+        },
+        {
+          "id": "smooth_3247",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.3817530706214408
+        },
+        {
+          "id": "smooth_3993",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.6983457884324403
+        },
+        {
+          "id": "smooth_3294",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.5216038854792714
+        },
+        {
+          "id": "smooth_3659",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.4125612131494563
+        },
+        {
+          "id": "smooth_5641",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.6103834999104342
+        },
+        {
+          "id": "smooth_6777",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.5725447911769151
+        },
+        {
+          "id": "smooth_5239",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.9400618982190887
+        },
+        {
+          "id": "smooth_4773",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.373140140719867
+        },
+        {
+          "id": "smooth_628",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.5406864420821269
+        },
+        {
+          "id": "smooth_5557",
+          "category": "graph_smoothness",
+          "passed": true,
+          "score": 0.4801954537630081
+        },
+        {
+          "id": "archetype_k10_seed0",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.8805538069745
+        },
+        {
+          "id": "archetype_k11_seed1",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.8336556529956659
+        },
+        {
+          "id": "archetype_k12_seed2",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.8942745257241586
+        },
+        {
+          "id": "archetype_k13_seed3",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.821948016861337
+        },
+        {
+          "id": "archetype_k14_seed4",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.7397665678400205
+        },
+        {
+          "id": "archetype_k15_seed5",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.7912784093892196
+        },
+        {
+          "id": "archetype_k10_seed6",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.6921423232257479
+        },
+        {
+          "id": "archetype_k11_seed7",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.8817637674735951
+        },
+        {
+          "id": "archetype_k12_seed8",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9636558776442063
+        },
+        {
+          "id": "archetype_k13_seed9",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.8935441864047691
+        },
+        {
+          "id": "archetype_k14_seed10",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.6791525542099752
+        },
+        {
+          "id": "archetype_k15_seed11",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.8981051203633447
+        },
+        {
+          "id": "archetype_k10_seed12",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.8825839417286508
+        },
+        {
+          "id": "archetype_k11_seed13",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9830405139528063
+        },
+        {
+          "id": "archetype_k12_seed14",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.9783238390952472
+        },
+        {
+          "id": "archetype_k13_seed15",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.7364009408461163
+        },
+        {
+          "id": "archetype_k14_seed16",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.7555310509106574
+        },
+        {
+          "id": "archetype_k15_seed17",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.6416044203236906
+        },
+        {
+          "id": "archetype_k10_seed18",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.8468138528135768
+        },
+        {
+          "id": "archetype_k11_seed19",
+          "category": "archetype_stability",
+          "passed": true,
+          "score": 0.8673895321667208
+        },
+        {
+          "id": "func_mrt_nodes",
+          "category": "functional",
+          "passed": false,
+          "score": 0.5339227541571572
+        },
+        {
+          "id": "func_industrial",
+          "category": "functional",
+          "passed": true,
+          "score": 0.8623308859373394
+        },
+        {
+          "id": "func_cbd",
+          "category": "functional",
+          "passed": false,
+          "score": 0.4515202475417601
+        },
+        {
+          "id": "func_changi_airport",
+          "category": "functional",
+          "passed": false,
+          "score": 0.3342235328363521
+        },
+        {
+          "id": "func_sentosa",
+          "category": "functional",
+          "passed": false,
+          "score": 0.4862967744224558
+        },
+        {
+          "id": "func_pa_north-eastern_islands",
+          "category": "functional",
+          "passed": true,
+          "score": 0.6669329095827906
+        },
+        {
+          "id": "func_pa_western_water_catchment",
+          "category": "functional",
+          "passed": true,
+          "score": 0.8749911543570067
+        },
+        {
+          "id": "func_pa_western_islands",
+          "category": "functional",
+          "passed": true,
+          "score": 0.8765737351618315
+        },
+        {
+          "id": "func_pa_tuas",
+          "category": "functional",
+          "passed": true,
+          "score": 0.8579607320459266
+        },
+        {
+          "id": "func_pa_changi",
+          "category": "functional",
+          "passed": false,
+          "score": 0.26090226661426164
+        },
+        {
+          "id": "func_pa_central_water_catchment",
+          "category": "functional",
+          "passed": false,
+          "score": 0.3839407207321768
+        },
+        {
+          "id": "func_pa_queenstown",
+          "category": "functional",
+          "passed": false,
+          "score": 0.2567218073478312
+        },
+        {
+          "id": "func_pa_bedok",
+          "category": "functional",
+          "passed": false,
+          "score": 0.22948194794160756
+        },
+        {
+          "id": "func_pa_tampines",
+          "category": "functional",
+          "passed": true,
+          "score": 0.41630520020430833
+        },
+        {
+          "id": "func_pa_yishun",
+          "category": "functional",
+          "passed": false,
+          "score": 0.3262546918364119
+        },
+        {
+          "id": "func_pa_jurong_east",
+          "category": "functional",
+          "passed": false,
+          "score": 0.08726793872621401
+        },
+        {
+          "id": "func_pa_lim_chu_kang",
+          "category": "functional",
+          "passed": true,
+          "score": 0.7882764999803744
+        },
+        {
+          "id": "func_pa_sungei_kadut",
+          "category": "functional",
+          "passed": true,
+          "score": 0.4344647553479789
+        },
+        {
+          "id": "func_pa_bukit_timah",
+          "category": "functional",
+          "passed": false,
+          "score": 0.24415601360731096
+        },
+        {
+          "id": "func_pa_bukit_merah",
+          "category": "functional",
+          "passed": false,
+          "score": 0.37808147798243324
+        },
+        {
+          "id": "query_pred_cafe_coffee",
+          "category": "feature_query",
+          "passed": true,
+          "score": 0.9090075254440307
+        },
+        {
+          "id": "query_pred_hawker_street_food",
+          "category": "feature_query",
+          "passed": true,
+          "score": 0.720578807592392
+        },
+        {
+          "id": "query_pred_office_workspace",
+          "category": "feature_query",
+          "passed": true,
+          "score": 0.6383445501327515
+        },
+        {
+          "id": "query_pred_residential",
+          "category": "feature_query",
+          "passed": false,
+          "score": 0.5300227135419846
+        },
+        {
+          "id": "query_pred_hospitality",
+          "category": "feature_query",
+          "passed": true,
+          "score": 0.7319412887096405
+        },
+        {
+          "id": "query_pred_transport",
+          "category": "feature_query",
+          "passed": true,
+          "score": 0.6783297330141067
+        }
+      ],
+      "per_category": {
+        "pa_coherence": {
+          "n": 50,
+          "passed": 28,
+          "pass_rate": 0.56,
+          "mean_score": 0.532
+        },
+        "landmark": {
+          "n": 30,
+          "passed": 7,
+          "pass_rate": 0.23333333333333334,
+          "mean_score": 0.31333333333333335
+        },
+        "anti_similarity": {
+          "n": 30,
+          "passed": 30,
+          "pass_rate": 1.0,
+          "mean_score": 0.12889731160054604
+        },
+        "graph_smoothness": {
+          "n": 30,
+          "passed": 30,
+          "pass_rate": 1.0,
+          "mean_score": 0.6351982067784735
+        },
+        "archetype_stability": {
+          "n": 20,
+          "passed": 20,
+          "pass_rate": 1.0,
+          "mean_score": 0.8330764450472004
+        },
+        "functional": {
+          "n": 20,
+          "passed": 8,
+          "pass_rate": 0.4,
+          "mean_score": 0.48753030231817646
+        },
+        "feature_query": {
+          "n": 6,
+          "passed": 5,
+          "pass_rate": 0.8333333333333334,
+          "mean_score": 0.7013707697391509
+        }
+      },
+      "overall_pass_rate": 0.6881720430107527,
+      "total_tests": 186,
+      "passed_tests": 128
+    }
+  }
+}

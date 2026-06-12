@@ -1,0 +1,2733 @@
+{
+  "version": "v10",
+  "created": "2026-04-12",
+  "all_features": [
+    "bldg_count",
+    "bldg_footprint_sqm",
+    "avg_floors",
+    "max_floors",
+    "avg_height",
+    "max_height",
+    "total_floor_area_sqm",
+    "residential_floor_area_sqm",
+    "commercial_floor_area_sqm",
+    "hdb_blocks",
+    "bldg_hdb_residential",
+    "bldg_private_residential",
+    "bldg_commercial",
+    "bldg_industrial",
+    "bldg_institutional",
+    "bldg_transport",
+    "bldg_religious",
+    "bldg_other",
+    "bldg_unclassified",
+    "population",
+    "children_count",
+    "elderly_count",
+    "working_age_count",
+    "walking_dependent_count",
+    "lu_residential_pct",
+    "lu_commercial_pct",
+    "lu_business_pct",
+    "lu_mixed_use_pct",
+    "lu_institutional_pct",
+    "lu_open_space_pct",
+    "lu_transport_pct",
+    "lu_utility_pct",
+    "lu_other_pct",
+    "lu_total_sqm",
+    "lu_entropy",
+    "avg_gpr",
+    "mrt_stations",
+    "lrt_stations",
+    "bus_stops",
+    "hawker_centres",
+    "chas_clinics",
+    "preschools_gov",
+    "hotels",
+    "tourist_attractions",
+    "sfa_eating_establishments",
+    "silver_zones",
+    "school_zones",
+    "park_facilities",
+    "amenity_types_nearby",
+    "bicycle_signal",
+    "bus_daily_taps",
+    "dist_bus_m",
+    "dist_clinic_m",
+    "dist_hawker_m",
+    "dist_mrt_m",
+    "dist_nearest_mrt_m",
+    "dist_park_m",
+    "dist_school_m",
+    "dist_super_m",
+    "hex_avg_speed_kmh",
+    "hex_flow_pct",
+    "hex_flow_segments",
+    "hex_jam_pct",
+    "hex_jam_segments",
+    "hex_seg_count",
+    "mrt_daily_taps",
+    "mrt_hex_rings",
+    "ped_countdown",
+    "ped_crossings_total",
+    "ped_elderly",
+    "ped_standard",
+    "road_cat_arterial",
+    "road_cat_expressway",
+    "road_cat_major_arterial",
+    "road_cat_minor_arterial",
+    "road_cat_slip",
+    "road_cat_small",
+    "sig_beacon",
+    "sig_filter_arrow",
+    "sig_ground",
+    "sig_overhead",
+    "sig_rag",
+    "transit_daily_taps",
+    "walk_bus_m",
+    "walk_bus_score",
+    "walk_clinic_m",
+    "walk_clinic_score",
+    "walk_hawker_m",
+    "walk_hawker_score",
+    "walk_mrt_m",
+    "walk_mrt_score",
+    "walk_park_m",
+    "walk_park_score",
+    "walk_school_m",
+    "walk_super_m",
+    "walk_super_score",
+    "walkability_score",
+    "walkability_score_v2",
+    "pc_total",
+    "pc_cat_shopping_retail",
+    "pc_cat_restaurant",
+    "pc_cat_services",
+    "pc_cat_business",
+    "pc_cat_beauty_personal_care",
+    "pc_cat_education",
+    "pc_cat_health_medical",
+    "pc_cat_cafe_coffee",
+    "pc_cat_fitness_recreation",
+    "pc_cat_convenience_daily_needs",
+    "pc_cat_hawker_street_food",
+    "pc_cat_automotive",
+    "pc_cat_transport",
+    "pc_cat_civic_government",
+    "pc_cat_bar_nightlife",
+    "pc_cat_fast_food_qsr",
+    "pc_cat_residential",
+    "pc_cat_culture_entertainment",
+    "pc_cat_office_workspace",
+    "pc_cat_hospitality",
+    "pc_cat_bakery_pastry",
+    "pc_cat_general",
+    "pc_cat_religious",
+    "pc_cat_ngo",
+    "pc_pct_cat_shopping_retail",
+    "pc_pct_cat_restaurant",
+    "pc_pct_cat_services",
+    "pc_pct_cat_business",
+    "pc_pct_cat_beauty_personal_care",
+    "pc_pct_cat_education",
+    "pc_pct_cat_health_medical",
+    "pc_pct_cat_cafe_coffee",
+    "pc_pct_cat_fitness_recreation",
+    "pc_pct_cat_convenience_daily_needs",
+    "pc_pct_cat_hawker_street_food",
+    "pc_pct_cat_automotive",
+    "pc_pct_cat_transport",
+    "pc_pct_cat_civic_government",
+    "pc_pct_cat_bar_nightlife",
+    "pc_pct_cat_fast_food_qsr",
+    "pc_pct_cat_residential",
+    "pc_pct_cat_culture_entertainment",
+    "pc_pct_cat_office_workspace",
+    "pc_pct_cat_hospitality",
+    "pc_pct_cat_bakery_pastry",
+    "pc_pct_cat_general",
+    "pc_pct_cat_religious",
+    "pc_pct_cat_ngo",
+    "pc_tier_luxury",
+    "pc_tier_premium",
+    "pc_tier_mid",
+    "pc_tier_value",
+    "pc_tier_budget",
+    "pc_pct_tier_luxury",
+    "pc_pct_tier_premium",
+    "pc_pct_tier_mid",
+    "pc_pct_tier_value",
+    "pc_pct_tier_budget",
+    "pc_unique_brands",
+    "pc_branded_count",
+    "pc_branded_pct",
+    "pc_unique_place_types",
+    "pc_cat_hhi",
+    "pc_cat_entropy",
+    "pc_seg_entropy",
+    "sp_max_population",
+    "sp_max_elderly_count",
+    "sp_max_children_count",
+    "sp_max_walking_dependent_count",
+    "sp_max_bldg_count",
+    "sp_max_hdb_blocks",
+    "sp_max_bldg_footprint_sqm",
+    "sp_max_residential_floor_area_sqm",
+    "sp_max_mrt_stations",
+    "sp_max_bus_stops",
+    "sp_max_pc_total",
+    "sp_max_pc_cat_restaurant",
+    "sp_max_pc_cat_cafe_coffee",
+    "sp_max_pc_cat_shopping_retail",
+    "sp_max_pc_cat_hawker_street_food",
+    "sp_max_pc_cat_health_medical",
+    "sp_max_pc_cat_education",
+    "sp_max_pc_cat_office_workspace",
+    "sp_max_pc_cat_bar_nightlife",
+    "sp_max_pc_unique_brands",
+    "sp_max_pc_cat_entropy",
+    "sp_max_lu_residential_pct",
+    "sp_max_lu_commercial_pct",
+    "sp_max_lu_business_pct",
+    "sp_max_avg_gpr",
+    "sp_max_mg_mean_transit",
+    "sp_max_mg_mean_competitor",
+    "sp_max_mg_mean_complementary",
+    "sp_max_mg_mean_demand",
+    "sp_max_mg_mean_anchor_count",
+    "sp_pw_population",
+    "sp_pw_elderly_count",
+    "sp_pw_children_count",
+    "sp_pw_walking_dependent_count",
+    "sp_pw_bldg_count",
+    "sp_pw_hdb_blocks",
+    "sp_pw_bldg_footprint_sqm",
+    "sp_pw_residential_floor_area_sqm",
+    "sp_pw_mrt_stations",
+    "sp_pw_bus_stops",
+    "sp_pw_pc_total",
+    "sp_pw_pc_cat_restaurant",
+    "sp_pw_pc_cat_cafe_coffee",
+    "sp_pw_pc_cat_shopping_retail",
+    "sp_pw_pc_cat_hawker_street_food",
+    "sp_pw_pc_cat_health_medical",
+    "sp_pw_pc_cat_education",
+    "sp_pw_pc_cat_office_workspace",
+    "sp_pw_pc_cat_bar_nightlife",
+    "sp_pw_pc_unique_brands",
+    "sp_pw_pc_cat_entropy",
+    "sp_pw_lu_residential_pct",
+    "sp_pw_lu_commercial_pct",
+    "sp_pw_lu_business_pct",
+    "sp_pw_avg_gpr",
+    "sp_pw_mg_mean_transit",
+    "sp_pw_mg_mean_competitor",
+    "sp_pw_mg_mean_complementary",
+    "sp_pw_mg_mean_demand",
+    "sp_pw_mg_mean_anchor_count",
+    "tr_max_population",
+    "tr_max_elderly_count",
+    "tr_max_children_count",
+    "tr_max_walking_dependent_count",
+    "tr_max_bldg_count",
+    "tr_max_hdb_blocks",
+    "tr_max_bldg_footprint_sqm",
+    "tr_max_residential_floor_area_sqm",
+    "tr_max_mrt_stations",
+    "tr_max_bus_stops",
+    "tr_max_pc_total",
+    "tr_max_pc_cat_restaurant",
+    "tr_max_pc_cat_cafe_coffee",
+    "tr_max_pc_cat_shopping_retail",
+    "tr_max_pc_cat_hawker_street_food",
+    "tr_max_pc_cat_health_medical",
+    "tr_max_pc_cat_education",
+    "tr_max_pc_cat_office_workspace",
+    "tr_max_pc_cat_bar_nightlife",
+    "tr_max_pc_unique_brands",
+    "tr_max_pc_cat_entropy",
+    "tr_max_lu_residential_pct",
+    "tr_max_lu_commercial_pct",
+    "tr_max_lu_business_pct",
+    "tr_max_avg_gpr",
+    "tr_max_mg_mean_transit",
+    "tr_max_mg_mean_competitor",
+    "tr_max_mg_mean_complementary",
+    "tr_max_mg_mean_demand",
+    "tr_max_mg_mean_anchor_count",
+    "tr_pw_population",
+    "tr_pw_elderly_count",
+    "tr_pw_children_count",
+    "tr_pw_walking_dependent_count",
+    "tr_pw_bldg_count",
+    "tr_pw_hdb_blocks",
+    "tr_pw_bldg_footprint_sqm",
+    "tr_pw_residential_floor_area_sqm",
+    "tr_pw_mrt_stations",
+    "tr_pw_bus_stops",
+    "tr_pw_pc_total",
+    "tr_pw_pc_cat_restaurant",
+    "tr_pw_pc_cat_cafe_coffee",
+    "tr_pw_pc_cat_shopping_retail",
+    "tr_pw_pc_cat_hawker_street_food",
+    "tr_pw_pc_cat_health_medical",
+    "tr_pw_pc_cat_education",
+    "tr_pw_pc_cat_office_workspace",
+    "tr_pw_pc_cat_bar_nightlife",
+    "tr_pw_pc_unique_brands",
+    "tr_pw_pc_cat_entropy",
+    "tr_pw_lu_residential_pct",
+    "tr_pw_lu_commercial_pct",
+    "tr_pw_lu_business_pct",
+    "tr_pw_avg_gpr",
+    "tr_pw_mg_mean_transit",
+    "tr_pw_mg_mean_competitor",
+    "tr_pw_mg_mean_complementary",
+    "tr_pw_mg_mean_demand",
+    "tr_pw_mg_mean_anchor_count",
+    "sp_max_distance_rings",
+    "tr_nearest_station_rings",
+    "tr_reachable_hexes",
+    "ura_development_gap",
+    "gap_residential",
+    "gap_commercial",
+    "gap_industrial",
+    "pcn_segments",
+    "carpark_count",
+    "carpark_lots",
+    "taxi_snapshot",
+    "formal_schools",
+    "schools_primary",
+    "schools_secondary",
+    "supermarkets",
+    "parks_nature",
+    "tourist_draw_est",
+    "daytime_ratio",
+    "population_nonresident",
+    "population_total",
+    "mg_cafe_n",
+    "mg_cafe_cv_transit",
+    "mg_cafe_cv_competitor",
+    "mg_cafe_cv_complementary",
+    "mg_cafe_cv_demand",
+    "mg_cafe_anchor_count",
+    "mg_cafe_comp_pressure",
+    "mg_cafe_demand_diversity",
+    "mg_cafe_walkability",
+    "mg_cafe_pct_hyperdense",
+    "mg_cafe_pct_dense",
+    "mg_cafe_pct_moderate",
+    "mg_cafe_pct_sparse",
+    "mg_rest_n",
+    "mg_rest_cv_transit",
+    "mg_rest_cv_competitor",
+    "mg_rest_cv_complementary",
+    "mg_rest_cv_demand",
+    "mg_rest_anchor_count",
+    "mg_rest_comp_pressure",
+    "mg_rest_demand_diversity",
+    "mg_rest_walkability",
+    "mg_rest_pct_hyperdense",
+    "mg_rest_pct_dense",
+    "mg_rest_pct_moderate",
+    "mg_rest_pct_sparse",
+    "mg_hawk_n",
+    "mg_hawk_cv_transit",
+    "mg_hawk_cv_competitor",
+    "mg_hawk_cv_complementary",
+    "mg_hawk_cv_demand",
+    "mg_hawk_anchor_count",
+    "mg_hawk_comp_pressure",
+    "mg_hawk_demand_diversity",
+    "mg_hawk_walkability",
+    "mg_hawk_pct_hyperdense",
+    "mg_hawk_pct_dense",
+    "mg_hawk_pct_moderate",
+    "mg_hawk_pct_sparse",
+    "mg_fast_n",
+    "mg_fast_cv_transit",
+    "mg_fast_cv_competitor",
+    "mg_fast_cv_complementary",
+    "mg_fast_cv_demand",
+    "mg_fast_anchor_count",
+    "mg_fast_comp_pressure",
+    "mg_fast_demand_diversity",
+    "mg_fast_walkability",
+    "mg_fast_pct_hyperdense",
+    "mg_fast_pct_dense",
+    "mg_fast_pct_moderate",
+    "mg_fast_pct_sparse",
+    "mg_bake_n",
+    "mg_bake_cv_transit",
+    "mg_bake_cv_competitor",
+    "mg_bake_cv_complementary",
+    "mg_bake_cv_demand",
+    "mg_bake_anchor_count",
+    "mg_bake_comp_pressure",
+    "mg_bake_demand_diversity",
+    "mg_bake_walkability",
+    "mg_bake_pct_hyperdense",
+    "mg_bake_pct_dense",
+    "mg_bake_pct_moderate",
+    "mg_bake_pct_sparse",
+    "mg_bar_n",
+    "mg_bar_cv_transit",
+    "mg_bar_cv_competitor",
+    "mg_bar_cv_complementary",
+    "mg_bar_cv_demand",
+    "mg_bar_anchor_count",
+    "mg_bar_comp_pressure",
+    "mg_bar_demand_diversity",
+    "mg_bar_walkability",
+    "mg_bar_pct_hyperdense",
+    "mg_bar_pct_dense",
+    "mg_bar_pct_moderate",
+    "mg_bar_pct_sparse",
+    "mg_beau_n",
+    "mg_beau_cv_transit",
+    "mg_beau_cv_competitor",
+    "mg_beau_cv_complementary",
+    "mg_beau_cv_demand",
+    "mg_beau_anchor_count",
+    "mg_beau_comp_pressure",
+    "mg_beau_demand_diversity",
+    "mg_beau_walkability",
+    "mg_beau_pct_hyperdense",
+    "mg_beau_pct_dense",
+    "mg_beau_pct_moderate",
+    "mg_beau_pct_sparse",
+    "mg_heal_n",
+    "mg_heal_cv_transit",
+    "mg_heal_cv_competitor",
+    "mg_heal_cv_complementary",
+    "mg_heal_cv_demand",
+    "mg_heal_anchor_count",
+    "mg_heal_comp_pressure",
+    "mg_heal_demand_diversity",
+    "mg_heal_walkability",
+    "mg_heal_pct_hyperdense",
+    "mg_heal_pct_dense",
+    "mg_heal_pct_moderate",
+    "mg_heal_pct_sparse",
+    "mg_fitn_n",
+    "mg_fitn_cv_transit",
+    "mg_fitn_cv_competitor",
+    "mg_fitn_cv_complementary",
+    "mg_fitn_cv_demand",
+    "mg_fitn_anchor_count",
+    "mg_fitn_comp_pressure",
+    "mg_fitn_demand_diversity",
+    "mg_fitn_walkability",
+    "mg_fitn_pct_hyperdense",
+    "mg_fitn_pct_dense",
+    "mg_fitn_pct_moderate",
+    "mg_fitn_pct_sparse",
+    "mg_educ_n",
+    "mg_educ_cv_transit",
+    "mg_educ_cv_competitor",
+    "mg_educ_cv_complementary",
+    "mg_educ_cv_demand",
+    "mg_educ_anchor_count",
+    "mg_educ_comp_pressure",
+    "mg_educ_demand_diversity",
+    "mg_educ_walkability",
+    "mg_educ_pct_hyperdense",
+    "mg_educ_pct_dense",
+    "mg_educ_pct_moderate",
+    "mg_educ_pct_sparse",
+    "mg_shop_n",
+    "mg_shop_cv_transit",
+    "mg_shop_cv_competitor",
+    "mg_shop_cv_complementary",
+    "mg_shop_cv_demand",
+    "mg_shop_anchor_count",
+    "mg_shop_comp_pressure",
+    "mg_shop_demand_diversity",
+    "mg_shop_walkability",
+    "mg_shop_pct_hyperdense",
+    "mg_shop_pct_dense",
+    "mg_shop_pct_moderate",
+    "mg_shop_pct_sparse",
+    "mg_conv_n",
+    "mg_conv_cv_transit",
+    "mg_conv_cv_competitor",
+    "mg_conv_cv_complementary",
+    "mg_conv_cv_demand",
+    "mg_conv_anchor_count",
+    "mg_conv_comp_pressure",
+    "mg_conv_demand_diversity",
+    "mg_conv_walkability",
+    "mg_conv_pct_hyperdense",
+    "mg_conv_pct_dense",
+    "mg_conv_pct_moderate",
+    "mg_conv_pct_sparse"
+  ],
+  "context_features_for_xgboost": [
+    "bldg_count",
+    "bldg_footprint_sqm",
+    "avg_floors",
+    "max_floors",
+    "avg_height",
+    "max_height",
+    "total_floor_area_sqm",
+    "residential_floor_area_sqm",
+    "commercial_floor_area_sqm",
+    "hdb_blocks",
+    "bldg_hdb_residential",
+    "bldg_private_residential",
+    "bldg_commercial",
+    "bldg_industrial",
+    "bldg_institutional",
+    "bldg_transport",
+    "bldg_religious",
+    "bldg_other",
+    "bldg_unclassified",
+    "population",
+    "children_count",
+    "elderly_count",
+    "working_age_count",
+    "walking_dependent_count",
+    "lu_residential_pct",
+    "lu_commercial_pct",
+    "lu_business_pct",
+    "lu_mixed_use_pct",
+    "lu_institutional_pct",
+    "lu_open_space_pct",
+    "lu_transport_pct",
+    "lu_utility_pct",
+    "lu_other_pct",
+    "lu_total_sqm",
+    "lu_entropy",
+    "avg_gpr",
+    "mrt_stations",
+    "bus_stops",
+    "hawker_centres",
+    "chas_clinics",
+    "preschools_gov",
+    "hotels",
+    "tourist_attractions",
+    "sfa_eating_establishments",
+    "silver_zones",
+    "school_zones",
+    "park_facilities",
+    "amenity_types_nearby",
+    "bicycle_signal",
+    "bus_daily_taps",
+    "dist_bus_m",
+    "dist_clinic_m",
+    "dist_hawker_m",
+    "dist_mrt_m",
+    "dist_nearest_mrt_m",
+    "dist_park_m",
+    "dist_school_m",
+    "dist_super_m",
+    "hex_avg_speed_kmh",
+    "hex_flow_pct",
+    "hex_flow_segments",
+    "hex_jam_pct",
+    "hex_jam_segments",
+    "hex_seg_count",
+    "mrt_daily_taps",
+    "mrt_hex_rings",
+    "ped_countdown",
+    "ped_crossings_total",
+    "ped_elderly",
+    "ped_standard",
+    "road_cat_arterial",
+    "road_cat_expressway",
+    "road_cat_major_arterial",
+    "road_cat_minor_arterial",
+    "road_cat_slip",
+    "road_cat_small",
+    "sig_beacon",
+    "sig_filter_arrow",
+    "sig_ground",
+    "sig_overhead",
+    "sig_rag",
+    "transit_daily_taps",
+    "walk_bus_m",
+    "walk_bus_score",
+    "walk_clinic_m",
+    "walk_clinic_score",
+    "walk_hawker_m",
+    "walk_hawker_score",
+    "walk_mrt_m",
+    "walk_mrt_score",
+    "walk_park_m",
+    "walk_park_score",
+    "walk_school_m",
+    "walk_super_m",
+    "walk_super_score",
+    "walkability_score",
+    "walkability_score_v2",
+    "sp_max_population",
+    "sp_max_elderly_count",
+    "sp_max_children_count",
+    "sp_max_walking_dependent_count",
+    "sp_max_bldg_count",
+    "sp_max_hdb_blocks",
+    "sp_max_bldg_footprint_sqm",
+    "sp_max_residential_floor_area_sqm",
+    "sp_max_mrt_stations",
+    "sp_max_bus_stops",
+    "sp_max_pc_total",
+    "sp_max_pc_cat_restaurant",
+    "sp_max_pc_cat_cafe_coffee",
+    "sp_max_pc_cat_shopping_retail",
+    "sp_max_pc_cat_hawker_street_food",
+    "sp_max_pc_cat_health_medical",
+    "sp_max_pc_cat_education",
+    "sp_max_pc_cat_office_workspace",
+    "sp_max_pc_cat_bar_nightlife",
+    "sp_max_pc_unique_brands",
+    "sp_max_pc_cat_entropy",
+    "sp_max_lu_residential_pct",
+    "sp_max_lu_commercial_pct",
+    "sp_max_lu_business_pct",
+    "sp_max_avg_gpr",
+    "sp_max_mg_mean_transit",
+    "sp_max_mg_mean_competitor",
+    "sp_max_mg_mean_complementary",
+    "sp_max_mg_mean_demand",
+    "sp_max_mg_mean_anchor_count",
+    "sp_pw_population",
+    "sp_pw_elderly_count",
+    "sp_pw_children_count",
+    "sp_pw_walking_dependent_count",
+    "sp_pw_bldg_count",
+    "sp_pw_hdb_blocks",
+    "sp_pw_bldg_footprint_sqm",
+    "sp_pw_residential_floor_area_sqm",
+    "sp_pw_mrt_stations",
+    "sp_pw_bus_stops",
+    "sp_pw_pc_total",
+    "sp_pw_pc_cat_restaurant",
+    "sp_pw_pc_cat_cafe_coffee",
+    "sp_pw_pc_cat_shopping_retail",
+    "sp_pw_pc_cat_hawker_street_food",
+    "sp_pw_pc_cat_health_medical",
+    "sp_pw_pc_cat_education",
+    "sp_pw_pc_cat_office_workspace",
+    "sp_pw_pc_cat_bar_nightlife",
+    "sp_pw_pc_unique_brands",
+    "sp_pw_pc_cat_entropy",
+    "sp_pw_lu_residential_pct",
+    "sp_pw_lu_commercial_pct",
+    "sp_pw_lu_business_pct",
+    "sp_pw_avg_gpr",
+    "sp_pw_mg_mean_transit",
+    "sp_pw_mg_mean_competitor",
+    "sp_pw_mg_mean_complementary",
+    "sp_pw_mg_mean_demand",
+    "sp_pw_mg_mean_anchor_count",
+    "tr_max_population",
+    "tr_max_elderly_count",
+    "tr_max_children_count",
+    "tr_max_walking_dependent_count",
+    "tr_max_bldg_count",
+    "tr_max_hdb_blocks",
+    "tr_max_bldg_footprint_sqm",
+    "tr_max_residential_floor_area_sqm",
+    "tr_max_mrt_stations",
+    "tr_max_bus_stops",
+    "tr_max_pc_total",
+    "tr_max_pc_cat_restaurant",
+    "tr_max_pc_cat_cafe_coffee",
+    "tr_max_pc_cat_shopping_retail",
+    "tr_max_pc_cat_hawker_street_food",
+    "tr_max_pc_cat_health_medical",
+    "tr_max_pc_cat_education",
+    "tr_max_pc_cat_office_workspace",
+    "tr_max_pc_cat_bar_nightlife",
+    "tr_max_pc_unique_brands",
+    "tr_max_pc_cat_entropy",
+    "tr_max_lu_residential_pct",
+    "tr_max_lu_commercial_pct",
+    "tr_max_lu_business_pct",
+    "tr_max_avg_gpr",
+    "tr_max_mg_mean_transit",
+    "tr_max_mg_mean_competitor",
+    "tr_max_mg_mean_complementary",
+    "tr_max_mg_mean_demand",
+    "tr_max_mg_mean_anchor_count",
+    "tr_pw_population",
+    "tr_pw_elderly_count",
+    "tr_pw_children_count",
+    "tr_pw_walking_dependent_count",
+    "tr_pw_bldg_count",
+    "tr_pw_hdb_blocks",
+    "tr_pw_bldg_footprint_sqm",
+    "tr_pw_residential_floor_area_sqm",
+    "tr_pw_mrt_stations",
+    "tr_pw_bus_stops",
+    "tr_pw_pc_total",
+    "tr_pw_pc_cat_restaurant",
+    "tr_pw_pc_cat_cafe_coffee",
+    "tr_pw_pc_cat_shopping_retail",
+    "tr_pw_pc_cat_hawker_street_food",
+    "tr_pw_pc_cat_health_medical",
+    "tr_pw_pc_cat_education",
+    "tr_pw_pc_cat_office_workspace",
+    "tr_pw_pc_cat_bar_nightlife",
+    "tr_pw_pc_unique_brands",
+    "tr_pw_pc_cat_entropy",
+    "tr_pw_lu_residential_pct",
+    "tr_pw_lu_commercial_pct",
+    "tr_pw_lu_business_pct",
+    "tr_pw_avg_gpr",
+    "tr_pw_mg_mean_transit",
+    "tr_pw_mg_mean_competitor",
+    "tr_pw_mg_mean_complementary",
+    "tr_pw_mg_mean_demand",
+    "tr_pw_mg_mean_anchor_count",
+    "sp_max_distance_rings",
+    "tr_nearest_station_rings",
+    "tr_reachable_hexes",
+    "ura_development_gap",
+    "gap_residential",
+    "gap_commercial",
+    "gap_industrial",
+    "pcn_segments",
+    "carpark_count",
+    "carpark_lots",
+    "taxi_snapshot",
+    "formal_schools",
+    "schools_primary",
+    "schools_secondary",
+    "supermarkets",
+    "parks_nature",
+    "tourist_draw_est",
+    "daytime_ratio",
+    "population_nonresident",
+    "population_total",
+    "mg_cafe_n",
+    "mg_cafe_cv_transit",
+    "mg_cafe_cv_competitor",
+    "mg_cafe_cv_complementary",
+    "mg_cafe_cv_demand",
+    "mg_cafe_anchor_count",
+    "mg_cafe_comp_pressure",
+    "mg_cafe_demand_diversity",
+    "mg_cafe_walkability",
+    "mg_cafe_pct_hyperdense",
+    "mg_cafe_pct_dense",
+    "mg_cafe_pct_moderate",
+    "mg_cafe_pct_sparse",
+    "mg_rest_n",
+    "mg_rest_cv_transit",
+    "mg_rest_cv_competitor",
+    "mg_rest_cv_complementary",
+    "mg_rest_cv_demand",
+    "mg_rest_anchor_count",
+    "mg_rest_comp_pressure",
+    "mg_rest_demand_diversity",
+    "mg_rest_walkability",
+    "mg_rest_pct_hyperdense",
+    "mg_rest_pct_dense",
+    "mg_rest_pct_moderate",
+    "mg_rest_pct_sparse",
+    "mg_hawk_n",
+    "mg_hawk_cv_transit",
+    "mg_hawk_cv_competitor",
+    "mg_hawk_cv_complementary",
+    "mg_hawk_cv_demand",
+    "mg_hawk_anchor_count",
+    "mg_hawk_comp_pressure",
+    "mg_hawk_demand_diversity",
+    "mg_hawk_walkability",
+    "mg_hawk_pct_hyperdense",
+    "mg_hawk_pct_dense",
+    "mg_hawk_pct_moderate",
+    "mg_hawk_pct_sparse",
+    "mg_fast_n",
+    "mg_fast_cv_transit",
+    "mg_fast_cv_competitor",
+    "mg_fast_cv_complementary",
+    "mg_fast_cv_demand",
+    "mg_fast_anchor_count",
+    "mg_fast_comp_pressure",
+    "mg_fast_demand_diversity",
+    "mg_fast_walkability",
+    "mg_fast_pct_hyperdense",
+    "mg_fast_pct_dense",
+    "mg_fast_pct_moderate",
+    "mg_fast_pct_sparse",
+    "mg_bake_n",
+    "mg_bake_cv_transit",
+    "mg_bake_cv_competitor",
+    "mg_bake_cv_complementary",
+    "mg_bake_cv_demand",
+    "mg_bake_anchor_count",
+    "mg_bake_comp_pressure",
+    "mg_bake_demand_diversity",
+    "mg_bake_walkability",
+    "mg_bake_pct_hyperdense",
+    "mg_bake_pct_dense",
+    "mg_bake_pct_moderate",
+    "mg_bake_pct_sparse",
+    "mg_bar_n",
+    "mg_bar_cv_transit",
+    "mg_bar_cv_competitor",
+    "mg_bar_cv_complementary",
+    "mg_bar_cv_demand",
+    "mg_bar_anchor_count",
+    "mg_bar_comp_pressure",
+    "mg_bar_demand_diversity",
+    "mg_bar_walkability",
+    "mg_bar_pct_hyperdense",
+    "mg_bar_pct_dense",
+    "mg_bar_pct_moderate",
+    "mg_bar_pct_sparse",
+    "mg_beau_n",
+    "mg_beau_cv_transit",
+    "mg_beau_cv_competitor",
+    "mg_beau_cv_demand",
+    "mg_beau_anchor_count",
+    "mg_beau_comp_pressure",
+    "mg_beau_demand_diversity",
+    "mg_beau_walkability",
+    "mg_beau_pct_hyperdense",
+    "mg_beau_pct_dense",
+    "mg_beau_pct_moderate",
+    "mg_beau_pct_sparse",
+    "mg_heal_n",
+    "mg_heal_cv_transit",
+    "mg_heal_cv_competitor",
+    "mg_heal_cv_complementary",
+    "mg_heal_cv_demand",
+    "mg_heal_anchor_count",
+    "mg_heal_comp_pressure",
+    "mg_heal_demand_diversity",
+    "mg_heal_walkability",
+    "mg_heal_pct_hyperdense",
+    "mg_heal_pct_dense",
+    "mg_heal_pct_moderate",
+    "mg_heal_pct_sparse",
+    "mg_fitn_n",
+    "mg_fitn_cv_transit",
+    "mg_fitn_cv_competitor",
+    "mg_fitn_cv_complementary",
+    "mg_fitn_cv_demand",
+    "mg_fitn_anchor_count",
+    "mg_fitn_comp_pressure",
+    "mg_fitn_demand_diversity",
+    "mg_fitn_walkability",
+    "mg_fitn_pct_hyperdense",
+    "mg_fitn_pct_dense",
+    "mg_fitn_pct_moderate",
+    "mg_fitn_pct_sparse",
+    "mg_educ_n",
+    "mg_educ_cv_transit",
+    "mg_educ_cv_competitor",
+    "mg_educ_cv_complementary",
+    "mg_educ_cv_demand",
+    "mg_educ_anchor_count",
+    "mg_educ_comp_pressure",
+    "mg_educ_demand_diversity",
+    "mg_educ_walkability",
+    "mg_educ_pct_hyperdense",
+    "mg_educ_pct_dense",
+    "mg_educ_pct_moderate",
+    "mg_educ_pct_sparse",
+    "mg_shop_n",
+    "mg_shop_cv_transit",
+    "mg_shop_cv_competitor",
+    "mg_shop_cv_complementary",
+    "mg_shop_cv_demand",
+    "mg_shop_anchor_count",
+    "mg_shop_comp_pressure",
+    "mg_shop_demand_diversity",
+    "mg_shop_walkability",
+    "mg_shop_pct_hyperdense",
+    "mg_shop_pct_dense",
+    "mg_shop_pct_moderate",
+    "mg_shop_pct_sparse",
+    "mg_conv_n",
+    "mg_conv_cv_transit",
+    "mg_conv_cv_competitor",
+    "mg_conv_cv_demand",
+    "mg_conv_anchor_count",
+    "mg_conv_comp_pressure",
+    "mg_conv_demand_diversity",
+    "mg_conv_walkability",
+    "mg_conv_pct_hyperdense",
+    "mg_conv_pct_dense",
+    "mg_conv_pct_moderate",
+    "mg_conv_pct_sparse"
+  ],
+  "target_categories": [
+    "pc_cat_automotive",
+    "pc_cat_bakery_pastry",
+    "pc_cat_bar_nightlife",
+    "pc_cat_beauty_personal_care",
+    "pc_cat_business",
+    "pc_cat_cafe_coffee",
+    "pc_cat_civic_government",
+    "pc_cat_convenience_daily_needs",
+    "pc_cat_culture_entertainment",
+    "pc_cat_education",
+    "pc_cat_fast_food_qsr",
+    "pc_cat_fitness_recreation",
+    "pc_cat_general",
+    "pc_cat_hawker_street_food",
+    "pc_cat_health_medical",
+    "pc_cat_hospitality",
+    "pc_cat_ngo",
+    "pc_cat_office_workspace",
+    "pc_cat_religious",
+    "pc_cat_residential",
+    "pc_cat_restaurant",
+    "pc_cat_services",
+    "pc_cat_shopping_retail",
+    "pc_cat_transport"
+  ],
+  "normalization_stats": {
+    "bldg_count": {
+      "mu": 4.379837371941245,
+      "sd": 3.766119331909803
+    },
+    "bldg_footprint_sqm": {
+      "mu": 89.68665885334694,
+      "sd": 80.83569756389956
+    },
+    "avg_floors": {
+      "mu": 1.2873404736934264,
+      "sd": 0.7806837598745651
+    },
+    "max_floors": {
+      "mu": 1.8234841927003227,
+      "sd": 1.5107548175798973
+    },
+    "avg_height": {
+      "mu": 0.18727893798147394,
+      "sd": 1.055911524488337
+    },
+    "max_height": {
+      "mu": 0.24233275405270094,
+      "sd": 1.375825498338214
+    },
+    "total_floor_area_sqm": {
+      "mu": 176.32273967682067,
+      "sd": 180.49854698388805
+    },
+    "residential_floor_area_sqm": {
+      "mu": 87.87438826369899,
+      "sd": 162.1097442708355
+    },
+    "commercial_floor_area_sqm": {
+      "mu": 37.171547733409845,
+      "sd": 87.96935752931317
+    },
+    "hdb_blocks": {
+      "mu": 0.510554610195646,
+      "sd": 1.2524066004389107
+    },
+    "bldg_hdb_residential": {
+      "mu": 0.4444692106111708,
+      "sd": 1.1080778724838178
+    },
+    "bldg_private_residential": {
+      "mu": 0.8519496428203741,
+      "sd": 2.0262172881103306
+    },
+    "bldg_commercial": {
+      "mu": 0.15742939307885218,
+      "sd": 0.6351968776506339
+    },
+    "bldg_industrial": {
+      "mu": 0.21339115435175343,
+      "sd": 0.6728207588902871
+    },
+    "bldg_institutional": {
+      "mu": 0.09485074865244972,
+      "sd": 0.3813359538980436
+    },
+    "bldg_transport": {
+      "mu": 0.06904451109559129,
+      "sd": 0.2870803820026834
+    },
+    "bldg_religious": {
+      "mu": 0.02867493197764102,
+      "sd": 0.1866634153987077
+    },
+    "bldg_other": {
+      "mu": 0.13542749035013718,
+      "sd": 0.4275596443334507
+    },
+    "bldg_unclassified": {
+      "mu": 3.8612324551403057,
+      "sd": 3.2857050938867283
+    },
+    "population": {
+      "mu": 10.840674548262216,
+      "sd": 21.403051136877504
+    },
+    "children_count": {
+      "mu": 3.9573092990883962,
+      "sd": 7.9122851482962036
+    },
+    "elderly_count": {
+      "mu": 4.644661056705259,
+      "sd": 9.311423563212319
+    },
+    "working_age_count": {
+      "mu": 8.898393193309785,
+      "sd": 17.60367526809591
+    },
+    "walking_dependent_count": {
+      "mu": 6.172872535563432,
+      "sd": 12.183418359455068
+    },
+    "lu_residential_pct": {
+      "mu": 0.1518867658598264,
+      "sd": 0.26423375770533525
+    },
+    "lu_commercial_pct": {
+      "mu": 0.014239416164424413,
+      "sd": 0.06564429724361893
+    },
+    "lu_business_pct": {
+      "mu": 0.16147919194185165,
+      "sd": 0.3230540045275558
+    },
+    "lu_mixed_use_pct": {
+      "mu": 0.004223412634967281,
+      "sd": 0.04611100798785943
+    },
+    "lu_institutional_pct": {
+      "mu": 0.03348383146305941,
+      "sd": 0.10933325608973252
+    },
+    "lu_open_space_pct": {
+      "mu": 0.2077678098795972,
+      "sd": 0.35069506557291047
+    },
+    "lu_transport_pct": {
+      "mu": 0.16414671769254507,
+      "sd": 0.24617847349940555
+    },
+    "lu_utility_pct": {
+      "mu": 0.07167264740332761,
+      "sd": 0.19555700552909283
+    },
+    "lu_other_pct": {
+      "mu": 0.19110020696040095,
+      "sd": 0.3563319785806294
+    },
+    "lu_total_sqm": {
+      "mu": 320.31130416599547,
+      "sd": 68.18147132280772
+    },
+    "lu_entropy": {
+      "mu": 0.5332205868478631,
+      "sd": 0.4874880852720189
+    },
+    "avg_gpr": {
+      "mu": 0.7136671331452218,
+      "sd": 0.7559751487856211
+    },
+    "mrt_stations": {
+      "mu": 0.029765450863716337,
+      "sd": 0.17515712824396268
+    },
+    "lrt_stations": {
+      "mu": 0.0,
+      "sd": 1
+    },
+    "bus_stops": {
+      "mu": 0.44775888446975143,
+      "sd": 0.7115212292343468
+    },
+    "hawker_centres": {
+      "mu": 0.01690734108518145,
+      "sd": 0.13168868200010103
+    },
+    "chas_clinics": {
+      "mu": 0.11340646383525095,
+      "sd": 0.3873306189756008
+    },
+    "preschools_gov": {
+      "mu": 0.21082987753860621,
+      "sd": 0.5181484265922448
+    },
+    "hotels": {
+      "mu": 0.03391716649559983,
+      "sd": 0.2506023248954057
+    },
+    "tourist_attractions": {
+      "mu": 0.012090459101770985,
+      "sd": 0.12144381743523393
+    },
+    "sfa_eating_establishments": {
+      "mu": 0.9324142145040335,
+      "sd": 1.9561941521636423
+    },
+    "silver_zones": {
+      "mu": 0.00573927302541678,
+      "sd": 0.07554027912681091
+    },
+    "school_zones": {
+      "mu": 0.028032541080039757,
+      "sd": 0.16747295640021348
+    },
+    "park_facilities": {
+      "mu": 0.28182385088708806,
+      "sd": 0.8108793396099303
+    },
+    "amenity_types_nearby": {
+      "mu": 1.033931499508211,
+      "sd": 0.987552553657303
+    },
+    "bicycle_signal": {
+      "mu": 0.0030456955443663464,
+      "sd": 0.06605681786604334
+    },
+    "bus_daily_taps": {
+      "mu": 13.538148132514449,
+      "sd": 27.472355140884115
+    },
+    "dist_bus_m": {
+      "mu": 0.4004660259232027,
+      "sd": 0.3353210230512273
+    },
+    "dist_clinic_m": {
+      "mu": 0.20948686386756127,
+      "sd": 0.26177947114837247
+    },
+    "dist_hawker_m": {
+      "mu": 0.09748263973744212,
+      "sd": 0.16854739936725785
+    },
+    "dist_mrt_m": {
+      "mu": 0.1410100926656955,
+      "sd": 0.20188974256659967
+    },
+    "dist_nearest_mrt_m": {
+      "mu": 0.25388166272204277,
+      "sd": 0.27425234508487023
+    },
+    "dist_park_m": {
+      "mu": 0.1805662040999525,
+      "sd": 0.23127624051145715
+    },
+    "dist_school_m": {
+      "mu": 0.372942891516362,
+      "sd": 0.32396287863294027
+    },
+    "dist_super_m": {
+      "mu": 0.2000742158462051,
+      "sd": 0.23948092636348378
+    },
+    "hex_avg_speed_kmh": {
+      "mu": 1.2297702373769517,
+      "sd": 2.581784258399858
+    },
+    "hex_flow_pct": {
+      "mu": 7.121727247881935,
+      "sd": 22.538140960288416
+    },
+    "hex_flow_segments": {
+      "mu": 0.24950519178557015,
+      "sd": 0.7298756489340624
+    },
+    "hex_jam_pct": {
+      "mu": 3.4378655370319757,
+      "sd": 12.438336988416069
+    },
+    "hex_jam_segments": {
+      "mu": 0.203778871048035,
+      "sd": 0.6776115542869148
+    },
+    "hex_seg_count": {
+      "mu": 0.5934659449747631,
+      "sd": 1.344245020050903
+    },
+    "mrt_daily_taps": {
+      "mu": 3.2458769987474585,
+      "sd": 27.007369504831352
+    },
+    "mrt_hex_rings": {
+      "mu": 2.446115702811202,
+      "sd": 1.1879806239979191
+    },
+    "ped_countdown": {
+      "mu": 0.09380678088325492,
+      "sd": 0.4499557699805145
+    },
+    "ped_crossings_total": {
+      "mu": 0.6438642292759101,
+      "sd": 1.2172600345563769
+    },
+    "ped_elderly": {
+      "mu": 0.018804130694035977,
+      "sd": 0.18424275688231076
+    },
+    "ped_standard": {
+      "mu": 0.5941474642227874,
+      "sd": 1.139172081976071
+    },
+    "road_cat_arterial": {
+      "mu": 0.06299385531335167,
+      "sd": 0.3943368796913347
+    },
+    "road_cat_expressway": {
+      "mu": 0.1416647854729132,
+      "sd": 0.5383788925370492
+    },
+    "road_cat_major_arterial": {
+      "mu": 0.19594906843101276,
+      "sd": 0.7054639558662762
+    },
+    "road_cat_minor_arterial": {
+      "mu": 0.1557435491611855,
+      "sd": 0.5913993904722968
+    },
+    "road_cat_slip": {
+      "mu": 0.12718707802780865,
+      "sd": 0.4893816460895227
+    },
+    "road_cat_small": {
+      "mu": 0.17505224069661587,
+      "sd": 0.7024293558719946
+    },
+    "sig_beacon": {
+      "mu": 0.35650408179110216,
+      "sd": 0.8201911548934406
+    },
+    "sig_filter_arrow": {
+      "mu": 0.1802966884111042,
+      "sd": 0.5992746978254717
+    },
+    "sig_ground": {
+      "mu": 0.7371929992286509,
+      "sd": 1.3702420053077893
+    },
+    "sig_overhead": {
+      "mu": 0.3808723133865939,
+      "sd": 0.741483826556061
+    },
+    "sig_rag": {
+      "mu": 0.12777217380810676,
+      "sd": 0.5105511921008359
+    },
+    "transit_daily_taps": {
+      "mu": 15.824892094221424,
+      "sd": 37.78251271570628
+    },
+    "walk_bus_m": {
+      "mu": 0.5604817017960639,
+      "sd": 0.3622364090896986
+    },
+    "walk_bus_score": {
+      "mu": 0.24350295726974475,
+      "sd": 0.3130206139156861
+    },
+    "walk_clinic_m": {
+      "mu": 0.35063864215311485,
+      "sd": 0.31218235681928763
+    },
+    "walk_clinic_score": {
+      "mu": 0.15810277697113856,
+      "sd": 0.271460775396257
+    },
+    "walk_hawker_m": {
+      "mu": 0.2269989155541917,
+      "sd": 0.22148975998778317
+    },
+    "walk_hawker_score": {
+      "mu": 0.051576112985776516,
+      "sd": 0.15809310510542632
+    },
+    "walk_mrt_m": {
+      "mu": 0.26646981501739236,
+      "sd": 0.24664973856794167
+    },
+    "walk_mrt_score": {
+      "mu": 0.12170070925258493,
+      "sd": 0.23300082489428173
+    },
+    "walk_park_m": {
+      "mu": 0.3224586959775975,
+      "sd": 0.2797869937047155
+    },
+    "walk_park_score": {
+      "mu": 0.13010501508707495,
+      "sd": 0.2448771620495108
+    },
+    "walk_school_m": {
+      "mu": 0.372942891516362,
+      "sd": 0.32396287863294027
+    },
+    "walk_super_m": {
+      "mu": 0.34380210082950247,
+      "sd": 0.29155349341375325
+    },
+    "walk_super_score": {
+      "mu": 0.11619183533884099,
+      "sd": 0.22765270242370803
+    },
+    "walkability_score": {
+      "mu": 30.9231360207646,
+      "sd": 31.314414623644524
+    },
+    "walkability_score_v2": {
+      "mu": 10.941720333418328,
+      "sd": 16.166170165766676
+    },
+    "pc_total": {
+      "mu": 2.6042439069631085,
+      "sd": 4.043739611255722
+    },
+    "pc_cat_shopping_retail": {
+      "mu": 0.8331927067743927,
+      "sd": 1.7129225494176172
+    },
+    "pc_cat_restaurant": {
+      "mu": 0.6445557541689763,
+      "sd": 1.5240049412533776
+    },
+    "pc_cat_services": {
+      "mu": 0.6362053029091865,
+      "sd": 1.3594781255105994
+    },
+    "pc_cat_business": {
+      "mu": 0.5609161846953162,
+      "sd": 1.372013632446665
+    },
+    "pc_cat_beauty_personal_care": {
+      "mu": 0.45387215879154197,
+      "sd": 1.1543548771321783
+    },
+    "pc_cat_education": {
+      "mu": 0.5253652346394513,
+      "sd": 1.0568151559084435
+    },
+    "pc_cat_health_medical": {
+      "mu": 0.357683705288568,
+      "sd": 0.959820887332802
+    },
+    "pc_cat_cafe_coffee": {
+      "mu": 0.3617642624322013,
+      "sd": 0.8618947800443603
+    },
+    "pc_cat_fitness_recreation": {
+      "mu": 0.43068348665985157,
+      "sd": 0.8120435414893172
+    },
+    "pc_cat_convenience_daily_needs": {
+      "mu": 0.3730126880806512,
+      "sd": 0.8172592253322347
+    },
+    "pc_cat_hawker_street_food": {
+      "mu": 0.2750551392858504,
+      "sd": 0.845898606047716
+    },
+    "pc_cat_automotive": {
+      "mu": 0.2603207761290245,
+      "sd": 0.8130933327383232
+    },
+    "pc_cat_transport": {
+      "mu": 0.34294498415234154,
+      "sd": 0.6681895589041862
+    },
+    "pc_cat_civic_government": {
+      "mu": 0.2912494142840007,
+      "sd": 0.5773394264972412
+    },
+    "pc_cat_bar_nightlife": {
+      "mu": 0.2135975835040009,
+      "sd": 0.6287635086215702
+    },
+    "pc_cat_fast_food_qsr": {
+      "mu": 0.18164805647362234,
+      "sd": 0.6011439345449119
+    },
+    "pc_cat_residential": {
+      "mu": 0.2416442013474855,
+      "sd": 0.5797540649048228
+    },
+    "pc_cat_culture_entertainment": {
+      "mu": 0.21430243319356437,
+      "sd": 0.5758790173162183
+    },
+    "pc_cat_office_workspace": {
+      "mu": 0.21411946676174515,
+      "sd": 0.5763028522267483
+    },
+    "pc_cat_hospitality": {
+      "mu": 0.18214774003383602,
+      "sd": 0.5352056133610535
+    },
+    "pc_cat_bakery_pastry": {
+      "mu": 0.17515097458461124,
+      "sd": 0.5365182093952564
+    },
+    "pc_cat_general": {
+      "mu": 0.21039414599813816,
+      "sd": 0.4869243585331138
+    },
+    "pc_cat_religious": {
+      "mu": 0.154799948583311,
+      "sd": 0.4934164255793241
+    },
+    "pc_cat_ngo": {
+      "mu": 0.1044976415608128,
+      "sd": 0.3545837004943212
+    },
+    "pc_pct_cat_shopping_retail": {
+      "mu": 0.13078110820679378,
+      "sd": 0.20754198447642444
+    },
+    "pc_pct_cat_restaurant": {
+      "mu": 0.08841555801043996,
+      "sd": 0.1661068419133697
+    },
+    "pc_pct_cat_services": {
+      "mu": 0.10602444122707415,
+      "sd": 0.18559542363404757
+    },
+    "pc_pct_cat_business": {
+      "mu": 0.09614598155275139,
+      "sd": 0.1948552516051594
+    },
+    "pc_pct_cat_beauty_personal_care": {
+      "mu": 0.058009926643407636,
+      "sd": 0.12292407926231244
+    },
+    "pc_pct_cat_education": {
+      "mu": 0.08681142657530729,
+      "sd": 0.1682070293068786
+    },
+    "pc_pct_cat_health_medical": {
+      "mu": 0.04575493266153614,
+      "sd": 0.11157610135127663
+    },
+    "pc_pct_cat_cafe_coffee": {
+      "mu": 0.04876882036779018,
+      "sd": 0.10742238738183121
+    },
+    "pc_pct_cat_fitness_recreation": {
+      "mu": 0.08730476378205682,
+      "sd": 0.17912320411396426
+    },
+    "pc_pct_cat_convenience_daily_needs": {
+      "mu": 0.05378750515957443,
+      "sd": 0.11494666058946482
+    },
+    "pc_pct_cat_hawker_street_food": {
+      "mu": 0.03316333799496232,
+      "sd": 0.0956621886952161
+    },
+    "pc_pct_cat_automotive": {
+      "mu": 0.03856878032564352,
+      "sd": 0.1077892078680937
+    },
+    "pc_pct_cat_transport": {
+      "mu": 0.07031050093920672,
+      "sd": 0.16039335270263808
+    },
+    "pc_pct_cat_civic_government": {
+      "mu": 0.07138650703851732,
+      "sd": 0.17401975079816248
+    },
+    "pc_pct_cat_bar_nightlife": {
+      "mu": 0.03609126894856975,
+      "sd": 0.11056309467785641
+    },
+    "pc_pct_cat_fast_food_qsr": {
+      "mu": 0.020795276791403715,
+      "sd": 0.06509912342442677
+    },
+    "pc_pct_cat_residential": {
+      "mu": 0.04667792360112299,
+      "sd": 0.12311592871300372
+    },
+    "pc_pct_cat_culture_entertainment": {
+      "mu": 0.04558212218838108,
+      "sd": 0.13991916330787457
+    },
+    "pc_pct_cat_office_workspace": {
+      "mu": 0.041511723899085966,
+      "sd": 0.12476944509567736
+    },
+    "pc_pct_cat_hospitality": {
+      "mu": 0.030298285454873005,
+      "sd": 0.09506888177674154
+    },
+    "pc_pct_cat_bakery_pastry": {
+      "mu": 0.021405595987938376,
+      "sd": 0.06483604194771342
+    },
+    "pc_pct_cat_general": {
+      "mu": 0.04367451585244621,
+      "sd": 0.12862704396447058
+    },
+    "pc_pct_cat_religious": {
+      "mu": 0.023667068876366885,
+      "sd": 0.08352459451054034
+    },
+    "pc_pct_cat_ngo": {
+      "mu": 0.017739427262011952,
+      "sd": 0.07554775430504858
+    },
+    "pc_tier_luxury": {
+      "mu": 0.08778362345570086,
+      "sd": 0.47722204355291864
+    },
+    "pc_tier_premium": {
+      "mu": 0.5809056464651822,
+      "sd": 1.3485555963522997
+    },
+    "pc_tier_mid": {
+      "mu": 1.8905045102202385,
+      "sd": 3.1787723113512856
+    },
+    "pc_tier_value": {
+      "mu": 1.3606774283720753,
+      "sd": 2.130484487388924
+    },
+    "pc_tier_budget": {
+      "mu": 0.4019580438093691,
+      "sd": 0.7122698485781188
+    },
+    "pc_pct_tier_luxury": {
+      "mu": 0.011938333557740917,
+      "sd": 0.06414063443462364
+    },
+    "pc_pct_tier_premium": {
+      "mu": 0.08871066172740032,
+      "sd": 0.16551804920558594
+    },
+    "pc_pct_tier_mid": {
+      "mu": 0.35547675919725275,
+      "sd": 0.39033357709619804
+    },
+    "pc_pct_tier_value": {
+      "mu": 0.2704175892363641,
+      "sd": 0.3223968102111236
+    },
+    "pc_pct_tier_budget": {
+      "mu": 0.08965093400223438,
+      "sd": 0.18464257256636876
+    },
+    "pc_unique_brands": {
+      "mu": 0.4635062846081546,
+      "sd": 1.1270006631659373
+    },
+    "pc_branded_count": {
+      "mu": 0.47510064771085786,
+      "sd": 1.1588258506497984
+    },
+    "pc_branded_pct": {
+      "mu": 0.02243792063091485,
+      "sd": 0.06287286210711705
+    },
+    "pc_unique_place_types": {
+      "mu": 2.0651989897061456,
+      "sd": 2.7358517518750616
+    },
+    "pc_cat_hhi": {
+      "mu": 0.1873828846656275,
+      "sd": 0.2873664636919534
+    },
+    "pc_cat_entropy": {
+      "mu": 0.8271314650899827,
+      "sd": 1.0012990737638183
+    },
+    "pc_seg_entropy": {
+      "mu": 0.654746236132735,
+      "sd": 0.7392494393030944
+    },
+    "sp_max_population": {
+      "mu": 16.546130868669806,
+      "sd": 24.86983855130854
+    },
+    "sp_max_elderly_count": {
+      "mu": 7.223736803595794,
+      "sd": 10.998946069343134
+    },
+    "sp_max_children_count": {
+      "mu": 5.86663431760337,
+      "sd": 8.975405564096025
+    },
+    "sp_max_walking_dependent_count": {
+      "mu": 9.396931993470323,
+      "sd": 14.136200352659285
+    },
+    "sp_max_bldg_count": {
+      "mu": 5.846773946586343,
+      "sd": 3.0122934205910528
+    },
+    "sp_max_hdb_blocks": {
+      "mu": 0.9106273550520392,
+      "sd": 1.5057785083334057
+    },
+    "sp_max_bldg_footprint_sqm": {
+      "mu": 164.3209836669986,
+      "sd": 76.98402131992226
+    },
+    "sp_max_residential_floor_area_sqm": {
+      "mu": 133.05727962770243,
+      "sd": 185.0250260731564
+    },
+    "sp_max_mrt_stations": {
+      "mu": 0.25605151791814074,
+      "sd": 0.47644925764484497
+    },
+    "sp_max_bus_stops": {
+      "mu": 0.9032266756543512,
+      "sd": 0.8655788044276768
+    },
+    "sp_max_pc_total": {
+      "mu": 11.38230193571241,
+      "sd": 9.170728569568299
+    },
+    "sp_max_pc_cat_restaurant": {
+      "mu": 3.810421083912907,
+      "sd": 3.9178099087523877
+    },
+    "sp_max_pc_cat_cafe_coffee": {
+      "mu": 1.9998476788197688,
+      "sd": 1.995740838478205
+    },
+    "sp_max_pc_cat_shopping_retail": {
+      "mu": 4.594645685523713,
+      "sd": 4.311735396089626
+    },
+    "sp_max_pc_cat_hawker_street_food": {
+      "mu": 1.6248801201510217,
+      "sd": 1.969803378371165
+    },
+    "sp_max_pc_cat_health_medical": {
+      "mu": 1.9946659425909585,
+      "sd": 2.3371803319980096
+    },
+    "sp_max_pc_cat_education": {
+      "mu": 2.0708371684297724,
+      "sd": 2.200671137322796
+    },
+    "sp_max_pc_cat_office_workspace": {
+      "mu": 0.9478794067105137,
+      "sd": 1.197779514152665
+    },
+    "sp_max_pc_cat_bar_nightlife": {
+      "mu": 0.8921892944391318,
+      "sd": 1.2967078001075574
+    },
+    "sp_max_pc_unique_brands": {
+      "mu": 3.1617041662550096,
+      "sd": 3.709223795880753
+    },
+    "sp_max_pc_cat_entropy": {
+      "mu": 1.2099199664312115,
+      "sd": 0.5183291581998446
+    },
+    "sp_max_lu_residential_pct": {
+      "mu": 0.12139186521261015,
+      "sd": 0.2044840969020242
+    },
+    "sp_max_lu_commercial_pct": {
+      "mu": 0.12427509336077165,
+      "sd": 0.20057142434849345
+    },
+    "sp_max_lu_business_pct": {
+      "mu": 0.20469573337307345,
+      "sd": 0.3134499743891233
+    },
+    "sp_max_avg_gpr": {
+      "mu": 1.1329370914769317,
+      "sd": 0.8509881871057128
+    },
+    "sp_max_mg_mean_transit": {
+      "mu": 0.1705270538474993,
+      "sd": 0.24255009625429114
+    },
+    "sp_max_mg_mean_competitor": {
+      "mu": 0.4796162860834263,
+      "sd": 0.3666056699314262
+    },
+    "sp_max_mg_mean_complementary": {
+      "mu": 0.18801626006868277,
+      "sd": 0.2220922982089235
+    },
+    "sp_max_mg_mean_demand": {
+      "mu": 0.26737120712672596,
+      "sd": 0.2565181522732996
+    },
+    "sp_max_mg_mean_anchor_count": {
+      "mu": 1.9998089398352767,
+      "sd": 1.6087331279072998
+    },
+    "sp_pw_population": {
+      "mu": 22.12807934573434,
+      "sd": 22.48414650747431
+    },
+    "sp_pw_elderly_count": {
+      "mu": 9.55704794578421,
+      "sd": 9.667513808374549
+    },
+    "sp_pw_children_count": {
+      "mu": 8.028384375043693,
+      "sd": 8.36246329315598
+    },
+    "sp_pw_walking_dependent_count": {
+      "mu": 12.552716198521,
+      "sd": 12.712712248585904
+    },
+    "sp_pw_bldg_count": {
+      "mu": 6.253529324387689,
+      "sd": 2.689654657423464
+    },
+    "sp_pw_hdb_blocks": {
+      "mu": 1.2424499814476238,
+      "sd": 1.3655432479686787
+    },
+    "sp_pw_bldg_footprint_sqm": {
+      "mu": 147.78723393902786,
+      "sd": 64.80146016072622
+    },
+    "sp_pw_residential_floor_area_sqm": {
+      "mu": 174.17202291600657,
+      "sd": 160.46691188244714
+    },
+    "sp_pw_mrt_stations": {
+      "mu": 0.207481267459764,
+      "sd": 0.23630694068886182
+    },
+    "sp_pw_bus_stops": {
+      "mu": 0.935992748150385,
+      "sd": 0.6293978192998084
+    },
+    "sp_pw_pc_total": {
+      "mu": 7.309766090709026,
+      "sd": 5.793551507548808
+    },
+    "sp_pw_pc_cat_restaurant": {
+      "mu": 2.4096905324436704,
+      "sd": 2.3513117382259807
+    },
+    "sp_pw_pc_cat_cafe_coffee": {
+      "mu": 1.3639675312299164,
+      "sd": 1.2217605200882613
+    },
+    "sp_pw_pc_cat_shopping_retail": {
+      "mu": 2.9060914511666014,
+      "sd": 2.615692201512289
+    },
+    "sp_pw_pc_cat_hawker_street_food": {
+      "mu": 1.236267968027505,
+      "sd": 1.179954563153022
+    },
+    "sp_pw_pc_cat_health_medical": {
+      "mu": 1.3557759596301302,
+      "sd": 1.4907126827819202
+    },
+    "sp_pw_pc_cat_education": {
+      "mu": 1.5420315317104751,
+      "sd": 1.4112949497536262
+    },
+    "sp_pw_pc_cat_office_workspace": {
+      "mu": 0.8254237978396973,
+      "sd": 0.703971546629075
+    },
+    "sp_pw_pc_cat_bar_nightlife": {
+      "mu": 0.7856959176278687,
+      "sd": 0.8581514885094795
+    },
+    "sp_pw_pc_unique_brands": {
+      "mu": 1.9167674230737937,
+      "sd": 1.896018431749715
+    },
+    "sp_pw_pc_cat_entropy": {
+      "mu": 1.1278013598210714,
+      "sd": 0.5146898054790053
+    },
+    "sp_pw_lu_residential_pct": {
+      "mu": 0.1834950659509686,
+      "sd": 0.1944601029492204
+    },
+    "sp_pw_lu_commercial_pct": {
+      "mu": 0.05279898484718867,
+      "sd": 0.08352876988028775
+    },
+    "sp_pw_lu_business_pct": {
+      "mu": 0.1962451585002911,
+      "sd": 0.2682952281720115
+    },
+    "sp_pw_avg_gpr": {
+      "mu": 1.0675979470793797,
+      "sd": 0.7013641029518642
+    },
+    "sp_pw_mg_mean_transit": {
+      "mu": 0.16295104716646178,
+      "sd": 0.16742259452135225
+    },
+    "sp_pw_mg_mean_competitor": {
+      "mu": 0.4864968321083126,
+      "sd": 0.32479104624839966
+    },
+    "sp_pw_mg_mean_complementary": {
+      "mu": 0.19185327686892054,
+      "sd": 0.178954932965721
+    },
+    "sp_pw_mg_mean_demand": {
+      "mu": 0.3112215955100595,
+      "sd": 0.23603082881312445
+    },
+    "sp_pw_mg_mean_anchor_count": {
+      "mu": 1.8111278224615284,
+      "sd": 1.353890860407097
+    },
+    "tr_max_population": {
+      "mu": 24.419365245116143,
+      "sd": 28.233487306819104
+    },
+    "tr_max_elderly_count": {
+      "mu": 11.104250252621162,
+      "sd": 12.955687435621401
+    },
+    "tr_max_children_count": {
+      "mu": 8.417636976909794,
+      "sd": 9.737166538659725
+    },
+    "tr_max_walking_dependent_count": {
+      "mu": 13.970064085778121,
+      "sd": 16.17592484274829
+    },
+    "tr_max_bldg_count": {
+      "mu": 5.306759406155963,
+      "sd": 2.0470254885404118
+    },
+    "tr_max_hdb_blocks": {
+      "mu": 1.3452210001230815,
+      "sd": 1.4939160673295893
+    },
+    "tr_max_bldg_footprint_sqm": {
+      "mu": 208.79674637118248,
+      "sd": 55.30635545063815
+    },
+    "tr_max_residential_floor_area_sqm": {
+      "mu": 207.54699923441652,
+      "sd": 209.33331191208595
+    },
+    "tr_max_mrt_stations": {
+      "mu": 0.8400147373220782,
+      "sd": 0.47988195662881444
+    },
+    "tr_max_bus_stops": {
+      "mu": 1.5588614840123105,
+      "sd": 0.7990925173297787
+    },
+    "tr_max_pc_total": {
+      "mu": 22.038831038289253,
+      "sd": 8.976135816409302
+    },
+    "tr_max_pc_cat_restaurant": {
+      "mu": 8.485532909598662,
+      "sd": 3.7886346561020994
+    },
+    "tr_max_pc_cat_cafe_coffee": {
+      "mu": 4.251293073598946,
+      "sd": 2.057926493382272
+    },
+    "tr_max_pc_cat_shopping_retail": {
+      "mu": 9.68560345016466,
+      "sd": 3.947225128632334
+    },
+    "tr_max_pc_cat_hawker_street_food": {
+      "mu": 2.993618978982766,
+      "sd": 1.3938176019868291
+    },
+    "tr_max_pc_cat_health_medical": {
+      "mu": 4.5360319420719755,
+      "sd": 2.701736489401458
+    },
+    "tr_max_pc_cat_education": {
+      "mu": 4.3198693400151535,
+      "sd": 1.7512271877967407
+    },
+    "tr_max_pc_cat_office_workspace": {
+      "mu": 1.632279666050249,
+      "sd": 1.562769845768193
+    },
+    "tr_max_pc_cat_bar_nightlife": {
+      "mu": 1.819698569883846,
+      "sd": 1.7947375887713966
+    },
+    "tr_max_pc_unique_brands": {
+      "mu": 7.904699798604669,
+      "sd": 3.8059670172663402
+    },
+    "tr_max_pc_cat_entropy": {
+      "mu": 1.4395903757058657,
+      "sd": 0.32165056362567157
+    },
+    "tr_max_lu_residential_pct": {
+      "mu": 0.13787384946024364,
+      "sd": 0.16486506843765722
+    },
+    "tr_max_lu_commercial_pct": {
+      "mu": 0.29433782702985506,
+      "sd": 0.22503735869633693
+    },
+    "tr_max_lu_business_pct": {
+      "mu": 0.12731260024564522,
+      "sd": 0.23504696313573126
+    },
+    "tr_max_avg_gpr": {
+      "mu": 1.9426883677441606,
+      "sd": 0.7902744607882763
+    },
+    "tr_max_mg_mean_transit": {
+      "mu": 0.42437185956048745,
+      "sd": 0.19939561309495588
+    },
+    "tr_max_mg_mean_competitor": {
+      "mu": 0.5809326134065114,
+      "sd": 0.19034372954482126
+    },
+    "tr_max_mg_mean_complementary": {
+      "mu": 0.3410090875335352,
+      "sd": 0.17897829496554188
+    },
+    "tr_max_mg_mean_demand": {
+      "mu": 0.35692905046096013,
+      "sd": 0.13813879790143424
+    },
+    "tr_max_mg_mean_anchor_count": {
+      "mu": 3.3533502735017926,
+      "sd": 1.2338213408230434
+    },
+    "tr_pw_population": {
+      "mu": 40.349914310475235,
+      "sd": 17.23755138275809
+    },
+    "tr_pw_elderly_count": {
+      "mu": 17.64928690902588,
+      "sd": 7.2307711803091825
+    },
+    "tr_pw_children_count": {
+      "mu": 14.4093096365892,
+      "sd": 6.48209722359375
+    },
+    "tr_pw_walking_dependent_count": {
+      "mu": 22.82666390407659,
+      "sd": 9.610961652647113
+    },
+    "tr_pw_bldg_count": {
+      "mu": 7.104064937940361,
+      "sd": 1.9271065339255817
+    },
+    "tr_pw_hdb_blocks": {
+      "mu": 2.3862595716188957,
+      "sd": 1.0503083810943772
+    },
+    "tr_pw_bldg_footprint_sqm": {
+      "mu": 182.4745632347592,
+      "sd": 42.65574628363012
+    },
+    "tr_pw_residential_floor_area_sqm": {
+      "mu": 301.2117005387587,
+      "sd": 121.13942611214036
+    },
+    "tr_pw_mrt_stations": {
+      "mu": 0.45985102242990195,
+      "sd": 0.14903850327747645
+    },
+    "tr_pw_bus_stops": {
+      "mu": 1.467366694736195,
+      "sd": 0.3345621768973664
+    },
+    "tr_pw_pc_total": {
+      "mu": 12.134420747451719,
+      "sd": 5.202361858305876
+    },
+    "tr_pw_pc_cat_restaurant": {
+      "mu": 4.3926831693525745,
+      "sd": 2.18624583006637
+    },
+    "tr_pw_pc_cat_cafe_coffee": {
+      "mu": 2.3628355616005083,
+      "sd": 1.0708778636625915
+    },
+    "tr_pw_pc_cat_shopping_retail": {
+      "mu": 5.233319081086397,
+      "sd": 2.2652289206598777
+    },
+    "tr_pw_pc_cat_hawker_street_food": {
+      "mu": 2.253788963319253,
+      "sd": 0.8221571104967258
+    },
+    "tr_pw_pc_cat_health_medical": {
+      "mu": 2.7007029611495956,
+      "sd": 1.4555294165487147
+    },
+    "tr_pw_pc_cat_education": {
+      "mu": 2.761153848171412,
+      "sd": 1.080063201658682
+    },
+    "tr_pw_pc_cat_office_workspace": {
+      "mu": 1.2245769644212263,
+      "sd": 0.5398109193567465
+    },
+    "tr_pw_pc_cat_bar_nightlife": {
+      "mu": 1.298821784142051,
+      "sd": 1.044807577814826
+    },
+    "tr_pw_pc_unique_brands": {
+      "mu": 3.8553234270413856,
+      "sd": 1.4672370544374944
+    },
+    "tr_pw_pc_cat_entropy": {
+      "mu": 1.425805761227787,
+      "sd": 0.3242494026909745
+    },
+    "tr_pw_lu_residential_pct": {
+      "mu": 0.30182095118851976,
+      "sd": 0.1441195739641014
+    },
+    "tr_pw_lu_commercial_pct": {
+      "mu": 0.11274442864149309,
+      "sd": 0.07946085938391038
+    },
+    "tr_pw_lu_business_pct": {
+      "mu": 0.15430514736643391,
+      "sd": 0.1838110009837836
+    },
+    "tr_pw_avg_gpr": {
+      "mu": 1.5810679033819555,
+      "sd": 0.41279257666089414
+    },
+    "tr_pw_mg_mean_transit": {
+      "mu": 0.3392108551849805,
+      "sd": 0.09118825690644913
+    },
+    "tr_pw_mg_mean_competitor": {
+      "mu": 0.6605676758194053,
+      "sd": 0.15173934818917278
+    },
+    "tr_pw_mg_mean_complementary": {
+      "mu": 0.2957204635648671,
+      "sd": 0.1297050690457814
+    },
+    "tr_pw_mg_mean_demand": {
+      "mu": 0.4372878368260117,
+      "sd": 0.11273147286673532
+    },
+    "tr_pw_mg_mean_anchor_count": {
+      "mu": 2.8968260690404146,
+      "sd": 0.8703625086311626
+    },
+    "sp_max_distance_rings": {
+      "mu": 1.8570905554350492,
+      "sd": 0.41737164600288423
+    },
+    "tr_nearest_station_rings": {
+      "mu": 3.823093535388824,
+      "sd": 6.273943354951811
+    },
+    "tr_reachable_hexes": {
+      "mu": 13.79250231301244,
+      "sd": 5.014941155846069
+    },
+    "ura_development_gap": {
+      "mu": 0.28929225992074065,
+      "sd": 0.4156529984981064
+    },
+    "gap_residential": {
+      "mu": 0.18822963606932439,
+      "sd": 0.3085281775588758
+    },
+    "gap_commercial": {
+      "mu": 0.031429899823305296,
+      "sd": 0.13148564063870402
+    },
+    "gap_industrial": {
+      "mu": 0.1858656160900634,
+      "sd": 0.3523033368817142
+    },
+    "pcn_segments": {
+      "mu": 0.07500966229798874,
+      "sd": 0.3391680018124382
+    },
+    "carpark_count": {
+      "mu": 0.21083830275661486,
+      "sd": 0.5561765882346452
+    },
+    "carpark_lots": {
+      "mu": 2.562717528946245,
+      "sd": 7.116249418531868
+    },
+    "taxi_snapshot": {
+      "mu": 0.05657127718611255,
+      "sd": 0.2551947677197582
+    },
+    "formal_schools": {
+      "mu": 0.042902647758704025,
+      "sd": 0.21026220862621706
+    },
+    "schools_primary": {
+      "mu": 0.02414004567497846,
+      "sd": 0.15452343910133917
+    },
+    "schools_secondary": {
+      "mu": 0.021053712464042838,
+      "sd": 0.14495064800793517
+    },
+    "supermarkets": {
+      "mu": 0.06285169280797875,
+      "sd": 0.26062852278027676
+    },
+    "parks_nature": {
+      "mu": 0.05535616428729824,
+      "sd": 0.2414358231585735
+    },
+    "tourist_draw_est": {
+      "mu": 2.367881610605693,
+      "sd": 5.1069321756161425
+    },
+    "daytime_ratio": {
+      "mu": 9.330723528770406,
+      "sd": 14.059838888121085
+    },
+    "population_nonresident": {
+      "mu": 10.060087193387297,
+      "sd": 11.860185870189293
+    },
+    "population_total": {
+      "mu": 16.882459979997613,
+      "sd": 23.075153972767023
+    },
+    "mg_cafe_n": {
+      "mu": 0.36088030783647546,
+      "sd": 0.8683452063570564
+    },
+    "mg_cafe_cv_transit": {
+      "mu": 0.1223632047026034,
+      "sd": 0.2545476861650198
+    },
+    "mg_cafe_cv_competitor": {
+      "mu": 0.02422403815550536,
+      "sd": 0.05353988195642571
+    },
+    "mg_cafe_cv_complementary": {
+      "mu": 0.028597430785554427,
+      "sd": 0.06345184826179258
+    },
+    "mg_cafe_cv_demand": {
+      "mu": 0.021863632561097083,
+      "sd": 0.061761939648802486
+    },
+    "mg_cafe_anchor_count": {
+      "mu": 0.9484563732851282,
+      "sd": 1.9251463974528875
+    },
+    "mg_cafe_comp_pressure": {
+      "mu": 0.025714471771314914,
+      "sd": 0.05453258654591013
+    },
+    "mg_cafe_demand_diversity": {
+      "mu": 0.24638797234954019,
+      "sd": 0.49989605228519157
+    },
+    "mg_cafe_walkability": {
+      "mu": 1.9405553417032413,
+      "sd": 4.127602504832749
+    },
+    "mg_cafe_pct_hyperdense": {
+      "mu": 0.008311017715879864,
+      "sd": 0.08157940517098837
+    },
+    "mg_cafe_pct_dense": {
+      "mu": 0.04052581441544567,
+      "sd": 0.1831032654990564
+    },
+    "mg_cafe_pct_moderate": {
+      "mu": 0.07425418217773515,
+      "sd": 0.24804923563153927
+    },
+    "mg_cafe_pct_sparse": {
+      "mu": 0.09206324833316804,
+      "sd": 0.2824426576041269
+    },
+    "mg_rest_n": {
+      "mu": 0.5700948500190299,
+      "sd": 1.367725755506908
+    },
+    "mg_rest_cv_transit": {
+      "mu": 0.14509685857479268,
+      "sd": 0.26766089871892673
+    },
+    "mg_rest_cv_competitor": {
+      "mu": 0.03699312173883154,
+      "sd": 0.07398299274758836
+    },
+    "mg_rest_cv_complementary": {
+      "mu": 0.032881401758716636,
+      "sd": 0.06335160600687498
+    },
+    "mg_rest_cv_demand": {
+      "mu": 0.02935804912574478,
+      "sd": 0.07701426479570839
+    },
+    "mg_rest_anchor_count": {
+      "mu": 1.1738796565102816,
+      "sd": 2.080265695412586
+    },
+    "mg_rest_comp_pressure": {
+      "mu": 0.03451043795753883,
+      "sd": 0.06526161972510602
+    },
+    "mg_rest_demand_diversity": {
+      "mu": 0.304865570076603,
+      "sd": 0.5397110201602665
+    },
+    "mg_rest_walkability": {
+      "mu": 2.439770597930372,
+      "sd": 4.578057239234742
+    },
+    "mg_rest_pct_hyperdense": {
+      "mu": 0.008178387706446235,
+      "sd": 0.0816530763608822
+    },
+    "mg_rest_pct_dense": {
+      "mu": 0.043191128453230934,
+      "sd": 0.187176849523394
+    },
+    "mg_rest_pct_moderate": {
+      "mu": 0.09104649320007197,
+      "sd": 0.26974635866915825
+    },
+    "mg_rest_pct_sparse": {
+      "mu": 0.126129907784043,
+      "sd": 0.3222881132698713
+    },
+    "mg_hawk_n": {
+      "mu": 0.2838450377576929,
+      "sd": 0.8571359652149786
+    },
+    "mg_hawk_cv_transit": {
+      "mu": 0.08947879340984022,
+      "sd": 0.22455076354011977
+    },
+    "mg_hawk_cv_competitor": {
+      "mu": 0.016634518601226965,
+      "sd": 0.044995927528732715
+    },
+    "mg_hawk_cv_complementary": {
+      "mu": 0.020268523448062212,
+      "sd": 0.053691407515449464
+    },
+    "mg_hawk_cv_demand": {
+      "mu": 0.013820274408962782,
+      "sd": 0.041370450641779515
+    },
+    "mg_hawk_anchor_count": {
+      "mu": 0.678034699193801,
+      "sd": 1.6843461642984285
+    },
+    "mg_hawk_comp_pressure": {
+      "mu": 0.01773039539337496,
+      "sd": 0.04538364409395536
+    },
+    "mg_hawk_demand_diversity": {
+      "mu": 0.17644812421581357,
+      "sd": 0.4381878021169298
+    },
+    "mg_hawk_walkability": {
+      "mu": 1.234696256621457,
+      "sd": 3.231761850737594
+    },
+    "mg_hawk_pct_hyperdense": {
+      "mu": 0.0068849305041514645,
+      "sd": 0.07942747485943158
+    },
+    "mg_hawk_pct_dense": {
+      "mu": 0.03146056042874853,
+      "sd": 0.1669176855023479
+    },
+    "mg_hawk_pct_moderate": {
+      "mu": 0.06171641331040386,
+      "sd": 0.2330930507222403
+    },
+    "mg_hawk_pct_sparse": {
+      "mu": 0.04850135401412418,
+      "sd": 0.21095299740657375
+    },
+    "mg_fast_n": {
+      "mu": 0.19628975222800504,
+      "sd": 0.6309239503895757
+    },
+    "mg_fast_cv_transit": {
+      "mu": 0.07366570769494366,
+      "sd": 0.2061950845215823
+    },
+    "mg_fast_cv_competitor": {
+      "mu": 0.014371967982028461,
+      "sd": 0.04268214059922726
+    },
+    "mg_fast_cv_complementary": {
+      "mu": 0.017213725365863648,
+      "sd": 0.051142568871684835
+    },
+    "mg_fast_cv_demand": {
+      "mu": 0.011446702149398138,
+      "sd": 0.036799780330190004
+    },
+    "mg_fast_anchor_count": {
+      "mu": 0.5663545487207363,
+      "sd": 1.5623514289864038
+    },
+    "mg_fast_comp_pressure": {
+      "mu": 0.015121398845433797,
+      "sd": 0.042906809457811154
+    },
+    "mg_fast_demand_diversity": {
+      "mu": 0.14725807088421428,
+      "sd": 0.4064035057477099
+    },
+    "mg_fast_walkability": {
+      "mu": 1.0141968450410552,
+      "sd": 2.9543945414787447
+    },
+    "mg_fast_pct_hyperdense": {
+      "mu": 0.00752807514944032,
+      "sd": 0.08109310458754326
+    },
+    "mg_fast_pct_dense": {
+      "mu": 0.03067000865177063,
+      "sd": 0.16534811720891923
+    },
+    "mg_fast_pct_moderate": {
+      "mu": 0.0503428352177245,
+      "sd": 0.21255455444655644
+    },
+    "mg_fast_pct_sparse": {
+      "mu": 0.03524413727731422,
+      "sd": 0.18118816133598956
+    },
+    "mg_bake_n": {
+      "mu": 0.18498050319719497,
+      "sd": 0.5648192659741172
+    },
+    "mg_bake_cv_transit": {
+      "mu": 0.08057589241442754,
+      "sd": 0.21885319461247502
+    },
+    "mg_bake_cv_competitor": {
+      "mu": 0.01029457949030121,
+      "sd": 0.03176675964796869
+    },
+    "mg_bake_cv_complementary": {
+      "mu": 0.018512303812818424,
+      "sd": 0.052402771225306795
+    },
+    "mg_bake_cv_demand": {
+      "mu": 0.012371125291374392,
+      "sd": 0.03782776061869924
+    },
+    "mg_bake_anchor_count": {
+      "mu": 0.5730599556957642,
+      "sd": 1.5436389296798476
+    },
+    "mg_bake_comp_pressure": {
+      "mu": 0.014500262457746459,
+      "sd": 0.040601320591502704
+    },
+    "mg_bake_demand_diversity": {
+      "mu": 0.15444562166351178,
+      "sd": 0.4156768706425275
+    },
+    "mg_bake_walkability": {
+      "mu": 1.1433014388580416,
+      "sd": 3.224741013929246
+    },
+    "mg_bake_pct_hyperdense": {
+      "mu": 0.006974831013072943,
+      "sd": 0.07908403249603488
+    },
+    "mg_bake_pct_dense": {
+      "mu": 0.028886774059764125,
+      "sd": 0.16057116741953883
+    },
+    "mg_bake_pct_moderate": {
+      "mu": 0.04798614553616618,
+      "sd": 0.2068603694675857
+    },
+    "mg_bake_pct_sparse": {
+      "mu": 0.04512659647542779,
+      "sd": 0.20421510090783207
+    },
+    "mg_bar_n": {
+      "mu": 0.21450730106777188,
+      "sd": 0.6299739568029369
+    },
+    "mg_bar_cv_transit": {
+      "mu": 0.09108151884064247,
+      "sd": 0.23180313583349701
+    },
+    "mg_bar_cv_competitor": {
+      "mu": 0.01230136893550218,
+      "sd": 0.04170340902053314
+    },
+    "mg_bar_cv_complementary": {
+      "mu": 0.022726792199737344,
+      "sd": 0.06167086197280924
+    },
+    "mg_bar_cv_demand": {
+      "mu": 0.020652197204849586,
+      "sd": 0.07587361024382532
+    },
+    "mg_bar_anchor_count": {
+      "mu": 0.6600794322651047,
+      "sd": 1.6074203685842787
+    },
+    "mg_bar_comp_pressure": {
+      "mu": 0.01837151848563053,
+      "sd": 0.05259171605436483
+    },
+    "mg_bar_demand_diversity": {
+      "mu": 0.18159806139512277,
+      "sd": 0.44118679104606423
+    },
+    "mg_bar_walkability": {
+      "mu": 1.569475033069031,
+      "sd": 3.9631023817579956
+    },
+    "mg_bar_pct_hyperdense": {
+      "mu": 0.0072241833375385625,
+      "sd": 0.0780941967222734
+    },
+    "mg_bar_pct_dense": {
+      "mu": 0.02643595063758045,
+      "sd": 0.15311830185741332
+    },
+    "mg_bar_pct_moderate": {
+      "mu": 0.04272721061524215,
+      "sd": 0.1952901357585432
+    },
+    "mg_bar_pct_sparse": {
+      "mu": 0.07859947845814035,
+      "sd": 0.2662166631721629
+    },
+    "mg_beau_n": {
+      "mu": 0.4343440619819076,
+      "sd": 1.1119628535950032
+    },
+    "mg_beau_cv_transit": {
+      "mu": 0.14711974024519808,
+      "sd": 0.2963371958502762
+    },
+    "mg_beau_cv_competitor": {
+      "mu": 0.03134323485472612,
+      "sd": 0.06768671769940024
+    },
+    "mg_beau_cv_complementary": {
+      "mu": 0.0,
+      "sd": 1
+    },
+    "mg_beau_cv_demand": {
+      "mu": 0.025281033068078496,
+      "sd": 0.07098334828849445
+    },
+    "mg_beau_anchor_count": {
+      "mu": 0.8104439234524711,
+      "sd": 1.609423741499653
+    },
+    "mg_beau_comp_pressure": {
+      "mu": 0.029092050049600124,
+      "sd": 0.05979382353716111
+    },
+    "mg_beau_demand_diversity": {
+      "mu": 0.2572023872247819,
+      "sd": 0.5098825420638714
+    },
+    "mg_beau_walkability": {
+      "mu": 1.9699481102053322,
+      "sd": 4.1092621786879
+    },
+    "mg_beau_pct_hyperdense": {
+      "mu": 0.0081162021156518,
+      "sd": 0.08252181478182807
+    },
+    "mg_beau_pct_dense": {
+      "mu": 0.041935172856078944,
+      "sd": 0.1866588019678201
+    },
+    "mg_beau_pct_moderate": {
+      "mu": 0.07855225170931554,
+      "sd": 0.2528816002450601
+    },
+    "mg_beau_pct_sparse": {
+      "mu": 0.09621190313733802,
+      "sd": 0.2844153870304516
+    },
+    "mg_heal_n": {
+      "mu": 0.29386487541306144,
+      "sd": 0.8234439520944227
+    },
+    "mg_heal_cv_transit": {
+      "mu": 0.11339532105121641,
+      "sd": 0.2649749918436344
+    },
+    "mg_heal_cv_competitor": {
+      "mu": 0.02052198106789635,
+      "sd": 0.05206811033352221
+    },
+    "mg_heal_cv_complementary": {
+      "mu": 0.006034359153485615,
+      "sd": 0.018156794129785866
+    },
+    "mg_heal_cv_demand": {
+      "mu": 0.018424644733267378,
+      "sd": 0.058181226569439706
+    },
+    "mg_heal_anchor_count": {
+      "mu": 0.6841186310921857,
+      "sd": 1.5921504019789812
+    },
+    "mg_heal_comp_pressure": {
+      "mu": 0.020967977134638608,
+      "sd": 0.05004630506689979
+    },
+    "mg_heal_demand_diversity": {
+      "mu": 0.19974750825115248,
+      "sd": 0.4617956530607624
+    },
+    "mg_heal_walkability": {
+      "mu": 1.7043900580620113,
+      "sd": 4.0584607948818086
+    },
+    "mg_heal_pct_hyperdense": {
+      "mu": 0.008213426124341438,
+      "sd": 0.08316944066748168
+    },
+    "mg_heal_pct_dense": {
+      "mu": 0.036982771836699756,
+      "sd": 0.17701715098887066
+    },
+    "mg_heal_pct_moderate": {
+      "mu": 0.06819285841187442,
+      "sd": 0.23972566701909798
+    },
+    "mg_heal_pct_sparse": {
+      "mu": 0.05980428272384713,
+      "sd": 0.23020421074585606
+    },
+    "mg_fitn_n": {
+      "mu": 0.2726011105539929,
+      "sd": 0.6325624116447722
+    },
+    "mg_fitn_cv_transit": {
+      "mu": 0.11882947621316166,
+      "sd": 0.25919305026831285
+    },
+    "mg_fitn_cv_competitor": {
+      "mu": 0.021598558608286317,
+      "sd": 0.05805042017632208
+    },
+    "mg_fitn_cv_complementary": {
+      "mu": 0.021930132563544875,
+      "sd": 0.05021448500949038
+    },
+    "mg_fitn_cv_demand": {
+      "mu": 0.023211709574293065,
+      "sd": 0.07144354611151552
+    },
+    "mg_fitn_anchor_count": {
+      "mu": 0.8694873990978901,
+      "sd": 1.8365576640082002
+    },
+    "mg_fitn_comp_pressure": {
+      "mu": 0.02421172887288974,
+      "sd": 0.055166874553776654
+    },
+    "mg_fitn_demand_diversity": {
+      "mu": 0.23232262582844243,
+      "sd": 0.48956106389082915
+    },
+    "mg_fitn_walkability": {
+      "mu": 2.204438897385754,
+      "sd": 4.749220964282566
+    },
+    "mg_fitn_pct_hyperdense": {
+      "mu": 0.007192193571040676,
+      "sd": 0.07749240876409341
+    },
+    "mg_fitn_pct_dense": {
+      "mu": 0.030341807996662275,
+      "sd": 0.16106541257970788
+    },
+    "mg_fitn_pct_moderate": {
+      "mu": 0.05921952432593347,
+      "sd": 0.22441226200818745
+    },
+    "mg_fitn_pct_sparse": {
+      "mu": 0.10240456855391263,
+      "sd": 0.2971461311437061
+    },
+    "mg_educ_n": {
+      "mu": 0.47361720343134794,
+      "sd": 0.9635666695025071
+    },
+    "mg_educ_cv_transit": {
+      "mu": 0.15753255758019333,
+      "sd": 0.28320595902423573
+    },
+    "mg_educ_cv_competitor": {
+      "mu": 0.037879878244661186,
+      "sd": 0.07261745586696698
+    },
+    "mg_educ_cv_complementary": {
+      "mu": 0.02270910009440238,
+      "sd": 0.044430882377007395
+    },
+    "mg_educ_cv_demand": {
+      "mu": 0.02934960858132337,
+      "sd": 0.07588269176426456
+    },
+    "mg_educ_anchor_count": {
+      "mu": 1.1759467935313723,
+      "sd": 2.065624559257507
+    },
+    "mg_educ_comp_pressure": {
+      "mu": 0.03502995647670399,
+      "sd": 0.06473039101763095
+    },
+    "mg_educ_demand_diversity": {
+      "mu": 0.31087270168247416,
+      "sd": 0.5444908636052367
+    },
+    "mg_educ_walkability": {
+      "mu": 2.925682198371116,
+      "sd": 5.252224377905797
+    },
+    "mg_educ_pct_hyperdense": {
+      "mu": 0.007964469150785355,
+      "sd": 0.0811830617140031
+    },
+    "mg_educ_pct_dense": {
+      "mu": 0.03680904066238135,
+      "sd": 0.17310174504392598
+    },
+    "mg_educ_pct_moderate": {
+      "mu": 0.08095415537770254,
+      "sd": 0.24817375568051378
+    },
+    "mg_educ_pct_sparse": {
+      "mu": 0.15114886841455558,
+      "sd": 0.3444497432791464
+    },
+    "mg_shop_n": {
+      "mu": 0.7254727733208746,
+      "sd": 1.4645514331795884
+    },
+    "mg_shop_cv_transit": {
+      "mu": 0.181070950968797,
+      "sd": 0.2892140061489044
+    },
+    "mg_shop_cv_competitor": {
+      "mu": 0.05805691472540398,
+      "sd": 0.10520814519825646
+    },
+    "mg_shop_cv_complementary": {
+      "mu": 0.031475298966848204,
+      "sd": 0.05345237909980023
+    },
+    "mg_shop_cv_demand": {
+      "mu": 0.040684886831203755,
+      "sd": 0.08954029034693317
+    },
+    "mg_shop_anchor_count": {
+      "mu": 1.4716492743797673,
+      "sd": 2.2093811078642607
+    },
+    "mg_shop_comp_pressure": {
+      "mu": 0.04795568528645167,
+      "sd": 0.07783797944041167
+    },
+    "mg_shop_demand_diversity": {
+      "mu": 0.38829300127768895,
+      "sd": 0.5806779602097041
+    },
+    "mg_shop_walkability": {
+      "mu": 3.5530772842036367,
+      "sd": 5.531133202450774
+    },
+    "mg_shop_pct_hyperdense": {
+      "mu": 0.008635069737530423,
+      "sd": 0.08377760988671519
+    },
+    "mg_shop_pct_dense": {
+      "mu": 0.0461819549522639,
+      "sd": 0.1911803447909614
+    },
+    "mg_shop_pct_moderate": {
+      "mu": 0.09605601328056798,
+      "sd": 0.2692118958280753
+    },
+    "mg_shop_pct_sparse": {
+      "mu": 0.1944279400672304,
+      "sd": 0.38264501702809917
+    },
+    "mg_conv_n": {
+      "mu": 0.3849194830282162,
+      "sd": 0.8417195585868368
+    },
+    "mg_conv_cv_transit": {
+      "mu": 0.15623843404810447,
+      "sd": 0.3038171219349863
+    },
+    "mg_conv_cv_competitor": {
+      "mu": 0.03180754439271873,
+      "sd": 0.06647541047162255
+    },
+    "mg_conv_cv_complementary": {
+      "mu": 0.0,
+      "sd": 1
+    },
+    "mg_conv_cv_demand": {
+      "mu": 0.027724062247106336,
+      "sd": 0.07495025482735922
+    },
+    "mg_conv_anchor_count": {
+      "mu": 0.8557554259266398,
+      "sd": 1.6396117802824821
+    },
+    "mg_conv_comp_pressure": {
+      "mu": 0.03044825660329516,
+      "sd": 0.060192617901203845
+    },
+    "mg_conv_demand_diversity": {
+      "mu": 0.2712229494611635,
+      "sd": 0.5189093328202989
+    },
+    "mg_conv_walkability": {
+      "mu": 2.2303735181389492,
+      "sd": 4.413660655391475
+    },
+    "mg_conv_pct_hyperdense": {
+      "mu": 0.007528666880568057,
+      "sd": 0.07913592485413758
+    },
+    "mg_conv_pct_dense": {
+      "mu": 0.039777443110846834,
+      "sd": 0.18282490573279625
+    },
+    "mg_conv_pct_moderate": {
+      "mu": 0.08105867446665849,
+      "sd": 0.25718227078998723
+    },
+    "mg_conv_pct_sparse": {
+      "mu": 0.10774399849665743,
+      "sd": 0.3002015506171259
+    }
+  },
+  "notes": {
+    "gcn_input": "460 normalized features in the order of 'all_features'",
+    "xgboost_input": "391 context features (non-pc_*) in the order of 'context_features_for_xgboost'",
+    "gcn_output": "64-dim embedding for similarity",
+    "xgboost_output": "24 log-space predicted category counts; apply expm1 for raw counts"
+  }
+}

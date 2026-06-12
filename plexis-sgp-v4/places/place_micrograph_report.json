@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-04-29T06:45:25",
+  "wall_clock_s": 315.73,
+  "shape": [
+    190591,
+    20
+  ],
+  "graph_nodes": 213979,
+  "graph_edges_walkable": 305786,
+  "snap_delta_median_m": 27.765221568089864,
+  "snap_delta_max_m": 10188.82457257393,
+  "median_walk_dist_mrt_m": 918.4121369357033,
+  "median_walk_dist_bus_m": 318.12397711665875,
+  "near_mrt_400m_pct": 20.026129250594206,
+  "near_bus_300m_pct": 46.853209228137736,
+  "input_places": 190591
+}

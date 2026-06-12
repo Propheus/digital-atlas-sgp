@@ -1,0 +1,12 @@
+{
+  "generated_at": "2026-04-25T03:17:43",
+  "total_places": 190591,
+  "branded_total": 15127,
+  "branded_from_scrape": 14612,
+  "branded_from_name_pattern": 515,
+  "category_overrides_from_brand": 25,
+  "brand_category_mismatches": 1929,
+  "unique_brands": 268,
+  "branded_pct": 7.9369,
+  "wall_clock_s": 7.2
+}

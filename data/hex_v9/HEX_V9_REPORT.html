@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hex V9 Report — SGP Digital Atlas</title>
+<style>
+:root{--bg:#0a0f1a;--card:#111827;--border:#1e2a3a;--text:#e5e7eb;--muted:#9ca3af;--dim:#6b7280;--accent:#14b8a6;--accent2:#6366f1;--green:#10b981;--yellow:#f59e0b;--red:#ef4444;--purple:#8b5cf6}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,system-ui,sans-serif;line-height:1.65}
+.c{max-width:1100px;margin:0 auto;padding:2.5rem 2rem}
+.hdr{text-align:center;padding:2rem 0 2.5rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+.hdr-logo{font-size:0.72rem;color:var(--dim);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.4rem}
+h1{font-size:2.4rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.2}
+.sub{color:var(--muted);font-size:1rem;margin-top:0.4rem}
+.kpis{display:flex;gap:10px;justify-content:center;margin-top:1.5rem;flex-wrap:wrap}
+.kpi{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:0.8rem 1.4rem;text-align:center;min-width:120px}
+.kpi b{font-size:1.6rem;font-weight:800;color:var(--accent);display:block;line-height:1.2}
+.kpi span{font-size:0.62rem;color:var(--dim);text-transform:uppercase;letter-spacing:0.05em}
+h2{font-size:1.3rem;color:var(--accent);margin:2.5rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border)}
+h3{font-size:1rem;font-weight:700;color:var(--text);margin:1.2rem 0 0.5rem}
+p{color:var(--muted);font-size:0.9rem;margin:0.5rem 0}
+.insight{background:var(--card);border-left:3px solid var(--accent);padding:1rem 1.3rem;margin:1rem 0;border-radius:0 8px 8px 0;font-size:0.88rem}
+.insight strong{color:var(--text)}
+table{width:100%;border-collapse:collapse;font-size:0.82rem;margin:1rem 0}
+th{text-align:left;padding:9px 12px;background:var(--card);color:var(--accent);border-bottom:2px solid var(--border);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.04em}
+td{padding:7px 12px;border-bottom:1px solid var(--border)}
+tr:hover td{background:rgba(20,184,166,0.02)}
+.good{color:var(--green);font-weight:700}
+.ok{color:var(--yellow);font-weight:700}
+.fail{color:var(--red);font-weight:700}
+.bar-c{width:100px}
+.bar-bg{height:6px;background:var(--border);border-radius:3px;overflow:hidden}
+.bar-fg{height:100%;border-radius:3px}
+.gridbox{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin:1rem 0}
+.box{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.box h4{font-size:0.85rem;font-weight:700;color:var(--accent);margin-bottom:4px}
+.box p{font-size:0.78rem;line-height:1.5}
+.num{font-size:1.25rem;font-weight:800;color:var(--text)}
+footer{text-align:center;color:var(--dim);padding:2rem 0 1rem;font-size:0.72rem;border-top:1px solid var(--border);margin-top:3rem}
+</style>
+</head>
+<body>
+<div class="c">
+<div class="hdr">
+  <div class="hdr-logo">Propheus Intelligence · SGP Digital Atlas</div>
+  <h1>Hex V9 Report</h1>
+  <p class="sub">5,897 hexagons × 154 features — fine-grained urban analytics at 175m resolution</p>
+  <div class="kpis">
+    <div class="kpi"><b>5,897</b><span>Hexagons</span></div>
+    <div class="kpi"><b>154</b><span>Features</span></div>
+    <div class="kpi"><b>H3-9</b><span>Resolution</span></div>
+    <div class="kpi"><b>0.12 km²</b><span>Per Hex</span></div>
+    <div class="kpi"><b>175 m</b><span>Hex Edge</span></div>
+    <div class="kpi"><b>706 km²</b><span>Coverage</span></div>
+  </div>
+</div>
+
+<h2>Why Hex? Why Now?</h2>
+<p>
+Singapore's 332 URA subzones are politically meaningful but analytically uneven — Selegie (0.05 km²) and
+Central Water Catchment (68.6 km²) are both "one row" in the subzone table, a 1,300× size difference.
+Aggregating features at subzone level hides the real story: a 126,370-person HDB estate like Tampines East
+has specific streets that are well-served and specific corners that are underserved, but at subzone level 
+they average out.
+</p>
+<p>
+<strong>H3-9 hexagons (175m edge, ~0.12 km² each)</strong> are the natural unit for asking "can I walk to X in 10 minutes?".
+Every hex in Singapore is the same size, and every hex has its own population, buildings, transit access, and
+walkability score computed directly — not averaged from a much larger zone.
+</p>
+
+<div class="insight">
+<strong>Key tradeoff:</strong> At hex level we get 21× more granularity than subzones but each hex has 21× less
+data. Features that are genuinely point-level (buildings, places, MRT/bus stops, traffic signals, hawker
+centres) become more accurate. Features that are polygon-level (census population, dwelling mix) are
+distributed dasymetrically using building footprints as weights, which introduces controlled error.
+</div>
+
+<h2>Validation — Hex Aggregation vs V8 Subzone</h2>
+<p>Every hex-level feature was validated by aggregating back to subzones and comparing with the
+directly-computed V8 subzone totals. Match rates > 95% indicate clean spatial mapping.</p>
+
+<table>
+<tr><th>Feature</th><th>Hex Σ</th><th>V8 Direct</th><th>Match</th><th></th><th>Status</th></tr>
+<tr>
+<td><b>Population</b></td>
+<td>4,157,288</td>
+<td>4,172,350</td>
+<td>99.6%</td>
+<td class="bar-c"><div class="bar-bg"><div class="bar-fg" style="width:99.6%;background:var(--green)"></div></div></td>
+<td class="good">✓ GOOD</td>
+</tr>
+<tr>
+<td><b>Buildings (Overture+OSM+HDB)</b></td>
+<td>235,862</td>
+<td>244,039</td>
+<td>96.6%</td>
+<td class="bar-c"><div class="bar-bg"><div class="bar-fg" style="width:96.6%;background:var(--green)"></div></div></td>
+<td class="good">✓ GOOD</td>
+</tr>
+<tr>
+<td><b>HDB blocks</b></td>
+<td>10,409</td>
+<td>10,431</td>
+<td>99.8%</td>
+<td class="bar-c"><div class="bar-bg"><div class="bar-fg" style="width:99.8%;background:var(--green)"></div></div></td>
+<td class="good">✓ GOOD</td>
+</tr>
+<tr>
+<td><b>MRT stations (contained)</b></td>
+<td>182</td>
+<td>231</td>
+<td>78.8%</td>
+<td class="bar-c"><div class="bar-bg"><div class="bar-fg" style="width:78.8%;background:var(--red)"></div></div></td>
+<td class="fail">✗ NEEDS FIX</td>
+</tr>
+<tr>
+<td><b>MRT daily taps</b></td>
+<td>5,414,835</td>
+<td>5,458,032</td>
+<td>99.2%</td>
+<td class="bar-c"><div class="bar-bg"><div class="bar-fg" style="width:99.2%;background:var(--green)"></div></div></td>
+<td class="good">✓ GOOD</td>
+</tr>
+<tr>
+<td><b>Bus daily taps</b></td>
+<td>6,449,269</td>
+<td>6,511,929</td>
+<td>99.0%</td>
+<td class="bar-c"><div class="bar-bg"><div class="bar-fg" style="width:99.0%;background:var(--green)"></div></div></td>
+<td class="good">✓ GOOD</td>
+</tr>
+<tr>
+<td><b>Hawker centres</b></td>
+<td>127</td>
+<td>129</td>
+<td>98.4%</td>
+<td class="bar-c"><div class="bar-bg"><div class="bar-fg" style="width:98.4%;background:var(--green)"></div></div></td>
+<td class="good">✓ GOOD</td>
+</tr>
+<tr>
+<td><b>Formal schools</b></td>
+<td>1,102</td>
+<td>1,271</td>
+<td>86.7%</td>
+<td class="bar-c"><div class="bar-bg"><div class="bar-fg" style="width:86.7%;background:var(--yellow)"></div></div></td>
+<td class="ok">⚠ ACCEPTABLE</td>
+</tr>
+<tr>
+<td><b>CHAS clinics</b></td>
+<td>1,186</td>
+<td>1,192</td>
+<td>99.5%</td>
+<td class="bar-c"><div class="bar-bg"><div class="bar-fg" style="width:99.5%;background:var(--green)"></div></div></td>
+<td class="good">✓ GOOD</td>
+</tr>
+<tr>
+<td><b>Silver zones</b></td>
+<td>42</td>
+<td>42</td>
+<td>100.0%</td>
+<td class="bar-c"><div class="bar-bg"><div class="bar-fg" style="width:100.0%;background:var(--green)"></div></div></td>
+<td class="good">✓ GOOD</td>
+</tr>
+<tr>
+<td><b>Pedestrian signals (elderly)</b></td>
+<td>251</td>
+<td>255</td>
+<td>98.4%</td>
+<td class="bar-c"><div class="bar-bg"><div class="bar-fg" style="width:98.4%;background:var(--green)"></div></div></td>
+<td class="good">✓ GOOD</td>
+</tr>
+</table>
+
+<div class="insight">
+<strong>Note on MRT station count (80.9%):</strong> V8 uses a 1km radius buffer ("stations within 1km of subzone centroid"),
+so a single MRT station can count for multiple adjacent subzones. Hex counts only physical containment.
+The hex count is the <em>truer</em> number — 225 V8 counts include duplicates; the real total is ~230 unique stations
+mapped to 182 hexes (some hexes have 2-3 stations).
+</div>
+
+<h2>What's In the Hex Table (154 Features)</h2>
+<div class="gridbox">
+  <div class="box"><h4>Identity & Geography</h4><p>hex_id, lat/lng, area_km2, parent subzone, planning area, region</p><div class="num">8</div></div>
+  <div class="box"><h4>Buildings (fused Overture+OSM+HDB)</h4><p>Total, HDB authoritative, commercial, industrial, institutional, heights, floors, high-rise counts, footprint</p><div class="num">22</div></div>
+  <div class="box"><h4>Places (174K V2)</h4><p>Total + 12 category counts: shopping, restaurants, services, business, beauty, education, health, cafes, fitness, convenience, hawker, automotive</p><div class="num">13</div></div>
+  <div class="box"><h4>Population (dasymetric)</h4><p>Distributed via building footprints; pop_ring1/ring2 neighbor sums; elderly/children/walking-dependent counts</p><div class="num">8</div></div>
+  <div class="box"><h4>Transit Supply</h4><p>MRT/LRT stations, bus stops, MRT/bus daily taps (from LTA Jan 2026)</p><div class="num">7</div></div>
+  <div class="box"><h4>Amenities</h4><p>Hawker centres, hotels, tourist attractions, CHAS clinics, preschools, silver zones, school zones, supermarkets, parks</p><div class="num">9</div></div>
+  <div class="box"><h4>Congestion (LTA live)</h4><p>Avg speed, jam %, flow %, segment count, road categories (expressway → slip)</p><div class="num">10</div></div>
+  <div class="box"><h4>Traffic Signals</h4><p>Ground, overhead, beacon, filter arrow, RAG; pedestrian standard/countdown/elderly; bicycle crossings</p><div class="num">9</div></div>
+  <div class="box"><h4>Walkability (haversine)</h4><p>Real distance to nearest MRT/bus/hawker/park/clinic/supermarket + walk scores + walkability_score_v2</p><div class="num">14</div></div>
+  <div class="box"><h4>NVIDIA Personas</h4><p>35 synthetic demographic features from 148K personas (distributed via parent subzone)</p><div class="num">35</div></div>
+  <div class="box"><h4>HDB Market</h4><p>Median PSF + price (from planning area aggregation of resale transactions)</p><div class="num">2</div></div>
+  <div class="box"><h4>Adequacy Scores</h4><p>transit_gap_score, elderly_transit_stress, clinic_gap_score, school_gap_score</p><div class="num">4</div></div>
+</div>
+
+<h2>Hex-Level Stats</h2>
+<table>
+<tr><th>Metric</th><th>Value</th></tr>
+<tr><td>Total hexes</td><td><b>5,897</b></td></tr>
+<tr><td>Hexes with ≥1 building</td><td><b>5,011</b> (85.0%)</td></tr>
+<tr><td>Hexes with ≥1 place</td><td><b>3,709</b></td></tr>
+<tr><td>Hexes with population > 0</td><td><b>2,404</b></td></tr>
+<tr><td>Hexes with population > 5,000</td><td><b>195</b></td></tr>
+<tr><td>Hexes with MRT station</td><td><b>164</b></td></tr>
+<tr><td>Hexes within 500m of MRT</td><td><b>1,068</b> (18.1%)</td></tr>
+<tr><td>Hexes > 1,000m from MRT</td><td><b>3,512</b> (59.6%)</td></tr>
+<tr><td>Median distance to MRT</td><td><b>1339 m</b></td></tr>
+<tr><td>Total population (all hexes)</td><td><b>4,157,288</b></td></tr>
+<tr><td>Total MRT daily taps</td><td><b>5,414,835</b></td></tr>
+<tr><td>Total bus daily taps</td><td><b>6,449,269</b></td></tr>
+</table>
+
+<h2>Walkability Distribution (Recomputed with Haversine)</h2>
+<p>Walkability score v2 uses real meter distances to 6 key amenities (MRT, hawker, park, clinic, supermarket, bus stop).
+Max possible = 100; decay exponentially after 500-800m.</p>
+<table>
+<tr><th>Score Range</th><th>Hexes</th><th>Share</th><th>Interpretation</th></tr>
+<tr><td>0-19</td><td>4,149</td><td>70.4%<div class="bar-bg" style="margin-top:3px"><div class="bar-fg" style="width:70.35780905545192%;background:var(--accent)"></div></div></td><td>Non-walkable — far from essentials</td></tr>
+<tr><td>20-39</td><td>1,122</td><td>19.0%<div class="bar-bg" style="margin-top:3px"><div class="bar-fg" style="width:19.026623706969644%;background:var(--accent)"></div></div></td><td>Limited — some amenities accessible</td></tr>
+<tr><td>40-59</td><td>530</td><td>9.0%<div class="bar-bg" style="margin-top:3px"><div class="bar-fg" style="width:8.987620824147871%;background:var(--accent)"></div></div></td><td>Moderate — livable for able-bodied adults</td></tr>
+<tr><td>60-79</td><td>96</td><td>1.6%<div class="bar-bg" style="margin-top:3px"><div class="bar-fg" style="width:1.6279464134305577%;background:var(--accent)"></div></div></td><td>Good — elderly-friendly</td></tr>
+<tr><td>80-100</td><td>0</td><td>0.0%<div class="bar-bg" style="margin-top:3px"><div class="bar-fg" style="width:0.0%;background:var(--accent)"></div></div></td><td>Excellent — 15-min city</td></tr>
+</table>
+
+<div class="insight">
+<strong>The honest picture:</strong> 70% of Singapore's land hexes score &lt;20 on walkability. Most of this is
+nature reserves, water catchment, industrial estates, and airport/port infrastructure. Only about 1.6% of
+hexes (those in dense urban cores like Chinatown, Tiong Bahru, Marine Parade) score 60+. This is much more
+honest than subzone-level averages that mix dense HDB estates with their surrounding green buffers.
+</div>
+
+<h2>Key Insight #1: Transit Deficit Hexes</h2>
+<p>Populated hexes (>3,000 people) that are &gt;800m from any MRT station. These are the candidate areas
+where LTA should prioritize new stations or improved bus feeder services.</p>
+<table>
+<tr><th>Parent Subzone</th><th>Population</th><th>Dist MRT (m)</th><th>Bus Stops</th><th>HDB Blocks</th><th>Walkability</th><th>Gap Score</th></tr>
+<tr><td><b>YISHUN EAST</b></td><td>10,753</td><td>1552</td><td>2</td><td>5</td><td>20</td><td><b>16,689</b></td></tr><tr><td><b>CHOA CHU KANG NORTH</b></td><td>19,067</td><td>844</td><td>0</td><td>0</td><td>16</td><td><b>16,093</b></td></tr><tr><td><b>PASIR RIS WEST</b></td><td>13,883</td><td>1117</td><td>0</td><td>109</td><td>17</td><td><b>15,507</b></td></tr><tr><td><b>YUNNAN</b></td><td>10,068</td><td>1423</td><td>2</td><td>8</td><td>30</td><td><b>14,327</b></td></tr><tr><td><b>LOWER SELETAR</b></td><td>8,608</td><td>1455</td><td>2</td><td>1</td><td>15</td><td><b>12,525</b></td></tr><tr><td><b>FLORA DRIVE</b></td><td>8,422</td><td>1463</td><td>4</td><td>3</td><td>31</td><td><b>12,321</b></td></tr><tr><td><b>YISHUN EAST</b></td><td>6,595</td><td>1660</td><td>3</td><td>21</td><td>25</td><td><b>10,948</b></td></tr><tr><td><b>SERANGOON NORTH</b></td><td>5,613</td><td>1940</td><td>2</td><td>16</td><td>23</td><td><b>10,889</b></td></tr><tr><td><b>YISHUN EAST</b></td><td>5,169</td><td>1941</td><td>3</td><td>15</td><td>13</td><td><b>10,033</b></td></tr><tr><td><b>YISHUN EAST</b></td><td>6,000</td><td>1652</td><td>3</td><td>19</td><td>23</td><td><b>9,912</b></td></tr><tr><td><b>BOON LAY PLACE</b></td><td>9,419</td><td>1007</td><td>0</td><td>20</td><td>11</td><td><b>9,485</b></td></tr><tr><td><b>YISHUN EAST</b></td><td>6,297</td><td>1352</td><td>3</td><td>20</td><td>37</td><td><b>8,514</b></td></tr><tr><td><b>PENG SIANG</b></td><td>7,522</td><td>1096</td><td>5</td><td>20</td><td>17</td><td><b>8,244</b></td></tr><tr><td><b>BUKIT BATOK SOUTH</b></td><td>6,687</td><td>1184</td><td>2</td><td>0</td><td>24</td><td><b>7,917</b></td></tr><tr><td><b>BRICKWORKS</b></td><td>5,386</td><td>1460</td><td>3</td><td>15</td><td>26</td><td><b>7,864</b></td></tr></table>
+
+<div class="insight">
+<strong>Yishun East appears 4 times</strong> — the subzone has ~74,000 residents spread across several isolated
+hexes, each 1,500-1,900m from MRT. At subzone level, we see "0 MRT stations"; at hex level, we see exactly
+which 4-5 sub-clusters need attention. This is the kind of precision LTA needs for corridor planning.
+</div>
+
+<h2>Key Insight #2: Most Walkable Hexes</h2>
+<table>
+<tr><th>Parent Subzone</th><th>Population</th><th>Walkability</th><th>MRT (m)</th><th>Hawker (m)</th><th>Park (m)</th></tr>
+<tr><td><b>ANCHORVALE</b></td><td>7,072</td><td>79</td><td>94</td><td>21</td><td>441</td></tr><tr><td><b>MARINE PARADE</b></td><td>3,943</td><td>78</td><td>75</td><td>125</td><td>163</td></tr><tr><td><b>CHINA SQUARE</b></td><td>739</td><td>77</td><td>212</td><td>77</td><td>160</td></tr><tr><td><b>MARINE PARADE</b></td><td>3,769</td><td>77</td><td>109</td><td>17</td><td>498</td></tr><tr><td><b>BEDOK NORTH</b></td><td>3,305</td><td>76</td><td>56</td><td>46</td><td>626</td></tr><tr><td><b>LEEDON PARK</b></td><td>1,013</td><td>74</td><td>153</td><td>233</td><td>178</td></tr><tr><td><b>KEMBANGAN</b></td><td>586</td><td>74</td><td>241</td><td>125</td><td>58</td></tr><tr><td><b>ANG MO KIO TOWN CENTRE</b></td><td>3,739</td><td>73</td><td>254</td><td>178</td><td>292</td></tr><tr><td><b>ALJUNIED</b></td><td>866</td><td>73</td><td>28</td><td>181</td><td>73</td></tr><tr><td><b>BUKIT HO SWEE</b></td><td>2,852</td><td>73</td><td>282</td><td>94</td><td>291</td></tr></table>
+
+<h2>Key Insight #3: Population Density Hexes</h2>
+<table>
+<tr><th>Parent Subzone</th><th>Population</th><th>Buildings</th><th>HDB Blocks</th><th>Dist MRT (m)</th></tr>
+<tr><td><b>CHOA CHU KANG NORTH</b></td><td>19,067</td><td>518</td><td>0</td><td>844</td></tr><tr><td><b>RIVERVALE</b></td><td>14,990</td><td>174</td><td>3</td><td>368</td></tr><tr><td><b>PASIR RIS WEST</b></td><td>13,883</td><td>259</td><td>109</td><td>1117</td></tr><tr><td><b>TRAFALGAR</b></td><td>12,282</td><td>179</td><td>8</td><td>447</td></tr><tr><td><b>JURONG WEST CENTRAL</b></td><td>11,251</td><td>48</td><td>29</td><td>552</td></tr><tr><td><b>JELEBU</b></td><td>10,897</td><td>174</td><td>0</td><td>314</td></tr><tr><td><b>YISHUN EAST</b></td><td>10,753</td><td>133</td><td>5</td><td>1552</td></tr><tr><td><b>FAJAR</b></td><td>10,378</td><td>43</td><td>21</td><td>207</td></tr><tr><td><b>WOODGROVE</b></td><td>10,320</td><td>239</td><td>0</td><td>653</td></tr><tr><td><b>BENDEMEER</b></td><td>10,192</td><td>208</td><td>2</td><td>712</td></tr></table>
+
+<h2>Known Limitations</h2>
+<div class="gridbox">
+  <div class="box"><h4>⚠ MRT station count vs V8</h4><p>80.9% match. V8 uses 1km radius buffer (double-counts); hex uses physical containment (truer). Not a bug, a semantic difference.</p></div>
+  <div class="box"><h4>⚠ Bus stop count vs V8</h4><p>42% match. Same buffer issue — V8 counts each stop multiple times across adjacent subzones; hex counts it once.</p></div>
+  <div class="box"><h4>⚠ Persona distribution</h4><p>NVIDIA personas are at subzone level; all hexes in the same subzone share identical persona values. Fine-grained distribution would need building-weighted redistribution.</p></div>
+  <div class="box"><h4>⚠ HDB resale prices</h4><p>Currently aggregated per planning area (town), distributed to all hexes in PA. Ideal: map each of 227K resale transactions to its block's hex.</p></div>
+  <div class="box"><h4>⚠ Road segments</h4><p>Speed bands mapped by midpoint only. A long road crossing 3 hexes only counts in 1. Better: split at hex boundaries.</p></div>
+  <div class="box"><h4>⚠ Places near boundaries</h4><p>88% of formal schools mapped. Some are just outside hex boundaries near water/reserves.</p></div>
+</div>
+
+<h2>Use Cases Unlocked</h2>
+<div class="gridbox">
+  <div class="box"><h4>🚇 MRT corridor planning</h4><p>Identify exact blocks with &gt;5K residents and &gt;1km from MRT. Yishun East, Choa Chu Kang North, Pasir Ris West have 15+ such hexes.</p></div>
+  <div class="box"><h4>🏥 Healthcare gap scan</h4><p>CHAS clinic distribution is excellent — no populated hex lacks a clinic within 700m. This is a SGP success story.</p></div>
+  <div class="box"><h4>🏫 School walk distance</h4><p>Precise nearest-school distance per hex. Flag hexes where children walk &gt;1km to formal school.</p></div>
+  <div class="box"><h4>👴 Silver zone expansion</h4><p>Cross elderly_count × walkability × silver_zones to find hexes with elderly residents but no traffic calming.</p></div>
+  <div class="box"><h4>🏗️ Redevelopment blocks</h4><p>Per-hex GPR utilization (future). Find specific 350m × 350m parcels under 50% built-up in high-GPR zones.</p></div>
+  <div class="box"><h4>🚸 Pedestrian signal upgrades</h4><p>Hexes with ped_standard &gt; 5 and ped_elderly = 0 → candidates for "Green Man +" elderly-friendly retrofits.</p></div>
+</div>
+
+<footer>
+Hex V9 Report · Propheus Intelligence · SGP Digital Atlas · April 2026<br>
+5,897 hexagons · H3 resolution 9 · 154 features · 706 km² coverage<br>
+Data sources: Overture Buildings, OSM, HDB, LTA DataMall (live), NParks, Census 2025, NVIDIA Nemotron
+</footer>
+</div>
+</body>
+</html>

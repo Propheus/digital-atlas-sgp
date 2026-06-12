@@ -1,0 +1,644 @@
+{
+  "feature_set": "normalized",
+  "n_hexes": 7318,
+  "n_features": 460,
+  "pca_dim": 40,
+  "pca_variance_retained": 0.7996,
+  "umap_n_neighbors": 50,
+  "umap_min_dist": 0.25,
+  "method": "kmeans",
+  "n_clusters": 7,
+  "silhouette": 0.4508,
+  "stability_ari": 0.6808,
+  "seed": 42,
+  "clusters": [
+    {
+      "cluster": 0,
+      "n": 1366,
+      "share": 0.187,
+      "centroid_lat": 1.3493525115415705,
+      "centroid_lng": 103.84438300406237,
+      "top_positive_features": [
+        {
+          "name": "mg_beau_anchor_count",
+          "z": 1.7070000171661377
+        },
+        {
+          "name": "mg_beau_demand_diversity",
+          "z": 1.6779999732971191
+        },
+        {
+          "name": "mg_beau_cv_transit",
+          "z": 1.6679999828338623
+        },
+        {
+          "name": "pc_unique_place_types",
+          "z": 1.6460000276565552
+        },
+        {
+          "name": "mg_beau_comp_pressure",
+          "z": 1.6390000581741333
+        },
+        {
+          "name": "mg_beau_cv_competitor",
+          "z": 1.6360000371932983
+        },
+        {
+          "name": "mg_heal_anchor_count",
+          "z": 1.6119999885559082
+        },
+        {
+          "name": "pc_tier_value",
+          "z": 1.6069999933242798
+        }
+      ],
+      "top_negative_features": [
+        {
+          "name": "mrt_hex_rings",
+          "z": -1.0470000505447388
+        },
+        {
+          "name": "lu_other_pct",
+          "z": -0.4519999921321869
+        },
+        {
+          "name": "lu_open_space_pct",
+          "z": -0.42399999499320984
+        },
+        {
+          "name": "tr_nearest_station_rings",
+          "z": -0.41999998688697815
+        },
+        {
+          "name": "lu_business_pct",
+          "z": -0.29499998688697815
+        },
+        {
+          "name": "sp_pw_lu_business_pct",
+          "z": -0.2930000126361847
+        },
+        {
+          "name": "tr_pw_lu_business_pct",
+          "z": -0.2709999978542328
+        },
+        {
+          "name": "daytime_ratio",
+          "z": -0.25999999046325684
+        }
+      ],
+      "top_subzones": {
+        "TAMPINES EAST": 31,
+        "ALJUNIED": 24,
+        "TAMPINES WEST": 23,
+        "BEDOK NORTH": 23,
+        "WOODLANDS EAST": 20,
+        "GEYLANG EAST": 17,
+        "FRANKEL": 16,
+        "KAKI BUKIT": 16
+      },
+      "top_regions": {
+        "CENTRAL REGION": 503,
+        "NORTH-EAST REGION": 248,
+        "WEST REGION": 243,
+        "EAST REGION": 217,
+        "NORTH REGION": 155
+      }
+    },
+    {
+      "cluster": 1,
+      "n": 1631,
+      "share": 0.223,
+      "centroid_lat": 1.3758772255215124,
+      "centroid_lng": 103.8281114752199,
+      "top_positive_features": [
+        {
+          "name": "tr_max_lu_residential_pct",
+          "z": 0.7049999833106995
+        },
+        {
+          "name": "tr_pw_lu_residential_pct",
+          "z": 0.6690000295639038
+        },
+        {
+          "name": "tr_max_hdb_blocks",
+          "z": 0.6430000066757202
+        },
+        {
+          "name": "tr_pw_hdb_blocks",
+          "z": 0.6399999856948853
+        },
+        {
+          "name": "tr_pw_elderly_count",
+          "z": 0.6299999952316284
+        },
+        {
+          "name": "tr_pw_walking_dependent_count",
+          "z": 0.6159999966621399
+        },
+        {
+          "name": "tr_max_residential_floor_area_sqm",
+          "z": 0.6110000014305115
+        },
+        {
+          "name": "tr_pw_population",
+          "z": 0.609000027179718
+        }
+      ],
+      "top_negative_features": [
+        {
+          "name": "avg_gpr",
+          "z": -0.7609999775886536
+        },
+        {
+          "name": "pc_seg_entropy",
+          "z": -0.7490000128746033
+        },
+        {
+          "name": "pc_cat_entropy",
+          "z": -0.7369999885559082
+        },
+        {
+          "name": "sp_max_avg_gpr",
+          "z": -0.7350000143051147
+        },
+        {
+          "name": "sp_pw_avg_gpr",
+          "z": -0.7250000238418579
+        },
+        {
+          "name": "sp_pw_residential_floor_area_sqm",
+          "z": -0.7020000219345093
+        },
+        {
+          "name": "population_nonresident",
+          "z": -0.6970000267028809
+        },
+        {
+          "name": "sp_pw_elderly_count",
+          "z": -0.6949999928474426
+        }
+      ],
+      "top_subzones": {
+        "MURAI": 318,
+        "CHANGI AIRPORT": 211,
+        "CENTRAL WATER CATCHMENT": 203,
+        "NORTH-EASTERN ISLANDS": 194,
+        "LIM CHU KANG": 135,
+        "JURONG ISLAND AND BUKOM": 81,
+        "SEMAKAU": 39,
+        "PORT": 34
+      },
+      "top_regions": {
+        "NORTH REGION": 513,
+        "WEST REGION": 492,
+        "EAST REGION": 340,
+        "NORTH-EAST REGION": 250,
+        "CENTRAL REGION": 36
+      }
+    },
+    {
+      "cluster": 2,
+      "n": 509,
+      "share": 0.07,
+      "centroid_lat": 1.3146502525895596,
+      "centroid_lng": 103.63949460218996,
+      "top_positive_features": [
+        {
+          "name": "tr_pw_lu_business_pct",
+          "z": 3.0139999389648438
+        },
+        {
+          "name": "tr_max_lu_business_pct",
+          "z": 2.503000020980835
+        },
+        {
+          "name": "tr_max_bldg_footprint_sqm",
+          "z": 1.3880000114440918
+        },
+        {
+          "name": "tr_max_bus_stops",
+          "z": 1.1150000095367432
+        },
+        {
+          "name": "sp_pw_lu_business_pct",
+          "z": 1.0959999561309814
+        },
+        {
+          "name": "tr_max_mg_mean_transit",
+          "z": 0.9779999852180481
+        },
+        {
+          "name": "sp_max_lu_business_pct",
+          "z": 0.8730000257492065
+        },
+        {
+          "name": "road_cat_minor_arterial",
+          "z": 0.8370000123977661
+        }
+      ],
+      "top_negative_features": [
+        {
+          "name": "tr_pw_residential_floor_area_sqm",
+          "z": -2.4860000610351562
+        },
+        {
+          "name": "tr_pw_elderly_count",
+          "z": -2.440999984741211
+        },
+        {
+          "name": "tr_pw_walking_dependent_count",
+          "z": -2.375
+        },
+        {
+          "name": "tr_pw_population",
+          "z": -2.3410000801086426
+        },
+        {
+          "name": "tr_pw_mg_mean_complementary",
+          "z": -2.2799999713897705
+        },
+        {
+          "name": "tr_pw_hdb_blocks",
+          "z": -2.2720000743865967
+        },
+        {
+          "name": "tr_pw_children_count",
+          "z": -2.2230000495910645
+        },
+        {
+          "name": "tr_pw_lu_residential_pct",
+          "z": -2.0940001010894775
+        }
+      ],
+      "top_subzones": {
+        "TUAS VIEW EXTENSION": 188,
+        "MURAI": 151,
+        "TUAS BAY": 52,
+        "TUAS PROMENADE": 46,
+        "TUAS VIEW": 38,
+        "TENGEH": 17,
+        "TUAS NORTH": 16,
+        "PIONEER SECTOR": 1
+      },
+      "top_regions": {
+        "WEST REGION": 509
+      }
+    },
+    {
+      "cluster": 3,
+      "n": 482,
+      "share": 0.066,
+      "centroid_lat": 1.362111616846755,
+      "centroid_lng": 103.99690499020548,
+      "top_positive_features": [
+        {
+          "name": "lu_other_pct",
+          "z": 1.4800000190734863
+        },
+        {
+          "name": "mrt_hex_rings",
+          "z": 1.0679999589920044
+        },
+        {
+          "name": "tr_pw_pc_unique_brands",
+          "z": 0.8960000276565552
+        },
+        {
+          "name": "tr_max_pc_unique_brands",
+          "z": 0.8130000233650208
+        },
+        {
+          "name": "tr_max_mg_mean_complementary",
+          "z": 0.8119999766349792
+        },
+        {
+          "name": "tr_max_lu_residential_pct",
+          "z": 0.7850000262260437
+        },
+        {
+          "name": "tr_max_pc_cat_shopping_retail",
+          "z": 0.7269999980926514
+        },
+        {
+          "name": "tr_max_pc_cat_education",
+          "z": 0.625
+        }
+      ],
+      "top_negative_features": [
+        {
+          "name": "sp_max_pc_cat_entropy",
+          "z": -1.7920000553131104
+        },
+        {
+          "name": "sp_pw_pc_cat_entropy",
+          "z": -1.7890000343322754
+        },
+        {
+          "name": "sp_pw_bldg_footprint_sqm",
+          "z": -1.5779999494552612
+        },
+        {
+          "name": "sp_pw_bldg_count",
+          "z": -1.5720000267028809
+        },
+        {
+          "name": "sp_pw_mg_mean_competitor",
+          "z": -1.4859999418258667
+        },
+        {
+          "name": "sp_pw_bus_stops",
+          "z": -1.4670000076293945
+        },
+        {
+          "name": "sp_max_bldg_footprint_sqm",
+          "z": -1.3819999694824219
+        },
+        {
+          "name": "walk_bus_m",
+          "z": -1.3700000047683716
+        }
+      ],
+      "top_subzones": {
+        "NORTH-EASTERN ISLANDS": 311,
+        "CHANGI AIRPORT": 83,
+        "JURONG ISLAND AND BUKOM": 57,
+        "CHANGI BAY": 14,
+        "SEMAKAU": 9,
+        "PULAU SELETAR": 8
+      },
+      "top_regions": {
+        "NORTH-EAST REGION": 311,
+        "EAST REGION": 97,
+        "WEST REGION": 66,
+        "NORTH REGION": 8
+      }
+    },
+    {
+      "cluster": 4,
+      "n": 2494,
+      "share": 0.341,
+      "centroid_lat": 1.3517066469781824,
+      "centroid_lng": 103.82588068713709,
+      "top_positive_features": [
+        {
+          "name": "sp_pw_residential_floor_area_sqm",
+          "z": 0.6370000243186951
+        },
+        {
+          "name": "sp_pw_children_count",
+          "z": 0.6309999823570251
+        },
+        {
+          "name": "sp_pw_population",
+          "z": 0.6290000081062317
+        },
+        {
+          "name": "sp_pw_walking_dependent_count",
+          "z": 0.6240000128746033
+        },
+        {
+          "name": "sp_pw_lu_residential_pct",
+          "z": 0.6179999709129333
+        },
+        {
+          "name": "sp_pw_mg_mean_demand",
+          "z": 0.6119999885559082
+        },
+        {
+          "name": "sp_pw_mg_mean_anchor_count",
+          "z": 0.6119999885559082
+        },
+        {
+          "name": "sp_pw_elderly_count",
+          "z": 0.6060000061988831
+        }
+      ],
+      "top_negative_features": [
+        {
+          "name": "mrt_hex_rings",
+          "z": -0.45500001311302185
+        },
+        {
+          "name": "tr_pw_lu_business_pct",
+          "z": -0.3540000021457672
+        },
+        {
+          "name": "tr_nearest_station_rings",
+          "z": -0.3050000071525574
+        },
+        {
+          "name": "mg_heal_anchor_count",
+          "z": -0.3019999861717224
+        },
+        {
+          "name": "mg_heal_cv_competitor",
+          "z": -0.2930000126361847
+        },
+        {
+          "name": "mg_heal_demand_diversity",
+          "z": -0.2919999957084656
+        },
+        {
+          "name": "mg_heal_cv_transit",
+          "z": -0.289000004529953
+        },
+        {
+          "name": "mg_heal_comp_pressure",
+          "z": -0.28600001335144043
+        }
+      ],
+      "top_subzones": {
+        "CENTRAL WATER CATCHMENT": 109,
+        "MURAI": 92,
+        "SENTOSA": 61,
+        "SOUTHERN GROUP": 60,
+        "MANDAI EAST": 58,
+        "PORT": 54,
+        "LOWER SELETAR": 53,
+        "CITY TERMINALS": 45
+      },
+      "top_regions": {
+        "CENTRAL REGION": 730,
+        "NORTH REGION": 557,
+        "WEST REGION": 531,
+        "EAST REGION": 377,
+        "NORTH-EAST REGION": 299
+      }
+    },
+    {
+      "cluster": 5,
+      "n": 495,
+      "share": 0.068,
+      "centroid_lat": 1.2844129381631548,
+      "centroid_lng": 103.67552986208649,
+      "top_positive_features": [
+        {
+          "name": "sp_pw_lu_business_pct",
+          "z": 1.9759999513626099
+        },
+        {
+          "name": "lu_business_pct",
+          "z": 1.74399995803833
+        },
+        {
+          "name": "gap_industrial",
+          "z": 1.6319999694824219
+        },
+        {
+          "name": "tr_pw_lu_business_pct",
+          "z": 1.5429999828338623
+        },
+        {
+          "name": "sp_max_lu_business_pct",
+          "z": 1.4880000352859497
+        },
+        {
+          "name": "tr_max_lu_business_pct",
+          "z": 1.4010000228881836
+        },
+        {
+          "name": "ura_development_gap",
+          "z": 0.8880000114440918
+        },
+        {
+          "name": "mrt_hex_rings",
+          "z": 0.843999981880188
+        }
+      ],
+      "top_negative_features": [
+        {
+          "name": "tr_max_mg_mean_demand",
+          "z": -2.5840001106262207
+        },
+        {
+          "name": "tr_max_mg_mean_anchor_count",
+          "z": -2.5369999408721924
+        },
+        {
+          "name": "tr_max_mg_mean_transit",
+          "z": -2.128000020980835
+        },
+        {
+          "name": "tr_max_mg_mean_complementary",
+          "z": -1.9049999713897705
+        },
+        {
+          "name": "tr_max_mg_mean_competitor",
+          "z": -1.8769999742507935
+        },
+        {
+          "name": "tr_max_mrt_stations",
+          "z": -1.75
+        },
+        {
+          "name": "tr_max_pc_cat_cafe_coffee",
+          "z": -1.5800000429153442
+        },
+        {
+          "name": "tr_max_pc_unique_brands",
+          "z": -1.5509999990463257
+        }
+      ],
+      "top_subzones": {
+        "JURONG ISLAND AND BUKOM": 248,
+        "TUAS VIEW EXTENSION": 50,
+        "MURAI": 32,
+        "PIONEER SECTOR": 30,
+        "GUL CIRCLE": 26,
+        "GUL BASIN": 24,
+        "SHIPYARD": 22,
+        "JOO KOON": 15
+      },
+      "top_regions": {
+        "WEST REGION": 495
+      }
+    },
+    {
+      "cluster": 6,
+      "n": 341,
+      "share": 0.047,
+      "centroid_lat": 1.3036728789422292,
+      "centroid_lng": 103.8635254421605,
+      "top_positive_features": [
+        {
+          "name": "tr_nearest_station_rings",
+          "z": 4.427999973297119
+        },
+        {
+          "name": "mrt_hex_rings",
+          "z": 1.4220000505447388
+        },
+        {
+          "name": "lu_open_space_pct",
+          "z": 0.7720000147819519
+        },
+        {
+          "name": "lu_other_pct",
+          "z": 0.4390000104904175
+        },
+        {
+          "name": "lrt_stations",
+          "z": 0.0
+        },
+        {
+          "name": "mg_conv_cv_complementary",
+          "z": 0.0
+        },
+        {
+          "name": "mg_beau_cv_complementary",
+          "z": 0.0
+        },
+        {
+          "name": "bicycle_signal",
+          "z": -0.04600000008940697
+        }
+      ],
+      "top_negative_features": [
+        {
+          "name": "tr_max_pc_cat_entropy",
+          "z": -4.47599983215332
+        },
+        {
+          "name": "tr_pw_pc_cat_entropy",
+          "z": -4.396999835968018
+        },
+        {
+          "name": "tr_pw_bus_stops",
+          "z": -4.386000156402588
+        },
+        {
+          "name": "tr_pw_mg_mean_competitor",
+          "z": -4.353000164031982
+        },
+        {
+          "name": "tr_pw_bldg_footprint_sqm",
+          "z": -4.2779998779296875
+        },
+        {
+          "name": "tr_pw_mg_mean_demand",
+          "z": -3.878999948501587
+        },
+        {
+          "name": "tr_pw_avg_gpr",
+          "z": -3.8299999237060547
+        },
+        {
+          "name": "tr_max_bldg_footprint_sqm",
+          "z": -3.7750000953674316
+        }
+      ],
+      "top_subzones": {
+        "NORTH-EASTERN ISLANDS": 160,
+        "TUAS VIEW EXTENSION": 79,
+        "SUDONG": 76,
+        "JURONG ISLAND AND BUKOM": 23,
+        "CHANGI BAY": 3
+      },
+      "top_regions": {
+        "WEST REGION": 178,
+        "NORTH-EAST REGION": 160,
+        "EAST REGION": 3
+      }
+    }
+  ]
+}

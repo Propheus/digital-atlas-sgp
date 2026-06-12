@@ -1,0 +1,1007 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Adequacy Question — A Stress Test of Singapore's Self-Contained Town Doctrine | Propheus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg-1: #0d1f21;
+    --bg-2: #11282a;
+    --bg-3: #1a3c42;
+    --surface: rgba(17, 40, 42, 0.65);
+    --surface-edge: rgba(32, 178, 170, 0.18);
+    --rule: rgba(32, 178, 170, 0.18);
+    --rule-soft: rgba(32, 178, 170, 0.10);
+    --ink: #ffffff;
+    --ink-soft: #c9d4d6;
+    --ink-faint: #7a8e91;
+    --accent: #20b2aa;
+    --accent-soft: #14d4cc;
+    --accent-deep: #0e8c87;
+    --measure: 40rem;          /* readable column ~640px */
+  }
+
+  html { background: var(--bg-1); }
+  body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 0%, rgba(32,178,170,0.08), transparent 50%),
+      radial-gradient(ellipse 70% 50% at 90% 30%, rgba(32,178,170,0.04), transparent 50%),
+      linear-gradient(180deg, var(--bg-1), var(--bg-2) 40%, var(--bg-1));
+    background-attachment: fixed;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  /* ---------- Layout ---------- */
+  .page { max-width: 86rem; margin: 0 auto; padding: 0 1.5rem; }
+  .col   { max-width: var(--measure); margin: 0 auto; }
+  .col-wide { max-width: 60rem; margin: 0 auto; }
+
+  /* ---------- Masthead ---------- */
+  .masthead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.6rem 0 1.4rem;
+    margin-bottom: 5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+  .brand-logo {
+    width: 32px; height: 32px;
+    flex-shrink: 0;
+  }
+  .brand-text {
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    color: var(--ink);
+    font-size: 16px;
+    letter-spacing: 0.02em;
+  }
+  .brand-text .product {
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .brand-text .div {
+    color: var(--ink-faint);
+    font-weight: 400;
+    margin: 0 0.45rem;
+  }
+  .brand-text .sub {
+    color: var(--ink-faint);
+    font-weight: 500;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+  }
+  .crumb {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .crumb a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(32,178,170,0.4);
+    padding-bottom: 1px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .crumb a:hover { color: var(--accent-soft); border-color: var(--accent-soft); }
+
+  /* ---------- Title ---------- */
+  .title-block {
+    text-align: center;
+    padding: 2.5rem 0 4rem;
+    max-width: 60rem;
+    margin: 0 auto;
+  }
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.6rem;
+    font-weight: 500;
+  }
+  .eyebrow::before, .eyebrow::after {
+    content: "";
+    display: inline-block;
+    width: 26px; height: 1px;
+    background: var(--accent);
+    vertical-align: middle;
+    margin: 0 14px;
+    opacity: 0.6;
+  }
+  h1.title {
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.4rem, 5.4vw, 4rem);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+  }
+  h1.title .ac {
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .subtitle {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: var(--ink-soft);
+    margin-top: 1.5rem;
+    max-width: 42rem;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.55;
+  }
+  .subtitle .ac { color: var(--accent); font-weight: 500; }
+  .dateline {
+    margin-top: 2.4rem;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .dateline span { color: var(--ink-soft); }
+  .ornament {
+    text-align: center;
+    color: var(--accent);
+    margin: 2.6rem 0;
+    letter-spacing: 1.4em;
+    font-size: 0.75rem;
+    opacity: 0.55;
+  }
+
+  /* ---------- Body prose ---------- */
+  p { margin-bottom: 1.1em; color: var(--ink-soft); }
+  p.lead { font-size: 1.12rem; line-height: 1.65; color: var(--ink); }
+
+  .dropcap::first-letter {
+    font-family: "Raleway", sans-serif;
+    font-weight: 800;
+    float: left;
+    font-size: 4rem;
+    line-height: 0.9;
+    padding: 0.4rem 0.7rem 0 0;
+    color: var(--accent);
+  }
+
+  h2.section {
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    font-size: 1.85rem;
+    line-height: 1.18;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin: 5rem auto 1.5rem;
+    max-width: var(--measure);
+  }
+  h2.section .ac { color: var(--accent); }
+  .section-num {
+    display: block;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+  }
+
+  h3.sub {
+    font-family: "Raleway", sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--ink);
+    margin: 2.2rem 0 0.7rem;
+    letter-spacing: -0.005em;
+  }
+
+  /* inline emphasis */
+  .ink { color: var(--ink); font-weight: 500; }
+  .ac { color: var(--accent); font-weight: 500; }
+  .num {
+    font-family: "JetBrains Mono", monospace;
+    font-feature-settings: "tnum" 1, "lnum" 1;
+    font-size: 0.94em;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+
+  mark {
+    background: linear-gradient(180deg, transparent 60%, rgba(32,178,170,0.28) 60%, rgba(32,178,170,0.28) 92%, transparent 92%);
+    color: var(--ink);
+    padding: 0 0.06em;
+  }
+
+  sup.fn {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.62em;
+    color: var(--accent);
+    vertical-align: super;
+    margin-left: 0.1em;
+    font-weight: 600;
+  }
+  sup.fn a { color: inherit; text-decoration: none; }
+  sup.fn a:hover { text-decoration: underline; }
+
+  /* ---------- Pull quote ---------- */
+  .pull {
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1.55rem;
+    line-height: 1.35;
+    color: var(--ink);
+    border-top: 1px solid var(--accent);
+    border-bottom: 1px solid var(--accent);
+    padding: 1.8rem 0;
+    margin: 3rem auto;
+    max-width: 50rem;
+    text-align: center;
+    letter-spacing: -0.012em;
+  }
+  .pull .ac { color: var(--accent); }
+
+  /* ---------- Stat blocks ---------- */
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    margin: 3rem auto;
+    max-width: 60rem;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  @media (max-width: 700px) { .stat-row { grid-template-columns: repeat(2, 1fr); } }
+  .stat {
+    background: var(--bg-1);
+    padding: 1.6rem 1.2rem;
+    text-align: center;
+  }
+  .stat .v {
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    font-size: 2.3rem;
+    line-height: 1;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+  }
+  .stat .v .small { color: var(--ink-faint); font-size: 1.3rem; font-weight: 500; }
+  .stat .l {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-top: 0.65rem;
+  }
+  .stat .s {
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+    margin-top: 0.4rem;
+    line-height: 1.4;
+  }
+
+  /* ---------- Charts ---------- */
+  .figure {
+    max-width: 60rem;
+    margin: 3rem auto;
+  }
+  .figure-caption {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 0.04em;
+    line-height: 1.65;
+    margin-top: 1rem;
+    padding-left: 1.3rem;
+    border-left: 2px solid var(--accent);
+  }
+  .figure-caption b { color: var(--ink); font-weight: 600; }
+
+  .chart-card {
+    background: var(--surface);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--surface-edge);
+    border-radius: 12px;
+    padding: 1.8rem;
+  }
+
+  .small-multiples {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  @media (max-width: 760px) { .small-multiples { grid-template-columns: repeat(2, 1fr); } }
+  .sm-card { font-family: "JetBrains Mono", monospace; }
+  .sm-card .label {
+    font-family: "Inter", sans-serif;
+    font-size: 12.5px;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  .sm-card .meta {
+    font-size: 10px;
+    color: var(--ink-faint);
+    letter-spacing: 0.04em;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+  .sm-card .meta b { color: var(--accent); font-weight: 600; }
+
+  svg { display: block; max-width: 100%; }
+  svg text {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 9px;
+    fill: var(--ink-faint);
+    letter-spacing: 0.04em;
+  }
+  svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+  /* ---------- Scorecard ---------- */
+  .scorecard-wrap {
+    max-width: 64rem;
+    margin: 3rem auto;
+    background: var(--surface);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--surface-edge);
+    border-radius: 12px;
+    padding: 1rem 1.4rem 1.4rem;
+    overflow-x: auto;
+  }
+  .scorecard {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11.5px;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .scorecard th {
+    text-align: right;
+    color: var(--ink-faint);
+    font-size: 9.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 0.7rem 0.6rem 0.5rem;
+    border-bottom: 1px solid var(--accent);
+  }
+  .scorecard th:first-child { text-align: left; padding-left: 0.4rem; }
+  .scorecard td {
+    padding: 0.5rem 0.6rem;
+    border-bottom: 1px solid var(--rule-soft);
+    text-align: right;
+    color: var(--ink-soft);
+    font-feature-settings: "tnum" 1, "lnum" 1;
+  }
+  .scorecard td:first-child {
+    text-align: left;
+    padding-left: 0.4rem;
+    font-family: "Inter", sans-serif;
+    font-size: 13.5px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .scorecard tr:hover td { background: rgba(32,178,170,0.05); }
+  .scorecard td.hi { color: var(--accent); font-weight: 600; }
+  .scorecard td.lo { color: var(--ink-faint); opacity: 0.55; }
+
+  /* ---------- Caveat ---------- */
+  .caveat {
+    max-width: var(--measure);
+    margin: 2.8rem auto;
+    padding: 1.8rem 1.9rem;
+    border: 1px solid var(--surface-edge);
+    background: var(--surface);
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+    position: relative;
+  }
+  .caveat::before {
+    content: "Caveat";
+    position: absolute; top: -10px; left: 1.4rem;
+    background: var(--bg-1);
+    padding: 2px 0.7rem;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    border: 1px solid var(--surface-edge);
+    border-radius: 4px;
+  }
+  .caveat p {
+    font-size: 0.94rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+  .caveat p:last-child { margin-bottom: 0; }
+  .caveat b { color: var(--ink); font-weight: 600; }
+
+  /* ---------- Footnotes ---------- */
+  .footnotes {
+    max-width: var(--measure);
+    margin: 5rem auto 0;
+    padding-top: 1.8rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.86rem;
+    color: var(--ink-faint);
+    line-height: 1.6;
+  }
+  .footnotes h4 {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+  }
+  .footnotes ol { padding-left: 1.5rem; }
+  .footnotes li { margin-bottom: 0.8rem; padding-left: 0.3rem; }
+  .footnotes li::marker { color: var(--accent); font-family: "JetBrains Mono", monospace; font-size: 0.8rem; }
+  .footnotes a { color: var(--accent); text-decoration: none; border-bottom: 1px dotted rgba(32,178,170,0.4); }
+  .footnotes code {
+    background: rgba(32,178,170,0.08);
+    color: var(--accent);
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 0.88em;
+  }
+
+  /* ---------- Colophon ---------- */
+  .colophon {
+    text-align: center;
+    margin: 5rem 0 3rem;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px;
+    color: var(--ink-faint);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .colophon::before {
+    content: "✦";
+    display: block;
+    color: var(--accent);
+    font-size: 1.1rem;
+    letter-spacing: 0;
+    margin-bottom: 1rem;
+    opacity: 0.6;
+  }
+  .colophon a { color: var(--accent); text-decoration: none; border-bottom: 1px dotted rgba(32,178,170,0.4); }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- =============== MASTHEAD =============== -->
+  <header class="masthead">
+    <div class="brand">
+      <svg class="brand-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-label="Propheus">
+        <g fill="#20b2aa">
+          <path d="M45,64.2c-1.1,9.1-3.3,15.3-5.8,15.3c-0.1,0-0.1,0-0.2,0c-0.3,0-0.6-0.2-1-0.4c0,0,0,0,0,0 c-3.1-2.5-5.4-14.5-5.4-29c0-14.4,2.3-26.4,5.4-29c0.3-0.3,0.7-0.5,1-0.5c0,0,0,0,0,0h0.2c2.6,0,4.9,6.8,6,16.6 c-5.6,2-9.5,7.3-9.5,13.5C35.6,56.9,39.5,62.1,45,64.2z"/>
+          <path d="M67.4,50c0,14.5-2.3,26.5-5.4,29h0v0c-0.3,0.2-0.6,0.4-0.9,0.4c-0.1,0-0.2,0-0.2,0c-2.5,0-4.7-6.2-5.8-15.3 c5.5-2,9.4-7.3,9.4-13.5c0-6.2-4-11.6-9.5-13.5c1.1-9.8,3.4-16.6,6-16.6H61v0c0.4,0,0.7,0.2,1,0.5c0,0,0,0,0,0 C65.1,23.6,67.4,35.6,67.4,50z"/>
+          <path d="M30.2,50c0-14.4,2.3-26.4,5.4-29c-10.6,5.3-17.9,16.3-17.9,29c0,12.7,7.3,23.7,17.9,29 C32.5,76.5,30.2,64.5,30.2,50z M64.4,21c3.1,2.6,5.4,14.5,5.4,29c0,14.5-2.3,26.5-5.4,29C75,73.7,82.3,62.7,82.3,50 C82.3,37.3,75,26.4,64.4,21z"/>
+          <path d="M62.1,50.7c0,5-3,9.3-7.4,11.2c-1.5,0.6-3.1,1-4.8,1c-1.7,0-3.3-0.4-4.8-1c-4.3-1.9-7.4-6.2-7.4-11.2 c0-5.1,3.1-9.4,7.5-11.2c1.4-0.6,3-0.9,4.7-0.9c1.7,0,3.2,0.3,4.7,0.9C59.1,41.3,62.1,45.6,62.1,50.7z"/>
+        </g>
+      </svg>
+      <div class="brand-text">
+        <span class="product">Propheus</span><span class="div">/</span><span class="sub">Digital Atlas SGP</span>
+      </div>
+    </div>
+    <div class="crumb">
+      <a href="index.html">Reports</a> &nbsp;·&nbsp; <a href="self_contained_town_audit.html">v0.1</a>
+    </div>
+  </header>
+
+  <!-- =============== TITLE =============== -->
+  <section class="title-block">
+    <div class="eyebrow">Field Notes № 03 &middot; Adequacy Series</div>
+    <h1 class="title">The Adequacy <span class="ac">Question</span></h1>
+    <p class="subtitle">Singapore's HDB towns pass the binary test of self-containment. They fail it the moment we ask <span class="ac">how much</span>, not <span class="ac">whether</span>.</p>
+    <div class="dateline">
+      Singapore &nbsp;·&nbsp; <span>12 May 2026</span> &nbsp;·&nbsp; v0.2
+    </div>
+  </section>
+
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+
+  <!-- =============== LEDE =============== -->
+  <section class="col">
+    <p class="lead dropcap">In the founding decades of Singapore's public housing programme, the <span class="ink">Housing &amp; Development Board</span> committed to a deceptively radical idea: each new town would be a complete settlement. A resident could live, work, learn, eat, see a doctor, attend church, find a friend, and grow old &mdash; all without leaving its boundary. Self-containment was not architectural sentimentality; it was infrastructure policy, social engineering, and a hedge against CBD congestion all at once.<sup class="fn"><a href="#fn1">1</a></sup></p>
+
+    <p>Half a century later, the <span class="num">23</span> HDB towns have together absorbed almost <span class="num">3.5 million</span> residents.<sup class="fn"><a href="#fn2">2</a></sup> They are the most studied and most replicated urban form on earth. The doctrine, it is widely believed, has held.</p>
+
+    <p>This essay asks a smaller, more inconvenient question: <span class="ink">at what level of resolution is that belief true?</span></p>
+  </section>
+
+  <!-- =============== STAT ROW =============== -->
+  <div class="stat-row">
+    <div class="stat"><div class="v">23</div><div class="l">HDB Towns</div><div class="s">included in this audit</div></div>
+    <div class="stat"><div class="v">12</div><div class="l">Reference Amenities</div><div class="s">drawn from HDB town-centre standards</div></div>
+    <div class="stat"><div class="v">21<span class="small">/23</span></div><div class="l">Pass the Binary Test</div><div class="s">score 10 of 12 or higher</div></div>
+    <div class="stat"><div class="v">26<span class="small">×</span></div><div class="l">Per-Capita Spread</div><div class="s">on the most uneven amenity</div></div>
+  </div>
+
+  <!-- =============== SECTION I =============== -->
+  <h2 class="section"><span class="section-num">§ I</span>The doctrine, and the test</h2>
+
+  <section class="col">
+    <p>The reference stack is not invented for this essay; it is reconstructed from HDB and URA planning standards.<sup class="fn"><a href="#fn3">3</a></sup> Twelve amenity types are present, in some configuration, in every textbook description of a Singapore town: a hawker centre, an MRT or LRT station, primary and secondary schools, preschool, a GP clinic, a pharmacy, a supermarket, a library, a sports facility, a park, and a community club.</p>
+
+    <p>The audit's first move is procedural and deliberately blunt. For each town, count whether at least one instance of each amenity exists within the planning area boundary. A town with all twelve scores <span class="num">12 / 12</span>. The doctrine, so framed, holds when the score is high.</p>
+
+    <div class="pull">It holds. Of <span class="ac">23</span> towns, <span class="ac">21</span> score 10 of 12 or above.</div>
+
+    <p>Hougang scores a perfect twelve. Thirteen others sit at eleven; eight at ten. Only Yishun lands at nine, and even that result is brittle &mdash; one of its missing amenities is "MRT/LRT station," which Yishun very obviously possesses.<sup class="fn"><a href="#fn4">4</a></sup> The data attribution, not the town, is what breaks.</p>
+
+    <p>If a planner in 1975 wished to know whether her doctrine had survived to 2025, this is the chart she would be shown. She would, reasonably, be pleased.</p>
+  </section>
+
+  <!-- ---- VIZ 1: stack scores cluster ---- -->
+  <div class="figure">
+    <div class="chart-card">
+      <svg viewBox="0 0 800 200" preserveAspectRatio="xMidYMid meet" role="img" aria-label="All 23 HDB towns scoring 9-12 on the binary stack test">
+        <line class="axis" x1="60" y1="140" x2="780" y2="140" />
+        <g>
+          <line class="axis" x1="60"  y1="138" x2="60"  y2="144" />
+          <line class="axis" x1="300" y1="138" x2="300" y2="144" />
+          <line class="axis" x1="540" y1="138" x2="540" y2="144" />
+          <line class="axis" x1="780" y1="138" x2="780" y2="144" />
+          <text x="60"  y="160" text-anchor="middle">0</text>
+          <text x="300" y="160" text-anchor="middle">4</text>
+          <text x="540" y="160" text-anchor="middle">8</text>
+          <text x="780" y="160" text-anchor="middle">12</text>
+          <text x="780" y="184" text-anchor="end" fill="#c9d4d6" font-size="10.5">Stack score (amenity types present, of 12)</text>
+        </g>
+        <line x1="660" y1="50" x2="660" y2="140" stroke="#20b2aa" stroke-width="1" stroke-dasharray="2 3" opacity="0.7" />
+        <text x="660" y="42" text-anchor="middle" fill="#20b2aa" font-weight="600">"PASSING"</text>
+        <text x="660" y="30" text-anchor="middle" fill="#20b2aa" font-size="9">10 / 12</text>
+        <!-- score 9 -->
+        <circle cx="600" cy="120" r="6" fill="#7a8e91"/><text x="612" y="123" font-size="10" fill="#c9d4d6">Yishun</text>
+        <!-- score 10 cluster -->
+        <circle cx="660" cy="78" r="6" fill="#20b2aa"/><circle cx="660" cy="92" r="6" fill="#20b2aa"/><circle cx="660" cy="106" r="6" fill="#20b2aa"/><circle cx="660" cy="120" r="6" fill="#20b2aa"/>
+        <circle cx="673" cy="85" r="6" fill="#20b2aa"/><circle cx="673" cy="99" r="6" fill="#20b2aa"/><circle cx="673" cy="113" r="6" fill="#20b2aa"/>
+        <circle cx="647" cy="92" r="6" fill="#20b2aa"/><circle cx="647" cy="113" r="6" fill="#20b2aa"/>
+        <!-- score 11 cluster -->
+        <circle cx="720" cy="73" r="6" fill="#20b2aa"/><circle cx="720" cy="87" r="6" fill="#20b2aa"/><circle cx="720" cy="101" r="6" fill="#20b2aa"/><circle cx="720" cy="115" r="6" fill="#20b2aa"/><circle cx="720" cy="129" r="6" fill="#20b2aa"/>
+        <circle cx="733" cy="80" r="6" fill="#20b2aa"/><circle cx="733" cy="94" r="6" fill="#20b2aa"/><circle cx="733" cy="108" r="6" fill="#20b2aa"/><circle cx="733" cy="122" r="6" fill="#20b2aa"/>
+        <circle cx="707" cy="80" r="6" fill="#20b2aa"/><circle cx="707" cy="94" r="6" fill="#20b2aa"/><circle cx="707" cy="108" r="6" fill="#20b2aa"/><circle cx="707" cy="122" r="6" fill="#20b2aa"/>
+        <!-- score 12: Hougang -->
+        <circle cx="780" cy="120" r="7" fill="#20b2aa" stroke="#14d4cc" stroke-width="1.5"/>
+        <text x="775" y="106" text-anchor="end" font-size="10" fill="#20b2aa" font-weight="600">Hougang 12/12</text>
+      </svg>
+    </div>
+    <div class="figure-caption"><b>Figure 1.</b> The doctrine appears to hold. All 23 HDB towns cluster between 9 and 12 of 12 on the binary stack-presence test. The dashed line marks the 10/12 "passing" threshold.</div>
+  </div>
+
+  <!-- =============== SECTION II =============== -->
+  <h2 class="section"><span class="section-num">§ II</span>Look <span class="ac">closer</span></h2>
+
+  <section class="col">
+    <p>Now widen the question. Bedok and Sembawang are both ticked "yes" for hawker centres. Bedok has <span class="ac num">23</span> of them. Sembawang has <span class="ac num">3</span>. They serve <span class="num">274,650</span> and <span class="num">113,810</span> residents respectively.<sup class="fn"><a href="#fn2">2</a></sup> Per hundred thousand residents, Bedok's hawker provision is <mark>roughly seven times</mark> Sembawang's. Both pass the test.</p>
+
+    <p>Repeat the exercise across the other eleven amenity types and a different picture emerges. The doctrine, recast as adequacy, is less a settled fact and more a question of which town one happens to live in.</p>
+  </section>
+
+  <!-- ---- VIZ 2: small multiples ---- -->
+  <div class="figure">
+    <div class="chart-card">
+      <div class="small-multiples">
+
+        <div class="sm-card">
+          <div class="label">Hawker centres</div>
+          <svg viewBox="0 0 200 80" role="img">
+            <line class="axis" x1="0" y1="70" x2="200" y2="70"/>
+            <g>
+              <line x1="10" y1="70" x2="10" y2="6"  stroke="#20b2aa" stroke-width="3"/><circle cx="10" cy="6" r="3" fill="#14d4cc"/>
+              <line x1="20" y1="70" x2="20" y2="17" stroke="#20b2aa" stroke-width="3"/>
+              <line x1="30" y1="70" x2="30" y2="29" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="40" y1="70" x2="40" y2="20" stroke="#20b2aa" stroke-width="3"/>
+              <line x1="50" y1="70" x2="50" y2="45" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="60" y1="70" x2="60" y2="45" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="70" y1="70" x2="70" y2="40" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="80" y1="70" x2="80" y2="56" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="90" y1="70" x2="90" y2="62" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="100" y1="70" x2="100" y2="55" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="110" y1="70" x2="110" y2="65" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="120" y1="70" x2="120" y2="57" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="130" y1="70" x2="130" y2="66" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="140" y1="70" x2="140" y2="44" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="150" y1="70" x2="150" y2="25" stroke="#20b2aa" stroke-width="3"/>
+              <line x1="160" y1="70" x2="160" y2="53" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="170" y1="70" x2="170" y2="62" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="180" y1="70" x2="180" y2="61" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="190" y1="70" x2="190" y2="62" stroke="#7a8e91" stroke-width="2"/>
+            </g>
+            <text x="200" y="78" text-anchor="end">23 towns</text>
+          </svg>
+          <div class="meta">range <b>1.6 → 21.5</b> per 100k · <b>13×</b> spread</div>
+        </div>
+
+        <div class="sm-card">
+          <div class="label">GP clinics</div>
+          <svg viewBox="0 0 200 80" role="img">
+            <line class="axis" x1="0" y1="70" x2="200" y2="70"/>
+            <g>
+              <line x1="10"  y1="70" x2="10"  y2="3"  stroke="#20b2aa" stroke-width="3"/><circle cx="10" cy="3" r="3" fill="#14d4cc"/>
+              <line x1="20"  y1="70" x2="20"  y2="35" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="30"  y1="70" x2="30"  y2="20" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="40"  y1="70" x2="40"  y2="51" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="50"  y1="70" x2="50"  y2="22" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="60"  y1="70" x2="60"  y2="33" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="70"  y1="70" x2="70"  y2="11" stroke="#20b2aa" stroke-width="3"/>
+              <line x1="80"  y1="70" x2="80"  y2="18" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="90"  y1="70" x2="90"  y2="20" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="100" y1="70" x2="100" y2="53" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="110" y1="70" x2="110" y2="50" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="120" y1="70" x2="120" y2="58" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="130" y1="70" x2="130" y2="62" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="140" y1="70" x2="140" y2="45" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="150" y1="70" x2="150" y2="0"  stroke="#20b2aa" stroke-width="3"/><circle cx="150" cy="0" r="3" fill="#14d4cc"/>
+              <line x1="160" y1="70" x2="160" y2="63" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="170" y1="70" x2="170" y2="51" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="180" y1="70" x2="180" y2="61" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="190" y1="70" x2="190" y2="64" stroke="#7a8e91" stroke-width="2"/>
+            </g>
+            <text x="200" y="78" text-anchor="end">23 towns</text>
+          </svg>
+          <div class="meta">range <b>1.1 → 28.7</b> per 100k · <b>26×</b> spread <span style="color:#20b2aa">⚠</span></div>
+        </div>
+
+        <div class="sm-card">
+          <div class="label">Sports facilities</div>
+          <svg viewBox="0 0 200 80" role="img">
+            <line class="axis" x1="0" y1="70" x2="200" y2="70"/>
+            <g>
+              <line x1="10"  y1="70" x2="10"  y2="6"  stroke="#20b2aa" stroke-width="3"/><circle cx="10" cy="6" r="3" fill="#14d4cc"/>
+              <line x1="20"  y1="70" x2="20"  y2="40" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="30"  y1="70" x2="30"  y2="22" stroke="#20b2aa" stroke-width="3"/>
+              <line x1="40"  y1="70" x2="40"  y2="50" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="50"  y1="70" x2="50"  y2="56" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="60"  y1="70" x2="60"  y2="58" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="70"  y1="70" x2="70"  y2="62" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="80"  y1="70" x2="80"  y2="61" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="90"  y1="70" x2="90"  y2="64" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="100" y1="70" x2="100" y2="51" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="110" y1="70" x2="110" y2="50" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="120" y1="70" x2="120" y2="48" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="130" y1="70" x2="130" y2="65" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="140" y1="70" x2="140" y2="53" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="150" y1="70" x2="150" y2="56" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="160" y1="70" x2="160" y2="55" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="170" y1="70" x2="170" y2="68" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="180" y1="70" x2="180" y2="66" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="190" y1="70" x2="190" y2="65" stroke="#7a8e91" stroke-width="2"/>
+            </g>
+            <text x="200" y="78" text-anchor="end">23 towns</text>
+          </svg>
+          <div class="meta">range <b>2.1 → 26.4</b> per 100k · <b>13×</b> spread</div>
+        </div>
+
+        <div class="sm-card">
+          <div class="label">Libraries</div>
+          <svg viewBox="0 0 200 80" role="img">
+            <line class="axis" x1="0" y1="70" x2="200" y2="70"/>
+            <g>
+              <line x1="10"  y1="70" x2="10"  y2="60" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="20"  y1="70" x2="20"  y2="65" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="30"  y1="70" x2="30"  y2="38" stroke="#20b2aa" stroke-width="3"/>
+              <line x1="40"  y1="70" x2="40"  y2="38" stroke="#20b2aa" stroke-width="3"/>
+              <line x1="50"  y1="70" x2="50"  y2="42" stroke="#20b2aa" stroke-width="3"/>
+              <line x1="60"  y1="70" x2="60"  y2="65" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="70"  y1="70" x2="70"  y2="62" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="80"  y1="70" x2="80"  y2="65" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="90"  y1="70" x2="90"  y2="65" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="100" y1="70" x2="100" y2="65" stroke="#7a8e91" stroke-width="2"/>
+              <circle cx="110" cy="68" r="2" fill="#3a4a4d"/>
+              <circle cx="120" cy="68" r="2" fill="#3a4a4d"/>
+              <circle cx="130" cy="68" r="2" fill="#3a4a4d"/>
+              <circle cx="140" cy="68" r="2" fill="#3a4a4d"/>
+              <circle cx="150" cy="68" r="2" fill="#3a4a4d"/>
+              <circle cx="160" cy="68" r="2" fill="#3a4a4d"/>
+              <circle cx="170" cy="68" r="2" fill="#3a4a4d"/>
+              <circle cx="180" cy="68" r="2" fill="#3a4a4d"/>
+              <circle cx="190" cy="68" r="2" fill="#3a4a4d"/>
+            </g>
+            <text x="200" y="78" text-anchor="end">9 of 23 = zero</text>
+          </svg>
+          <div class="meta">max <b>2.0</b> per 100k · <b>universal scarcity</b></div>
+        </div>
+
+        <div class="sm-card">
+          <div class="label">Supermarkets</div>
+          <svg viewBox="0 0 200 80" role="img">
+            <line class="axis" x1="0" y1="70" x2="200" y2="70"/>
+            <g>
+              <line x1="10"  y1="70" x2="10"  y2="14" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="20"  y1="70" x2="20"  y2="20" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="30"  y1="70" x2="30"  y2="22" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="40"  y1="70" x2="40"  y2="24" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="50"  y1="70" x2="50"  y2="22" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="60"  y1="70" x2="60"  y2="30" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="70"  y1="70" x2="70"  y2="32" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="80"  y1="70" x2="80"  y2="38" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="90"  y1="70" x2="90"  y2="35" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="100" y1="70" x2="100" y2="40" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="110" y1="70" x2="110" y2="42" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="120" y1="70" x2="120" y2="38" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="130" y1="70" x2="130" y2="44" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="140" y1="70" x2="140" y2="42" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="150" y1="70" x2="150" y2="48" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="160" y1="70" x2="160" y2="50" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="170" y1="70" x2="170" y2="44" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="180" y1="70" x2="180" y2="55" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="190" y1="70" x2="190" y2="52" stroke="#c9d4d6" stroke-width="2"/>
+            </g>
+            <text x="200" y="78" text-anchor="end">23 towns</text>
+          </svg>
+          <div class="meta">range <b>4.9 → 13.1</b> per 100k · <b>2.7×</b></div>
+        </div>
+
+        <div class="sm-card">
+          <div class="label">Pharmacies</div>
+          <svg viewBox="0 0 200 80" role="img">
+            <line class="axis" x1="0" y1="70" x2="200" y2="70"/>
+            <g>
+              <line x1="10"  y1="70" x2="10"  y2="14" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="20"  y1="70" x2="20"  y2="14" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="30"  y1="70" x2="30"  y2="20" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="40"  y1="70" x2="40"  y2="20" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="50"  y1="70" x2="50"  y2="22" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="60"  y1="70" x2="60"  y2="22" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="70"  y1="70" x2="70"  y2="22" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="80"  y1="70" x2="80"  y2="24" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="90"  y1="70" x2="90"  y2="24" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="100" y1="70" x2="100" y2="26" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="110" y1="70" x2="110" y2="32" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="120" y1="70" x2="120" y2="32" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="130" y1="70" x2="130" y2="36" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="140" y1="70" x2="140" y2="40" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="150" y1="70" x2="150" y2="44" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="160" y1="70" x2="160" y2="44" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="170" y1="70" x2="170" y2="48" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="180" y1="70" x2="180" y2="52" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="190" y1="70" x2="190" y2="56" stroke="#7a8e91" stroke-width="2"/>
+            </g>
+            <text x="200" y="78" text-anchor="end">23 towns</text>
+          </svg>
+          <div class="meta">range <b>9 → 32</b> per 100k · <b>3.5×</b></div>
+        </div>
+
+        <div class="sm-card">
+          <div class="label">Preschools</div>
+          <svg viewBox="0 0 200 80" role="img">
+            <line class="axis" x1="0" y1="70" x2="200" y2="70"/>
+            <g>
+              <line x1="10"  y1="70" x2="10"  y2="14" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="20"  y1="70" x2="20"  y2="20" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="30"  y1="70" x2="30"  y2="22" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="40"  y1="70" x2="40"  y2="22" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="50"  y1="70" x2="50"  y2="22" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="60"  y1="70" x2="60"  y2="22" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="70"  y1="70" x2="70"  y2="24" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="80"  y1="70" x2="80"  y2="26" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="90"  y1="70" x2="90"  y2="26" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="100" y1="70" x2="100" y2="28" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="110" y1="70" x2="110" y2="28" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="120" y1="70" x2="120" y2="30" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="130" y1="70" x2="130" y2="30" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="140" y1="70" x2="140" y2="32" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="150" y1="70" x2="150" y2="34" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="160" y1="70" x2="160" y2="34" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="170" y1="70" x2="170" y2="36" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="180" y1="70" x2="180" y2="38" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="190" y1="70" x2="190" y2="40" stroke="#c9d4d6" stroke-width="2"/>
+            </g>
+            <text x="200" y="78" text-anchor="end">23 towns</text>
+          </svg>
+          <div class="meta">range <b>15 → 30</b> per 100k · <b>2.0×</b></div>
+        </div>
+
+        <div class="sm-card">
+          <div class="label">MRT &middot; LRT</div>
+          <svg viewBox="0 0 200 80" role="img">
+            <line class="axis" x1="0" y1="70" x2="200" y2="70"/>
+            <g>
+              <line x1="10"  y1="70" x2="10"  y2="22" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="20"  y1="70" x2="20"  y2="32" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="30"  y1="70" x2="30"  y2="34" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="40"  y1="70" x2="40"  y2="40" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="50"  y1="70" x2="50"  y2="42" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="60"  y1="70" x2="60"  y2="44" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="70"  y1="70" x2="70"  y2="46" stroke="#c9d4d6" stroke-width="2"/>
+              <line x1="80"  y1="70" x2="80"  y2="50" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="90"  y1="70" x2="90"  y2="50" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="100" y1="70" x2="100" y2="54" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="110" y1="70" x2="110" y2="55" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="120" y1="70" x2="120" y2="56" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="130" y1="70" x2="130" y2="58" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="140" y1="70" x2="140" y2="58" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="150" y1="70" x2="150" y2="60" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="160" y1="70" x2="160" y2="62" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="170" y1="70" x2="170" y2="62" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="180" y1="70" x2="180" y2="64" stroke="#7a8e91" stroke-width="2"/>
+              <line x1="190" y1="70" x2="190" y2="66" stroke="#7a8e91" stroke-width="2"/>
+              <circle cx="200" cy="68" r="2" fill="#3a4a4d"/>
+            </g>
+            <text x="200" y="78" text-anchor="end">22 + 1 zero ⚠</text>
+          </svg>
+          <div class="meta">range <b>0 → 8.6</b> per 100k · <b>attribution caveat</b></div>
+        </div>
+
+      </div>
+    </div>
+    <div class="figure-caption" style="max-width:60rem;margin-top:1.4rem">
+      <b>Figure 2.</b> Eight of the twelve amenity types, plotted as per-100,000-resident bars across all 23 HDB towns, sorted descending. Brighter teal bars mark the top three within each amenity. Hawker centres, GP clinics, sports facilities and libraries show pronounced inequality. Supermarkets, preschools and pharmacies hold more evenly. The doctrine's claim of completeness was never tested at this resolution.
+    </div>
+  </div>
+
+  <!-- =============== SECTION III =============== -->
+  <h2 class="section"><span class="section-num">§ III</span>Three symptoms of the same condition</h2>
+
+  <section class="col">
+    <h3 class="sub">i. The hawker bequest</h3>
+    <p>Mature central estates &mdash; Geylang, Kallang, Bukit Merah, Queenstown &mdash; were planned around their hawker centres. Bukit Merah holds <span class="num">14</span> of them in <span class="num">12 km²</span>. The post-1990s towns were planned around <span class="ink">kopitiams</span> and <span class="ink">mall food courts</span>, with hawker centres treated as optional civic furniture rather than baseline infrastructure. Choa Chu Kang and Sembawang each hold three.<sup class="fn"><a href="#fn5">5</a></sup> The doctrine survives in the binary checklist; the underlying infrastructural philosophy did not.</p>
+
+    <h3 class="sub">ii. The library scarcity</h3>
+    <p>Of the twelve amenity types, only one is genuinely thin everywhere. Nine of twenty-three towns register <span class="num">zero</span> places coded as a library. The remainder hold one or two. Either Singapore's NLB town libraries are systematically under-coded in the place catalogue, or libraries genuinely do sit at the precinct edge of the towns they serve. Both possibilities deserve the field visit they will get in v0.3.</p>
+
+    <h3 class="sub">iii. The Sengkang anomaly</h3>
+    <p>Sengkang houses <span class="num">268,040</span> residents. The catalogue records <span class="ac num">three</span> GP clinics in its boundary &mdash; a per-capita rate of <span class="num">1.1</span> per 100,000, the lowest in Singapore by a factor of nearly three. Geylang, of comparable build vintage at its core, holds <span class="num">31</span>. This is almost certainly a data-attribution artefact (CHAS-network clinics in mall complexes assigned to neighbouring planning areas), but it is also the kind of artefact a binary stack-presence test cannot detect. If the test cannot tell <span class="ac">three</span> from <span class="ac">thirty-one</span>, what exactly is it testing?</p>
+  </section>
+
+  <!-- =============== SECTION IV =============== -->
+  <h2 class="section"><span class="section-num">§ IV</span>The mature estates hold the <span class="ac">depth</span></h2>
+
+  <section class="col">
+    <p>Run the per-capita exercise across all twelve amenity types and a structural pattern resolves. The first-generation HDB towns &mdash; Toa Payoh (1965), Bukit Merah (1960s), Queenstown (1953), Bedok (1970s), Ang Mo Kio (1973) &mdash; concentrate amenity depth that the second- and third-generation towns simply do not. They also concentrate Singapore's elderly: Bedok alone houses <span class="num">62,660</span> residents aged 65 and over.<sup class="fn"><a href="#fn2">2</a></sup></p>
+
+    <p>The newer towns &mdash; Punggol, Sengkang, Sembawang, Bukit Panjang, Choa Chu Kang &mdash; consistently hit the binary checklist while sitting in the bottom quartile on per-capita rates for hawker centres, GP clinics, sports facilities, and libraries. That this is the exact set the v0.2 audit flags as zero-hawker is not coincidence; it is the same finding viewed through a different lens.<sup class="fn"><a href="#fn6">6</a></sup></p>
+
+    <p>One reading is benign: amenity build-out follows the population it serves on a lag; the new towns will fill in. Another is structural: the planning doctrine itself shifted in the 1990s away from publicly-built civic infrastructure (NEA hawker centres, NLB libraries, SportSG town stadia) toward private-substitute equivalents (Koufu food courts, mall retail, condominium gyms). On the binary stack-presence test these substitutions register as a pass. On any per-capita or affordability-weighted test, they do not.</p>
+  </section>
+
+  <div class="pull">If a test cannot tell <span class="ac">three</span> from <span class="ac">thirty-one</span>,<br>what exactly is it testing?</div>
+
+  <!-- =============== SECTION V =============== -->
+  <h2 class="section"><span class="section-num">§ V</span>The full per-capita scorecard</h2>
+
+  <section class="col">
+    <p>The table below normalises six representative amenities to their per-100,000-resident rate. Counts are from the Digital Atlas SGP place catalogue (<span class="num">66,851</span> places with planning-area attribution); populations from SingStat 2025.<sup class="fn"><a href="#fn7">7</a></sup></p>
+  </section>
+
+  <div class="scorecard-wrap">
+    <table class="scorecard">
+      <thead>
+        <tr>
+          <th>Town</th>
+          <th>Pop (k)</th>
+          <th>Hawker</th>
+          <th>GP</th>
+          <th>Pharm</th>
+          <th>Super</th>
+          <th>Library</th>
+          <th>Sports</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Geylang</td><td>118</td><td class="hi">17.8</td><td class="hi">26.3</td><td class="hi">32.2</td><td>22.0</td><td class="hi">1.7</td><td>7.6</td></tr>
+        <tr><td>Bukit Merah</td><td>147</td><td class="hi">13.6</td><td>13.6</td><td>12.9</td><td>8.9</td><td class="hi">1.4</td><td>6.1</td></tr>
+        <tr><td>Kallang</td><td>102</td><td class="hi">21.5</td><td>21.5</td><td class="hi">31.3</td><td>11.7</td><td>1.0</td><td class="hi">26.4</td></tr>
+        <tr><td>Queenstown</td><td>102</td><td class="hi">16.7</td><td>19.7</td><td class="hi">31.5</td><td>10.8</td><td class="hi">2.0</td><td class="hi">17.7</td></tr>
+        <tr><td>Toa Payoh</td><td>143</td><td>8.4</td><td>18.2</td><td>24.5</td><td>11.2</td><td class="lo">0</td><td>2.8</td></tr>
+        <tr><td>Ang Mo Kio</td><td>159</td><td>10.0</td><td>17.6</td><td>21.3</td><td>8.8</td><td class="lo">0</td><td>1.9</td></tr>
+        <tr><td>Bedok</td><td>275</td><td>8.4</td><td>14.2</td><td>16.4</td><td>11.3</td><td class="lo">0</td><td>5.1</td></tr>
+        <tr><td>Bishan</td><td>88</td><td>4.6</td><td>19.4</td><td>22.8</td><td>12.6</td><td>1.1</td><td>12.5</td></tr>
+        <tr><td>Tampines</td><td>291</td><td class="lo">2.8</td><td>8.3</td><td>15.5</td><td>10.3</td><td>0.3</td><td>4.8</td></tr>
+        <tr><td>Hougang</td><td>228</td><td>4.8</td><td>7.0</td><td>13.6</td><td>9.7</td><td>0.4</td><td>3.1</td></tr>
+        <tr><td>Clementi</td><td>105</td><td>8.6</td><td>9.6</td><td>11.5</td><td>12.4</td><td class="lo">0</td><td>6.7</td></tr>
+        <tr><td>Jurong East</td><td>73</td><td>15.0</td><td class="hi">28.7</td><td>26.0</td><td>27.3</td><td>1.4</td><td>10.9</td></tr>
+        <tr><td>Yishun</td><td>229</td><td>5.2</td><td>8.3</td><td>20.1</td><td>13.1</td><td class="lo">0</td><td>7.9</td></tr>
+        <tr><td>Woodlands</td><td>255</td><td>3.5</td><td>7.1</td><td>13.0</td><td>11.0</td><td>0.4</td><td>3.5</td></tr>
+        <tr><td>Jurong West</td><td>254</td><td>5.9</td><td>3.5</td><td>10.2</td><td>10.6</td><td class="lo">0</td><td>2.4</td></tr>
+        <tr><td>Bukit Batok</td><td>166</td><td class="lo">1.8</td><td>8.4</td><td>15.0</td><td>13.8</td><td class="lo">0</td><td>6.0</td></tr>
+        <tr><td>Bukit Panjang</td><td>137</td><td>4.4</td><td>5.1</td><td>13.2</td><td>7.3</td><td class="lo">0</td><td>4.4</td></tr>
+        <tr><td>Serangoon</td><td>117</td><td>2.6</td><td>12.0</td><td>24.0</td><td>9.4</td><td>0.9</td><td>6.0</td></tr>
+        <tr><td>Pasir Ris</td><td>145</td><td>2.8</td><td>8.3</td><td>11.8</td><td>9.7</td><td class="lo">0</td><td class="lo">2.1</td></tr>
+        <tr><td>Punggol</td><td>205</td><td>2.9</td><td>3.9</td><td>8.8</td><td>4.9</td><td>0.5</td><td>2.4</td></tr>
+        <tr><td>Sengkang</td><td>268</td><td>3.0</td><td class="lo">1.1</td><td>8.2</td><td>4.9</td><td>0.4</td><td>1.5</td></tr>
+        <tr><td>Choa Chu Kang</td><td>188</td><td class="lo">1.6</td><td>3.7</td><td>10.1</td><td>6.9</td><td class="lo">0</td><td>2.7</td></tr>
+        <tr><td>Sembawang</td><td>114</td><td>2.6</td><td>2.6</td><td>11.4</td><td>7.9</td><td class="lo">0</td><td>4.4</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="figure-caption" style="max-width:64rem">
+    <b>Per-100,000-resident provision, six representative amenities.</b> Teal marks top quartile within column; faded marks bottom quartile or zero. Towns roughly sorted top-to-bottom by overall depth. The pattern is not subtle: the older the town, the deeper the stack.
+  </div>
+
+  <!-- =============== SECTION VI =============== -->
+  <h2 class="section"><span class="section-num">§ VI</span>What adequacy would <span class="ac">actually</span> mean</h2>
+
+  <section class="col">
+    <p>If the binary stack-presence test understates the picture, the per-capita test in §V improves it but does not finish it. Three further moves are needed before adequacy can be claimed in any rigorous sense.</p>
+
+    <h3 class="sub">Walk distance, not boundary inclusion</h3>
+    <p>An amenity counted "in" a town may be a twenty-five-minute walk from where most of its residents actually live. The next iteration of this audit, computed against the atlas's <span class="num">214,000</span>-node OSM walking graph, will report the share of each town's residents within 400m, 800m, and 1.2km of each amenity instance &mdash; the more honest version of "adequacy" for a population in which one in five is over 65.</p>
+
+    <h3 class="sub">Demographic weighting</h3>
+    <p>A clinic per 100,000 residents is not the same metric in Punggol &mdash; where 9.8% of residents are 65 or over &mdash; as in Outram, where 27.0% are. Adequacy is not a constant. It is a function of the population whose adequacy is in question.</p>
+
+    <h3 class="sub">Substitution accounting</h3>
+    <p>The hawker-centre count in Punggol is zero. The cooked-food provision is not. A v1.0 extension to the companion <span class="ink">Aging-Hawker Gap</span> report adds Kopitiam (87 outlets), Kimly (44), Koufu (25), Toast Box and Ya Kun &mdash; the chain-precinct-coffeeshop infrastructure that absorbed the hawker function in post-1990s towns. With substitutes counted, Punggol's effective rate rises to <span class="num">4.7</span> stall-equivalents per thousand elderly. With substitutes counted, Choa Chu Kang's rate is still <span class="num">2.1</span>. Substitution helps. It does not equalise.</p>
+  </section>
+
+  <!-- =============== CAVEAT =============== -->
+  <div class="caveat">
+    <p>The numbers in this essay are anchored against verifiable sources; the interpretations are not. Three honest data limitations should colour every claim above.</p>
+    <p><b>Place taxonomy.</b> The atlas's "Library" tag is materially under-populated against NLB's actual ~28 town libraries. The "MRT/LRT Station" tag misses Yishun NS13. The "GP Clinic" tag almost certainly under-counts mall-tenant CHAS clinics. v0.3 reconciles each against authoritative source registries.</p>
+    <p><b>Boundary attribution.</b> Amenities at planning-area edges are assigned by point-in-polygon, which under-counts cases where, for example, Tampines Round Market sits within Tampines East boundary. Anomalies in the per-capita columns above (Sengkang GP, Yishun MRT, Tampines hawker) deserve the manual checking they will receive.</p>
+    <p><b>Walk distance is the missing axis.</b> Every per-capita number above is a town-internal aggregate. Where, within the town, the resident lives matters more than the per-capita rate. The walk-graph iteration cannot come too soon.</p>
+  </div>
+
+  <!-- =============== CODA =============== -->
+  <h2 class="section"><span class="section-num">§ VII</span>Coda &mdash; what the doctrine asked of <span class="ac">itself</span></h2>
+
+  <section class="col">
+    <p>The HDB self-containment doctrine of the 1970s did not promise that every town would hold an MRT station. It promised that residents would not have to leave the town for everyday life. Whether that promise survives in 2026 depends on what is meant by the word <span class="ink">have</span>.</p>
+
+    <p>If <span class="ink">have to leave</span> means "must travel out for medical treatment, schooling, or food," the doctrine holds. Every HDB town clears that threshold &mdash; the binary stack is intact almost everywhere.</p>
+
+    <p>If it means "may live a daily life of equivalent texture and depth as a resident of the older estates," the doctrine is straining. The mature central towns hold infrastructural depth that the post-1990s towns substitute for with private-sector equivalents. The substitutes work, but they work differently. They cost more. They lack the third-place social function. And they lend themselves less to the kind of egalitarian, intergenerational town-life that the original doctrine took as its objective.</p>
+
+    <p>This is not an argument for nostalgia. It is an argument for a measurement framework that can detect the difference. The next version of this audit will, on the walking graph, on the demographic weighting, and on the extended substitution stack, test whether that promise still holds &mdash; not at the boundary, but at the doorstep.</p>
+  </section>
+
+  <!-- =============== FOOTNOTES =============== -->
+  <section class="footnotes">
+    <h4>Notes &amp; Sources</h4>
+    <ol>
+      <li id="fn1">The self-containment doctrine is most clearly articulated in HDB's 1970s town-design briefings and codified in the 1991 URA Concept Plan. Toa Payoh (1965) is conventionally treated as the first town to be fully designed under the doctrine.</li>
+      <li id="fn2">Resident population figures are from <code>data/demographics/pop_age_sex_tod_2025.csv</code> (SingStat 2025), aggregated to planning-area resolution. Total Singapore resident population in this file: 4,212,800.</li>
+      <li id="fn3">The 12-amenity reference stack is reconstructed from HDB town-centre and neighbourhood-centre standards plus URA accessibility guidelines. See <a href="self_contained_town_audit.html">v0.1 audit § 2</a> for the full mapping.</li>
+      <li id="fn4">Yishun's stack score of 9/12 is a known data-attribution artefact, not an accurate reflection of the town. Yishun MRT (NS13) is missing from the place catalogue's MRT/LRT-station tag for this snapshot. v0.3 reconciles against LTA station polygons.</li>
+      <li id="fn5">Hawker-centre counts are derived from the spatial join of <code>data/amenities/hawker_centres.geojson</code> (NEA, status = Existing) into planning-area polygons. The companion <a href="aging_hawker_gap.html">Aging-Hawker Gap</a> report drills into this finding.</li>
+      <li id="fn6">See <a href="aging_hawker_gap.html">Aging-Hawker Gap v0.1</a>, §3 — Sengkang, Bukit Batok, Choa Chu Kang, Bukit Panjang, Pasir Ris, Punggol, and Sembawang each hold zero NEA hawker centres.</li>
+      <li id="fn7">Per-100,000 rates are derived from the join of <code>data/places/sgp_places.jsonl</code> (66,851 places with planning-area attribution) to SingStat 2025 resident totals.</li>
+    </ol>
+  </section>
+
+  <!-- =============== COLOPHON =============== -->
+  <div class="colophon">
+    Powered by <a href="https://propheus.ai">Propheus</a> &middot; Digital Atlas SGP &middot; <a href="index.html">Reports Index</a>
+  </div>
+
+</div>
+
+</body>
+</html>

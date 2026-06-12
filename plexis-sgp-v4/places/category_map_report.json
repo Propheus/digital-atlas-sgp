@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-04-25T03:17:32",
+  "input_rows": 190591,
+  "resolved_rows": 151780,
+  "unresolved_rows": 38811,
+  "resolution_rate_pct": 79.6365,
+  "missing_taxonomy_categories": [
+    "other_uncategorized"
+  ],
+  "distribution": {
+    "__unresolved": 38811,
+    "services": 18706,
+    "industrial_mfg": 16643,
+    "shopping_retail": 13558,
+    "business_office": 13262,
+    "residential": 11472,
+    "transportation": 10403,
+    "restaurant": 9642,
+    "education": 9597,
+    "beauty_personal": 7242,
+    "cafe_coffee": 6115,
+    "health_medical": 5905,
+    "hawker": 5808,
+    "convenience": 5711,
+    "park_open": 3634,
+    "fitness_recreation": 3077,
+    "supermarket": 2416,
+    "bakery": 1825,
+    "entertainment_culture": 1587,
+    "government_public": 1508,
+    "religious_worship": 1078,
+    "hotel_hospitality": 907,
+    "fast_food": 851,
+    "bar_nightlife": 833
+  },
+  "wall_clock_s": 0.29
+}

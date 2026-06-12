@@ -1,0 +1,230 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Embedding Insights Report — Digital Atlas SGP</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0f1a;color:#e5e7eb;line-height:1.6}
+.c{max-width:1100px;margin:0 auto;padding:40px 24px}
+h1{font-size:2rem;font-weight:800;color:#fff}
+h2{font-size:1.4rem;font-weight:700;color:#14b8a6;margin:48px 0 12px;padding-bottom:6px;border-bottom:2px solid #14b8a620}
+h3{font-size:1rem;font-weight:600;color:#a3e6e0;margin:20px 0 8px}
+.sub{color:#9ca3af;font-size:0.9rem;margin-bottom:32px}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+th{text-align:left;padding:8px 10px;background:#111827;color:#14b8a6;font-size:0.72rem;text-transform:uppercase;border-bottom:2px solid #1f2937}
+td{padding:6px 10px;border-bottom:1px solid #1f2937}
+tr:hover{background:#11182780}
+.hi{color:#22c55e;font-weight:600}.lo{color:#ef4444;font-weight:600}.md{color:#f59e0b;font-weight:600}
+.card{background:#111827;border:1px solid #1f2937;border-radius:12px;padding:20px;margin:12px 0}
+.insight{border-left:4px solid #14b8a6;padding-left:16px;margin:16px 0}
+.insight.gap{border-color:#ef4444}
+.insight.opportunity{border-color:#22c55e}
+.insight.anomaly{border-color:#f59e0b}
+.insight.emerging{border-color:#a855f7}
+.insight h4{font-size:0.95rem;color:#fff;margin-bottom:4px}
+.insight p{font-size:0.82rem;color:#9ca3af}
+.insight .metric{display:inline-block;background:#1f2937;padding:2px 8px;border-radius:4px;font-size:0.75rem;margin:2px}
+.reality{background:#0d1e21;border:1px solid #14b8a630;border-radius:8px;padding:12px 16px;margin:8px 0;font-size:0.82rem}
+.reality b{color:#14b8a6}
+.tag{display:inline-block;padding:2px 8px;border-radius:6px;font-size:0.68rem;font-weight:700}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:16px 0}
+.sc{background:#111827;border:1px solid #1f2937;border-radius:10px;padding:14px;text-align:center}
+.sc .v{font-size:1.5rem;font-weight:700;color:#14b8a6}
+.sc .l{font-size:0.7rem;color:#6b7280;text-transform:uppercase}
+</style></head><body><div class="c">
+<h1>Embedding-Derived Insights</h1>
+<p class="sub">What the models reveal about Singapore's 332 subzones — validated against real data</p>
+<div class="g">
+<div class="sc"><div class="v">235</div><div class="l">Surprising Pairs</div></div>
+<div class="sc"><div class="v">40</div><div class="l">Gap Opportunities</div></div>
+<div class="sc"><div class="v">0</div><div class="l">Tier Mismatches</div></div>
+<div class="sc"><div class="v">16</div><div class="l">Cluster Anomalies</div></div>
+<div class="sc"><div class="v">141</div><div class="l">Model Disagreements</div></div>
+<div class="sc"><div class="v">1</div><div class="l">Emerging Hubs</div></div>
+</div>
+<h2>1. Surprising Twins — Similar DNA, Different Geography</h2>
+<p style="font-size:0.85rem;color:#9ca3af;margin-bottom:12px">Subzones in different parts of Singapore that the model says have nearly identical commercial structure.</p>
+<div class="insight">
+<h4>Tanjong Irau (Simpang) ≈ Bahar (Western Water Catchment)</h4>
+<p>Embedding similarity: <span class="hi">0.995</span> (AE) / 0.948 (GNN)</p>
+<p><span class="metric">Tanjong Irau: pop 0, 0 places, transit 0</span> <span class="metric">Bahar: pop 0, 0 places, transit 30</span></p>
+<div class="reality"><b>Reality check:</b> Both have similar population density, transit access, and commercial mix — they serve the same type of community despite being in different planning areas. This suggests similar F&B and retail strategies would work in both.</div>
+</div>
+<div class="insight">
+<h4>Brickland (Tengah) ≈ Bahar (Western Water Catchment)</h4>
+<p>Embedding similarity: <span class="hi">0.994</span> (AE) / 0.995 (GNN)</p>
+<p><span class="metric">Brickland: pop 0, 0 places, transit 80</span> <span class="metric">Bahar: pop 0, 0 places, transit 30</span></p>
+<div class="reality"><b>Reality check:</b> Both have similar population density, transit access, and commercial mix — they serve the same type of community despite being in different planning areas. This suggests similar F&B and retail strategies would work in both.</div>
+</div>
+<div class="insight">
+<h4>Pulau Seletar (Simpang) ≈ Bahar (Western Water Catchment)</h4>
+<p>Embedding similarity: <span class="hi">0.992</span> (AE) / 0.594 (GNN)</p>
+<p><span class="metric">Pulau Seletar: pop 0, 0 places, transit 0</span> <span class="metric">Bahar: pop 0, 0 places, transit 30</span></p>
+<div class="reality"><b>Reality check:</b> Both have similar population density, transit access, and commercial mix — they serve the same type of community despite being in different planning areas. This suggests similar F&B and retail strategies would work in both.</div>
+</div>
+<div class="insight">
+<h4>Tanjong Irau (Simpang) ≈ Brickland (Tengah)</h4>
+<p>Embedding similarity: <span class="hi">0.985</span> (AE) / 0.941 (GNN)</p>
+<p><span class="metric">Tanjong Irau: pop 0, 0 places, transit 0</span> <span class="metric">Brickland: pop 0, 0 places, transit 80</span></p>
+<div class="reality"><b>Reality check:</b> Both have similar population density, transit access, and commercial mix — they serve the same type of community despite being in different planning areas. This suggests similar F&B and retail strategies would work in both.</div>
+</div>
+<div class="insight">
+<h4>Simpang North (Simpang) ≈ Tengah Industrial Estate (Tengah)</h4>
+<p>Embedding similarity: <span class="hi">0.981</span> (AE) / 0.814 (GNN)</p>
+<p><span class="metric">Simpang North: pop 0, 2 places, transit 0</span> <span class="metric">Tengah Industri: pop 0, 5 places, transit 8</span></p>
+<div class="reality"><b>Reality check:</b> Both have similar population density, transit access, and commercial mix — they serve the same type of community despite being in different planning areas. This suggests similar F&B and retail strategies would work in both.</div>
+</div>
+<div class="insight">
+<h4>Pulau Seletar (Simpang) ≈ Brickland (Tengah)</h4>
+<p>Embedding similarity: <span class="hi">0.981</span> (AE) / 0.582 (GNN)</p>
+<p><span class="metric">Pulau Seletar: pop 0, 0 places, transit 0</span> <span class="metric">Brickland: pop 0, 0 places, transit 80</span></p>
+<div class="reality"><b>Reality check:</b> Both have similar population density, transit access, and commercial mix — they serve the same type of community despite being in different planning areas. This suggests similar F&B and retail strategies would work in both.</div>
+</div>
+<div class="insight">
+<h4>Simpang North (Simpang) ≈ Forest Hill (Tengah)</h4>
+<p>Embedding similarity: <span class="hi">0.976</span> (AE) / 0.841 (GNN)</p>
+<p><span class="metric">Simpang North: pop 0, 2 places, transit 0</span> <span class="metric">Forest Hill: pop 0, 3 places, transit 36</span></p>
+<div class="reality"><b>Reality check:</b> Both have similar population density, transit access, and commercial mix — they serve the same type of community despite being in different planning areas. This suggests similar F&B and retail strategies would work in both.</div>
+</div>
+<div class="insight">
+<h4>Airport Road (Paya Lebar) ≈ Simpang North (Simpang)</h4>
+<p>Embedding similarity: <span class="hi">0.974</span> (AE) / 0.785 (GNN)</p>
+<p><span class="metric">Airport Road: pop 0, 3 places, transit 42</span> <span class="metric">Simpang North: pop 0, 2 places, transit 0</span></p>
+<div class="reality"><b>Reality check:</b> Both have similar population density, transit access, and commercial mix — they serve the same type of community despite being in different planning areas. This suggests similar F&B and retail strategies would work in both.</div>
+</div>
+<h2>2. Gap Opportunities — Undersupplied vs Peers</h2>
+<p style="font-size:0.85rem;color:#9ca3af;margin-bottom:12px">Subzones whose embedding profile matches well-supplied commercial areas but have significantly fewer places.</p>
+<div class="insight gap">
+<h4>Marina Centre — 87% undersupplied vs peers</h4>
+<p>Most similar to <b>Chinatown</b> (similarity: 0.72). Peer avg: 504 places, this: 68 places.</p>
+<p><span class="metric">Pop: 0</span> <span class="metric">Transit: 100</span> <span class="metric">Similar rich peers: 1</span></p>
+<div class="reality"><b>Missing categories:</b> <b>Beauty & Personal Care</b> (has 103, peer has 278)</div>
+<div class="reality"><b>Reality check:</b> With 0 population and transit score 100, this subzone has the demand profile to support more commercial activity. The 87% gap vs structurally similar peers suggests room for 436+ additional places.</div>
+</div>
+<div class="insight gap">
+<h4>Selegie — 78% undersupplied vs peers</h4>
+<p>Most similar to <b>Victoria</b> (similarity: 0.76). Peer avg: 383 places, this: 83 places.</p>
+<p><span class="metric">Pop: 0</span> <span class="metric">Transit: 100</span> <span class="metric">Similar rich peers: 3</span></p>
+<div class="reality"><b>Missing categories:</b> <b>Restaurant</b> (has 53, peer has 230), <b>Cafe & Coffee</b> (has 12, peer has 61), <b>Shopping & Retail</b> (has 56, peer has 262)</div>
+<div class="reality"><b>Reality check:</b> With 0 population and transit score 100, this subzone has the demand profile to support more commercial activity. The 78% gap vs structurally similar peers suggests room for 300+ additional places.</div>
+</div>
+<div class="insight gap">
+<h4>Tanglin Halt — 76% undersupplied vs peers</h4>
+<p>Most similar to <b>National University Of S'pore</b> (similarity: 0.70). Peer avg: 310 places, this: 73 places.</p>
+<p><span class="metric">Pop: 5,580</span> <span class="metric">Transit: 100</span> <span class="metric">Similar rich peers: 1</span></p>
+<div class="reality"><b>Missing categories:</b> <b>Cafe & Coffee</b> (has 9, peer has 32)</div>
+<div class="reality"><b>Reality check:</b> With 5,580 population and transit score 100, this subzone has the demand profile to support more commercial activity. The 76% gap vs structurally similar peers suggests room for 237+ additional places.</div>
+</div>
+<div class="insight gap">
+<h4>Boat Quay — 76% undersupplied vs peers</h4>
+<p>Most similar to <b>City Hall</b> (similarity: 0.74). Peer avg: 402 places, this: 97 places.</p>
+<p><span class="metric">Pop: 20</span> <span class="metric">Transit: 100</span> <span class="metric">Similar rich peers: 2</span></p>
+<div class="reality"><b>Missing categories:</b> <b>Cafe & Coffee</b> (has 34, peer has 122), <b>Shopping & Retail</b> (has 61, peer has 611), <b>Beauty & Personal Care</b> (has 73, peer has 221)</div>
+<div class="reality"><b>Reality check:</b> With 20 population and transit score 100, this subzone has the demand profile to support more commercial activity. The 76% gap vs structurally similar peers suggests room for 305+ additional places.</div>
+</div>
+<div class="insight gap">
+<h4>Ghim Moh — 74% undersupplied vs peers</h4>
+<p>Most similar to <b>National University Of S'pore</b> (similarity: 0.70). Peer avg: 310 places, this: 81 places.</p>
+<p><span class="metric">Pop: 13,120</span> <span class="metric">Transit: 100</span> <span class="metric">Similar rich peers: 1</span></p>
+<div class="reality"><b>Missing categories:</b> <b>Cafe & Coffee</b> (has 9, peer has 32)</div>
+<div class="reality"><b>Reality check:</b> With 13,120 population and transit score 100, this subzone has the demand profile to support more commercial activity. The 74% gap vs structurally similar peers suggests room for 229+ additional places.</div>
+</div>
+<div class="insight gap">
+<h4>Clementi Central — 72% undersupplied vs peers</h4>
+<p>Most similar to <b>Lorong Ah Soo</b> (similarity: 0.80). Peer avg: 669 places, this: 185 places.</p>
+<p><span class="metric">Pop: 14,100</span> <span class="metric">Transit: 100</span> <span class="metric">Similar rich peers: 3</span></p>
+<div class="reality"><b>Reality check:</b> With 14,100 population and transit score 100, this subzone has the demand profile to support more commercial activity. The 72% gap vs structurally similar peers suggests room for 484+ additional places.</div>
+</div>
+<div class="insight gap">
+<h4>Nicoll — 69% undersupplied vs peers</h4>
+<p>Most similar to <b>Little India</b> (similarity: 0.80). Peer avg: 419 places, this: 128 places.</p>
+<p><span class="metric">Pop: 290</span> <span class="metric">Transit: 100</span> <span class="metric">Similar rich peers: 4</span></p>
+<div class="reality"><b>Missing categories:</b> <b>Restaurant</b> (has 63, peer has 265), <b>Shopping & Retail</b> (has 52, peer has 226), <b>Beauty & Personal Care</b> (has 29, peer has 97)</div>
+<div class="reality"><b>Reality check:</b> With 290 population and transit score 100, this subzone has the demand profile to support more commercial activity. The 69% gap vs structurally similar peers suggests room for 291+ additional places.</div>
+</div>
+<div class="insight gap">
+<h4>Bras Basah — 69% undersupplied vs peers</h4>
+<p>Most similar to <b>Victoria</b> (similarity: 0.72). Peer avg: 390 places, this: 122 places.</p>
+<p><span class="metric">Pop: 0</span> <span class="metric">Transit: 100</span> <span class="metric">Similar rich peers: 2</span></p>
+<div class="reality"><b>Missing categories:</b> <b>Restaurant</b> (has 49, peer has 230), <b>Cafe & Coffee</b> (has 20, peer has 61), <b>Shopping & Retail</b> (has 27, peer has 262)</div>
+<div class="reality"><b>Reality check:</b> With 0 population and transit score 100, this subzone has the demand profile to support more commercial activity. The 69% gap vs structurally similar peers suggests room for 268+ additional places.</div>
+</div>
+<div class="insight gap">
+<h4>Lorong 8 Toa Payoh — 69% undersupplied vs peers</h4>
+<p>Most similar to <b>Alexandra Hill</b> (similarity: 0.76). Peer avg: 366 places, this: 112 places.</p>
+<p><span class="metric">Pop: 6,650</span> <span class="metric">Transit: 100</span> <span class="metric">Similar rich peers: 2</span></p>
+<div class="reality"><b>Missing categories:</b> <b>Restaurant</b> (has 20, peer has 113), <b>Cafe & Coffee</b> (has 11, peer has 49), <b>Shopping & Retail</b> (has 25, peer has 189)</div>
+<div class="reality"><b>Reality check:</b> With 6,650 population and transit score 100, this subzone has the demand profile to support more commercial activity. The 69% gap vs structurally similar peers suggests room for 254+ additional places.</div>
+</div>
+<div class="insight gap">
+<h4>Boon Teck — 68% undersupplied vs peers</h4>
+<p>Most similar to <b>Alexandra Hill</b> (similarity: 0.79). Peer avg: 397 places, this: 128 places.</p>
+<p><span class="metric">Pop: 14,260</span> <span class="metric">Transit: 100</span> <span class="metric">Similar rich peers: 2</span></p>
+<div class="reality"><b>Missing categories:</b> <b>Restaurant</b> (has 24, peer has 113), <b>Cafe & Coffee</b> (has 10, peer has 49), <b>Shopping & Retail</b> (has 26, peer has 189)</div>
+<div class="reality"><b>Reality check:</b> With 14,260 population and transit score 100, this subzone has the demand profile to support more commercial activity. The 68% gap vs structurally similar peers suggests room for 269+ additional places.</div>
+</div>
+<h2>3. Price Tier Mismatches — Wrong Supply for the Demand</h2>
+<p style="font-size:0.85rem;color:#9ca3af;margin-bottom:12px">Areas where the price tier of existing places doesn't match the purchasing power of the population.</p>
+<h2>4. Where Spatial Context Flips the Story</h2>
+<p style="font-size:0.85rem;color:#9ca3af;margin-bottom:12px">Subzones where AE and GNN give completely different nearest neighbors — spatial context changes the picture.</p>
+<div class="insight anomaly">
+<h4>Yio Chu Kang (Ang Mo Kio) — Models disagree on neighbors</h4>
+<p>AE says similar to: <b>Toh Tuck</b>(0.85), <b>Kian Teck</b>(0.72), <b>Tagore</b>(0.67)</p>
+<p>GNN says similar to: <b>Garden</b>(0.83), <b>Gali Batu</b>(0.82), <b>Khatib</b>(0.82)</p>
+<div class="reality"><b>Reality check:</b> The AE matches by overall profile (demographics + commercial mix), while the GNN matches by spatial context (who's physically nearby and commercially connected). When they disagree, it means this subzone's character is shaped more by its neighbors than its own stats — important for understanding demand spillover.</div>
+</div>
+<div class="insight anomaly">
+<h4>Bukit Merah (Bukit Merah) — Models disagree on neighbors</h4>
+<p>AE says similar to: <b>Bukit Batok Eas</b>(0.77), <b>Holland Drive</b>(0.77), <b>Pasir Panjang 2</b>(0.76)</p>
+<p>GNN says similar to: <b>Alexandra Hill</b>(0.82), <b>Senoko West</b>(0.78), <b>Serangoon North</b>(0.78)</p>
+<div class="reality"><b>Reality check:</b> The AE matches by overall profile (demographics + commercial mix), while the GNN matches by spatial context (who's physically nearby and commercially connected). When they disagree, it means this subzone's character is shaped more by its neighbors than its own stats — important for understanding demand spillover.</div>
+</div>
+<div class="insight anomaly">
+<h4>Singapore General Hospital (Bukit Merah) — Models disagree on neighbors</h4>
+<p>AE says similar to: <b>Pasir Panjang 2</b>(0.64), <b>Coronation Road</b>(0.62), <b>Tanglin Halt</b>(0.61)</p>
+<p>GNN says similar to: <b>Tiong Bahru Sta</b>(0.83), <b>Everton Park</b>(0.78), <b>Bidadari</b>(0.74)</p>
+<div class="reality"><b>Reality check:</b> The AE matches by overall profile (demographics + commercial mix), while the GNN matches by spatial context (who's physically nearby and commercially connected). When they disagree, it means this subzone's character is shaped more by its neighbors than its own stats — important for understanding demand spillover.</div>
+</div>
+<div class="insight anomaly">
+<h4>Alexandra North (Bukit Merah) — Models disagree on neighbors</h4>
+<p>AE says similar to: <b>Farrer Court</b>(0.82), <b>Monk's Hill</b>(0.79), <b>West Coast</b>(0.78)</p>
+<p>GNN says similar to: <b>Telok Blangah R</b>(0.64), <b>Chatsworth</b>(0.61), <b>Seletar</b>(0.61)</p>
+<div class="reality"><b>Reality check:</b> The AE matches by overall profile (demographics + commercial mix), while the GNN matches by spatial context (who's physically nearby and commercially connected). When they disagree, it means this subzone's character is shaped more by its neighbors than its own stats — important for understanding demand spillover.</div>
+</div>
+<div class="insight anomaly">
+<h4>Telok Blangah Drive (Bukit Merah) — Models disagree on neighbors</h4>
+<p>AE says similar to: <b>Tanglin Halt</b>(0.76), <b>Ghim Moh</b>(0.72), <b>Bidadari</b>(0.67)</p>
+<p>GNN says similar to: <b>Mei Chin</b>(0.84), <b>Pasir Panjang 2</b>(0.81), <b>Yio Chu Kang Ea</b>(0.81)</p>
+<div class="reality"><b>Reality check:</b> The AE matches by overall profile (demographics + commercial mix), while the GNN matches by spatial context (who's physically nearby and commercially connected). When they disagree, it means this subzone's character is shaped more by its neighbors than its own stats — important for understanding demand spillover.</div>
+</div>
+<div class="insight anomaly">
+<h4>Everton Park (Bukit Merah) — Models disagree on neighbors</h4>
+<p>AE says similar to: <b>Singapore Polyt</b>(0.66), <b>Kent Ridge</b>(0.62), <b>One North</b>(0.62)</p>
+<p>GNN says similar to: <b>City Terminals</b>(0.79), <b>Depot Road</b>(0.78), <b>Singapore Gener</b>(0.78)</p>
+<div class="reality"><b>Reality check:</b> The AE matches by overall profile (demographics + commercial mix), while the GNN matches by spatial context (who's physically nearby and commercially connected). When they disagree, it means this subzone's character is shaped more by its neighbors than its own stats — important for understanding demand spillover.</div>
+</div>
+<h2>5. Emerging Hubs — High Growth, Unmet Potential</h2>
+<p style="font-size:0.85rem;color:#9ca3af;margin-bottom:12px">Subzones with strong population growth whose embedding suggests they should have more commercial activity.</p>
+<div class="insight emerging">
+<h4>Sembawang East (Sembawang) — 18% population growth</h4>
+<p><span class="metric">Pop: 24,750</span> <span class="metric">Places: 115</span> <span class="metric">Transit: 100</span> <span class="metric">Most similar to: Brickworks (123 places)</span></p>
+<div class="reality"><b>Reality check:</b> With 18% population growth and an embedding profile similar to Brickworks (which has 123 places), this subzone could support ~8 more places. The population has grown but commercial supply hasn't caught up yet — classic emerging hub pattern.</div>
+</div>
+<h2>Summary</h2>
+<div class="card">
+<h3 style="color:#14b8a6;margin-bottom:12px">Key Findings</h3>
+<table><tr><th>Finding</th><th>Count</th><th>Implication</th></tr>
+<tr><td>Subzone twins across Singapore</td><td class="hi">235</td><td>Same strategy works in both — proven playbook transfer</td></tr>
+<tr><td>Commercially undersupplied areas</td><td class="hi">40</td><td>Room for 3073+ new places across these subzones</td></tr>
+<tr><td>Price tier mismatches</td><td class="hi">0</td><td>Wrong price segment served — repositioning opportunity</td></tr>
+<tr><td>Spatial context changes the picture</td><td class="hi">141</td><td>Demand spillover from neighbors matters more than own stats</td></tr>
+<tr><td>Emerging hubs (high growth)</td><td class="hi">1</td><td>Commercial supply hasn't caught up with population growth</td></tr>
+</table>
+</div>
+<div class="card" style="border-left:4px solid #f59e0b">
+<h3 style="color:#f59e0b;margin-bottom:8px">Caveats</h3>
+<p style="font-size:0.82rem;color:#9ca3af">These insights are derived from embedding similarity and feature analysis only. They do not account for: (1) actual footfall data (not yet integrated), (2) rental costs and unit economics, (3) zoning restrictions and development plans, (4) competition from adjacent subzones not captured in the model, (5) brand-specific strategies and target demographics. Use as directional signals, not investment decisions.</p>
+</div>
+<div style="margin-top:40px;padding-top:20px;border-top:1px solid #1f2937;color:#6b7280;font-size:0.75rem">
+<p>Digital Atlas SGP | Insights from V2 AE (363 feat) + GNN v3 (394 feat) | 332 subzones, 174K places</p>
+</div>
+</div></body></html>

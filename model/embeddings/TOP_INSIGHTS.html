@@ -1,0 +1,201 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Top Insights — Digital Atlas SGP</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0f1a;color:#e5e7eb;line-height:1.7}
+.c{max-width:900px;margin:0 auto;padding:40px 24px}
+h1{font-size:2rem;font-weight:800;color:#fff;margin-bottom:4px}
+h2{font-size:1.3rem;font-weight:700;margin:40px 0 8px;padding-bottom:6px;border-bottom:2px solid}
+.sub{color:#9ca3af;font-size:0.9rem;margin-bottom:36px}
+.insight{background:#111827;border-radius:14px;padding:24px;margin:20px 0;border:1px solid #1f2937;position:relative}
+.insight .num{position:absolute;top:-12px;left:20px;background:#14b8a6;color:#0a0f1a;font-weight:800;font-size:0.75rem;padding:2px 10px;border-radius:6px}
+.insight h3{font-size:1.05rem;color:#fff;margin-bottom:6px}
+.insight .finding{font-size:0.88rem;color:#e5e7eb;margin:8px 0;line-height:1.8}
+.insight .data{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.insight .data .chip{background:#1f2937;padding:4px 10px;border-radius:6px;font-size:0.78rem;color:#9ca3af}
+.insight .data .chip b{color:#fff}
+.why{background:#14b8a608;border:1px solid #14b8a625;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why .label{font-size:0.72rem;color:#14b8a6;text-transform:uppercase;font-weight:700;letter-spacing:0.04em;margin-bottom:4px}
+.why p{font-size:0.82rem;color:#a3e6e0;line-height:1.7}
+.reality{background:#f59e0b08;border:1px solid #f59e0b25;border-radius:10px;padding:14px 16px;margin:12px 0}
+.reality .label{font-size:0.72rem;color:#f59e0b;text-transform:uppercase;font-weight:700;letter-spacing:0.04em;margin-bottom:4px}
+.reality p{font-size:0.82rem;color:#fbbf24;line-height:1.7}
+.model{background:#3b82f608;border:1px solid #3b82f625;border-radius:10px;padding:14px 16px;margin:12px 0}
+.model .label{font-size:0.72rem;color:#3b82f6;text-transform:uppercase;font-weight:700;letter-spacing:0.04em;margin-bottom:4px}
+.model p{font-size:0.82rem;color:#93c5fd;line-height:1.7}
+.gap-bar{height:8px;border-radius:4px;background:#1f2937;margin:6px 0;overflow:hidden}
+.gap-fill{height:100%;border-radius:4px}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin:12px 0}
+.vs .side{background:#1f2937;border-radius:8px;padding:10px 14px;font-size:0.82rem}
+.vs .side .name{font-weight:700;color:#fff}
+.vs .side .stats{color:#9ca3af;font-size:0.78rem;margin-top:4px}
+.vs .arrow{color:#14b8a6;font-size:1.2rem;font-weight:700}
+</style></head><body><div class="c">
+
+<h1>Top Insights from Embedding Models</h1>
+<p class="sub">6 findings that only a structural model of Singapore's 332 subzones can reveal — with reality checks</p>
+
+<!-- INSIGHT 1 -->
+<div class="insight">
+<div class="num">1</div>
+<h2 style="color:#3b82f6;border-color:#3b82f630">Jurong Gateway = Orchard's Twin</h2>
+<h3>The model says Singapore's western hub has the same commercial DNA as its most iconic shopping belt.</h3>
+
+<div class="finding">
+Jurong Gateway (Jurong East) and Boulevard (Orchard) score <b>0.792 cosine similarity</b> — making them structural twins despite being 15km apart. Both have near-zero residential population, full transit connectivity, and dense commercial activity anchored by major malls.
+</div>
+
+<div class="vs">
+<div class="side"><div class="name">Jurong Gateway</div><div class="stats">Pop: 410 | 410 places | Transit: 100<br>29 cafes, 58 restaurants, 1 MRT</div></div>
+<div class="arrow">≈ 0.79</div>
+<div class="side"><div class="name">Boulevard (Orchard)</div><div class="stats">Pop: 310 | 660 places | Transit: 100<br>39 cafes, 74 restaurants, 7 MRTs</div></div>
+</div>
+
+<div class="why"><div class="label">Why this matters</div>
+<p>Jurong Gateway has 38% fewer places than Orchard despite an almost identical structural profile. This is the <b>single largest validated gap</b> in the model — a subzone that "should" have Orchard-level commercial density based on its demographics, transit, and land use, but doesn't yet.</p></div>
+
+<div class="reality"><div class="label">Reality check</div>
+<p>✅ <b>Confirmed by URA.</b> Jurong Lake District is designated Singapore's second CBD. JEM, Westgate, and Big Box malls already anchor it. The government is investing $2B+ in the Jurong Region Line. The model independently discovers what urban planners have been building toward for a decade.</p></div>
+
+<div class="model"><div class="label">Only this model captures this</div>
+<p>A simple place-count comparison wouldn't connect Jurong to Orchard — they're in different regions with different histories. The embedding captures the <b>structural similarity</b> across 363 features simultaneously — similar transit scores, commercial land use %, F&B density, zero residential population, and micrograph patterns all converge to the same embedding neighborhood.</p></div>
+</div>
+
+<!-- INSIGHT 2 -->
+<div class="insight">
+<div class="num">2</div>
+<h2 style="color:#ef4444;border-color:#ef444430">Selegie: 78% Undersupplied vs Its Own Neighbors</h2>
+<h3>A subzone in the heart of the city with dramatically fewer places than structurally identical neighbors 200m away.</h3>
+
+<div class="finding">
+Selegie (Rochor) has only 83 places but embeds near Victoria (415 places, sim 0.755) and Bencoolen (215 places). The model identifies it as <b>78% undersupplied</b> — missing ~177 restaurants, 49 cafes, 206 retail shops, and 119 beauty places vs its peers.
+</div>
+
+<div class="data">
+<span class="chip"><b>83</b> places (Selegie)</span>
+<span class="chip"><b>415</b> places (Victoria)</span>
+<span class="chip"><b>Missing:</b> 177 restaurants, 49 cafes</span>
+<span class="chip"><b>Transit:</b> 100</span>
+</div>
+
+<div class="gap-bar"><div class="gap-fill" style="width:22%;background:#ef4444"></div></div>
+<div style="font-size:0.75rem;color:#6b7280">Selegie has 22% of what its structural peers have</div>
+
+<div class="reality"><div class="label">Reality check</div>
+<p>⚠️ <b>Partially confirmed.</b> Selegie is a small subzone (0.05 km²) dominated by SMU campus and Sim Lim Square. The low place count is partly because it's a tight area with less retail frontage. However, the model is right that the area has strong latent demand — heavy student traffic from SMU, tourist spillover from Bugis, and full MRT access. The Selegie Arts Centre redevelopment may fill this gap.</p></div>
+
+<div class="model"><div class="label">Only this model captures this</div>
+<p>You'd never spot this by looking at a map — Selegie is tiny and wedged between much larger subzones. The embedding model sees past the boundaries and recognizes that Selegie's <b>demographic + transit + land use profile</b> matches areas with 5x more commercial activity. Without the 363-dimensional comparison, this gap is invisible.</p></div>
+</div>
+
+<!-- INSIGHT 3 -->
+<div class="insight">
+<div class="num">3</div>
+<h2 style="color:#a855f7;border-color:#a855f730">Changi Airport: GNN Says "Island" Not "City"</h2>
+<h3>The AE model thinks Changi Airport is like Woodlands. The GNN knows it's actually like Sentosa.</h3>
+
+<div class="finding">
+The AE model matches Changi Airport (529 places) to <b>Woodlands Regional Centre</b> and <b>Joo Koon</b> — based on similar commercial metrics. But the GNN, which sees spatial connections, matches it to <b>Sentosa</b> and <b>Changi Point</b> — geographically isolated destinations with tourist-driven demand.
+</div>
+
+<div class="vs">
+<div class="side"><div class="name">AE says: Woodlands RC</div><div class="stats">Regional centre, HDB heartland<br>Similar commercial profile</div></div>
+<div class="arrow">vs</div>
+<div class="side"><div class="name">GNN says: Sentosa</div><div class="stats">Island destination, tourist-driven<br>Similar spatial isolation</div></div>
+</div>
+
+<div class="reality"><div class="label">Reality check</div>
+<p>✅ <b>GNN is right.</b> Changi Airport's commercial character is driven by its isolation and captive audience — just like Sentosa. Travelers don't choose to eat at Changi T3 because of the neighborhood; they eat there because they're stuck there. Woodlands is a commuter hub with pass-through demand — fundamentally different. This is exactly the kind of insight that requires graph context.</p></div>
+
+<div class="model"><div class="label">Only the GNN captures this</div>
+<p>The AE sees "529 places, high commercial activity, good transit" and matches to other commercial hubs. The GNN sees "low adjacency degree, no cross-boundary anchor flows, island-like connectivity" and correctly identifies the <b>captive audience</b> pattern. This is why spatial context matters — the same number of places means something completely different depending on whether people can walk to the next subzone or not.</p></div>
+</div>
+
+<!-- INSIGHT 4 -->
+<div class="insight">
+<div class="num">4</div>
+<h2 style="color:#22c55e;border-color:#22c55e30">Everton Park: Singapore's Most Unique Subzone</h2>
+<h3>No other subzone in Singapore looks like Everton Park. The model can't find a good match.</h3>
+
+<div class="finding">
+Everton Park (Bukit Merah) has the <b>lowest average similarity</b> to its nearest neighbors (0.602) of any subzone with meaningful commercial activity. Its best match is Singapore Polytechnic at only 0.66. It's a structural outlier — not quite CBD, not quite residential, not quite heritage.
+</div>
+
+<div class="data">
+<span class="chip"><b>102</b> places</span>
+<span class="chip"><b>Pop:</b> 7,320</span>
+<span class="chip"><b>Top:</b> Services(49), Restaurant(40), Business(37)</span>
+<span class="chip"><b>Best match:</b> 0.66 (Singapore Poly)</span>
+</div>
+
+<div class="reality"><div class="label">Reality check</div>
+<p>✅ <b>Spot on.</b> Everton Park is genuinely one-of-a-kind in Singapore — a low-rise conservation area wedged between the CBD skyscrapers and HDB heartland of Bukit Merah. It hosts a unique mix of heritage shophouses with creative agencies, specialty coffee, and boutique restaurants. It doesn't scale like Orchard (too small), doesn't feel like a HDB town centre (too boutique), and doesn't match CBD (residential). The model correctly identifies it as an anomaly.</p></div>
+
+<div class="model"><div class="label">Only this model captures this</div>
+<p>Uniqueness is invisible in category counts or individual metrics. You need to measure a subzone's <b>distance from all 331 others simultaneously</b> in a 32-dimensional space to discover that nothing else in Singapore has the same combination of features. This is what embeddings are for — finding the <b>absence</b> of a pattern, not just the presence.</p></div>
+</div>
+
+<!-- INSIGHT 5 -->
+<div class="insight">
+<div class="num">5</div>
+<h2 style="color:#ec4899;border-color:#ec489930">SGH: The Neighborhood That Doesn't Exist</h2>
+<h3>Singapore General Hospital subzone has 94 places but zero residents — and the two models disagree on what it is.</h3>
+
+<div class="finding">
+The AE says SGH's nearest match is <b>Pasir Panjang 2</b> (a port/industrial area in Queenstown). The GNN says it's <b>Tiong Bahru Station</b> and <b>Everton Park</b> — its actual physical neighbors. The AE sees "zero population + institutional" and matches to other empty zones. The GNN sees the graph and knows SGH is embedded in the Bukit Merah residential fabric.
+</div>
+
+<div class="vs">
+<div class="side"><div class="name">AE: "It's like a port zone"</div><div class="stats">Zero pop, institutional, isolated<br>Pasir Panjang 2 (sim 0.64)</div></div>
+<div class="arrow">vs</div>
+<div class="side"><div class="name">GNN: "It's part of Bukit Merah"</div><div class="stats">Graph-connected to Tiong Bahru<br>Bukit Merah neighbors (sim 0.70+)</div></div>
+</div>
+
+<div class="reality"><div class="label">Reality check</div>
+<p>✅ <b>GNN is right again.</b> SGH draws patients, visitors, and staff from surrounding Tiong Bahru and Bukit Merah. The cafes and restaurants there serve hospital workers and visitors, not a non-existent residential population. The AE's zero-population matching is technically correct but commercially useless — you'd never plan a F&B strategy for SGH by looking at Pasir Panjang port.</p></div>
+
+<div class="model"><div class="label">Why both models together are powerful</div>
+<p>The AE tells you SGH is <b>structurally unusual</b> (zero pop + high institutional). The GNN tells you <b>where its demand comes from</b> (neighboring residential subzones). Together they answer: "This is an unusual place, but don't worry — the demand spillover from Tiong Bahru means the same F&B strategies work here as in surrounding HDB estates."</p></div>
+</div>
+
+<!-- INSIGHT 6 -->
+<div class="insight">
+<div class="num">6</div>
+<h2 style="color:#14b8a6;border-color:#14b8a630">Katong's Invisible Border</h2>
+<h3>AE says Katong is like Anak Bukit (Bukit Timah). GNN says it's like Frankel and Kembangan. The graph wins.</h3>
+
+<div class="finding">
+Katong (Marine Parade, 481 places) is a beloved F&B destination. The AE matches it to <b>Anak Bukit</b> — a Bukit Timah suburb 12km away. The GNN matches it to <b>Frankel</b> and <b>Kembangan</b> — the Bedok subzones literally next door. Our micrograph data shows <b>1,143 anchor connections</b> crossing the Katong-Kembangan-Frankel borders.
+</div>
+
+<div class="data">
+<span class="chip"><b>481</b> places in Katong</span>
+<span class="chip"><b>1,143</b> cross-boundary anchors with Frankel+Kembangan</span>
+<span class="chip"><b>AE match:</b> Anak Bukit (12km away)</span>
+<span class="chip"><b>GNN match:</b> Frankel (adjacent)</span>
+</div>
+
+<div class="reality"><div class="label">Reality check</div>
+<p>✅ <b>Anyone who's been to East Coast knows this.</b> Katong, Joo Chiat, and the Kembangan/Frankel area function as one continuous lifestyle corridor. Nobody says "I'm going to Katong subzone" — they say "East Coast." The administrative boundary between Marine Parade and Bedok planning areas is invisible on the ground. Restaurants in Katong compete with restaurants in Frankel, not with restaurants in Bukit Timah.</p></div>
+
+<div class="model"><div class="label">Only cross-boundary micrograph flows capture this</div>
+<p>The 1,143 anchor connections that cross these subzone boundaries are <b>the real commercial graph</b> — they show which places actually compete with and complement each other. Without the micrograph-derived edges, the GNN would miss this. Without the GNN, the AE would match Katong to a demographically similar but commercially disconnected suburb across the island.</p></div>
+</div>
+
+<!-- Summary -->
+<div style="background:#111827;border-radius:14px;padding:24px;margin:40px 0;border:1px solid #1f2937">
+<h3 style="color:#14b8a6;margin-bottom:12px">What These Insights Mean</h3>
+<table style="width:100%;font-size:0.85rem;border-collapse:collapse">
+<tr style="border-bottom:1px solid #1f2937"><td style="padding:8px;color:#9ca3af">For <b style="color:#fff">site selection</b></td><td style="padding:8px">The twin-finding (#1) means strategies proven in Orchard can be tested in Jurong. The gap analysis (#2) identifies specific undersupplied locations.</td></tr>
+<tr style="border-bottom:1px solid #1f2937"><td style="padding:8px;color:#9ca3af">For <b style="color:#fff">competitive analysis</b></td><td style="padding:8px">The GNN disagreements (#3, #5, #6) reveal where competition actually comes from — often across subzone boundaries that traditional analysis ignores.</td></tr>
+<tr style="border-bottom:1px solid #1f2937"><td style="padding:8px;color:#9ca3af">For <b style="color:#fff">brand strategy</b></td><td style="padding:8px">Everton Park's uniqueness (#4) signals a location where standard playbooks don't apply — requiring a bespoke approach.</td></tr>
+<tr><td style="padding:8px;color:#9ca3af">For <b style="color:#fff">urban planning</b></td><td style="padding:8px">The Jurong-Orchard twin (#1) validates government investment in Jurong Lake District. The model independently reaches the same conclusion as URA's masterplan.</td></tr>
+</table>
+</div>
+
+<div style="margin-top:40px;padding-top:20px;border-top:1px solid #1f2937;color:#6b7280;font-size:0.75rem">
+<p>Digital Atlas SGP | V2 Autoencoder (363 feat, 32-dim) + GNN v3 (394 feat, graph-aware) | 332 subzones, 174K places, 42K micrographs</p>
+</div>
+
+</div></body></html>

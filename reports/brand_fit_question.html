@@ -1,0 +1,923 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Brand Fit Question — Singapore's Chains, and Where They Don't Belong | Propheus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg-1: #0d1f21;
+    --bg-2: #11282a;
+    --bg-3: #1a3c42;
+    --surface: rgba(17, 40, 42, 0.65);
+    --surface-edge: rgba(32, 178, 170, 0.18);
+    --rule: rgba(32, 178, 170, 0.18);
+    --rule-soft: rgba(32, 178, 170, 0.10);
+    --ink: #ffffff;
+    --ink-soft: #c9d4d6;
+    --ink-faint: #7a8e91;
+    --accent: #20b2aa;
+    --accent-soft: #14d4cc;
+    --accent-deep: #0e8c87;
+    --warn: #f0a830;
+    --measure: 40rem;
+  }
+
+  html { background: var(--bg-1); }
+  body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 0%, rgba(32,178,170,0.08), transparent 50%),
+      radial-gradient(ellipse 70% 50% at 90% 30%, rgba(32,178,170,0.04), transparent 50%),
+      linear-gradient(180deg, var(--bg-1), var(--bg-2) 40%, var(--bg-1));
+    background-attachment: fixed;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  .page { max-width: 86rem; margin: 0 auto; padding: 0 1.5rem; }
+  .col { max-width: var(--measure); margin: 0 auto; }
+  .col-wide { max-width: 60rem; margin: 0 auto; }
+
+  /* ---------- Masthead ---------- */
+  .masthead {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.6rem 0 1.4rem;
+    margin-bottom: 5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .brand { display: flex; align-items: center; gap: 0.85rem; }
+  .brand-logo { width: 32px; height: 32px; flex-shrink: 0; }
+  .brand-text {
+    font-family: "Raleway", sans-serif;
+    font-weight: 700; color: var(--ink);
+    font-size: 16px; letter-spacing: 0.02em;
+  }
+  .brand-text .product { color: var(--accent); font-weight: 700; }
+  .brand-text .div { color: var(--ink-faint); font-weight: 400; margin: 0 0.45rem; }
+  .brand-text .sub {
+    color: var(--ink-faint); font-weight: 500; font-size: 13px;
+    text-transform: uppercase; letter-spacing: 0.16em;
+  }
+  .crumb {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; color: var(--ink-faint);
+    letter-spacing: 0.16em; text-transform: uppercase;
+  }
+  .crumb a {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px dotted rgba(32,178,170,0.4);
+    padding-bottom: 1px;
+  }
+  .crumb a:hover { color: var(--accent-soft); }
+
+  /* ---------- Title ---------- */
+  .title-block { text-align: center; padding: 2.5rem 0 4rem; max-width: 60rem; margin: 0 auto; }
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1.6rem; font-weight: 500;
+  }
+  .eyebrow::before, .eyebrow::after {
+    content: ""; display: inline-block;
+    width: 26px; height: 1px; background: var(--accent);
+    vertical-align: middle; margin: 0 14px; opacity: 0.6;
+  }
+  h1.title {
+    font-family: "Raleway", sans-serif;
+    font-weight: 700; font-size: clamp(2.4rem, 5.4vw, 4rem);
+    line-height: 1.08; letter-spacing: -0.025em; color: var(--ink);
+  }
+  h1.title .ac { color: var(--accent); font-weight: 700; }
+  .subtitle {
+    font-family: "Inter", sans-serif; font-weight: 400;
+    font-size: 1.2rem; color: var(--ink-soft);
+    margin: 1.5rem auto 0;
+    max-width: 44rem; line-height: 1.55;
+  }
+  .subtitle .ac { color: var(--accent); font-weight: 500; }
+  .dateline {
+    margin-top: 2.4rem;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .dateline span { color: var(--ink-soft); }
+  .ornament {
+    text-align: center; color: var(--accent);
+    margin: 2.6rem 0; letter-spacing: 1.4em;
+    font-size: 0.75rem; opacity: 0.55;
+  }
+
+  /* ---------- Body ---------- */
+  p { margin-bottom: 1.1em; color: var(--ink-soft); }
+  p.lead { font-size: 1.12rem; line-height: 1.65; color: var(--ink); }
+  .dropcap::first-letter {
+    font-family: "Raleway", sans-serif; font-weight: 800;
+    float: left; font-size: 4rem; line-height: 0.9;
+    padding: 0.4rem 0.7rem 0 0; color: var(--accent);
+  }
+
+  h2.section {
+    font-family: "Raleway", sans-serif; font-weight: 700;
+    font-size: 1.85rem; line-height: 1.18; letter-spacing: -0.015em;
+    color: var(--ink);
+    margin: 5rem auto 1.5rem; max-width: var(--measure);
+  }
+  h2.section .ac { color: var(--accent); }
+  .section-num {
+    display: block; font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 0.8rem; font-weight: 500;
+  }
+  h3.sub {
+    font-family: "Raleway", sans-serif; font-weight: 600;
+    font-size: 1.1rem; color: var(--ink);
+    margin: 2.2rem 0 0.7rem; letter-spacing: -0.005em;
+  }
+
+  .ink { color: var(--ink); font-weight: 500; }
+  .ac { color: var(--accent); font-weight: 500; }
+  .num {
+    font-family: "JetBrains Mono", monospace;
+    font-feature-settings: "tnum" 1, "lnum" 1;
+    font-size: 0.94em; color: var(--ink); letter-spacing: -0.005em;
+  }
+
+  mark {
+    background: linear-gradient(180deg, transparent 60%, rgba(32,178,170,0.28) 60%, rgba(32,178,170,0.28) 92%, transparent 92%);
+    color: var(--ink); padding: 0 0.06em;
+  }
+
+  sup.fn {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.62em; color: var(--accent);
+    vertical-align: super; margin-left: 0.1em; font-weight: 600;
+  }
+  sup.fn a { color: inherit; text-decoration: none; }
+  sup.fn a:hover { text-decoration: underline; }
+
+  /* ---------- Pull quote ---------- */
+  .pull {
+    font-family: "Raleway", sans-serif; font-weight: 500;
+    font-size: 1.55rem; line-height: 1.35; color: var(--ink);
+    border-top: 1px solid var(--accent);
+    border-bottom: 1px solid var(--accent);
+    padding: 1.8rem 0; margin: 3rem auto;
+    max-width: 50rem; text-align: center; letter-spacing: -0.012em;
+  }
+  .pull .ac { color: var(--accent); }
+
+  /* ---------- Stats ---------- */
+  .stat-row {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    margin: 3rem auto; max-width: 60rem;
+    background: var(--rule); border: 1px solid var(--rule);
+    border-radius: 12px; overflow: hidden;
+  }
+  @media (max-width: 700px) { .stat-row { grid-template-columns: repeat(2, 1fr); } }
+  .stat { background: var(--bg-1); padding: 1.6rem 1.2rem; text-align: center; }
+  .stat .v {
+    font-family: "Raleway", sans-serif; font-weight: 700;
+    font-size: 2.3rem; line-height: 1; color: var(--accent);
+    letter-spacing: -0.02em;
+  }
+  .stat .v .small { color: var(--ink-faint); font-size: 1.3rem; font-weight: 500; }
+  .stat .l {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--ink-faint); margin-top: 0.65rem;
+  }
+  .stat .s {
+    font-size: 0.8rem; color: var(--ink-faint);
+    margin-top: 0.4rem; line-height: 1.4;
+  }
+
+  /* ---------- Charts ---------- */
+  .figure { max-width: 60rem; margin: 3rem auto; }
+  .figure-caption {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; color: var(--ink-faint);
+    letter-spacing: 0.04em; line-height: 1.65;
+    margin-top: 1rem; padding-left: 1.3rem;
+    border-left: 2px solid var(--accent);
+  }
+  .figure-caption b { color: var(--ink); font-weight: 600; }
+
+  .chart-card {
+    background: var(--surface); backdrop-filter: blur(8px);
+    border: 1px solid var(--surface-edge);
+    border-radius: 12px; padding: 1.8rem;
+  }
+
+  /* ---------- Brand archetype rows ---------- */
+  .brand-rows { display: flex; flex-direction: column; gap: 0.85rem; }
+  .brand-row { display: grid; grid-template-columns: 9rem 1fr 4rem; align-items: center; gap: 1rem; }
+  @media (max-width: 760px) { .brand-row { grid-template-columns: 7rem 1fr 3.5rem; } }
+  .brand-row .name {
+    font-family: "Inter", sans-serif; font-size: 13.5px;
+    color: var(--ink); font-weight: 600;
+  }
+  .brand-row .name .cat {
+    display: block; font-family: "JetBrains Mono", monospace;
+    font-size: 9.5px; color: var(--ink-faint);
+    letter-spacing: 0.06em; font-weight: 500;
+    margin-top: 2px; text-transform: uppercase;
+  }
+  .brand-row .stack {
+    display: flex; height: 22px; border-radius: 4px; overflow: hidden;
+    background: rgba(0,0,0,0.2);
+  }
+  .brand-row .stack .seg {
+    height: 100%;
+    transition: opacity 0.15s;
+  }
+  .brand-row .stack .seg:hover { opacity: 0.8; }
+  .brand-row .total {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px; color: var(--ink-soft);
+    text-align: right; font-feature-settings: "tnum" 1;
+  }
+
+  /* legend */
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 1rem 1.5rem;
+    font-family: "JetBrains Mono", monospace; font-size: 10.5px;
+    color: var(--ink-soft); letter-spacing: 0.04em;
+    margin-top: 1.2rem; padding-top: 1.2rem;
+    border-top: 1px solid var(--rule-soft);
+  }
+  .legend .swatch {
+    display: inline-block; width: 10px; height: 10px;
+    margin-right: 0.45rem; vertical-align: middle; border-radius: 2px;
+  }
+
+  /* ---------- Misfits panel ---------- */
+  .misfits {
+    max-width: 64rem; margin: 3rem auto;
+    background: var(--surface); backdrop-filter: blur(8px);
+    border: 1px solid var(--surface-edge);
+    border-radius: 12px; padding: 0;
+    overflow: hidden;
+  }
+  .misfits-hdr {
+    background: linear-gradient(90deg, rgba(32,178,170,0.18), rgba(32,178,170,0.04));
+    padding: 1.2rem 1.6rem;
+    border-bottom: 1px solid var(--surface-edge);
+    display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
+  }
+  .misfits-hdr .t {
+    font-family: "Raleway", sans-serif; font-weight: 700;
+    font-size: 17px; color: var(--ink); letter-spacing: -0.01em;
+  }
+  .misfits-hdr .t .ac { color: var(--accent); }
+  .misfits-hdr .meta {
+    font-family: "JetBrains Mono", monospace; font-size: 10.5px;
+    color: var(--ink-faint); letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  .misfits-list { padding: 0.4rem 1.6rem 1rem; }
+  .misfit {
+    display: grid; grid-template-columns: 1.3fr 2fr 1fr; gap: 1.2rem;
+    align-items: center; padding: 0.85rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  @media (max-width: 760px) { .misfit { grid-template-columns: 1fr; gap: 0.4rem; } }
+  .misfit:last-child { border-bottom: none; }
+  .misfit .brand-name {
+    font-family: "Inter", sans-serif; font-weight: 600;
+    color: var(--ink); font-size: 14px;
+  }
+  .misfit .brand-name .ctx {
+    display: block; font-family: "JetBrains Mono", monospace;
+    font-size: 10px; color: var(--ink-faint); letter-spacing: 0.08em;
+    margin-top: 2px; text-transform: uppercase; font-weight: 500;
+  }
+  .misfit .outlet {
+    font-family: "Inter", sans-serif; font-size: 14px; color: var(--ink-soft);
+  }
+  .misfit .pa-tag {
+    font-family: "JetBrains Mono", monospace; font-size: 11px;
+    color: var(--accent); padding: 4px 10px;
+    border: 1px solid rgba(32,178,170,0.35);
+    border-radius: 4px; text-align: center; letter-spacing: 0.08em;
+    text-transform: uppercase; justify-self: end; white-space: nowrap;
+  }
+  @media (max-width: 760px) { .misfit .pa-tag { justify-self: start; } }
+  .misfit.heritage .pa-tag {
+    color: var(--warn); border-color: rgba(240,168,48,0.45);
+  }
+  .misfit.noise .pa-tag {
+    color: var(--ink-faint); border-color: var(--rule);
+  }
+
+  /* ---------- Caveat ---------- */
+  .caveat {
+    max-width: var(--measure); margin: 2.8rem auto;
+    padding: 1.8rem 1.9rem;
+    border: 1px solid var(--surface-edge);
+    background: var(--surface); backdrop-filter: blur(8px);
+    border-radius: 10px; position: relative;
+  }
+  .caveat::before {
+    content: "Caveat";
+    position: absolute; top: -10px; left: 1.4rem;
+    background: var(--bg-1); padding: 2px 0.7rem;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--accent); font-weight: 600;
+    border: 1px solid var(--surface-edge); border-radius: 4px;
+  }
+  .caveat p {
+    font-size: 0.94rem; color: var(--ink-soft); line-height: 1.65;
+  }
+  .caveat p:last-child { margin-bottom: 0; }
+  .caveat b { color: var(--ink); font-weight: 600; }
+
+  /* ---------- Footnotes ---------- */
+  .footnotes {
+    max-width: var(--measure); margin: 5rem auto 0;
+    padding-top: 1.8rem; border-top: 1px solid var(--rule);
+    font-size: 0.86rem; color: var(--ink-faint); line-height: 1.6;
+  }
+  .footnotes h4 {
+    font-family: "JetBrains Mono", monospace; font-size: 10px;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--accent); font-weight: 600; margin-bottom: 1.2rem;
+  }
+  .footnotes ol { padding-left: 1.5rem; }
+  .footnotes li { margin-bottom: 0.8rem; padding-left: 0.3rem; }
+  .footnotes li::marker { color: var(--accent); font-family: "JetBrains Mono", monospace; font-size: 0.8rem; }
+  .footnotes a { color: var(--accent); text-decoration: none; border-bottom: 1px dotted rgba(32,178,170,0.4); }
+  .footnotes code {
+    background: rgba(32,178,170,0.08); color: var(--accent);
+    padding: 1px 6px; border-radius: 3px; font-size: 0.88em;
+  }
+
+  /* ---------- Colophon ---------- */
+  .colophon {
+    text-align: center; margin: 5rem 0 3rem;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px; color: var(--ink-faint);
+    letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  .colophon::before {
+    content: "✦"; display: block;
+    color: var(--accent); font-size: 1.1rem;
+    letter-spacing: 0; margin-bottom: 1rem; opacity: 0.6;
+  }
+  .colophon a { color: var(--accent); text-decoration: none; border-bottom: 1px dotted rgba(32,178,170,0.4); }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- =============== MASTHEAD =============== -->
+  <header class="masthead">
+    <div class="brand">
+      <svg class="brand-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-label="Propheus">
+        <g fill="#20b2aa">
+          <path d="M45,64.2c-1.1,9.1-3.3,15.3-5.8,15.3c-0.1,0-0.1,0-0.2,0c-0.3,0-0.6-0.2-1-0.4c0,0,0,0,0,0 c-3.1-2.5-5.4-14.5-5.4-29c0-14.4,2.3-26.4,5.4-29c0.3-0.3,0.7-0.5,1-0.5c0,0,0,0,0,0h0.2c2.6,0,4.9,6.8,6,16.6 c-5.6,2-9.5,7.3-9.5,13.5C35.6,56.9,39.5,62.1,45,64.2z"/>
+          <path d="M67.4,50c0,14.5-2.3,26.5-5.4,29h0v0c-0.3,0.2-0.6,0.4-0.9,0.4c-0.1,0-0.2,0-0.2,0c-2.5,0-4.7-6.2-5.8-15.3 c5.5-2,9.4-7.3,9.4-13.5c0-6.2-4-11.6-9.5-13.5c1.1-9.8,3.4-16.6,6-16.6H61v0c0.4,0,0.7,0.2,1,0.5c0,0,0,0,0,0 C65.1,23.6,67.4,35.6,67.4,50z"/>
+          <path d="M30.2,50c0-14.4,2.3-26.4,5.4-29c-10.6,5.3-17.9,16.3-17.9,29c0,12.7,7.3,23.7,17.9,29 C32.5,76.5,30.2,64.5,30.2,50z M64.4,21c3.1,2.6,5.4,14.5,5.4,29c0,14.5-2.3,26.5-5.4,29C75,73.7,82.3,62.7,82.3,50 C82.3,37.3,75,26.4,64.4,21z"/>
+          <path d="M62.1,50.7c0,5-3,9.3-7.4,11.2c-1.5,0.6-3.1,1-4.8,1c-1.7,0-3.3-0.4-4.8-1c-4.3-1.9-7.4-6.2-7.4-11.2 c0-5.1,3.1-9.4,7.5-11.2c1.4-0.6,3-0.9,4.7-0.9c1.7,0,3.2,0.3,4.7,0.9C59.1,41.3,62.1,45.6,62.1,50.7z"/>
+        </g>
+      </svg>
+      <div class="brand-text">
+        <span class="product">Propheus</span><span class="div">/</span><span class="sub">Digital Atlas SGP</span>
+      </div>
+    </div>
+    <div class="crumb">
+      <a href="index.html">Reports</a> &nbsp;·&nbsp; <a href="adequacy_question_propheus.html">Adequacy</a>
+    </div>
+  </header>
+
+  <!-- =============== TITLE =============== -->
+  <section class="title-block">
+    <div class="eyebrow">Field Notes № 04 &middot; Brand Geography</div>
+    <h1 class="title">The Brand Fit <span class="ac">Question</span></h1>
+    <p class="subtitle">Every chain has a natural habitat. Singapore's premium brands are no longer in theirs &mdash; and a handful of named outlets sit so far from the brand's own footprint that they call themselves <span class="ac">misfits</span>.</p>
+    <div class="dateline">
+      Singapore &nbsp;·&nbsp; <span>12 May 2026</span> &nbsp;·&nbsp; v0.1
+    </div>
+  </section>
+
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+
+  <!-- =============== LEDE =============== -->
+  <section class="col">
+    <p class="lead dropcap">A brand and a place are in dialogue. The places a chain operates in tell you who it thinks it is &mdash; and over time, who it has actually become. When a luxury grocer opens in a new HDB town, when a heritage kopitiam appears in the central business district, when a global cafe chain outnumbers the local coffeeshop in a heartland neighbourhood: each is a small, observable statement about the chain's read of its own market. We can collect those statements at scale.</p>
+
+    <p>This essay does that for <span class="num">17</span> of Singapore's largest retail and food chains, against <span class="num">66,851</span> place records joined to planning-area boundaries.<sup class="fn"><a href="#fn1">1</a></sup> The headline finding is not what we expected to find.</p>
+  </section>
+
+  <!-- =============== STATS =============== -->
+  <div class="stat-row">
+    <div class="stat"><div class="v">17</div><div class="l">Brands Audited</div><div class="s">covering ~1,200 outlets</div></div>
+    <div class="stat"><div class="v">5</div><div class="l">PA Archetypes</div><div class="s">CBD · Premium · Mature · New · Edge</div></div>
+    <div class="stat"><div class="v">14<span class="small">%</span></div><div class="l">Of Starbucks Are CBD</div><div class="s">vs 64% in heartland HDB</div></div>
+    <div class="stat"><div class="v">23</div><div class="l">Named Misfits</div><div class="s">flagged across the audit set</div></div>
+  </div>
+
+  <!-- =============== SECTION I =============== -->
+  <h2 class="section"><span class="section-num">§ I</span>The premise</h2>
+
+  <section class="col">
+    <p>Every retail chain operates on an explicit or implicit <span class="ink">site-selection rule</span>: the kind of neighbourhood it expects to thrive in. Cold Storage's brand identity says <span class="ink">premium expat enclave</span>. Sheng Siong's says <span class="ink">heartland value</span>. 7-Eleven's says <span class="ink">anywhere with foot traffic</span>. These rules are not stated; they are inferred from the operating model, the price tier, the assortment.</p>
+
+    <p>A chain's actual location footprint is the empirical version of that rule. It is also a record of every concession the chain has made to growth pressure, lease availability, and the slow drift of its target customer's geography. The gap between rule and footprint is where the interesting brand-strategy questions live.</p>
+
+    <p>To make this measurable, we collapse Singapore's 55 planning areas into <span class="num">five</span> archetypes:</p>
+
+    <ul style="padding-left:1.5rem; margin-bottom:1.5rem;">
+      <li style="margin-bottom:0.4rem;"><span class="ink">CBD / Commercial</span> &mdash; Downtown Core, Outram, Orchard, Newton, Rochor, Singapore River</li>
+      <li style="margin-bottom:0.4rem;"><span class="ink">Premium Private</span> &mdash; Bukit Timah, Holland Road, Tanglin, Novena, Marine Parade, Bishan</li>
+      <li style="margin-bottom:0.4rem;"><span class="ink">Mature Heartland</span> &mdash; Toa Payoh, Ang Mo Kio, Bedok, Bukit Merah, Geylang, Kallang, Queenstown, Hougang, Clementi, Serangoon</li>
+      <li style="margin-bottom:0.4rem;"><span class="ink">New Heartland</span> &mdash; Punggol, Sengkang, Sembawang, Bukit Panjang, Choa Chu Kang, Bukit Batok, Pasir Ris, Tampines, Yishun, Woodlands, Jurong West</li>
+      <li><span class="ink">Edge / Special</span> &mdash; industrial estates, Sentosa, Changi, suburban hubs</li>
+    </ul>
+
+    <p>The premise of the analysis: a chain's footprint should concentrate in the archetype its brand identity claims. The reality, for several brands, is otherwise.</p>
+  </section>
+
+  <!-- =============== SECTION II =============== -->
+  <h2 class="section"><span class="section-num">§ II</span>The brand-archetype <span class="ac">x-ray</span></h2>
+
+  <section class="col">
+    <p>For each chain, the figure below shows what fraction of its outlets sit in each PA archetype. Sort by brand identity, top to bottom: the CBD-leaning brands first, then the heartland chains, then the universals.</p>
+  </section>
+
+  <div class="figure">
+    <div class="chart-card">
+      <div class="brand-rows">
+        <!-- Cold Storage: 14 total · CBD 14.3, Premium 14.3, Mature 28.6, New 28.6, Suburb 7.1, Special 7.1 -->
+        <div class="brand-row">
+          <div class="name">Cold Storage<span class="cat">premium grocer · 14 loc</span></div>
+          <div class="stack">
+            <div class="seg" style="width:14.3%; background:#20b2aa" title="CBD 14.3%"></div>
+            <div class="seg" style="width:14.3%; background:#14d4cc" title="Premium 14.3%"></div>
+            <div class="seg" style="width:28.6%; background:#7a8e91" title="Mature 28.6%"></div>
+            <div class="seg" style="width:28.6%; background:#4a5b5e" title="New 28.6%"></div>
+            <div class="seg" style="width:14.2%; background:#3a4a4d" title="Edge 14.2%"></div>
+          </div>
+          <div class="total">14</div>
+        </div>
+        <!-- Starbucks: 50 · CBD 14.0, Premium 10.0, Mature 34.0, New 30.0, Suburb 4.0, Special 6.0, Industrial 2.0 -->
+        <div class="brand-row">
+          <div class="name">Starbucks<span class="cat">premium cafe · 50 loc</span></div>
+          <div class="stack">
+            <div class="seg" style="width:14.0%; background:#20b2aa" title="CBD 14.0%"></div>
+            <div class="seg" style="width:10.0%; background:#14d4cc" title="Premium 10.0%"></div>
+            <div class="seg" style="width:34.0%; background:#7a8e91" title="Mature 34.0%"></div>
+            <div class="seg" style="width:30.0%; background:#4a5b5e" title="New 30.0%"></div>
+            <div class="seg" style="width:12.0%; background:#3a4a4d" title="Edge 12.0%"></div>
+          </div>
+          <div class="total">50</div>
+        </div>
+        <!-- Toast Box: 25 · CBD 8.0, Premium 16.0, Mature 40.0, New 32.0, Suburb 4.0 -->
+        <div class="brand-row">
+          <div class="name">Toast Box<span class="cat">mid kopi chain · 25 loc</span></div>
+          <div class="stack">
+            <div class="seg" style="width:8.0%;  background:#20b2aa" title="CBD 8.0%"></div>
+            <div class="seg" style="width:16.0%; background:#14d4cc" title="Premium 16.0%"></div>
+            <div class="seg" style="width:40.0%; background:#7a8e91" title="Mature 40.0%"></div>
+            <div class="seg" style="width:32.0%; background:#4a5b5e" title="New 32.0%"></div>
+            <div class="seg" style="width:4.0%;  background:#3a4a4d" title="Edge 4.0%"></div>
+          </div>
+          <div class="total">25</div>
+        </div>
+        <!-- Ya Kun: 26 · CBD 19.2, Premium 11.5, Mature 19.2, New 30.8, Suburb 7.7, Special 7.7, Industrial 3.8 -->
+        <div class="brand-row">
+          <div class="name">Ya Kun<span class="cat">heritage kopi · 26 loc</span></div>
+          <div class="stack">
+            <div class="seg" style="width:19.2%; background:#20b2aa" title="CBD 19.2%"></div>
+            <div class="seg" style="width:11.5%; background:#14d4cc" title="Premium 11.5%"></div>
+            <div class="seg" style="width:19.2%; background:#7a8e91" title="Mature 19.2%"></div>
+            <div class="seg" style="width:30.8%; background:#4a5b5e" title="New 30.8%"></div>
+            <div class="seg" style="width:19.3%; background:#3a4a4d" title="Edge 19.3%"></div>
+          </div>
+          <div class="total">26</div>
+        </div>
+
+        <!-- Divider: heartland chains -->
+        <div style="height:1px;background:var(--rule);margin:0.6rem 0;"></div>
+
+        <!-- Kopitiam: 87 · CBD 4.6, Premium 5.7, Mature 28.7, New 52.9, Suburb 1.1, Special 4.6, Industrial 2.3 -->
+        <div class="brand-row">
+          <div class="name">Kopitiam<span class="cat">heartland coffeeshop · 87 loc</span></div>
+          <div class="stack">
+            <div class="seg" style="width:4.6%;  background:#20b2aa" title="CBD 4.6%"></div>
+            <div class="seg" style="width:5.7%;  background:#14d4cc" title="Premium 5.7%"></div>
+            <div class="seg" style="width:28.7%; background:#7a8e91" title="Mature 28.7%"></div>
+            <div class="seg" style="width:52.9%; background:#4a5b5e" title="New 52.9%"></div>
+            <div class="seg" style="width:8.1%;  background:#3a4a4d" title="Edge 8.1%"></div>
+          </div>
+          <div class="total">87</div>
+        </div>
+        <!-- Kimly: 44 · CBD 0, Premium 2.3, Mature 38.6, New 56.8, Suburb 2.3 -->
+        <div class="brand-row">
+          <div class="name">Kimly<span class="cat">heartland coffeeshop · 44 loc</span></div>
+          <div class="stack">
+            <div class="seg" style="width:0%;    background:#20b2aa" title="CBD 0%"></div>
+            <div class="seg" style="width:2.3%;  background:#14d4cc" title="Premium 2.3%"></div>
+            <div class="seg" style="width:38.6%; background:#7a8e91" title="Mature 38.6%"></div>
+            <div class="seg" style="width:56.8%; background:#4a5b5e" title="New 56.8%"></div>
+            <div class="seg" style="width:2.3%;  background:#3a4a4d" title="Edge 2.3%"></div>
+          </div>
+          <div class="total">44</div>
+        </div>
+        <!-- Sheng Siong: 69 · CBD 4.3, Premium 4.3, Mature 37.7, New 49.3, Suburb 1.4, Industrial 2.9 -->
+        <div class="brand-row">
+          <div class="name">Sheng Siong<span class="cat">heartland supermarket · 69 loc</span></div>
+          <div class="stack">
+            <div class="seg" style="width:4.3%;  background:#20b2aa" title="CBD 4.3%"></div>
+            <div class="seg" style="width:4.3%;  background:#14d4cc" title="Premium 4.3%"></div>
+            <div class="seg" style="width:37.7%; background:#7a8e91" title="Mature 37.7%"></div>
+            <div class="seg" style="width:49.3%; background:#4a5b5e" title="New 49.3%"></div>
+            <div class="seg" style="width:4.4%;  background:#3a4a4d" title="Edge 4.4%"></div>
+          </div>
+          <div class="total">69</div>
+        </div>
+        <!-- Giant: 42 · CBD 0, Premium 4.8, Mature 38.1, New 47.6, Suburb 4.8, Industrial 4.8 -->
+        <div class="brand-row">
+          <div class="name">Giant<span class="cat">heartland supermarket · 42 loc</span></div>
+          <div class="stack">
+            <div class="seg" style="width:0%;    background:#20b2aa" title="CBD 0%"></div>
+            <div class="seg" style="width:4.8%;  background:#14d4cc" title="Premium 4.8%"></div>
+            <div class="seg" style="width:38.1%; background:#7a8e91" title="Mature 38.1%"></div>
+            <div class="seg" style="width:47.6%; background:#4a5b5e" title="New 47.6%"></div>
+            <div class="seg" style="width:9.5%;  background:#3a4a4d" title="Edge 9.5%"></div>
+          </div>
+          <div class="total">42</div>
+        </div>
+        <!-- Cheers: 68 · CBD 8.8, Premium 11.8, Mature 39.7, New 29.4, Suburb 2.9, Special 4.4, Industrial 2.9 -->
+        <div class="brand-row">
+          <div class="name">Cheers<span class="cat">heartland convenience · 68 loc</span></div>
+          <div class="stack">
+            <div class="seg" style="width:8.8%;  background:#20b2aa" title="CBD 8.8%"></div>
+            <div class="seg" style="width:11.8%; background:#14d4cc" title="Premium 11.8%"></div>
+            <div class="seg" style="width:39.7%; background:#7a8e91" title="Mature 39.7%"></div>
+            <div class="seg" style="width:29.4%; background:#4a5b5e" title="New 29.4%"></div>
+            <div class="seg" style="width:10.3%; background:#3a4a4d" title="Edge 10.3%"></div>
+          </div>
+          <div class="total">68</div>
+        </div>
+
+        <!-- Divider: universals -->
+        <div style="height:1px;background:var(--rule);margin:0.6rem 0;"></div>
+
+        <!-- 7-Eleven: 174 · CBD 12.1, Premium 5.7, Mature 33.9, New 39.1, Suburb 2.9, Special 3.4, Industrial 2.9 -->
+        <div class="brand-row">
+          <div class="name">7-Eleven<span class="cat">universal convenience · 174 loc</span></div>
+          <div class="stack">
+            <div class="seg" style="width:12.1%; background:#20b2aa" title="CBD 12.1%"></div>
+            <div class="seg" style="width:5.7%;  background:#14d4cc" title="Premium 5.7%"></div>
+            <div class="seg" style="width:33.9%; background:#7a8e91" title="Mature 33.9%"></div>
+            <div class="seg" style="width:39.1%; background:#4a5b5e" title="New 39.1%"></div>
+            <div class="seg" style="width:9.2%;  background:#3a4a4d" title="Edge 9.2%"></div>
+          </div>
+          <div class="total">174</div>
+        </div>
+        <!-- FairPrice: 145 · CBD 2.8, Premium 9.7, Mature 43.4, New 37.9, Suburb 2.8, Industrial 2.8, Special 0.7 -->
+        <div class="brand-row">
+          <div class="name">FairPrice<span class="cat">universal supermarket · 145 loc</span></div>
+          <div class="stack">
+            <div class="seg" style="width:2.8%;  background:#20b2aa" title="CBD 2.8%"></div>
+            <div class="seg" style="width:9.7%;  background:#14d4cc" title="Premium 9.7%"></div>
+            <div class="seg" style="width:43.4%; background:#7a8e91" title="Mature 43.4%"></div>
+            <div class="seg" style="width:37.9%; background:#4a5b5e" title="New 37.9%"></div>
+            <div class="seg" style="width:6.2%;  background:#3a4a4d" title="Edge 6.2%"></div>
+          </div>
+          <div class="total">145</div>
+        </div>
+        <!-- McDonald's: 80 · CBD 5.0, Premium 8.8, Mature 35.0, New 43.8, Suburb 2.5, Industrial 3.8, Special 1.2 -->
+        <div class="brand-row">
+          <div class="name">McDonald's<span class="cat">universal QSR · 80 loc</span></div>
+          <div class="stack">
+            <div class="seg" style="width:5.0%;  background:#20b2aa" title="CBD 5.0%"></div>
+            <div class="seg" style="width:8.8%;  background:#14d4cc" title="Premium 8.8%"></div>
+            <div class="seg" style="width:35.0%; background:#7a8e91" title="Mature 35.0%"></div>
+            <div class="seg" style="width:43.8%; background:#4a5b5e" title="New 43.8%"></div>
+            <div class="seg" style="width:7.4%;  background:#3a4a4d" title="Edge 7.4%"></div>
+          </div>
+          <div class="total">80</div>
+        </div>
+        <!-- Subway: 73 · CBD 6.8, Premium 5.5, Mature 35.6, New 43.8, Suburb 1.4, Industrial 2.7, Special 4.1 -->
+        <div class="brand-row">
+          <div class="name">Subway<span class="cat">universal QSR · 73 loc</span></div>
+          <div class="stack">
+            <div class="seg" style="width:6.8%;  background:#20b2aa" title="CBD 6.8%"></div>
+            <div class="seg" style="width:5.5%;  background:#14d4cc" title="Premium 5.5%"></div>
+            <div class="seg" style="width:35.6%; background:#7a8e91" title="Mature 35.6%"></div>
+            <div class="seg" style="width:43.8%; background:#4a5b5e" title="New 43.8%"></div>
+            <div class="seg" style="width:8.3%;  background:#3a4a4d" title="Edge 8.3%"></div>
+          </div>
+          <div class="total">73</div>
+        </div>
+        <!-- KFC: 39 · CBD 2.6, Premium 5.1, Mature 30.8, New 48.7, Industrial 5.1, Special 7.7 -->
+        <div class="brand-row">
+          <div class="name">KFC<span class="cat">universal QSR · 39 loc</span></div>
+          <div class="stack">
+            <div class="seg" style="width:2.6%;  background:#20b2aa" title="CBD 2.6%"></div>
+            <div class="seg" style="width:5.1%;  background:#14d4cc" title="Premium 5.1%"></div>
+            <div class="seg" style="width:30.8%; background:#7a8e91" title="Mature 30.8%"></div>
+            <div class="seg" style="width:48.7%; background:#4a5b5e" title="New 48.7%"></div>
+            <div class="seg" style="width:12.8%; background:#3a4a4d" title="Edge 12.8%"></div>
+          </div>
+          <div class="total">39</div>
+        </div>
+        <!-- Pizza Hut: 44 · CBD 4.5, Premium 13.6, Mature 25.0, New 54.5, Special 2.3 -->
+        <div class="brand-row">
+          <div class="name">Pizza Hut<span class="cat">universal QSR · 44 loc</span></div>
+          <div class="stack">
+            <div class="seg" style="width:4.5%;  background:#20b2aa" title="CBD 4.5%"></div>
+            <div class="seg" style="width:13.6%; background:#14d4cc" title="Premium 13.6%"></div>
+            <div class="seg" style="width:25.0%; background:#7a8e91" title="Mature 25.0%"></div>
+            <div class="seg" style="width:54.5%; background:#4a5b5e" title="New 54.5%"></div>
+            <div class="seg" style="width:2.4%;  background:#3a4a4d" title="Edge 2.4%"></div>
+          </div>
+          <div class="total">44</div>
+        </div>
+        <!-- Guardian: 40 · CBD 7.5, Premium 5.0, Mature 45.0, New 30.0, Suburb 2.5, Industrial 5.0, Special 5.0 -->
+        <div class="brand-row">
+          <div class="name">Guardian<span class="cat">universal pharmacy · 40 loc</span></div>
+          <div class="stack">
+            <div class="seg" style="width:7.5%;  background:#20b2aa" title="CBD 7.5%"></div>
+            <div class="seg" style="width:5.0%;  background:#14d4cc" title="Premium 5.0%"></div>
+            <div class="seg" style="width:45.0%; background:#7a8e91" title="Mature 45.0%"></div>
+            <div class="seg" style="width:30.0%; background:#4a5b5e" title="New 30.0%"></div>
+            <div class="seg" style="width:12.5%; background:#3a4a4d" title="Edge 12.5%"></div>
+          </div>
+          <div class="total">40</div>
+        </div>
+        <!-- Anytime Fitness: 75 · CBD 4.0, Premium 9.3, Mature 49.3, New 37.3 -->
+        <div class="brand-row">
+          <div class="name">Anytime Fitness<span class="cat">universal gym · 75 loc</span></div>
+          <div class="stack">
+            <div class="seg" style="width:4.0%;  background:#20b2aa" title="CBD 4.0%"></div>
+            <div class="seg" style="width:9.3%;  background:#14d4cc" title="Premium 9.3%"></div>
+            <div class="seg" style="width:49.3%; background:#7a8e91" title="Mature 49.3%"></div>
+            <div class="seg" style="width:37.3%; background:#4a5b5e" title="New 37.3%"></div>
+            <div class="seg" style="width:0.1%;  background:#3a4a4d" title="Edge 0.1%"></div>
+          </div>
+          <div class="total">75</div>
+        </div>
+
+      </div>
+
+      <div class="legend">
+        <span><span class="swatch" style="background:#20b2aa"></span>CBD &middot; Commercial</span>
+        <span><span class="swatch" style="background:#14d4cc"></span>Premium Private</span>
+        <span><span class="swatch" style="background:#7a8e91"></span>Mature Heartland</span>
+        <span><span class="swatch" style="background:#4a5b5e"></span>New Heartland</span>
+        <span><span class="swatch" style="background:#3a4a4d"></span>Edge / Special</span>
+      </div>
+    </div>
+    <div class="figure-caption" style="max-width:60rem;margin-top:1.4rem">
+      <b>Figure 1.</b> Distribution of outlets by planning-area archetype, for 17 chains. Each row sums to 100%. The brands are grouped: premium-leaning at the top, heartland chains in the middle, universals at the bottom. The pattern that should not be: <b>Starbucks (premium cafe) places more outlets in heartland HDB combined &mdash; 64% &mdash; than 7-Eleven (universal) does</b>.
+    </div>
+  </div>
+
+  <!-- =============== SECTION III =============== -->
+  <h2 class="section"><span class="section-num">§ III</span>The premium chains have <span class="ac">drifted</span></h2>
+
+  <section class="col">
+    <p>Read the top of Figure 1. Cold Storage &mdash; Singapore's archetypal premium grocer, anchor of the expat-shopping mythology &mdash; sits in only <span class="ac num">14%</span> CBD and <span class="ac num">14%</span> Premium Private. The remaining <span class="num">71%</span> of its outlets are spread across heartland HDB, suburban hubs, and Sentosa Cove. The brand mythology and the brand footprint have parted ways.</p>
+
+    <p>Starbucks tells the same story more loudly. Of <span class="num">50</span> outlets, only <span class="num">7</span> are in CBD. <span class="ac num">17</span> are in Mature Heartland and <span class="ac num">15</span> in New Heartland. By archetype share, Starbucks is now indistinguishable from McDonald's. The pricing is not. The signal is not. The geography is.</p>
+
+    <p>Toast Box, sometimes positioned as the "premium" of the local kopi chains, places <span class="num">72%</span> of its outlets in HDB heartland. Ya Kun &mdash; older, more heritage-coded &mdash; spreads more evenly, with <span class="num">19%</span> in CBD and <span class="num">31%</span> in New Heartland. Both have, in operation, become heartland chains with mid-tier pricing, regardless of their brand collateral.</p>
+
+    <div class="pull">By archetype share, <span class="ac">Starbucks</span> is now indistinguishable from <span class="ac">McDonald's</span>.</div>
+  </section>
+
+  <!-- =============== SECTION IV — MISFITS =============== -->
+  <h2 class="section"><span class="section-num">§ IV</span>The misfits</h2>
+
+  <section class="col">
+    <p>The brand-level distributions in §II describe the average. The interesting questions live in the <span class="ink">tails</span> &mdash; the specific outlets that sit furthest from where the brand's footprint clusters. Three categories deserve different treatment.</p>
+
+    <p><span class="ac">Real misfits.</span> Outlets where a chain's brand identity and the outlet's neighbourhood archetype meaningfully disagree. Either the chain is testing a market its brand doesn't usually serve, or it has overextended into one that doesn't match.</p>
+
+    <p><span style="color:var(--warn)">Heritage outliers.</span> Outlets that look like misfits but exist because the chain originated in or grew up in that neighbourhood. The Killiney Road kopitiam (1919) is in Killiney; that is not a misfit, that is the founding location.</p>
+
+    <p><span style="color:var(--ink-faint)">Data-noise misfits.</span> Outlets that look like misfits because of name-collision in the matching layer &mdash; a different business with the same name. Honesty requires we list these too, and flag them.</p>
+  </section>
+
+  <!-- ===== Real Misfits ===== -->
+  <div class="misfits">
+    <div class="misfits-hdr">
+      <div class="t">Real <span class="ac">Misfits</span></div>
+      <div class="meta">12 outlets &middot; brand vs. archetype mismatch</div>
+    </div>
+    <div class="misfits-list">
+
+      <div class="misfit">
+        <div class="brand-name">Cold Storage<span class="ctx">premium grocer</span></div>
+        <div class="outlet">Cold Storage @ Compass One</div>
+        <div class="pa-tag">Sengkang</div>
+      </div>
+      <div class="misfit">
+        <div class="brand-name">Cold Storage<span class="ctx">premium grocer</span></div>
+        <div class="outlet">Cold Storage (Pasir Ris)</div>
+        <div class="pa-tag">Pasir Ris</div>
+      </div>
+      <div class="misfit">
+        <div class="brand-name">Cold Storage<span class="ctx">premium grocer</span></div>
+        <div class="outlet">Cold Storage (Bukit Batok)</div>
+        <div class="pa-tag">Bukit Batok</div>
+      </div>
+      <div class="misfit">
+        <div class="brand-name">Starbucks<span class="ctx">premium cafe</span></div>
+        <div class="outlet">Starbucks Keat Hong Community Club</div>
+        <div class="pa-tag">Choa Chu Kang</div>
+      </div>
+      <div class="misfit">
+        <div class="brand-name">Starbucks<span class="ctx">premium cafe</span></div>
+        <div class="outlet">Starbucks Canberra Plaza</div>
+        <div class="pa-tag">Sembawang</div>
+      </div>
+      <div class="misfit">
+        <div class="brand-name">Starbucks<span class="ctx">premium cafe</span></div>
+        <div class="outlet">Starbucks Oasis Terraces</div>
+        <div class="pa-tag">Punggol</div>
+      </div>
+      <div class="misfit">
+        <div class="brand-name">Starbucks<span class="ctx">premium cafe</span></div>
+        <div class="outlet">Starbucks Kopitiam City</div>
+        <div class="pa-tag">Sengkang</div>
+      </div>
+      <div class="misfit">
+        <div class="brand-name">Sheng Siong<span class="ctx">heartland supermarket</span></div>
+        <div class="outlet">Sheng Siong Supermarket (Outram)</div>
+        <div class="pa-tag">Outram</div>
+      </div>
+      <div class="misfit">
+        <div class="brand-name">Sheng Siong<span class="ctx">heartland supermarket</span></div>
+        <div class="outlet">Sheng Siong Supermarket (Rochor)</div>
+        <div class="pa-tag">Rochor</div>
+      </div>
+      <div class="misfit">
+        <div class="brand-name">Sheng Siong<span class="ctx">heartland supermarket</span></div>
+        <div class="outlet">Sheng Siong Supermarket (Museum)</div>
+        <div class="pa-tag">Museum</div>
+      </div>
+      <div class="misfit">
+        <div class="brand-name">Kopitiam<span class="ctx">heartland coffeeshop</span></div>
+        <div class="outlet">Kopitiam (Downtown Core)</div>
+        <div class="pa-tag">Downtown Core</div>
+      </div>
+      <div class="misfit">
+        <div class="brand-name">FairPrice Finest<span class="ctx">universal &mdash; CBD finest variant</span></div>
+        <div class="outlet">FairPrice Finest, Scotts Square</div>
+        <div class="pa-tag">Orchard</div>
+      </div>
+
+    </div>
+  </div>
+
+  <section class="col">
+    <p style="margin-top:2rem;">The <span class="ink">Cold Storage cluster in Sengkang / Pasir Ris / Bukit Batok</span> is the cleanest example of brand-archetype drift. These are precisely the post-1990s HDB new towns the v0.2 audit flagged as zero-hawker, with low elderly density and a young-family demographic.<sup class="fn"><a href="#fn2">2</a></sup> A premium grocer there is either betting on income growth from those young families, or accepting a margin compression the brand will not publicly admit.</p>
+
+    <p>The <span class="ink">Sheng Siong outlets in Outram, Rochor, Museum</span> point in the opposite direction. A heartland-value supermarket entering central planning areas dominated by office workers and transient residents is unusual; whether the basket size and customer mix work in those locations is the kind of question the chain's CFO is presumably asking quarterly.</p>
+
+    <p>Each of the named outlets above was filtered manually from the brand's full location list. Each is verifiable: the address is in the atlas record, the geocode is real, the planning-area attribution is from the Department of Statistics polygon set. They are real, they are named, and the brand-archetype mismatch is empirical.</p>
+  </section>
+
+  <!-- ===== Heritage Outliers ===== -->
+  <div class="misfits">
+    <div class="misfits-hdr">
+      <div class="t">Heritage <span style="color:var(--warn)">Outliers</span></div>
+      <div class="meta">3 outlets &middot; look like misfits, aren't</div>
+    </div>
+    <div class="misfits-list">
+      <div class="misfit heritage">
+        <div class="brand-name">Killiney Kopitiam<span class="ctx">heritage chain · 1919</span></div>
+        <div class="outlet">Killiney Kopitiam (the original)</div>
+        <div class="pa-tag">River Valley</div>
+      </div>
+      <div class="misfit heritage">
+        <div class="brand-name">Killiney Kopitiam<span class="ctx">heritage chain · 1919</span></div>
+        <div class="outlet">Killiney Kopitiam (Farrer Park)</div>
+        <div class="pa-tag">Rochor</div>
+      </div>
+      <div class="misfit heritage">
+        <div class="brand-name">Cold Storage<span class="ctx">premium grocer</span></div>
+        <div class="outlet">Cold Storage Sentosa Cove</div>
+        <div class="pa-tag">Southern Islands</div>
+      </div>
+    </div>
+  </div>
+
+  <section class="col">
+    <p style="margin-top:2rem;">Killiney Kopitiam reads as a heartland chain that has wandered into the central premium zone. It is exactly the opposite: the brand began on Killiney Road (Orchard's southern edge) in 1919, and its remaining Killiney/Farrer outlets are the historical core, not the experimental edge. Cold Storage Sentosa Cove is a comparable case &mdash; the affluent expat enclave is precisely Cold Storage's brand archetype, even though Sentosa is administratively coded as "Southern Islands."</p>
+  </section>
+
+  <!-- ===== Data noise ===== -->
+  <div class="misfits">
+    <div class="misfits-hdr">
+      <div class="t">Data-Noise <span style="color:var(--ink-faint)">False Positives</span></div>
+      <div class="meta">8 cases &middot; name-match collisions</div>
+    </div>
+    <div class="misfits-list">
+      <div class="misfit noise">
+        <div class="brand-name">"FairPrice"<span class="ctx">funeral services</span></div>
+        <div class="outlet">Casket Fairprice Pte Ltd</div>
+        <div class="pa-tag">Bishan</div>
+      </div>
+      <div class="misfit noise">
+        <div class="brand-name">"FairPrice"<span class="ctx">co-tenant</span></div>
+        <div class="outlet">Singapore Pools @ NTUC FairPrice (Thomson Plaza)</div>
+        <div class="pa-tag">Bishan</div>
+      </div>
+      <div class="misfit noise">
+        <div class="brand-name">"Giant"<span class="ctx">co-tenant</span></div>
+        <div class="outlet">Singapore Pools @ Giant Supermarket (Beauty World)</div>
+        <div class="pa-tag">Bukit Timah</div>
+      </div>
+      <div class="misfit noise">
+        <div class="brand-name">"Kimly"<span class="ctx">unrelated business</span></div>
+        <div class="outlet">Kimly Unisex Beauty Salon</div>
+        <div class="pa-tag">Marine Parade</div>
+      </div>
+      <div class="misfit noise">
+        <div class="brand-name">"Cold Storage"<span class="ctx">refrigeration co.</span></div>
+        <div class="outlet">Alliance Cold Storage</div>
+        <div class="pa-tag">Jurong East</div>
+      </div>
+    </div>
+  </div>
+
+  <section class="col">
+    <p style="margin-top:2rem;">These five entries (a small sample) illustrate the cost of a name-matching approach. <span class="ink">Brand attribution by string matching against place names</span> catches the chain outlets we want, but also catches: shared-brand businesses ("Casket Fairprice"), co-tenants ("Singapore Pools @ FairPrice"), unrelated businesses with similar names ("Kimly Unisex Beauty Salon"), and B2B firms with overlapping vocabulary ("Alliance Cold Storage"). The next iteration will use the brand-id field directly from the catalogue rather than name matching.</p>
+  </section>
+
+  <!-- =============== SECTION V =============== -->
+  <h2 class="section"><span class="section-num">§ V</span>The inverse: <span class="ac">white space</span></h2>
+
+  <section class="col">
+    <p>The misfit list answers "where doesn't this brand belong?" The inverse asks "where does this brand belong, but isn't?" That is a site-selection question, and it is the application that pays for this kind of analysis.</p>
+
+    <p>Even at the planning-area level, three patterns surface from the audit data. They are not surprising; they are useful precisely because they are not surprising.</p>
+
+    <h3 class="sub">Sheng Siong is missing from Pasir Ris and Bukit Panjang</h3>
+    <p>Sheng Siong's archetype profile says heartland HDB. It has <span class="num">5</span> outlets in Punggol, <span class="num">5</span> in Bedok, <span class="num">4</span> in Sengkang. It has <span class="num">zero</span> outlets in Pasir Ris (population <span class="num">144,650</span>) and Bukit Panjang (<span class="num">136,720</span>). Those are exactly the planning areas where the brand identity says it should be present.</p>
+
+    <h3 class="sub">Cold Storage is over-built in Bukit Batok, under-built in Marine Parade</h3>
+    <p>Cold Storage's brand-natural archetype is Premium Private. It has one outlet in Bukit Batok (a misfit) and zero in Marine Parade (a true target customer base, residents of an older affluent enclave with high elderly density). The footprint is rotated 180 degrees from the brand strategy.</p>
+
+    <h3 class="sub">Kopitiam is under-represented in Bedok and Hougang</h3>
+    <p>Kopitiam's heartland focus is the strongest in the audit (52.9% New Heartland, 28.7% Mature Heartland). It has <span class="num">10</span> outlets in Sengkang. It has <span class="num">2</span> in Bedok, <span class="num">3</span> in Hougang &mdash; both PAs with Kopitiam-archetype demographics and demonstrated demand for the format. Either the kopitiam slots are taken by Kimly and uncoded independent kopis, or there is genuine white space.</p>
+  </section>
+
+  <!-- =============== CAVEAT =============== -->
+  <div class="caveat">
+    <p>The numbers in this essay are anchored against verifiable sources; the <b>brand-attribution method</b> needs three caveats called out by name.</p>
+    <p><b>Name-match attribution.</b> Brand membership is currently inferred by case-insensitive substring search against the place name. This catches most chain outlets and some non-chain businesses with overlapping names &mdash; the §IV "data-noise" panel lists the cases we manually filtered. The next iteration will use the catalogue's brand-id field directly.</p>
+    <p><b>The five-archetype taxonomy is coarse.</b> Bishan was assigned "Premium Private" but is borderline; Marine Parade is older Premium with heartland features; Bukit Timah includes both luxury condos and modest landed housing. A finer typology would change some misfit classifications at the edges.</p>
+    <p><b>Independent operators are uncounted.</b> The most important chains in HDB-precinct food are unbranded "uncle" coffeeshops with no national brand. Singapore likely has <span class="ink">1,500+</span> independent kopitiams; the catalogue codes ~3 explicitly. The "missing" white space for chains may already be filled by independents this analysis cannot see.</p>
+  </div>
+
+  <!-- =============== CODA =============== -->
+  <h2 class="section"><span class="section-num">§ VI</span>Coda &mdash; the <span class="ac">premise</span> still holds</h2>
+
+  <section class="col">
+    <p>A chain's footprint is the most honest statement it makes about its market. Brand decks describe aspiration; lease signatures describe revealed preference. Where the two diverge &mdash; Starbucks at 64% heartland, Cold Storage in Sengkang &mdash; that is information about how the market has moved, what concessions growth has required, and where the brand's next strategic decisions will need to be made.</p>
+
+    <p>The misfits called out in §IV are not failures. They are observations. Some of them are bets the chain is making on customer-mix change in the new HDB towns. Some are concessions to the limited supply of Premium Private retail space. A few are likely under-performing and quietly being closed. Distinguishing among them is the job of v0.2 of this audit, which will join outlet location to LTA daily-tap volumes and HDB resale-price gradients to test whether the misfit outlets perform like their archetype predicts &mdash; or like the brand's natural archetype demands.</p>
+
+    <p>The premise of brand-fit analysis is simple: a brand's place choices are observable, and so is the gap between those choices and the brand's stated identity. The methodology, applied carefully, gives the chain's strategy team a mirror it does not have access to internally &mdash; the geography of every concession the brand has made, mapped at planning-area resolution.</p>
+  </section>
+
+  <!-- =============== FOOTNOTES =============== -->
+  <section class="footnotes">
+    <h4>Notes &amp; Sources</h4>
+    <ol>
+      <li id="fn1">Place data: <code>data/places/sgp_places.jsonl</code> &mdash; 66,851 places with planning-area attribution. Brand registry: <code>data/places/sgp_brands.jsonl</code> &mdash; 233 brands with location counts. Planning-area boundaries: SLA / URA Master Plan 2019, 55 PAs.</li>
+      <li id="fn2">See companion report <a href="adequacy_question_propheus.html">The Adequacy Question</a> §IV &mdash; the post-1990s HDB new towns (Sengkang, Punggol, Sembawang, Bukit Panjang, Choa Chu Kang, Bukit Batok, Pasir Ris) form a distinct cluster on multiple amenity-density measures.</li>
+      <li id="fn3">Archetype assignment is manual at the planning-area level. The full mapping: CBD/Commercial = Downtown Core, Outram, Singapore River, Museum, Newton, Orchard, River Valley, Marina South, Marina East, Rochor; Premium Private = Bukit Timah, Holland Road, Tanglin, Novena, Marine Parade, Bishan; Mature Heartland = Toa Payoh, Ang Mo Kio, Bedok, Bukit Merah, Geylang, Kallang, Queenstown, Hougang, Clementi, Serangoon; New Heartland = Punggol, Sengkang, Sembawang, Bukit Panjang, Choa Chu Kang, Bukit Batok, Pasir Ris, Tampines, Yishun, Woodlands, Jurong West; Edge / Special = Tuas, Western Water Catchment, Pioneer, Sungei Kadut, Mandai, Boon Lay, Tengah, Lim Chu Kang, Changi, Sentosa, Southern Islands, Jurong East, Paya Lebar, Seletar.</li>
+      <li id="fn4">Outlet names in the §IV misfit panel are taken verbatim from the place catalogue. Lat/lon and planning-area code are recorded with each entry; available on request.</li>
+    </ol>
+  </section>
+
+  <!-- =============== COLOPHON =============== -->
+  <div class="colophon">
+    Powered by <a href="https://propheus.ai">Propheus</a> &middot; Digital Atlas SGP &middot; <a href="index.html">Reports Index</a>
+  </div>
+
+</div>
+
+</body>
+</html>

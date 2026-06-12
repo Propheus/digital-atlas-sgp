@@ -1,0 +1,74 @@
+{
+  "decisions": [
+    {
+      "feature": "hotel_competitive_density",
+      "decision": "REJECT",
+      "justification": "External source is vague, description contradicts rationale, and mg_hotel_hospitality_pressure_400m already provides competitive density signal.",
+      "priority": null,
+      "revised_code": null
+    },
+    {
+      "feature": "dist_changi_airport_km",
+      "decision": "REJECT",
+      "justification": "Redundant with existing pull_airport feature which likely already captures airport accessibility.",
+      "priority": null,
+      "revised_code": null
+    },
+    {
+      "feature": "dist_marina_bay_km",
+      "decision": "REJECT",
+      "justification": "Redundant with existing pull_cbd feature; single-point CBD representation is too simplistic.",
+      "priority": null,
+      "revised_code": null
+    },
+    {
+      "feature": "is_orchard_belt",
+      "decision": "REVISE",
+      "justification": "Valuable micro-market segmentation but bounding box excludes key Tanglin hotels; expanding coordinates to capture full Orchard market.",
+      "priority": 2,
+      "revised_code": "df['is_orchard_belt'] = ((df['latitude'] >= 1.295) & (df['latitude'] <= 1.312) & (df['longitude'] >= 103.820) & (df['longitude'] <= 103.848)).astype(bool)"
+    },
+    {
+      "feature": "is_sentosa_area",
+      "decision": "KEEP",
+      "justification": "Sentosa's geographic isolation and distinct leisure demand patterns justify binary flag despite low variance.",
+      "priority": 3,
+      "revised_code": null
+    },
+    {
+      "feature": "review_volume_indicator",
+      "decision": "REJECT",
+      "justification": "Redundant with existing review_bucket; source ambiguity and fillna(0) conflation issues reduce reliability.",
+      "priority": null,
+      "revised_code": null
+    },
+    {
+      "feature": "event_calendar_impact",
+      "decision": "REJECT",
+      "justification": "High implementation risk with no unified API; temporal and spatial assignment logic unspecified.",
+      "priority": null,
+      "revised_code": null
+    },
+    {
+      "feature": "daily_weather_rainfall_mm",
+      "decision": "REJECT",
+      "justification": "Temporal mismatch between daily weather and advance pricing decisions; place-level granularity nonsensical for Singapore's size.",
+      "priority": null,
+      "revised_code": null
+    },
+    {
+      "feature": "is_branded_hotel",
+      "decision": "REVISE",
+      "justification": "Brand affiliation is valuable but needs validation against known chains rather than just non-empty check.",
+      "priority": 1,
+      "revised_code": "df['is_branded_hotel'] = (df['brand'].str.lower().str.contains('marriott|hilton|hyatt|accor|ihg|shangri|mandarin|fairmont|ritz|westin|sheraton|novotel|ibis|holiday inn|crowne|intercontinental', na=False) & (df['plexis_category'] == 'hotel_hospitality')).astype(bool)"
+    },
+    {
+      "feature": "rating_premium_score",
+      "decision": "REVISE",
+      "justification": "Useful quality tier signal but formula should handle full 1-5 range and avoid arbitrary fillna; using min-max normalization.",
+      "priority": 4,
+      "revised_code": "df['rating_premium_score'] = ((df['rating'].clip(1, 5) - 1.0) / 4.0).where(df['rating'].notna(), np.nan).astype('float32')"
+    }
+  ]
+}

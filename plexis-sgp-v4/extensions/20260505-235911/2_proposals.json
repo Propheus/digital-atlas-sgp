@@ -1,0 +1,123 @@
+{
+  "proposed_features": [
+    {
+      "name": "hotel_competitive_density",
+      "description": "Count of hotel/hospitality places within the same hex8 area indicating local competitive pressure",
+      "scale": "place",
+      "dtype": "float32",
+      "derivation_type": "external",
+      "dependencies": [],
+      "external_source": "hotel_room_inventory_database",
+      "rationale": "Competitive hotel density directly impacts occupancy rates and pricing power; requires room count data not just place counts"
+    },
+    {
+      "name": "dist_changi_airport_km",
+      "description": "Euclidean distance from hotel location to Changi Airport in kilometers",
+      "scale": "place",
+      "dtype": "float32",
+      "derivation_type": "derive",
+      "code": "df['dist_changi_airport_km'] = (np.sqrt((df['latitude'] - 1.3644) ** 2 + (df['longitude'] - 103.9915) ** 2) * 111.32).astype('float32')",
+      "dependencies": [
+        "latitude",
+        "longitude"
+      ],
+      "rationale": "Airport proximity is critical for business travelers and transit tourists affecting occupancy patterns"
+    },
+    {
+      "name": "dist_marina_bay_km",
+      "description": "Euclidean distance from hotel location to Marina Bay CBD center in kilometers",
+      "scale": "place",
+      "dtype": "float32",
+      "derivation_type": "derive",
+      "code": "df['dist_marina_bay_km'] = (np.sqrt((df['latitude'] - 1.2816) ** 2 + (df['longitude'] - 103.8636) ** 2) * 111.32).astype('float32')",
+      "dependencies": [
+        "latitude",
+        "longitude"
+      ],
+      "rationale": "CBD proximity drives corporate demand and premium pricing for business hotels"
+    },
+    {
+      "name": "is_orchard_belt",
+      "description": "Boolean indicating if hotel is within Orchard Road shopping belt area",
+      "scale": "place",
+      "dtype": "bool",
+      "derivation_type": "derive",
+      "code": "df['is_orchard_belt'] = ((df['latitude'] >= 1.298) & (df['latitude'] <= 1.310) & (df['longitude'] >= 103.825) & (df['longitude'] <= 103.845)).astype(bool)",
+      "dependencies": [
+        "latitude",
+        "longitude"
+      ],
+      "rationale": "Orchard Road hotels command premium rates due to shopping tourism and retail accessibility"
+    },
+    {
+      "name": "is_sentosa_area",
+      "description": "Boolean indicating if hotel is located in or near Sentosa resort island",
+      "scale": "place",
+      "dtype": "bool",
+      "derivation_type": "derive",
+      "code": "df['is_sentosa_area'] = ((df['latitude'] >= 1.245) & (df['latitude'] <= 1.260) & (df['longitude'] >= 103.815) & (df['longitude'] <= 103.865)).astype(bool)",
+      "dependencies": [
+        "latitude",
+        "longitude"
+      ],
+      "rationale": "Sentosa hotels have distinct leisure-driven demand patterns and seasonal pricing dynamics"
+    },
+    {
+      "name": "review_volume_indicator",
+      "description": "Log-transformed review count as proxy for hotel popularity and booking volume",
+      "scale": "place",
+      "dtype": "float32",
+      "derivation_type": "derive",
+      "code": "df['review_volume_indicator'] = np.log1p(df['reviews_count'].fillna(0)).astype('float32')",
+      "dependencies": [
+        "reviews_count"
+      ],
+      "rationale": "Review volume correlates with booking frequency and can indicate demand levels for pricing"
+    },
+    {
+      "name": "event_calendar_impact",
+      "description": "Daily event intensity score from F1 GP, MICE events, and major conventions",
+      "scale": "place",
+      "dtype": "float32",
+      "derivation_type": "external",
+      "dependencies": [],
+      "external_source": "singapore_events_calendar_api",
+      "rationale": "Major events like F1 GP and MICE conventions cause demand spikes requiring dynamic pricing adjustments"
+    },
+    {
+      "name": "daily_weather_rainfall_mm",
+      "description": "Daily rainfall amount in millimeters affecting tourist outdoor activities",
+      "scale": "place",
+      "dtype": "float32",
+      "derivation_type": "external",
+      "dependencies": [],
+      "external_source": "nea_weather_api",
+      "rationale": "Monsoon rainfall impacts tourist behavior and can affect occupancy especially for leisure-focused hotels"
+    },
+    {
+      "name": "is_branded_hotel",
+      "description": "Boolean indicating if hotel belongs to a recognized international brand chain",
+      "scale": "place",
+      "dtype": "bool",
+      "derivation_type": "derive",
+      "code": "df['is_branded_hotel'] = (df['brand'].notna() & (df['brand'] != '') & (df['plexis_category'] == 'hotel_hospitality')).astype(bool)",
+      "dependencies": [
+        "brand",
+        "plexis_category"
+      ],
+      "rationale": "Branded hotels have different pricing power and occupancy patterns versus independent properties"
+    },
+    {
+      "name": "rating_premium_score",
+      "description": "Normalized rating score indicating quality tier for pricing differentiation",
+      "scale": "place",
+      "dtype": "float32",
+      "derivation_type": "derive",
+      "code": "df['rating_premium_score'] = ((df['rating'].fillna(3.5) - 3.0) / 2.0).clip(0, 1).astype('float32')",
+      "dependencies": [
+        "rating"
+      ],
+      "rationale": "Higher-rated hotels can command premium rates; normalized score enables pricing tier segmentation"
+    }
+  ]
+}

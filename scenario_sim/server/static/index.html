@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SGP Scenario Sim</title>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.css">
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.js"></script>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<aside id="panel">
+  <header>
+    <h1>Scenario Sim</h1>
+    <p class="sub">Singapore · multi-agent subzone simulation</p>
+  </header>
+
+  <div class="world-strip" id="world-strip">
+    <div class="world-line">Loading agents…</div>
+  </div>
+
+  <div class="pills" id="pills">
+    <button class="pill active" data-cat="grocery">🛒 FairPrice</button>
+    <button class="pill" data-cat="clinic">⚕ CHAS Clinic</button>
+  </div>
+
+  <!-- STATE 1: idle — show action choices -->
+  <section id="state-idle" class="state">
+    <p class="prompt">What if we…</p>
+    <button class="action" data-act="add">
+      <span class="sym">+</span>
+      <span>opened a new <b class="cat-lbl">FairPrice</b></span>
+    </button>
+    <button class="action" data-act="remove">
+      <span class="sym">−</span>
+      <span>closed a <b class="cat-lbl">FairPrice</b></span>
+    </button>
+    <button class="action" data-act="transit">
+      <span class="sym">⚡</span>
+      <span>built a new transit link</span>
+    </button>
+  </section>
+
+  <!-- STATE "inspect": shows what a clicked subzone is doing -->
+  <section id="state-inspect" class="state hidden">
+    <button class="btn-back" id="btn-back">← back to actions</button>
+    <div id="inspect-content"></div>
+    <div class="inspect-quick">
+      <button class="action sm" data-act="add">
+        <span class="sym">+</span><span>open a <b class="cat-lbl">FairPrice</b> here</span>
+      </button>
+      <button class="action sm" data-act="remove" id="inspect-remove">
+        <span class="sym">−</span><span>close a <b class="cat-lbl">FairPrice</b> here</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- STATE 2: picking — instruct + show pending -->
+  <section id="state-pick" class="state hidden">
+    <div class="pick-instr" id="pick-instr">Click a subzone on the map</div>
+    <div class="pick-list" id="pick-list"></div>
+    <div class="pick-controls">
+      <button id="btn-run" class="btn-primary" disabled>Run →</button>
+      <button id="btn-cancel" class="btn-ghost">Cancel</button>
+    </div>
+  </section>
+
+  <!-- STATE 3: result — one card replaces everything else -->
+  <section id="state-result" class="state hidden">
+    <h3 class="result-head">Result</h3>
+    <div id="result-lines"></div>
+    <button id="btn-again" class="btn-primary">Try another</button>
+  </section>
+
+  <footer id="footer">
+    <span id="stats"></span>
+  </footer>
+</aside>
+
+<main id="map-container">
+  <div id="map"></div>
+  <div id="legend">
+    <div class="legend-title" id="legend-title">Loading…</div>
+    <div class="legend-scale" id="legend-scale"></div>
+  </div>
+  <div id="tooltip" class="hidden"></div>
+  <div id="map-badge" class="hidden">
+    <span>Viewing <b id="badge-mode">baseline</b></span>
+    <button id="btn-toggle-view" class="btn-ghost">show baseline</button>
+  </div>
+</main>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,1143 @@
+{
+  "data_inventory": {
+    "total_hexes": 7318,
+    "active_hexes": 3934,
+    "void_hexes": 3384,
+    "subzones_covered": 326,
+    "planning_areas": 55,
+    "total_columns_raw": 318,
+    "total_columns_normalized": 307,
+    "non_constant_features": 305,
+    "self_features": 184,
+    "influence_features": 121,
+    "places_in_hexes": 169294,
+    "places_outside": 5419,
+    "total_population": 4212320,
+    "census_population": 4212800
+  },
+  "pillars": {
+    "identity": {
+      "count": 8,
+      "columns": [
+        "hex_id",
+        "lat",
+        "lng",
+        "area_km2",
+        "parent_subzone",
+        "parent_subzone_name",
+        "parent_pa",
+        "parent_region"
+      ]
+    },
+    "buildings": {
+      "count": 19,
+      "columns": [
+        "bldg_count",
+        "bldg_footprint_sqm",
+        "avg_floors",
+        "max_floors",
+        "avg_height",
+        "max_height",
+        "total_floor_area_sqm",
+        "residential_floor_area_sqm",
+        "commercial_floor_area_sqm",
+        "hdb_blocks",
+        "bldg_hdb_residential",
+        "bldg_private_residential",
+        "bldg_commercial",
+        "bldg_industrial",
+        "bldg_institutional",
+        "bldg_transport",
+        "bldg_religious",
+        "bldg_other",
+        "bldg_unclassified"
+      ]
+    },
+    "population": {
+      "count": 5,
+      "columns": [
+        "population",
+        "children_count",
+        "elderly_count",
+        "working_age_count",
+        "walking_dependent_count"
+      ]
+    },
+    "bookkeeping": {
+      "count": 3,
+      "columns": [
+        "subzone_pop_total",
+        "subzone_res_floor_area",
+        "residential_floor_weight"
+      ]
+    },
+    "land_use": {
+      "count": 12,
+      "columns": [
+        "lu_residential_pct",
+        "lu_commercial_pct",
+        "lu_business_pct",
+        "lu_mixed_use_pct",
+        "lu_institutional_pct",
+        "lu_open_space_pct",
+        "lu_transport_pct",
+        "lu_utility_pct",
+        "lu_other_pct",
+        "lu_total_sqm",
+        "lu_entropy",
+        "avg_gpr"
+      ]
+    },
+    "transit": {
+      "count": 7,
+      "columns": [
+        "mrt_stations",
+        "lrt_stations",
+        "bus_stops",
+        "bus_daily_taps",
+        "mrt_daily_taps",
+        "mrt_hex_rings",
+        "transit_daily_taps"
+      ]
+    },
+    "amenities": {
+      "count": 9,
+      "columns": [
+        "hawker_centres",
+        "chas_clinics",
+        "preschools_gov",
+        "hotels",
+        "tourist_attractions",
+        "sfa_eating_establishments",
+        "silver_zones",
+        "school_zones",
+        "park_facilities"
+      ]
+    },
+    "walkability": {
+      "count": 24,
+      "columns": [
+        "amenity_types_nearby",
+        "dist_bus_m",
+        "dist_clinic_m",
+        "dist_hawker_m",
+        "dist_mrt_m",
+        "dist_nearest_mrt_m",
+        "dist_park_m",
+        "dist_school_m",
+        "dist_super_m",
+        "walk_bus_m",
+        "walk_bus_score",
+        "walk_clinic_m",
+        "walk_clinic_score",
+        "walk_hawker_m",
+        "walk_hawker_score",
+        "walk_mrt_m",
+        "walk_mrt_score",
+        "walk_park_m",
+        "walk_park_score",
+        "walk_school_m",
+        "walk_super_m",
+        "walk_super_score",
+        "walkability_score",
+        "walkability_score_v2"
+      ]
+    },
+    "roads_signals": {
+      "count": 22,
+      "columns": [
+        "bicycle_signal",
+        "hex_avg_speed_kmh",
+        "hex_flow_pct",
+        "hex_flow_segments",
+        "hex_jam_pct",
+        "hex_jam_segments",
+        "hex_seg_count",
+        "ped_countdown",
+        "ped_crossings_total",
+        "ped_elderly",
+        "ped_standard",
+        "road_cat_arterial",
+        "road_cat_expressway",
+        "road_cat_major_arterial",
+        "road_cat_minor_arterial",
+        "road_cat_slip",
+        "road_cat_small",
+        "sig_beacon",
+        "sig_filter_arrow",
+        "sig_ground",
+        "sig_overhead",
+        "sig_rag"
+      ]
+    },
+    "place_composition": {
+      "count": 66,
+      "columns": [
+        "pc_total",
+        "pc_cat_shopping_retail",
+        "pc_cat_restaurant",
+        "pc_cat_services",
+        "pc_cat_business",
+        "pc_cat_beauty_personal_care",
+        "pc_cat_education",
+        "pc_cat_health_medical",
+        "pc_cat_cafe_coffee",
+        "pc_cat_fitness_recreation",
+        "pc_cat_convenience_daily_needs",
+        "pc_cat_hawker_street_food",
+        "pc_cat_automotive",
+        "pc_cat_transport",
+        "pc_cat_civic_government",
+        "pc_cat_bar_nightlife",
+        "pc_cat_fast_food_qsr",
+        "pc_cat_residential",
+        "pc_cat_culture_entertainment",
+        "pc_cat_office_workspace",
+        "pc_cat_hospitality",
+        "pc_cat_bakery_pastry",
+        "pc_cat_general",
+        "pc_cat_religious",
+        "pc_cat_ngo",
+        "pc_pct_cat_shopping_retail",
+        "pc_pct_cat_restaurant",
+        "pc_pct_cat_services",
+        "pc_pct_cat_business",
+        "pc_pct_cat_beauty_personal_care",
+        "pc_pct_cat_education",
+        "pc_pct_cat_health_medical",
+        "pc_pct_cat_cafe_coffee",
+        "pc_pct_cat_fitness_recreation",
+        "pc_pct_cat_convenience_daily_needs",
+        "pc_pct_cat_hawker_street_food",
+        "pc_pct_cat_automotive",
+        "pc_pct_cat_transport",
+        "pc_pct_cat_civic_government",
+        "pc_pct_cat_bar_nightlife",
+        "pc_pct_cat_fast_food_qsr",
+        "pc_pct_cat_residential",
+        "pc_pct_cat_culture_entertainment",
+        "pc_pct_cat_office_workspace",
+        "pc_pct_cat_hospitality",
+        "pc_pct_cat_bakery_pastry",
+        "pc_pct_cat_general",
+        "pc_pct_cat_religious",
+        "pc_pct_cat_ngo",
+        "pc_tier_luxury",
+        "pc_tier_premium",
+        "pc_tier_mid",
+        "pc_tier_value",
+        "pc_tier_budget",
+        "pc_pct_tier_luxury",
+        "pc_pct_tier_premium",
+        "pc_pct_tier_mid",
+        "pc_pct_tier_value",
+        "pc_pct_tier_budget",
+        "pc_unique_brands",
+        "pc_branded_count",
+        "pc_branded_pct",
+        "pc_unique_place_types",
+        "pc_cat_hhi",
+        "pc_cat_entropy",
+        "pc_seg_entropy"
+      ]
+    },
+    "micrograph": {
+      "count": 20,
+      "columns": [
+        "mg_n",
+        "mg_mean_transit",
+        "mg_mean_competitor",
+        "mg_mean_complementary",
+        "mg_mean_demand",
+        "mg_mean_anchor_count",
+        "mg_mean_comp_pressure",
+        "mg_mean_demand_diversity",
+        "mg_mean_walkability",
+        "mg_pct_hyperdense",
+        "mg_pct_dense",
+        "mg_pct_moderate",
+        "mg_pct_sparse",
+        "mg_cafe_n",
+        "mg_cafe_mean_transit",
+        "mg_cafe_mean_competitor",
+        "mg_cafe_mean_complementary",
+        "mg_cafe_mean_demand",
+        "mg_cafe_mean_anchor_count",
+        "mg_cafe_mean_comp_pressure"
+      ]
+    },
+    "influence_spatial_max": {
+      "count": 31,
+      "columns": [
+        "sp_max_population",
+        "sp_max_elderly_count",
+        "sp_max_children_count",
+        "sp_max_walking_dependent_count",
+        "sp_max_bldg_count",
+        "sp_max_hdb_blocks",
+        "sp_max_bldg_footprint_sqm",
+        "sp_max_residential_floor_area_sqm",
+        "sp_max_mrt_stations",
+        "sp_max_bus_stops",
+        "sp_max_pc_total",
+        "sp_max_pc_cat_restaurant",
+        "sp_max_pc_cat_cafe_coffee",
+        "sp_max_pc_cat_shopping_retail",
+        "sp_max_pc_cat_hawker_street_food",
+        "sp_max_pc_cat_health_medical",
+        "sp_max_pc_cat_education",
+        "sp_max_pc_cat_office_workspace",
+        "sp_max_pc_cat_bar_nightlife",
+        "sp_max_pc_unique_brands",
+        "sp_max_pc_cat_entropy",
+        "sp_max_lu_residential_pct",
+        "sp_max_lu_commercial_pct",
+        "sp_max_lu_business_pct",
+        "sp_max_avg_gpr",
+        "sp_max_mg_mean_transit",
+        "sp_max_mg_mean_competitor",
+        "sp_max_mg_mean_complementary",
+        "sp_max_mg_mean_demand",
+        "sp_max_mg_mean_anchor_count",
+        "sp_max_distance_rings"
+      ]
+    },
+    "influence_spatial_pw": {
+      "count": 30,
+      "columns": [
+        "sp_pw_population",
+        "sp_pw_elderly_count",
+        "sp_pw_children_count",
+        "sp_pw_walking_dependent_count",
+        "sp_pw_bldg_count",
+        "sp_pw_hdb_blocks",
+        "sp_pw_bldg_footprint_sqm",
+        "sp_pw_residential_floor_area_sqm",
+        "sp_pw_mrt_stations",
+        "sp_pw_bus_stops",
+        "sp_pw_pc_total",
+        "sp_pw_pc_cat_restaurant",
+        "sp_pw_pc_cat_cafe_coffee",
+        "sp_pw_pc_cat_shopping_retail",
+        "sp_pw_pc_cat_hawker_street_food",
+        "sp_pw_pc_cat_health_medical",
+        "sp_pw_pc_cat_education",
+        "sp_pw_pc_cat_office_workspace",
+        "sp_pw_pc_cat_bar_nightlife",
+        "sp_pw_pc_unique_brands",
+        "sp_pw_pc_cat_entropy",
+        "sp_pw_lu_residential_pct",
+        "sp_pw_lu_commercial_pct",
+        "sp_pw_lu_business_pct",
+        "sp_pw_avg_gpr",
+        "sp_pw_mg_mean_transit",
+        "sp_pw_mg_mean_competitor",
+        "sp_pw_mg_mean_complementary",
+        "sp_pw_mg_mean_demand",
+        "sp_pw_mg_mean_anchor_count"
+      ]
+    },
+    "influence_transit_max": {
+      "count": 30,
+      "columns": [
+        "tr_max_population",
+        "tr_max_elderly_count",
+        "tr_max_children_count",
+        "tr_max_walking_dependent_count",
+        "tr_max_bldg_count",
+        "tr_max_hdb_blocks",
+        "tr_max_bldg_footprint_sqm",
+        "tr_max_residential_floor_area_sqm",
+        "tr_max_mrt_stations",
+        "tr_max_bus_stops",
+        "tr_max_pc_total",
+        "tr_max_pc_cat_restaurant",
+        "tr_max_pc_cat_cafe_coffee",
+        "tr_max_pc_cat_shopping_retail",
+        "tr_max_pc_cat_hawker_street_food",
+        "tr_max_pc_cat_health_medical",
+        "tr_max_pc_cat_education",
+        "tr_max_pc_cat_office_workspace",
+        "tr_max_pc_cat_bar_nightlife",
+        "tr_max_pc_unique_brands",
+        "tr_max_pc_cat_entropy",
+        "tr_max_lu_residential_pct",
+        "tr_max_lu_commercial_pct",
+        "tr_max_lu_business_pct",
+        "tr_max_avg_gpr",
+        "tr_max_mg_mean_transit",
+        "tr_max_mg_mean_competitor",
+        "tr_max_mg_mean_complementary",
+        "tr_max_mg_mean_demand",
+        "tr_max_mg_mean_anchor_count"
+      ]
+    },
+    "influence_transit_pw": {
+      "count": 30,
+      "columns": [
+        "tr_pw_population",
+        "tr_pw_elderly_count",
+        "tr_pw_children_count",
+        "tr_pw_walking_dependent_count",
+        "tr_pw_bldg_count",
+        "tr_pw_hdb_blocks",
+        "tr_pw_bldg_footprint_sqm",
+        "tr_pw_residential_floor_area_sqm",
+        "tr_pw_mrt_stations",
+        "tr_pw_bus_stops",
+        "tr_pw_pc_total",
+        "tr_pw_pc_cat_restaurant",
+        "tr_pw_pc_cat_cafe_coffee",
+        "tr_pw_pc_cat_shopping_retail",
+        "tr_pw_pc_cat_hawker_street_food",
+        "tr_pw_pc_cat_health_medical",
+        "tr_pw_pc_cat_education",
+        "tr_pw_pc_cat_office_workspace",
+        "tr_pw_pc_cat_bar_nightlife",
+        "tr_pw_pc_unique_brands",
+        "tr_pw_pc_cat_entropy",
+        "tr_pw_lu_residential_pct",
+        "tr_pw_lu_commercial_pct",
+        "tr_pw_lu_business_pct",
+        "tr_pw_avg_gpr",
+        "tr_pw_mg_mean_transit",
+        "tr_pw_mg_mean_competitor",
+        "tr_pw_mg_mean_complementary",
+        "tr_pw_mg_mean_demand",
+        "tr_pw_mg_mean_anchor_count"
+      ]
+    },
+    "influence_scalars": {
+      "count": 2,
+      "columns": [
+        "tr_nearest_station_rings",
+        "tr_reachable_hexes"
+      ]
+    }
+  },
+  "influence_ablation": {
+    "baselines": {
+      "self_only": 0.229,
+      "latlng_only": 0.2835,
+      "self_plus_latlng": 0.2422
+    },
+    "uniform_k5_mean": {
+      "accuracy": 0.3227,
+      "lift_vs_self_ll": 0.0804,
+      "n_features": 30
+    },
+    "max_influence_k5": {
+      "accuracy": 0.3743,
+      "lift_vs_self_ll": 0.1321,
+      "n_features": 30
+    },
+    "place_weighted_k5": {
+      "accuracy": 0.3336,
+      "lift_vs_self_ll": 0.0913,
+      "n_features": 30
+    },
+    "pop_weighted_k5": {
+      "accuracy": 0.3115,
+      "lift_vs_self_ll": 0.0692,
+      "n_features": 30
+    },
+    "gravity_weighted_k5": {
+      "accuracy": 0.3144,
+      "lift_vs_self_ll": 0.0721,
+      "n_features": 30
+    },
+    "spatial_max_plus_pw": {
+      "accuracy": 0.438,
+      "lift": 0.1957
+    },
+    "transit_only": {
+      "accuracy": 0.4444,
+      "lift": 0.2021
+    },
+    "spatial_plus_transit_full": {
+      "accuracy": 0.587,
+      "lift": 0.3447
+    },
+    "final_v10_table": {
+      "accuracy": 0.5507,
+      "n_features": 305
+    }
+  },
+  "ring_radius_sweep": [
+    {
+      "k": 1,
+      "n_neighbors": 6,
+      "radius_m": 175,
+      "max_influence": 0.2826,
+      "place_weighted": 0.2859,
+      "combined": 0.3123
+    },
+    {
+      "k": 2,
+      "n_neighbors": 18,
+      "radius_m": 350,
+      "max_influence": 0.3226,
+      "place_weighted": 0.3128,
+      "combined": 0.3663
+    },
+    {
+      "k": 3,
+      "n_neighbors": 36,
+      "radius_m": 525,
+      "max_influence": 0.3471,
+      "place_weighted": 0.3232,
+      "combined": 0.4009
+    },
+    {
+      "k": 5,
+      "n_neighbors": 90,
+      "radius_m": 875,
+      "max_influence": 0.3743,
+      "place_weighted": 0.3336,
+      "combined": 0.438
+    },
+    {
+      "k": 8,
+      "n_neighbors": 216,
+      "radius_m": 1400,
+      "max_influence": 0.3876,
+      "place_weighted": 0.3368,
+      "combined": 0.4477
+    }
+  ],
+  "position_disentanglement": {
+    "self_only": 0.229,
+    "latlng_only": 0.2835,
+    "self_plus_latlng": 0.2422,
+    "self_plus_latlng_plus_spatial_k5": 0.438,
+    "self_plus_latlng_plus_spatial_plus_transit": 0.587,
+    "influence_lift_beyond_position": 0.3447,
+    "conclusion": "Influence features carry +34.5% lift beyond geographic position, confirming genuine contextual signal"
+  },
+  "validation": {
+    "totals": {
+      "places": {
+        "hex_sum": 169294,
+        "outside": 5419,
+        "total": 174713,
+        "pass": true
+      },
+      "population": {
+        "hex_sum": 4212320,
+        "target": 4212800,
+        "delta_pct": 0.011
+      },
+      "mrt_stations": {
+        "hex_sum": 231,
+        "target": 231,
+        "exact": true
+      },
+      "hdb_blocks": {
+        "hex_sum": 13386,
+        "target": 13386,
+        "exact": true
+      }
+    },
+    "ranges": {},
+    "coherence": {
+      "corr_pop_rfa": 0.952,
+      "corr_hdb_pop": 0.88,
+      "corr_spatial_transit_max": 0.605
+    },
+    "broadcast": {
+      "n_broadcast": 0,
+      "columns": []
+    }
+  },
+  "cluster_profiles": [
+    {
+      "cluster": 0,
+      "n_hexes": 199,
+      "avg_pc_total": 360.7,
+      "avg_population": 950.0,
+      "avg_hdb_blocks": 3.0,
+      "avg_tier_luxury": 6.1,
+      "avg_lu_residential_pct": 0.2,
+      "avg_lu_business_pct": 0.12,
+      "total_population": 189099.0,
+      "total_places": 71782,
+      "top_pas": {
+        "GEYLANG": 31,
+        "DOWNTOWN CORE": 24,
+        "ROCHOR": 15
+      },
+      "archetype": "CBD / premium commercial"
+    },
+    {
+      "cluster": 1,
+      "n_hexes": 1835,
+      "avg_pc_total": 0.7,
+      "avg_population": 1.0,
+      "avg_hdb_blocks": 0.0,
+      "avg_tier_luxury": 0.0,
+      "avg_lu_residential_pct": 0.0,
+      "avg_lu_business_pct": 0.08,
+      "total_population": 1629.0,
+      "total_places": 1295,
+      "top_pas": {
+        "NORTH-EASTERN ISLANDS": 502,
+        "WESTERN WATER CATCHMENT": 320,
+        "WESTERN ISLANDS": 212
+      },
+      "archetype": "void / water / nature"
+    },
+    {
+      "cluster": 2,
+      "n_hexes": 529,
+      "avg_pc_total": 25.2,
+      "avg_population": 470.0,
+      "avg_hdb_blocks": 1.0,
+      "avg_tier_luxury": 0.6,
+      "avg_lu_residential_pct": 0.34,
+      "avg_lu_business_pct": 0.03,
+      "total_population": 248448.0,
+      "total_places": 13327,
+      "top_pas": {
+        "BUKIT MERAH": 108,
+        "TANGLIN": 62,
+        "NOVENA": 52
+      },
+      "archetype": "low-density / landed"
+    },
+    {
+      "cluster": 3,
+      "n_hexes": 341,
+      "avg_pc_total": 0.0,
+      "avg_population": 0.0,
+      "avg_hdb_blocks": 0.0,
+      "avg_tier_luxury": 0.0,
+      "avg_lu_residential_pct": 0.0,
+      "avg_lu_business_pct": 0.05,
+      "total_population": 0.0,
+      "total_places": 1,
+      "top_pas": {
+        "NORTH-EASTERN ISLANDS": 160,
+        "WESTERN ISLANDS": 99,
+        "TUAS": 79
+      },
+      "archetype": "void / water / nature"
+    },
+    {
+      "cluster": 4,
+      "n_hexes": 1585,
+      "avg_pc_total": 2.6,
+      "avg_population": 13.0,
+      "avg_hdb_blocks": 0.0,
+      "avg_tier_luxury": 0.0,
+      "avg_lu_residential_pct": 0.06,
+      "avg_lu_business_pct": 0.15,
+      "total_population": 20007.0,
+      "total_places": 4185,
+      "top_pas": {
+        "CENTRAL WATER CATCHMENT": 160,
+        "CHANGI": 151,
+        "SUNGEI KADUT": 105
+      },
+      "archetype": "mixed / transitional"
+    },
+    {
+      "cluster": 5,
+      "n_hexes": 1005,
+      "avg_pc_total": 2.6,
+      "avg_population": 0.0,
+      "avg_hdb_blocks": 0.0,
+      "avg_tier_luxury": 0.0,
+      "avg_lu_residential_pct": 0.0,
+      "avg_lu_business_pct": 0.57,
+      "total_population": 0.0,
+      "total_places": 2632,
+      "top_pas": {
+        "TUAS": 424,
+        "WESTERN ISLANDS": 248,
+        "WESTERN WATER CATCHMENT": 181
+      },
+      "archetype": "industrial belt"
+    },
+    {
+      "cluster": 6,
+      "n_hexes": 1072,
+      "avg_pc_total": 26.1,
+      "avg_population": 821.0,
+      "avg_hdb_blocks": 2.0,
+      "avg_tier_luxury": 0.1,
+      "avg_lu_residential_pct": 0.34,
+      "avg_lu_business_pct": 0.14,
+      "total_population": 879625.0,
+      "total_places": 27952,
+      "top_pas": {
+        "BEDOK": 108,
+        "BUKIT TIMAH": 76,
+        "TAMPINES": 72
+      },
+      "archetype": "medium-density residential"
+    },
+    {
+      "cluster": 7,
+      "n_hexes": 752,
+      "avg_pc_total": 64.0,
+      "avg_population": 3821.0,
+      "avg_hdb_blocks": 13.4,
+      "avg_tier_luxury": 0.1,
+      "avg_lu_residential_pct": 0.56,
+      "avg_lu_business_pct": 0.03,
+      "total_population": 2873511.0,
+      "total_places": 48120,
+      "top_pas": {
+        "TAMPINES": 56,
+        "BEDOK": 54,
+        "WOODLANDS": 51
+      },
+      "archetype": "dense HDB heartland"
+    }
+  ],
+  "place_composition": {
+    "most_specialized": [
+      {
+        "hex_id": "896520c853bffff",
+        "subzone": "WCSZ01",
+        "pa": "WESTERN WATER CATCHMENT",
+        "pc_total": 28,
+        "entropy": 0.41,
+        "dominant_category": "services",
+        "dominant_pct": 0.89
+      },
+      {
+        "hex_id": "896520c940bffff",
+        "subzone": "SKSZ01",
+        "pa": "SUNGEI KADUT",
+        "pc_total": 214,
+        "entropy": 0.76,
+        "dominant_category": "automotive",
+        "dominant_pct": 0.84
+      },
+      {
+        "hex_id": "896520ca1c7ffff",
+        "subzone": "JWSZ05",
+        "pa": "JURONG WEST",
+        "pc_total": 23,
+        "entropy": 0.92,
+        "dominant_category": "business",
+        "dominant_pct": 0.74
+      },
+      {
+        "hex_id": "896520d8e13ffff",
+        "subzone": "QTSZ15",
+        "pa": "QUEENSTOWN",
+        "pc_total": 50,
+        "entropy": 0.95,
+        "dominant_category": "shopping_retail",
+        "dominant_pct": 0.74
+      },
+      {
+        "hex_id": "896520d827bffff",
+        "subzone": "TNSZ01",
+        "pa": "TANGLIN",
+        "pc_total": 180,
+        "entropy": 1.03,
+        "dominant_category": "health_medical",
+        "dominant_pct": 0.8
+      },
+      {
+        "hex_id": "896520d9d37ffff",
+        "subzone": "QTSZ10",
+        "pa": "QUEENSTOWN",
+        "pc_total": 20,
+        "entropy": 1.08,
+        "dominant_category": "education",
+        "dominant_pct": 0.7
+      },
+      {
+        "hex_id": "896520d8e63ffff",
+        "subzone": "QTSZ11",
+        "pa": "QUEENSTOWN",
+        "pc_total": 58,
+        "entropy": 1.1,
+        "dominant_category": "education",
+        "dominant_pct": 0.74
+      },
+      {
+        "hex_id": "896526370a7ffff",
+        "subzone": "PGSZ01",
+        "pa": "PUNGGOL",
+        "pc_total": 21,
+        "entropy": 1.11,
+        "dominant_category": "restaurant",
+        "dominant_pct": 0.71
+      },
+      {
+        "hex_id": "89652636cbbffff",
+        "subzone": "BSSZ01",
+        "pa": "BISHAN",
+        "pc_total": 261,
+        "entropy": 1.13,
+        "dominant_category": "automotive",
+        "dominant_pct": 0.7
+      },
+      {
+        "hex_id": "896526acaabffff",
+        "subzone": "BDSZ01",
+        "pa": "BEDOK",
+        "pc_total": 152,
+        "entropy": 1.21,
+        "dominant_category": "automotive",
+        "dominant_pct": 0.68
+      }
+    ],
+    "price_tier_by_archetype": {
+      "CBD": {
+        "luxury": 4.0,
+        "premium": 18.9,
+        "mid": 62.4,
+        "value": 13.7,
+        "budget": 1.0,
+        "n_hexes": 61,
+        "total_places": 22792
+      },
+      "Heartland": {
+        "luxury": 0.1,
+        "premium": 6.0,
+        "mid": 56.9,
+        "value": 33.7,
+        "budget": 3.2,
+        "n_hexes": 848,
+        "total_places": 38430
+      },
+      "Industrial": {
+        "luxury": 0.2,
+        "premium": 2.0,
+        "mid": 69.3,
+        "value": 26.0,
+        "budget": 2.5,
+        "n_hexes": 346,
+        "total_places": 3051
+      }
+    },
+    "brand_penetration": {
+      "CBD": {
+        "avg_branded_pct": 0.074,
+        "avg_unique_brands": 32.5
+      },
+      "Heartland": {
+        "avg_branded_pct": 0.062,
+        "avg_unique_brands": 4.1
+      },
+      "Industrial": {
+        "avg_branded_pct": 0.022,
+        "avg_unique_brands": 0.5
+      }
+    }
+  },
+  "micrograph_archetypes": {
+    "near_mrt": {
+      "n_hexes": 183,
+      "transit": 0.38,
+      "competitor": 0.355,
+      "complementary": 0.1,
+      "demand": 0.164
+    },
+    "dense_commercial": {
+      "n_hexes": 390,
+      "transit": 0.106,
+      "competitor": 0.527,
+      "complementary": 0.144,
+      "demand": 0.212
+    },
+    "suburban_residential": {
+      "n_hexes": 431,
+      "transit": 0.065,
+      "competitor": 0.564,
+      "complementary": 0.12,
+      "demand": 0.24
+    }
+  },
+  "transition_zones": {
+    "commercial_islands": {
+      "count": 982,
+      "examples": [
+        {
+          "subzone": "ORSZ03",
+          "pa": "ORCHARD",
+          "pc_total": 1110,
+          "population": 58,
+          "nbr_avg_pop": 590
+        },
+        {
+          "subzone": "SRSZ03",
+          "pa": "SINGAPORE RIVER",
+          "pc_total": 876,
+          "population": 99,
+          "nbr_avg_pop": 610
+        },
+        {
+          "subzone": "ORSZ03",
+          "pa": "ORCHARD",
+          "pc_total": 778,
+          "population": 62,
+          "nbr_avg_pop": 583
+        },
+        {
+          "subzone": "RCSZ05",
+          "pa": "ROCHOR",
+          "pc_total": 777,
+          "population": 7,
+          "nbr_avg_pop": 739
+        },
+        {
+          "subzone": "OTSZ04",
+          "pa": "OUTRAM",
+          "pc_total": 762,
+          "population": 0,
+          "nbr_avg_pop": 548
+        }
+      ]
+    },
+    "residential_pockets": {
+      "count": 227,
+      "examples": [
+        {
+          "subzone": "YSSZ03",
+          "pa": "YISHUN",
+          "population": 9578,
+          "pc_total": 36,
+          "nbr_avg_pc": 142
+        },
+        {
+          "subzone": "JWSZ09",
+          "pa": "JURONG WEST",
+          "population": 9070,
+          "pc_total": 17,
+          "nbr_avg_pc": 120
+        },
+        {
+          "subzone": "WDSZ03",
+          "pa": "WOODLANDS",
+          "population": 8200,
+          "pc_total": 16,
+          "nbr_avg_pc": 185
+        },
+        {
+          "subzone": "WDSZ03",
+          "pa": "WOODLANDS",
+          "population": 8140,
+          "pc_total": 21,
+          "nbr_avg_pc": 183
+        },
+        {
+          "subzone": "YSSZ09",
+          "pa": "YISHUN",
+          "population": 7601,
+          "pc_total": 49,
+          "nbr_avg_pc": 129
+        }
+      ]
+    }
+  },
+  "knn_sanity": {
+    "CBD_DTSZ05": {
+      "ref_hex": "896520db3afffff",
+      "ref_subzone": "DTSZ05",
+      "ref_pa": "DOWNTOWN CORE",
+      "neighbors": [
+        {
+          "subzone": "DTSZ09",
+          "pa": "DOWNTOWN CORE",
+          "pc_total": 1068,
+          "population": 1030
+        },
+        {
+          "subzone": "OTSZ04",
+          "pa": "OUTRAM",
+          "pc_total": 762,
+          "population": 0
+        },
+        {
+          "subzone": "ORSZ02",
+          "pa": "ORCHARD",
+          "pc_total": 1245,
+          "population": 165
+        },
+        {
+          "subzone": "ORSZ03",
+          "pa": "ORCHARD",
+          "pc_total": 1110,
+          "population": 58
+        },
+        {
+          "subzone": "MUSZ01",
+          "pa": "MUSEUM",
+          "pc_total": 714,
+          "population": 610
+        },
+        {
+          "subzone": "DTSZ01",
+          "pa": "DOWNTOWN CORE",
+          "pc_total": 848,
+          "population": 1310
+        },
+        {
+          "subzone": "DTSZ02",
+          "pa": "DOWNTOWN CORE",
+          "pc_total": 1154,
+          "population": 0
+        },
+        {
+          "subzone": "OTSZ04",
+          "pa": "OUTRAM",
+          "pc_total": 829,
+          "population": 1200
+        },
+        {
+          "subzone": "DTSZ08",
+          "pa": "DOWNTOWN CORE",
+          "pc_total": 1140,
+          "population": 560
+        },
+        {
+          "subzone": "SRSZ03",
+          "pa": "SINGAPORE RIVER",
+          "pc_total": 876,
+          "population": 99
+        }
+      ]
+    },
+    "Sentosa_SISZ01": {
+      "ref_hex": "896520d8437ffff",
+      "ref_subzone": "SISZ01",
+      "ref_pa": "SOUTHERN ISLANDS",
+      "neighbors": [
+        {
+          "subzone": "SISZ01",
+          "pa": "SOUTHERN ISLANDS",
+          "pc_total": 69,
+          "population": 0
+        },
+        {
+          "subzone": "SISZ01",
+          "pa": "SOUTHERN ISLANDS",
+          "pc_total": 36,
+          "population": 0
+        },
+        {
+          "subzone": "SISZ01",
+          "pa": "SOUTHERN ISLANDS",
+          "pc_total": 68,
+          "population": 0
+        },
+        {
+          "subzone": "DTSZ12",
+          "pa": "DOWNTOWN CORE",
+          "pc_total": 146,
+          "population": 0
+        },
+        {
+          "subzone": "DTSZ12",
+          "pa": "DOWNTOWN CORE",
+          "pc_total": 279,
+          "population": 0
+        },
+        {
+          "subzone": "SISZ01",
+          "pa": "SOUTHERN ISLANDS",
+          "pc_total": 12,
+          "population": 0
+        },
+        {
+          "subzone": "DTSZ11",
+          "pa": "DOWNTOWN CORE",
+          "pc_total": 20,
+          "population": 0
+        },
+        {
+          "subzone": "DTSZ12",
+          "pa": "DOWNTOWN CORE",
+          "pc_total": 129,
+          "population": 0
+        },
+        {
+          "subzone": "SISZ01",
+          "pa": "SOUTHERN ISLANDS",
+          "pc_total": 6,
+          "population": 0
+        },
+        {
+          "subzone": "JESZ05",
+          "pa": "JURONG EAST",
+          "pc_total": 19,
+          "population": 0
+        }
+      ]
+    },
+    "Bedok_HDB": {
+      "ref_hex": "896526acab7ffff",
+      "ref_subzone": "BDSZ01",
+      "ref_pa": "BEDOK",
+      "neighbors": [
+        {
+          "subzone": "BDSZ01",
+          "pa": "BEDOK",
+          "pc_total": 35,
+          "population": 4280
+        },
+        {
+          "subzone": "WDSZ03",
+          "pa": "WOODLANDS",
+          "pc_total": 39,
+          "population": 6248
+        },
+        {
+          "subzone": "BMSZ04",
+          "pa": "BUKIT MERAH",
+          "pc_total": 57,
+          "population": 4020
+        },
+        {
+          "subzone": "BDSZ01",
+          "pa": "BEDOK",
+          "pc_total": 89,
+          "population": 2643
+        },
+        {
+          "subzone": "HGSZ08",
+          "pa": "HOUGANG",
+          "pc_total": 59,
+          "population": 3049
+        },
+        {
+          "subzone": "SESZ06",
+          "pa": "SENGKANG",
+          "pc_total": 49,
+          "population": 7318
+        },
+        {
+          "subzone": "QTSZ02",
+          "pa": "QUEENSTOWN",
+          "pc_total": 63,
+          "population": 6649
+        },
+        {
+          "subzone": "SESZ06",
+          "pa": "SENGKANG",
+          "pc_total": 42,
+          "population": 7666
+        },
+        {
+          "subzone": "SESZ06",
+          "pa": "SENGKANG",
+          "pc_total": 61,
+          "population": 7217
+        },
+        {
+          "subzone": "BKSZ07",
+          "pa": "BUKIT BATOK",
+          "pc_total": 45,
+          "population": 4773
+        }
+      ]
+    }
+  }
+}

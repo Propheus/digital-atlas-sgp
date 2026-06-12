@@ -1,0 +1,105 @@
+{
+  "version": "v7",
+  "transform": "4th_root",
+  "stage1_r2": 0.7718481692759208,
+  "stage1_mae": 58.19036160085258,
+  "stage2_mean_r2": 0.6065102157849057,
+  "per_category": {
+    "automotive": {
+      "r2": 0.2533928721180898,
+      "transform": "raw"
+    },
+    "bakery_pastry": {
+      "r2": 0.6041318613927634,
+      "transform": "raw"
+    },
+    "bar_nightlife": {
+      "r2": 0.43827056860916525,
+      "transform": "raw"
+    },
+    "beauty_personal_care": {
+      "r2": 0.8505079959381066,
+      "transform": "raw"
+    },
+    "business": {
+      "r2": 0.6666893877276272,
+      "transform": "raw"
+    },
+    "cafe_coffee": {
+      "r2": 0.8562467017559287,
+      "transform": "raw"
+    },
+    "civic_government": {
+      "r2": 0.40908658181799284,
+      "transform": "4rt"
+    },
+    "convenience_daily_needs": {
+      "r2": 0.8818829364879047,
+      "transform": "raw"
+    },
+    "culture_entertainment": {
+      "r2": 0.41990540511504604,
+      "transform": "raw"
+    },
+    "education": {
+      "r2": 0.6306604118048316,
+      "transform": "4rt"
+    },
+    "fast_food_qsr": {
+      "r2": 0.656739255995596,
+      "transform": "raw"
+    },
+    "fitness_recreation": {
+      "r2": 0.738237422821967,
+      "transform": "4rt"
+    },
+    "general": {
+      "r2": 0.5713505355146177,
+      "transform": "4rt"
+    },
+    "hawker_street_food": {
+      "r2": 0.7293897487969561,
+      "transform": "raw"
+    },
+    "health_medical": {
+      "r2": 0.61030215995343,
+      "transform": "raw"
+    },
+    "hospitality": {
+      "r2": 0.21456241930253572,
+      "transform": "4rt"
+    },
+    "ngo": {
+      "r2": 0.3889648007952671,
+      "transform": "raw"
+    },
+    "office_workspace": {
+      "r2": 0.7316448514652933,
+      "transform": "raw"
+    },
+    "religious": {
+      "r2": 0.27815693191323576,
+      "transform": "4rt"
+    },
+    "residential": {
+      "r2": 0.5763614932973142,
+      "transform": "4rt"
+    },
+    "restaurant": {
+      "r2": 0.7667712402987887,
+      "transform": "raw"
+    },
+    "services": {
+      "r2": 0.7356002565848808,
+      "transform": "raw"
+    },
+    "shopping_retail": {
+      "r2": 0.8295412510786603,
+      "transform": "raw"
+    },
+    "transport": {
+      "r2": 0.7178480882517374,
+      "transform": "raw"
+    }
+  }
+}

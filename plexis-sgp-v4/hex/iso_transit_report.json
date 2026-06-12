@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-06-10T10:30:20",
+  "spec": "SITE_SELECTION_METRICS.md S2b (transit)",
+  "params": {
+    "walk_mpm": 80.0,
+    "detour": 1.3,
+    "access_m": 600.0,
+    "egress_m": 700.0,
+    "transfer_m": 200.0,
+    "max_wait_min": 30.0,
+    "cap_min": 50.0
+  },
+  "ride_edges": 23693,
+  "route_dir_stops": 24158,
+  "median_t15_pop": 23.0,
+  "wall_clock_s": 23.28
+}

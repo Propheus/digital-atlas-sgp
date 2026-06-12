@@ -1,0 +1,597 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Deep Anomalies — Digital Atlas SGP</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#0d1f21;color:#e5e7eb;line-height:1.7}
+.c{max-width:960px;margin:0 auto;padding:40px 24px}
+.hd{display:flex;align-items:center;gap:12px;margin-bottom:4px}
+h1{font-size:1.7rem;font-weight:800;color:#fff;letter-spacing:-0.02em}
+.sub{color:#6b9b9e;font-size:0.88rem;margin-bottom:28px}
+.tabs{display:flex;gap:3px;margin-bottom:24px;border-bottom:1px solid rgba(32,178,170,0.15);overflow-x:auto}
+.tab{padding:10px 16px;font-size:0.78rem;font-weight:600;color:#6b9b9e;cursor:pointer;border-bottom:2px solid transparent;transition:all 0.2s;white-space:nowrap;user-select:none}
+.tab:hover{color:#20b2aa}
+.tab.active{color:#20b2aa;border-bottom-color:#20b2aa}
+.tc{display:none;animation:fadeUp 0.4s ease-out}
+.tc.active{display:block}
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:6px;margin:16px 0 28px}
+.st{background:rgba(32,178,170,0.05);border:1px solid rgba(32,178,170,0.12);border-radius:10px;padding:10px;text-align:center}
+.st .v{font-size:1.1rem;font-weight:700;color:#20b2aa}
+.st .l{font-size:0.55rem;color:#6b9b9e;text-transform:uppercase;letter-spacing:0.06em}
+.sec{margin:20px 0}
+.sec h2{font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:4px}
+.sec .sd{font-size:0.78rem;color:#6b9b9e;margin-bottom:4px;line-height:1.7}
+.sec .cross{font-size:0.7rem;color:#4a7a7d;margin-bottom:14px;font-style:italic}
+.card{background:rgba(13,31,33,0.7);border:1px solid rgba(255,255,255,0.04);border-radius:12px;margin:8px 0;overflow:hidden;transition:all 0.25s;animation:slideIn 0.4s ease-out backwards}
+.card:hover{border-color:rgba(32,178,170,0.25);transform:translateY(-2px)}
+.card-top{padding:14px 18px;display:flex;align-items:flex-start;gap:12px}
+.card .rk{font-size:0.9rem;font-weight:800;width:24px;flex-shrink:0;opacity:0.5;padding-top:2px}
+.card .info{flex:1;min-width:0}
+.card .nm{font-weight:700;color:#fff;font-size:0.88rem}
+.card .ar{font-size:0.68rem;color:#4a7a7d}
+.card .why{font-size:0.76rem;color:#a3c4c7;margin-top:6px;line-height:1.7}
+.card .metrics{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.card .chip{background:rgba(255,255,255,0.04);padding:3px 8px;border-radius:5px;font-size:0.68rem;color:#6b9b9e}
+.card .chip b{color:#fff}
+.pair{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;padding:14px 18px;align-items:center}
+.pair .side{font-size:0.78rem}
+.pair .side b{color:#fff;display:block;font-size:0.85rem}
+.pair .side small{color:#4a7a7d;font-size:0.68rem}
+.pair .vs{text-align:center;font-weight:800;font-size:0.9rem}
+.fd{background:rgba(32,178,170,0.04);border:1px solid rgba(32,178,170,0.12);border-radius:10px;padding:14px 16px;margin:14px 0;border-left:3px solid #20b2aa}
+.fd.vd{background:rgba(34,197,94,0.04);border-color:rgba(34,197,94,0.12);border-left-color:#22c55e}
+.fd .fl{font-size:0.58rem;text-transform:uppercase;letter-spacing:0.08em;font-weight:700;margin-bottom:4px}
+.fd p{font-size:0.78rem;color:#a3c4c7;line-height:1.7}
+.ov-card{background:rgba(13,31,33,0.7);border:1px solid rgba(255,255,255,0.04);border-radius:12px;padding:18px;margin:10px 0;border-left:3px solid;transition:transform 0.2s;animation:fadeUp 0.5s ease-out backwards}
+.ov-card:hover{transform:translateX(4px)}
+.ov-card h3{font-size:0.95rem;font-weight:700;color:#fff;margin-bottom:4px}
+.ov-card .count{font-size:1.4rem;font-weight:800;float:right}
+.ov-card p{font-size:0.76rem;color:#6b9b9e;line-height:1.7}
+.footer{margin-top:48px;padding-top:20px;border-top:1px solid rgba(32,178,170,0.12);display:flex;align-items:center;gap:8px;color:#4a7a7d;font-size:0.68rem}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:translateX(0)}}
+</style></head><body><div class="c">
+<div class="hd"><svg width="28" height="28" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><g><g><path fill="#20b2aa" d="M45,64.2c-1.1,9.1-3.3,15.3-5.8,15.3c-0.1,0-0.1,0-0.2,0c-0.3,0-0.6-0.2-1-0.4c0,0,0,0,0,0c-3.1-2.5-5.4-14.5-5.4-29c0-14.4,2.3-26.4,5.4-29c0.3-0.3,0.7-0.5,1-0.5h0.2c2.6,0,4.9,6.8,6,16.6c-5.6,2-9.5,7.3-9.5,13.5C35.6,56.9,39.5,62.1,45,64.2z"/><path fill="#20b2aa" d="M67.4,50c0,14.5-2.3,26.5-5.4,29h0v0c-0.3,0.2-0.6,0.4-0.9,0.4c-0.1,0-0.2,0-0.2,0c-2.5,0-4.7-6.2-5.8-15.3c5.5-2,9.4-7.3,9.4-13.5c0-6.2-4-11.6-9.5-13.5c1.1-9.8,3.4-16.6,6-16.6H61v0c0.4,0,0.7,0.2,1,0.5C65.1,23.6,67.4,35.6,67.4,50z"/></g><path fill="#20b2aa" d="M30.2,50c0-14.4,2.3-26.4,5.4-29c-10.6,5.3-17.9,16.3-17.9,29c0,12.7,7.3,23.7,17.9,29C32.5,76.5,30.2,64.5,30.2,50z M64.4,21c3.1,2.6,5.4,14.5,5.4,29c0,14.5-2.3,26.5-5.4,29C75,73.7,82.3,62.7,82.3,50C82.3,37.3,75,26.4,64.4,21z"/><path fill="#20b2aa" d="M62.1,50.7c0,5-3,9.3-7.4,11.2c-1.5,0.6-3.1,1-4.8,1c-1.7,0-3.3-0.4-4.8-1c-4.3-1.9-7.4-6.2-7.4-11.2c0-5.1,3.1-9.4,7.5-11.2c1.4-0.6,3-0.9,4.7-0.9c1.7,0,3.2,0.3,4.7,0.9C59.1,41.3,62.1,45.6,62.1,50.7z"/></g></g></svg><h1>Deep Anomalies</h1></div>
+<div class="sub">135 non-obvious patterns detected by cross-referencing embedding model (431 features) + satellite imagery + 174K places + 93K micrographs + ACRA business registry</div>
+<div class="tabs">
+<div class="tab active" onclick="showTab('overview')">Overview</div>
+<div class="tab" onclick="showTab('ghost')">Ghost Commercial</div>
+<div class="tab" onclick="showTab('desert')">Dark Bedrooms</div>
+<div class="tab" onclick="showTab('orphan')">Unique Places</div>
+<div class="tab" onclick="showTab('contradiction')">Sat vs Model</div>
+<div class="tab" onclick="showTab('green')">Green Gentrify</div>
+</div>
+<div class="tc active" id="tab-overview">
+<div class="sg">
+<div class="st"><div class="v">40</div><div class="l">Total Anomalies</div></div>
+<div class="st"><div class="v">5</div><div class="l">Anomaly Types</div></div>
+<div class="st"><div class="v">5 cross-ref</div><div class="l">Data Sources</div></div>
+<div class="st"><div class="v">332</div><div class="l">Subzones</div></div>
+<div class="st"><div class="v">431 + 18 sat</div><div class="l">Features</div></div>
+<div class="st"><div class="v">93,788</div><div class="l">Micrographs</div></div>
+</div>
+<div class="ov-card" style="border-left-color:#f59e0b;animation-delay:0.0s">
+<div class="count" style="color:#f59e0b">10</div>
+<h3>&#128161; Ghost Commercial Zones</h3>
+<p style="margin-bottom:6px">Bright from space but few places in our database</p>
+<p style="font-size:0.7rem;color:#4a7a7d">Top: <b style="color:#fff">Maxwell</b> (Downtown Core) · Cross-ref: Satellite (night light) + Places DB (count) + Embedding (peer comparison)</p>
+</div>
+<div class="ov-card" style="border-left-color:#3b82f6;animation-delay:0.1s">
+<div class="count" style="color:#3b82f6">5</div>
+<h3>&#127769; Residential Deserts</h3>
+<p style="margin-bottom:6px">Tens of thousands of residents, but dark and quiet after sunset</p>
+<p style="font-size:0.7rem;color:#4a7a7d">Top: <b style="color:#fff">Lower Seletar</b> (Yishun) · Cross-ref: Census (population) + Satellite (night light) + Micrograph (contrast vs neighbors)</p>
+</div>
+<div class="ov-card" style="border-left-color:#a855f7;animation-delay:0.2s">
+<div class="count" style="color:#a855f7">5</div>
+<h3>&#127919; Structurally Unique Subzones</h3>
+<p style="margin-bottom:6px">Nothing else in Singapore looks like these — the model can't find a match</p>
+<p style="font-size:0.7rem;color:#4a7a7d">Top: <b style="color:#fff">Plantation</b> (Tengah) · Cross-ref: 431-feature embedding (cosine similarity) + Satellite (physical verification)</p>
+</div>
+<div class="ov-card" style="border-left-color:#ef4444;animation-delay:0.2s">
+<div class="count" style="color:#ef4444">10</div>
+<h3>&#9888; Satellite vs Model Contradictions</h3>
+<p style="margin-bottom:6px">The model says they're twins. The satellite says they look nothing alike.</p>
+<p style="font-size:0.7rem;color:#4a7a7d">Top: <b style="color:#fff">Swiss Club</b> (Bukit Timah) · Cross-ref: Embedding (cosine similarity > 0.80) + Satellite (built-up %, green %, night light disagreement)</p>
+</div>
+<div class="ov-card" style="border-left-color:#22c55e;animation-delay:0.3s">
+<div class="count" style="color:#22c55e">10</div>
+<h3>&#127793; Green Gentrification</h3>
+<p style="margin-bottom:6px">Nature meets rising property values and growing population</p>
+<p style="font-size:0.7rem;color:#4a7a7d">Top: <b style="color:#fff">Fernvale</b> (Sengkang) · Cross-ref: Satellite (green cover) + Census (population) + Property (HDB PSF) + Places (tier distribution)</p>
+</div>
+<div class="fd vd"><div class="fl" style="color:#22c55e">Why These Matter</div>
+<p>Each anomaly is invisible to any single data source. Ghost commercial needs satellite + places DB. Residential deserts need census + satellite + micrograph. Sat-model contradictions need the embedding model + satellite simultaneously. This multi-modal detection is the unique value of the Digital Atlas approach — no traditional analysis finds these patterns.</p></div>
+</div>
+<div class="tc" id="tab-ghost">
+<div class="sec">
+<h2 style="color:#f59e0b">&#128161; Ghost Commercial Zones</h2>
+<div class="sd">VIIRS satellite detects night radiance indicating commercial activity, but our 174K places database has surprisingly few entries. The mismatch reveals: large single-tenant buildings (hawker centres, malls counted as 1), office towers with no ground-floor retail, or gaps in our data coverage.</div>
+<div class="cross">Cross-reference: Satellite (night light) + Places DB (count) + Embedding (peer comparison)</div>
+<div class="card" style="animation-delay:0.00s">
+<div class="card-top">
+<div class="rk" style="color:#f59e0b">#1</div>
+<div class="info">
+<div class="nm">Maxwell</div>
+<div class="ar">DTSZ07 · Downtown Core</div>
+<div class="why">Satellite sees 134 nW night radiance and 86% built-up cover, but only 11 places in our database. Peer subzones average 43 places. Either: (1) commercial activity exists but isn't captured as individual places (e.g., large office complexes, industrial facilities), (2) places database is incomplete fo</div>
+<div class="metrics">
+<span class="chip"><b>134</b> Night Light</span>
+<span class="chip"><b>86.0</b> Built Up Pct</span>
+<span class="chip"><b>11</b> Places</span>
+<span class="chip"><b>0</b> Population</span>
+<span class="chip"><b>43.0</b> Peer Avg Places</span>
+</div></div></div></div>
+<div class="card" style="animation-delay:0.04s">
+<div class="card-top">
+<div class="rk" style="color:#f59e0b">#2</div>
+<div class="info">
+<div class="nm">Cecil</div>
+<div class="ar">DTSZ08 · Downtown Core</div>
+<div class="why">Satellite sees 165 nW night radiance and 96% built-up cover, but only 36 places in our database. Peer subzones average 131 places. Either: (1) commercial activity exists but isn't captured as individual places (e.g., large office complexes, industrial facilities), (2) places database is incomplete f</div>
+<div class="metrics">
+<span class="chip"><b>164</b> Night Light</span>
+<span class="chip"><b>96.0</b> Built Up Pct</span>
+<span class="chip"><b>36</b> Places</span>
+<span class="chip"><b>520</b> Population</span>
+<span class="chip"><b>131</b> Peer Avg Places</span>
+</div></div></div></div>
+<div class="card" style="animation-delay:0.08s">
+<div class="card-top">
+<div class="rk" style="color:#f59e0b">#3</div>
+<div class="info">
+<div class="nm">Oxley</div>
+<div class="ar">RVSZ04 · River Valley</div>
+<div class="why">Satellite sees 93 nW night radiance and 82% built-up cover, but only 25 places in our database. Peer subzones average 56 places. Either: (1) commercial activity exists but isn't captured as individual places (e.g., large office complexes, industrial facilities), (2) places database is incomplete for</div>
+<div class="metrics">
+<span class="chip"><b>93.1</b> Night Light</span>
+<span class="chip"><b>82.0</b> Built Up Pct</span>
+<span class="chip"><b>25</b> Places</span>
+<span class="chip"><b>1,530</b> Population</span>
+<span class="chip"><b>56.0</b> Peer Avg Places</span>
+</div></div></div></div>
+<div class="card" style="animation-delay:0.12s">
+<div class="card-top">
+<div class="rk" style="color:#f59e0b">#4</div>
+<div class="info">
+<div class="nm">People's Park</div>
+<div class="ar">OTSZ02 · Outram</div>
+<div class="why">Satellite sees 123 nW night radiance and 74% built-up cover, but only 37 places in our database. Peer subzones average 143 places. Either: (1) commercial activity exists but isn't captured as individual places (e.g., large office complexes, industrial facilities), (2) places database is incomplete f</div>
+<div class="metrics">
+<span class="chip"><b>123</b> Night Light</span>
+<span class="chip"><b>74.0</b> Built Up Pct</span>
+<span class="chip"><b>37</b> Places</span>
+<span class="chip"><b>180</b> Population</span>
+<span class="chip"><b>143</b> Peer Avg Places</span>
+</div></div></div></div>
+<div class="card" style="animation-delay:0.16s">
+<div class="card-top">
+<div class="rk" style="color:#f59e0b">#5</div>
+<div class="info">
+<div class="nm">Shipyard</div>
+<div class="ar">BLSZ04 · Boon Lay</div>
+<div class="why">Satellite sees 81 nW night radiance and 85% built-up cover, but only 29 places in our database. Peer subzones average 114 places. Either: (1) commercial activity exists but isn't captured as individual places (e.g., large office complexes, industrial facilities), (2) places database is incomplete fo</div>
+<div class="metrics">
+<span class="chip"><b>81.3</b> Night Light</span>
+<span class="chip"><b>85.0</b> Built Up Pct</span>
+<span class="chip"><b>29</b> Places</span>
+<span class="chip"><b>0</b> Population</span>
+<span class="chip"><b>114</b> Peer Avg Places</span>
+</div></div></div></div>
+<div class="card" style="animation-delay:0.20s">
+<div class="card-top">
+<div class="rk" style="color:#f59e0b">#6</div>
+<div class="info">
+<div class="nm">Clarke Quay</div>
+<div class="ar">SRSZ02 · Singapore River</div>
+<div class="why">Satellite sees 153 nW night radiance and 73% built-up cover, but only 61 places in our database. Peer subzones average 98 places. Either: (1) commercial activity exists but isn't captured as individual places (e.g., large office complexes, industrial facilities), (2) places database is incomplete fo</div>
+<div class="metrics">
+<span class="chip"><b>153</b> Night Light</span>
+<span class="chip"><b>73.0</b> Built Up Pct</span>
+<span class="chip"><b>61</b> Places</span>
+<span class="chip"><b>0</b> Population</span>
+<span class="chip"><b>98.0</b> Peer Avg Places</span>
+</div></div></div></div>
+<div class="card" style="animation-delay:0.24s">
+<div class="card-top">
+<div class="rk" style="color:#f59e0b">#7</div>
+<div class="info">
+<div class="nm">The Wharves</div>
+<div class="ar">SBSZ07 · Sembawang</div>
+<div class="why">Satellite sees 72 nW night radiance and 82% built-up cover, but only 33 places in our database. Peer subzones average 85 places. Either: (1) commercial activity exists but isn't captured as individual places (e.g., large office complexes, industrial facilities), (2) places database is incomplete for</div>
+<div class="metrics">
+<span class="chip"><b>71.9</b> Night Light</span>
+<span class="chip"><b>82.0</b> Built Up Pct</span>
+<span class="chip"><b>33</b> Places</span>
+<span class="chip"><b>0</b> Population</span>
+<span class="chip"><b>85.0</b> Peer Avg Places</span>
+</div></div></div></div>
+<div class="card" style="animation-delay:0.28s">
+<div class="card-top">
+<div class="rk" style="color:#f59e0b">#8</div>
+<div class="info">
+<div class="nm">Tanjong Pagar</div>
+<div class="ar">DTSZ09 · Downtown Core</div>
+<div class="why">Satellite sees 143 nW night radiance and 88% built-up cover, but only 73 places in our database. Peer subzones average 164 places. Either: (1) commercial activity exists but isn't captured as individual places (e.g., large office complexes, industrial facilities), (2) places database is incomplete f</div>
+<div class="metrics">
+<span class="chip"><b>142</b> Night Light</span>
+<span class="chip"><b>88.0</b> Built Up Pct</span>
+<span class="chip"><b>73</b> Places</span>
+<span class="chip"><b>900</b> Population</span>
+<span class="chip"><b>164</b> Peer Avg Places</span>
+</div></div></div></div>
+<div class="fd vd"><div class="fl" style="color:#22c55e">Validated Insight</div><p>Maxwell Food Centre appears as a single place but generates CBD-level night radiance (134 nW). This reveals a structural bias in place counting — large hawker centres with 100+ stalls count as 1 place but function as 100. The satellite sees the truth.</p></div>
+</div></div>
+<div class="tc" id="tab-desert">
+<div class="sec">
+<h2 style="color:#3b82f6">&#127769; Residential Deserts</h2>
+<div class="sd">Cross-referencing census population with satellite night radiance and micrograph demand scores reveals subzones where large populations have minimal evening commercial activity. Residents must travel to neighboring subzones for dinner, shopping, and entertainment.</div>
+<div class="cross">Cross-reference: Census (population) + Satellite (night light) + Micrograph (contrast vs neighbors)</div>
+<div class="card" style="animation-delay:0.00s">
+<div class="card-top">
+<div class="rk" style="color:#3b82f6">#1</div>
+<div class="info">
+<div class="nm">Lower Seletar</div>
+<div class="ar">YSSZ05 · Yishun</div>
+<div class="why">19,040 residents live here but the satellite sees only 27 nW at night (avg is 67). Only 17 F&B places for 19,040 people. Contrast vs neighbors: -0.07 (negative = undersupplied). These residents travel elsewhere for dinner.</div>
+<div class="metrics">
+<span class="chip"><b>19,040</b> Population</span>
+<span class="chip"><b>27.5</b> Night Light</span>
+<span class="chip"><b>17</b> Fnb Places</span>
+<span class="chip"><b>3</b> Cafes</span>
+<span class="chip"><b>12</b> Restaurants</span>
+<span class="chip"><b>2,161</b> Demand Evening</span>
+</div></div></div></div>
+<div class="card" style="animation-delay:0.04s">
+<div class="card-top">
+<div class="rk" style="color:#3b82f6">#2</div>
+<div class="info">
+<div class="nm">Hillview</div>
+<div class="ar">BKSZ05 · Bukit Batok</div>
+<div class="why">20,480 residents live here but the satellite sees only 32 nW at night (avg is 67). Only 21 F&B places for 20,480 people. Contrast vs neighbors: 0.03 (negative = undersupplied). These residents travel elsewhere for dinner.</div>
+<div class="metrics">
+<span class="chip"><b>20,480</b> Population</span>
+<span class="chip"><b>31.7</b> Night Light</span>
+<span class="chip"><b>21</b> Fnb Places</span>
+<span class="chip"><b>5</b> Cafes</span>
+<span class="chip"><b>14</b> Restaurants</span>
+<span class="chip"><b>3,955</b> Demand Evening</span>
+</div></div></div></div>
+<div class="card" style="animation-delay:0.08s">
+<div class="card-top">
+<div class="rk" style="color:#3b82f6">#3</div>
+<div class="info">
+<div class="nm">Bedok Reservoir</div>
+<div class="ar">BDSZ02 · Bedok</div>
+<div class="why">24,880 residents live here but the satellite sees only 40 nW at night (avg is 67). Only 29 F&B places for 24,880 people. Contrast vs neighbors: -2.63 (negative = undersupplied). These residents travel elsewhere for dinner.</div>
+<div class="metrics">
+<span class="chip"><b>24,880</b> Population</span>
+<span class="chip"><b>40.0</b> Night Light</span>
+<span class="chip"><b>29</b> Fnb Places</span>
+<span class="chip"><b>10</b> Cafes</span>
+<span class="chip"><b>12</b> Restaurants</span>
+<span class="chip"><b>3,634</b> Demand Evening</span>
+</div></div></div></div>
+<div class="card" style="animation-delay:0.12s">
+<div class="card-top">
+<div class="rk" style="color:#3b82f6">#4</div>
+<div class="info">
+<div class="nm">Margaret Drive</div>
+<div class="ar">QTSZ05 · Queenstown</div>
+<div class="why">23,810 residents live here but the satellite sees only 47 nW at night (avg is 67). Only 22 F&B places for 23,810 people. Contrast vs neighbors: -0.01 (negative = undersupplied). These residents travel elsewhere for dinner.</div>
+<div class="metrics">
+<span class="chip"><b>23,810</b> Population</span>
+<span class="chip"><b>47.5</b> Night Light</span>
+<span class="chip"><b>22</b> Fnb Places</span>
+<span class="chip"><b>10</b> Cafes</span>
+<span class="chip"><b>8</b> Restaurants</span>
+<span class="chip"><b>3,589</b> Demand Evening</span>
+</div></div></div></div>
+<div class="card" style="animation-delay:0.16s">
+<div class="card-top">
+<div class="rk" style="color:#3b82f6">#5</div>
+<div class="info">
+<div class="nm">Seletar Hills</div>
+<div class="ar">SGSZ01 · Serangoon</div>
+<div class="why">15,230 residents live here but the satellite sees only 48 nW at night (avg is 67). Only 22 F&B places for 15,230 people. Contrast vs neighbors: -0.38 (negative = undersupplied). These residents travel elsewhere for dinner.</div>
+<div class="metrics">
+<span class="chip"><b>15,230</b> Population</span>
+<span class="chip"><b>48.0</b> Night Light</span>
+<span class="chip"><b>22</b> Fnb Places</span>
+<span class="chip"><b>4</b> Cafes</span>
+<span class="chip"><b>14</b> Restaurants</span>
+<span class="chip"><b>2,229</b> Demand Evening</span>
+</div></div></div></div>
+<div class="fd vd"><div class="fl" style="color:#22c55e">Validated Insight</div><p>Bedok Reservoir has the most extreme contrast: -2.63 vs neighbors. 25K residents, 40 nW at night, only 29 F&B places. The micrograph model shows anchors (MRTs, malls) are all OUTSIDE this subzone — demand literally walks away. A hawker centre or food court here would capture trapped local demand.</p></div>
+</div></div>
+<div class="tc" id="tab-orphan">
+<div class="sec">
+<h2 style="color:#a855f7">&#127919; Structurally Unique Subzones</h2>
+<div class="sd">The 431-feature embedding model compresses each subzone into a 32-dim fingerprint and compares against all 331 others. These subzones have the lowest maximum similarity — they don't fit any archetype. Each is a one-of-a-kind micro-market requiring bespoke strategy.</div>
+<div class="cross">Cross-reference: 431-feature embedding (cosine similarity) + Satellite (physical verification)</div>
+<div class="card" style="animation-delay:0.00s">
+<div class="card-top">
+<div class="rk" style="color:#a855f7">#1</div>
+<div class="info">
+<div class="nm">Plantation</div>
+<div class="ar">THSZ06 · Tengah</div>
+<div class="why">No other subzone in Singapore looks like Plantation. Max similarity to any peer: 0.621 (typical is 0.85+). It sits at the edge of cluster 1 but doesn't truly belong. This subzone has a unique combination of features that the model can't find elsewhere — worth investigating as a one-of-a-kind micro-m</div>
+<div class="metrics">
+<span class="chip"><b>0.621</b> Max Similarity</span>
+<span class="chip"><b>1</b> Cluster</span>
+<span class="chip"><b>1.99</b> Dist To Centroid</span>
+<span class="chip"><b>79</b> Places</span>
+<span class="chip"><b>12,180</b> Population</span>
+<span class="chip"><b>33.0</b> Built Up</span>
+</div></div></div></div>
+<div class="card" style="animation-delay:0.04s">
+<div class="card-top">
+<div class="rk" style="color:#a855f7">#2</div>
+<div class="info">
+<div class="nm">Wenya</div>
+<div class="ar">JWSZ01 · Jurong West</div>
+<div class="why">No other subzone in Singapore looks like Wenya. Max similarity to any peer: 0.672 (typical is 0.85+). It sits at the edge of cluster 4 but doesn't truly belong. This subzone has a unique combination of features that the model can't find elsewhere — worth investigating as a one-of-a-kind micro-market</div>
+<div class="metrics">
+<span class="chip"><b>0.672</b> Max Similarity</span>
+<span class="chip"><b>4</b> Cluster</span>
+<span class="chip"><b>1.973</b> Dist To Centroid</span>
+<span class="chip"><b>60</b> Places</span>
+<span class="chip"><b>7,900</b> Population</span>
+<span class="chip"><b>43.0</b> Built Up</span>
+</div></div></div></div>
+<div class="card" style="animation-delay:0.08s">
+<div class="card-top">
+<div class="rk" style="color:#a855f7">#3</div>
+<div class="info">
+<div class="nm">Marina South</div>
+<div class="ar">MSSZ01 · Marina South</div>
+<div class="why">No other subzone in Singapore looks like Marina South. Max similarity to any peer: 0.676 (typical is 0.85+). It sits at the edge of cluster 4 but doesn't truly belong. This subzone has a unique combination of features that the model can't find elsewhere — worth investigating as a one-of-a-kind micro</div>
+<div class="metrics">
+<span class="chip"><b>0.676</b> Max Similarity</span>
+<span class="chip"><b>4</b> Cluster</span>
+<span class="chip"><b>5.515</b> Dist To Centroid</span>
+<span class="chip"><b>37</b> Places</span>
+<span class="chip"><b>0</b> Population</span>
+<span class="chip"><b>14.0</b> Built Up</span>
+</div></div></div></div>
+<div class="card" style="animation-delay:0.12s">
+<div class="card-top">
+<div class="rk" style="color:#a855f7">#4</div>
+<div class="info">
+<div class="nm">Khatib</div>
+<div class="ar">YSSZ08 · Yishun</div>
+<div class="why">No other subzone in Singapore looks like Khatib. Max similarity to any peer: 0.677 (typical is 0.85+). It sits at the edge of cluster 1 but doesn't truly belong. This subzone has a unique combination of features that the model can't find elsewhere — worth investigating as a one-of-a-kind micro-marke</div>
+<div class="metrics">
+<span class="chip"><b>0.677</b> Max Similarity</span>
+<span class="chip"><b>1</b> Cluster</span>
+<span class="chip"><b>1.441</b> Dist To Centroid</span>
+<span class="chip"><b>96</b> Places</span>
+<span class="chip"><b>9,700</b> Population</span>
+<span class="chip"><b>49.0</b> Built Up</span>
+</div></div></div></div>
+<div class="card" style="animation-delay:0.16s">
+<div class="card-top">
+<div class="rk" style="color:#a855f7">#5</div>
+<div class="info">
+<div class="nm">Dunearn</div>
+<div class="ar">NVSZ04 · Novena</div>
+<div class="why">No other subzone in Singapore looks like Dunearn. Max similarity to any peer: 0.681 (typical is 0.85+). It sits at the edge of cluster 1 but doesn't truly belong. This subzone has a unique combination of features that the model can't find elsewhere — worth investigating as a one-of-a-kind micro-mark</div>
+<div class="metrics">
+<span class="chip"><b>0.681</b> Max Similarity</span>
+<span class="chip"><b>1</b> Cluster</span>
+<span class="chip"><b>2.479</b> Dist To Centroid</span>
+<span class="chip"><b>69</b> Places</span>
+<span class="chip"><b>3,970</b> Population</span>
+<span class="chip"><b>66.0</b> Built Up</span>
+</div></div></div></div>
+<div class="fd vd"><div class="fl" style="color:#22c55e">Validated Insight</div><p>Tengah (Plantation) is Singapore's most unique subzone — nothing else in the 332-subzone database matches it above 0.62 similarity. It's a blank canvas: currently greenfield, but planned for 42,000 HDB flats. The model sees the infrastructure (roads, MRT under construction) but no commercial fabric yet. First-mover advantage for F&B operators.</p></div>
+</div></div>
+<div class="tc" id="tab-contradiction">
+<div class="sec">
+<h2 style="color:#ef4444">&#9888; Satellite vs Model Contradictions</h2>
+<div class="sd">Pairs of subzones that embed close together (similar commercial DNA: demographics, transit, places, demand) but have completely different physical environments as seen from space. This reveals where identical demand profiles meet different development stages — the less-developed twin has headroom.</div>
+<div class="cross">Cross-reference: Embedding (cosine similarity > 0.80) + Satellite (built-up %, green %, night light disagreement)</div>
+<div class="card" style="animation-delay:0.00s">
+<div class="pair">
+<div class="side"><b>Swiss Club</b><small>Bukit Timah · 36% built · 63% green</small></div>
+<div class="vs" style="color:#ef4444">81%<br><span style="font-size:0.6rem;color:#6b9b9e">similar</span></div>
+<div class="side" style="text-align:right"><b>Port</b><small>Queenstown · 75% built · 10% green</small></div>
+</div>
+<div style="padding:0 18px 14px"><div class="why">The embedding model says Swiss Club and Port are 81% similar (same commercial DNA). But the satellite sees completely different physical environments: Swiss Club is 36% built-up/63% green, while Port is 75% built-up/10% green. This means they serve similar demand with totally different urban forms —</div></div>
+</div>
+<div class="card" style="animation-delay:0.04s">
+<div class="pair">
+<div class="side"><b>Anson</b><small>Downtown Core · 92% built · 4% green</small></div>
+<div class="vs" style="color:#ef4444">84%<br><span style="font-size:0.6rem;color:#6b9b9e">similar</span></div>
+<div class="side" style="text-align:right"><b>Nicoll</b><small>Downtown Core · 35% built · 37% green</small></div>
+</div>
+<div style="padding:0 18px 14px"><div class="why">The embedding model says Anson and Nicoll are 84% similar (same commercial DNA). But the satellite sees completely different physical environments: Anson is 92% built-up/4% green, while Nicoll is 35% built-up/37% green. This means they serve similar demand with totally different urban forms — one of</div></div>
+</div>
+<div class="card" style="animation-delay:0.08s">
+<div class="pair">
+<div class="side"><b>Cairnhill</b><small>Newton · 73% built · 26% green</small></div>
+<div class="vs" style="color:#ef4444">82%<br><span style="font-size:0.6rem;color:#6b9b9e">similar</span></div>
+<div class="side" style="text-align:right"><b>Leonie Hill</b><small>River Valley · 48% built · 52% green</small></div>
+</div>
+<div style="padding:0 18px 14px"><div class="why">The embedding model says Cairnhill and Leonie Hill are 82% similar (same commercial DNA). But the satellite sees completely different physical environments: Cairnhill is 73% built-up/26% green, while Leonie Hill is 48% built-up/52% green. This means they serve similar demand with totally different u</div></div>
+</div>
+<div class="card" style="animation-delay:0.12s">
+<div class="pair">
+<div class="side"><b>People's Park</b><small>Outram · 74% built · 24% green</small></div>
+<div class="vs" style="color:#ef4444">86%<br><span style="font-size:0.6rem;color:#6b9b9e">similar</span></div>
+<div class="side" style="text-align:right"><b>China Square</b><small>Outram · 98% built · 2% green</small></div>
+</div>
+<div style="padding:0 18px 14px"><div class="why">The embedding model says People's Park and China Square are 86% similar (same commercial DNA). But the satellite sees completely different physical environments: People's Park is 74% built-up/24% green, while China Square is 98% built-up/2% green. This means they serve similar demand with totally di</div></div>
+</div>
+<div class="card" style="animation-delay:0.16s">
+<div class="pair">
+<div class="side"><b>Bugis</b><small>Downtown Core · 93% built · 4% green</small></div>
+<div class="vs" style="color:#ef4444">89%<br><span style="font-size:0.6rem;color:#6b9b9e">similar</span></div>
+<div class="side" style="text-align:right"><b>China Square</b><small>Outram · 98% built · 2% green</small></div>
+</div>
+<div style="padding:0 18px 14px"><div class="why">The embedding model says Bugis and China Square are 89% similar (same commercial DNA). But the satellite sees completely different physical environments: Bugis is 93% built-up/4% green, while China Square is 98% built-up/2% green. This means they serve similar demand with totally different urban for</div></div>
+</div>
+<div class="card" style="animation-delay:0.20s">
+<div class="pair">
+<div class="side"><b>Raffles Place</b><small>Downtown Core · 87% built · 5% green</small></div>
+<div class="vs" style="color:#ef4444">88%<br><span style="font-size:0.6rem;color:#6b9b9e">similar</span></div>
+<div class="side" style="text-align:right"><b>China Square</b><small>Outram · 98% built · 2% green</small></div>
+</div>
+<div style="padding:0 18px 14px"><div class="why">The embedding model says Raffles Place and China Square are 88% similar (same commercial DNA). But the satellite sees completely different physical environments: Raffles Place is 87% built-up/5% green, while China Square is 98% built-up/2% green. This means they serve similar demand with totally dif</div></div>
+</div>
+<div class="card" style="animation-delay:0.24s">
+<div class="pair">
+<div class="side"><b>Tanjong Pagar</b><small>Downtown Core · 88% built · 10% green</small></div>
+<div class="vs" style="color:#ef4444">88%<br><span style="font-size:0.6rem;color:#6b9b9e">similar</span></div>
+<div class="side" style="text-align:right"><b>China Square</b><small>Outram · 98% built · 2% green</small></div>
+</div>
+<div style="padding:0 18px 14px"><div class="why">The embedding model says Tanjong Pagar and China Square are 88% similar (same commercial DNA). But the satellite sees completely different physical environments: Tanjong Pagar is 88% built-up/10% green, while China Square is 98% built-up/2% green. This means they serve similar demand with totally di</div></div>
+</div>
+<div class="card" style="animation-delay:0.28s">
+<div class="pair">
+<div class="side"><b>Cecil</b><small>Downtown Core · 96% built · 2% green</small></div>
+<div class="vs" style="color:#ef4444">84%<br><span style="font-size:0.6rem;color:#6b9b9e">similar</span></div>
+<div class="side" style="text-align:right"><b>China Square</b><small>Outram · 98% built · 2% green</small></div>
+</div>
+<div style="padding:0 18px 14px"><div class="why">The embedding model says Cecil and China Square are 84% similar (same commercial DNA). But the satellite sees completely different physical environments: Cecil is 96% built-up/2% green, while China Square is 98% built-up/2% green. This means they serve similar demand with totally different urban for</div></div>
+</div>
+<div class="fd vd"><div class="fl" style="color:#22c55e">Validated Insight</div><p>Anson and Nicoll share 84% commercial DNA (embedding similarity) but Anson is 92% concrete while Nicoll is 35% built-up. This means Nicoll can replicate Anson's commercial success as it develops — same demand profile, massive physical headroom. These contradiction pairs are the strongest signals for future development potential.</p></div>
+</div></div>
+<div class="tc" id="tab-green">
+<div class="sec">
+<h2 style="color:#22c55e">&#127793; Green Gentrification</h2>
+<div class="sd">Subzones where satellite shows significant green cover but census shows high population, and property data shows rising HDB prices. These are suburban areas where nature preservation is under development pressure — the character is shifting from green to urban.</div>
+<div class="cross">Cross-reference: Satellite (green cover) + Census (population) + Property (HDB PSF) + Places (tier distribution)</div>
+<div class="card" style="animation-delay:0.00s">
+<div class="card-top">
+<div class="rk" style="color:#22c55e">#1</div>
+<div class="info">
+<div class="nm">Fernvale</div>
+<div class="ar">SESZ06 · Sengkang</div>
+<div class="why">37% green cover but $640/sqft HDB prices and 70,800 population. This subzone straddles nature and urbanization — satellite shows mixed land cover. High property values signal demand pressure on remaining green space. As development continues, the character will shift. Currently 0/665 places are prem</div>
+<div class="metrics">
+<span class="chip"><b>37.0</b> Green Pct</span>
+<span class="chip"><b>57.0</b> Built Pct</span>
+<span class="chip"><b>640</b> Hdb Psf</span>
+<span class="chip"><b>70,800</b> Population</span>
+<span class="chip"><b>0</b> Premium Places</span>
+<span class="chip"><b>665</b> Total Places</span>
+</div></div></div></div>
+<div class="card" style="animation-delay:0.04s">
+<div class="card-top">
+<div class="rk" style="color:#22c55e">#2</div>
+<div class="info">
+<div class="nm">Marymount</div>
+<div class="ar">BSSZ02 · Bishan</div>
+<div class="why">31% green cover but $754/sqft HDB prices and 28,730 population. This subzone straddles nature and urbanization — satellite shows mixed land cover. High property values signal demand pressure on remaining green space. As development continues, the character will shift. Currently 0/897 places are prem</div>
+<div class="metrics">
+<span class="chip"><b>31.0</b> Green Pct</span>
+<span class="chip"><b>68.0</b> Built Pct</span>
+<span class="chip"><b>754</b> Hdb Psf</span>
+<span class="chip"><b>28,730</b> Population</span>
+<span class="chip"><b>0</b> Premium Places</span>
+<span class="chip"><b>897</b> Total Places</span>
+</div></div></div></div>
+<div class="card" style="animation-delay:0.08s">
+<div class="card-top">
+<div class="rk" style="color:#22c55e">#3</div>
+<div class="info">
+<div class="nm">Upper Thomson</div>
+<div class="ar">BSSZ01 · Bishan</div>
+<div class="why">41% green cover but $754/sqft HDB prices and 31,280 population. This subzone straddles nature and urbanization — satellite shows mixed land cover. High property values signal demand pressure on remaining green space. As development continues, the character will shift. Currently 0/2095 places are pre</div>
+<div class="metrics">
+<span class="chip"><b>41.0</b> Green Pct</span>
+<span class="chip"><b>58.0</b> Built Pct</span>
+<span class="chip"><b>754</b> Hdb Psf</span>
+<span class="chip"><b>31,280</b> Population</span>
+<span class="chip"><b>0</b> Premium Places</span>
+<span class="chip"><b>2,095</b> Total Places</span>
+</div></div></div></div>
+<div class="card" style="animation-delay:0.12s">
+<div class="card-top">
+<div class="rk" style="color:#22c55e">#4</div>
+<div class="info">
+<div class="nm">Punggol Town Centre</div>
+<div class="ar">PGSZ02 · Punggol</div>
+<div class="why">34% green cover but $690/sqft HDB prices and 25,060 population. This subzone straddles nature and urbanization — satellite shows mixed land cover. High property values signal demand pressure on remaining green space. As development continues, the character will shift. Currently 0/552 places are prem</div>
+<div class="metrics">
+<span class="chip"><b>34.0</b> Green Pct</span>
+<span class="chip"><b>47.0</b> Built Pct</span>
+<span class="chip"><b>690</b> Hdb Psf</span>
+<span class="chip"><b>25,060</b> Population</span>
+<span class="chip"><b>0</b> Premium Places</span>
+<span class="chip"><b>552</b> Total Places</span>
+</div></div></div></div>
+<div class="card" style="animation-delay:0.16s">
+<div class="card-top">
+<div class="rk" style="color:#22c55e">#5</div>
+<div class="info">
+<div class="nm">Tampines North</div>
+<div class="ar">TMSZ01 · Tampines</div>
+<div class="why">50% green cover but $619/sqft HDB prices and 35,640 population. This subzone straddles nature and urbanization — satellite shows mixed land cover. High property values signal demand pressure on remaining green space. As development continues, the character will shift. Currently 0/492 places are prem</div>
+<div class="metrics">
+<span class="chip"><b>50.0</b> Green Pct</span>
+<span class="chip"><b>44.0</b> Built Pct</span>
+<span class="chip"><b>619</b> Hdb Psf</span>
+<span class="chip"><b>35,640</b> Population</span>
+<span class="chip"><b>0</b> Premium Places</span>
+<span class="chip"><b>492</b> Total Places</span>
+</div></div></div></div>
+<div class="card" style="animation-delay:0.20s">
+<div class="card-top">
+<div class="rk" style="color:#22c55e">#6</div>
+<div class="info">
+<div class="nm">Margaret Drive</div>
+<div class="ar">QTSZ05 · Queenstown</div>
+<div class="why">50% green cover but $929/sqft HDB prices and 23,810 population. This subzone straddles nature and urbanization — satellite shows mixed land cover. High property values signal demand pressure on remaining green space. As development continues, the character will shift. Currently 0/246 places are prem</div>
+<div class="metrics">
+<span class="chip"><b>50.0</b> Green Pct</span>
+<span class="chip"><b>49.0</b> Built Pct</span>
+<span class="chip"><b>929</b> Hdb Psf</span>
+<span class="chip"><b>23,810</b> Population</span>
+<span class="chip"><b>0</b> Premium Places</span>
+<span class="chip"><b>246</b> Total Places</span>
+</div></div></div></div>
+<div class="card" style="animation-delay:0.24s">
+<div class="card-top">
+<div class="rk" style="color:#22c55e">#7</div>
+<div class="info">
+<div class="nm">Brickworks</div>
+<div class="ar">BKSZ03 · Bukit Batok</div>
+<div class="why">43% green cover but $615/sqft HDB prices and 30,890 population. This subzone straddles nature and urbanization — satellite shows mixed land cover. High property values signal demand pressure on remaining green space. As development continues, the character will shift. Currently 0/181 places are prem</div>
+<div class="metrics">
+<span class="chip"><b>43.0</b> Green Pct</span>
+<span class="chip"><b>56.0</b> Built Pct</span>
+<span class="chip"><b>615</b> Hdb Psf</span>
+<span class="chip"><b>30,890</b> Population</span>
+<span class="chip"><b>0</b> Premium Places</span>
+<span class="chip"><b>181</b> Total Places</span>
+</div></div></div></div>
+<div class="card" style="animation-delay:0.28s">
+<div class="card-top">
+<div class="rk" style="color:#22c55e">#8</div>
+<div class="info">
+<div class="nm">Northshore</div>
+<div class="ar">PGSZ01 · Punggol</div>
+<div class="why">40% green cover but $690/sqft HDB prices and 24,780 population. This subzone straddles nature and urbanization — satellite shows mixed land cover. High property values signal demand pressure on remaining green space. As development continues, the character will shift. Currently 0/348 places are prem</div>
+<div class="metrics">
+<span class="chip"><b>40.0</b> Green Pct</span>
+<span class="chip"><b>44.0</b> Built Pct</span>
+<span class="chip"><b>690</b> Hdb Psf</span>
+<span class="chip"><b>24,780</b> Population</span>
+<span class="chip"><b>0</b> Premium Places</span>
+<span class="chip"><b>348</b> Total Places</span>
+</div></div></div></div>
+<div class="fd vd"><div class="fl" style="color:#22c55e">Validated Insight</div><p>Upper Thomson (41% green, $754/sqft HDB, 31K pop) perfectly illustrates the tension: residents chose this area FOR the greenery, but rising values attract development that destroys it. Premium F&B that leverages the green setting (garden cafes, nature-adjacent dining) can capture both the amenity and the demand — if positioned before the greenery disappears.</p></div>
+</div></div>
+<div class="footer"><svg width="18" height="18" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><g><g><path fill="#20b2aa" d="M45,64.2c-1.1,9.1-3.3,15.3-5.8,15.3c-0.1,0-0.1,0-0.2,0c-0.3,0-0.6-0.2-1-0.4c0,0,0,0,0,0c-3.1-2.5-5.4-14.5-5.4-29c0-14.4,2.3-26.4,5.4-29c0.3-0.3,0.7-0.5,1-0.5h0.2c2.6,0,4.9,6.8,6,16.6c-5.6,2-9.5,7.3-9.5,13.5C35.6,56.9,39.5,62.1,45,64.2z"/><path fill="#20b2aa" d="M67.4,50c0,14.5-2.3,26.5-5.4,29h0v0c-0.3,0.2-0.6,0.4-0.9,0.4c-0.1,0-0.2,0-0.2,0c-2.5,0-4.7-6.2-5.8-15.3c5.5-2,9.4-7.3,9.4-13.5c0-6.2-4-11.6-9.5-13.5c1.1-9.8,3.4-16.6,6-16.6H61v0c0.4,0,0.7,0.2,1,0.5C65.1,23.6,67.4,35.6,67.4,50z"/></g><path fill="#20b2aa" d="M30.2,50c0-14.4,2.3-26.4,5.4-29c-10.6,5.3-17.9,16.3-17.9,29c0,12.7,7.3,23.7,17.9,29C32.5,76.5,30.2,64.5,30.2,50z M64.4,21c3.1,2.6,5.4,14.5,5.4,29c0,14.5-2.3,26.5-5.4,29C75,73.7,82.3,62.7,82.3,50C82.3,37.3,75,26.4,64.4,21z"/><path fill="#20b2aa" d="M62.1,50.7c0,5-3,9.3-7.4,11.2c-1.5,0.6-3.1,1-4.8,1c-1.7,0-3.3-0.4-4.8-1c-4.3-1.9-7.4-6.2-7.4-11.2c0-5.1,3.1-9.4,7.5-11.2c1.4-0.6,3-0.9,4.7-0.9c1.7,0,3.2,0.3,4.7,0.9C59.1,41.3,62.1,45.6,62.1,50.7z"/></g></g></svg><span>Propheus Digital Atlas SGP · 135 anomalies from 5 cross-referenced sources · V5 Model (431 features) + Satellite (18 features) + 174K places + 93K micrographs</span></div>
+<script>
+function showTab(id){
+document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+document.querySelectorAll('.tc').forEach(t=>t.classList.remove('active'));
+document.querySelector('[onclick*="'+id+'"]').classList.add('active');
+document.getElementById('tab-'+id).classList.add('active');
+}
+</script>
+</div></body></html>

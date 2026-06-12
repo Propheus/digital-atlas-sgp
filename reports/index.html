@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Digital Atlas SGP — Research Reports</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg-1:#0F2224;--bg-2:#132C30;--bg-3:#1A3C42;--glass-b:rgba(32,178,170,0.15);--ac:#20B2AA;--tx:#fff;--t2:#c0d0d4;--t3:#6b8a90;--card:rgba(17,40,42,0.7)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,var(--bg-1),var(--bg-2),var(--bg-3));color:var(--tx);min-height:100vh}
+.wrap{max-width:1200px;margin:0 auto;padding:32px 20px}
+.hero{text-align:center;padding:32px 20px}
+.hero h1{font-family:'Raleway',sans-serif;font-size:34px;font-weight:800;color:var(--ac)}
+.hero .sub{color:var(--t2);margin-top:8px;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:18px;margin-top:28px}
+.card{background:var(--card);backdrop-filter:blur(8px);border:1px solid var(--glass-b);border-radius:14px;padding:24px;text-decoration:none;color:inherit;transition:transform 0.2s,border-color 0.2s;display:block}
+.card:hover{transform:translateY(-3px);border-color:rgba(32,178,170,0.45)}
+.card h2{font-family:'Raleway',sans-serif;color:var(--ac);font-size:18px;font-weight:700;margin-bottom:6px}
+.card .tag{font-size:10px;color:var(--t3);text-transform:uppercase;letter-spacing:1px;font-weight:600}
+.card p{color:var(--t2);font-size:13px;margin-top:10px;line-height:1.6}
+.stats{display:flex;gap:14px;margin-top:14px;flex-wrap:wrap}
+.stat{flex:1;min-width:90px;background:rgba(13,31,33,0.6);border-radius:8px;padding:10px 12px;text-align:center;border:1px solid rgba(32,178,170,0.1)}
+.stat-n{font-family:'Raleway',sans-serif;font-size:18px;font-weight:800;color:var(--ac)}
+.stat-l{font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:0.8px;margin-top:2px}
+.foot{text-align:center;color:var(--t3);font-size:11px;margin-top:36px;padding:20px;border-top:1px solid var(--glass-b)}
+.foot span{color:var(--ac)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+<h1>Research Reports</h1>
+<div class="sub">Digital Atlas SGP &middot; Town structure &amp; gap analyses</div>
+</div>
+
+<div class="grid">
+
+<a href="self_contained_town_audit.html" class="card">
+<div class="tag">Town Structure &middot; v0.1</div>
+<h2>Self-Contained Town Audit</h2>
+<p>Does Singapore's HDB town-planning ideal &mdash; that every town should be a complete settlement with its own full amenity stack &mdash; still hold in 2025? First-pass audit of 23 HDB towns against a 12-amenity reference.</p>
+<div class="stats">
+<div class="stat"><div class="stat-n">23</div><div class="stat-l">HDB Towns</div></div>
+<div class="stat"><div class="stat-n">12</div><div class="stat-l">Amenities</div></div>
+<div class="stat"><div class="stat-n">14/23</div><div class="stat-l">Full Stack</div></div>
+<div class="stat"><div class="stat-n">4.21M</div><div class="stat-l">Residents</div></div>
+</div>
+</a>
+
+<a href="aging_hawker_gap.html" class="card">
+<div class="tag">Aging &amp; Amenity Access &middot; v0.1</div>
+<h2>Aging-Hawker Gap</h2>
+<p>As Singapore ages, are hawker centres still where the elderly live? First-pass evidence: 7 planning areas have zero hawker centres despite housing 192k residents aged 65+ &mdash; 25% of all SG elderly.</p>
+<div class="stats">
+<div class="stat"><div class="stat-n">765k</div><div class="stat-l">65+ Pop</div></div>
+<div class="stat"><div class="stat-n">103</div><div class="stat-l">Centres</div></div>
+<div class="stat"><div class="stat-n">5,837</div><div class="stat-l">Stalls</div></div>
+<div class="stat"><div class="stat-n">7</div><div class="stat-l">Zero-Towns</div></div>
+</div>
+</a>
+
+<a href="brand_fit_question.html" class="card">
+<div class="tag">Brand Geography &middot; v0.1</div>
+<h2>The Brand Fit Question</h2>
+<p>17 chains audited across 5 PA archetypes. Premium brands have drifted &mdash; Starbucks is now indistinguishable from McDonald's by archetype share. 12 named misfit outlets called out (and 8 false-positive name-match cases honestly flagged).</p>
+<div class="stats">
+<div class="stat"><div class="stat-n">17</div><div class="stat-l">Brands</div></div>
+<div class="stat"><div class="stat-n">12</div><div class="stat-l">Misfits</div></div>
+<div class="stat"><div class="stat-n">64%</div><div class="stat-l">Starbucks Heartland</div></div>
+<div class="stat"><div class="stat-n">Essay</div><div class="stat-l">Format</div></div>
+</div>
+</a>
+
+<a href="adequacy_question_propheus.html" class="card">
+<div class="tag">Propheus Theme &middot; v0.2</div>
+<h2>The Adequacy Question</h2>
+<p>Essay-form deep-dive: 21 of 23 HDB towns pass the binary stack-presence test, but per-100k amenity rates vary up to 26&times; between towns. The doctrine holds at the boundary; it strains at the doorstep. <em>(Propheus-themed)</em></p>
+<div class="stats">
+<div class="stat"><div class="stat-n">26&times;</div><div class="stat-l">Worst Spread</div></div>
+<div class="stat"><div class="stat-n">9/23</div><div class="stat-l">Zero Libraries</div></div>
+<div class="stat"><div class="stat-n">21/23</div><div class="stat-l">Pass Binary</div></div>
+<div class="stat"><div class="stat-n">Essay</div><div class="stat-l">Format</div></div>
+</div>
+</a>
+
+<a href="adequacy_question.html" class="card">
+<div class="tag">Editorial / Cream &middot; v0.2</div>
+<h2>The Adequacy Question (Editorial)</h2>
+<p>Same content, alternate aesthetic. Cream-paper editorial design with Fraunces &amp; Source Serif &mdash; a magazine long-read treatment of the adequacy finding.</p>
+<div class="stats">
+<div class="stat"><div class="stat-n">26&times;</div><div class="stat-l">Worst Spread</div></div>
+<div class="stat"><div class="stat-n">Cream</div><div class="stat-l">Palette</div></div>
+<div class="stat"><div class="stat-n">Serif</div><div class="stat-l">Type</div></div>
+<div class="stat"><div class="stat-n">Essay</div><div class="stat-l">Format</div></div>
+</div>
+</a>
+
+</div>
+
+<div class="foot">
+<span>Digital Atlas SGP Research Reports</span> &middot; Powered by Propheus &middot; 2026-05-12
+</div>
+
+</div>
+</body>
+</html>

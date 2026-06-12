@@ -1,0 +1,764 @@
+{
+  "overview": {
+    "total_stalls": 5790,
+    "with_micrograph": 5558,
+    "unique_hexes": 993,
+    "unique_pas": 49,
+    "branded": 176
+  },
+  "pa_distribution": [
+    {
+      "pa": "BEDOK",
+      "stalls": 432,
+      "hexes": 53,
+      "branded": 4
+    },
+    {
+      "pa": "BUKIT MERAH",
+      "stalls": 413,
+      "hexes": 45,
+      "branded": 8
+    },
+    {
+      "pa": "GEYLANG",
+      "stalls": 401,
+      "hexes": 47,
+      "branded": 4
+    },
+    {
+      "pa": "KALLANG",
+      "stalls": 324,
+      "hexes": 39,
+      "branded": 8
+    },
+    {
+      "pa": "ANG MO KIO",
+      "stalls": 300,
+      "hexes": 42,
+      "branded": 7
+    },
+    {
+      "pa": "TOA PAYOH",
+      "stalls": 297,
+      "hexes": 36,
+      "branded": 5
+    },
+    {
+      "pa": "HOUGANG",
+      "stalls": 258,
+      "hexes": 48,
+      "branded": 9
+    },
+    {
+      "pa": "OUTRAM",
+      "stalls": 252,
+      "hexes": 9,
+      "branded": 4
+    },
+    {
+      "pa": "JURONG WEST",
+      "stalls": 249,
+      "hexes": 36,
+      "branded": 7
+    },
+    {
+      "pa": "TAMPINES",
+      "stalls": 244,
+      "hexes": 59,
+      "branded": 10
+    },
+    {
+      "pa": "QUEENSTOWN",
+      "stalls": 220,
+      "hexes": 47,
+      "branded": 5
+    },
+    {
+      "pa": "WOODLANDS",
+      "stalls": 198,
+      "hexes": 46,
+      "branded": 9
+    },
+    {
+      "pa": "YISHUN",
+      "stalls": 188,
+      "hexes": 41,
+      "branded": 9
+    },
+    {
+      "pa": "ROCHOR",
+      "stalls": 176,
+      "hexes": 14,
+      "branded": 2
+    },
+    {
+      "pa": "JURONG EAST",
+      "stalls": 176,
+      "hexes": 29,
+      "branded": 4
+    },
+    {
+      "pa": "CLEMENTI",
+      "stalls": 137,
+      "hexes": 25,
+      "branded": 2
+    },
+    {
+      "pa": "BUKIT BATOK",
+      "stalls": 128,
+      "hexes": 31,
+      "branded": 10
+    },
+    {
+      "pa": "NOVENA",
+      "stalls": 127,
+      "hexes": 16,
+      "branded": 2
+    },
+    {
+      "pa": "SENGKANG",
+      "stalls": 126,
+      "hexes": 32,
+      "branded": 9
+    },
+    {
+      "pa": "SERANGOON",
+      "stalls": 121,
+      "hexes": 27,
+      "branded": 5
+    }
+  ],
+  "hawker_centre_hexes": {
+    "count": 120,
+    "total_centres": 129,
+    "top_hexes": [
+      {
+        "hex_id": "896520d86cfffff",
+        "parent_subzone": "OTSZ03",
+        "parent_pa": "OUTRAM",
+        "hawker_centres": 1,
+        "pc_cat_hawker_street_food": 88,
+        "population": 1560.6870964719928,
+        "hdb_blocks": 4.0,
+        "walkability_score": 97.0,
+        "pc_total": 1014,
+        "mrt_stations": 2,
+        "bus_stops": 3
+      },
+      {
+        "hex_id": "896520d94bbffff",
+        "parent_subzone": "KLSZ09",
+        "parent_pa": "KALLANG",
+        "hawker_centres": 2,
+        "pc_cat_hawker_street_food": 86,
+        "population": 7640.0,
+        "hdb_blocks": 21.0,
+        "walkability_score": 90.0,
+        "pc_total": 393,
+        "mrt_stations": 0,
+        "bus_stops": 4
+      },
+      {
+        "hex_id": "896526ac9b3ffff",
+        "parent_subzone": "GLSZ04",
+        "parent_pa": "GEYLANG",
+        "hawker_centres": 1,
+        "pc_cat_hawker_street_food": 70,
+        "population": 2558.0268572842156,
+        "hdb_blocks": 11.0,
+        "walkability_score": 92.0,
+        "pc_total": 148,
+        "mrt_stations": 0,
+        "bus_stops": 2
+      },
+      {
+        "hex_id": "896520d86cbffff",
+        "parent_subzone": "OTSZ04",
+        "parent_pa": "OUTRAM",
+        "hawker_centres": 1,
+        "pc_cat_hawker_street_food": 49,
+        "population": 1200.0,
+        "hdb_blocks": 8.0,
+        "walkability_score": 93.0,
+        "pc_total": 829,
+        "mrt_stations": 0,
+        "bus_stops": 3
+      },
+      {
+        "hex_id": "896520d95d3ffff",
+        "parent_subzone": "RCSZ10",
+        "parent_pa": "ROCHOR",
+        "hawker_centres": 1,
+        "pc_cat_hawker_street_food": 48,
+        "population": 1199.982714158146,
+        "hdb_blocks": 5.0,
+        "walkability_score": 87.0,
+        "pc_total": 619,
+        "mrt_stations": 0,
+        "bus_stops": 2
+      },
+      {
+        "hex_id": "896526aceabffff",
+        "parent_subzone": "BDSZ04",
+        "parent_pa": "BEDOK",
+        "hawker_centres": 1,
+        "pc_cat_hawker_street_food": 47,
+        "population": 2354.0846293214704,
+        "hdb_blocks": 10.0,
+        "walkability_score": 92.0,
+        "pc_total": 411,
+        "mrt_stations": 1,
+        "bus_stops": 4
+      },
+      {
+        "hex_id": "89652636c53ffff",
+        "parent_subzone": "AMSZ01",
+        "parent_pa": "ANG MO KIO",
+        "hawker_centres": 1,
+        "pc_cat_hawker_street_food": 46,
+        "population": 3252.060367247483,
+        "hdb_blocks": 16.0,
+        "walkability_score": 92.0,
+        "pc_total": 340,
+        "mrt_stations": 0,
+        "bus_stops": 2
+      },
+      {
+        "hex_id": "896520d86d3ffff",
+        "parent_subzone": "DTSZ08",
+        "parent_pa": "DOWNTOWN CORE",
+        "hawker_centres": 1,
+        "pc_cat_hawker_street_food": 43,
+        "population": 560.0,
+        "hdb_blocks": 0.0,
+        "walkability_score": 93.0,
+        "pc_total": 1140,
+        "mrt_stations": 0,
+        "bus_stops": 2
+      },
+      {
+        "hex_id": "896520d908bffff",
+        "parent_subzone": "NVSZ01",
+        "parent_pa": "NOVENA",
+        "hawker_centres": 2,
+        "pc_cat_hawker_street_food": 43,
+        "population": 3187.809033813128,
+        "hdb_blocks": 17.0,
+        "walkability_score": 71.0,
+        "pc_total": 192,
+        "mrt_stations": 0,
+        "bus_stops": 0
+      },
+      {
+        "hex_id": "896520d839bffff",
+        "parent_subzone": "BMSZ07",
+        "parent_pa": "BUKIT MERAH",
+        "hawker_centres": 1,
+        "pc_cat_hawker_street_food": 42,
+        "population": 1485.8327717279185,
+        "hdb_blocks": 7.0,
+        "walkability_score": 71.0,
+        "pc_total": 299,
+        "mrt_stations": 0,
+        "bus_stops": 2
+      },
+      {
+        "hex_id": "896526ac963ffff",
+        "parent_subzone": "GLSZ02",
+        "parent_pa": "GEYLANG",
+        "hawker_centres": 1,
+        "pc_cat_hawker_street_food": 42,
+        "population": 3623.7966644537273,
+        "hdb_blocks": 17.0,
+        "walkability_score": 88.0,
+        "pc_total": 97,
+        "mrt_stations": 0,
+        "bus_stops": 1
+      },
+      {
+        "hex_id": "896520ca3d7ffff",
+        "parent_subzone": "JWSZ03",
+        "parent_pa": "JURONG WEST",
+        "hawker_centres": 1,
+        "pc_cat_hawker_street_food": 40,
+        "population": 4334.053973281743,
+        "hdb_blocks": 17.0,
+        "walkability_score": 79.0,
+        "pc_total": 233,
+        "mrt_stations": 0,
+        "bus_stops": 4
+      },
+      {
+        "hex_id": "896520d9563ffff",
+        "parent_subzone": "NVSZ02",
+        "parent_pa": "NOVENA",
+        "hawker_centres": 1,
+        "pc_cat_hawker_street_food": 39,
+        "population": 631.5909543820628,
+        "hdb_blocks": 0.0,
+        "walkability_score": 93.0,
+        "pc_total": 75,
+        "mrt_stations": 1,
+        "bus_stops": 5
+      },
+      {
+        "hex_id": "89652636183ffff",
+        "parent_subzone": "SGSZ04",
+        "parent_pa": "SERANGOON",
+        "hawker_centres": 2,
+        "pc_cat_hawker_street_food": 39,
+        "population": 377.65467152257355,
+        "hdb_blocks": 0.0,
+        "walkability_score": 73.0,
+        "pc_total": 248,
+        "mrt_stations": 0,
+        "bus_stops": 2
+      },
+      {
+        "hex_id": "896526ac9c3ffff",
+        "parent_subzone": "GLSZ05",
+        "parent_pa": "GEYLANG",
+        "hawker_centres": 1,
+        "pc_cat_hawker_street_food": 39,
+        "population": 4304.060349141615,
+        "hdb_blocks": 12.0,
+        "walkability_score": 84.0,
+        "pc_total": 424,
+        "mrt_stations": 0,
+        "bus_stops": 3
+      }
+    ]
+  },
+  "archetypes": [
+    {
+      "cluster": 0,
+      "n_stalls": 684,
+      "top_pas": {
+        "TAMPINES": "49",
+        "BUKIT BATOK": "46",
+        "YISHUN": "45"
+      },
+      "mean_cv_transit": 0.631,
+      "mean_cv_competitor": 0.136,
+      "mean_cv_complementary": 0.142,
+      "mean_cv_demand": 0.09,
+      "mean_anchor_count": 24.5,
+      "mean_pop_density": 35704.0,
+      "mean_daytime_ratio": 16.1,
+      "mean_mrt": 0.12,
+      "mean_walkability": 70.4,
+      "mean_tourist_draw": 36.0,
+      "label": "Dense HDB hawker"
+    },
+    {
+      "cluster": 1,
+      "n_stalls": 2189,
+      "top_pas": {
+        "BEDOK": "193",
+        "TOA PAYOH": "190",
+        "ANG MO KIO": "190"
+      },
+      "mean_cv_transit": 0.619,
+      "mean_cv_competitor": 0.159,
+      "mean_cv_complementary": 0.139,
+      "mean_cv_demand": 0.084,
+      "mean_anchor_count": 24.7,
+      "mean_pop_density": 29876.0,
+      "mean_daytime_ratio": 1.4,
+      "mean_mrt": 0.07,
+      "mean_walkability": 79.6,
+      "mean_tourist_draw": 50.0,
+      "label": "Suburban hawker"
+    },
+    {
+      "cluster": 2,
+      "n_stalls": 714,
+      "top_pas": {
+        "OUTRAM": "247",
+        "ROCHOR": "165",
+        "DOWNTOWN CORE": "105"
+      },
+      "mean_cv_transit": 0.642,
+      "mean_cv_competitor": 0.147,
+      "mean_cv_complementary": 0.132,
+      "mean_cv_demand": 0.08,
+      "mean_anchor_count": 24.9,
+      "mean_pop_density": 14915.0,
+      "mean_daytime_ratio": 135.7,
+      "mean_mrt": 0.69,
+      "mean_walkability": 87.4,
+      "mean_tourist_draw": 1240.0,
+      "label": "Tourist/CBD hawker"
+    },
+    {
+      "cluster": 3,
+      "n_stalls": 1439,
+      "top_pas": {
+        "GEYLANG": "184",
+        "KALLANG": "163",
+        "BUKIT MERAH": "129"
+      },
+      "mean_cv_transit": 0.627,
+      "mean_cv_competitor": 0.158,
+      "mean_cv_complementary": 0.133,
+      "mean_cv_demand": 0.081,
+      "mean_anchor_count": 24.9,
+      "mean_pop_density": 27632.0,
+      "mean_daytime_ratio": 26.9,
+      "mean_mrt": 0.17,
+      "mean_walkability": 83.5,
+      "mean_tourist_draw": 177.0,
+      "label": "Suburban hawker"
+    },
+    {
+      "cluster": 4,
+      "n_stalls": 764,
+      "top_pas": {
+        "BEDOK": "86",
+        "QUEENSTOWN": "84",
+        "BUKIT MERAH": "61"
+      },
+      "mean_cv_transit": 0.64,
+      "mean_cv_competitor": 0.115,
+      "mean_cv_complementary": 0.148,
+      "mean_cv_demand": 0.097,
+      "mean_anchor_count": 23.0,
+      "mean_pop_density": 1045.0,
+      "mean_daytime_ratio": 651.5,
+      "mean_mrt": 0.1,
+      "mean_walkability": 54.9,
+      "mean_tourist_draw": 88.0,
+      "label": "Neighbourhood hawker"
+    }
+  ],
+  "hex_comparison": {
+    "population": {
+      "with_hawker": 2985.2,
+      "without": 1727.3,
+      "ratio": 1.7
+    },
+    "population_total": {
+      "with_hawker": 3615.2,
+      "without": 2310.3,
+      "ratio": 1.6
+    },
+    "hdb_blocks": {
+      "with_hawker": 10.9,
+      "without": 5.6,
+      "ratio": 2.0
+    },
+    "pc_total": {
+      "with_hawker": 185.6,
+      "without": 68.7,
+      "ratio": 2.7
+    },
+    "pc_cat_hawker_street_food": {
+      "with_hawker": 24.0,
+      "without": 1.4,
+      "ratio": 17.1
+    },
+    "sfa_eating_establishments": {
+      "with_hawker": 35.4,
+      "without": 13.9,
+      "ratio": 2.5
+    },
+    "walkability_score": {
+      "with_hawker": 82.4,
+      "without": 63.4,
+      "ratio": 1.3
+    },
+    "mrt_stations": {
+      "with_hawker": 0.2,
+      "without": 0.1,
+      "ratio": 2.1
+    },
+    "bus_stops": {
+      "with_hawker": 2.6,
+      "without": 1.9,
+      "ratio": 1.4
+    },
+    "pc_cat_restaurant": {
+      "with_hawker": 30.8,
+      "without": 7.9,
+      "ratio": 3.9
+    },
+    "pc_cat_convenience_daily_needs": {
+      "with_hawker": 8.4,
+      "without": 2.3,
+      "ratio": 3.6
+    },
+    "supermarkets": {
+      "with_hawker": 0.7,
+      "without": 0.2,
+      "ratio": 3.6
+    },
+    "formal_schools": {
+      "with_hawker": 0.1,
+      "without": 0.1,
+      "ratio": 0.7
+    },
+    "carpark_count": {
+      "with_hawker": 3.3,
+      "without": 1.0,
+      "ratio": 3.2
+    },
+    "tourist_draw_est": {
+      "with_hawker": 190.3,
+      "without": 92.6,
+      "ratio": 2.1
+    },
+    "daytime_ratio": {
+      "with_hawker": 28.3,
+      "without": 321.8,
+      "ratio": 0.1
+    },
+    "lu_residential_pct": {
+      "with_hawker": 0.4,
+      "without": 0.4,
+      "ratio": 1.1
+    }
+  },
+  "examples": {
+    "Chinatown tourist hawker": {
+      "query": "The 1950's Coffee \u201c\u4e94\u5341\u5e74\u4ee3\u201d",
+      "neighbors": [
+        {
+          "name": "PotMaster Canton Claypot Rice \u7172\u5e08\u5085 \u8001\u5e7f\u7172\u4ed4\u996d",
+          "cat": "Hawker",
+          "pa": "OUTRAM",
+          "sim": 1.0
+        },
+        {
+          "name": "\u5218\u4e00\u7897\u9762 A Bowl of Noodles\uff08\u725b\u8f66\u6c34\u5927\u53a6Chinatown Co",
+          "cat": "Hawker",
+          "pa": "OUTRAM",
+          "sim": 1.0
+        },
+        {
+          "name": "\u53ee\u5f53\u677f\u9762 Ding Dang Ban Mian",
+          "cat": "Hawker",
+          "pa": "OUTRAM",
+          "sim": 1.0
+        },
+        {
+          "name": "Leila Singapore",
+          "cat": "Bar & Nightlife",
+          "pa": "OUTRAM",
+          "sim": 0.983
+        },
+        {
+          "name": "Premium Wine Bistro",
+          "cat": "Bar & Nightlife",
+          "pa": "OUTRAM",
+          "sim": 0.983
+        },
+        {
+          "name": "Meet Wine Bar & Restaurant",
+          "cat": "Bar & Nightlife",
+          "pa": "OUTRAM",
+          "sim": 0.983
+        },
+        {
+          "name": "Praelum Wine Bistro",
+          "cat": "Bar & Nightlife",
+          "pa": "OUTRAM",
+          "sim": 0.982
+        },
+        {
+          "name": "Mag's Wine Kitchen",
+          "cat": "Bar & Nightlife",
+          "pa": "OUTRAM",
+          "sim": 0.982
+        }
+      ]
+    },
+    "Bedok HDB hawker": {
+      "query": "Grandfather Carrot Cake",
+      "neighbors": [
+        {
+          "name": "Ah Lim Mee Pok . Kway Teow Soup",
+          "cat": "Hawker",
+          "pa": "BEDOK",
+          "sim": 1.0
+        },
+        {
+          "name": "Chendol Melaka (Nyonya Novelties)",
+          "cat": "Hawker",
+          "pa": "BEDOK",
+          "sim": 1.0
+        },
+        {
+          "name": "Empress Place Beef Kway Teow",
+          "cat": "Hawker",
+          "pa": "BEDOK",
+          "sim": 1.0
+        },
+        {
+          "name": "The Royals Cafe (Siglap)",
+          "cat": "Cafe & Coffee",
+          "pa": "BEDOK",
+          "sim": 0.985
+        },
+        {
+          "name": "Montreux Cafe Pte Ltd",
+          "cat": "Cafe & Coffee",
+          "pa": "BEDOK",
+          "sim": 0.984
+        },
+        {
+          "name": "Soy Eu Tua Coffee Shop",
+          "cat": "Cafe & Coffee",
+          "pa": "BEDOK",
+          "sim": 0.982
+        },
+        {
+          "name": "Starbucks",
+          "cat": "Cafe & Coffee",
+          "pa": "BEDOK",
+          "sim": 0.982
+        },
+        {
+          "name": "Tiong Bahru Bakery",
+          "cat": "Cafe & Coffee",
+          "pa": "BEDOK",
+          "sim": 0.946
+        }
+      ]
+    },
+    "Toa Payoh heartland": {
+      "query": "Tong Seng Coffee Stall",
+      "neighbors": [
+        {
+          "name": "Fuji Duck & Teochew Porridge",
+          "cat": "Hawker",
+          "pa": "TOA PAYOH",
+          "sim": 1.0
+        },
+        {
+          "name": "Wang Mei (Chin Ji) Soya Bean",
+          "cat": "Hawker",
+          "pa": "TOA PAYOH",
+          "sim": 1.0
+        },
+        {
+          "name": "\u987a\u5229\u867e\u9762 (Shun Li Prawn Noodle)",
+          "cat": "Hawker",
+          "pa": "TOA PAYOH",
+          "sim": 1.0
+        },
+        {
+          "name": "Joo Chiat Beef King \u5982\u5207\u725b\u8169\u738b",
+          "cat": "Cafe & Coffee",
+          "pa": "TOA PAYOH",
+          "sim": 0.938
+        },
+        {
+          "name": "217 Hot and Cold Drinks",
+          "cat": "Cafe & Coffee",
+          "pa": "TOA PAYOH",
+          "sim": 0.938
+        },
+        {
+          "name": "\u91d1\u8bb0 Lorong Ah Soo",
+          "cat": "Cafe & Coffee",
+          "pa": "TOA PAYOH",
+          "sim": 0.938
+        },
+        {
+          "name": "Quan Chin Cafe",
+          "cat": "Cafe & Coffee",
+          "pa": "TOA PAYOH",
+          "sim": 0.937
+        },
+        {
+          "name": "Sweet Stuff",
+          "cat": "Cafe & Coffee",
+          "pa": "TOA PAYOH",
+          "sim": 0.935
+        }
+      ]
+    },
+    "Ang Mo Kio": {
+      "query": "Koufu",
+      "neighbors": [
+        {
+          "name": "Toast Box",
+          "cat": "Cafe & Coffee",
+          "pa": "QUEENSTOWN",
+          "sim": 0.939
+        },
+        {
+          "name": "The Coffee Bean & Tea Leaf",
+          "cat": "Cafe & Coffee",
+          "pa": "QUEENSTOWN",
+          "sim": 0.936
+        },
+        {
+          "name": "Starbucks",
+          "cat": "Cafe & Coffee",
+          "pa": "QUEENSTOWN",
+          "sim": 0.923
+        },
+        {
+          "name": "Starbucks",
+          "cat": "Cafe & Coffee",
+          "pa": "QUEENSTOWN",
+          "sim": 0.905
+        },
+        {
+          "name": "Mr Bean",
+          "cat": "Fast Food & QSR",
+          "pa": "QUEENSTOWN",
+          "sim": 0.896
+        },
+        {
+          "name": "Koufu (Republic Polytechnic - South Food",
+          "cat": "Hawker",
+          "pa": "WOODLANDS",
+          "sim": 0.89
+        },
+        {
+          "name": "Munchi Pancakes @ Punggol Coast Hawker",
+          "cat": "Hawker",
+          "pa": "PUNGGOL",
+          "sim": 0.846
+        },
+        {
+          "name": "Koufu",
+          "cat": "Hawker",
+          "pa": "BUKIT MERAH",
+          "sim": 0.808
+        }
+      ]
+    }
+  },
+  "micrograph_comparison": {
+    "hawker": {
+      "n": 5558,
+      "T1_transit": 0.627,
+      "T2_competitor": 0.15,
+      "T3_complementary": 0.139,
+      "T4_demand": 0.085,
+      "anchor_count": 24.6,
+      "comp_pressure": 0.02
+    },
+    "restaurant": {
+      "n": 17146,
+      "T1_transit": 0.61,
+      "T2_competitor": 0.165,
+      "T3_complementary": 0.134,
+      "T4_demand": 0.091,
+      "anchor_count": 24.6,
+      "comp_pressure": 0.021
+    },
+    "cafe": {
+      "n": 6358,
+      "T1_transit": 0.633,
+      "T2_competitor": 0.143,
+      "T3_complementary": 0.137,
+      "T4_demand": 0.087,
+      "anchor_count": 24.6,
+      "comp_pressure": 0.018
+    }
+  }
+}

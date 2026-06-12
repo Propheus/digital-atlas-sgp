@@ -1,0 +1,108 @@
+<?xml version="1.0"?><mdb:MD_Metadata  xmlns="http://www.isotc211.org/2005/gmd" xmlns:mdb="http://www.isotc211.org/2005/mdb" xmlns:lan="http://www.isotc211.org/2005/lan"  xmlns:cit="http://www.isotc211.org/2005/cit"  xmlns:msr="http://www.isotc211.org/2005/msr" xmlns:mcc="http://www.isotc211.org/2005/mcc" xmlns:mrs="http://www.isotc211.org/2005/mrs" xmlns:gco="http://www.isotc211.org/2005/gco"  xmlns:mex="http://www.isotc211.org/2005/mex" xmlns:mri="http://www.isotc211.org/2005/mri" xmlns:gex="http://www.isotc211.org/2005/gex" xmlns:mmi="http://www.isotc211.org/2005/mmi"  xmlns:mco="http://www.isotc211.org/2005/mco" xmlns:mrd="http://www.isotc211.org/2005/mrd" xmlns:mdq="http://www.isotc211.org/2005/mdq" xmlns:gmw="http://www.isotc211.org/2005/gmw" xmlns:mrl="http://www.isotc211.org/2005/mrl" xmlns:gml="http://www.opengis.net/gml" xmlns:dqm="http://www.isotc211.org/2005/dqm" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.isotc211.org/2005/gmd http://audi01/isotc211/2005/gmd/metadataEntity.xsd http://audi01/isotc211/2005/gmd/metadataExtension.xsd">
+<mdb:metadataIdentifier>
+<MD_Identifier>
+<gco:CharacterString>
+{98F118BC-2146-3FF0-8172-7A944B2B3600}
+</gco:CharacterString>
+</MD_Identifier>
+</mdb:metadataIdentifier>
+<mdb:defaultLocale>
+<lan:PT_Locale>
+<lan:language>
+<gco:CharacterString>
+English
+</gco:CharacterString>
+</lan:language>
+<lan:characterEncoding>
+<gco:CharacterString>
+UTF-8
+</gco:CharacterString>
+</lan:characterEncoding>
+</lan:PT_Locale>	
+</mdb:defaultLocale>
+<mdb:dateinfo>
+<cit:CI_Date>
+<cit:date>
+<gco:DateTime>
+2016-03-29 00:00:00.0
+</gco:DateTime>
+</cit:date>
+</cit:CI_Date>
+</mdb:dateinfo>
+<mdb:Trust_Center>
+<tc_CoreData>
+<gco:CharacterString>
+N
+</gco:CharacterString>
+</tc_CoreData>
+<tc_modDate>
+<gco:CharacterString>
+
+</gco:CharacterString>
+</tc_modDate>
+</mdb:Trust_Center>
+<mdb:Trust_Center>
+<tc_CodeData>
+<gco:CharacterString>
+N
+</gco:CharacterString>
+</tc_CodeData>
+<tc_modDate>
+<gco:CharacterString>
+
+</gco:CharacterString>
+</tc_modDate>
+</mdb:Trust_Center>
+<mdb:metadataStandard>
+<cit:CI_Citation>
+<cit:title>
+<gco:CharacterString>
+ISO 19139/19115 Metadata for Datasets
+</gco:CharacterString>
+</cit:title>
+<cit:edition>
+<gco:CharacterString>
+1.0
+</gco:CharacterString>
+</cit:edition>
+</cit:CI_Citation>
+</mdb:metadataStandard>
+<mdb:spatialRepresentationInfo><msr:MD_SpatialRepresentation><msr:MD_GridSpatialRepresentation><msr:numberOfDimensions><gco:Integer>0</gco:Integer></msr:numberOfDimensions><msr:axisDimensionProperties><msr:MD_Dimension><msr:dimensionName><gco:CharacterString></gco:CharacterString></msr:dimensionName>
+<msr:MD_DimensionNameTypeCode> <gco:CharacterString></gco:CharacterString></msr:MD_DimensionNameTypeCode><msr:dimensionSize><gco:Integer>0.0</gco:Integer></msr:dimensionSize><msr:resolution><gco:Measure><gco:CharacterString>0.0</gco:CharacterString></gco:Measure></msr:resolution></msr:MD_Dimension></msr:axisDimensionProperties><msr:cellGeometry><msr:MD_CellGeometryCode><gco:CharacterString></gco:CharacterString></msr:MD_CellGeometryCode></msr:cellGeometry><msr:transformationParameterAvailability><gco:Boolean></gco:Boolean></msr:transformationParameterAvailability></msr:MD_GridSpatialRepresentation><msr:MD_VectorSpatialRepresentation><msr:geometricObjects><msr:MD_GeometricObjects><msr:geometricObjectType><msr:MD_GeometricObjectTypeCode><gco:CharacterString>Point</gco:CharacterString></msr:MD_GeometricObjectTypeCode></msr:geometricObjectType>
+<msr:geometryUploadedDate><msr:MD_GeometryUploadedDate><gco:DateTime>2016-03-29 14:44:14.0</gco:DateTime></msr:MD_GeometryUploadedDate></msr:geometryUploadedDate>
+</msr:MD_GeometricObjects></msr:geometricObjects></msr:MD_VectorSpatialRepresentation></msr:MD_SpatialRepresentation></mdb:spatialRepresentationInfo>
+<mdb:referenceSystemInfo><mrs:MD_ReferenceSystem><mrs:referenceSystemIdentifier><mcc:MD_Identifier><mcc:code><gco:CharacterString>SVY21</gco:CharacterString></mcc:code></mcc:MD_Identifier></mrs:referenceSystemIdentifier></mrs:MD_ReferenceSystem></mdb:referenceSystemInfo><mdb:metadataExtensionInfo><mex:MD_MetadataExtensionInformation><mex:entityName><gco:CharacterString>SchoolZone</gco:CharacterString></mex:entityName><mex:extendedElementInformation><mex:MD_ExtendedElementInformation><mex:name><gco:CharacterString>SITENAME</gco:CharacterString></mex:name><mex:shortName><gco:CharacterString>Site Name</gco:CharacterString></mex:shortName>
+<onemapName><gco:CharacterString>NAME</gco:CharacterString></onemapName>
+<showOnCallOut><gco:CharacterString></gco:CharacterString></showOnCallOut>
+<showOnMouseOver><gco:CharacterString></gco:CharacterString></showOnMouseOver>
+<searchField><gco:CharacterString></gco:CharacterString></searchField>
+<mandatoryField><gco:CharacterString></gco:CharacterString></mandatoryField>
+<mex:definition><gco:CharacterString>The associated school name of the school zone.</gco:CharacterString></mex:definition><mex:dataType><gco:CharacterString>CharacterString</gco:CharacterString></mex:dataType><mex:domainValue><gco:CharacterString></gco:CharacterString></mex:domainValue><mex:parentEntity><gco:CharacterString></gco:CharacterString></mex:parentEntity><mex:nullability><gco:CharacterString>Non-nullable</gco:CharacterString></mex:nullability></mex:MD_ExtendedElementInformation></mex:extendedElementInformation></mex:MD_MetadataExtensionInformation></mdb:metadataExtensionInfo><mdb:identificationInfo><mri:MD_Identification><mri:MD_DataIdentification><mri:citation><cit:CI_Citation><cit:title><gco:CharacterString>LTA School Zone</gco:CharacterString></cit:title><cit:date><cit:CI_Date><cit:date><gco:DateTime>23-03-2016</gco:DateTime></cit:date><cit:dateType><cit:CI_DataTypeCode><gco:CharacterString>2</gco:CharacterString></cit:CI_DataTypeCode></cit:dateType></cit:CI_Date></cit:date><cit:citedResponsibleParty><cit:CI_Responsibility><cit:party><cit:name><gco:CharacterString>LAND TRANSPORT AUTHORITY</gco:CharacterString></cit:name></cit:party></cit:CI_Responsibility></cit:citedResponsibleParty></cit:CI_Citation></mri:citation><mri:abstract><gco:CharacterString>The layer contains the school zone boundaries  in Singapore.</gco:CharacterString></mri:abstract><mri:purpose><gco:CharacterString>To ascertain the locations of school zone.</gco:CharacterString></mri:purpose><mri:status><gco:CharacterString></gco:CharacterString></mri:status><mri:pointofContact><cit:CI_Responsibility><cit:role><cit:CI_RoleCode><gco:CharacterString>Data Steward</gco:CharacterString></cit:CI_RoleCode></cit:role><cit:party><cit:CI_Organisation><cit:name><gco:CharacterString>LAND TRANSPORT AUTHORITY</gco:CharacterString></cit:name></cit:CI_Organisation><cit:CI_Individual><cit:name><gco:CharacterString>Eddie Lim</gco:CharacterString></cit:name><cit:contactInfo><cit:CI_Contact><cit:phone><cit:CI_Telephone><cit:number><gco:CharacterString>62995062</gco:CharacterString></cit:number></cit:CI_Telephone></cit:phone><cit:address><cit:CI_Address><cit:electronicMailAddress><gco:CharacterString>eddie_lim@lta.gov.sg</gco:CharacterString></cit:electronicMailAddress></cit:CI_Address></cit:address></cit:CI_Contact></cit:contactInfo></cit:CI_Individual></cit:party></cit:CI_Responsibility></mri:pointofContact><mri:pointofContact><cit:CI_Responsibility><cit:role><cit:CI_RoleCode><gco:CharacterString>Point of Contact</gco:CharacterString></cit:CI_RoleCode></cit:role><cit:party><cit:CI_Organisation><cit:name><gco:CharacterString>LAND TRANSPORT AUTHORITY</gco:CharacterString></cit:name></cit:CI_Organisation><cit:CI_Individual><cit:name><gco:CharacterString>Sock Hui YEO</gco:CharacterString></cit:name><cit:contactInfo><cit:CI_Contact><cit:phone><cit:CI_Telephone><cit:number><gco:CharacterString>63962337</gco:CharacterString></cit:number></cit:CI_Telephone></cit:phone><cit:address><cit:CI_Address><cit:electronicMailAddress><gco:CharacterString>yeo_sock_hui@lta.gov.sg</gco:CharacterString></cit:electronicMailAddress></cit:CI_Address></cit:address></cit:CI_Contact></cit:contactInfo></cit:CI_Individual></cit:party></cit:CI_Responsibility></mri:pointofContact><mri:spatialRepresentationType><mcc:MD_SpatialRepresentationTypeCode><gco:CharacterString>Vector</gco:CharacterString></mcc:MD_SpatialRepresentationTypeCode></mri:spatialRepresentationType><mri:spatialResolution><mri:MD_Resolution><mri:equivalentScale><mri:MD_RepresentativeFraction><mri:denominator><gco:Integer>0</gco:Integer></mri:denominator></mri:MD_RepresentativeFraction></mri:equivalentScale></mri:MD_Resolution></mri:spatialResolution><mri:topicCategory><mri:MD_TopicCategoryCode><gco:CharacterString>Transportation</gco:CharacterString></mri:MD_TopicCategoryCode></mri:topicCategory><mri:extent><gex:EX_Extent><gex:geographicElement><gex:EX_GeographicBoundingBox><gex:westBoundLongitude><gco:Decimal>103.598969</gco:Decimal></gex:westBoundLongitude><gex:eastBoundLongitude><gco:Decimal>104.097512</gco:Decimal></gex:eastBoundLongitude><gex:southBoundLongitude><gco:Decimal>1.150361</gco:Decimal></gex:southBoundLongitude><gex:northBoundLongitude><gco:Decimal>1.477406</gco:Decimal></gex:northBoundLongitude></gex:EX_GeographicBoundingBox></gex:geographicElement><gex:verticalElement><gex:EX_VerticalExtent><gex:verticalCRSId><mrs:MD_ReferenceSystem><mrs:referenceSystemIdentifier><mcc:MD_Identifier>	<mcc:code><gco:CharacterString>SVY21</gco:CharacterString></mcc:code></mcc:MD_Identifier></mrs:referenceSystemIdentifier></mrs:MD_ReferenceSystem></gex:verticalCRSId></gex:EX_VerticalExtent></gex:verticalElement></gex:EX_Extent></mri:extent><mri:resourceMaintenance><mmi:MD_MaintenanceInformation><mmi:maintenanceAndUpdateFrequency><mmi:MD_MaintenanceFrequencyCode><gco:CharacterString>As Needed</gco:CharacterString></mmi:MD_MaintenanceFrequencyCode></mmi:maintenanceAndUpdateFrequency></mmi:MD_MaintenanceInformation></mri:resourceMaintenance><mri:graphicOverview><mcc:MD_BrowseGraphic><mcc:fileName><gco:CharacterString></gco:CharacterString></mcc:fileName><mcc:fileType><gco:CharacterString></gco:CharacterString></mcc:fileType></mcc:MD_BrowseGraphic></mri:graphicOverview><mri:descriptiveKeywords><mri:MD_Keywords><mri:keyword><gco:CharacterString>School Zone, School, Zone, Silver Zone, Silver</gco:CharacterString></mri:keyword>
+</mri:MD_Keywords></mri:descriptiveKeywords><mri:resourceConstraints><mco:MD_LegalConstraints><mco:useConstraints><mco:MD_RestrictionCode><gco:CharacterString>Copyright</gco:CharacterString></mco:MD_RestrictionCode></mco:useConstraints><mco:otherConstraints><gco:CharacterString></gco:CharacterString></mco:otherConstraints></mco:MD_LegalConstraints><mco:MD_SecurityConstraints><mco:securityclassification><mco:MD_ClassificationCode><gco:CharacterString>Official (closed)</gco:CharacterString></mco:MD_ClassificationCode></mco:securityclassification><mco:sensitivityclassification><gco:CharacterString>Non-Sensitive</gco:CharacterString></mco:sensitivityclassification></mco:MD_SecurityConstraints></mri:resourceConstraints></mri:MD_DataIdentification></mri:MD_Identification></mdb:identificationInfo><mdb:distributionInfo><mrd:MD_Distribution><mrd:distributor><mrd:MD_Distributor><mrd:distributorContact><cit:CI_Responsibility><cit:party><cit:CI_Individual><cit:name><gco:CharacterString>Bee Ling Chan</gco:CharacterString></cit:name><cit:contactInfo><cit:CI_Contact><cit:phone><gco:CharacterString></gco:CharacterString></cit:phone><cit:contactInfo><cit:CI_Telephone><cit:number><gco:CharacterString>63328908</gco:CharacterString></cit:number></cit:CI_Telephone></cit:contactInfo><cit:address><cit:CI_Address><cit:electronicMailAddress><gco:CharacterString>chan_bee_ling@lta.gov.sg</gco:CharacterString></cit:electronicMailAddress></cit:CI_Address></cit:address></cit:CI_Contact></cit:contactInfo></cit:CI_Individual></cit:party><cit:party><cit:CI_Organisation><cit:name><gco:CharacterString>LAND TRANSPORT AUTHORITY</gco:CharacterString></cit:name></cit:CI_Organisation></cit:party></cit:CI_Responsibility></mrd:distributorContact></mrd:MD_Distributor></mrd:distributor></mrd:MD_Distribution></mdb:distributionInfo><mdb:dataQualityInfo><mdq:DQ_DataQuality></mdq:DQ_DataQuality></mdb:dataQualityInfo><mdb:resourceLineage><mrl:LI_Lineage><mrl:statement><gco:CharacterString>Attribute:</gco:CharacterString></mrl:statement></mrl:LI_Lineage> </mdb:resourceLineage>
+<mdb:resourceDtHostingURL><mrl:LI_HostingURL><mrl:dtHostingUrl><gco:CharacterString>https://geospace.gov.sg</gco:CharacterString></mrl:dtHostingUrl></mrl:LI_HostingURL> </mdb:resourceDtHostingURL>
+<onemapInfo>
+<publishDate>
+<gco:CharacterString>2012-01-01 00:00:00.0</gco:CharacterString>
+</publishDate>
+<expiryDate>
+<gco:CharacterString>2013-12-31 00:00:00.0</gco:CharacterString>
+</expiryDate>
+<displayPattern>
+<gco:CharacterString>graphics</gco:CharacterString>
+</displayPattern>
+<symbologyFile>
+<gco:CharacterString>SchoolZone.lyr</gco:CharacterString>
+</symbologyFile>
+<imageFile>
+<gco:CharacterString>null</gco:CharacterString>
+</imageFile>
+<onemapCategory>
+<gco:CharacterString>null</gco:CharacterString>
+</onemapCategory>
+<borderWithRedColor>
+<gco:CharacterString>N</gco:CharacterString>
+</borderWithRedColor>
+</onemapInfo>
+<searchType>all</searchType>
+<MD_PreferenceIndicator><gco:CharacterString>For Onemap Backend processing and to publish metadata and data in Data.gov.sg</gco:CharacterString></MD_PreferenceIndicator><baseUrl><gco:CharacterString>null</gco:CharacterString></baseUrl>
+</mdb:MD_Metadata>

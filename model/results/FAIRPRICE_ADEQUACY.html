@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FairPrice Adequacy Report — Singapore Digital Atlas</title>
+<style>
+:root{--bg:#0a0f1a;--card:#111827;--border:#1e2a3a;--text:#e5e7eb;--muted:#9ca3af;--dim:#6b7280;--accent:#14b8a6;--accent2:#6366f1;--green:#10b981;--yellow:#f59e0b;--red:#ef4444;--purple:#8b5cf6;--orange:#f97316;--blue:#3b82f6;--fp-red:#e31837}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,system-ui,sans-serif;line-height:1.65}
+.c{max-width:1100px;margin:0 auto;padding:2.5rem 2rem}
+.hdr{text-align:center;padding:2.5rem 0;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+.hdr-logo{font-size:0.72rem;color:var(--dim);letter-spacing:0.12em;text-transform:uppercase}
+h1{font-size:2.3rem;font-weight:800;line-height:1.2;margin:0.4rem 0}
+h1 .fp{color:var(--fp-red)}
+h1 .atlas{color:var(--accent)}
+.sub{color:var(--muted);font-size:1rem;margin-top:0.3rem}
+.kpis{display:flex;gap:10px;justify-content:center;margin-top:1.5rem;flex-wrap:wrap}
+.kpi{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:0.8rem 1.3rem;text-align:center;min-width:130px}
+.kpi b{font-size:1.5rem;font-weight:800;display:block;line-height:1.2}
+.kpi span{font-size:0.6rem;color:var(--dim);text-transform:uppercase;letter-spacing:0.05em}
+.kpi-fp b{color:var(--fp-red)}
+.kpi-green b{color:var(--green)}
+.kpi-orange b{color:var(--orange)}
+.kpi-accent b{color:var(--accent)}
+
+h2{font-size:1.25rem;color:var(--accent);margin:2.5rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border)}
+p{color:var(--muted);font-size:0.88rem;margin:0.5rem 0;line-height:1.6}
+.insight{background:var(--card);border-left:3px solid var(--accent);padding:1rem 1.5rem;margin:1rem 0;border-radius:0 8px 8px 0;font-size:0.88rem;line-height:1.6}
+.insight strong{color:var(--text)}
+.insight.warn{border-left-color:var(--fp-red)}
+.insight.good{border-left-color:var(--green)}
+
+table{width:100%;border-collapse:collapse;font-size:0.82rem;margin:1rem 0}
+th{text-align:left;padding:9px 12px;background:var(--card);color:var(--accent);border-bottom:2px solid var(--border);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.04em}
+td{padding:7px 12px;border-bottom:1px solid var(--border)}
+tr:hover td{background:rgba(20,184,166,0.02)}
+
+.bar-h{display:flex;align-items:center;gap:8px;margin:4px 0}
+.bar-h-label{font-size:0.72rem;color:var(--muted);min-width:180px;text-align:right}
+.bar-h-track{flex:1;height:10px;background:var(--border);border-radius:5px;overflow:hidden;max-width:350px}
+.bar-h-fill{height:100%;border-radius:5px}
+.bar-h-val{font-size:0.72rem;font-weight:700;min-width:80px}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:1rem 0}
+@media(max-width:768px){.grid2{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem}
+.card-title{font-size:0.95rem;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.card-num{font-size:1.8rem;font-weight:800;margin-bottom:4px}
+.card-text{font-size:0.78rem;color:var(--muted);line-height:1.55}
+
+.zone-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.2rem 1.4rem;margin:8px 0;transition:border-color 0.2s}
+.zone-card:hover{border-color:rgba(227,24,55,0.4)}
+.zone-hdr{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:6px}
+.zone-name{font-size:0.95rem;font-weight:700}
+.zone-pa{font-size:0.7rem;color:var(--dim)}
+.zone-stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:5px;margin:6px 0}
+.zone-stat{text-align:center}
+.zone-stat b{display:block;font-size:0.88rem;color:var(--accent)}
+.zone-stat span{font-size:0.52rem;color:var(--dim);text-transform:uppercase}
+.zone-note{font-size:0.72rem;color:var(--muted);margin-top:6px;line-height:1.5;border-left:2px solid var(--fp-red);padding-left:8px}
+
+.tag{display:inline-block;padding:2px 8px;border-radius:6px;font-size:0.65rem;font-weight:600;margin:1px;border:1px solid}
+.tag-red{color:var(--red);border-color:rgba(239,68,68,0.3);background:rgba(239,68,68,0.1)}
+.tag-green{color:var(--green);border-color:rgba(16,185,129,0.3);background:rgba(16,185,129,0.1)}
+.tag-orange{color:var(--orange);border-color:rgba(249,115,22,0.3);background:rgba(249,115,22,0.1)}
+.tag-blue{color:var(--blue);border-color:rgba(59,130,246,0.3);background:rgba(59,130,246,0.1)}
+
+.format-grid{display:flex;gap:10px;flex-wrap:wrap;margin:1rem 0}
+.format-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px 16px;min-width:140px;text-align:center}
+.format-card b{display:block;font-size:1.3rem;font-weight:800;color:var(--fp-red)}
+.format-card span{font-size:0.65rem;color:var(--dim);text-transform:uppercase}
+
+footer{text-align:center;color:var(--dim);padding:2rem 0 1rem;font-size:0.72rem;border-top:1px solid var(--border);margin-top:3rem}
+</style>
+</head>
+<body>
+<div class="c">
+
+<div class="hdr">
+  <div class="hdr-logo">Propheus · Singapore Digital Atlas</div>
+  <h1><span class="fp">FairPrice</span> <span class="atlas">Adequacy Report</span></h1>
+  <p class="sub">Is NTUC FairPrice within walking distance for every Singaporean?</p>
+  <div class="kpis">
+    <div class="kpi kpi-fp"><b>351</b><span>FairPrice Stores</span></div>
+    <div class="kpi kpi-accent"><b>2,154</b><span>All Supermarkets</span></div>
+    <div class="kpi kpi-orange"><b>802,685</b><span>Residents &gt;800m</span></div>
+    <div class="kpi kpi-fp"><b>19.3%</b><span>Population Underserved</span></div>
+    <div class="kpi kpi-green"><b>620m</b><span>Median Distance</span></div>
+  </div>
+</div>
+
+<h2>The Question</h2>
+<p>NTUC FairPrice is Singapore's cooperative supermarket — 351 outlets serving 4.2 million residents. As the nation's largest grocery retailer with a social mission, coverage gaps matter. <b>Can every resident walk to a FairPrice in 10 minutes?</b></p>
+
+<div class="insight warn">
+<strong>802,685 residents (19.3%)</strong> live more than 800 metres from any FairPrice outlet — roughly a 10-minute walk. For the elderly (4,531 affected), families with young children, and mobility-impaired residents, this means they either take a bus to shop, pay for delivery, or rely on more expensive alternatives like Cold Storage.
+</div>
+
+<div class="insight good">
+<strong>Good news:</strong> Singapore's overall supermarket coverage is excellent. 80% of populated hexes have <em>some</em> supermarket within 500m (Giant, Sheng Siong, Cold Storage, independents). The gap is specifically FairPrice — which matters because FairPrice is consistently the most affordable option and many elderly prefer it by habit and price.
+</div>
+
+<h2>FairPrice Network — 351 Stores, 5 Formats</h2>
+<div class="format-grid">
+  <div class="format-card"><b>255</b><span>Standard</span><div style="font-size:0.6rem;color:var(--muted);margin-top:4px">Full supermarket<br>HDB void decks, malls</div></div>
+  <div class="format-card"><b>41</b><span>Xpress</span><div style="font-size:0.6rem;color:var(--muted);margin-top:4px">Convenience format<br>Petrol stations, MRT</div></div>
+  <div class="format-card"><b>41</b><span>Finest</span><div style="font-size:0.6rem;color:var(--muted);margin-top:4px">Premium range<br>Condo areas, malls</div></div>
+  <div class="format-card"><b>14</b><span>Xtra</span><div style="font-size:0.6rem;color:var(--muted);margin-top:4px">Warehouse/bulk<br>Suburban hubs</div></div>
+  <div class="format-card"><b>0</b><span>Warehouse</span><div style="font-size:0.6rem;color:var(--muted);margin-top:4px">Largest format<br>Destination stores</div></div>
+</div>
+
+<h2>Distance Distribution — How Far Do Residents Walk?</h2>
+<p>Measured from hex centroid (175m resolution) to the nearest FairPrice outlet, for all populated hexes.</p>
+<div class="bar-h">
+  <span class="bar-h-label">Within 300m (excellent)</span>
+  <div class="bar-h-track"><div class="bar-h-fill" style="width:87.476095567273%;background:#10b981"></div></div>
+  <span class="bar-h-val" style="color:#10b981">1,040,187 <span style="color:var(--dim)">(25.0%)</span></span>
+</div><div class="bar-h">
+  <span class="bar-h-label">300-500m (good walk)</span>
+  <div class="bar-h-track"><div class="bar-h-fill" style="width:100.0%;background:#34d399"></div></div>
+  <span class="bar-h-val" style="color:#34d399">1,189,110 <span style="color:var(--dim)">(28.6%)</span></span>
+</div><div class="bar-h">
+  <span class="bar-h-label">500-800m (acceptable)</span>
+  <div class="bar-h-track"><div class="bar-h-fill" style="width:94.63380175088932%;background:#f59e0b"></div></div>
+  <span class="bar-h-val" style="color:#f59e0b">1,125,300 <span style="color:var(--dim)">(27.1%)</span></span>
+</div><div class="bar-h">
+  <span class="bar-h-label">800m-1.2km (poor)</span>
+  <div class="bar-h-track"><div class="bar-h-fill" style="width:52.05456181513905%;background:#f97316"></div></div>
+  <span class="bar-h-val" style="color:#f97316">618,986 <span style="color:var(--dim)">(14.9%)</span></span>
+</div><div class="bar-h">
+  <span class="bar-h-label">1.2-2km (bad)</span>
+  <div class="bar-h-track"><div class="bar-h-fill" style="width:14.763814954041257%;background:#ef4444"></div></div>
+  <span class="bar-h-val" style="color:#ef4444">175,558 <span style="color:var(--dim)">(4.2%)</span></span>
+</div><div class="bar-h">
+  <span class="bar-h-label">>2km (food desert)</span>
+  <div class="bar-h-track"><div class="bar-h-fill" style="width:0.6851342600768642%;background:#7f1d1d"></div></div>
+  <span class="bar-h-val" style="color:#7f1d1d">8,147 <span style="color:var(--dim)">(0.2%)</span></span>
+</div>
+<div class="insight">
+<strong>The 800m threshold:</strong> LTA uses 800m as "acceptable walking distance" for transit planning. The same standard applies to essential services. Beyond 800m, a trip requires transport — especially problematic for daily grocery shopping where you carry heavy bags.
+</div>
+
+<h2>Competitor Landscape</h2>
+<p>FairPrice doesn't operate in isolation. Where FairPrice is absent, competitors often fill the gap.</p>
+<table>
+<tr><th>Brand</th><th>Outlets</th><th>Positioning</th></tr>
+<tr><td style="color:var(--fp-red)"><b>FairPrice (all formats)</b></td><td>351</td><td style="color:var(--dim)">Cooperative, most affordable, widest range</td></tr><tr><td style="color:var(--text)"><b>Independent minimarts</b></td><td>1601</td><td style="color:var(--dim)">Neighbourhood convenience, variable pricing</td></tr><tr><td style="color:var(--text)"><b>Sheng Siong</b></td><td>67</td><td style="color:var(--dim)">Budget alternative, strong in heartlands</td></tr><tr><td style="color:var(--text)"><b>Giant</b></td><td>66</td><td style="color:var(--dim)">Mid-range, hypermarket format</td></tr><tr><td style="color:var(--text)"><b>Cold Storage</b></td><td>46</td><td style="color:var(--dim)">Premium positioning, expat areas</td></tr><tr><td style="color:var(--text)"><b>Prime Supermarket</b></td><td>19</td><td style="color:var(--dim)">Budget, smaller format</td></tr></table>
+
+<h2>The 20 Biggest FairPrice Deserts</h2>
+<p>Ranked by total affected population. Each zone shows how many residents are beyond 800m from any FairPrice, and whether other supermarkets compensate.</p>
+<div class="zone-card">
+  <div class="zone-hdr">
+    <span class="zone-name" style="color:var(--fp-red)">#1. YUNNAN</span>
+    <span class="zone-pa">JURONG WEST</span>
+  </div>
+  <div class="bar-h" style="margin:4px 0">
+    <span class="bar-h-label" style="min-width:100px">Affected</span>
+    <div class="bar-h-track"><div class="bar-h-fill" style="width:100.0%;background:var(--fp-red)"></div></div>
+    <span class="bar-h-val" style="color:var(--fp-red)">60,411</span>
+  </div>
+  <div class="zone-stats">
+    <div class="zone-stat"><b>19</b><span>Hexes</span></div>
+    <div class="zone-stat"><b>1424m</b><span>Avg to FP</span></div>
+    <div class="zone-stat"><b>1832m</b><span>Farthest</span></div>
+    <div class="zone-stat"><b>248m</b><span>Any Super</span></div>
+    <div class="zone-stat"><b>179</b><span>Elderly</span></div>
+    <div class="zone-stat"><b>176</b><span>HDB Blocks</span></div>
+  </div>
+  <div style="margin-top:6px"><span class="tag tag-green">Other supermarket nearby</span> <span class="tag tag-blue">176 HDB blocks</span> <span class="tag tag-orange">179 elderly</span></div>
+  <div class="zone-note">60,411 residents across 19 hexes average 1424m from the nearest FairPrice — but another supermarket is available at 248m avg.</div>
+</div><div class="zone-card">
+  <div class="zone-hdr">
+    <span class="zone-name" style="color:var(--fp-red)">#2. KAKI BUKIT</span>
+    <span class="zone-pa">BEDOK</span>
+  </div>
+  <div class="bar-h" style="margin:4px 0">
+    <span class="bar-h-label" style="min-width:100px">Affected</span>
+    <div class="bar-h-track"><div class="bar-h-fill" style="width:46.14060353246926%;background:var(--fp-red)"></div></div>
+    <span class="bar-h-val" style="color:var(--fp-red)">27,874</span>
+  </div>
+  <div class="zone-stats">
+    <div class="zone-stat"><b>18</b><span>Hexes</span></div>
+    <div class="zone-stat"><b>1173m</b><span>Avg to FP</span></div>
+    <div class="zone-stat"><b>1751m</b><span>Farthest</span></div>
+    <div class="zone-stat"><b>184m</b><span>Any Super</span></div>
+    <div class="zone-stat"><b>138</b><span>Elderly</span></div>
+    <div class="zone-stat"><b>99</b><span>HDB Blocks</span></div>
+  </div>
+  <div style="margin-top:6px"><span class="tag tag-green">Other supermarket nearby</span> <span class="tag tag-blue">99 HDB blocks</span> <span class="tag tag-orange">138 elderly</span></div>
+  <div class="zone-note">27,874 residents across 18 hexes average 1173m from the nearest FairPrice — but another supermarket is available at 184m avg.</div>
+</div><div class="zone-card">
+  <div class="zone-hdr">
+    <span class="zone-name" style="color:var(--fp-red)">#3. PASIR RIS DRIVE</span>
+    <span class="zone-pa">PASIR RIS</span>
+  </div>
+  <div class="bar-h" style="margin:4px 0">
+    <span class="bar-h-label" style="min-width:100px">Affected</span>
+    <div class="bar-h-track"><div class="bar-h-fill" style="width:43.58146695138302%;background:var(--fp-red)"></div></div>
+    <span class="bar-h-val" style="color:var(--fp-red)">26,328</span>
+  </div>
+  <div class="zone-stats">
+    <div class="zone-stat"><b>6</b><span>Hexes</span></div>
+    <div class="zone-stat"><b>938m</b><span>Avg to FP</span></div>
+    <div class="zone-stat"><b>1071m</b><span>Farthest</span></div>
+    <div class="zone-stat"><b>220m</b><span>Any Super</span></div>
+    <div class="zone-stat"><b>132</b><span>Elderly</span></div>
+    <div class="zone-stat"><b>71</b><span>HDB Blocks</span></div>
+  </div>
+  <div style="margin-top:6px"><span class="tag tag-green">Other supermarket nearby</span> <span class="tag tag-blue">71 HDB blocks</span> <span class="tag tag-orange">132 elderly</span></div>
+  <div class="zone-note">26,328 residents across 6 hexes average 938m from the nearest FairPrice — but another supermarket is available at 220m avg.</div>
+</div><div class="zone-card">
+  <div class="zone-hdr">
+    <span class="zone-name" style="color:var(--fp-red)">#4. TAMPINES NORTH</span>
+    <span class="zone-pa">TAMPINES</span>
+  </div>
+  <div class="bar-h" style="margin:4px 0">
+    <span class="bar-h-label" style="min-width:100px">Affected</span>
+    <div class="bar-h-track"><div class="bar-h-fill" style="width:43.564913674661895%;background:var(--fp-red)"></div></div>
+    <span class="bar-h-val" style="color:var(--fp-red)">26,318</span>
+  </div>
+  <div class="zone-stats">
+    <div class="zone-stat"><b>13</b><span>Hexes</span></div>
+    <div class="zone-stat"><b>981m</b><span>Avg to FP</span></div>
+    <div class="zone-stat"><b>1179m</b><span>Farthest</span></div>
+    <div class="zone-stat"><b>336m</b><span>Any Super</span></div>
+    <div class="zone-stat"><b>27</b><span>Elderly</span></div>
+    <div class="zone-stat"><b>88</b><span>HDB Blocks</span></div>
+  </div>
+  <div style="margin-top:6px"><span class="tag tag-green">Other supermarket nearby</span> <span class="tag tag-blue">88 HDB blocks</span> </div>
+  <div class="zone-note">26,318 residents across 13 hexes average 981m from the nearest FairPrice — but another supermarket is available at 336m avg.</div>
+</div><div class="zone-card">
+  <div class="zone-hdr">
+    <span class="zone-name" style="color:var(--fp-red)">#5. NORTHSHORE</span>
+    <span class="zone-pa">PUNGGOL</span>
+  </div>
+  <div class="bar-h" style="margin:4px 0">
+    <span class="bar-h-label" style="min-width:100px">Affected</span>
+    <div class="bar-h-track"><div class="bar-h-fill" style="width:40.73761401069342%;background:var(--fp-red)"></div></div>
+    <span class="bar-h-val" style="color:var(--fp-red)">24,610</span>
+  </div>
+  <div class="zone-stats">
+    <div class="zone-stat"><b>11</b><span>Hexes</span></div>
+    <div class="zone-stat"><b>1240m</b><span>Avg to FP</span></div>
+    <div class="zone-stat"><b>1713m</b><span>Farthest</span></div>
+    <div class="zone-stat"><b>325m</b><span>Any Super</span></div>
+    <div class="zone-stat"><b>49</b><span>Elderly</span></div>
+    <div class="zone-stat"><b>95</b><span>HDB Blocks</span></div>
+  </div>
+  <div style="margin-top:6px"><span class="tag tag-green">Other supermarket nearby</span> <span class="tag tag-blue">95 HDB blocks</span> </div>
+  <div class="zone-note">24,610 residents across 11 hexes average 1240m from the nearest FairPrice — but another supermarket is available at 325m avg.</div>
+</div><div class="zone-card">
+  <div class="zone-hdr">
+    <span class="zone-name" style="color:var(--fp-red)">#6. YIO CHU KANG WEST</span>
+    <span class="zone-pa">ANG MO KIO</span>
+  </div>
+  <div class="bar-h" style="margin:4px 0">
+    <span class="bar-h-label" style="min-width:100px">Affected</span>
+    <div class="bar-h-track"><div class="bar-h-fill" style="width:39.94140140040721%;background:var(--fp-red)"></div></div>
+    <span class="bar-h-val" style="color:var(--fp-red)">24,129</span>
+  </div>
+  <div class="zone-stats">
+    <div class="zone-stat"><b>7</b><span>Hexes</span></div>
+    <div class="zone-stat"><b>1248m</b><span>Avg to FP</span></div>
+    <div class="zone-stat"><b>1575m</b><span>Farthest</span></div>
+    <div class="zone-stat"><b>217m</b><span>Any Super</span></div>
+    <div class="zone-stat"><b>170</b><span>Elderly</span></div>
+    <div class="zone-stat"><b>54</b><span>HDB Blocks</span></div>
+  </div>
+  <div style="margin-top:6px"><span class="tag tag-green">Other supermarket nearby</span> <span class="tag tag-blue">54 HDB blocks</span> <span class="tag tag-orange">170 elderly</span></div>
+  <div class="zone-note">24,129 residents across 7 hexes average 1248m from the nearest FairPrice — but another supermarket is available at 217m avg.</div>
+</div><div class="zone-card">
+  <div class="zone-hdr">
+    <span class="zone-name" style="color:var(--orange)">#7. HILLVIEW</span>
+    <span class="zone-pa">BUKIT BATOK</span>
+  </div>
+  <div class="bar-h" style="margin:4px 0">
+    <span class="bar-h-label" style="min-width:100px">Affected</span>
+    <div class="bar-h-track"><div class="bar-h-fill" style="width:33.03702968002516%;background:var(--orange)"></div></div>
+    <span class="bar-h-val" style="color:var(--orange)">19,958</span>
+  </div>
+  <div class="zone-stats">
+    <div class="zone-stat"><b>13</b><span>Hexes</span></div>
+    <div class="zone-stat"><b>1109m</b><span>Avg to FP</span></div>
+    <div class="zone-stat"><b>1345m</b><span>Farthest</span></div>
+    <div class="zone-stat"><b>389m</b><span>Any Super</span></div>
+    <div class="zone-stat"><b>61</b><span>Elderly</span></div>
+    <div class="zone-stat"><b>0</b><span>HDB Blocks</span></div>
+  </div>
+  <div style="margin-top:6px"><span class="tag tag-green">Other supermarket nearby</span> <span class="tag tag-orange">Private/landed</span> <span class="tag tag-orange">61 elderly</span></div>
+  <div class="zone-note">19,958 residents across 13 hexes average 1109m from the nearest FairPrice — but another supermarket is available at 389m avg.</div>
+</div><div class="zone-card">
+  <div class="zone-hdr">
+    <span class="zone-name" style="color:var(--orange)">#8. BANGKIT</span>
+    <span class="zone-pa">BUKIT PANJANG</span>
+  </div>
+  <div class="bar-h" style="margin:4px 0">
+    <span class="bar-h-label" style="min-width:100px">Affected</span>
+    <div class="bar-h-track"><div class="bar-h-fill" style="width:32.78210921851981%;background:var(--orange)"></div></div>
+    <span class="bar-h-val" style="color:var(--orange)">19,804</span>
+  </div>
+  <div class="zone-stats">
+    <div class="zone-stat"><b>6</b><span>Hexes</span></div>
+    <div class="zone-stat"><b>1000m</b><span>Avg to FP</span></div>
+    <div class="zone-stat"><b>1204m</b><span>Farthest</span></div>
+    <div class="zone-stat"><b>237m</b><span>Any Super</span></div>
+    <div class="zone-stat"><b>158</b><span>Elderly</span></div>
+    <div class="zone-stat"><b>63</b><span>HDB Blocks</span></div>
+  </div>
+  <div style="margin-top:6px"><span class="tag tag-green">Other supermarket nearby</span> <span class="tag tag-blue">63 HDB blocks</span> <span class="tag tag-orange">158 elderly</span></div>
+  <div class="zone-note">19,804 residents across 6 hexes average 1000m from the nearest FairPrice — but another supermarket is available at 237m avg.</div>
+</div><div class="zone-card">
+  <div class="zone-hdr">
+    <span class="zone-name" style="color:var(--orange)">#9. PASIR RIS WEST</span>
+    <span class="zone-pa">PASIR RIS</span>
+  </div>
+  <div class="bar-h" style="margin:4px 0">
+    <span class="bar-h-label" style="min-width:100px">Affected</span>
+    <div class="bar-h-track"><div class="bar-h-fill" style="width:32.58181457019417%;background:var(--orange)"></div></div>
+    <span class="bar-h-val" style="color:var(--orange)">19,683</span>
+  </div>
+  <div class="zone-stats">
+    <div class="zone-stat"><b>2</b><span>Hexes</span></div>
+    <div class="zone-stat"><b>823m</b><span>Avg to FP</span></div>
+    <div class="zone-stat"><b>839m</b><span>Farthest</span></div>
+    <div class="zone-stat"><b>342m</b><span>Any Super</span></div>
+    <div class="zone-stat"><b>98</b><span>Elderly</span></div>
+    <div class="zone-stat"><b>111</b><span>HDB Blocks</span></div>
+  </div>
+  <div style="margin-top:6px"><span class="tag tag-green">Other supermarket nearby</span> <span class="tag tag-blue">111 HDB blocks</span> <span class="tag tag-orange">98 elderly</span></div>
+  <div class="zone-note">19,683 residents across 2 hexes average 823m from the nearest FairPrice — but another supermarket is available at 342m avg.</div>
+</div><div class="zone-card">
+  <div class="zone-hdr">
+    <span class="zone-name" style="color:var(--orange)">#10. FAJAR</span>
+    <span class="zone-pa">BUKIT PANJANG</span>
+  </div>
+  <div class="bar-h" style="margin:4px 0">
+    <span class="bar-h-label" style="min-width:100px">Affected</span>
+    <div class="bar-h-track"><div class="bar-h-fill" style="width:31.772359338531064%;background:var(--orange)"></div></div>
+    <span class="bar-h-val" style="color:var(--orange)">19,194</span>
+  </div>
+  <div class="zone-stats">
+    <div class="zone-stat"><b>3</b><span>Hexes</span></div>
+    <div class="zone-stat"><b>1024m</b><span>Avg to FP</span></div>
+    <div class="zone-stat"><b>1174m</b><span>Farthest</span></div>
+    <div class="zone-stat"><b>197m</b><span>Any Super</span></div>
+    <div class="zone-stat"><b>58</b><span>Elderly</span></div>
+    <div class="zone-stat"><b>39</b><span>HDB Blocks</span></div>
+  </div>
+  <div style="margin-top:6px"><span class="tag tag-green">Other supermarket nearby</span> <span class="tag tag-blue">39 HDB blocks</span> <span class="tag tag-orange">58 elderly</span></div>
+  <div class="zone-note">19,194 residents across 3 hexes average 1024m from the nearest FairPrice — but another supermarket is available at 197m avg.</div>
+</div><div class="zone-card">
+  <div class="zone-hdr">
+    <span class="zone-name" style="color:var(--orange)">#11. TAMPINES EAST</span>
+    <span class="zone-pa">TAMPINES</span>
+  </div>
+  <div class="bar-h" style="margin:4px 0">
+    <span class="bar-h-label" style="min-width:100px">Affected</span>
+    <div class="bar-h-track"><div class="bar-h-fill" style="width:30.135240270811607%;background:var(--orange)"></div></div>
+    <span class="bar-h-val" style="color:var(--orange)">18,205</span>
+  </div>
+  <div class="zone-stats">
+    <div class="zone-stat"><b>6</b><span>Hexes</span></div>
+    <div class="zone-stat"><b>1049m</b><span>Avg to FP</span></div>
+    <div class="zone-stat"><b>1334m</b><span>Farthest</span></div>
+    <div class="zone-stat"><b>170m</b><span>Any Super</span></div>
+    <div class="zone-stat"><b>91</b><span>Elderly</span></div>
+    <div class="zone-stat"><b>44</b><span>HDB Blocks</span></div>
+  </div>
+  <div style="margin-top:6px"><span class="tag tag-green">Other supermarket nearby</span> <span class="tag tag-blue">44 HDB blocks</span> <span class="tag tag-orange">91 elderly</span></div>
+  <div class="zone-note">18,205 residents across 6 hexes average 1049m from the nearest FairPrice — but another supermarket is available at 170m avg.</div>
+</div><div class="zone-card">
+  <div class="zone-hdr">
+    <span class="zone-name" style="color:var(--orange)">#12. TAMPINES WEST</span>
+    <span class="zone-pa">TAMPINES</span>
+  </div>
+  <div class="bar-h" style="margin:4px 0">
+    <span class="bar-h-label" style="min-width:100px">Affected</span>
+    <div class="bar-h-track"><div class="bar-h-fill" style="width:28.071046663687078%;background:var(--orange)"></div></div>
+    <span class="bar-h-val" style="color:var(--orange)">16,958</span>
+  </div>
+  <div class="zone-stats">
+    <div class="zone-stat"><b>8</b><span>Hexes</span></div>
+    <div class="zone-stat"><b>1046m</b><span>Avg to FP</span></div>
+    <div class="zone-stat"><b>1282m</b><span>Farthest</span></div>
+    <div class="zone-stat"><b>276m</b><span>Any Super</span></div>
+    <div class="zone-stat"><b>67</b><span>Elderly</span></div>
+    <div class="zone-stat"><b>43</b><span>HDB Blocks</span></div>
+  </div>
+  <div style="margin-top:6px"><span class="tag tag-green">Other supermarket nearby</span> <span class="tag tag-blue">43 HDB blocks</span> <span class="tag tag-orange">67 elderly</span></div>
+  <div class="zone-note">16,958 residents across 8 hexes average 1046m from the nearest FairPrice — but another supermarket is available at 276m avg.</div>
+</div><div class="zone-card">
+  <div class="zone-hdr">
+    <span class="zone-name" style="color:var(--orange)">#13. WOODLANDS EAST</span>
+    <span class="zone-pa">WOODLANDS</span>
+  </div>
+  <div class="bar-h" style="margin:4px 0">
+    <span class="bar-h-label" style="min-width:100px">Affected</span>
+    <div class="bar-h-track"><div class="bar-h-fill" style="width:26.121070665938323%;background:var(--orange)"></div></div>
+    <span class="bar-h-val" style="color:var(--orange)">15,780</span>
+  </div>
+  <div class="zone-stats">
+    <div class="zone-stat"><b>5</b><span>Hexes</span></div>
+    <div class="zone-stat"><b>924m</b><span>Avg to FP</span></div>
+    <div class="zone-stat"><b>1111m</b><span>Farthest</span></div>
+    <div class="zone-stat"><b>263m</b><span>Any Super</span></div>
+    <div class="zone-stat"><b>32</b><span>Elderly</span></div>
+    <div class="zone-stat"><b>35</b><span>HDB Blocks</span></div>
+  </div>
+  <div style="margin-top:6px"><span class="tag tag-green">Other supermarket nearby</span> <span class="tag tag-blue">35 HDB blocks</span> </div>
+  <div class="zone-note">15,780 residents across 5 hexes average 924m from the nearest FairPrice — but another supermarket is available at 263m avg.</div>
+</div><div class="zone-card">
+  <div class="zone-hdr">
+    <span class="zone-name" style="color:var(--orange)">#14. BEDOK SOUTH</span>
+    <span class="zone-pa">BEDOK</span>
+  </div>
+  <div class="bar-h" style="margin:4px 0">
+    <span class="bar-h-label" style="min-width:100px">Affected</span>
+    <div class="bar-h-track"><div class="bar-h-fill" style="width:24.588237241561966%;background:var(--orange)"></div></div>
+    <span class="bar-h-val" style="color:var(--orange)">14,854</span>
+  </div>
+  <div class="zone-stats">
+    <div class="zone-stat"><b>11</b><span>Hexes</span></div>
+    <div class="zone-stat"><b>1131m</b><span>Avg to FP</span></div>
+    <div class="zone-stat"><b>1603m</b><span>Farthest</span></div>
+    <div class="zone-stat"><b>373m</b><span>Any Super</span></div>
+    <div class="zone-stat"><b>162</b><span>Elderly</span></div>
+    <div class="zone-stat"><b>16</b><span>HDB Blocks</span></div>
+  </div>
+  <div style="margin-top:6px"><span class="tag tag-green">Other supermarket nearby</span> <span class="tag tag-blue">16 HDB blocks</span> <span class="tag tag-orange">162 elderly</span></div>
+  <div class="zone-note">14,854 residents across 11 hexes average 1131m from the nearest FairPrice — but another supermarket is available at 373m avg.</div>
+</div><div class="zone-card">
+  <div class="zone-hdr">
+    <span class="zone-name" style="color:var(--orange)">#15. JURONG WEST CENTRAL</span>
+    <span class="zone-pa">JURONG WEST</span>
+  </div>
+  <div class="bar-h" style="margin:4px 0">
+    <span class="bar-h-label" style="min-width:100px">Affected</span>
+    <div class="bar-h-track"><div class="bar-h-fill" style="width:23.68111767724421%;background:var(--orange)"></div></div>
+    <span class="bar-h-val" style="color:var(--orange)">14,306</span>
+  </div>
+  <div class="zone-stats">
+    <div class="zone-stat"><b>2</b><span>Hexes</span></div>
+    <div class="zone-stat"><b>900m</b><span>Avg to FP</span></div>
+    <div class="zone-stat"><b>944m</b><span>Farthest</span></div>
+    <div class="zone-stat"><b>112m</b><span>Any Super</span></div>
+    <div class="zone-stat"><b>29</b><span>Elderly</span></div>
+    <div class="zone-stat"><b>30</b><span>HDB Blocks</span></div>
+  </div>
+  <div style="margin-top:6px"><span class="tag tag-green">Other supermarket nearby</span> <span class="tag tag-blue">30 HDB blocks</span> </div>
+  <div class="zone-note">14,306 residents across 2 hexes average 900m from the nearest FairPrice — but another supermarket is available at 112m avg.</div>
+</div><div class="zone-card">
+  <div class="zone-hdr">
+    <span class="zone-name" style="color:var(--orange)">#16. FRANKEL</span>
+    <span class="zone-pa">BEDOK</span>
+  </div>
+  <div class="bar-h" style="margin:4px 0">
+    <span class="bar-h-label" style="min-width:100px">Affected</span>
+    <div class="bar-h-track"><div class="bar-h-fill" style="width:23.068646438562514%;background:var(--orange)"></div></div>
+    <span class="bar-h-val" style="color:var(--orange)">13,936</span>
+  </div>
+  <div class="zone-stats">
+    <div class="zone-stat"><b>8</b><span>Hexes</span></div>
+    <div class="zone-stat"><b>891m</b><span>Avg to FP</span></div>
+    <div class="zone-stat"><b>1105m</b><span>Farthest</span></div>
+    <div class="zone-stat"><b>378m</b><span>Any Super</span></div>
+    <div class="zone-stat"><b>141</b><span>Elderly</span></div>
+    <div class="zone-stat"><b>0</b><span>HDB Blocks</span></div>
+  </div>
+  <div style="margin-top:6px"><span class="tag tag-green">Other supermarket nearby</span> <span class="tag tag-orange">Private/landed</span> <span class="tag tag-orange">141 elderly</span></div>
+  <div class="zone-note">13,936 residents across 8 hexes average 891m from the nearest FairPrice — but another supermarket is available at 378m avg.</div>
+</div><div class="zone-card">
+  <div class="zone-hdr">
+    <span class="zone-name" style="color:var(--orange)">#17. SIMEI</span>
+    <span class="zone-pa">TAMPINES</span>
+  </div>
+  <div class="bar-h" style="margin:4px 0">
+    <span class="bar-h-label" style="min-width:100px">Affected</span>
+    <div class="bar-h-track"><div class="bar-h-fill" style="width:19.82917018423797%;background:var(--orange)"></div></div>
+    <span class="bar-h-val" style="color:var(--orange)">11,979</span>
+  </div>
+  <div class="zone-stats">
+    <div class="zone-stat"><b>7</b><span>Hexes</span></div>
+    <div class="zone-stat"><b>976m</b><span>Avg to FP</span></div>
+    <div class="zone-stat"><b>1124m</b><span>Farthest</span></div>
+    <div class="zone-stat"><b>261m</b><span>Any Super</span></div>
+    <div class="zone-stat"><b>72</b><span>Elderly</span></div>
+    <div class="zone-stat"><b>8</b><span>HDB Blocks</span></div>
+  </div>
+  <div style="margin-top:6px"><span class="tag tag-green">Other supermarket nearby</span> <span class="tag tag-blue">8 HDB blocks</span> <span class="tag tag-orange">72 elderly</span></div>
+  <div class="zone-note">11,979 residents across 7 hexes average 976m from the nearest FairPrice — but another supermarket is available at 261m avg.</div>
+</div><div class="zone-card">
+  <div class="zone-hdr">
+    <span class="zone-name" style="color:var(--orange)">#18. SELETAR HILLS</span>
+    <span class="zone-pa">SERANGOON</span>
+  </div>
+  <div class="bar-h" style="margin:4px 0">
+    <span class="bar-h-label" style="min-width:100px">Affected</span>
+    <div class="bar-h-track"><div class="bar-h-fill" style="width:19.805995596828392%;background:var(--orange)"></div></div>
+    <span class="bar-h-val" style="color:var(--orange)">11,965</span>
+  </div>
+  <div class="zone-stats">
+    <div class="zone-stat"><b>17</b><span>Hexes</span></div>
+    <div class="zone-stat"><b>1270m</b><span>Avg to FP</span></div>
+    <div class="zone-stat"><b>1725m</b><span>Farthest</span></div>
+    <div class="zone-stat"><b>566m</b><span>Any Super</span></div>
+    <div class="zone-stat"><b>107</b><span>Elderly</span></div>
+    <div class="zone-stat"><b>0</b><span>HDB Blocks</span></div>
+  </div>
+  <div style="margin-top:6px"><span class="tag tag-red">No alternatives either</span> <span class="tag tag-orange">Private/landed</span> <span class="tag tag-orange">107 elderly</span></div>
+  <div class="zone-note">11,965 residents across 17 hexes average 1270m from the nearest FairPrice — and even other supermarkets average 566m away. This is a true grocery gap.</div>
+</div><div class="zone-card">
+  <div class="zone-hdr">
+    <span class="zone-name" style="color:var(--orange)">#19. WOODLANDS WEST</span>
+    <span class="zone-pa">WOODLANDS</span>
+  </div>
+  <div class="bar-h" style="margin:4px 0">
+    <span class="bar-h-label" style="min-width:100px">Affected</span>
+    <div class="bar-h-track"><div class="bar-h-fill" style="width:18.667130158414857%;background:var(--orange)"></div></div>
+    <span class="bar-h-val" style="color:var(--orange)">11,277</span>
+  </div>
+  <div class="zone-stats">
+    <div class="zone-stat"><b>3</b><span>Hexes</span></div>
+    <div class="zone-stat"><b>1007m</b><span>Avg to FP</span></div>
+    <div class="zone-stat"><b>1071m</b><span>Farthest</span></div>
+    <div class="zone-stat"><b>137m</b><span>Any Super</span></div>
+    <div class="zone-stat"><b>34</b><span>Elderly</span></div>
+    <div class="zone-stat"><b>39</b><span>HDB Blocks</span></div>
+  </div>
+  <div style="margin-top:6px"><span class="tag tag-green">Other supermarket nearby</span> <span class="tag tag-blue">39 HDB blocks</span> </div>
+  <div class="zone-note">11,277 residents across 3 hexes average 1007m from the nearest FairPrice — but another supermarket is available at 137m avg.</div>
+</div><div class="zone-card">
+  <div class="zone-hdr">
+    <span class="zone-name" style="color:var(--orange)">#20. NORTH COAST</span>
+    <span class="zone-pa">WOODLANDS</span>
+  </div>
+  <div class="bar-h" style="margin:4px 0">
+    <span class="bar-h-label" style="min-width:100px">Affected</span>
+    <div class="bar-h-track"><div class="bar-h-fill" style="width:18.541325255334293%;background:var(--orange)"></div></div>
+    <span class="bar-h-val" style="color:var(--orange)">11,201</span>
+  </div>
+  <div class="zone-stats">
+    <div class="zone-stat"><b>20</b><span>Hexes</span></div>
+    <div class="zone-stat"><b>1724m</b><span>Avg to FP</span></div>
+    <div class="zone-stat"><b>2517m</b><span>Farthest</span></div>
+    <div class="zone-stat"><b>373m</b><span>Any Super</span></div>
+    <div class="zone-stat"><b>88</b><span>Elderly</span></div>
+    <div class="zone-stat"><b>31</b><span>HDB Blocks</span></div>
+  </div>
+  <div style="margin-top:6px"><span class="tag tag-green">Other supermarket nearby</span> <span class="tag tag-blue">31 HDB blocks</span> <span class="tag tag-orange">88 elderly</span></div>
+  <div class="zone-note">11,201 residents across 20 hexes average 1724m from the nearest FairPrice — but another supermarket is available at 373m avg.</div>
+</div>
+<h2>Where Should the Next FairPrice Open?</h2>
+<p>Top candidate hexes: high population, far from FairPrice, HDB present (captive walk-in traffic).</p>
+<table>
+<tr><th>#</th><th>Location</th><th>Planning Area</th><th>Population</th><th>FairPrice Dist</th><th>Any Super</th><th>HDB</th><th>Elderly</th><th>Gap Score</th></tr>
+<tr>
+<td><b>1</b></td>
+<td><b>YUNNAN</b></td>
+<td>JURONG WEST</td>
+<td>10,068</td>
+<td style="color:var(--fp-red)">1481m</td>
+<td>425m</td>
+<td>8</td>
+<td>30</td>
+<td><b>14,910</b></td>
+</tr><tr>
+<td><b>2</b></td>
+<td><b>YIO CHU KANG WEST</b></td>
+<td>ANG MO KIO</td>
+<td>9,348</td>
+<td style="color:var(--fp-red)">1415m</td>
+<td>193m</td>
+<td>5</td>
+<td>65</td>
+<td><b>13,227</b></td>
+</tr><tr>
+<td><b>3</b></td>
+<td><b>FAJAR</b></td>
+<td>BUKIT PANJANG</td>
+<td>10,378</td>
+<td style="color:var(--fp-red)">1087m</td>
+<td>197m</td>
+<td>21</td>
+<td>31</td>
+<td><b>11,280</b></td>
+</tr><tr>
+<td><b>4</b></td>
+<td><b>SHANGRI-LA</b></td>
+<td>ANG MO KIO</td>
+<td>9,804</td>
+<td style="color:var(--fp-red)">1120m</td>
+<td>296m</td>
+<td>1</td>
+<td>98</td>
+<td><b>10,980</b></td>
+</tr><tr>
+<td><b>5</b></td>
+<td><b>YUNNAN</b></td>
+<td>JURONG WEST</td>
+<td>4,393</td>
+<td style="color:var(--fp-red)">1832m</td>
+<td>63m</td>
+<td>17</td>
+<td>13</td>
+<td><b>8,047</b></td>
+</tr><tr>
+<td><b>6</b></td>
+<td><b>YUNNAN</b></td>
+<td>JURONG WEST</td>
+<td>4,343</td>
+<td style="color:var(--fp-red)">1497m</td>
+<td>151m</td>
+<td>14</td>
+<td>13</td>
+<td><b>6,501</b></td>
+</tr><tr>
+<td><b>7</b></td>
+<td><b>NORTHSHORE</b></td>
+<td>PUNGGOL</td>
+<td>4,288</td>
+<td style="color:var(--fp-red)">1510m</td>
+<td>236m</td>
+<td>27</td>
+<td>9</td>
+<td><b>6,474</b></td>
+</tr><tr>
+<td><b>8</b></td>
+<td><b>YUNNAN</b></td>
+<td>JURONG WEST</td>
+<td>4,146</td>
+<td style="color:var(--fp-red)">1533m</td>
+<td>102m</td>
+<td>14</td>
+<td>12</td>
+<td><b>6,355</b></td>
+</tr><tr>
+<td><b>9</b></td>
+<td><b>YUNNAN</b></td>
+<td>JURONG WEST</td>
+<td>4,590</td>
+<td style="color:var(--fp-red)">1288m</td>
+<td>180m</td>
+<td>17</td>
+<td>14</td>
+<td><b>5,911</b></td>
+</tr><tr>
+<td><b>10</b></td>
+<td><b>BANGKIT</b></td>
+<td>BUKIT PANJANG</td>
+<td>4,909</td>
+<td style="color:var(--fp-red)">1174m</td>
+<td>138m</td>
+<td>17</td>
+<td>39</td>
+<td><b>5,763</b></td>
+</tr><tr>
+<td><b>11</b></td>
+<td><b>KEBUN BAHRU</b></td>
+<td>ANG MO KIO</td>
+<td>4,350</td>
+<td style="color:var(--fp-red)">1224m</td>
+<td>465m</td>
+<td>1</td>
+<td>52</td>
+<td><b>5,324</b></td>
+</tr><tr>
+<td><b>12</b></td>
+<td><b>YUNNAN</b></td>
+<td>JURONG WEST</td>
+<td>4,393</td>
+<td style="color:var(--fp-red)">1196m</td>
+<td>271m</td>
+<td>15</td>
+<td>13</td>
+<td><b>5,254</b></td>
+</tr><tr>
+<td><b>13</b></td>
+<td><b>YUNNAN</b></td>
+<td>JURONG WEST</td>
+<td>4,343</td>
+<td style="color:var(--fp-red)">1186m</td>
+<td>107m</td>
+<td>16</td>
+<td>13</td>
+<td><b>5,150</b></td>
+</tr><tr>
+<td><b>14</b></td>
+<td><b>TAMPINES EAST</b></td>
+<td>TAMPINES</td>
+<td>4,610</td>
+<td style="color:var(--fp-red)">1097m</td>
+<td>131m</td>
+<td>12</td>
+<td>23</td>
+<td><b>5,057</b></td>
+</tr><tr>
+<td><b>15</b></td>
+<td><b>YUNNAN</b></td>
+<td>JURONG WEST</td>
+<td>3,998</td>
+<td style="color:var(--fp-red)">1153m</td>
+<td>232m</td>
+<td>15</td>
+<td>12</td>
+<td><b>4,609</b></td>
+</tr></table>
+
+<div class="insight">
+<strong>Yunnan (Jurong West) dominates:</strong> Six of the top 15 candidate hexes are in Yunnan — a massive HDB estate of 60,000+ residents with virtually no FairPrice coverage. The nearest FairPrice is 1.2-1.8km away. This is FairPrice's single biggest coverage hole in Singapore.
+</div>
+
+<h2>Format Recommendation</h2>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title" style="color:var(--fp-red)">FairPrice Standard</div>
+    <div class="card-text">
+      <b>Where:</b> Yunnan (Jurong West), Tampines North, Northshore (Punggol), Yio Chu Kang West<br>
+      <b>Why:</b> Population &gt;10K in catchment, 15+ HDB blocks, no supermarket within 500m<br>
+      <b>Format:</b> Full supermarket, 3,000-5,000 sqft, fresh produce + household
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title" style="color:var(--fp-red)">FairPrice Xpress</div>
+    <div class="card-text">
+      <b>Where:</b> Fajar, Bangkit (Bukit Panjang), Simei, Woodlands West<br>
+      <b>Why:</b> Population 3-8K, some alternatives exist but FairPrice specifically missing<br>
+      <b>Format:</b> Convenience, 800-1,500 sqft, essentials + ready meals
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title" style="color:var(--fp-red)">FairPrice Finest</div>
+    <div class="card-text">
+      <b>Where:</b> Seletar Hills, Hillview, Frankel (landed/condo areas)<br>
+      <b>Why:</b> Affluent private estates, high basket value, no budget alternative nearby<br>
+      <b>Format:</b> Premium range, organic, imported goods, 2,500+ sqft
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title" style="color:var(--accent)">No Action Needed</div>
+    <div class="card-text">
+      <b>Where:</b> Most of the top 20 deserts<br>
+      <b>Why:</b> Giant, Sheng Siong, or independents already cover the gap within 500m. FairPrice absence is a brand preference issue, not a food access issue.<br>
+      <b>Reality check:</b> 18 of 20 top desert zones have "other supermarket nearby" ✓
+    </div>
+  </div>
+</div>
+
+<h2>The Honest Assessment</h2>
+<div class="grid2">
+  <div class="card" style="border-color:rgba(16,185,129,0.3)">
+    <div class="card-title" style="color:var(--green)">What's Working</div>
+    <div class="card-text">
+      <b>Overall supermarket coverage is excellent.</b> 80% of residents have a supermarket within 500m. Singapore has no true food deserts at the grocery level — independent minimarts fill even the smallest gaps.<br><br>
+      <b>FairPrice median distance is 620m</b> — within the acceptable walking threshold for most adults. The 351-store network covers 131 of 332 subzones.
+    </div>
+  </div>
+  <div class="card" style="border-color:rgba(227,24,55,0.3)">
+    <div class="card-title" style="color:var(--fp-red)">What Needs Attention</div>
+    <div class="card-text">
+      <b>802,685 residents (19.3%) are beyond 800m from FairPrice.</b> For elderly on fixed incomes who rely on FairPrice's cooperative pricing, this means paying more at Cold Storage or spending 30+ minutes on a bus trip.<br><br>
+      <b>Yunnan (Jurong West) is a standout gap</b> — 60K residents, 176 HDB blocks, and the nearest FairPrice is 1.4km away. This is not a marginal case.
+    </div>
+  </div>
+</div>
+
+<h2>Methodology</h2>
+<div class="insight">
+<strong>Data:</strong> 174,713 places from Google + Overture (V2), filtered to 351 FairPrice and 2,154 supermarket/grocery locations. Distances computed via haversine from 2,404 populated H3-9 hex centroids (175m resolution) to nearest outlet. Population distributed dasymetrically from Census 2025 using building footprints.<br><br>
+<strong>Threshold:</strong> 800m walking distance (~10 minutes), consistent with LTA's "acceptable access" standard for public transport planning.<br><br>
+<strong>Limitations:</strong> Distance is straight-line (haversine), not walking path. Actual walking distance is 15-30% longer due to road geometry. FairPrice Online delivery coverage not considered — this analysis focuses on physical store access for walk-in shoppers.
+</div>
+
+<footer>
+FairPrice Adequacy Report · Propheus · Singapore Digital Atlas · April 2026<br>
+Data: 174,713 places, 5,897 H3-9 hexes, Census 2025, Overture Buildings<br>
+351 FairPrice stores × 2,404 populated hexes × haversine distance
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+{
+  "decisions": [
+    {
+      "feature": "office_transit_synergy",
+      "decision": "REJECT",
+      "justification": "Directly redundant with existing syn_office_x_transit which already captures this interaction pattern.",
+      "priority": null,
+      "revised_code": null
+    },
+    {
+      "feature": "specialty_cafe_competition_gap",
+      "decision": "REVISE",
+      "justification": "Useful office-to-cafe ratio concept but should incorporate spatial context from neighboring hexes to avoid false positives.",
+      "priority": 3,
+      "revised_code": "df['specialty_cafe_competition_gap'] = (df['pc_cat_business_office'].fillna(0) / (df['pc_cat_cafe_coffee'].fillna(0) + df['gap_cafe_coffee'].clip(lower=0).fillna(0) * 0.5 + 1)).astype('float32')"
+    },
+    {
+      "feature": "lunch_rush_potential",
+      "decision": "REVISE",
+      "justification": "Strong concept but needs normalized inputs and should use arrivals not departures for midday presence.",
+      "priority": 2,
+      "revised_code": "df['lunch_rush_potential'] = ((df['bus_taps_in_midday'].fillna(0) / (df['bus_taps_in_midday'].max() + 1) + df['gtfs_dep_midday'].fillna(0) / (df['gtfs_dep_midday'].max() + 1)) / (df['pc_cat_cafe_coffee'].fillna(0) + df['pc_cat_restaurant'].fillna(0) + 1)).astype('float32')"
+    },
+    {
+      "feature": "afterwork_vibrancy",
+      "decision": "REJECT",
+      "justification": "Specialty cafes close before evening rush; existing vibrancy_index already captures this with better methodology.",
+      "priority": null,
+      "revised_code": null
+    },
+    {
+      "feature": "coworking_proximity_score",
+      "decision": "REJECT",
+      "justification": "Misleading name (not coworking-specific), triple multiplication yields sparse output, and largely redundant with commercial_intensity.",
+      "priority": null,
+      "revised_code": null
+    },
+    {
+      "feature": "young_professional_residential_proxy",
+      "decision": "REVISE",
+      "justification": "Good concept but fillna(1) masks data gaps; should use explicit missing handling and narrower age band.",
+      "priority": 4,
+      "revised_code": "df['young_professional_residential_proxy'] = (np.where(df['pop_hdb_share'].isna(), np.nan, (1 - df['pop_hdb_share'])) * df['pop_15_64'].fillna(0)).astype('float32')"
+    },
+    {
+      "feature": "mixed_use_cafe_appeal",
+      "decision": "KEEP",
+      "justification": "Captures live-work-play zones with all-day demand; no direct redundancy and low implementation risk.",
+      "priority": 1,
+      "revised_code": null
+    },
+    {
+      "feature": "daytime_population_estimate",
+      "decision": "REJECT",
+      "justification": "Arbitrary magic numbers undermine validity; existing wp_pop provides more rigorous workplace population estimates.",
+      "priority": null,
+      "revised_code": null
+    },
+    {
+      "feature": "premium_location_indicator",
+      "decision": "REJECT",
+      "justification": "Minimal value over raw hdb_resale_4r_median_psm; fails in non-HDB premium areas like CBD.",
+      "priority": null,
+      "revised_code": null
+    },
+    {
+      "feature": "mrt_exit_cafe_opportunity",
+      "decision": "KEEP",
+      "justification": "Actionable signal for transit-node site selection; sparse but high-value where non-zero; no redundancy.",
+      "priority": 2,
+      "revised_code": null
+    }
+  ]
+}

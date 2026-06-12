@@ -1,0 +1,196 @@
+{
+  "version": "v2",
+  "design": "context-only, no category/tier one-hot",
+  "vec_dim": 37,
+  "n_places": 169292,
+  "cross_category_same_hex": {
+    "cross": 0.772,
+    "within": 0.888
+  },
+  "brand_context_spread": {
+    "Starbucks": {
+      "within_cbd": 0.756,
+      "within_hdb": 0.629,
+      "cross_cbd_hdb": 0.194
+    },
+    "McDonald's": {
+      "within_cbd": 0.834,
+      "within_hdb": 0.656,
+      "cross_cbd_hdb": 0.248
+    },
+    "7-Eleven": {
+      "within_cbd": 0.693,
+      "within_hdb": 0.692,
+      "cross_cbd_hdb": 0.17
+    },
+    "Watsons": {
+      "within_cbd": 0.561,
+      "within_hdb": 0.524,
+      "cross_cbd_hdb": 0.104
+    }
+  },
+  "knn_category": {
+    "k1": 0.567,
+    "k5": 0.809
+  },
+  "knn_tier": {
+    "exact": 1.0,
+    "adjacent": 1.0
+  },
+  "hex_pool_knn": 0.332,
+  "named_examples": {
+    "Starbucks ION Orchard": [
+      {
+        "name": "Starbucks",
+        "cat": "Cafe & Coffee",
+        "tier": "Mid",
+        "pa": "ORCHARD",
+        "sim": 1.0
+      },
+      {
+        "name": "Starbucks Orchard Gateway",
+        "cat": "Cafe & Coffee",
+        "tier": "Mid",
+        "pa": "ORCHARD",
+        "sim": 0.999
+      },
+      {
+        "name": "Starbucks Singapore",
+        "cat": "Cafe & Coffee",
+        "tier": "Mid",
+        "pa": "ORCHARD",
+        "sim": 0.999
+      },
+      {
+        "name": "Starbucks",
+        "cat": "Cafe & Coffee",
+        "tier": "Mid",
+        "pa": "ORCHARD",
+        "sim": 0.998
+      },
+      {
+        "name": "Cafe de Paris",
+        "cat": "Cafe & Coffee",
+        "tier": "Mid",
+        "pa": "ORCHARD",
+        "sim": 0.993
+      },
+      {
+        "name": "\u63a2\u9c7c\u70e4\u9c7c - Tanyu 313 @ somerset",
+        "cat": "Cafe & Coffee",
+        "tier": "Mid",
+        "pa": "ORCHARD",
+        "sim": 0.993
+      },
+      {
+        "name": "Arabica Singapore 313 Somerset",
+        "cat": "Cafe & Coffee",
+        "tier": "Mid",
+        "pa": "ORCHARD",
+        "sim": 0.992
+      }
+    ],
+    "McDonald's Bedok": [
+      {
+        "name": "Wingstop",
+        "cat": "Fast Food & QSR",
+        "tier": "Mid",
+        "pa": "BEDOK",
+        "sim": 1.0
+      },
+      {
+        "name": "McDonald's",
+        "cat": "Fast Food & QSR",
+        "tier": "Mid",
+        "pa": "BEDOK",
+        "sim": 0.992
+      },
+      {
+        "name": "Starbucks",
+        "cat": "Cafe & Coffee",
+        "tier": "Mid",
+        "pa": "BEDOK",
+        "sim": 0.964
+      },
+      {
+        "name": "Starbucks - Bedok Mall",
+        "cat": "Cafe & Coffee",
+        "tier": "Mid",
+        "pa": "BEDOK",
+        "sim": 0.964
+      },
+      {
+        "name": "Ya Kun Kaya Toast (Bedok Mall)",
+        "cat": "Cafe & Coffee",
+        "tier": "Mid",
+        "pa": "BEDOK",
+        "sim": 0.963
+      },
+      {
+        "name": "Ya Kun Kaya Toast",
+        "cat": "Cafe & Coffee",
+        "tier": "Mid",
+        "pa": "BEDOK",
+        "sim": 0.96
+      },
+      {
+        "name": "Chicha San Chen @ Bedok Mall",
+        "cat": "Fast Food & QSR",
+        "tier": "Mid",
+        "pa": "BEDOK",
+        "sim": 0.956
+      }
+    ],
+    "Hawker in Chinatown": [
+      {
+        "name": "PotMaster Canton Claypot Rice \u7172\u5e08\u5085 \u8001\u5e7f\u7172\u4ed4\u996d",
+        "cat": "Hawker & Street Food",
+        "tier": "Mid",
+        "pa": "OUTRAM",
+        "sim": 1.0
+      },
+      {
+        "name": "\u5218\u4e00\u7897\u9762 A Bowl of Noodles\uff08\u725b\u8f66\u6c34\u5927\u53a6Chinatown Co",
+        "cat": "Hawker & Street Food",
+        "tier": "Mid",
+        "pa": "OUTRAM",
+        "sim": 1.0
+      },
+      {
+        "name": "\u53ee\u5f53\u677f\u9762 Ding Dang Ban Mian",
+        "cat": "Hawker & Street Food",
+        "tier": "Mid",
+        "pa": "OUTRAM",
+        "sim": 1.0
+      },
+      {
+        "name": "Chinatown Complex",
+        "cat": "Hawker & Street Food",
+        "tier": "Mid",
+        "pa": "OUTRAM",
+        "sim": 1.0
+      },
+      {
+        "name": "Nasi Padang Beach Road (Halal @ Chinatow",
+        "cat": "Hawker & Street Food",
+        "tier": "Mid",
+        "pa": "OUTRAM",
+        "sim": 1.0
+      },
+      {
+        "name": "Millennium Glutinous Rice",
+        "cat": "Hawker & Street Food",
+        "tier": "Mid",
+        "pa": "OUTRAM",
+        "sim": 1.0
+      },
+      {
+        "name": "Er Gu Tang Shui",
+        "cat": "Hawker & Street Food",
+        "tier": "Mid",
+        "pa": "OUTRAM",
+        "sim": 1.0
+      }
+    ]
+  }
+}

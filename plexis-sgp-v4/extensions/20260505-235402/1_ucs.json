@@ -1,0 +1,23 @@
+{
+  "use_case": "Identify optimal locations for a new specialty cafe targeting young professionals in Singapore",
+  "target_variable": "location_suitability_score",
+  "decision_type": "ranking",
+  "scale": "hex9",
+  "key_concepts": [
+    "young professional population density",
+    "office and coworking space proximity",
+    "existing cafe competition saturation",
+    "foot traffic patterns",
+    "income levels and spending power",
+    "public transport accessibility",
+    "lunch and after-work activity zones"
+  ],
+  "constraints": [
+    "avoid areas with high specialty cafe density",
+    "prefer areas with commercial or mixed-use zoning",
+    "minimum daytime population threshold"
+  ],
+  "evaluation_metric": "composite score combining target demographic density, competition gap, and accessibility metrics",
+  "decision_horizon_months": 12,
+  "stakeholder": "cafe business owner or F&B investment team"
+}

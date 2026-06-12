@@ -1,0 +1,3 @@
+downloading SG walk network (bbox)...
+raw: 170121 nodes / 463880 edges (253s)
+saved -> sg_walk.graphml  (304s total)

@@ -1,0 +1,3322 @@
+[
+ {
+  "code": "AMSZ01",
+  "name": "Ang Mo Kio Town Centre",
+  "area": "Ang Mo Kio",
+  "x": -6.024,
+  "y": 18.339,
+  "cluster": 1,
+  "pop": 4920,
+  "places": 308
+ },
+ {
+  "code": "AMSZ02",
+  "name": "Cheng San",
+  "area": "Ang Mo Kio",
+  "x": -4.644,
+  "y": 16.307,
+  "cluster": 2,
+  "pop": 26500,
+  "places": 207
+ },
+ {
+  "code": "AMSZ03",
+  "name": "Chong Boon",
+  "area": "Ang Mo Kio",
+  "x": -4.901,
+  "y": 16.204,
+  "cluster": 2,
+  "pop": 24350,
+  "places": 369
+ },
+ {
+  "code": "AMSZ04",
+  "name": "Townsville",
+  "area": "Ang Mo Kio",
+  "x": -4.466,
+  "y": 16.041,
+  "cluster": 2,
+  "pop": 19840,
+  "places": 169
+ },
+ {
+  "code": "AMSZ05",
+  "name": "Shangri-La",
+  "area": "Ang Mo Kio",
+  "x": -4.735,
+  "y": 15.769,
+  "cluster": 2,
+  "pop": 17460,
+  "places": 149
+ },
+ {
+  "code": "AMSZ06",
+  "name": "Kebun Bahru",
+  "area": "Ang Mo Kio",
+  "x": -4.778,
+  "y": 16.011,
+  "cluster": 2,
+  "pop": 21500,
+  "places": 204
+ },
+ {
+  "code": "AMSZ07",
+  "name": "Sembawang Hills",
+  "area": "Ang Mo Kio",
+  "x": -3.29,
+  "y": 18.636,
+  "cluster": 3,
+  "pop": 6820,
+  "places": 106
+ },
+ {
+  "code": "AMSZ08",
+  "name": "Tagore",
+  "area": "Ang Mo Kio",
+  "x": -3.463,
+  "y": 17.978,
+  "cluster": 3,
+  "pop": 7680,
+  "places": 321
+ },
+ {
+  "code": "AMSZ09",
+  "name": "Yio Chu Kang West",
+  "area": "Ang Mo Kio",
+  "x": -4.734,
+  "y": 15.841,
+  "cluster": 2,
+  "pop": 24130,
+  "places": 177
+ },
+ {
+  "code": "AMSZ10",
+  "name": "Yio Chu Kang",
+  "area": "Ang Mo Kio",
+  "x": -4.428,
+  "y": 17.846,
+  "cluster": 3,
+  "pop": 0,
+  "places": 170
+ },
+ {
+  "code": "AMSZ11",
+  "name": "Yio Chu Kang North",
+  "area": "Ang Mo Kio",
+  "x": -2.765,
+  "y": 22.666,
+  "cluster": 0,
+  "pop": 0,
+  "places": 2
+ },
+ {
+  "code": "AMSZ12",
+  "name": "Yio Chu Kang East",
+  "area": "Ang Mo Kio",
+  "x": -2.635,
+  "y": 18.568,
+  "cluster": 3,
+  "pop": 4150,
+  "places": 113
+ },
+ {
+  "code": "BDSZ01",
+  "name": "Kaki Bukit",
+  "area": "Bedok",
+  "x": -5.455,
+  "y": 18.178,
+  "cluster": 7,
+  "pop": 34910,
+  "places": 1177
+ },
+ {
+  "code": "BDSZ02",
+  "name": "Bedok Reservoir",
+  "area": "Bedok",
+  "x": -3.822,
+  "y": 17.429,
+  "cluster": 2,
+  "pop": 24880,
+  "places": 185
+ },
+ {
+  "code": "BDSZ03",
+  "name": "Kembangan",
+  "area": "Bedok",
+  "x": -5.455,
+  "y": 18.45,
+  "cluster": 2,
+  "pop": 34730,
+  "places": 549
+ },
+ {
+  "code": "BDSZ04",
+  "name": "Bedok North",
+  "area": "Bedok",
+  "x": -6.407,
+  "y": 18.155,
+  "cluster": 7,
+  "pop": 79960,
+  "places": 1082
+ },
+ {
+  "code": "BDSZ05",
+  "name": "Frankel",
+  "area": "Bedok",
+  "x": -5.579,
+  "y": 18.611,
+  "cluster": 3,
+  "pop": 34460,
+  "places": 736
+ },
+ {
+  "code": "BDSZ06",
+  "name": "Bedok South",
+  "area": "Bedok",
+  "x": -6.164,
+  "y": 17.672,
+  "cluster": 2,
+  "pop": 47730,
+  "places": 437
+ },
+ {
+  "code": "BDSZ07",
+  "name": "Siglap",
+  "area": "Bedok",
+  "x": -2.304,
+  "y": 18.36,
+  "cluster": 3,
+  "pop": 7310,
+  "places": 103
+ },
+ {
+  "code": "BDSZ08",
+  "name": "Bayshore",
+  "area": "Bedok",
+  "x": -2.409,
+  "y": 18.397,
+  "cluster": 3,
+  "pop": 8110,
+  "places": 104
+ },
+ {
+  "code": "BKSZ01",
+  "name": "Gombak",
+  "area": "Bukit Batok",
+  "x": -2.016,
+  "y": 17.999,
+  "cluster": 3,
+  "pop": 9730,
+  "places": 81
+ },
+ {
+  "code": "BKSZ02",
+  "name": "Hong Kah North",
+  "area": "Bukit Batok",
+  "x": -4.718,
+  "y": 16.487,
+  "cluster": 2,
+  "pop": 24520,
+  "places": 249
+ },
+ {
+  "code": "BKSZ03",
+  "name": "Brickworks",
+  "area": "Bukit Batok",
+  "x": -5.242,
+  "y": 15.688,
+  "cluster": 2,
+  "pop": 30890,
+  "places": 123
+ },
+ {
+  "code": "BKSZ04",
+  "name": "Guilin",
+  "area": "Bukit Batok",
+  "x": -3.848,
+  "y": 17.626,
+  "cluster": 2,
+  "pop": 12590,
+  "places": 134
+ },
+ {
+  "code": "BKSZ05",
+  "name": "Hillview",
+  "area": "Bukit Batok",
+  "x": -3.4,
+  "y": 17.935,
+  "cluster": 3,
+  "pop": 20480,
+  "places": 204
+ },
+ {
+  "code": "BKSZ06",
+  "name": "Bukit Batok West",
+  "area": "Bukit Batok",
+  "x": -4.317,
+  "y": 16.443,
+  "cluster": 2,
+  "pop": 14190,
+  "places": 126
+ },
+ {
+  "code": "BKSZ07",
+  "name": "Bukit Batok Central",
+  "area": "Bukit Batok",
+  "x": -4.962,
+  "y": 16.412,
+  "cluster": 2,
+  "pop": 27120,
+  "places": 213
+ },
+ {
+  "code": "BKSZ08",
+  "name": "Bukit Batok East",
+  "area": "Bukit Batok",
+  "x": -4.237,
+  "y": 16.36,
+  "cluster": 2,
+  "pop": 11770,
+  "places": 127
+ },
+ {
+  "code": "BKSZ09",
+  "name": "Bukit Batok South",
+  "area": "Bukit Batok",
+  "x": -4.926,
+  "y": 18.061,
+  "cluster": 1,
+  "pop": 14360,
+  "places": 546
+ },
+ {
+  "code": "BLSZ01",
+  "name": "Tukang",
+  "area": "Boon Lay",
+  "x": 0.114,
+  "y": 19.235,
+  "cluster": 6,
+  "pop": 0,
+  "places": 106
+ },
+ {
+  "code": "BLSZ02",
+  "name": "Liu Fang",
+  "area": "Boon Lay",
+  "x": -0.114,
+  "y": 19.612,
+  "cluster": 6,
+  "pop": 0,
+  "places": 40
+ },
+ {
+  "code": "BLSZ03",
+  "name": "Samulun",
+  "area": "Boon Lay",
+  "x": 0.58,
+  "y": 19.969,
+  "cluster": 6,
+  "pop": 0,
+  "places": 94
+ },
+ {
+  "code": "BLSZ04",
+  "name": "Shipyard",
+  "area": "Boon Lay",
+  "x": 0.533,
+  "y": 19.8,
+  "cluster": 6,
+  "pop": 0,
+  "places": 29
+ },
+ {
+  "code": "BMSZ01",
+  "name": "Maritime Square",
+  "area": "Bukit Merah",
+  "x": -5.643,
+  "y": 19.05,
+  "cluster": 1,
+  "pop": 5100,
+  "places": 307
+ },
+ {
+  "code": "BMSZ02",
+  "name": "Bukit Merah",
+  "area": "Bukit Merah",
+  "x": -4.14,
+  "y": 16.702,
+  "cluster": 2,
+  "pop": 940,
+  "places": 306
+ },
+ {
+  "code": "BMSZ03",
+  "name": "Redhill",
+  "area": "Bukit Merah",
+  "x": -4.013,
+  "y": 16.124,
+  "cluster": 2,
+  "pop": 10980,
+  "places": 106
+ },
+ {
+  "code": "BMSZ04",
+  "name": "Tiong Bahru Station",
+  "area": "Bukit Merah",
+  "x": -3.962,
+  "y": 16.174,
+  "cluster": 2,
+  "pop": 14420,
+  "places": 54
+ },
+ {
+  "code": "BMSZ05",
+  "name": "Singapore General Hospital",
+  "area": "Bukit Merah",
+  "x": -3.194,
+  "y": 16.828,
+  "cluster": 2,
+  "pop": 0,
+  "places": 94
+ },
+ {
+  "code": "BMSZ06",
+  "name": "Alexandra North",
+  "area": "Bukit Merah",
+  "x": -2.765,
+  "y": 20.215,
+  "cluster": 3,
+  "pop": 3010,
+  "places": 20
+ },
+ {
+  "code": "BMSZ07",
+  "name": "Alexandra Hill",
+  "area": "Bukit Merah",
+  "x": -4.615,
+  "y": 17.018,
+  "cluster": 2,
+  "pop": 12310,
+  "places": 425
+ },
+ {
+  "code": "BMSZ08",
+  "name": "Henderson Hill",
+  "area": "Bukit Merah",
+  "x": -3.621,
+  "y": 16.171,
+  "cluster": 2,
+  "pop": 11480,
+  "places": 66
+ },
+ {
+  "code": "BMSZ09",
+  "name": "Bukit Ho Swee",
+  "area": "Bukit Merah",
+  "x": -3.208,
+  "y": 16.099,
+  "cluster": 2,
+  "pop": 13270,
+  "places": 99
+ },
+ {
+  "code": "BMSZ10",
+  "name": "Tiong Bahru",
+  "area": "Bukit Merah",
+  "x": -4.449,
+  "y": 15.752,
+  "cluster": 2,
+  "pop": 12130,
+  "places": 172
+ },
+ {
+  "code": "BMSZ11",
+  "name": "Kampong Tiong Bahru",
+  "area": "Bukit Merah",
+  "x": -3.139,
+  "y": 16.163,
+  "cluster": 2,
+  "pop": 9700,
+  "places": 85
+ },
+ {
+  "code": "BMSZ12",
+  "name": "Depot Road",
+  "area": "Bukit Merah",
+  "x": -3.399,
+  "y": 16.552,
+  "cluster": 3,
+  "pop": 6570,
+  "places": 70
+ },
+ {
+  "code": "BMSZ13",
+  "name": "Telok Blangah Drive",
+  "area": "Bukit Merah",
+  "x": -3.673,
+  "y": 16.998,
+  "cluster": 2,
+  "pop": 18720,
+  "places": 129
+ },
+ {
+  "code": "BMSZ14",
+  "name": "Telok Blangah Way",
+  "area": "Bukit Merah",
+  "x": -3.48,
+  "y": 16.131,
+  "cluster": 2,
+  "pop": 8220,
+  "places": 47
+ },
+ {
+  "code": "BMSZ15",
+  "name": "Telok Blangah Rise",
+  "area": "Bukit Merah",
+  "x": -2.532,
+  "y": 16.39,
+  "cluster": 3,
+  "pop": 11400,
+  "places": 43
+ },
+ {
+  "code": "BMSZ16",
+  "name": "Everton Park",
+  "area": "Bukit Merah",
+  "x": -3.279,
+  "y": 17.015,
+  "cluster": 2,
+  "pop": 7320,
+  "places": 102
+ },
+ {
+  "code": "BMSZ17",
+  "name": "City Terminals",
+  "area": "Bukit Merah",
+  "x": -2.404,
+  "y": 17.504,
+  "cluster": 3,
+  "pop": 0,
+  "places": 64
+ },
+ {
+  "code": "BPSZ01",
+  "name": "Senja",
+  "area": "Bukit Panjang",
+  "x": -6.551,
+  "y": 16.36,
+  "cluster": 2,
+  "pop": 23300,
+  "places": 114
+ },
+ {
+  "code": "BPSZ02",
+  "name": "Saujana",
+  "area": "Bukit Panjang",
+  "x": -6.64,
+  "y": 16.631,
+  "cluster": 2,
+  "pop": 24720,
+  "places": 125
+ },
+ {
+  "code": "BPSZ03",
+  "name": "Fajar",
+  "area": "Bukit Panjang",
+  "x": -6.429,
+  "y": 16.6,
+  "cluster": 2,
+  "pop": 25990,
+  "places": 127
+ },
+ {
+  "code": "BPSZ04",
+  "name": "Bangkit",
+  "area": "Bukit Panjang",
+  "x": -5.493,
+  "y": 16.824,
+  "cluster": 2,
+  "pop": 20820,
+  "places": 125
+ },
+ {
+  "code": "BPSZ05",
+  "name": "Jelebu",
+  "area": "Bukit Panjang",
+  "x": -6.366,
+  "y": 16.857,
+  "cluster": 2,
+  "pop": 29570,
+  "places": 226
+ },
+ {
+  "code": "BPSZ06",
+  "name": "Dairy Farm",
+  "area": "Bukit Panjang",
+  "x": -2.143,
+  "y": 18.298,
+  "cluster": 3,
+  "pop": 7820,
+  "places": 98
+ },
+ {
+  "code": "BPSZ07",
+  "name": "Nature Reserve",
+  "area": "Bukit Panjang",
+  "x": -2.735,
+  "y": 18.536,
+  "cluster": 3,
+  "pop": 3940,
+  "places": 95
+ },
+ {
+  "code": "BSSZ01",
+  "name": "Upper Thomson",
+  "area": "Bishan",
+  "x": -5.645,
+  "y": 18.155,
+  "cluster": 7,
+  "pop": 31280,
+  "places": 759
+ },
+ {
+  "code": "BSSZ02",
+  "name": "Marymount",
+  "area": "Bishan",
+  "x": -5.335,
+  "y": 17.592,
+  "cluster": 2,
+  "pop": 28730,
+  "places": 392
+ },
+ {
+  "code": "BSSZ03",
+  "name": "Bishan East",
+  "area": "Bishan",
+  "x": -6.057,
+  "y": 18.198,
+  "cluster": 2,
+  "pop": 26900,
+  "places": 333
+ },
+ {
+  "code": "BTSZ01",
+  "name": "Anak Bukit",
+  "area": "Bukit Timah",
+  "x": -6.249,
+  "y": 18.284,
+  "cluster": 2,
+  "pop": 24160,
+  "places": 516
+ },
+ {
+  "code": "BTSZ02",
+  "name": "Swiss Club",
+  "area": "Bukit Timah",
+  "x": -2.541,
+  "y": 18.842,
+  "cluster": 3,
+  "pop": 6120,
+  "places": 98
+ },
+ {
+  "code": "BTSZ03",
+  "name": "Holland Road",
+  "area": "Bukit Timah",
+  "x": -3.108,
+  "y": 18.153,
+  "cluster": 3,
+  "pop": 11640,
+  "places": 173
+ },
+ {
+  "code": "BTSZ04",
+  "name": "Ulu Pandan",
+  "area": "Bukit Timah",
+  "x": -2.14,
+  "y": 20.034,
+  "cluster": 3,
+  "pop": 11250,
+  "places": 64
+ },
+ {
+  "code": "BTSZ05",
+  "name": "Hillcrest",
+  "area": "Bukit Timah",
+  "x": -2.654,
+  "y": 18.741,
+  "cluster": 3,
+  "pop": 9600,
+  "places": 105
+ },
+ {
+  "code": "BTSZ06",
+  "name": "Coronation Road",
+  "area": "Bukit Timah",
+  "x": -3.012,
+  "y": 17.567,
+  "cluster": 3,
+  "pop": 7240,
+  "places": 182
+ },
+ {
+  "code": "BTSZ07",
+  "name": "Leedon Park",
+  "area": "Bukit Timah",
+  "x": -3.014,
+  "y": 18.22,
+  "cluster": 3,
+  "pop": 7480,
+  "places": 69
+ },
+ {
+  "code": "BTSZ08",
+  "name": "Farrer Court",
+  "area": "Bukit Timah",
+  "x": -2.699,
+  "y": 20.124,
+  "cluster": 3,
+  "pop": 7650,
+  "places": 33
+ },
+ {
+  "code": "CBSZ01",
+  "name": "Changi Bay",
+  "area": "Changi Bay",
+  "x": -2.284,
+  "y": 22.26,
+  "cluster": 0,
+  "pop": 0,
+  "places": 3
+ },
+ {
+  "code": "CCSZ01",
+  "name": "Central Water Catchment",
+  "area": "Central Water Catchment",
+  "x": -0.988,
+  "y": 18.901,
+  "cluster": 3,
+  "pop": 0,
+  "places": 183
+ },
+ {
+  "code": "CHSZ01",
+  "name": "Changi Point",
+  "area": "Changi",
+  "x": -3.693,
+  "y": 17.674,
+  "cluster": 3,
+  "pop": 360,
+  "places": 150
+ },
+ {
+  "code": "CHSZ02",
+  "name": "Changi West",
+  "area": "Changi",
+  "x": -0.777,
+  "y": 19.08,
+  "cluster": 6,
+  "pop": 270,
+  "places": 132
+ },
+ {
+  "code": "CHSZ03",
+  "name": "Changi Airport",
+  "area": "Changi",
+  "x": -0.905,
+  "y": 18.896,
+  "cluster": 7,
+  "pop": 0,
+  "places": 529
+ },
+ {
+  "code": "CKSZ01",
+  "name": "Teck Whye",
+  "area": "Choa Chu Kang",
+  "x": -6.205,
+  "y": 16.735,
+  "cluster": 2,
+  "pop": 24190,
+  "places": 190
+ },
+ {
+  "code": "CKSZ02",
+  "name": "Keat Hong",
+  "area": "Choa Chu Kang",
+  "x": -6.356,
+  "y": 16.623,
+  "cluster": 2,
+  "pop": 39000,
+  "places": 206
+ },
+ {
+  "code": "CKSZ03",
+  "name": "Choa Chu Kang Central",
+  "area": "Choa Chu Kang",
+  "x": -5.916,
+  "y": 16.844,
+  "cluster": 2,
+  "pop": 21740,
+  "places": 175
+ },
+ {
+  "code": "CKSZ04",
+  "name": "Peng Siang",
+  "area": "Choa Chu Kang",
+  "x": -6.346,
+  "y": 16.233,
+  "cluster": 2,
+  "pop": 33040,
+  "places": 118
+ },
+ {
+  "code": "CKSZ05",
+  "name": "Choa Chu Kang North",
+  "area": "Choa Chu Kang",
+  "x": -6.286,
+  "y": 16.12,
+  "cluster": 2,
+  "pop": 30260,
+  "places": 136
+ },
+ {
+  "code": "CKSZ06",
+  "name": "Yew Tee",
+  "area": "Choa Chu Kang",
+  "x": -6.095,
+  "y": 16.366,
+  "cluster": 2,
+  "pop": 39130,
+  "places": 193
+ },
+ {
+  "code": "CLSZ01",
+  "name": "Toh Tuck",
+  "area": "Clementi",
+  "x": -4.634,
+  "y": 18.235,
+  "cluster": 6,
+  "pop": 0,
+  "places": 460
+ },
+ {
+  "code": "CLSZ02",
+  "name": "Sunset Way",
+  "area": "Clementi",
+  "x": -3.31,
+  "y": 18.202,
+  "cluster": 3,
+  "pop": 6460,
+  "places": 69
+ },
+ {
+  "code": "CLSZ03",
+  "name": "Faber",
+  "area": "Clementi",
+  "x": -2.091,
+  "y": 19.855,
+  "cluster": 3,
+  "pop": 8450,
+  "places": 34
+ },
+ {
+  "code": "CLSZ04",
+  "name": "Clementi North",
+  "area": "Clementi",
+  "x": -5.016,
+  "y": 15.877,
+  "cluster": 2,
+  "pop": 30400,
+  "places": 198
+ },
+ {
+  "code": "CLSZ05",
+  "name": "West Coast",
+  "area": "Clementi",
+  "x": -2.633,
+  "y": 20.178,
+  "cluster": 3,
+  "pop": 10250,
+  "places": 33
+ },
+ {
+  "code": "CLSZ06",
+  "name": "Clementi Central",
+  "area": "Clementi",
+  "x": -4.764,
+  "y": 16.433,
+  "cluster": 2,
+  "pop": 14100,
+  "places": 185
+ },
+ {
+  "code": "CLSZ07",
+  "name": "Clementi Woods",
+  "area": "Clementi",
+  "x": -4.88,
+  "y": 15.859,
+  "cluster": 2,
+  "pop": 19300,
+  "places": 81
+ },
+ {
+  "code": "CLSZ08",
+  "name": "Clementi West",
+  "area": "Clementi",
+  "x": -4.386,
+  "y": 16.642,
+  "cluster": 2,
+  "pop": 14330,
+  "places": 82
+ },
+ {
+  "code": "CLSZ09",
+  "name": "Pandan",
+  "area": "Clementi",
+  "x": -0.115,
+  "y": 18.897,
+  "cluster": 6,
+  "pop": 0,
+  "places": 135
+ },
+ {
+  "code": "DTSZ01",
+  "name": "Bugis",
+  "area": "Downtown Core",
+  "x": -5.452,
+  "y": 19.552,
+  "cluster": 1,
+  "pop": 1200,
+  "places": 365
+ },
+ {
+  "code": "DTSZ02",
+  "name": "City Hall",
+  "area": "Downtown Core",
+  "x": -5.103,
+  "y": 19.533,
+  "cluster": 4,
+  "pop": 40,
+  "places": 480
+ },
+ {
+  "code": "DTSZ03",
+  "name": "Marina Centre",
+  "area": "Downtown Core",
+  "x": -4.772,
+  "y": 19.64,
+  "cluster": 1,
+  "pop": 0,
+  "places": 68
+ },
+ {
+  "code": "DTSZ04",
+  "name": "Phillip",
+  "area": "Downtown Core",
+  "x": -3.082,
+  "y": 21.874,
+  "cluster": 0,
+  "pop": 0,
+  "places": 5
+ },
+ {
+  "code": "DTSZ05",
+  "name": "Raffles Place",
+  "area": "Downtown Core",
+  "x": -4.636,
+  "y": 19.985,
+  "cluster": 1,
+  "pop": 0,
+  "places": 134
+ },
+ {
+  "code": "DTSZ06",
+  "name": "Clifford Pier",
+  "area": "Downtown Core",
+  "x": -3.358,
+  "y": 21.313,
+  "cluster": 0,
+  "pop": 0,
+  "places": 12
+ },
+ {
+  "code": "DTSZ07",
+  "name": "Maxwell",
+  "area": "Downtown Core",
+  "x": -3.147,
+  "y": 21.744,
+  "cluster": 0,
+  "pop": 0,
+  "places": 11
+ },
+ {
+  "code": "DTSZ08",
+  "name": "Cecil",
+  "area": "Downtown Core",
+  "x": -4.307,
+  "y": 20.123,
+  "cluster": 1,
+  "pop": 520,
+  "places": 36
+ },
+ {
+  "code": "DTSZ09",
+  "name": "Tanjong Pagar",
+  "area": "Downtown Core",
+  "x": -4.44,
+  "y": 19.914,
+  "cluster": 1,
+  "pop": 900,
+  "places": 73
+ },
+ {
+  "code": "DTSZ10",
+  "name": "Anson",
+  "area": "Downtown Core",
+  "x": -4.2,
+  "y": 19.843,
+  "cluster": 2,
+  "pop": 50,
+  "places": 52
+ },
+ {
+  "code": "DTSZ11",
+  "name": "Central Subzone",
+  "area": "Downtown Core",
+  "x": -4.35,
+  "y": 19.643,
+  "cluster": 2,
+  "pop": 1450,
+  "places": 116
+ },
+ {
+  "code": "DTSZ12",
+  "name": "Bayfront Subzone",
+  "area": "Downtown Core",
+  "x": -4.239,
+  "y": 19.484,
+  "cluster": 1,
+  "pop": 0,
+  "places": 176
+ },
+ {
+  "code": "DTSZ13",
+  "name": "Nicoll",
+  "area": "Downtown Core",
+  "x": -3.961,
+  "y": 20.04,
+  "cluster": 1,
+  "pop": 290,
+  "places": 128
+ },
+ {
+  "code": "GLSZ01",
+  "name": "Kallang Way",
+  "area": "Geylang",
+  "x": -4.617,
+  "y": 17.978,
+  "cluster": 1,
+  "pop": 0,
+  "places": 568
+ },
+ {
+  "code": "GLSZ02",
+  "name": "Macpherson",
+  "area": "Geylang",
+  "x": -5.024,
+  "y": 16.859,
+  "cluster": 2,
+  "pop": 26290,
+  "places": 317
+ },
+ {
+  "code": "GLSZ03",
+  "name": "Kampong Ubi",
+  "area": "Geylang",
+  "x": -5.283,
+  "y": 18.275,
+  "cluster": 7,
+  "pop": 13660,
+  "places": 1617
+ },
+ {
+  "code": "GLSZ04",
+  "name": "Aljunied",
+  "area": "Geylang",
+  "x": -5.612,
+  "y": 18.81,
+  "cluster": 5,
+  "pop": 42540,
+  "places": 1808
+ },
+ {
+  "code": "GLSZ05",
+  "name": "Geylang East",
+  "area": "Geylang",
+  "x": -5.908,
+  "y": 18.896,
+  "cluster": 7,
+  "pop": 32500,
+  "places": 1375
+ },
+ {
+  "code": "HGSZ01",
+  "name": "Hougang Central",
+  "area": "Hougang",
+  "x": -5.657,
+  "y": 17.857,
+  "cluster": 2,
+  "pop": 4630,
+  "places": 178
+ },
+ {
+  "code": "HGSZ02",
+  "name": "Kangkar",
+  "area": "Hougang",
+  "x": -5.367,
+  "y": 15.981,
+  "cluster": 2,
+  "pop": 34980,
+  "places": 218
+ },
+ {
+  "code": "HGSZ03",
+  "name": "Hougang East",
+  "area": "Hougang",
+  "x": -2.076,
+  "y": 18.038,
+  "cluster": 2,
+  "pop": 23490,
+  "places": 123
+ },
+ {
+  "code": "HGSZ04",
+  "name": "Hougang West",
+  "area": "Hougang",
+  "x": -6.237,
+  "y": 17.383,
+  "cluster": 2,
+  "pop": 42450,
+  "places": 299
+ },
+ {
+  "code": "HGSZ05",
+  "name": "Trafalgar",
+  "area": "Hougang",
+  "x": -5.93,
+  "y": 16.998,
+  "cluster": 2,
+  "pop": 46210,
+  "places": 297
+ },
+ {
+  "code": "HGSZ06",
+  "name": "Kovan",
+  "area": "Hougang",
+  "x": -3.775,
+  "y": 18.555,
+  "cluster": 2,
+  "pop": 27410,
+  "places": 332
+ },
+ {
+  "code": "HGSZ07",
+  "name": "Lorong Ah Soo",
+  "area": "Hougang",
+  "x": -6.265,
+  "y": 18.139,
+  "cluster": 2,
+  "pop": 31220,
+  "places": 526
+ },
+ {
+  "code": "HGSZ08",
+  "name": "Tai Seng",
+  "area": "Hougang",
+  "x": -5.191,
+  "y": 17.613,
+  "cluster": 2,
+  "pop": 13620,
+  "places": 442
+ },
+ {
+  "code": "HGSZ09",
+  "name": "Defu Industrial Park",
+  "area": "Hougang",
+  "x": -4.438,
+  "y": 18.13,
+  "cluster": 6,
+  "pop": 0,
+  "places": 354
+ },
+ {
+  "code": "HGSZ10",
+  "name": "Lorong Halus",
+  "area": "Hougang",
+  "x": -2.877,
+  "y": 22.229,
+  "cluster": 0,
+  "pop": 0,
+  "places": 4
+ },
+ {
+  "code": "JESZ01",
+  "name": "Yuhua West",
+  "area": "Jurong East",
+  "x": -4.699,
+  "y": 15.92,
+  "cluster": 2,
+  "pop": 18140,
+  "places": 206
+ },
+ {
+  "code": "JESZ02",
+  "name": "Yuhua East",
+  "area": "Jurong East",
+  "x": -4.906,
+  "y": 15.956,
+  "cluster": 2,
+  "pop": 22880,
+  "places": 230
+ },
+ {
+  "code": "JESZ03",
+  "name": "Toh Guan",
+  "area": "Jurong East",
+  "x": -5.639,
+  "y": 17.484,
+  "cluster": 2,
+  "pop": 13590,
+  "places": 229
+ },
+ {
+  "code": "JESZ04",
+  "name": "Lakeside (Leisure)",
+  "area": "Jurong East",
+  "x": -1.574,
+  "y": 18.556,
+  "cluster": 3,
+  "pop": 270,
+  "places": 95
+ },
+ {
+  "code": "JESZ05",
+  "name": "Lakeside (Business)",
+  "area": "Jurong East",
+  "x": -1.726,
+  "y": 18.367,
+  "cluster": 3,
+  "pop": 0,
+  "places": 50
+ },
+ {
+  "code": "JESZ06",
+  "name": "Jurong Gateway",
+  "area": "Jurong East",
+  "x": -5.725,
+  "y": 18.889,
+  "cluster": 1,
+  "pop": 410,
+  "places": 410
+ },
+ {
+  "code": "JESZ07",
+  "name": "International Business Park",
+  "area": "Jurong East",
+  "x": -4.465,
+  "y": 17.64,
+  "cluster": 3,
+  "pop": 0,
+  "places": 114
+ },
+ {
+  "code": "JESZ08",
+  "name": "Jurong River",
+  "area": "Jurong East",
+  "x": 0.121,
+  "y": 19.229,
+  "cluster": 6,
+  "pop": 0,
+  "places": 211
+ },
+ {
+  "code": "JESZ09",
+  "name": "Teban Gardens",
+  "area": "Jurong East",
+  "x": -3.908,
+  "y": 17.498,
+  "cluster": 2,
+  "pop": 17090,
+  "places": 159
+ },
+ {
+  "code": "JESZ10",
+  "name": "Jurong Port",
+  "area": "Jurong East",
+  "x": -0.055,
+  "y": 19.428,
+  "cluster": 6,
+  "pop": 0,
+  "places": 72
+ },
+ {
+  "code": "JESZ11",
+  "name": "Penjuru Crescent",
+  "area": "Jurong East",
+  "x": 0.4,
+  "y": 20.097,
+  "cluster": 6,
+  "pop": 0,
+  "places": 109
+ },
+ {
+  "code": "JWSZ01",
+  "name": "Wenya",
+  "area": "Jurong West",
+  "x": -1.753,
+  "y": 17.904,
+  "cluster": 3,
+  "pop": 7900,
+  "places": 60
+ },
+ {
+  "code": "JWSZ02",
+  "name": "Boon Lay Place",
+  "area": "Jurong West",
+  "x": -4.907,
+  "y": 15.678,
+  "cluster": 2,
+  "pop": 29770,
+  "places": 154
+ },
+ {
+  "code": "JWSZ03",
+  "name": "Hong Kah",
+  "area": "Jurong West",
+  "x": -6.408,
+  "y": 17.969,
+  "cluster": 2,
+  "pop": 50990,
+  "places": 482
+ },
+ {
+  "code": "JWSZ04",
+  "name": "Taman Jurong",
+  "area": "Jurong West",
+  "x": -5.454,
+  "y": 16.223,
+  "cluster": 2,
+  "pop": 38660,
+  "places": 315
+ },
+ {
+  "code": "JWSZ05",
+  "name": "Chin Bee",
+  "area": "Jurong West",
+  "x": 0.048,
+  "y": 19.005,
+  "cluster": 6,
+  "pop": 0,
+  "places": 132
+ },
+ {
+  "code": "JWSZ06",
+  "name": "Kian Teck",
+  "area": "Jurong West",
+  "x": -4.464,
+  "y": 18.245,
+  "cluster": 6,
+  "pop": 0,
+  "places": 503
+ },
+ {
+  "code": "JWSZ07",
+  "name": "Safti",
+  "area": "Jurong West",
+  "x": -2.78,
+  "y": 22.644,
+  "cluster": 0,
+  "pop": 0,
+  "places": 17
+ },
+ {
+  "code": "JWSZ08",
+  "name": "Yunnan",
+  "area": "Jurong West",
+  "x": -6.457,
+  "y": 16.223,
+  "cluster": 2,
+  "pop": 65000,
+  "places": 216
+ },
+ {
+  "code": "JWSZ09",
+  "name": "Jurong West Central",
+  "area": "Jurong West",
+  "x": -6.495,
+  "y": 16.309,
+  "cluster": 2,
+  "pop": 60950,
+  "places": 146
+ },
+ {
+  "code": "KLSZ01",
+  "name": "Bendemeer",
+  "area": "Kallang",
+  "x": -4.906,
+  "y": 17.167,
+  "cluster": 2,
+  "pop": 37370,
+  "places": 435
+ },
+ {
+  "code": "KLSZ02",
+  "name": "Geylang Bahru",
+  "area": "Kallang",
+  "x": -4.118,
+  "y": 16.421,
+  "cluster": 2,
+  "pop": 10290,
+  "places": 207
+ },
+ {
+  "code": "KLSZ03",
+  "name": "Boon Keng",
+  "area": "Kallang",
+  "x": -4.083,
+  "y": 16.07,
+  "cluster": 2,
+  "pop": 12040,
+  "places": 109
+ },
+ {
+  "code": "KLSZ04",
+  "name": "Kampong Bugis",
+  "area": "Kallang",
+  "x": -3.073,
+  "y": 17.326,
+  "cluster": 3,
+  "pop": 1690,
+  "places": 85
+ },
+ {
+  "code": "KLSZ05",
+  "name": "Tanjong Rhu",
+  "area": "Kallang",
+  "x": -3.505,
+  "y": 17.887,
+  "cluster": 2,
+  "pop": 11540,
+  "places": 264
+ },
+ {
+  "code": "KLSZ06",
+  "name": "Lavender",
+  "area": "Kallang",
+  "x": -5.656,
+  "y": 19.284,
+  "cluster": 1,
+  "pop": 9890,
+  "places": 705
+ },
+ {
+  "code": "KLSZ07",
+  "name": "Kampong Java",
+  "area": "Kallang",
+  "x": -4.794,
+  "y": 17.23,
+  "cluster": 2,
+  "pop": 10060,
+  "places": 333
+ },
+ {
+  "code": "KLSZ08",
+  "name": "Kallang Bahru",
+  "area": "Kallang",
+  "x": -4.805,
+  "y": 18.089,
+  "cluster": 1,
+  "pop": 0,
+  "places": 450
+ },
+ {
+  "code": "KLSZ09",
+  "name": "Crawford",
+  "area": "Kallang",
+  "x": -5.786,
+  "y": 19.543,
+  "cluster": 1,
+  "pop": 7570,
+  "places": 318
+ },
+ {
+  "code": "LKSZ01",
+  "name": "Lim Chu Kang",
+  "area": "Lim Chu Kang",
+  "x": -0.664,
+  "y": 19.445,
+  "cluster": 0,
+  "pop": 0,
+  "places": 123
+ },
+ {
+  "code": "MDSZ01",
+  "name": "Mandai West",
+  "area": "Mandai",
+  "x": -2.539,
+  "y": 22.194,
+  "cluster": 0,
+  "pop": 0,
+  "places": 9
+ },
+ {
+  "code": "MDSZ02",
+  "name": "Mandai East",
+  "area": "Mandai",
+  "x": -1.355,
+  "y": 18.551,
+  "cluster": 6,
+  "pop": 0,
+  "places": 19
+ },
+ {
+  "code": "MDSZ03",
+  "name": "Mandai Estate",
+  "area": "Mandai",
+  "x": -2.072,
+  "y": 19.958,
+  "cluster": 3,
+  "pop": 2030,
+  "places": 38
+ },
+ {
+  "code": "MESZ01",
+  "name": "Marina East",
+  "area": "Marina East",
+  "x": -2.841,
+  "y": 21.985,
+  "cluster": 0,
+  "pop": 0,
+  "places": 8
+ },
+ {
+  "code": "MPSZ01",
+  "name": "Mountbatten",
+  "area": "Marine Parade",
+  "x": -3.172,
+  "y": 18.416,
+  "cluster": 3,
+  "pop": 10480,
+  "places": 178
+ },
+ {
+  "code": "MPSZ02",
+  "name": "Katong",
+  "area": "Marine Parade",
+  "x": -5.389,
+  "y": 19.001,
+  "cluster": 1,
+  "pop": 9160,
+  "places": 481
+ },
+ {
+  "code": "MPSZ03",
+  "name": "Marine Parade",
+  "area": "Marine Parade",
+  "x": -6.332,
+  "y": 18.463,
+  "cluster": 1,
+  "pop": 27250,
+  "places": 468
+ },
+ {
+  "code": "MPSZ04",
+  "name": "East Coast",
+  "area": "Marine Parade",
+  "x": -1.769,
+  "y": 18.507,
+  "cluster": 3,
+  "pop": 0,
+  "places": 31
+ },
+ {
+  "code": "MPSZ05",
+  "name": "Marina East (Mp)",
+  "area": "Marine Parade",
+  "x": -2.711,
+  "y": 22.601,
+  "cluster": 0,
+  "pop": 0,
+  "places": 6
+ },
+ {
+  "code": "MSSZ01",
+  "name": "Marina South",
+  "area": "Marina South",
+  "x": -1.636,
+  "y": 18.618,
+  "cluster": 0,
+  "pop": 0,
+  "places": 37
+ },
+ {
+  "code": "MUSZ01",
+  "name": "Dhoby Ghaut",
+  "area": "Museum",
+  "x": -4.832,
+  "y": 19.652,
+  "cluster": 1,
+  "pop": 470,
+  "places": 205
+ },
+ {
+  "code": "MUSZ02",
+  "name": "Fort Canning",
+  "area": "Museum",
+  "x": -3.896,
+  "y": 20.27,
+  "cluster": 3,
+  "pop": 210,
+  "places": 92
+ },
+ {
+  "code": "MUSZ03",
+  "name": "Bras Basah",
+  "area": "Museum",
+  "x": -4.688,
+  "y": 19.951,
+  "cluster": 1,
+  "pop": 0,
+  "places": 122
+ },
+ {
+  "code": "NESZ01",
+  "name": "North-Eastern Islands",
+  "area": "North-Eastern Islands",
+  "x": -0.534,
+  "y": 19.523,
+  "cluster": 0,
+  "pop": 0,
+  "places": 72
+ },
+ {
+  "code": "NTSZ01",
+  "name": "Orange Grove",
+  "area": "Newton",
+  "x": -3.446,
+  "y": 20.295,
+  "cluster": 3,
+  "pop": 2120,
+  "places": 20
+ },
+ {
+  "code": "NTSZ02",
+  "name": "Goodwood Park",
+  "area": "Newton",
+  "x": -2.396,
+  "y": 19.036,
+  "cluster": 3,
+  "pop": 1480,
+  "places": 32
+ },
+ {
+  "code": "NTSZ03",
+  "name": "Newton Circus",
+  "area": "Newton",
+  "x": -3.859,
+  "y": 19.758,
+  "cluster": 3,
+  "pop": 290,
+  "places": 73
+ },
+ {
+  "code": "NTSZ04",
+  "name": "Cairnhill",
+  "area": "Newton",
+  "x": -4.688,
+  "y": 19.476,
+  "cluster": 3,
+  "pop": 4370,
+  "places": 144
+ },
+ {
+  "code": "NTSZ05",
+  "name": "Monk's Hill",
+  "area": "Newton",
+  "x": -3.316,
+  "y": 20.068,
+  "cluster": 3,
+  "pop": 1000,
+  "places": 41
+ },
+ {
+  "code": "NTSZ06",
+  "name": "Istana Negara",
+  "area": "Newton",
+  "x": -3.246,
+  "y": 21.581,
+  "cluster": 0,
+  "pop": 0,
+  "places": 23
+ },
+ {
+  "code": "NVSZ01",
+  "name": "Balestier",
+  "area": "Novena",
+  "x": -5.724,
+  "y": 18.622,
+  "cluster": 2,
+  "pop": 31760,
+  "places": 731
+ },
+ {
+  "code": "NVSZ02",
+  "name": "Moulmein",
+  "area": "Novena",
+  "x": -5.48,
+  "y": 19.155,
+  "cluster": 1,
+  "pop": 11800,
+  "places": 433
+ },
+ {
+  "code": "NVSZ03",
+  "name": "Malcolm",
+  "area": "Novena",
+  "x": -1.726,
+  "y": 19.991,
+  "cluster": 3,
+  "pop": 3250,
+  "places": 91
+ },
+ {
+  "code": "NVSZ04",
+  "name": "Dunearn",
+  "area": "Novena",
+  "x": -2.741,
+  "y": 18.125,
+  "cluster": 3,
+  "pop": 3970,
+  "places": 69
+ },
+ {
+  "code": "NVSZ05",
+  "name": "Mount Pleasant",
+  "area": "Novena",
+  "x": -1.451,
+  "y": 20.2,
+  "cluster": 0,
+  "pop": 710,
+  "places": 39
+ },
+ {
+  "code": "ORSZ01",
+  "name": "Tanglin",
+  "area": "Orchard",
+  "x": -3.117,
+  "y": 20.092,
+  "cluster": 3,
+  "pop": 660,
+  "places": 30
+ },
+ {
+  "code": "ORSZ02",
+  "name": "Boulevard",
+  "area": "Orchard",
+  "x": -5.496,
+  "y": 19.307,
+  "cluster": 4,
+  "pop": 310,
+  "places": 660
+ },
+ {
+  "code": "ORSZ03",
+  "name": "Somerset",
+  "area": "Orchard",
+  "x": -5.173,
+  "y": 19.464,
+  "cluster": 4,
+  "pop": 30,
+  "places": 325
+ },
+ {
+  "code": "OTSZ01",
+  "name": "Pearl's Hill",
+  "area": "Outram",
+  "x": -3.778,
+  "y": 15.812,
+  "cluster": 2,
+  "pop": 5230,
+  "places": 195
+ },
+ {
+  "code": "OTSZ02",
+  "name": "People's Park",
+  "area": "Outram",
+  "x": -4.145,
+  "y": 20.065,
+  "cluster": 1,
+  "pop": 180,
+  "places": 37
+ },
+ {
+  "code": "OTSZ03",
+  "name": "Chinatown",
+  "area": "Outram",
+  "x": -5.36,
+  "y": 19.532,
+  "cluster": 4,
+  "pop": 9850,
+  "places": 504
+ },
+ {
+  "code": "OTSZ04",
+  "name": "China Square",
+  "area": "Outram",
+  "x": -4.936,
+  "y": 20.137,
+  "cluster": 1,
+  "pop": 1180,
+  "places": 107
+ },
+ {
+  "code": "PGSZ01",
+  "name": "Northshore",
+  "area": "Punggol",
+  "x": -5.428,
+  "y": 16.996,
+  "cluster": 2,
+  "pop": 24780,
+  "places": 224
+ },
+ {
+  "code": "PGSZ02",
+  "name": "Punggol Town Centre",
+  "area": "Punggol",
+  "x": -6.581,
+  "y": 17.021,
+  "cluster": 2,
+  "pop": 25060,
+  "places": 273
+ },
+ {
+  "code": "PGSZ03",
+  "name": "Matilda",
+  "area": "Punggol",
+  "x": -6.85,
+  "y": 16.685,
+  "cluster": 2,
+  "pop": 52400,
+  "places": 190
+ },
+ {
+  "code": "PGSZ04",
+  "name": "Punggol Field",
+  "area": "Punggol",
+  "x": -6.831,
+  "y": 16.906,
+  "cluster": 2,
+  "pop": 47960,
+  "places": 262
+ },
+ {
+  "code": "PGSZ05",
+  "name": "Waterway East",
+  "area": "Punggol",
+  "x": -7.034,
+  "y": 16.979,
+  "cluster": 2,
+  "pop": 53900,
+  "places": 231
+ },
+ {
+  "code": "PGSZ06",
+  "name": "Punggol Canal",
+  "area": "Punggol",
+  "x": -2.207,
+  "y": 19.155,
+  "cluster": 3,
+  "pop": 0,
+  "places": 20
+ },
+ {
+  "code": "PGSZ07",
+  "name": "Coney Island",
+  "area": "Punggol",
+  "x": -2.798,
+  "y": 22.728,
+  "cluster": 0,
+  "pop": 0,
+  "places": 7
+ },
+ {
+  "code": "PLSZ01",
+  "name": "Paya Lebar North",
+  "area": "Paya Lebar",
+  "x": 0.072,
+  "y": 19.222,
+  "cluster": 6,
+  "pop": 0,
+  "places": 95
+ },
+ {
+  "code": "PLSZ02",
+  "name": "Paya Lebar East",
+  "area": "Paya Lebar",
+  "x": -0.386,
+  "y": 20.177,
+  "cluster": 0,
+  "pop": 0,
+  "places": 14
+ },
+ {
+  "code": "PLSZ03",
+  "name": "Paya Lebar West",
+  "area": "Paya Lebar",
+  "x": -0.18,
+  "y": 20.259,
+  "cluster": 6,
+  "pop": 0,
+  "places": 16
+ },
+ {
+  "code": "PLSZ04",
+  "name": "Airport Road",
+  "area": "Paya Lebar",
+  "x": -2.833,
+  "y": 22.414,
+  "cluster": 0,
+  "pop": 0,
+  "places": 3
+ },
+ {
+  "code": "PLSZ05",
+  "name": "Plab",
+  "area": "Paya Lebar",
+  "x": -2.694,
+  "y": 22.653,
+  "cluster": 0,
+  "pop": 0,
+  "places": 7
+ },
+ {
+  "code": "PNSZ01",
+  "name": "Joo Koon",
+  "area": "Pioneer",
+  "x": -4.433,
+  "y": 17.987,
+  "cluster": 6,
+  "pop": 0,
+  "places": 281
+ },
+ {
+  "code": "PNSZ02",
+  "name": "Gul Circle",
+  "area": "Pioneer",
+  "x": 0.401,
+  "y": 19.722,
+  "cluster": 6,
+  "pop": 0,
+  "places": 136
+ },
+ {
+  "code": "PNSZ03",
+  "name": "Benoi Sector",
+  "area": "Pioneer",
+  "x": 0.141,
+  "y": 20.198,
+  "cluster": 6,
+  "pop": 0,
+  "places": 47
+ },
+ {
+  "code": "PNSZ04",
+  "name": "Gul Basin",
+  "area": "Pioneer",
+  "x": 0.572,
+  "y": 19.983,
+  "cluster": 6,
+  "pop": 0,
+  "places": 59
+ },
+ {
+  "code": "PNSZ05",
+  "name": "Pioneer Sector",
+  "area": "Pioneer",
+  "x": 0.469,
+  "y": 19.983,
+  "cluster": 6,
+  "pop": 0,
+  "places": 70
+ },
+ {
+  "code": "PRSZ01",
+  "name": "Pasir Ris Wafer Fab Park",
+  "area": "Pasir Ris",
+  "x": -0.385,
+  "y": 20.365,
+  "cluster": 0,
+  "pop": 0,
+  "places": 20
+ },
+ {
+  "code": "PRSZ02",
+  "name": "Pasir Ris West",
+  "area": "Pasir Ris",
+  "x": -5.624,
+  "y": 16.364,
+  "cluster": 2,
+  "pop": 34870,
+  "places": 197
+ },
+ {
+  "code": "PRSZ03",
+  "name": "Pasir Ris Central",
+  "area": "Pasir Ris",
+  "x": -5.839,
+  "y": 17.093,
+  "cluster": 2,
+  "pop": 31680,
+  "places": 270
+ },
+ {
+  "code": "PRSZ04",
+  "name": "Pasir Ris Park",
+  "area": "Pasir Ris",
+  "x": -3.372,
+  "y": 17.895,
+  "cluster": 3,
+  "pop": 7890,
+  "places": 223
+ },
+ {
+  "code": "PRSZ05",
+  "name": "Pasir Ris Drive",
+  "area": "Pasir Ris",
+  "x": -5.923,
+  "y": 16.281,
+  "cluster": 2,
+  "pop": 51020,
+  "places": 300
+ },
+ {
+  "code": "PRSZ06",
+  "name": "Loyang West",
+  "area": "Pasir Ris",
+  "x": 0.378,
+  "y": 19.242,
+  "cluster": 6,
+  "pop": 0,
+  "places": 262
+ },
+ {
+  "code": "PRSZ07",
+  "name": "Loyang East",
+  "area": "Pasir Ris",
+  "x": -2.605,
+  "y": 19.768,
+  "cluster": 3,
+  "pop": 2040,
+  "places": 33
+ },
+ {
+  "code": "PRSZ08",
+  "name": "Flora Drive",
+  "area": "Pasir Ris",
+  "x": -2.329,
+  "y": 18.673,
+  "cluster": 3,
+  "pop": 16100,
+  "places": 118
+ },
+ {
+  "code": "QTSZ01",
+  "name": "Ghim Moh",
+  "area": "Queenstown",
+  "x": -3.686,
+  "y": 16.129,
+  "cluster": 2,
+  "pop": 13120,
+  "places": 81
+ },
+ {
+  "code": "QTSZ02",
+  "name": "Holland Drive",
+  "area": "Queenstown",
+  "x": -3.945,
+  "y": 16.669,
+  "cluster": 2,
+  "pop": 11990,
+  "places": 269
+ },
+ {
+  "code": "QTSZ03",
+  "name": "Commonwealth",
+  "area": "Queenstown",
+  "x": -3.106,
+  "y": 16.132,
+  "cluster": 3,
+  "pop": 6360,
+  "places": 33
+ },
+ {
+  "code": "QTSZ04",
+  "name": "Tanglin Halt",
+  "area": "Queenstown",
+  "x": -3.197,
+  "y": 16.632,
+  "cluster": 3,
+  "pop": 5580,
+  "places": 73
+ },
+ {
+  "code": "QTSZ05",
+  "name": "Margaret Drive",
+  "area": "Queenstown",
+  "x": -2.611,
+  "y": 16.453,
+  "cluster": 3,
+  "pop": 23810,
+  "places": 97
+ },
+ {
+  "code": "QTSZ06",
+  "name": "Mei Chin",
+  "area": "Queenstown",
+  "x": -2.577,
+  "y": 16.455,
+  "cluster": 3,
+  "pop": 16210,
+  "places": 80
+ },
+ {
+  "code": "QTSZ07",
+  "name": "Queensway",
+  "area": "Queenstown",
+  "x": -1.837,
+  "y": 20.147,
+  "cluster": 3,
+  "pop": 140,
+  "places": 15
+ },
+ {
+  "code": "QTSZ08",
+  "name": "One North",
+  "area": "Queenstown",
+  "x": -3.173,
+  "y": 17.082,
+  "cluster": 2,
+  "pop": 1280,
+  "places": 405
+ },
+ {
+  "code": "QTSZ09",
+  "name": "Singapore Polytechnic",
+  "area": "Queenstown",
+  "x": -2.654,
+  "y": 16.91,
+  "cluster": 3,
+  "pop": 0,
+  "places": 58
+ },
+ {
+  "code": "QTSZ10",
+  "name": "Dover",
+  "area": "Queenstown",
+  "x": -2.633,
+  "y": 16.639,
+  "cluster": 3,
+  "pop": 10700,
+  "places": 99
+ },
+ {
+  "code": "QTSZ11",
+  "name": "National University Of S'pore",
+  "area": "Queenstown",
+  "x": -2.564,
+  "y": 17.17,
+  "cluster": 3,
+  "pop": 0,
+  "places": 310
+ },
+ {
+  "code": "QTSZ12",
+  "name": "Kent Ridge",
+  "area": "Queenstown",
+  "x": -2.637,
+  "y": 17.087,
+  "cluster": 3,
+  "pop": 2460,
+  "places": 86
+ },
+ {
+  "code": "QTSZ13",
+  "name": "Pasir Panjang 1",
+  "area": "Queenstown",
+  "x": -2.689,
+  "y": 17.023,
+  "cluster": 3,
+  "pop": 4660,
+  "places": 114
+ },
+ {
+  "code": "QTSZ14",
+  "name": "Pasir Panjang 2",
+  "area": "Queenstown",
+  "x": -3.106,
+  "y": 17.011,
+  "cluster": 3,
+  "pop": 3540,
+  "places": 267
+ },
+ {
+  "code": "QTSZ15",
+  "name": "Port",
+  "area": "Queenstown",
+  "x": -2.572,
+  "y": 17.319,
+  "cluster": 3,
+  "pop": 60,
+  "places": 166
+ },
+ {
+  "code": "RCSZ01",
+  "name": "Farrer Park",
+  "area": "Rochor",
+  "x": -5.852,
+  "y": 19.476,
+  "cluster": 1,
+  "pop": 2360,
+  "places": 291
+ },
+ {
+  "code": "RCSZ02",
+  "name": "Little India",
+  "area": "Rochor",
+  "x": -5.651,
+  "y": 19.624,
+  "cluster": 1,
+  "pop": 2760,
+  "places": 408
+ },
+ {
+  "code": "RCSZ03",
+  "name": "Sungei Road",
+  "area": "Rochor",
+  "x": -5.75,
+  "y": 19.754,
+  "cluster": 1,
+  "pop": 1900,
+  "places": 119
+ },
+ {
+  "code": "RCSZ04",
+  "name": "Rochor Canal",
+  "area": "Rochor",
+  "x": -3.664,
+  "y": 20.848,
+  "cluster": 3,
+  "pop": 0,
+  "places": 14
+ },
+ {
+  "code": "RCSZ05",
+  "name": "Kampong Glam",
+  "area": "Rochor",
+  "x": -5.425,
+  "y": 19.604,
+  "cluster": 1,
+  "pop": 0,
+  "places": 368
+ },
+ {
+  "code": "RCSZ06",
+  "name": "Mackenzie",
+  "area": "Rochor",
+  "x": -4.318,
+  "y": 20.263,
+  "cluster": 0,
+  "pop": 10,
+  "places": 30
+ },
+ {
+  "code": "RCSZ07",
+  "name": "Mount Emily",
+  "area": "Rochor",
+  "x": -3.803,
+  "y": 20.564,
+  "cluster": 3,
+  "pop": 2090,
+  "places": 75
+ },
+ {
+  "code": "RCSZ08",
+  "name": "Selegie",
+  "area": "Rochor",
+  "x": -5.343,
+  "y": 20.005,
+  "cluster": 1,
+  "pop": 0,
+  "places": 83
+ },
+ {
+  "code": "RCSZ09",
+  "name": "Bencoolen",
+  "area": "Rochor",
+  "x": -5.571,
+  "y": 19.814,
+  "cluster": 1,
+  "pop": 1200,
+  "places": 227
+ },
+ {
+  "code": "RCSZ10",
+  "name": "Victoria",
+  "area": "Rochor",
+  "x": -5.506,
+  "y": 19.586,
+  "cluster": 1,
+  "pop": 1660,
+  "places": 415
+ },
+ {
+  "code": "RVSZ01",
+  "name": "One Tree Hill",
+  "area": "River Valley",
+  "x": -2.894,
+  "y": 20.375,
+  "cluster": 3,
+  "pop": 2220,
+  "places": 20
+ },
+ {
+  "code": "RVSZ02",
+  "name": "Paterson",
+  "area": "River Valley",
+  "x": -3.067,
+  "y": 21.523,
+  "cluster": 0,
+  "pop": 320,
+  "places": 5
+ },
+ {
+  "code": "RVSZ03",
+  "name": "Leonie Hill",
+  "area": "River Valley",
+  "x": -2.879,
+  "y": 20.217,
+  "cluster": 3,
+  "pop": 3930,
+  "places": 41
+ },
+ {
+  "code": "RVSZ04",
+  "name": "Oxley",
+  "area": "River Valley",
+  "x": -3.916,
+  "y": 19.771,
+  "cluster": 3,
+  "pop": 1530,
+  "places": 25
+ },
+ {
+  "code": "RVSZ05",
+  "name": "Institution Hill",
+  "area": "River Valley",
+  "x": -3.669,
+  "y": 19.843,
+  "cluster": 3,
+  "pop": 4200,
+  "places": 81
+ },
+ {
+  "code": "SBSZ01",
+  "name": "Sembawang East",
+  "area": "Sembawang",
+  "x": -5.299,
+  "y": 15.666,
+  "cluster": 2,
+  "pop": 24750,
+  "places": 115
+ },
+ {
+  "code": "SBSZ02",
+  "name": "Sembawang Springs",
+  "area": "Sembawang",
+  "x": -3.543,
+  "y": 18.468,
+  "cluster": 2,
+  "pop": 12040,
+  "places": 171
+ },
+ {
+  "code": "SBSZ03",
+  "name": "Sembawang Central",
+  "area": "Sembawang",
+  "x": -5.878,
+  "y": 17.05,
+  "cluster": 2,
+  "pop": 34770,
+  "places": 346
+ },
+ {
+  "code": "SBSZ04",
+  "name": "Sembawang North",
+  "area": "Sembawang",
+  "x": -5.354,
+  "y": 16.145,
+  "cluster": 2,
+  "pop": 25540,
+  "places": 212
+ },
+ {
+  "code": "SBSZ05",
+  "name": "Admiralty",
+  "area": "Sembawang",
+  "x": -1.962,
+  "y": 17.833,
+  "cluster": 3,
+  "pop": 13510,
+  "places": 102
+ },
+ {
+  "code": "SBSZ06",
+  "name": "Sembawang Straits",
+  "area": "Sembawang",
+  "x": -1.309,
+  "y": 18.822,
+  "cluster": 3,
+  "pop": 2290,
+  "places": 61
+ },
+ {
+  "code": "SBSZ07",
+  "name": "The Wharves",
+  "area": "Sembawang",
+  "x": -0.637,
+  "y": 19.898,
+  "cluster": 6,
+  "pop": 0,
+  "places": 33
+ },
+ {
+  "code": "SBSZ08",
+  "name": "Senoko North",
+  "area": "Sembawang",
+  "x": 0.008,
+  "y": 18.984,
+  "cluster": 6,
+  "pop": 0,
+  "places": 225
+ },
+ {
+  "code": "SBSZ09",
+  "name": "Senoko South",
+  "area": "Sembawang",
+  "x": -4.354,
+  "y": 18.242,
+  "cluster": 6,
+  "pop": 0,
+  "places": 377
+ },
+ {
+  "code": "SESZ01",
+  "name": "Lorong Halus North",
+  "area": "Sengkang",
+  "x": -2.892,
+  "y": 21.892,
+  "cluster": 0,
+  "pop": 0,
+  "places": 1
+ },
+ {
+  "code": "SESZ02",
+  "name": "Rivervale",
+  "area": "Sengkang",
+  "x": -6.977,
+  "y": 16.979,
+  "cluster": 2,
+  "pop": 62620,
+  "places": 277
+ },
+ {
+  "code": "SESZ03",
+  "name": "Sengkang Town Centre",
+  "area": "Sengkang",
+  "x": -7.002,
+  "y": 17.322,
+  "cluster": 2,
+  "pop": 59520,
+  "places": 355
+ },
+ {
+  "code": "SESZ04",
+  "name": "Anchorvale",
+  "area": "Sengkang",
+  "x": -6.941,
+  "y": 16.996,
+  "cluster": 2,
+  "pop": 52440,
+  "places": 261
+ },
+ {
+  "code": "SESZ05",
+  "name": "Compassvale",
+  "area": "Sengkang",
+  "x": -6.076,
+  "y": 16.815,
+  "cluster": 2,
+  "pop": 21830,
+  "places": 170
+ },
+ {
+  "code": "SESZ06",
+  "name": "Fernvale",
+  "area": "Sengkang",
+  "x": -6.943,
+  "y": 17.27,
+  "cluster": 2,
+  "pop": 70800,
+  "places": 379
+ },
+ {
+  "code": "SESZ07",
+  "name": "Sengkang West",
+  "area": "Sengkang",
+  "x": -0.144,
+  "y": 20.329,
+  "cluster": 6,
+  "pop": 0,
+  "places": 33
+ },
+ {
+  "code": "SGSZ01",
+  "name": "Seletar Hills",
+  "area": "Serangoon",
+  "x": -3.02,
+  "y": 18.248,
+  "cluster": 3,
+  "pop": 15230,
+  "places": 136
+ },
+ {
+  "code": "SGSZ02",
+  "name": "Serangoon North Ind Estate",
+  "area": "Serangoon",
+  "x": -4.493,
+  "y": 18.122,
+  "cluster": 6,
+  "pop": 0,
+  "places": 471
+ },
+ {
+  "code": "SGSZ03",
+  "name": "Serangoon North",
+  "area": "Serangoon",
+  "x": -4.588,
+  "y": 16.177,
+  "cluster": 2,
+  "pop": 14990,
+  "places": 245
+ },
+ {
+  "code": "SGSZ04",
+  "name": "Serangoon Garden",
+  "area": "Serangoon",
+  "x": -6.266,
+  "y": 18.02,
+  "cluster": 2,
+  "pop": 36880,
+  "places": 431
+ },
+ {
+  "code": "SGSZ05",
+  "name": "Lorong Chuan",
+  "area": "Serangoon",
+  "x": -2.404,
+  "y": 18.691,
+  "cluster": 3,
+  "pop": 8440,
+  "places": 117
+ },
+ {
+  "code": "SGSZ06",
+  "name": "Serangoon Central",
+  "area": "Serangoon",
+  "x": -6.078,
+  "y": 18.476,
+  "cluster": 2,
+  "pop": 22250,
+  "places": 398
+ },
+ {
+  "code": "SGSZ07",
+  "name": "Upper Paya Lebar",
+  "area": "Serangoon",
+  "x": -3.635,
+  "y": 18.88,
+  "cluster": 2,
+  "pop": 18270,
+  "places": 133
+ },
+ {
+  "code": "SISZ01",
+  "name": "Sentosa",
+  "area": "Southern Islands",
+  "x": -1.105,
+  "y": 18.817,
+  "cluster": 3,
+  "pop": 2650,
+  "places": 274
+ },
+ {
+  "code": "SISZ02",
+  "name": "Southern Group",
+  "area": "Southern Islands",
+  "x": -2.153,
+  "y": 22.268,
+  "cluster": 0,
+  "pop": 0,
+  "places": 9
+ },
+ {
+  "code": "SKSZ01",
+  "name": "Kranji",
+  "area": "Sungei Kadut",
+  "x": -0.155,
+  "y": 20.331,
+  "cluster": 6,
+  "pop": 0,
+  "places": 138
+ },
+ {
+  "code": "SKSZ02",
+  "name": "Turf Club",
+  "area": "Sungei Kadut",
+  "x": -2.683,
+  "y": 19.492,
+  "cluster": 0,
+  "pop": 640,
+  "places": 27
+ },
+ {
+  "code": "SKSZ03",
+  "name": "Gali Batu",
+  "area": "Sungei Kadut",
+  "x": -4.005,
+  "y": 17.91,
+  "cluster": 3,
+  "pop": 0,
+  "places": 225
+ },
+ {
+  "code": "SKSZ04",
+  "name": "Pang Sua",
+  "area": "Sungei Kadut",
+  "x": 0.236,
+  "y": 20.029,
+  "cluster": 6,
+  "pop": 0,
+  "places": 162
+ },
+ {
+  "code": "SKSZ05",
+  "name": "Reservoir View",
+  "area": "Sungei Kadut",
+  "x": -0.156,
+  "y": 19.885,
+  "cluster": 6,
+  "pop": 0,
+  "places": 168
+ },
+ {
+  "code": "SLSZ01",
+  "name": "Seletar Aerospace Park",
+  "area": "Seletar",
+  "x": -1.862,
+  "y": 17.729,
+  "cluster": 6,
+  "pop": 0,
+  "places": 133
+ },
+ {
+  "code": "SLSZ02",
+  "name": "Pulau Punggol Barat",
+  "area": "Seletar",
+  "x": -2.615,
+  "y": 22.54,
+  "cluster": 0,
+  "pop": 0,
+  "places": 5
+ },
+ {
+  "code": "SLSZ03",
+  "name": "Pulau Punggol Timor",
+  "area": "Seletar",
+  "x": -0.261,
+  "y": 20.258,
+  "cluster": 0,
+  "pop": 0,
+  "places": 19
+ },
+ {
+  "code": "SLSZ04",
+  "name": "Seletar",
+  "area": "Seletar",
+  "x": -1.234,
+  "y": 20.163,
+  "cluster": 0,
+  "pop": 250,
+  "places": 23
+ },
+ {
+  "code": "SMSZ01",
+  "name": "Simpang North",
+  "area": "Simpang",
+  "x": -2.68,
+  "y": 22.515,
+  "cluster": 0,
+  "pop": 0,
+  "places": 2
+ },
+ {
+  "code": "SMSZ02",
+  "name": "Tanjong Irau",
+  "area": "Simpang",
+  "x": -2.842,
+  "y": 22.701,
+  "cluster": 0,
+  "pop": 0,
+  "places": 0
+ },
+ {
+  "code": "SMSZ03",
+  "name": "Simpang South",
+  "area": "Simpang",
+  "x": -2.561,
+  "y": 22.762,
+  "cluster": 0,
+  "pop": 0,
+  "places": 0
+ },
+ {
+  "code": "SMSZ04",
+  "name": "Pulau Seletar",
+  "area": "Simpang",
+  "x": -2.76,
+  "y": 22.66,
+  "cluster": 0,
+  "pop": 0,
+  "places": 0
+ },
+ {
+  "code": "SRSZ01",
+  "name": "Robertson Quay",
+  "area": "Singapore River",
+  "x": -4.007,
+  "y": 19.312,
+  "cluster": 3,
+  "pop": 4370,
+  "places": 146
+ },
+ {
+  "code": "SRSZ02",
+  "name": "Clarke Quay",
+  "area": "Singapore River",
+  "x": -4.171,
+  "y": 19.933,
+  "cluster": 1,
+  "pop": 0,
+  "places": 61
+ },
+ {
+  "code": "SRSZ03",
+  "name": "Boat Quay",
+  "area": "Singapore River",
+  "x": -4.673,
+  "y": 19.798,
+  "cluster": 4,
+  "pop": 20,
+  "places": 97
+ },
+ {
+  "code": "SVSZ01",
+  "name": "Straits View",
+  "area": "Straits View",
+  "x": -2.927,
+  "y": 22.33,
+  "cluster": 0,
+  "pop": 0,
+  "places": 3
+ },
+ {
+  "code": "THSZ01",
+  "name": "Forest Hill",
+  "area": "Tengah",
+  "x": -2.718,
+  "y": 22.346,
+  "cluster": 0,
+  "pop": 0,
+  "places": 3
+ },
+ {
+  "code": "THSZ02",
+  "name": "Tengah Industrial Estate",
+  "area": "Tengah",
+  "x": -2.72,
+  "y": 22.167,
+  "cluster": 0,
+  "pop": 0,
+  "places": 5
+ },
+ {
+  "code": "THSZ03",
+  "name": "Park",
+  "area": "Tengah",
+  "x": -1.584,
+  "y": 17.974,
+  "cluster": 3,
+  "pop": 4000,
+  "places": 39
+ },
+ {
+  "code": "THSZ04",
+  "name": "Brickland",
+  "area": "Tengah",
+  "x": -2.822,
+  "y": 22.697,
+  "cluster": 0,
+  "pop": 0,
+  "places": 0
+ },
+ {
+  "code": "THSZ05",
+  "name": "Garden",
+  "area": "Tengah",
+  "x": -3.625,
+  "y": 17.53,
+  "cluster": 3,
+  "pop": 6800,
+  "places": 56
+ },
+ {
+  "code": "THSZ06",
+  "name": "Plantation",
+  "area": "Tengah",
+  "x": -4.072,
+  "y": 17.311,
+  "cluster": 2,
+  "pop": 12180,
+  "places": 79
+ },
+ {
+  "code": "TMSZ01",
+  "name": "Tampines North",
+  "area": "Tampines",
+  "x": -5.471,
+  "y": 16.193,
+  "cluster": 2,
+  "pop": 35640,
+  "places": 264
+ },
+ {
+  "code": "TMSZ02",
+  "name": "Tampines East",
+  "area": "Tampines",
+  "x": -6.605,
+  "y": 18.094,
+  "cluster": 7,
+  "pop": 126370,
+  "places": 1143
+ },
+ {
+  "code": "TMSZ03",
+  "name": "Tampines West",
+  "area": "Tampines",
+  "x": -6.697,
+  "y": 17.879,
+  "cluster": 7,
+  "pop": 87010,
+  "places": 849
+ },
+ {
+  "code": "TMSZ04",
+  "name": "Simei",
+  "area": "Tampines",
+  "x": -5.561,
+  "y": 17.226,
+  "cluster": 2,
+  "pop": 37970,
+  "places": 422
+ },
+ {
+  "code": "TMSZ05",
+  "name": "Xilin",
+  "area": "Tampines",
+  "x": -5.129,
+  "y": 17.636,
+  "cluster": 2,
+  "pop": 1750,
+  "places": 434
+ },
+ {
+  "code": "TNSZ01",
+  "name": "Nassim",
+  "area": "Tanglin",
+  "x": -2.232,
+  "y": 19.84,
+  "cluster": 3,
+  "pop": 10760,
+  "places": 142
+ },
+ {
+  "code": "TNSZ02",
+  "name": "Chatsworth",
+  "area": "Tanglin",
+  "x": -2.309,
+  "y": 18.673,
+  "cluster": 3,
+  "pop": 7820,
+  "places": 64
+ },
+ {
+  "code": "TNSZ03",
+  "name": "Ridout",
+  "area": "Tanglin",
+  "x": -3.1,
+  "y": 18.683,
+  "cluster": 3,
+  "pop": 1430,
+  "places": 125
+ },
+ {
+  "code": "TNSZ04",
+  "name": "Tyersall",
+  "area": "Tanglin",
+  "x": -3.137,
+  "y": 17.982,
+  "cluster": 3,
+  "pop": 4120,
+  "places": 139
+ },
+ {
+  "code": "TPSZ01",
+  "name": "Toa Payoh West",
+  "area": "Toa Payoh",
+  "x": -4.137,
+  "y": 16.65,
+  "cluster": 2,
+  "pop": 13980,
+  "places": 227
+ },
+ {
+  "code": "TPSZ02",
+  "name": "Toa Payoh Central",
+  "area": "Toa Payoh",
+  "x": -6.428,
+  "y": 18.423,
+  "cluster": 1,
+  "pop": 27340,
+  "places": 458
+ },
+ {
+  "code": "TPSZ03",
+  "name": "Braddell",
+  "area": "Toa Payoh",
+  "x": -4.345,
+  "y": 15.784,
+  "cluster": 2,
+  "pop": 9530,
+  "places": 190
+ },
+ {
+  "code": "TPSZ04",
+  "name": "Boon Teck",
+  "area": "Toa Payoh",
+  "x": -3.847,
+  "y": 15.812,
+  "cluster": 2,
+  "pop": 14260,
+  "places": 128
+ },
+ {
+  "code": "TPSZ05",
+  "name": "Lorong 8 Toa Payoh",
+  "area": "Toa Payoh",
+  "x": -3.826,
+  "y": 16.371,
+  "cluster": 2,
+  "pop": 6650,
+  "places": 112
+ },
+ {
+  "code": "TPSZ06",
+  "name": "Pei Chun",
+  "area": "Toa Payoh",
+  "x": -4.209,
+  "y": 16.128,
+  "cluster": 2,
+  "pop": 9670,
+  "places": 219
+ },
+ {
+  "code": "TPSZ07",
+  "name": "Kim Keat",
+  "area": "Toa Payoh",
+  "x": -3.173,
+  "y": 16.138,
+  "cluster": 3,
+  "pop": 9570,
+  "places": 51
+ },
+ {
+  "code": "TPSZ08",
+  "name": "Woodleigh",
+  "area": "Toa Payoh",
+  "x": -2.252,
+  "y": 19.655,
+  "cluster": 3,
+  "pop": 3500,
+  "places": 29
+ },
+ {
+  "code": "TPSZ09",
+  "name": "Potong Pasir",
+  "area": "Toa Payoh",
+  "x": -4.05,
+  "y": 16.556,
+  "cluster": 2,
+  "pop": 12410,
+  "places": 156
+ },
+ {
+  "code": "TPSZ10",
+  "name": "Bidadari",
+  "area": "Toa Payoh",
+  "x": -3.757,
+  "y": 16.737,
+  "cluster": 2,
+  "pop": 9220,
+  "places": 107
+ },
+ {
+  "code": "TPSZ11",
+  "name": "Sennett",
+  "area": "Toa Payoh",
+  "x": -3.928,
+  "y": 17.1,
+  "cluster": 2,
+  "pop": 17430,
+  "places": 158
+ },
+ {
+  "code": "TPSZ12",
+  "name": "Joo Seng",
+  "area": "Toa Payoh",
+  "x": -5.143,
+  "y": 18.171,
+  "cluster": 1,
+  "pop": 7880,
+  "places": 638
+ },
+ {
+  "code": "TSSZ01",
+  "name": "Tengeh",
+  "area": "Tuas",
+  "x": -2.304,
+  "y": 22.322,
+  "cluster": 0,
+  "pop": 0,
+  "places": 2
+ },
+ {
+  "code": "TSSZ02",
+  "name": "Tuas Promenade",
+  "area": "Tuas",
+  "x": 0.128,
+  "y": 19.972,
+  "cluster": 6,
+  "pop": 0,
+  "places": 125
+ },
+ {
+  "code": "TSSZ03",
+  "name": "Tuas North",
+  "area": "Tuas",
+  "x": 0.59,
+  "y": 19.566,
+  "cluster": 6,
+  "pop": 0,
+  "places": 288
+ },
+ {
+  "code": "TSSZ04",
+  "name": "Tuas Bay",
+  "area": "Tuas",
+  "x": 0.652,
+  "y": 19.95,
+  "cluster": 6,
+  "pop": 0,
+  "places": 152
+ },
+ {
+  "code": "TSSZ05",
+  "name": "Tuas View",
+  "area": "Tuas",
+  "x": 0.498,
+  "y": 19.418,
+  "cluster": 6,
+  "pop": 0,
+  "places": 317
+ },
+ {
+  "code": "TSSZ06",
+  "name": "Tuas View Extension",
+  "area": "Tuas",
+  "x": 0.146,
+  "y": 19.722,
+  "cluster": 6,
+  "pop": 0,
+  "places": 130
+ },
+ {
+  "code": "WCSZ01",
+  "name": "Murai",
+  "area": "Western Water Catchment",
+  "x": -0.952,
+  "y": 18.837,
+  "cluster": 7,
+  "pop": 0,
+  "places": 386
+ },
+ {
+  "code": "WCSZ02",
+  "name": "Cleantech",
+  "area": "Western Water Catchment",
+  "x": -2.715,
+  "y": 21.488,
+  "cluster": 0,
+  "pop": 0,
+  "places": 11
+ },
+ {
+  "code": "WCSZ03",
+  "name": "Bahar",
+  "area": "Western Water Catchment",
+  "x": -2.621,
+  "y": 22.762,
+  "cluster": 0,
+  "pop": 0,
+  "places": 0
+ },
+ {
+  "code": "WDSZ01",
+  "name": "Woodlands Regional Centre",
+  "area": "Woodlands",
+  "x": -5.424,
+  "y": 18.096,
+  "cluster": 1,
+  "pop": 0,
+  "places": 252
+ },
+ {
+  "code": "WDSZ02",
+  "name": "Midview",
+  "area": "Woodlands",
+  "x": -6.03,
+  "y": 16.375,
+  "cluster": 2,
+  "pop": 33690,
+  "places": 214
+ },
+ {
+  "code": "WDSZ03",
+  "name": "Woodlands East",
+  "area": "Woodlands",
+  "x": -6.813,
+  "y": 17.42,
+  "cluster": 2,
+  "pop": 98380,
+  "places": 602
+ },
+ {
+  "code": "WDSZ04",
+  "name": "Woodlands South",
+  "area": "Woodlands",
+  "x": -5.807,
+  "y": 16.101,
+  "cluster": 2,
+  "pop": 41640,
+  "places": 235
+ },
+ {
+  "code": "WDSZ05",
+  "name": "Woodgrove",
+  "area": "Woodlands",
+  "x": -5.741,
+  "y": 16.735,
+  "cluster": 2,
+  "pop": 32060,
+  "places": 243
+ },
+ {
+  "code": "WDSZ06",
+  "name": "Woodlands West",
+  "area": "Woodlands",
+  "x": -5.311,
+  "y": 16.222,
+  "cluster": 2,
+  "pop": 36500,
+  "places": 299
+ },
+ {
+  "code": "WDSZ07",
+  "name": "Greenwood Park",
+  "area": "Woodlands",
+  "x": -1.644,
+  "y": 17.973,
+  "cluster": 3,
+  "pop": 0,
+  "places": 76
+ },
+ {
+  "code": "WDSZ08",
+  "name": "Senoko West",
+  "area": "Woodlands",
+  "x": -4.511,
+  "y": 18.046,
+  "cluster": 6,
+  "pop": 0,
+  "places": 375
+ },
+ {
+  "code": "WDSZ09",
+  "name": "North Coast",
+  "area": "Woodlands",
+  "x": -1.6,
+  "y": 18.104,
+  "cluster": 6,
+  "pop": 11200,
+  "places": 83
+ },
+ {
+  "code": "WISZ01",
+  "name": "Jurong Island And Bukom",
+  "area": "Western Islands",
+  "x": 0.562,
+  "y": 19.814,
+  "cluster": 6,
+  "pop": 0,
+  "places": 68
+ },
+ {
+  "code": "WISZ02",
+  "name": "Semakau",
+  "area": "Western Islands",
+  "x": -2.09,
+  "y": 22.257,
+  "cluster": 0,
+  "pop": 0,
+  "places": 3
+ },
+ {
+  "code": "WISZ03",
+  "name": "Sudong",
+  "area": "Western Islands",
+  "x": -2.248,
+  "y": 22.451,
+  "cluster": 0,
+  "pop": 0,
+  "places": 0
+ },
+ {
+  "code": "YSSZ01",
+  "name": "Yishun Central",
+  "area": "Yishun",
+  "x": -5.881,
+  "y": 18.459,
+  "cluster": 1,
+  "pop": 2860,
+  "places": 235
+ },
+ {
+  "code": "YSSZ02",
+  "name": "Northland",
+  "area": "Yishun",
+  "x": -5.394,
+  "y": 17.308,
+  "cluster": 2,
+  "pop": 26690,
+  "places": 556
+ },
+ {
+  "code": "YSSZ03",
+  "name": "Yishun East",
+  "area": "Yishun",
+  "x": -6.485,
+  "y": 16.43,
+  "cluster": 2,
+  "pop": 73550,
+  "places": 359
+ },
+ {
+  "code": "YSSZ04",
+  "name": "Yishun South",
+  "area": "Yishun",
+  "x": -6.039,
+  "y": 17.072,
+  "cluster": 2,
+  "pop": 40960,
+  "places": 318
+ },
+ {
+  "code": "YSSZ05",
+  "name": "Lower Seletar",
+  "area": "Yishun",
+  "x": -1.661,
+  "y": 18.127,
+  "cluster": 3,
+  "pop": 19040,
+  "places": 119
+ },
+ {
+  "code": "YSSZ06",
+  "name": "Springleaf",
+  "area": "Yishun",
+  "x": -3.3,
+  "y": 18.167,
+  "cluster": 3,
+  "pop": 4170,
+  "places": 84
+ },
+ {
+  "code": "YSSZ07",
+  "name": "Nee Soon",
+  "area": "Yishun",
+  "x": -1.3,
+  "y": 20.039,
+  "cluster": 3,
+  "pop": 940,
+  "places": 46
+ },
+ {
+  "code": "YSSZ08",
+  "name": "Khatib",
+  "area": "Yishun",
+  "x": -4.327,
+  "y": 17.179,
+  "cluster": 2,
+  "pop": 9700,
+  "places": 96
+ },
+ {
+  "code": "YSSZ09",
+  "name": "Yishun West",
+  "area": "Yishun",
+  "x": -6.421,
+  "y": 17.898,
+  "cluster": 2,
+  "pop": 50300,
+  "places": 452
+ }
+]

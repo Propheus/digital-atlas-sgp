@@ -1,0 +1,978 @@
+[
+  {
+    "name": "VivoCity / HarbourFront",
+    "hex_id": "896520d842bffff",
+    "subzone": "BMSZ01",
+    "pa": "BUKIT MERAH",
+    "checks": [
+      [
+        "pc_total",
+        568,
+        568,
+        true
+      ],
+      [
+        "pc_cat_shopping_retail",
+        197,
+        197,
+        true
+      ],
+      [
+        "pc_cat_restaurant",
+        153,
+        153,
+        true
+      ],
+      [
+        "pc_cat_cafe_coffee",
+        29,
+        29,
+        true
+      ],
+      [
+        "pc_tier_luxury",
+        10,
+        10,
+        true
+      ],
+      [
+        "pc_tier_premium",
+        170,
+        170,
+        true
+      ],
+      [
+        "pc_unique_brands",
+        161,
+        161,
+        true
+      ],
+      [
+        "hdb_blocks",
+        0,
+        0,
+        true
+      ],
+      [
+        "mrt_stations",
+        2,
+        2,
+        true
+      ],
+      [
+        "bus_stops",
+        1,
+        1,
+        true
+      ],
+      [
+        "hawker_centres",
+        0,
+        0,
+        true
+      ],
+      [
+        "hotels",
+        0,
+        0,
+        true
+      ]
+    ],
+    "n_pass": 12,
+    "n_total": 12,
+    "population": 0.0,
+    "bldg_count": 5,
+    "gt_top_cats": [
+      [
+        "Shopping & Retail",
+        197
+      ],
+      [
+        "Restaurant",
+        153
+      ],
+      [
+        "Beauty & Personal Care",
+        43
+      ]
+    ]
+  },
+  {
+    "name": "Marina Bay Sands",
+    "hex_id": "896520db38fffff",
+    "subzone": "DTSZ12",
+    "pa": "DOWNTOWN CORE",
+    "checks": [
+      [
+        "pc_total",
+        146,
+        146,
+        true
+      ],
+      [
+        "pc_cat_shopping_retail",
+        60,
+        60,
+        true
+      ],
+      [
+        "pc_cat_restaurant",
+        18,
+        18,
+        true
+      ],
+      [
+        "pc_cat_cafe_coffee",
+        7,
+        7,
+        true
+      ],
+      [
+        "pc_tier_luxury",
+        68,
+        68,
+        true
+      ],
+      [
+        "pc_tier_premium",
+        46,
+        46,
+        true
+      ],
+      [
+        "pc_unique_brands",
+        35,
+        35,
+        true
+      ],
+      [
+        "hdb_blocks",
+        0,
+        0,
+        true
+      ],
+      [
+        "mrt_stations",
+        0,
+        0,
+        true
+      ],
+      [
+        "bus_stops",
+        1,
+        1,
+        true
+      ],
+      [
+        "hawker_centres",
+        0,
+        0,
+        true
+      ],
+      [
+        "hotels",
+        1,
+        1,
+        true
+      ]
+    ],
+    "n_pass": 12,
+    "n_total": 12,
+    "population": 0.0,
+    "bldg_count": 14,
+    "gt_top_cats": [
+      [
+        "Shopping & Retail",
+        60
+      ],
+      [
+        "Restaurant",
+        18
+      ],
+      [
+        "Hospitality",
+        16
+      ]
+    ]
+  },
+  {
+    "name": "ION Orchard",
+    "hex_id": "896520d9527ffff",
+    "subzone": "ORSZ02",
+    "pa": "ORCHARD",
+    "checks": [
+      [
+        "pc_total",
+        1245,
+        1245,
+        true
+      ],
+      [
+        "pc_cat_shopping_retail",
+        376,
+        376,
+        true
+      ],
+      [
+        "pc_cat_restaurant",
+        164,
+        164,
+        true
+      ],
+      [
+        "pc_cat_cafe_coffee",
+        45,
+        45,
+        true
+      ],
+      [
+        "pc_tier_luxury",
+        91,
+        91,
+        true
+      ],
+      [
+        "pc_tier_premium",
+        411,
+        411,
+        true
+      ],
+      [
+        "pc_unique_brands",
+        194,
+        194,
+        true
+      ],
+      [
+        "hdb_blocks",
+        0,
+        0,
+        true
+      ],
+      [
+        "mrt_stations",
+        2,
+        2,
+        true
+      ],
+      [
+        "bus_stops",
+        4,
+        4,
+        true
+      ],
+      [
+        "hawker_centres",
+        0,
+        0,
+        true
+      ],
+      [
+        "hotels",
+        2,
+        2,
+        true
+      ]
+    ],
+    "n_pass": 12,
+    "n_total": 12,
+    "population": 164.5,
+    "bldg_count": 29,
+    "gt_top_cats": [
+      [
+        "Shopping & Retail",
+        376
+      ],
+      [
+        "Beauty & Personal Care",
+        176
+      ],
+      [
+        "Restaurant",
+        164
+      ]
+    ]
+  },
+  {
+    "name": "Raffles Place CBD",
+    "hex_id": "896520db3afffff",
+    "subzone": "DTSZ05",
+    "pa": "DOWNTOWN CORE",
+    "checks": [
+      [
+        "pc_total",
+        1356,
+        1356,
+        true
+      ],
+      [
+        "pc_cat_shopping_retail",
+        112,
+        112,
+        true
+      ],
+      [
+        "pc_cat_restaurant",
+        172,
+        172,
+        true
+      ],
+      [
+        "pc_cat_cafe_coffee",
+        68,
+        68,
+        true
+      ],
+      [
+        "pc_tier_luxury",
+        29,
+        29,
+        true
+      ],
+      [
+        "pc_tier_premium",
+        201,
+        201,
+        true
+      ],
+      [
+        "pc_unique_brands",
+        56,
+        56,
+        true
+      ],
+      [
+        "hdb_blocks",
+        0,
+        0,
+        true
+      ],
+      [
+        "mrt_stations",
+        1,
+        1,
+        true
+      ],
+      [
+        "bus_stops",
+        2,
+        2,
+        true
+      ],
+      [
+        "hawker_centres",
+        0,
+        0,
+        true
+      ],
+      [
+        "hotels",
+        2,
+        2,
+        true
+      ]
+    ],
+    "n_pass": 12,
+    "n_total": 12,
+    "population": 0.0,
+    "bldg_count": 48,
+    "gt_top_cats": [
+      [
+        "Business",
+        384
+      ],
+      [
+        "Services",
+        252
+      ],
+      [
+        "Restaurant",
+        172
+      ]
+    ]
+  },
+  {
+    "name": "Changi Airport T1",
+    "hex_id": "896526ad113ffff",
+    "subzone": "CHSZ03",
+    "pa": "CHANGI",
+    "checks": [
+      [
+        "pc_total",
+        329,
+        329,
+        true
+      ],
+      [
+        "pc_cat_shopping_retail",
+        84,
+        84,
+        true
+      ],
+      [
+        "pc_cat_restaurant",
+        99,
+        99,
+        true
+      ],
+      [
+        "pc_cat_cafe_coffee",
+        30,
+        30,
+        true
+      ],
+      [
+        "pc_tier_luxury",
+        12,
+        12,
+        true
+      ],
+      [
+        "pc_tier_premium",
+        137,
+        137,
+        true
+      ],
+      [
+        "pc_unique_brands",
+        89,
+        89,
+        true
+      ],
+      [
+        "hdb_blocks",
+        0,
+        0,
+        true
+      ],
+      [
+        "mrt_stations",
+        0,
+        0,
+        true
+      ],
+      [
+        "bus_stops",
+        0,
+        0,
+        true
+      ],
+      [
+        "hawker_centres",
+        0,
+        0,
+        true
+      ],
+      [
+        "hotels",
+        1,
+        1,
+        true
+      ]
+    ],
+    "n_pass": 12,
+    "n_total": 12,
+    "population": 0.0,
+    "bldg_count": 13,
+    "gt_top_cats": [
+      [
+        "Restaurant",
+        99
+      ],
+      [
+        "Shopping & Retail",
+        84
+      ],
+      [
+        "Cafe & Coffee",
+        30
+      ]
+    ]
+  },
+  {
+    "name": "NUS Kent Ridge",
+    "hex_id": "896520d8e4fffff",
+    "subzone": "QTSZ11",
+    "pa": "QUEENSTOWN",
+    "checks": [
+      [
+        "pc_total",
+        21,
+        21,
+        true
+      ],
+      [
+        "pc_cat_shopping_retail",
+        1,
+        1,
+        true
+      ],
+      [
+        "pc_cat_restaurant",
+        1,
+        1,
+        true
+      ],
+      [
+        "pc_cat_cafe_coffee",
+        0,
+        0,
+        true
+      ],
+      [
+        "pc_tier_luxury",
+        0,
+        0,
+        true
+      ],
+      [
+        "pc_tier_premium",
+        0,
+        0,
+        true
+      ],
+      [
+        "pc_unique_brands",
+        1,
+        1,
+        true
+      ],
+      [
+        "hdb_blocks",
+        0,
+        0,
+        true
+      ],
+      [
+        "mrt_stations",
+        0,
+        0,
+        true
+      ],
+      [
+        "bus_stops",
+        2,
+        2,
+        true
+      ],
+      [
+        "hawker_centres",
+        0,
+        0,
+        true
+      ],
+      [
+        "hotels",
+        0,
+        0,
+        true
+      ]
+    ],
+    "n_pass": 12,
+    "n_total": 12,
+    "population": 25.4,
+    "bldg_count": 28,
+    "gt_top_cats": [
+      [
+        "Education",
+        11
+      ],
+      [
+        "Fitness & Recreation",
+        2
+      ],
+      [
+        "Bar & Nightlife",
+        1
+      ]
+    ]
+  },
+  {
+    "name": "Bedok North HDB",
+    "hex_id": "896526ace67ffff",
+    "subzone": "BDSZ02",
+    "pa": "BEDOK",
+    "checks": [
+      [
+        "pc_total",
+        12,
+        12,
+        true
+      ],
+      [
+        "pc_cat_shopping_retail",
+        0,
+        0,
+        true
+      ],
+      [
+        "pc_cat_restaurant",
+        2,
+        2,
+        true
+      ],
+      [
+        "pc_cat_cafe_coffee",
+        1,
+        1,
+        true
+      ],
+      [
+        "pc_tier_luxury",
+        0,
+        0,
+        true
+      ],
+      [
+        "pc_tier_premium",
+        1,
+        1,
+        true
+      ],
+      [
+        "pc_unique_brands",
+        0,
+        0,
+        true
+      ],
+      [
+        "hdb_blocks",
+        7,
+        7,
+        true
+      ],
+      [
+        "mrt_stations",
+        0,
+        0,
+        true
+      ],
+      [
+        "bus_stops",
+        0,
+        0,
+        true
+      ],
+      [
+        "hawker_centres",
+        0,
+        0,
+        true
+      ],
+      [
+        "hotels",
+        0,
+        0,
+        true
+      ]
+    ],
+    "n_pass": 12,
+    "n_total": 12,
+    "population": 2342.7,
+    "bldg_count": 23,
+    "gt_top_cats": [
+      [
+        "Beauty & Personal Care",
+        3
+      ],
+      [
+        "Restaurant",
+        2
+      ],
+      [
+        "Civic & Government",
+        1
+      ]
+    ]
+  },
+  {
+    "name": "Jurong Island refinery",
+    "hex_id": "896520c14abffff",
+    "subzone": "WISZ01",
+    "pa": "WESTERN ISLANDS",
+    "checks": [
+      [
+        "pc_total",
+        3,
+        3,
+        true
+      ],
+      [
+        "pc_cat_shopping_retail",
+        0,
+        0,
+        true
+      ],
+      [
+        "pc_cat_restaurant",
+        0,
+        0,
+        true
+      ],
+      [
+        "pc_cat_cafe_coffee",
+        0,
+        0,
+        true
+      ],
+      [
+        "pc_tier_luxury",
+        0,
+        0,
+        true
+      ],
+      [
+        "pc_tier_premium",
+        0,
+        0,
+        true
+      ],
+      [
+        "pc_unique_brands",
+        0,
+        0,
+        true
+      ],
+      [
+        "hdb_blocks",
+        0,
+        0,
+        true
+      ],
+      [
+        "mrt_stations",
+        0,
+        0,
+        true
+      ],
+      [
+        "bus_stops",
+        0,
+        0,
+        true
+      ],
+      [
+        "hawker_centres",
+        0,
+        0,
+        true
+      ],
+      [
+        "hotels",
+        0,
+        0,
+        true
+      ]
+    ],
+    "n_pass": 12,
+    "n_total": 12,
+    "population": 0.0,
+    "bldg_count": 24,
+    "gt_top_cats": [
+      [
+        "Services",
+        2
+      ],
+      [
+        "Office & Workspace",
+        1
+      ]
+    ]
+  },
+  {
+    "name": "Woodlands town centre",
+    "hex_id": "896526349cbffff",
+    "subzone": "WDSZ01",
+    "pa": "WOODLANDS",
+    "checks": [
+      [
+        "pc_total",
+        554,
+        554,
+        true
+      ],
+      [
+        "pc_cat_shopping_retail",
+        113,
+        113,
+        true
+      ],
+      [
+        "pc_cat_restaurant",
+        104,
+        104,
+        true
+      ],
+      [
+        "pc_cat_cafe_coffee",
+        23,
+        23,
+        true
+      ],
+      [
+        "pc_tier_luxury",
+        1,
+        1,
+        true
+      ],
+      [
+        "pc_tier_premium",
+        69,
+        69,
+        true
+      ],
+      [
+        "pc_unique_brands",
+        129,
+        129,
+        true
+      ],
+      [
+        "hdb_blocks",
+        2,
+        2,
+        true
+      ],
+      [
+        "mrt_stations",
+        1,
+        1,
+        true
+      ],
+      [
+        "bus_stops",
+        2,
+        2,
+        true
+      ],
+      [
+        "hawker_centres",
+        0,
+        0,
+        true
+      ],
+      [
+        "hotels",
+        0,
+        0,
+        true
+      ]
+    ],
+    "n_pass": 12,
+    "n_total": 12,
+    "population": 0.0,
+    "bldg_count": 14,
+    "gt_top_cats": [
+      [
+        "Shopping & Retail",
+        113
+      ],
+      [
+        "Restaurant",
+        104
+      ],
+      [
+        "Services",
+        51
+      ]
+    ]
+  },
+  {
+    "name": "Punggol HDB new town",
+    "hex_id": "896526375a7ffff",
+    "subzone": "PGSZ04",
+    "pa": "PUNGGOL",
+    "checks": [
+      [
+        "pc_total",
+        55,
+        55,
+        true
+      ],
+      [
+        "pc_cat_shopping_retail",
+        4,
+        4,
+        true
+      ],
+      [
+        "pc_cat_restaurant",
+        6,
+        6,
+        true
+      ],
+      [
+        "pc_cat_cafe_coffee",
+        1,
+        1,
+        true
+      ],
+      [
+        "pc_tier_luxury",
+        0,
+        0,
+        true
+      ],
+      [
+        "pc_tier_premium",
+        0,
+        0,
+        true
+      ],
+      [
+        "pc_unique_brands",
+        1,
+        1,
+        true
+      ],
+      [
+        "hdb_blocks",
+        31,
+        31,
+        true
+      ],
+      [
+        "mrt_stations",
+        1,
+        1,
+        true
+      ],
+      [
+        "bus_stops",
+        4,
+        4,
+        true
+      ],
+      [
+        "hawker_centres",
+        0,
+        0,
+        true
+      ],
+      [
+        "hotels",
+        0,
+        0,
+        true
+      ]
+    ],
+    "n_pass": 12,
+    "n_total": 12,
+    "population": 5783.5,
+    "bldg_count": 53,
+    "gt_top_cats": [
+      [
+        "Transport",
+        8
+      ],
+      [
+        "Education",
+        7
+      ],
+      [
+        "Restaurant",
+        6
+      ]
+    ]
+  }
+]

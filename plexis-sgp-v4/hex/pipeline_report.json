@@ -1,0 +1,9 @@
+{
+  "generated_at": "2026-06-10T11:33:07",
+  "spec": "SITE_SELECTION_METRICS.md S9 (amended scope)",
+  "future_stations": 37,
+  "hex_near_future_mrt": 66,
+  "national_bto_context": "FY2024 awarded 31,452 units (no open locations)",
+  "dropped": "HDB under-construction geojson (2018-stale)",
+  "wall_clock_s": 0.26
+}

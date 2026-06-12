@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V8 Subzone Feature Report — SGP Digital Atlas</title>
+<style>
+:root{--bg:#0a0f1a;--card:#111827;--card2:#0d1520;--border:#1e2a3a;--text:#e5e7eb;--muted:#9ca3af;--dim:#6b7280;--accent:#14b8a6;--accent2:#6366f1;--green:#10b981;--yellow:#f59e0b;--red:#ef4444;--purple:#8b5cf6;--pink:#ec4899;--orange:#f97316;--blue:#3b82f6}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,system-ui,sans-serif;line-height:1.6}
+.c{max-width:1200px;margin:0 auto;padding:2.5rem 2rem}
+.hdr{text-align:center;padding:2rem 0 2.5rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+.hdr-logo{font-size:0.72rem;color:var(--dim);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.4rem}
+h1{font-size:2.4rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.2;margin-bottom:0.4rem}
+.sub{color:var(--muted);font-size:1rem}
+.kpis{display:flex;gap:10px;justify-content:center;margin-top:1.5rem;flex-wrap:wrap}
+.kpi{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:0.75rem 1.3rem;text-align:center;min-width:110px}
+.kpi b{font-size:1.5rem;font-weight:800;color:var(--accent);display:block;line-height:1.2}
+.kpi span{font-size:0.62rem;color:var(--dim);text-transform:uppercase;letter-spacing:0.05em}
+
+h2{font-size:1.25rem;color:var(--accent);margin:2rem 0 0.5rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+h2 .cnt{font-size:0.72rem;background:var(--card);color:var(--muted);padding:3px 10px;border-radius:12px;font-weight:600;border:1px solid var(--border)}
+.sec-desc{font-size:0.85rem;color:var(--muted);margin:0.4rem 0 1rem;line-height:1.55}
+.sec-desc strong{color:var(--text)}
+
+/* Feature grid */
+.fg{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:10px;margin:0.8rem 0}
+.feat{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px 14px;transition:border-color 0.2s}
+.feat:hover{border-color:rgba(20,184,166,0.3)}
+.feat-top{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:4px}
+.feat-name{font-family:'SF Mono',Monaco,monospace;font-size:0.75rem;font-weight:700;color:var(--accent);letter-spacing:-0.01em}
+.feat-num{font-size:0.6rem;color:var(--dim);font-weight:600}
+.feat-desc{font-size:0.72rem;color:var(--muted);line-height:1.45;margin-bottom:5px}
+.feat-stat{font-size:0.65rem;color:var(--dim);font-family:'SF Mono',Monaco,monospace}
+.feat-stat b{color:var(--text);font-weight:600}
+
+/* Tag pills */
+.tag-live{display:inline-block;font-size:0.55rem;font-weight:700;padding:2px 7px;border-radius:4px;background:rgba(16,185,129,0.12);color:var(--green);margin-left:4px}
+.tag-est{background:rgba(245,158,11,0.12);color:var(--yellow)}
+.tag-derived{background:rgba(139,92,246,0.12);color:var(--purple)}
+.tag-raw{background:rgba(99,102,241,0.12);color:var(--accent2)}
+
+footer{text-align:center;color:var(--dim);padding:2.5rem 0 1rem;font-size:0.72rem;border-top:1px solid var(--border);margin-top:3rem}
+.legend{display:flex;gap:14px;justify-content:center;margin:1rem 0;font-size:0.7rem;color:var(--muted);flex-wrap:wrap}
+.legend span{display:flex;align-items:center;gap:4px}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+</style>
+</head>
+<body>
+<div class="c">
+
+<div class="hdr">
+  <div class="hdr-logo">Propheus Intelligence · SGP Digital Atlas</div>
+  <h1>V8 Subzone Feature Report</h1>
+  <p class="sub">Every signal in the 332-subzone table — residential, commercial, transit, walkability, buildings, and live LTA data</p>
+  <div class="kpis">
+    <div class="kpi"><b>332</b><span>Subzones</span></div>
+    <div class="kpi"><b>142</b><span>Features</span></div>
+    <div class="kpi"><b>16</b><span>Feature Groups</span></div>
+    <div class="kpi"><b>4.17M</b><span>Population</span></div>
+    <div class="kpi"><b>174,713</b><span>Places</span></div>
+    <div class="kpi"><b>377K</b><span>Buildings</span></div>
+    <div class="kpi"><b>12M</b><span>Daily Transit Taps</span></div>
+  </div>
+  <div class="legend">
+    <span><span class="dot" style="background:var(--accent2)"></span>Raw source</span>
+    <span><span class="dot" style="background:var(--purple)"></span>Derived</span>
+    <span><span class="dot" style="background:var(--yellow)"></span>Estimated</span>
+    <span><span class="dot" style="background:var(--green)"></span>Live LTA data</span>
+  </div>
+</div>
+
+<!-- ═══ 1. IDENTITY ═══ -->
+<h2>1. Identity & Geometry <span class="cnt">5 features</span></h2>
+<p class="sec-desc">Subzone identifiers from the URA Master Plan. Region assignment is currently all CENTRAL — needs updating with full planning area mapping.</p>
+<div class="fg">
+  <div class="feat"><div class="feat-top"><span class="feat-name">subzone_code</span><span class="feat-num">#1</span></div><div class="feat-desc">URA subzone identifier (e.g. TMSZ02). Primary key for joining across datasets.</div><div class="feat-stat">332 unique codes<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">subzone_name</span><span class="feat-num">#2</span></div><div class="feat-desc">Human-readable subzone name (e.g. Tampines East, Chinatown).</div><div class="feat-stat">332 unique<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">planning_area</span><span class="feat-num">#3</span></div><div class="feat-desc">Parent planning area (55 total, e.g. Tampines, Bedok, Downtown Core).</div><div class="feat-stat">55 unique<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">region</span><span class="feat-num">#4</span></div><div class="feat-desc">URA region (North, South, East, West, Central).</div><div class="feat-stat">1 unique (needs fix)<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">area_km2</span><span class="feat-num">#5</span></div><div class="feat-desc">Geographic area of the subzone in square kilometres.</div><div class="feat-stat">[0.0, 68.6] μ=2.4<span class="tag-live tag-raw">RAW</span></div></div>
+</div>
+
+<!-- ═══ 2. POPULATION & DEMOGRAPHICS ═══ -->
+<h2>2. Population & Demographics <span class="cnt">4 features</span></h2>
+<p class="sec-desc">From DOS Census 2020-2025. <strong>98 subzones have zero resident population</strong> (commercial/industrial/nature zones). Elderly % is low because the Census file uses 65+ counts only.</p>
+<div class="fg">
+  <div class="feat"><div class="feat-top"><span class="feat-name">population</span><span class="feat-num">#6</span></div><div class="feat-desc">Total resident population (DOS Census 2025 estimate).</div><div class="feat-stat">[0, 126,370] μ=12,567 · Tampines East highest<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">pop_density</span><span class="feat-num">#7</span></div><div class="feat-desc">Residents per km². Yishun East and Tampines East hit 40K+/km².</div><div class="feat-stat">[0, 43,395] μ=10,798<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">elderly_pct</span><span class="feat-num">#8</span></div><div class="feat-desc">% of residents aged 65+. Source from census; low baseline values suggest the Census file needs re-aggregation.</div><div class="feat-stat">[0, 2.5] μ=0.4<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">male_pct</span><span class="feat-num">#9</span></div><div class="feat-desc">% male residents. Note: calculation may need census re-aggregation.</div><div class="feat-stat">[0, 66.7] μ=33.6<span class="tag-live tag-raw">RAW</span></div></div>
+</div>
+
+<!-- ═══ 3. DWELLINGS ═══ -->
+<h2>3. Dwelling Census <span class="cnt">7 features</span></h2>
+<p class="sec-desc">From DOS dwellings census (floor area bands). <strong>This is the key feature block</strong> for understanding vertical density — captures what physical zoning cannot (40-storey HDB vs landed houses on same zoning).</p>
+<div class="fg">
+  <div class="feat"><div class="feat-top"><span class="feat-name">total_dwellings</span><span class="feat-num">#10</span></div><div class="feat-desc">Total housing units in the subzone. Tampines East has 43,580 — the largest HDB estate in SGP.</div><div class="feat-stat">[0, 43,580] μ=4,842<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">dwellings_per_km2</span><span class="feat-num">#11</span></div><div class="feat-desc">Dwelling density. Yishun East tops at 19,322/km². <strong>Distinguishes high-rise HDB from landed houses</strong>.</div><div class="feat-stat">[0, 19,322] μ=4,499<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">pop_per_dwelling</span><span class="feat-num">#12</span></div><div class="feat-desc">Average household size. Family zones ~3.0, singles/work zones &lt;1.0.</div><div class="feat-stat">[0, 60] μ=1.8<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">avg_dwelling_sqm</span><span class="feat-num">#13</span></div><div class="feat-desc">Weighted average floor area of dwellings. Higher = wealthier/family zone.</div><div class="feat-stat">[0, 135] μ=69.4<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">small_unit_pct</span><span class="feat-num">#14</span></div><div class="feat-desc">% of dwellings ≤80 sqm. Singles/rental/elderly proxy.</div><div class="feat-stat">[0, 97.6] μ=20.7%<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">large_unit_pct</span><span class="feat-num">#15</span></div><div class="feat-desc">% of dwellings ≥100 sqm. Family/affluence proxy.</div><div class="feat-stat">[0, 100] μ=34.9%<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">size_diversity</span><span class="feat-num">#16</span></div><div class="feat-desc">Shannon entropy of dwelling size distribution. Mixed estates vs uniform blocks.</div><div class="feat-stat">[0, 1.6] μ=0.9<span class="tag-live tag-derived">DERIVED</span></div></div>
+</div>
+
+<!-- ═══ 4. HDB MIX ═══ -->
+<h2>4. HDB & Private Housing Mix <span class="cnt">7 features</span></h2>
+<p class="sec-desc">Derived from dwelling type percentages. Singapore's <strong>HDB 80%/private 20%</strong> rule holds at aggregate but varies drastically by zone — Cairnhill is ~95% private, Tampines East is 92% HDB.</p>
+<div class="fg">
+  <div class="feat"><div class="feat-top"><span class="feat-name">hdb_total_pct</span><span class="feat-num">#17</span></div><div class="feat-desc">Total HDB share (all room types combined).</div><div class="feat-stat">[0, 100] μ=39% · 80% of SGP lives in HDB<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">hdb_starter_pct</span><span class="feat-num">#18</span></div><div class="feat-desc">1-2 room + 3-room flats. Young couples, elderly, rental.</div><div class="feat-stat">[0, 97.5] μ=11.8%<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">hdb_family_pct</span><span class="feat-num">#19</span></div><div class="feat-desc">4-room + 5-room/Executive flats. Family heartland.</div><div class="feat-stat">[0, 99.7] μ=27.2%<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">hdb_upgrade_ratio</span><span class="feat-num">#20</span></div><div class="feat-desc">family/starter ratio. High = upgrader-dominant estates (Tampines=3.6).</div><div class="feat-stat">[0, 997] μ=23.2<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">private_pct</span><span class="feat-num">#21</span></div><div class="feat-desc">Condo + landed share. Singapore's stealth income proxy.</div><div class="feat-stat">[0, 100] μ=31.5%<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">private_to_hdb</span><span class="feat-num">#22</span></div><div class="feat-desc">Private/HDB ratio. Captures wealth penetration.</div><div class="feat-stat">[0, 100] μ=23.3<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">landed_share</span><span class="feat-num">#23</span></div><div class="feat-desc">Landed / total private. Ultra-premium signal (Good Class Bungalows).</div><div class="feat-stat">[0, 1.0] μ=0.1<span class="tag-live tag-derived">DERIVED</span></div></div>
+</div>
+
+<!-- ═══ 5. HDB RESALE MARKET ═══ -->
+<h2>5. HDB Resale Market <span class="cnt">7 features</span></h2>
+<p class="sec-desc">From HDB resale transactions 2017-2026 (227,207 records), aggregated per town then mapped to subzones. Market vitality signals — which estates are appreciating, aging, or under renewal pressure.</p>
+<div class="fg">
+  <div class="feat"><div class="feat-top"><span class="feat-name">hdb_median_psf</span><span class="feat-num">#24</span></div><div class="feat-desc">Median resale price per square foot (2024-26 transactions).</div><div class="feat-stat">[0, $929] μ=$428<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">hdb_price_yoy</span><span class="feat-num">#25</span></div><div class="feat-desc">Year-on-year price change (%).</div><div class="feat-stat">[0, 21.4] μ=4.3%<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">hdb_mean_age</span><span class="feat-num">#26</span></div><div class="feat-desc">Average age of HDB blocks. Maturity signal — 10 yrs = Punggol, 45 yrs = Toa Payoh.</div><div class="feat-stat">[0, 50.6] μ=19.2 yrs<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">hdb_pct_old</span><span class="feat-num">#27</span></div><div class="feat-desc">% blocks older than 30 years. SERS redevelopment candidates.</div><div class="feat-stat">[0, 100] μ=33%<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">hdb_pct_new</span><span class="feat-num">#28</span></div><div class="feat-desc">% blocks newer than 10 years. New town signal.</div><div class="feat-stat">[0, 53.4] μ=9.8%<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">hdb_price_premium</span><span class="feat-num">#29</span></div><div class="feat-desc">PSF relative to island median. >1.0 = premium estate.</div><div class="feat-stat">[0, 1.4] μ=0.7x<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">hdb_txn_velocity</span><span class="feat-num">#30</span></div><div class="feat-desc">Transactions per dwelling. Market liquidity.</div><div class="feat-stat">[0, 4,385] μ=245<span class="tag-live tag-derived">DERIVED</span></div></div>
+</div>
+
+<!-- ═══ 6. CROSS-DERIVED HOUSING ═══ -->
+<h2>6. Cross-Derived Housing <span class="cnt">2 features</span></h2>
+<p class="sec-desc">Multi-source composites that capture city dynamics.</p>
+<div class="fg">
+  <div class="feat"><div class="feat-top"><span class="feat-name">density_efficiency</span><span class="feat-num">#31</span></div><div class="feat-desc">pop / (area × GPR). How much of zoning capacity is actually filled.</div><div class="feat-stat">[0, 15.2] μ=4.1<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">renewal_pressure</span><span class="feat-num">#32</span></div><div class="feat-desc">Old stock % × price YoY. High = aging + appreciating = redevelopment signal.</div><div class="feat-stat">[0, 9.5] μ=2.2<span class="tag-live tag-derived">DERIVED</span></div></div>
+</div>
+
+<!-- ═══ 7. ESTIMATED TRANSIT & TOURISM ═══ -->
+<h2>7. Estimated Transit & Tourism <span class="cnt">15 features</span></h2>
+<p class="sec-desc">Initial V8 estimates computed before LTA live data was available. Calibration factors based on hotel count, attraction count, office place count, and bus stop count. <strong>MRT ridership estimates were off by 2.5× vs real LTA data</strong> — see section 12 for corrections.</p>
+<div class="fg">
+  <div class="feat"><div class="feat-top"><span class="feat-name">mrt_ridership_est</span><span class="feat-num">#33</span></div><div class="feat-desc">Initial estimate: 150K/day for interchanges, 50K normal, 8K LRT. <em>Overstated ~2.5×</em>.</div><div class="feat-stat">[0, 550K] μ=46K<span class="tag-live tag-est">ESTIMATE</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">hotels_count</span><span class="feat-num">#34</span></div><div class="feat-desc">Hotels mapped from amenities/hotels.geojson.</div><div class="feat-stat">[0, 60] μ=1.4 · 468 total<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">tourist_attractions</span><span class="feat-num">#35</span></div><div class="feat-desc">Registered tourist attractions (STB list).</div><div class="feat-stat">[0, 16] μ=0.3 · 109 total<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">office_places</span><span class="feat-num">#36</span></div><div class="feat-desc">Office & Workspace category places from 174K V2.</div><div class="feat-stat">[0, 134] μ=8.3<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">education_places_all</span><span class="feat-num">#37</span></div><div class="feat-desc">All education-category places (includes tuition, enrichment, schools).</div><div class="feat-stat">[0, 255] μ=30.7<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">hospitality_places</span><span class="feat-num">#38</span></div><div class="feat-desc">Hospitality category places (lodges, serviced apartments, etc).</div><div class="feat-stat">[0, 116] μ=7.0<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">bus_stops_in_zone</span><span class="feat-num">#39</span></div><div class="feat-desc">Bus stops within 1km of subzone centroid.</div><div class="feat-stat">[0, 79] μ=38<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">bus_ridership_est</span><span class="feat-num">#40</span></div><div class="feat-desc">bus_stops × 1500 boardings/day. Later corrected with real LTA data.</div><div class="feat-stat">[0, 118K] μ=57K<span class="tag-live tag-est">ESTIMATE</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">transit_population_est</span><span class="feat-num">#41</span></div><div class="feat-desc">MRT + bus estimated daily users.</div><div class="feat-stat">[0, 640K] μ=103K<span class="tag-live tag-est">ESTIMATE</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">daytime_workers_est</span><span class="feat-num">#42</span></div><div class="feat-desc">office_places × 50 workers each.</div><div class="feat-stat">[0, 6700] μ=417<span class="tag-live tag-est">ESTIMATE</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">daytime_students_est</span><span class="feat-num">#43</span></div><div class="feat-desc">formal_schools × 800 + preschools × 100 + univ × 5000 + tuition × 50 + enrich × 30.</div><div class="feat-stat">[0, 537K] μ=15.8K<span class="tag-live tag-est">ESTIMATE</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">daytime_tourists_est</span><span class="feat-num">#44</span></div><div class="feat-desc">hotels × 150 + attractions × 2000 + hospitality × 50.</div><div class="feat-stat">[0, 35,250] μ=1220<span class="tag-live tag-est">ESTIMATE</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">daytime_population_est</span><span class="feat-num">#45</span></div><div class="feat-desc">residents×0.4 + workers + students + tourists + food visitors + special infra.</div><div class="feat-stat">[0, 540K] μ=25K<span class="tag-live tag-est">ESTIMATE</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">daytime_ratio</span><span class="feat-num">#46</span></div><div class="feat-desc">daytime / resident. Work-only zones hit 100-1000×.</div><div class="feat-stat">[0, 540K] μ=5937<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">tourist_intensity</span><span class="feat-num">#47</span></div><div class="feat-desc">Tourists per km² — density of visitor load.</div><div class="feat-stat">[0, 60,526] μ=2523<span class="tag-live tag-derived">DERIVED</span></div></div>
+</div>
+
+<!-- ═══ 8. SCHOOLS & EDUCATION BREAKOUT ═══ -->
+<h2>8. Education Breakdown <span class="cnt">6 features</span></h2>
+<p class="sec-desc">After the "255 schools in Tampines East" realization, education places were broken out by actual type. Formal schools (primary/secondary/JC/poly) are the real supply signal — the rest are commercial learning businesses.</p>
+<div class="fg">
+  <div class="feat"><div class="feat-top"><span class="feat-name">mrt_stations_in_zone</span><span class="feat-num">#48</span></div><div class="feat-desc">Actual MRT/LRT stations physically located in the subzone (231 total mapped).</div><div class="feat-stat">[0, 6] μ=0.7<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">formal_schools</span><span class="feat-num">#49</span></div><div class="feat-desc">Primary/Secondary/JC/Polytechnic/International schools. 1,271 total nationwide.</div><div class="feat-stat">[0, 28] μ=3.8<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">preschools_places</span><span class="feat-num">#50</span></div><div class="feat-desc">Preschools, childcare, kindergartens. 2,004 total.</div><div class="feat-stat">[0, 54] μ=6.0<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">universities_places</span><span class="feat-num">#51</span></div><div class="feat-desc">Universities, campus buildings, polytechnics. 755 total (inflated by campus sub-buildings).</div><div class="feat-stat">[0, 106] μ=2.3<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">tuition_centres</span><span class="feat-num">#52</span></div><div class="feat-desc">Tuition centres, training centres, learning centres. 4,136 total — Singapore's shadow education industry.</div><div class="feat-stat">[0, 123] μ=12.5<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">enrichment_centres</span><span class="feat-num">#53</span></div><div class="feat-desc">Music schools, art schools, language schools, cooking schools. 1,341 total.</div><div class="feat-stat">[0, 52] μ=4.0<span class="tag-live tag-derived">DERIVED</span></div></div>
+</div>
+
+<!-- ═══ 9. SPECIAL INFRASTRUCTURE ═══ -->
+<h2>9. Special Infrastructure <span class="cnt">1 feature</span></h2>
+<p class="sec-desc">Hand-coded throughput for 12 known high-traffic zones (Changi Airport, Marina Centre, VivoCity, airports, etc) that generic formulas miss.</p>
+<div class="fg">
+  <div class="feat"><div class="feat-top"><span class="feat-name">special_infra_throughput</span><span class="feat-num">#54</span></div><div class="feat-desc">Daily throughput for special zones: Changi=200K, Marina Centre=100K, VivoCity=50K, etc.</div><div class="feat-stat">[0, 200K] μ=1115<span class="tag-live tag-est">ESTIMATE</span></div></div>
+</div>
+
+<!-- ═══ 10. HAWKER & FOOD ═══ -->
+<h2>10. Hawker & Food <span class="cnt">3 features</span></h2>
+<p class="sec-desc">Hawker centres are civic infrastructure — 129 government hawker centres across SGP. Hawker/street food places include stalls, coffeeshops, and zi char spots.</p>
+<div class="fg">
+  <div class="feat"><div class="feat-top"><span class="feat-name">hawker_centres_in_zone</span><span class="feat-num">#55</span></div><div class="feat-desc">Government-built hawker centres in the subzone. Bedok North tops with 5.</div><div class="feat-stat">[0, 5] μ=0.4 · 129 total<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">hawker_places</span><span class="feat-num">#56</span></div><div class="feat-desc">Hawker & street food places from V2 (stalls, coffeeshops, zi char). 5,790 nationwide.</div><div class="feat-stat">[0, 202] μ=17.4<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">daytime_food_visitors_est</span><span class="feat-num">#57</span></div><div class="feat-desc">hawker_centres × 3000 + hawker_places × 30. Bedok North = 21K food visitors/day.</div><div class="feat-stat">[0, 21,060] μ=1689<span class="tag-live tag-est">ESTIMATE</span></div></div>
+</div>
+
+<!-- ═══ 11. RIDE-HAIL DEMAND ═══ -->
+<h2>11. Ride-Hail Demand Proxies <span class="cnt">21 features</span></h2>
+<p class="sec-desc">Synthetic estimate since Grab/taxi data is proprietary. Calibrated to 500K rides/day (SGP total). Built from <strong>pull signals</strong> (hotels, bars, offices, attractions) + <strong>push signals</strong> (affluent residents, elderly, families, walking-dependent) + <strong>transit deficit multiplier</strong> for zones with no MRT.</p>
+<div class="fg">
+  <div class="feat"><div class="feat-top"><span class="feat-name">rh_pull_hotels</span><span class="feat-num">#58</span></div><div class="feat-desc">hotels × 80 trips/day. Tourists arriving/departing.</div><div class="feat-stat">[0, 4800] μ=113<span class="tag-live tag-est">ESTIMATE</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">rh_pull_attractions</span><span class="feat-num">#59</span></div><div class="feat-desc">attractions × 300 trips/day.</div><div class="feat-stat">[0, 4800] μ=99<span class="tag-live tag-est">ESTIMATE</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">rh_pull_bars</span><span class="feat-num">#60</span></div><div class="feat-desc">bar_nightlife × 15 trips/day. Late-night returns.</div><div class="feat-stat">[0, 675] μ=63<span class="tag-live tag-est">ESTIMATE</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">rh_pull_restaurants</span><span class="feat-num">#61</span></div><div class="feat-desc">restaurant × 3 trips/day.</div><div class="feat-stat">[0, 537] μ=51<span class="tag-live tag-est">ESTIMATE</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">rh_pull_shopping</span><span class="feat-num">#62</span></div><div class="feat-desc">shopping_retail × 2 trips/day.</div><div class="feat-stat">[0, 1050] μ=74<span class="tag-live tag-est">ESTIMATE</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">rh_pull_offices</span><span class="feat-num">#63</span></div><div class="feat-desc">office_workspace × 8 trips/day. Corporate rides.</div><div class="feat-stat">[0, 1072] μ=64<span class="tag-live tag-est">ESTIMATE</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">rh_pull_special</span><span class="feat-num">#64</span></div><div class="feat-desc">special_infra × 0.25 (25% of airport pax use ride-hail).</div><div class="feat-stat">[0, 50K] μ=279<span class="tag-live tag-est">ESTIMATE</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">rh_pull_total</span><span class="feat-num">#65</span></div><div class="feat-desc">Sum of all PULL signals (destination attraction).</div><div class="feat-stat">[0, 81K] μ=1180<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">rh_push_elderly</span><span class="feat-num">#66</span></div><div class="feat-desc">elderly × 0.015/day. Medical appointments, shopping.</div><div class="feat-stat">[0, 10] μ=1.1<span class="tag-live tag-est">ESTIMATE</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">rh_push_walking_dep</span><span class="feat-num">#67</span></div><div class="feat-desc">walking_dependent × 0.01/day.</div><div class="feat-stat">[0, 178] μ=12<span class="tag-live tag-est">ESTIMATE</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">rh_push_affluent</span><span class="feat-num">#68</span></div><div class="feat-desc">pop × private_pct × 0.04/day. Condo/landed residents.</div><div class="feat-stat">[0, 1378] μ=118<span class="tag-live tag-est">ESTIMATE</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">rh_push_families</span><span class="feat-num">#69</span></div><div class="feat-desc">pop × hdb_family × 0.005/day. 4-5 room households.</div><div class="feat-stat">[0, 457] μ=37<span class="tag-live tag-est">ESTIMATE</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">rh_push_base</span><span class="feat-num">#70</span></div><div class="feat-desc">pop × 0.002/day. Baseline occasional ride usage.</div><div class="feat-stat">[0, 253] μ=25<span class="tag-live tag-est">ESTIMATE</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">rh_push_total</span><span class="feat-num">#71</span></div><div class="feat-desc">Sum of all PUSH signals (origin demand).</div><div class="feat-stat">[0, 1455] μ=193<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">rh_deficit_mult</span><span class="feat-num">#72</span></div><div class="feat-desc">1.0-1.5× multiplier for zones with no MRT nearby (people Grab instead).</div><div class="feat-stat">[1.0, 1.5] μ=1.0<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">rh_push_adjusted</span><span class="feat-num">#73</span></div><div class="feat-desc">rh_push_total × deficit multiplier.</div><div class="feat-stat">[0, 3243] μ=326<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">ridehail_demand_est</span><span class="feat-num">#74</span></div><div class="feat-desc"><strong>Total estimated daily Grab+taxi rides</strong> (pull + adjusted push). Calibrated to 500K/day total.</div><div class="feat-stat">[0, 81,390] μ=1506<span class="tag-live tag-est">ESTIMATE</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">ridehail_per_1k_pop</span><span class="feat-num">#75</span></div><div class="feat-desc">Rides per 1000 residents. High = high tourism/work influx.</div><div class="feat-stat">[0, 81M] μ=551K<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">ridehail_per_km2</span><span class="feat-num">#76</span></div><div class="feat-desc">Ride density per km². Identifies hotspots.</div><div class="feat-stat">[0, 47,359] μ=1666<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">ridehail_mrt_pressure</span><span class="feat-num">#77</span></div><div class="feat-desc">rides / (MRT stations + 1). High = rides substituting for missing MRT.</div><div class="feat-stat">[0, 81,390] μ=725<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">transit_substitution_signal</span><span class="feat-num">#78</span></div><div class="feat-desc"><strong>Key feature</strong> — push × deficit_mult / (MRT×5000 + bus/10). High = MRT candidate zones.</div><div class="feat-stat">[0, 1.4] μ=0.0<span class="tag-live tag-derived">DERIVED</span></div></div>
+</div>
+
+<!-- ═══ 12. LTA LIVE MRT & BUS ═══ -->
+<h2>12. LTA Live MRT & Bus Ridership <span class="cnt">6 features</span></h2>
+<p class="sec-desc"><strong>Ground truth from LTA DataMall</strong>. MRT Jan 2026 and Bus Dec 2025 passenger volumes. This replaces our estimates with real tap-in/tap-out counts per station and bus stop, then aggregated to subzone.</p>
+<div class="fg">
+  <div class="feat"><div class="feat-top"><span class="feat-name">mrt_actual_daily_taps</span><span class="feat-num">#79</span></div><div class="feat-desc">Real MRT tap-in + tap-out per subzone (Jan 2026). Chinatown tops at 190K/day.</div><div class="feat-stat">[0, 190,260] μ=16,440<span class="tag-live">LIVE</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">mrt_actual_monthly_taps</span><span class="feat-num">#80</span></div><div class="feat-desc">Monthly total (same data, monthly scale).</div><div class="feat-stat">[0, 5.7M] μ=493K<span class="tag-live">LIVE</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">mrt_ridership_error</span><span class="feat-num">#81</span></div><div class="feat-desc">Estimated − actual. Large negatives reveal where V8 estimates were too high.</div><div class="feat-stat">[-423K, +55K] μ=-30K<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">bus_actual_daily_taps</span><span class="feat-num">#82</span></div><div class="feat-desc">Real bus tap-in + tap-out summed per subzone (Dec 2025).</div><div class="feat-stat">[0, 248,650] μ=19,614<span class="tag-live">LIVE</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">bus_stops_with_pv_data</span><span class="feat-num">#83</span></div><div class="feat-desc">Count of bus stops with passenger volume data (out of 5,177 stops).</div><div class="feat-stat">[0, 83] μ=14.3<span class="tag-live">LIVE</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">transit_actual_daily_taps</span><span class="feat-num">#91</span></div><div class="feat-desc">mrt_actual + bus_actual. Total daily transit taps: 12M across SGP.</div><div class="feat-stat">[0, 393K] μ=36K<span class="tag-live">LIVE</span></div></div>
+</div>
+
+<!-- ═══ 13. LTA LIVE TRAFFIC & PARKING ═══ -->
+<h2>13. LTA Live Traffic & Parking <span class="cnt">7 features</span></h2>
+<p class="sec-desc">Real-time snapshot from LTA Traffic Speed Bands (5,500 road segments) and Carpark Availability (2,590 carparks). Traffic data is a point-in-time snapshot — for time-series, this would need scheduled polling.</p>
+<div class="fg">
+  <div class="feat"><div class="feat-top"><span class="feat-name">traffic_avg_speed_kmh</span><span class="feat-num">#84</span></div><div class="feat-desc">Average speed across road segments in subzone (using band midpoints).</div><div class="feat-stat">[0, 55] μ=8.7 km/h<span class="tag-live">LIVE</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">traffic_jam_pct</span><span class="feat-num">#85</span></div><div class="feat-desc">% of road segments in band 1-2 (&lt;20km/h). Chinatown hits 68% at CBD hours.</div><div class="feat-stat">[0, 100] μ=7.0%<span class="tag-live">LIVE</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">traffic_samples</span><span class="feat-num">#86</span></div><div class="feat-desc">Number of road segments sampled in this zone.</div><div class="feat-stat">[0, 454] μ=16.3<span class="tag-live">LIVE</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">congestion_score</span><span class="feat-num">#87</span></div><div class="feat-desc">0-100 composite: 100 - (speed × 100/75). Higher = more congested.</div><div class="feat-stat">[0, 80] μ=17<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">carparks_count</span><span class="feat-num">#88</span></div><div class="feat-desc">Public carparks per subzone (LTA CarparkAvailability real-time).</div><div class="feat-stat">[0, 72] μ=7.8<span class="tag-live">LIVE</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">carpark_avail_lots</span><span class="feat-num">#89</span></div><div class="feat-desc">Available parking lots (sum across all carparks in zone).</div><div class="feat-stat">[0, 14,239] μ=1261<span class="tag-live">LIVE</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">available_taxis_snapshot</span><span class="feat-num">#90</span></div><div class="feat-desc">Available taxis at snapshot moment (500 total in SGP at time of fetch).</div><div class="feat-stat">[0, 57] μ=1.5<span class="tag-live">LIVE</span></div></div>
+</div>
+
+<!-- ═══ 14. TRANSIT ADEQUACY RATIOS ═══ -->
+<h2>14. Transit Adequacy Ratios <span class="cnt">5 features</span></h2>
+<p class="sec-desc">The key block for <strong>predicting transit adequacy</strong>. Actual ridership normalized by population gives per-capita usage; comparing actual to expected load reveals over- and under-served zones.</p>
+<div class="fg">
+  <div class="feat"><div class="feat-top"><span class="feat-name">mrt_taps_per_resident</span><span class="feat-num">#92</span></div><div class="feat-desc">Actual MRT taps / population. High = zone exports commuters (e.g. work-only zones).</div><div class="feat-stat">[0, 123K] μ=1544<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">bus_taps_per_resident</span><span class="feat-num">#93</span></div><div class="feat-desc">Actual bus taps / population.</div><div class="feat-stat">[0, 131K] μ=1814<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">transit_taps_per_resident</span><span class="feat-num">#94</span></div><div class="feat-desc">Combined (MRT+bus) taps / population.</div><div class="feat-stat">[0, 254K] μ=3358<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">expected_transit_load</span><span class="feat-num">#95</span></div><div class="feat-desc">pop×1.2 + workers×0.8 + students×0.6. Modeled expected daily taps based on demographics.</div><div class="feat-stat">[0, 322K] μ=24K<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">transit_actual_vs_expected</span><span class="feat-num">#96</span></div><div class="feat-desc"><strong>Key adequacy ratio.</strong> Actual / expected. &lt;0.4 = potential underserved zone. System average 1.45.</div><div class="feat-stat">[0, 5820] μ=28.8<span class="tag-live tag-derived">DERIVED</span></div></div>
+</div>
+
+<!-- ═══ 15. ACTIVE MOBILITY ═══ -->
+<h2>15. Active Mobility (Cycling, Walking, Elderly-friendly) <span class="cnt">12 features</span></h2>
+<p class="sec-desc">From NParks Park Connector Network (340 km / 7 loops), LTA silver zones (42 elderly-calmed areas), school zones (211 traffic-calmed school areas), 44,922 traffic signals, and OSM footway/cycleway edges.</p>
+<div class="fg">
+  <div class="feat"><div class="feat-top"><span class="feat-name">pcn_km</span><span class="feat-num">#97</span></div><div class="feat-desc">Park Connector Network length per subzone (NParks). 340 km total across 7 loops.</div><div class="feat-stat">[0, 10.8] μ=1.0 km<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">pcn_segments</span><span class="feat-num">#98</span></div><div class="feat-desc">Number of PCN segments crossing the subzone.</div><div class="feat-stat">[0, 44] μ=3.5<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">silver_zones</span><span class="feat-num">#99</span></div><div class="feat-desc">LTA silver zones (elderly traffic calming). 42 total nationwide.</div><div class="feat-stat">[0, 2] μ=0.1<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">school_zones_count</span><span class="feat-num">#100</span></div><div class="feat-desc">LTA school zones (traffic-calmed school areas). 211 total.</div><div class="feat-stat">[0, 8] μ=0.6<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">pedestrian_crossings</span><span class="feat-num">#101</span></div><div class="feat-desc">Count of pedestrian signals + crossings. Filtered from 44K traffic signals.</div><div class="feat-stat">[0, 274] μ=39<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">traffic_lights</span><span class="feat-num">#102</span></div><div class="feat-desc">All other traffic signal types (ground, overhead, beacons, green filter arrows).</div><div class="feat-stat">[0, 659] μ=95<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">cycleway_km</span><span class="feat-num">#103</span></div><div class="feat-desc">OSM cycleway length (highway=cycleway). 1,645 km total, separate from PCN.</div><div class="feat-stat">[0, 65] μ=5.3 km<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">footway_km</span><span class="feat-num">#104</span></div><div class="feat-desc">OSM footway length. 10,366 km — more than all motorized roads combined.</div><div class="feat-stat">[0, 182.6] μ=32.2 km<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">active_mobility_score</span><span class="feat-num">#105</span></div><div class="feat-desc">0-100 composite: PCN 25 + cycleway 20 + footway 25 + silver 15 + school zones 15. Tampines East = 100.</div><div class="feat-stat">[0, 100] μ=30.3<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">footway_density</span><span class="feat-num">#106</span></div><div class="feat-desc">Footway km per km² area.</div><div class="feat-stat">[0, 65.1] μ=25.7<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">cycleway_density</span><span class="feat-num">#107</span></div><div class="feat-desc">Cycleway km per km² area.</div><div class="feat-stat">[0, 21.3] μ=4.0<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">crossings_per_km2</span><span class="feat-num">#108</span></div><div class="feat-desc">Pedestrian crossings per km² — density of safe crossings.</div><div class="feat-stat">[0, 340] μ=41.5<span class="tag-live tag-derived">DERIVED</span></div></div>
+</div>
+
+<!-- ═══ 16. BUILDING STOCK & DENSITY ═══ -->
+<h2>16. Building Stock & Density <span class="cnt">34 features</span></h2>
+<p class="sec-desc"><strong>Fused from 3 sources:</strong> Overture Maps (377K buildings, most complete), OpenStreetMap (126K buildings, best attributes), HDB authoritative blocks (13,386 surveyed public housing blocks). HDB blocks are matched via spatial containment (78% match rate), OSM attributes are pulled in via nearest-neighbor within 33m. The result: every building in Singapore gets its best available classification + height data.</p>
+
+<div class="fg">
+  <div class="feat"><div class="feat-top"><span class="feat-name">bldg_total</span><span class="feat-num">#109</span></div><div class="feat-desc">Total buildings per subzone (Overture Maps release 2026-03-18).</div><div class="feat-stat">[0, 12,017] μ=735 · 244K mapped<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">bldg_footprint_sqm</span><span class="feat-num">#110</span></div><div class="feat-desc">Total building footprint area in square meters. Jurong Island hits 3.7 km² of industrial buildings.</div><div class="feat-stat">[0, 3.7M] μ=321K<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">buildings_per_km2</span><span class="feat-num">#111</span></div><div class="feat-desc">Building density per square kilometre.</div><div class="feat-stat">[1, 3,708] μ=483<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">built_up_ratio</span><span class="feat-num">#112</span></div><div class="feat-desc"><strong>Key density metric.</strong> Footprint / subzone area (0-1). Cecil = 0.57, China Square = 0.59 (most built-up in SGP).</div><div class="feat-stat">[0, 0.59] μ=0.22<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">avg_bldg_footprint_sqm</span><span class="feat-num">#113</span></div><div class="feat-desc">Average footprint per building. Larger = bigger blocks (industrial/institutional).</div><div class="feat-stat">[64, 4,022] μ=598<span class="tag-live tag-derived">DERIVED</span></div></div>
+
+  <div class="feat"><div class="feat-top"><span class="feat-name">bldg_hdb_blocks</span><span class="feat-num">#114</span></div><div class="feat-desc"><strong>Authoritative HDB count.</strong> Overture building whose centroid falls in an HDB block polygon. 10,431 matched out of 13,386 HDB blocks (78%).</div><div class="feat-stat">[0, 345] μ=31 · Tampines East tops<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">bldg_private_residential</span><span class="feat-num">#115</span></div><div class="feat-desc">Overture-classed residential buildings NOT in HDB blocks = condos + landed. 55,212 total.</div><div class="feat-stat">[0, 1,869] μ=106<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">bldg_commercial</span><span class="feat-num">#116</span></div><div class="feat-desc">Commercial buildings (retail, office, hotel, supermarket, mall).</div><div class="feat-stat">[0, 165] μ=9.4 · 3,134 total<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">bldg_industrial</span><span class="feat-num">#117</span></div><div class="feat-desc">Industrial buildings (warehouse, factory, storage tank, service, garage). Jurong Island, Tuas dominate.</div><div class="feat-stat">[0, 447] μ=11 · 3,646 total<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">bldg_institutional</span><span class="feat-num">#118</span></div><div class="feat-desc">Schools, universities, hospitals, libraries, civic, sports halls, stadia, fire/police stations.</div><div class="feat-stat">[0, 89] μ=3.4 · 1,130 total<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">bldg_religious</span><span class="feat-num">#119</span></div><div class="feat-desc">Temples, churches, mosques, synagogues, shrines, monasteries.</div><div class="feat-stat">[0, 17] μ=0.8 · 282 total<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">bldg_transport</span><span class="feat-num">#120</span></div><div class="feat-desc">Train stations, transport hubs, parking structures, hangars, boathouses.</div><div class="feat-stat">[0, 51] μ=5.2 · 659 total<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">bldg_unclassified</span><span class="feat-num">#121</span></div><div class="feat-desc">Buildings without class tags (mostly ML-detected footprints without labels). 188K — needs further classification via land use overlay.</div><div class="feat-stat">[1, 11,572] μ=573<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">bldg_other</span><span class="feat-num">#122</span></div><div class="feat-desc">Buildings with class tags that don't fit standard categories.</div><div class="feat-stat">[0, 49] μ=4.8<span class="tag-live tag-raw">RAW</span></div></div>
+
+  <div class="feat"><div class="feat-top"><span class="feat-name">bldg_avg_floors</span><span class="feat-num">#123</span></div><div class="feat-desc"><strong>Fused height signal.</strong> Average floors using OSM <code>building:levels</code> where available (29K buildings), else Overture <code>num_floors</code>. OSM has surveyed heights, Overture has ML estimates.</div><div class="feat-stat">[0, 30.7] μ=7.3<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">bldg_max_floors</span><span class="feat-num">#124</span></div><div class="feat-desc">Tallest building in subzone (by number of floors). Central Subzone (Marina Bay) hits 70 floors.</div><div class="feat-stat">[0, 70] μ=20.3<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">bldg_avg_height_m</span><span class="feat-num">#125</span></div><div class="feat-desc">Average building height in meters (where OSM <code>height</code> or Overture <code>height</code> is available).</div><div class="feat-stat">[0, 131.7] μ=10.9 m<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">bldg_max_height_m</span><span class="feat-num">#126</span></div><div class="feat-desc">Maximum building height in meters. 245m = tallest building in SGP (Tanjong Pagar Centre).</div><div class="feat-stat">[0, 245] μ=21.7 m<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">bldg_with_floors_data</span><span class="feat-num">#127</span></div><div class="feat-desc">How many buildings have known num_floors (OSM or Overture). Data quality indicator.</div><div class="feat-stat">[0, 421] μ=26.5<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">bldg_with_height_data</span><span class="feat-num">#128</span></div><div class="feat-desc">How many buildings have known height in meters. Data quality indicator.</div><div class="feat-stat">[0, 56] μ=4.8<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">bldg_high_rise_10p</span><span class="feat-num">#129</span></div><div class="feat-desc">Buildings with 10+ floors. Captures HDB point-blocks and commercial towers.</div><div class="feat-stat">[0, 421] μ=26.5 · Tampines East tops<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">bldg_tall_20p</span><span class="feat-num">#130</span></div><div class="feat-desc">Buildings with 20+ floors. High-rise HDB and condos.</div><div class="feat-stat">[0, 56] μ=4.8<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">bldg_skyscraper_40p</span><span class="feat-num">#131</span></div><div class="feat-desc">Skyscrapers — 40+ floors. 21 max in Margaret Drive (Queenstown redevelopment), Central Subzone has 7.</div><div class="feat-stat">[0, 21] μ=0.5<span class="tag-live tag-derived">DERIVED</span></div></div>
+
+  <div class="feat"><div class="feat-top"><span class="feat-name">hdb_total_blocks</span><span class="feat-num">#132</span></div><div class="feat-desc">Alias for bldg_hdb_blocks (authoritative HDB count from surveyed source).</div><div class="feat-stat">[0, 345] μ=31<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">residential_total_blocks</span><span class="feat-num">#133</span></div><div class="feat-desc">HDB + private residential combined = total residential building stock.</div><div class="feat-stat">[0, 2000+] μ=137<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">hdb_share_of_residential</span><span class="feat-num">#134</span></div><div class="feat-desc">% of residential buildings that are HDB. Near 100% = mature HDB heartland, 0% = private-only.</div><div class="feat-stat">[0, 100] %<span class="tag-live tag-derived">DERIVED</span></div></div>
+
+  <div class="feat"><div class="feat-top"><span class="feat-name">avg_gpr</span><span class="feat-num">#135</span></div><div class="feat-desc">URA Master Plan <strong>Gross Plot Ratio</strong> — maximum floor area divided by plot area. How much the government allows to be built.</div><div class="feat-stat">[0, 14.3] μ=2.58<span class="tag-live tag-raw">RAW</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">floors_for_calc</span><span class="feat-num">#136</span></div><div class="feat-desc">Average floors used for GFA estimate (avg_floors or baseline 3.0 where unknown).</div><div class="feat-stat">[3, 30.7] μ=7.3<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">estimated_gfa_sqm</span><span class="feat-num">#137</span></div><div class="feat-desc">Estimated Gross Floor Area = footprint × avg_floors. The actual "built area".</div><div class="feat-stat">[0, 10M+] μ=2.4M<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">allowed_gfa_sqm</span><span class="feat-num">#138</span></div><div class="feat-desc">Allowed GFA = GPR × subzone area. The URA Master Plan ceiling.</div><div class="feat-stat">[0, 18M+] μ=4.1M<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">gpr_utilization</span><span class="feat-num">#139</span></div><div class="feat-desc"><strong>The killer feature.</strong> Estimated GFA / Allowed GFA. &lt;0.5 = major headroom, 0.5-0.8 = moderate headroom, &gt;1.0 = maxed out. Capped at 2.0.</div><div class="feat-stat">[0, 2.0] μ=0.61<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">gpr_headroom_sqm</span><span class="feat-num">#140</span></div><div class="feat-desc">Unbuilt square meters under the Master Plan allowance. Redevelopment headroom in absolute terms.</div><div class="feat-stat">[0, 15M+]<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">gpr_headroom_pct</span><span class="feat-num">#141</span></div><div class="feat-desc">% of allowed GFA that is unbuilt. High = room to redevelop, low = built out.</div><div class="feat-stat">[0, 100] μ=33.5%<span class="tag-live tag-derived">DERIVED</span></div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">redev_priority</span><span class="feat-num">#142</span></div><div class="feat-desc"><strong>Redevelopment priority score</strong> = (1 − utilization) × GPR × population_factor. High = populated zone with permissive zoning and underbuilt. Northshore, Aljunied, Upper Thomson top the list.</div><div class="feat-stat">[0, 1.18] μ=0.10<span class="tag-live tag-derived">DERIVED</span></div></div>
+</div>
+
+<!-- Fun stats callout -->
+<h2>Building Density — The Singapore Story</h2>
+<p class="sec-desc">
+  <strong>Key insights from the 377K-building dataset:</strong>
+</p>
+<div class="fg">
+  <div class="feat"><div class="feat-top"><span class="feat-name">🏙️ Most built-up</span></div><div class="feat-desc"><strong>China Square (59%)</strong>, <strong>Cecil (57%)</strong>, <strong>Raffles Place (55%)</strong>, <strong>Chinatown (51%)</strong>. These are the CBD's densest floor-print neighbourhoods — more than half of every square meter is building.</div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">🏢 Tallest</span></div><div class="feat-desc"><strong>Central Subzone</strong> (Marina Bay): 70 floors, 245 m. 7 skyscrapers ≥40 floors. The only zone with genuine vertical concentration.</div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">🏘️ HDB heartland</span></div><div class="feat-desc"><strong>Tampines East</strong>: 345 HDB blocks, 421 high-rises ≥10 floors, 126K residents. The largest public housing estate in SGP.</div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">🏭 Industrial kings</span></div><div class="feat-desc"><strong>Jurong Island</strong>: 12,017 buildings, 3.7 km² footprint, 439 industrial. The petrochemical empire. <strong>Tuas extensions</strong>: 228-447 industrial each.</div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">🏚️ Redev priorities</span></div><div class="feat-desc"><strong>Top 5:</strong> Northshore (Punggol), Aljunied, Upper Thomson, Balestier, Taman Jurong — populated mature estates at 35-60% GPR utilization. Government has room to densify.</div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">🏗️ Maxed out</span></div><div class="feat-desc"><strong>Queenstown Margaret Drive, Holland Drive, Leonie Hill, Tiong Bahru Station</strong> — all at or above GPR capacity. Little room for more.</div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">🌳 Data quality</span></div><div class="feat-desc">29,935 buildings enriched with OSM heights (surveyed) via nearest-neighbor match. 10,431 HDB blocks authoritatively classified from government source. 188K remain ML-only classification.</div></div>
+  <div class="feat"><div class="feat-top"><span class="feat-name">🎯 For urban planners</span></div><div class="feat-desc"><strong>Key ratio:</strong> gpr_utilization tells you where the Master Plan permits more building. <strong>Key warning:</strong> Some "utilization &gt; 1.0" zones reflect buildings that exceed their plot's stated GPR — historic CBD lots with pre-2003 rights.</div></div>
+</div>
+
+<footer>
+SGP Digital Atlas V8 Feature Report &middot; 142 features across 16 groups &middot; 332 subzones<br>
+Built from 14 data sources: DOS Census, URA Master Plan, HDB Resale, <strong>HDB Blocks, OSM Buildings, Overture Buildings</strong>, OSM Roads, LTA DataMall (live), NParks PCN, SFA, MOH CHAS, ECDA, ACRA, Google Places, NVIDIA Nemotron, VIIRS/WorldCover<br>
+Propheus &middot; April 2026
+</footer>
+</div>
+</body>
+</html>

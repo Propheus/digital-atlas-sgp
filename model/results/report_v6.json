@@ -1,0 +1,110 @@
+{
+  "version": "v6",
+  "stage1_r2": 0.7422825581029644,
+  "stage1_mae": 61.57534676292334,
+  "stage1_transform": "sqrt",
+  "stage1_comparison": {
+    "raw": 0.7052358061525394,
+    "sqrt": 0.7422825581029644,
+    "log1p": 0.7375147598366885
+  },
+  "stage2_mean_best_r2": 0.6138752541318571,
+  "per_category": {
+    "automotive": {
+      "best_r2": 0.28752200803472183,
+      "best": "sqrt"
+    },
+    "bakery_pastry": {
+      "best_r2": 0.623374627549329,
+      "best": "raw"
+    },
+    "bar_nightlife": {
+      "best_r2": 0.461980591828447,
+      "best": "sqrt"
+    },
+    "beauty_personal_care": {
+      "best_r2": 0.8491119295616044,
+      "best": "raw"
+    },
+    "business": {
+      "best_r2": 0.6573169994560002,
+      "best": "raw"
+    },
+    "cafe_coffee": {
+      "best_r2": 0.8559149303285645,
+      "best": "sqrt"
+    },
+    "civic_government": {
+      "best_r2": 0.4470182128461885,
+      "best": "sqrt"
+    },
+    "convenience_daily_needs": {
+      "best_r2": 0.8828344343774767,
+      "best": "raw"
+    },
+    "culture_entertainment": {
+      "best_r2": 0.43791158499195004,
+      "best": "raw"
+    },
+    "education": {
+      "best_r2": 0.6344674799570993,
+      "best": "sqrt"
+    },
+    "fast_food_qsr": {
+      "best_r2": 0.6456465955644012,
+      "best": "sqrt"
+    },
+    "fitness_recreation": {
+      "best_r2": 0.7518555481490719,
+      "best": "raw"
+    },
+    "general": {
+      "best_r2": 0.5838021655502648,
+      "best": "sqrt"
+    },
+    "hawker_street_food": {
+      "best_r2": 0.7277095423941361,
+      "best": "raw"
+    },
+    "health_medical": {
+      "best_r2": 0.6331498783568428,
+      "best": "sqrt"
+    },
+    "hospitality": {
+      "best_r2": 0.2658820810316367,
+      "best": "sqrt"
+    },
+    "ngo": {
+      "best_r2": 0.416459699145433,
+      "best": "sqrt"
+    },
+    "office_workspace": {
+      "best_r2": 0.7329595743479465,
+      "best": "sqrt"
+    },
+    "religious": {
+      "best_r2": 0.2246105992978763,
+      "best": "sqrt"
+    },
+    "residential": {
+      "best_r2": 0.5774044873677148,
+      "best": "sqrt"
+    },
+    "restaurant": {
+      "best_r2": 0.7878311575963437,
+      "best": "sqrt"
+    },
+    "services": {
+      "best_r2": 0.7132614716682657,
+      "best": "raw"
+    },
+    "shopping_retail": {
+      "best_r2": 0.8075908655383995,
+      "best": "raw"
+    },
+    "transport": {
+      "best_r2": 0.7273896342248547,
+      "best": "raw"
+    }
+  }
+}

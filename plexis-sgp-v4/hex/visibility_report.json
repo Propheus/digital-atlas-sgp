@@ -1,0 +1,12 @@
+{
+  "generated_at": "2026-06-10T11:28:31",
+  "spec": "SITE_SELECTION_METRICS.md S7 (narrowed)",
+  "exits": 597,
+  "stations": 186,
+  "exit_name_match": 0.99,
+  "stations_with_taps": 0.989,
+  "signal_col_used": "signalized_crossing_count",
+  "speed_band_segments": 15500,
+  "hex_with_exit_footfall": 156,
+  "wall_clock_s": 0.35
+}

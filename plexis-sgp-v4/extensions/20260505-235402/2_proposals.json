@@ -1,0 +1,139 @@
+{
+  "proposed_features": [
+    {
+      "name": "office_transit_synergy",
+      "description": "Combined score of office density and transit accessibility indicating young professional commuter appeal",
+      "scale": "hex9",
+      "dtype": "float32",
+      "derivation_type": "derive",
+      "code": "df['office_transit_synergy'] = ((df['pc_cat_business_office'].fillna(0) / (df['pc_cat_business_office'].fillna(0).max() + 1)) * (df['transit_score'].fillna(0) / 100)).astype('float32')",
+      "dependencies": [
+        "pc_cat_business_office",
+        "transit_score"
+      ],
+      "rationale": "Young professionals cluster near offices with good transit; this captures locations where both factors align for cafe demand."
+    },
+    {
+      "name": "specialty_cafe_competition_gap",
+      "description": "Ratio of office workers to existing cafes indicating underserved specialty cafe market",
+      "scale": "hex9",
+      "dtype": "float32",
+      "derivation_type": "derive",
+      "code": "df['specialty_cafe_competition_gap'] = (df['pc_cat_business_office'].fillna(0) / (df['pc_cat_cafe_coffee'].fillna(0) + 1)).astype('float32')",
+      "dependencies": [
+        "pc_cat_business_office",
+        "pc_cat_cafe_coffee"
+      ],
+      "rationale": "High office count with few cafes signals unmet demand for specialty coffee among young professionals."
+    },
+    {
+      "name": "lunch_rush_potential",
+      "description": "Midday transit activity combined with food venue scarcity indicating lunch crowd opportunity",
+      "scale": "hex9",
+      "dtype": "float32",
+      "derivation_type": "derive",
+      "code": "df['lunch_rush_potential'] = ((df['bus_taps_in_midday'].fillna(0) + df['gtfs_dep_midday'].fillna(0)) / (df['pc_cat_cafe_coffee'].fillna(0) + df['pc_cat_restaurant'].fillna(0) + 1)).astype('float32')",
+      "dependencies": [
+        "bus_taps_in_midday",
+        "gtfs_dep_midday",
+        "pc_cat_cafe_coffee",
+        "pc_cat_restaurant"
+      ],
+      "rationale": "High midday foot traffic with limited food options indicates strong lunch-time cafe demand from office workers."
+    },
+    {
+      "name": "afterwork_vibrancy",
+      "description": "Evening transit activity weighted by bar and entertainment presence indicating after-work social zones",
+      "scale": "hex9",
+      "dtype": "float32",
+      "derivation_type": "derive",
+      "code": "df['afterwork_vibrancy'] = ((df['bus_taps_out_pm'].fillna(0) + df['gtfs_dep_pm'].fillna(0)) * (1 + df['pc_cat_bar_nightlife'].fillna(0) * 0.1)).astype('float32')",
+      "dependencies": [
+        "bus_taps_out_pm",
+        "gtfs_dep_pm",
+        "pc_cat_bar_nightlife"
+      ],
+      "rationale": "Areas with evening transit activity and nightlife attract young professionals for after-work socializing at cafes."
+    },
+    {
+      "name": "coworking_proximity_score",
+      "description": "Density of business offices in walkable commercial zones indicating coworking and freelancer presence",
+      "scale": "hex9",
+      "dtype": "float32",
+      "derivation_type": "derive",
+      "code": "df['coworking_proximity_score'] = (df['pc_cat_business_office'].fillna(0) * df['lu_commercial_pct'].fillna(0) / 100 * df['walkability_score'].fillna(0) / 100).astype('float32')",
+      "dependencies": [
+        "pc_cat_business_office",
+        "lu_commercial_pct",
+        "walkability_score"
+      ],
+      "rationale": "Walkable commercial areas with offices attract freelancers and remote workers who frequent specialty cafes."
+    },
+    {
+      "name": "young_professional_residential_proxy",
+      "description": "Non-HDB residential share combined with working-age population as proxy for young professional residents",
+      "scale": "hex9",
+      "dtype": "float32",
+      "derivation_type": "derive",
+      "code": "df['young_professional_residential_proxy'] = ((1 - df['pop_hdb_share'].fillna(1)) * df['pop_15_64'].fillna(0)).astype('float32')",
+      "dependencies": [
+        "pop_hdb_share",
+        "pop_15_64"
+      ],
+      "rationale": "Non-HDB housing with working-age residents indicates higher-income young professionals who prefer specialty cafes."
+    },
+    {
+      "name": "mixed_use_cafe_appeal",
+      "description": "Mixed-use land percentage weighted by commercial intensity for live-work-play cafe locations",
+      "scale": "hex9",
+      "dtype": "float32",
+      "derivation_type": "derive",
+      "code": "df['mixed_use_cafe_appeal'] = (df['lu_mixed_use_pct'].fillna(0) * df['commercial_intensity'].fillna(0)).astype('float32')",
+      "dependencies": [
+        "lu_mixed_use_pct",
+        "commercial_intensity"
+      ],
+      "rationale": "Mixed-use zones with commercial activity create all-day cafe demand from residents and workers alike."
+    },
+    {
+      "name": "daytime_population_estimate",
+      "description": "Estimated daytime population combining residents, office workers proxy, and transit inflows",
+      "scale": "hex9",
+      "dtype": "float32",
+      "derivation_type": "derive",
+      "code": "df['daytime_population_estimate'] = (df['pop_resident'].fillna(0) * 0.3 + df['pc_cat_business_office'].fillna(0) * 50 + df['daily_train_taps'].fillna(0) * 0.1 + df['daily_bus_taps'].fillna(0) * 0.1).astype('float32')",
+      "dependencies": [
+        "pop_resident",
+        "pc_cat_business_office",
+        "daily_train_taps",
+        "daily_bus_taps"
+      ],
+      "rationale": "Daytime population threshold is a key constraint; this estimates actual foot traffic potential during business hours."
+    },
+    {
+      "name": "premium_location_indicator",
+      "description": "HDB resale price proxy for area affluence indicating spending power for specialty coffee",
+      "scale": "hex9",
+      "dtype": "float32",
+      "derivation_type": "derive",
+      "code": "df['premium_location_indicator'] = (df['hdb_resale_4r_median_psm'].fillna(0) / (df['hdb_resale_4r_median_psm'].fillna(0).median() + 1)).astype('float32')",
+      "dependencies": [
+        "hdb_resale_4r_median_psm"
+      ],
+      "rationale": "Higher property values indicate affluent areas where residents can afford premium specialty coffee."
+    },
+    {
+      "name": "mrt_exit_cafe_opportunity",
+      "description": "MRT exit presence combined with cafe gap indicating high-traffic underserved locations",
+      "scale": "hex9",
+      "dtype": "float32",
+      "derivation_type": "derive",
+      "code": "df['mrt_exit_cafe_opportunity'] = (df['mrt_exit_count'].fillna(0) * np.maximum(0, df['gap_cafe_coffee'].fillna(0))).astype('float32')",
+      "dependencies": [
+        "mrt_exit_count",
+        "gap_cafe_coffee"
+      ],
+      "rationale": "MRT exits with cafe gaps represent prime locations for capturing commuter foot traffic with specialty coffee."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "Plexis",
+  "description": "Urban Knowledge Graph for SGP Digital Atlas",
+  "generated": "2026-04-21",
+  "nodes": {
+    "places": 174711,
+    "hex9": 7318,
+    "hex8": 1191,
+    "stations": 231,
+    "bus_stops": 5177,
+    "hdb_blocks": 10431,
+    "categories": 24,
+    "hawkers": 129
+  },
+  "total_nodes": 199083,
+  "total_edges": 1452579,
+  "relation_types": 21,
+  "relations": {
+    "COMPETES_WITH": 503310,
+    "SYNERGIZES_WITH": 262781,
+    "LOCATED_IN": 174711,
+    "IS_A": 174711,
+    "SUBSTITUTES_FOR": 150300,
+    "ANCHORED_BY": 107622,
+    "ADJACENT_TO": 24174,
+    "VOID_DECK_OF": 21690,
+    "PARENT_OF": 7318,
+    "PART_OF": 7318,
+    "SERVES": 6788,
+    "EXIT_FRONTAGE": 3051,
+    "COMPARABLE_TO": 2655,
+    "CONNECTS_TO": 2279,
+    "UNDERSUPPLIED": 1263,
+    "FEEDS_INTO": 1255,
+    "OVERSUPPLIED": 637,
+    "WORKER_INFLOW": 589,
+    "DEMAND_LEAKS_TO": 116,
+    "SYNERGY_PAIR": 8,
+    "SUBSTITUTES": 3
+  }
+}

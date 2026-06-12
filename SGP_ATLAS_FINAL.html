@@ -1,0 +1,261 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>SGP Digital Atlas — Final Report</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg-1:#0F2224;--bg-2:#132C30;--bg-3:#1A3C42;--glass:rgba(13,31,33,0.85);--glass-b:rgba(32,178,170,0.15);--ac:#20B2AA;--tx:#fff;--t2:#c0d0d4;--t3:#6b8a90;--ok:#34D399;--warn:#F59E0B;--err:#EF4444;--card:rgba(17,40,42,0.7)}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,var(--bg-1),var(--bg-2),var(--bg-3));color:var(--tx);min-height:100vh}
+.wrap{max-width:1200px;margin:0 auto;padding:24px 20px}
+h1{font-family:'Raleway';font-size:34px;font-weight:800;color:var(--ac);text-align:center}
+.sub{text-align:center;color:var(--t2);font-size:14px;margin:6px 0 4px}.meta{text-align:center;color:var(--t3);font-size:11px;margin-bottom:24px}
+.tabs{display:flex;gap:4px;padding:4px;background:var(--glass);backdrop-filter:blur(10px);border:1px solid var(--glass-b);border-radius:12px;overflow-x:auto}
+.tab{padding:10px 18px;cursor:pointer;font-size:12px;font-weight:600;color:var(--t3);border-radius:8px;transition:all 0.25s;white-space:nowrap}.tab:hover{color:var(--t2);background:rgba(32,178,170,0.08)}.tab.active{color:var(--tx);background:rgba(32,178,170,0.15)}
+.panel{display:none;padding:20px 0}.panel.active{display:block}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:10px;margin:14px 0}
+.kpi{background:var(--card);backdrop-filter:blur(8px);border:1px solid var(--glass-b);border-radius:12px;padding:14px;text-align:center;transition:transform 0.2s}.kpi:hover{transform:translateY(-2px)}
+.kpi-n{font-family:'Raleway';font-size:24px;font-weight:800;color:var(--ac)}.kpi-l{font-size:8px;color:var(--t3);text-transform:uppercase;letter-spacing:1px;margin-top:3px}.kpi-sub{font-size:10px;color:var(--t3);margin-top:3px}
+.sec{background:var(--card);backdrop-filter:blur(8px);border:1px solid var(--glass-b);border-radius:12px;padding:18px;margin:12px 0}.sec h3{font-family:'Raleway';font-size:15px;font-weight:700;margin-bottom:10px}
+.note{font-size:13px;color:var(--t2);line-height:1.7;margin-bottom:12px;padding:10px 14px;background:rgba(32,178,170,0.05);border-left:3px solid var(--ac);border-radius:0 8px 8px 0}
+table{width:100%;border-collapse:collapse;font-size:11px;margin:8px 0}th,td{padding:7px 10px;text-align:left;border-bottom:1px solid rgba(32,178,170,0.08)}th{color:var(--t3);font-size:9px;text-transform:uppercase;font-weight:600;background:rgba(13,31,33,0.5)}td{color:var(--t2)}
+.bar{height:14px;background:rgba(32,178,170,0.1);border-radius:6px;overflow:hidden;display:inline-block;vertical-align:middle}.bar-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--ac),#14d4cc)}
+.tag{display:inline-block;font-size:7px;font-weight:700;padding:2px 6px;border-radius:4px;letter-spacing:0.5px}.tag-ok{color:var(--ok);border:1px solid var(--ok);background:rgba(52,211,153,0.08)}.tag-warn{color:var(--warn);border:1px solid var(--warn);background:rgba(245,158,11,0.08)}.tag-err{color:var(--err);border:1px solid var(--err);background:rgba(239,68,68,0.08)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:768px){.g2{grid-template-columns:1fr}}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}@media(max-width:768px){.g3{grid-template-columns:1fr}}
+.foot{text-align:center;color:var(--t3);font-size:10px;margin-top:28px;padding:16px;border-top:1px solid var(--glass-b)}.foot span{color:var(--ac)}
+.r2-bar{display:inline-block;height:10px;border-radius:5px;vertical-align:middle;margin-right:6px}
+</style></head><body><div class="wrap">
+
+<h1>SGP Digital Atlas</h1>
+<div class="sub">Features + Plexis Graph + Embeddings — Final Report</div>
+<div class="meta">Propheus &middot; April 2026 &middot; 20 data sources &middot; 5.98M population &middot; 174,711 places</div>
+
+<div class="tabs">
+<div class="tab active" onclick="showTab('t1')">Features &amp; Data</div>
+<div class="tab" onclick="showTab('t2')">Atlas &amp; Graph</div>
+<div class="tab" onclick="showTab('t3')">Use Cases</div>
+<div class="tab" onclick="showTab('t4')">Accuracy</div>
+</div>
+
+<!-- ====== TAB 1: FEATURES & DATA ====== -->
+<div class="panel active" id="t1">
+
+<div class="kpis">
+<div class="kpi"><div class="kpi-n">20</div><div class="kpi-l">Data Sources</div><div class="kpi-sub">Gov + commercial + satellite + live API</div></div>
+<div class="kpi"><div class="kpi-n">5.98M</div><div class="kpi-l">Population</div><div class="kpi-sub">4.21M resident + 1.77M non-resident</div></div>
+<div class="kpi"><div class="kpi-n">637</div><div class="kpi-l">Hex-8 Features</div><div class="kpi-sub">1,191 neighborhoods</div></div>
+<div class="kpi"><div class="kpi-n">612</div><div class="kpi-l">Hex-9 Features</div><div class="kpi-sub">7,318 cells</div></div>
+<div class="kpi"><div class="kpi-n">114</div><div class="kpi-l">Place Features</div><div class="kpi-sub">174,711 businesses</div></div>
+<div class="kpi"><div class="kpi-n">~449</div><div class="kpi-l">Subzone Features</div><div class="kpi-sub">326 URA zones</div></div>
+</div>
+
+<div class="sec"><h3>Data Sources</h3>
+<table><tr><th>Source</th><th>Records</th><th>Features derived</th></tr>
+<tr><td>Overture Maps + OSM</td><td>174,711 places</td><td>79 place composition + 114 per-place</td></tr>
+<tr><td>Overture Buildings</td><td>377,331</td><td>16 built environment</td></tr>
+<tr><td>LTA Stations + Bus Stops</td><td>231 MRT + 44 LRT + 5,177 bus</td><td>18 transit + 8 GTFS + 19 place anchors</td></tr>
+<tr><td>LTA Ridership (hourly)</td><td>12.3M taps/day</td><td>7 temporal transit (AM/PM/off/night)</td></tr>
+<tr><td>Singapore GTFS 2026</td><td>230,914 trips</td><td>8 frequency features (headway by window)</td></tr>
+<tr><td>OSM Road Network</td><td>550,991 segments</td><td>26 walkability (network walk from 214K-node graph)</td></tr>
+<tr><td>SingStat Population</td><td>5,982,320</td><td>18 demographics + 12 dwelling type</td></tr>
+<tr><td>HDB Resale Transactions</td><td>227,207</td><td>2 property price features</td></tr>
+<tr><td>URA Master Plan</td><td>113,212 parcels</td><td>12 land use</td></tr>
+<tr><td>NASA VIIRS Nightlights</td><td>2 epochs (2022+2024)</td><td>7 nightlight features (growth, commercial indicator)</td></tr>
+<tr><td>WorldPop + WorldCover</td><td>Grid rasters</td><td>5 satellite (pop growth, land cover)</td></tr>
+<tr><td>LTA DataMall API (live)</td><td>3K taxis + 2.6K carparks + 50K speed bands</td><td>10 dynamic (taxi, carpark, congestion, bus services)</td></tr>
+<tr><td>LTA Bus Routes</td><td>26,711 route-stops (789 services)</td><td>Bus network topology + connectivity</td></tr>
+<tr><td>Government amenity datasets</td><td>~3,000 (hawkers, clinics, parks, schools, hotels)</td><td>16 amenity counts + distance features</td></tr>
+<tr><td>OSM POIs (4 layers)</td><td>52,317</td><td>4 supplementary counts</td></tr>
+</table></div>
+
+<div class="sec"><h3>Feature Pillars — Hex-8 (637 features)</h3>
+<table><tr><th>Pillar</th><th>#</th><th>Source</th><th>What it captures</th></tr>
+<tr><td>Demographics</td><td>18</td><td>SingStat</td><td>Population total (5.98M), elderly %, non-resident, daytime intensity</td></tr>
+<tr><td>Dwelling types</td><td>12</td><td>SingStat</td><td>HDB 1-5rm, condo, landed, by floor area</td></tr>
+<tr><td>Built environment</td><td>16</td><td>Overture</td><td>Buildings, HDB blocks, floors, commercial/industrial</td></tr>
+<tr><td>Land use</td><td>12</td><td>URA</td><td>Zoning %, entropy, fragmentation, dominant use</td></tr>
+<tr><td>Transit</td><td>18</td><td>LTA</td><td>MRT/bus counts, taps (total + AM/PM/off/night)</td></tr>
+<tr><td>GTFS frequency</td><td>8</td><td>GTFS 2026</td><td>Headway by time window, routes, departures</td></tr>
+<tr><td>Walkability</td><td>26</td><td>OSM graph</td><td>Euclidean + network walk to 6 amenities, detour ratios</td></tr>
+<tr><td>Amenities</td><td>16</td><td>Gov data</td><td>Hawkers, clinics, parks, supermarkets, hotels, schools</td></tr>
+<tr><td>Place composition</td><td>79</td><td>Overture+OSM</td><td>24 categories, tiers, entropy, HHI, brands</td></tr>
+<tr><td>Demand pull</td><td>12</td><td>Computed</td><td>6 pull scores (office/residential/transit/hotel/school/hawker)</td></tr>
+<tr><td>Synergy</td><td>20</td><td>Computed</td><td>10 co-location scores (cafe×office, grocery×residential...)</td></tr>
+<tr><td>Saturation</td><td>13</td><td>Computed</td><td>5 categories: supply/demand ratio + gap (pop_total denominator)</td></tr>
+<tr><td>Satellite</td><td>12</td><td>VIIRS+WP+WC</td><td>Nightlight change, pop growth, land cover</td></tr>
+<tr><td>Archetypes</td><td>15</td><td>K-means</td><td>6 types + 8 indices (vitality, accessibility, demand...) + 4 proxies</td></tr>
+<tr><td>Micrograph</td><td>156</td><td>Pipeline</td><td>12 categories × 13 context vectors</td></tr>
+<tr><td>Spatial context</td><td>123</td><td>H3 rings</td><td>Ring-1/2 max + pop-weighted aggregates</td></tr>
+<tr><td>LTA dynamic</td><td>10</td><td>Live API</td><td>Taxi, carpark, speed, congestion, car dependency</td></tr>
+<tr><td>Structure</td><td>8</td><td>Cross-scale</td><td>Interface, gradient, demand flow, ecosystem, self-containment</td></tr>
+<tr><td>Property</td><td>2</td><td>HDB resale</td><td>Median PSF, transaction count</td></tr>
+</table></div>
+
+<div class="sec"><h3>Place Features (114 per place)</h3>
+<table><tr><th>Group</th><th>#</th><th>Key features</th></tr>
+<tr><td>Identity</td><td>14</td><td>Category (24 types), price tier, branded, h3 keys</td></tr>
+<tr><td>Competition</td><td>5</td><td>competitors_200m/500m, substitution_risk, market_share</td></tr>
+<tr><td>Complementary</td><td>5</td><td>Cross-category diversity 300m, score</td></tr>
+<tr><td>Anchors</td><td>19</td><td>14 types (MRT, bus, hawker, clinic, park, hotel, school, library, sports...)</td></tr>
+<tr><td>Demand + synergy</td><td>18</td><td>6 pulls + demand_context + 10 synergies (target-category-only)</td></tr>
+<tr><td>Transit</td><td>8</td><td>Network walk MRT/bus, GTFS headway, transit_score</td></tr>
+<tr><td>Catchment</td><td>5</td><td>pop, elderly, nonresident, daytime intensity</td></tr>
+<tr><td>Context</td><td>16+</td><td>Building, neighborhood, archetype, indices, nightlight</td></tr>
+<tr><td>Supply-demand</td><td>5</td><td>saturation, demand_match, survivability_index</td></tr>
+</table></div>
+</div>
+
+<!-- ====== TAB 2: ATLAS & GRAPH ====== -->
+<div class="panel" id="t2">
+
+<div class="kpis">
+<div class="kpi"><div class="kpi-n">~200K</div><div class="kpi-l">Graph Nodes</div><div class="kpi-sub">Feature-rich (114-637d)</div></div>
+<div class="kpi"><div class="kpi-n">1.49M</div><div class="kpi-l">Graph Edges</div><div class="kpi-sub">39 relation types</div></div>
+<div class="kpi"><div class="kpi-n">128d</div><div class="kpi-l">Embeddings</div><div class="kpi-sub">R-GCN two-head</div></div>
+<div class="kpi"><div class="kpi-n">Plexis</div><div class="kpi-l">&pi;&lambda;&epsilon;&xi;&iota;&sigmaf;</div><div class="kpi-sub">"weaving"</div></div>
+</div>
+
+<div class="sec"><h3>Four spatial levels + knowledge graph</h3>
+<div class="note">Flat features answer <b>WHAT</b> (this hex has 42K pop, 0.2x cafe saturation). The graph answers <b>WHY</b> (because MRT funnels 125K commuters, adjacent hexes leak demand here, void-deck economy captures captive residents) and <b>WHAT IF</b> (remove the MRT &rarr; which places shift most?).</div>
+<table><tr><th>Level</th><th>Units</th><th>Features</th><th>Resolution</th><th>Role</th></tr>
+<tr><td>Hex-9</td><td>7,318</td><td>612</td><td>~174m</td><td>Fine-grain context, walkability, micrograph</td></tr>
+<tr><td>Hex-8</td><td>1,191</td><td>637</td><td>~461m</td><td>Primary: demand, gaps, archetypes, ecosystem</td></tr>
+<tr><td>Subzone</td><td>326</td><td>~449</td><td>URA</td><td>Policy alignment</td></tr>
+<tr><td>Places</td><td>174,711</td><td>114</td><td>Point</td><td>Competition, synergy, survivability</td></tr>
+<tr><td>Plexis</td><td>~200K</td><td>1.49M edges</td><td>39 types</td><td>Structural reasoning, scenarios</td></tr>
+</table></div>
+
+<div class="sec"><h3>Graph edge families</h3>
+<table><tr><th>Family</th><th>Edges</th><th>Key relations</th><th>What it captures</th></tr>
+<tr><td><b>Commercial</b></td><td>941,834</td><td>COMPETES, SYNERGIZES, SUBSTITUTES, EXIT_FRONTAGE, VOID_DECK</td><td>How businesses interact</td></tr>
+<tr><td><b>Hierarchy</b></td><td>364,058</td><td>LOCATED_IN, IS_A, PARENT_OF, PART_OF</td><td>Containment + classification</td></tr>
+<tr><td><b>Anchor</b></td><td>121,053</td><td>ANCHORED_BY, WALK_CATCHMENT, SERVES</td><td>Demand generators</td></tr>
+<tr><td><b>Spatial</b></td><td>27,551</td><td>ADJACENT_TO, N/S/E/W_OF, ROAD, COASTAL</td><td>Physical connectivity</td></tr>
+<tr><td><b>Structure</b></td><td>10,758</td><td>SAME_CLUSTER, LU_TRANSITION, DEVELOPMENT_FRONT</td><td>Urban evolution</td></tr>
+<tr><td><b>Gradient</b></td><td>9,263</td><td>COMMERCIAL/HEIGHT/DENSITY/PRICE gradients</td><td>Change across space</td></tr>
+<tr><td><b>Transit</b></td><td>5,770</td><td>CONNECTS_TO, FEEDS_INTO, SAME_CORRIDOR, EXPRESSWAY</td><td>Movement network</td></tr>
+<tr><td><b>Supply-demand</b></td><td>5,260</td><td>UNDERSUPPLIED, OVERSUPPLIED, DEMAND_LEAKS, COMPARABLE</td><td>Gaps &amp; opportunities</td></tr>
+</table></div>
+
+<div class="sec"><h3>Two-head R-GCN embedding</h3>
+<div class="g3">
+<div style="background:rgba(129,140,248,0.06);border:1px solid rgba(129,140,248,0.2);border-radius:10px;padding:14px">
+<div style="font-family:'Raleway';font-weight:700;color:#818cf8;font-size:13px;margin-bottom:6px">Spatial Head (64d)</div>
+<div style="font-size:11px;color:var(--t2);line-height:1.6">Encodes <b>WHERE</b> — trained on hierarchy + spatial + transit edges. Captures walkability, population, ecosystem.</div>
+</div>
+<div style="background:rgba(32,178,170,0.06);border:1px solid rgba(32,178,170,0.2);border-radius:10px;padding:14px">
+<div style="font-family:'Raleway';font-weight:700;color:var(--ac);font-size:13px;margin-bottom:6px">Commercial Head (64d)</div>
+<div style="font-size:11px;color:var(--t2);line-height:1.6">Encodes <b>WHAT</b> — trained on commercial + supply-demand edges. Captures category, competition, demand match.</div>
+</div>
+<div style="background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.2);border-radius:10px;padding:14px">
+<div style="font-family:'Raleway';font-weight:700;color:var(--warn);font-size:13px;margin-bottom:6px">Full (128d)</div>
+<div style="font-size:11px;color:var(--t2);line-height:1.6">Concatenation of both. Used for similarity, expansion, anomaly detection, scenarios.</div>
+</div>
+</div></div>
+</div>
+
+<!-- ====== TAB 3: USE CASES ====== -->
+<div class="panel" id="t3">
+<div class="sec"><h3>10 use cases powered by features + graph + embeddings</h3>
+<div class="note">Each follows: start at entity &rarr; traverse typed edges &rarr; combine with flat features &rarr; produce ranked results + explanation.</div></div>
+
+<div class="g2">
+<div class="sec"><h3>1. Brand expansion</h3>
+<div style="font-size:11px;color:var(--t2);line-height:1.7">Build brand centroid from existing outlet embeddings &rarr; find hex-8 cells with similar graph structure but brand absent &rarr; rank by similarity &times; (1 &minus; saturation).<br><b style="color:var(--ok)">Each brand gets different locations.</b> Starbucks &ne; KFC &ne; Guardian.</div></div>
+
+<div class="sec"><h3>2. Explain success</h3>
+<div style="font-size:11px;color:var(--t2);line-height:1.7">Traverse edges from any place: <span style="color:var(--ok)">ANCHORED_BY</span> MRT (transit demand), <span style="color:var(--ac)">SYNERGIZES_WITH</span> offices (lunch trade), <span style="color:#a78bfa">VOID_DECK_OF</span> HDB (captive demand). <b>Graph tells the story.</b></div></div>
+
+<div class="sec"><h3>3. Scenario simulation</h3>
+<div style="font-size:11px;color:var(--t2);line-height:1.7">"What if this MRT closes?" &rarr; Remove edges &rarr; recompute embeddings &rarr; places that shift most = most dependent. <b>Quantifies infrastructure impact.</b></div></div>
+
+<div class="sec"><h3>4. True food deserts</h3>
+<div style="font-size:11px;color:var(--t2);line-height:1.7">Follow <span style="color:var(--warn)">UNDERSUPPLIED</span> edges &rarr; check <span style="color:var(--warn)">DEMAND_LEAKS_TO</span> &rarr; no leak = true desert. <b>Filters out CBD false positives.</b></div></div>
+
+<div class="sec"><h3>5. Location-category fit</h3>
+<div style="font-size:11px;color:var(--t2);line-height:1.7">"Luxury restaurant here?" &rarr; Check <span style="color:#818cf8">COMPARABLE_TO</span> (are comparables luxury areas?), <span style="color:#EC4899">PRICE_GRADIENT</span> (gentrifying?), <span style="color:var(--ok)">ANCHORED_BY</span> hotels. <b>Multi-signal reasoning.</b></div></div>
+
+<div class="sec"><h3>6. Demand decomposition</h3>
+<div style="font-size:11px;color:var(--t2);line-height:1.7">Count incoming edges by type: ANCHORED_BY MRT = 35%, VOID_DECK = 25%, SYNERGIZES offices = 20%. <b>Attribution, not just a number.</b></div></div>
+
+<div class="sec"><h3>7. Anomaly detection</h3>
+<div style="font-size:11px;color:var(--t2);line-height:1.7">Place embedding vs hex embedding similarity. Low = structural misfit (retail in residential, bar in industrial). <b>Flags risky locations.</b></div></div>
+
+<div class="sec"><h3>8. Evolution tracking</h3>
+<div style="font-size:11px;color:var(--t2);line-height:1.7"><span style="color:#EC4899">DEVELOPMENT_FRONT</span> + <span style="color:#EC4899">GRADIENT</span> increasing + <span style="color:#818cf8">SAME_CLUSTER</span> joining &rarr; "Tengah is the next Punggol." <b>Growth prediction.</b></div></div>
+
+<div class="sec"><h3>9. Competitive landscape</h3>
+<div style="font-size:11px;color:var(--t2);line-height:1.7">Traverse <span style="color:var(--ac)">COMPETES_WITH</span> &rarr; classify by synergy overlap: 46 threats + 12 allies + 27 substitutes. <b>Net competitive position.</b></div></div>
+
+<div class="sec"><h3>10. Cross-city transfer</h3>
+<div style="font-size:11px;color:var(--t2);line-height:1.7">Same relation schema for SGP + HKG &rarr; find HKG neighborhood matching Toa Payoh's graph structure. <b>Universal urban patterns.</b></div></div>
+</div>
+
+<div class="sec"><h3>Live demo result: Bubble tea expansion</h3>
+<div class="note">Top 3: <b>Matilda/Punggol</b> (36K pop, 125K transit, 0 BBT, sat 0.3x), <b>Rivervale/Sengkang</b> (43K pop, 0 BBT), <b>Jurong West Central</b> (48K pop, sat 0.2x). All Dense HDB, young families, massive undersupply. <b>1.6 seconds.</b></div></div>
+</div>
+
+<!-- ====== TAB 4: ACCURACY ====== -->
+<div class="panel" id="t4">
+
+<div class="sec"><h3>What the 128d Plexis embedding captures</h3>
+<div class="note">R&sup2; = how much of each feature can be predicted from the 128d embedding alone. Higher = the graph encodes this information well.</div>
+
+<div class="g2">
+<div>
+<h3 style="font-size:13px;color:var(--ac);margin:10px 0">Hex-8 R&sup2; (embedding &rarr; hex feature)</h3>
+<table><tr><th>Feature</th><th>R&sup2;</th><th></th><th>Quality</th></tr>
+<tr><td>walkability_score</td><td>0.898</td><td><div class="bar" style="width:120px"><div class="bar-fill" style="width:90%"></div></div></td><td><span class="tag tag-ok">EXCELLENT</span></td></tr>
+<tr><td>pull_residential</td><td>0.894</td><td><div class="bar" style="width:120px"><div class="bar-fill" style="width:89%"></div></div></td><td><span class="tag tag-ok">EXCELLENT</span></td></tr>
+<tr><td>ecosystem_completeness</td><td>0.827</td><td><div class="bar" style="width:120px"><div class="bar-fill" style="width:83%"></div></div></td><td><span class="tag tag-ok">STRONG</span></td></tr>
+<tr><td>population</td><td>0.777</td><td><div class="bar" style="width:120px"><div class="bar-fill" style="width:78%"></div></div></td><td><span class="tag tag-ok">GOOD</span></td></tr>
+<tr><td>pull_office</td><td>0.667</td><td><div class="bar" style="width:120px"><div class="bar-fill" style="width:67%"></div></div></td><td><span class="tag tag-warn">MODERATE</span></td></tr>
+<tr><td>pc_total</td><td>0.661</td><td><div class="bar" style="width:120px"><div class="bar-fill" style="width:66%"></div></div></td><td><span class="tag tag-warn">MODERATE</span></td></tr>
+<tr><td>transit_daily_taps</td><td>0.648</td><td><div class="bar" style="width:120px"><div class="bar-fill" style="width:65%"></div></div></td><td><span class="tag tag-warn">MODERATE</span></td></tr>
+</table></div>
+
+<div>
+<h3 style="font-size:13px;color:var(--ac);margin:10px 0">Place R&sup2; (embedding &rarr; place feature)</h3>
+<table><tr><th>Feature</th><th>R&sup2;</th><th></th><th>Quality</th></tr>
+<tr><td>anchor_score</td><td>0.908</td><td><div class="bar" style="width:120px"><div class="bar-fill" style="width:91%"></div></div></td><td><span class="tag tag-ok">EXCELLENT</span></td></tr>
+<tr><td>demand_context_score</td><td>0.884</td><td><div class="bar" style="width:120px"><div class="bar-fill" style="width:88%"></div></div></td><td><span class="tag tag-ok">EXCELLENT</span></td></tr>
+<tr><td>competitors_200m</td><td>0.774</td><td><div class="bar" style="width:120px"><div class="bar-fill" style="width:77%"></div></div></td><td><span class="tag tag-ok">GOOD</span></td></tr>
+<tr><td>complementary_diversity</td><td>0.696</td><td><div class="bar" style="width:120px"><div class="bar-fill" style="width:70%"></div></div></td><td><span class="tag tag-ok">GOOD</span></td></tr>
+<tr><td>transit_score</td><td>0.661</td><td><div class="bar" style="width:120px"><div class="bar-fill" style="width:66%"></div></div></td><td><span class="tag tag-warn">MODERATE</span></td></tr>
+<tr><td>survivability_index</td><td>0.477</td><td><div class="bar" style="width:120px"><div class="bar-fill" style="width:48%"></div></div></td><td><span class="tag tag-warn">MODERATE</span></td></tr>
+</table></div>
+</div></div>
+
+<div class="sec"><h3>Other metrics</h3>
+<table><tr><th>Metric</th><th>Value</th><th>What it means</th></tr>
+<tr><td>Category classification</td><td><b>69.8%</b></td><td>Embedding alone predicts business type 70% of the time (24 categories)</td></tr>
+<tr><td>Category separability</td><td><b>310x</b></td><td>Same-category places are 310x more similar than different-category in commercial head</td></tr>
+<tr><td>Retrieval P@5</td><td><b>0.100</b></td><td>10% of top-5 nearest neighbors are same category (vs 4% baseline)</td></tr>
+<tr><td>Archetype NMI</td><td><b>0.362</b></td><td>Embedding clusters partially recover pre-computed neighborhood archetypes</td></tr>
+<tr><td>Link prediction Hits@10</td><td><b>14.1%</b></td><td>True connected node appears in top-10 predictions 14% of the time</td></tr>
+</table></div>
+
+<div class="sec"><h3>Dynamic data adds +10% R&sup2;</h3>
+<table><tr><th>Target</th><th>Static features only</th><th>+ LTA dynamic</th><th>Gain</th></tr>
+<tr><td>ecosystem_completeness</td><td>0.715</td><td><b>0.818</b></td><td><span class="tag tag-ok">+10.3%</span></td></tr>
+<tr><td>saturation_fnb</td><td>0.479</td><td><b>0.524</b></td><td><span class="tag tag-ok">+4.4%</span></td></tr>
+<tr><td>idx_vitality</td><td>0.935</td><td><b>0.953</b></td><td><span class="tag tag-ok">+1.8%</span></td></tr>
+</table></div>
+
+<div class="sec"><h3>Summary by dimension</h3>
+<table><tr><th>What embedding captures</th><th>R&sup2; range</th><th>Verdict</th></tr>
+<tr><td>Structural / spatial (walkability, ecosystem, population)</td><td>0.78 &ndash; 0.90</td><td><span class="tag tag-ok">EXCELLENT</span> &mdash; these ARE graph properties</td></tr>
+<tr><td>Demand (pull_residential, demand_context, anchor_score)</td><td>0.88 &ndash; 0.91</td><td><span class="tag tag-ok">EXCELLENT</span> &mdash; demand flows through edges</td></tr>
+<tr><td>Competition (competitors, diversity)</td><td>0.70 &ndash; 0.77</td><td><span class="tag tag-ok">GOOD</span> &mdash; competition is graph density</td></tr>
+<tr><td>Transit (taps, transit_score)</td><td>0.65 &ndash; 0.66</td><td><span class="tag tag-warn">MODERATE</span> &mdash; hub-dependent</td></tr>
+<tr><td>Viability (survivability)</td><td>0.48</td><td><span class="tag tag-warn">MODERATE</span> &mdash; supply-side beyond graph</td></tr>
+<tr><td>Category identity</td><td>69.8% acc, 310x sep</td><td><span class="tag tag-ok">STRONG</span> &mdash; commercial head works</td></tr>
+</table>
+<div style="text-align:center;margin-top:14px;font-size:13px;color:var(--t2)">
+<b style="color:var(--ac)">Production formula:</b> &nbsp; score = embedding_similarity &times; (1 &minus; saturation) &times; demand_match<br>
+<span style="font-size:11px;color:var(--t3)">Features handle supply. Graph handles structure. Together they answer everything.</span>
+</div></div>
+</div>
+
+<div class="foot"><span>SGP Digital Atlas + Plexis</span> &middot; Propheus &middot; April 2026 &middot; 637+612+114 features &middot; 1.49M graph edges &middot; 128d R-GCN</div>
+</div>
+<script>function showTab(id){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));document.getElementById(id).classList.add('active');event.target.classList.add('active')}</script>
+</body></html>

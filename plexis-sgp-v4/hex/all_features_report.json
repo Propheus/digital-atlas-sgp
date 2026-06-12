@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-06-01T16:35:06",
-  "wall_clock_s": 0.83,
+  "generated_at": "2026-06-11T08:10:21",
+  "wall_clock_s": 0.65,
   "shapes": {
     "hex9_all_features": [
       7318,
-      559
+      583
     ],
     "hex8_all_features": [
       1191,
-      601
+      703
     ],
     "subzone_all_features": [
       326,

@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-06-11T08:07:14",
+  "spec": "S10 context pack (nous external sources integrated)",
+  "sources": "build_nous_features.py pack (see nous_export/README.md)",
+  "fy_pipeline": 2024,
+  "national": {
+    "conserved_bldgs": 7235.0,
+    "carpark_lots": 696086.0,
+    "wet_markets": 63.0,
+    "petrol": 201.0,
+    "coworking": 171.0,
+    "condo_projects": 2384.0,
+    "bto_alloc_units": 91940.9
+  },
+  "female_share_match": 0.4290512174643157,
+  "cols": [
+    "cons_bldg_count",
+    "cons_cluster_flag",
+    "carpark_count_hdb",
+    "carpark_capacity_lots",
+    "polyclinic_count",
+    "dist_polyclinic_m",
+    "wet_market_count",
+    "dist_wet_market_m",
+    "petrol_station_count",
+    "dist_petrol_m",
+    "coworking_count",
+    "condo_project_count",
+    "condo_txn_units",
+    "female_pop_share",
+    "bto_uc_units_town",
+    "bto_pipeline_est"
+  ],
+  "wall_clock_s": 0.15
+}

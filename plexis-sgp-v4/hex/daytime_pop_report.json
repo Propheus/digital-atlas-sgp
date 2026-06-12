@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-06-10T10:09:55",
+  "spec": "SITE_SELECTION_METRICS.md S3",
+  "od_basis": "2026-04 monthly weekday totals, AM window",
+  "weekdays": 22,
+  "pt_mode_share": 0.62,
+  "rows": 1191,
+  "hex_with_od": 547,
+  "clipped_hexes": 12,
+  "clipped_persons": 7867.725797027052,
+  "national_pop_resident": 4179800.0,
+  "national_dt_pop": 4188322.9310756195,
+  "class_counts": {
+    "no_data": 704,
+    "balanced": 328,
+    "job_center": 98,
+    "bedroom": 61
+  },
+  "feature_cols": [
+    "dt_pop",
+    "dt_pop_unadj",
+    "dt_ratio",
+    "dt_inflow_am_persons",
+    "dt_outflow_am_persons",
+    "dt_net_am_persons",
+    "dt_clipped",
+    "dt_class"
+  ],
+  "wall_clock_s": 0.06
+}

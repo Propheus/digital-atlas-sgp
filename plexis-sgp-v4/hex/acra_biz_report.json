@@ -1,0 +1,12 @@
+{
+  "generated_at": "2026-06-10T11:00:49",
+  "spec": "SITE_SELECTION_METRICS.md S4",
+  "geocode_source": "xkjyeah/singapore-postal-codes (OneMap dump 2026-04)",
+  "geocode_coverage": 0.9424,
+  "entities_geocoded": 1951842,
+  "national_live": 622204,
+  "national_dead_share": 0.6812,
+  "top_hex_share_raw": 0.0781,
+  "top_hex_share_robust": 0.0307,
+  "wall_clock_s": 5.83
+}

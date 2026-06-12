@@ -1,0 +1,102 @@
+{
+  "generated_at": "2026-04-25T03:17:32",
+  "input_rows": 190591,
+  "enriched_ok": 190591,
+  "missing_coords": 0,
+  "outside_sgp_bbox": 0,
+  "missing_subzone": 13,
+  "missing_pa": 13,
+  "missing_region": 13,
+  "places_in_hdb_town": 99973,
+  "unique_hex9_populated": 4224,
+  "unique_hex8_populated": 911,
+  "hex9_places_median": 16,
+  "hex9_places_max": 1215,
+  "top_categories": [
+    [
+      "Other",
+      27155
+    ],
+    [
+      "Uncategorized",
+      11656
+    ],
+    [
+      "Restaurant",
+      9461
+    ],
+    [
+      "HDB",
+      6736
+    ],
+    [
+      "Tuition Centre",
+      5141
+    ],
+    [
+      "Hawker Stall",
+      4824
+    ],
+    [
+      "Construction",
+      4716
+    ],
+    [
+      "Cafe",
+      4627
+    ],
+    [
+      "Corporate Office",
+      4502
+    ],
+    [
+      "Manufacturer",
+      3954
+    ],
+    [
+      "Wholesale",
+      3541
+    ],
+    [
+      "Logistics",
+      3387
+    ],
+    [
+      "Consultant",
+      3253
+    ],
+    [
+      "Software/IT",
+      3125
+    ],
+    [
+      "Beauty Salon",
+      2983
+    ],
+    [
+      "Parking Lot",
+      2687
+    ],
+    [
+      "EV Charging",
+      2670
+    ],
+    [
+      "Preschool",
+      2638
+    ],
+    [
+      "Condominium",
+      2529
+    ],
+    [
+      "Apparel",
+      2478
+    ]
+  ],
+  "subzones_with_any_places": 331,
+  "pas_with_any_places": 55,
+  "regions_with_any_places": 5,
+  "hdb_towns_with_any_places": 27,
+  "wall_clock_s": 17.84
+}

@@ -1,0 +1,17 @@
+{
+  "odata.metadata": "https://datamall2.mytransport.sg/ltaodataservice/$metadata#TrainServicesAlerts",
+  "value": {
+    "Status": 1,
+    "AffectedSegments": [],
+    "Message": [
+      {
+        "Content": "20:00-TEL-Planned Service Adjustment. From 22 May to 4 Jul 2026, Thomson-East Coast Line services will end at 11.30pm on Friday nights and commence at 8.30am on Saturday mornings. Please use alternative MRT lines and bus services. Visit go.gov.sg/tel-adjustments for more details.",
+        "CreatedDate": "2026-05-21 20:00:14"
+      },
+      {
+        "Content": "05:00-SK-Planned Service Adjustment. From 19 Apr to 18 Oct 2026, the Sengkang West LRT Inner Loop (i.e. direction of STC Sengkang towards SW1 Cheng Lim) will be closed. Commuters can continue to use the Sengkang West LRT Outer Loop (i.e. direction of STC Sengkang towards SW8 Renjong), peak-hours shuttle bus services, or regular bus services.",
+        "CreatedDate": "2026-04-18 11:50:27"
+      }
+    ]
+  }
+}

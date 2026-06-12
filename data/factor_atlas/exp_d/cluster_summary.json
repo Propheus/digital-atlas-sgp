@@ -1,0 +1,751 @@
+{
+  "feature_set": "base",
+  "n_hexes": 7318,
+  "n_features": 106,
+  "pca_dim": 40,
+  "pca_variance_retained": 0.8779,
+  "umap_n_neighbors": 80,
+  "umap_min_dist": 0.6,
+  "method": "kmeans",
+  "n_clusters": 8,
+  "silhouette": 0.4058,
+  "stability_ari": null,
+  "seed": 42,
+  "clusters": [
+    {
+      "cluster": 0,
+      "n": 754,
+      "share": 0.103,
+      "centroid_lat": 1.368389362544604,
+      "centroid_lng": 103.87828785540503,
+      "top_positive_features": [
+        {
+          "name": "lu_other_pct",
+          "z": 1.1230000257492065
+        },
+        {
+          "name": "walk_school_m",
+          "z": 0.8859999775886536
+        },
+        {
+          "name": "dist_school_m",
+          "z": 0.8859999775886536
+        },
+        {
+          "name": "walk_park_m",
+          "z": 0.8790000081062317
+        },
+        {
+          "name": "walk_mrt_m",
+          "z": 0.8500000238418579
+        },
+        {
+          "name": "walk_clinic_m",
+          "z": 0.8360000252723694
+        },
+        {
+          "name": "walk_hawker_m",
+          "z": 0.7919999957084656
+        },
+        {
+          "name": "lu_transport_pct",
+          "z": 0.7699999809265137
+        }
+      ],
+      "top_negative_features": [
+        {
+          "name": "amenity_types_nearby",
+          "z": -0.9900000095367432
+        },
+        {
+          "name": "walkability_score",
+          "z": -0.972000002861023
+        },
+        {
+          "name": "walkability_score_v2",
+          "z": -0.8259999752044678
+        },
+        {
+          "name": "walk_bus_score",
+          "z": -0.7820000052452087
+        },
+        {
+          "name": "bldg_ring1",
+          "z": -0.7379999756813049
+        },
+        {
+          "name": "pop_ring2",
+          "z": -0.7360000014305115
+        },
+        {
+          "name": "lu_entropy",
+          "z": -0.7160000205039978
+        },
+        {
+          "name": "walk_clinic_score",
+          "z": -0.6620000004768372
+        }
+      ],
+      "top_subzones": {
+        "CHANGI AIRPORT": 273,
+        "MURAI": 139,
+        "PORT": 44,
+        "PLAB": 42,
+        "MANDAI EAST": 24,
+        "CHANGI WEST": 18,
+        "SIMPANG NORTH": 16,
+        "PULAU SELETAR": 16
+      },
+      "top_regions": {
+        "EAST REGION": 366,
+        "WEST REGION": 154,
+        "NORTH REGION": 133,
+        "CENTRAL REGION": 62,
+        "NORTH-EAST REGION": 39
+      }
+    },
+    {
+      "cluster": 1,
+      "n": 850,
+      "share": 0.116,
+      "centroid_lat": 1.342925133653897,
+      "centroid_lng": 103.82643976201282,
+      "top_positive_features": [
+        {
+          "name": "hex_flow_pct",
+          "z": 1.690000057220459
+        },
+        {
+          "name": "hex_avg_speed_kmh",
+          "z": 1.6859999895095825
+        },
+        {
+          "name": "hex_flow_segments",
+          "z": 1.4559999704360962
+        },
+        {
+          "name": "road_cat_expressway",
+          "z": 1.3580000400543213
+        },
+        {
+          "name": "road_cat_slip",
+          "z": 1.00600004196167
+        },
+        {
+          "name": "hex_seg_count",
+          "z": 0.8270000219345093
+        },
+        {
+          "name": "lu_mixed_use_pct",
+          "z": 0.47200000286102295
+        },
+        {
+          "name": "road_cat_minor_arterial",
+          "z": 0.42399999499320984
+        }
+      ],
+      "top_negative_features": [
+        {
+          "name": "walking_dependent_count",
+          "z": -0.34599998593330383
+        },
+        {
+          "name": "walk_bus_m",
+          "z": -0.34599998593330383
+        },
+        {
+          "name": "population",
+          "z": -0.3440000116825104
+        },
+        {
+          "name": "working_age_count",
+          "z": -0.34200000762939453
+        },
+        {
+          "name": "mrt_hex_rings",
+          "z": -0.33899998664855957
+        },
+        {
+          "name": "dist_nearest_mrt_m",
+          "z": -0.33899998664855957
+        },
+        {
+          "name": "residential_floor_area_sqm",
+          "z": -0.33899998664855957
+        },
+        {
+          "name": "elderly_count",
+          "z": -0.3370000123977661
+        }
+      ],
+      "top_subzones": {
+        "NORTH-EASTERN ISLANDS": 157,
+        "SENTOSA": 43,
+        "TUAS VIEW": 34,
+        "TUAS BAY": 27,
+        "TUAS NORTH": 25,
+        "MARITIME SQUARE": 21,
+        "TUAS PROMENADE": 21,
+        "CENTRAL WATER CATCHMENT": 20
+      },
+      "top_regions": {
+        "WEST REGION": 266,
+        "CENTRAL REGION": 235,
+        "NORTH-EAST REGION": 205,
+        "EAST REGION": 75,
+        "NORTH REGION": 69
+      }
+    },
+    {
+      "cluster": 2,
+      "n": 158,
+      "share": 0.022,
+      "centroid_lat": 1.2716252992457537,
+      "centroid_lng": 103.69200266903205,
+      "top_positive_features": [
+        {
+          "name": "lu_business_pct",
+          "z": 2.5220000743865967
+        },
+        {
+          "name": "walk_school_m",
+          "z": 0.0
+        },
+        {
+          "name": "dist_school_m",
+          "z": 0.0
+        },
+        {
+          "name": "walk_park_score",
+          "z": 0.0
+        },
+        {
+          "name": "ped_standard",
+          "z": 0.0
+        },
+        {
+          "name": "dist_nearest_mrt_m",
+          "z": 0.0
+        },
+        {
+          "name": "pop_ring1",
+          "z": 0.0
+        },
+        {
+          "name": "hdb_ring1",
+          "z": 0.0
+        }
+      ],
+      "top_negative_features": [
+        {
+          "name": "lu_total_sqm",
+          "z": -2.736999988555908
+        },
+        {
+          "name": "avg_gpr",
+          "z": -1.375
+        },
+        {
+          "name": "lu_entropy",
+          "z": -0.9729999899864197
+        },
+        {
+          "name": "bldg_footprint_sqm",
+          "z": -0.6259999871253967
+        },
+        {
+          "name": "lu_transport_pct",
+          "z": -0.6190000176429749
+        },
+        {
+          "name": "total_floor_area_sqm",
+          "z": -0.6079999804496765
+        },
+        {
+          "name": "lu_open_space_pct",
+          "z": -0.5920000076293945
+        },
+        {
+          "name": "lu_residential_pct",
+          "z": -0.574999988079071
+        }
+      ],
+      "top_subzones": {
+        "JURONG ISLAND AND BUKOM": 87,
+        "TUAS VIEW EXTENSION": 27,
+        "GUL BASIN": 7,
+        "TUAS PROMENADE": 7,
+        "PENJURU CRESCENT": 6,
+        "PIONEER SECTOR": 5,
+        "SAMULUN": 4,
+        "SEMAKAU": 4
+      },
+      "top_regions": {
+        "WEST REGION": 154,
+        "NORTH REGION": 2,
+        "EAST REGION": 1,
+        "NORTH-EAST REGION": 1
+      }
+    },
+    {
+      "cluster": 3,
+      "n": 1608,
+      "share": 0.22,
+      "centroid_lat": 1.3506677900840973,
+      "centroid_lng": 103.84454991447936,
+      "top_positive_features": [
+        {
+          "name": "residential_floor_area_sqm",
+          "z": 1.4279999732971191
+        },
+        {
+          "name": "walkability_score_v2",
+          "z": 1.4190000295639038
+        },
+        {
+          "name": "lu_residential_pct",
+          "z": 1.3940000534057617
+        },
+        {
+          "name": "walking_dependent_count",
+          "z": 1.3919999599456787
+        },
+        {
+          "name": "total_floor_area_sqm",
+          "z": 1.3890000581741333
+        },
+        {
+          "name": "population",
+          "z": 1.3799999952316284
+        },
+        {
+          "name": "pop_ring1",
+          "z": 1.3700000047683716
+        },
+        {
+          "name": "working_age_count",
+          "z": 1.36899995803833
+        }
+      ],
+      "top_negative_features": [
+        {
+          "name": "walk_hawker_m",
+          "z": -1.2599999904632568
+        },
+        {
+          "name": "walk_clinic_m",
+          "z": -1.1979999542236328
+        },
+        {
+          "name": "walk_school_m",
+          "z": -1.1150000095367432
+        },
+        {
+          "name": "dist_school_m",
+          "z": -1.1150000095367432
+        },
+        {
+          "name": "walk_super_m",
+          "z": -1.1100000143051147
+        },
+        {
+          "name": "walk_mrt_m",
+          "z": -1.0779999494552612
+        },
+        {
+          "name": "walk_park_m",
+          "z": -0.9900000095367432
+        },
+        {
+          "name": "walk_bus_m",
+          "z": -0.9309999942779541
+        }
+      ],
+      "top_subzones": {
+        "TAMPINES EAST": 36,
+        "FRANKEL": 30,
+        "BEDOK NORTH": 27,
+        "UPPER THOMSON": 26,
+        "BEDOK SOUTH": 25,
+        "TAMPINES WEST": 24,
+        "ALJUNIED": 23,
+        "SERANGOON GARDEN": 22
+      },
+      "top_regions": {
+        "CENTRAL REGION": 581,
+        "NORTH-EAST REGION": 318,
+        "WEST REGION": 275,
+        "EAST REGION": 263,
+        "NORTH REGION": 171
+      }
+    },
+    {
+      "cluster": 4,
+      "n": 717,
+      "share": 0.098,
+      "centroid_lat": 1.2599194738492001,
+      "centroid_lng": 103.68514937859779,
+      "top_positive_features": [
+        {
+          "name": "dist_park_m",
+          "z": 2.0460000038146973
+        },
+        {
+          "name": "dist_hawker_m",
+          "z": 1.909999966621399
+        },
+        {
+          "name": "dist_mrt_m",
+          "z": 1.8339999914169312
+        },
+        {
+          "name": "dist_nearest_mrt_m",
+          "z": 1.781000018119812
+        },
+        {
+          "name": "mrt_hex_rings",
+          "z": 1.781000018119812
+        },
+        {
+          "name": "dist_clinic_m",
+          "z": 1.5920000076293945
+        },
+        {
+          "name": "dist_bus_m",
+          "z": 1.5479999780654907
+        },
+        {
+          "name": "dist_super_m",
+          "z": 1.3459999561309814
+        }
+      ],
+      "top_negative_features": [
+        {
+          "name": "walkability_score",
+          "z": -1.1410000324249268
+        },
+        {
+          "name": "amenity_types_nearby",
+          "z": -0.9549999833106995
+        },
+        {
+          "name": "avg_gpr",
+          "z": -0.8640000224113464
+        },
+        {
+          "name": "lu_entropy",
+          "z": -0.7549999952316284
+        },
+        {
+          "name": "walkability_score_v2",
+          "z": -0.7160000205039978
+        },
+        {
+          "name": "walk_bus_score",
+          "z": -0.6759999990463257
+        },
+        {
+          "name": "pop_ring2",
+          "z": -0.6190000176429749
+        },
+        {
+          "name": "lu_open_space_pct",
+          "z": -0.5870000123977661
+        }
+      ],
+      "top_subzones": {
+        "JURONG ISLAND AND BUKOM": 305,
+        "TUAS VIEW EXTENSION": 246,
+        "SEMAKAU": 51,
+        "PORT": 24,
+        "PIONEER SECTOR": 15,
+        "SAMULUN": 12,
+        "JURONG PORT": 12,
+        "GUL BASIN": 11
+      },
+      "top_regions": {
+        "WEST REGION": 677,
+        "CENTRAL REGION": 26,
+        "NORTH REGION": 7,
+        "EAST REGION": 4,
+        "NORTH-EAST REGION": 3
+      }
+    },
+    {
+      "cluster": 5,
+      "n": 920,
+      "share": 0.126,
+      "centroid_lat": 1.3788911395377725,
+      "centroid_lng": 103.7401371677297,
+      "top_positive_features": [
+        {
+          "name": "lu_open_space_pct",
+          "z": 1.3880000114440918
+        },
+        {
+          "name": "walk_clinic_m",
+          "z": 1.1820000410079956
+        },
+        {
+          "name": "walk_super_m",
+          "z": 1.1670000553131104
+        },
+        {
+          "name": "walk_bus_m",
+          "z": 1.156000018119812
+        },
+        {
+          "name": "dist_school_m",
+          "z": 1.1100000143051147
+        },
+        {
+          "name": "walk_school_m",
+          "z": 1.1100000143051147
+        },
+        {
+          "name": "dist_super_m",
+          "z": 1.065999984741211
+        },
+        {
+          "name": "walk_mrt_m",
+          "z": 0.9919999837875366
+        }
+      ],
+      "top_negative_features": [
+        {
+          "name": "walkability_score",
+          "z": -1.0700000524520874
+        },
+        {
+          "name": "amenity_types_nearby",
+          "z": -1.0540000200271606
+        },
+        {
+          "name": "walk_bus_score",
+          "z": -0.8479999899864197
+        },
+        {
+          "name": "walkability_score_v2",
+          "z": -0.8389999866485596
+        },
+        {
+          "name": "bldg_ring1",
+          "z": -0.8159999847412109
+        },
+        {
+          "name": "pop_ring2",
+          "z": -0.7409999966621399
+        },
+        {
+          "name": "walk_clinic_score",
+          "z": -0.703000009059906
+        },
+        {
+          "name": "pop_ring1",
+          "z": -0.652999997138977
+        }
+      ],
+      "top_subzones": {
+        "MURAI": 358,
+        "CENTRAL WATER CATCHMENT": 244,
+        "LIM CHU KANG": 144,
+        "SUDONG": 36,
+        "LOWER SELETAR": 28,
+        "MANDAI WEST": 17,
+        "TUAS VIEW EXTENSION": 12,
+        "XILIN": 8
+      },
+      "top_regions": {
+        "NORTH REGION": 447,
+        "WEST REGION": 439,
+        "EAST REGION": 24,
+        "NORTH-EAST REGION": 9,
+        "CENTRAL REGION": 1
+      }
+    },
+    {
+      "cluster": 6,
+      "n": 1450,
+      "share": 0.198,
+      "centroid_lat": 1.362955229885727,
+      "centroid_lng": 103.8085878302291,
+      "top_positive_features": [
+        {
+          "name": "lu_business_pct",
+          "z": 0.3610000014305115
+        },
+        {
+          "name": "lu_total_sqm",
+          "z": 0.35100001096725464
+        },
+        {
+          "name": "bldg_footprint_sqm",
+          "z": 0.32199999690055847
+        },
+        {
+          "name": "lu_entropy",
+          "z": 0.31700000166893005
+        },
+        {
+          "name": "lu_institutional_pct",
+          "z": 0.26600000262260437
+        },
+        {
+          "name": "commercial_floor_area_sqm",
+          "z": 0.24899999797344208
+        },
+        {
+          "name": "bldg_industrial",
+          "z": 0.23899999260902405
+        },
+        {
+          "name": "walkability_score",
+          "z": 0.23800000548362732
+        }
+      ],
+      "top_negative_features": [
+        {
+          "name": "mrt_hex_rings",
+          "z": -0.48399999737739563
+        },
+        {
+          "name": "dist_nearest_mrt_m",
+          "z": -0.48399999737739563
+        },
+        {
+          "name": "dist_mrt_m",
+          "z": -0.4659999907016754
+        },
+        {
+          "name": "dist_clinic_m",
+          "z": -0.45100000500679016
+        },
+        {
+          "name": "walk_bus_m",
+          "z": -0.4490000009536743
+        },
+        {
+          "name": "dist_super_m",
+          "z": -0.43799999356269836
+        },
+        {
+          "name": "dist_hawker_m",
+          "z": -0.42800000309944153
+        },
+        {
+          "name": "dist_park_m",
+          "z": -0.42100000381469727
+        }
+      ],
+      "top_subzones": {
+        "MURAI": 56,
+        "CENTRAL WATER CATCHMENT": 46,
+        "MANDAI EAST": 31,
+        "XILIN": 30,
+        "PASIR RIS WAFER FAB PARK": 30,
+        "GALI BATU": 28,
+        "LOWER SELETAR": 25,
+        "NATURE RESERVE": 25
+      },
+      "top_regions": {
+        "WEST REGION": 444,
+        "NORTH REGION": 364,
+        "CENTRAL REGION": 254,
+        "EAST REGION": 225,
+        "NORTH-EAST REGION": 163
+      }
+    },
+    {
+      "cluster": 7,
+      "n": 861,
+      "share": 0.118,
+      "centroid_lat": 1.3591051753702783,
+      "centroid_lng": 103.9546778991658,
+      "top_positive_features": [
+        {
+          "name": "lu_other_pct",
+          "z": 1.1490000486373901
+        },
+        {
+          "name": "lu_open_space_pct",
+          "z": 0.48100000619888306
+        },
+        {
+          "name": "avg_gpr",
+          "z": 0.003000000026077032
+        },
+        {
+          "name": "dist_school_m",
+          "z": 0.0
+        },
+        {
+          "name": "walk_school_m",
+          "z": 0.0
+        },
+        {
+          "name": "walk_park_score",
+          "z": 0.0
+        },
+        {
+          "name": "ped_standard",
+          "z": 0.0
+        },
+        {
+          "name": "dist_nearest_mrt_m",
+          "z": 0.0
+        }
+      ],
+      "top_negative_features": [
+        {
+          "name": "lu_total_sqm",
+          "z": -1.3609999418258667
+        },
+        {
+          "name": "lu_entropy",
+          "z": -0.9509999752044678
+        },
+        {
+          "name": "bldg_footprint_sqm",
+          "z": -0.7739999890327454
+        },
+        {
+          "name": "total_floor_area_sqm",
+          "z": -0.6650000214576721
+        },
+        {
+          "name": "lu_transport_pct",
+          "z": -0.6359999775886536
+        },
+        {
+          "name": "bldg_count",
+          "z": -0.6320000290870667
+        },
+        {
+          "name": "bldg_unclassified",
+          "z": -0.6190000176429749
+        },
+        {
+          "name": "bus_stops",
+          "z": -0.5590000152587891
+        }
+      ],
+      "top_subzones": {
+        "NORTH-EASTERN ISLANDS": 518,
+        "SOUTHERN GROUP": 54,
+        "SUDONG": 38,
+        "CHANGI BAY": 27,
+        "MURAI": 25,
+        "CITY TERMINALS": 19,
+        "SENTOSA": 19,
+        "CHANGI AIRPORT": 18
+      },
+      "top_regions": {
+        "NORTH-EAST REGION": 530,
+        "CENTRAL REGION": 110,
+        "WEST REGION": 105,
+        "EAST REGION": 76,
+        "NORTH REGION": 40
+      }
+    }
+  ]
+}
