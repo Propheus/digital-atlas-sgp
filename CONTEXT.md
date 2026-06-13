@@ -347,3 +347,28 @@ The data lake supports many directions. Pick a thread:
 - API endpoints via sim-api FastAPI (port 18068)
 
 To start a new project: pick a thread, name it, and we scope a v0 against the existing data files. No new ingestion needed for most directions.
+
+---
+
+## 8. Plexis v5 Atlas + azold App Suite (2026-06, current)
+
+**Atlas v5.4.0** — `plexis-sgp-v5/` local · `azold-test-server:/home/azureuser/da-sgp/v5/` (kept in sync).
+hex8 master 1,191×801 (hex8-only for products) · 51 catalogued datasets · 2,735 features 100% described ·
+S1–S11 site-selection layers, 64/64 validation gates · reports: `ATLAS_V5_REPORT.html`, `NEW_METRICS_SUMMARY.md`, `docs/USE_CASE_DIARY.md`.
+
+### Embeddings (both exam-gated BEFORE training; use RAW, never re-standardize)
+| Name | Unit | Dims | Exam | Artifact |
+|---|---|---|---|---|
+| plexis-e1 | hex8 ×1,191 | 256 (160 PCA + 96 contrastive) | 13-check harness | `hex/hex8_embedding_plexis_e1_256d.parquet` |
+| plexis-p1 | place ×190,591 | 64 (two-tower contrastive, NO rating signals) | 9/9 (chain retrieval .814, rating-audit .094) | `places/place_embedding_plexis_p1_64d.parquet` |
+
+### Apps on azold-test-server (10.0.2.25, all screen + python http.server)
+| App | Port | Screen | What |
+|---|---|---|---|
+| SG Pulse | 16095 | `sg-pulse` | non-technical showcase: breathing city, stories, sites, hex Twins + why-panel, legends |
+| Places Constellation | 16096 | `place-graph` | UMAP galaxy of 190K places + twin-constellation graph walking (plexis-p1) |
+| Atlas Diary | 16097 | `atlas-diary` | 10 use-cases answered live on map, "FROM THE EMBEDDINGS" provenance |
+| Mobility v2 + agent | 18080 | — | full transport adequacy app + FastAPI agent (`~/`) |
+
+Redeploy any app: `npm run build` in `apps/<name>/` + `rsync -az --delete dist/ azold-test-server:/home/azureuser/<name>/`.
+Data builders live in `plexis-sgp-v5/`: `build_showcase_data.py`, `build_constellation_data.py`, `build_diary_data.py`.

@@ -1,0 +1,96 @@
+/* Atlas Diary — travel-lens theme */
+:root{
+  --bg:#0d1f21; --glass:rgba(13,25,26,.88); --glass-soft:rgba(20,38,40,.7);
+  --line:rgba(32,178,170,.22); --line-strong:rgba(32,178,170,.5);
+  --teal:#20b2aa; --acc:#fcd34d; --t1:#e8f1f0; --t2:#94a3b8;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body,#root{height:100%}
+body{background:var(--bg);color:var(--t1);overflow:hidden;
+  font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',system-ui,sans-serif}
+.app{position:relative;height:100%;display:flex;padding-top:52px}
+.loading{display:flex;height:100%;align-items:center;justify-content:center;color:var(--t2)}
+
+.bar{position:absolute;top:0;left:0;right:0;z-index:20;height:52px;display:flex;
+  align-items:center;gap:18px;padding:0 18px;background:var(--glass);
+  border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+.brand{font-size:17px;font-weight:800}
+.brand .hot{color:var(--acc);text-shadow:0 0 18px #fcd34d44}
+.bar-sub{color:var(--t2);font-size:12px}
+.powered{margin-left:auto;color:#5f7472;font-size:11px;letter-spacing:.6px}
+.logo{height:22px;opacity:.92}
+
+/* left accordion */
+.left{width:312px;flex:none;overflow-y:auto;background:var(--glass);
+  border-right:1px solid var(--line);padding:14px 12px 18px}
+.group{margin-bottom:14px}
+.gtag{font-size:10.5px;letter-spacing:2.2px;color:var(--teal);font-weight:800;
+  margin:6px 4px 8px}
+.gtag span{display:block;letter-spacing:.3px;color:#5f7472;font-weight:500;
+  text-transform:none;margin-top:2px}
+.acc{display:block;width:100%;text-align:left;background:var(--glass-soft);
+  border:1px solid var(--line);border-radius:11px;padding:10px 13px;margin-top:7px;
+  color:var(--t1);cursor:pointer;transition:border-color .2s}
+.acc b{font-size:13px;font-weight:650}
+.acc:hover{border-color:var(--line-strong)}
+.acc.on{border-color:var(--acc);box-shadow:0 0 16px #fcd34d22}
+.acc.on b{color:var(--acc)}
+.accsub{display:block;font-size:11px;color:var(--t2);margin-top:4px;line-height:1.45;
+  animation:subIn .3s ease}
+@keyframes subIn{from{opacity:0}to{opacity:1}}
+
+.map{flex:1;min-width:0}
+
+/* right detail panel */
+.right{width:368px;flex:none;overflow-y:auto;background:var(--glass);
+  border-left:1px solid var(--line);padding:18px 18px 22px;position:relative}
+.right::before{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;
+  background:linear-gradient(90deg,var(--teal),var(--acc) 60%,transparent);opacity:.85}
+.panel-tag{font-size:10.5px;letter-spacing:2.5px;color:var(--teal);font-weight:700;
+  text-transform:uppercase;margin-bottom:10px}
+.right p{font-size:13.5px;line-height:1.65;margin:8px 0}
+.right p b{color:#fff}
+.right p i{color:var(--acc);font-style:normal}
+.right a{color:var(--acc)}
+.hint{color:var(--acc);font-size:12px}
+.verdict{color:var(--acc);font-weight:650}
+.dim{color:var(--t2);font-size:11px}
+p.dim{font-size:11.5px;line-height:1.55}
+
+.row{display:flex;flex-direction:column;gap:3px;border:1px solid var(--line);
+  border-radius:10px;padding:9px 12px;margin-top:8px;background:rgba(20,38,40,.5);
+  animation:rowIn .35s ease both}
+.row b{font-size:12.5px;text-transform:capitalize}
+.row.slim{padding:7px 12px;flex-direction:row;justify-content:space-between;
+  align-items:baseline;gap:10px}
+.row.btn{width:100%;text-align:left;cursor:pointer;color:var(--t1)}
+.row.btn.on{border-color:var(--acc)}
+.row.btn:hover{border-color:var(--line-strong)}
+@keyframes rowIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.simtag{color:var(--acc);font-size:10.5px;white-space:nowrap}
+
+.bar-row{display:flex;align-items:center;gap:9px;margin-top:7px;font-size:11.5px}
+.bar-row span{width:128px;flex:none;color:var(--t2);text-transform:capitalize;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-row.you span{color:var(--acc)}
+.bar-row .bar{flex:1;height:9px;background:#ffffff0d;border-radius:5px;overflow:hidden}
+.bar-row .bar i{display:block;height:100%;background:var(--teal);border-radius:5px}
+.bar-row b{width:56px;text-align:right;font-size:11px}
+
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.chip{background:var(--glass-soft);border:1px solid var(--line);color:var(--t2);
+  border-radius:9px;padding:5px 10px;font-size:11.5px;cursor:pointer;text-transform:capitalize}
+.chip:hover{color:var(--t1);border-color:var(--line-strong)}
+.chip.on{color:var(--acc);border-color:var(--acc)}
+
+/* THE badge: this came from the embeddings */
+.emb-badge{margin-top:16px;border:1px solid var(--line-strong);border-radius:12px;
+  padding:11px 14px;font-size:11.5px;line-height:1.6;color:var(--t1);
+  background:linear-gradient(135deg,rgba(32,178,170,.12),rgba(252,211,77,.07));
+  box-shadow:0 0 22px #20b2aa1c;animation:badgeGlow 3.2s ease-in-out infinite}
+@keyframes badgeGlow{0%,100%{box-shadow:0 0 14px #20b2aa1c}50%{box-shadow:0 0 30px #20b2aa3d}}
+.emb-badge b{color:var(--acc)}
+.hexglyph{color:var(--teal);margin-right:4px;font-size:13px}
+
+.src{margin-top:14px;padding-top:8px;border-top:1px solid rgba(32,178,170,.12);
+  color:#5f7472;font-size:10px;letter-spacing:.3px;line-height:1.5}
