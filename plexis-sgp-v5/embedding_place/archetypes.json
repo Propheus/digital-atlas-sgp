@@ -1,0 +1,30 @@
+[
+ {
+  "label": "yakun_kopi_chain",
+  "id": "1F9PfmmiRyaN",
+  "row": 181286,
+  "name": "Ya Kun Kaya Toast (One Holland Village)",
+  "subzone": "HOLLAND DRIVE"
+ },
+ {
+  "label": "heartland_clinic",
+  "id": "00yggTpiu9Dc",
+  "row": 140498,
+  "name": "VitaliTCM Medical Clinic Pte. Ltd. \u4e00\u674f\u4e2d\u533b\u8bca\u7597\u6240",
+  "subzone": "ANG MO KIO TOWN CENTRE"
+ },
+ {
+  "label": "shophouse_bar",
+  "id": "0kXc6zsvx9kU",
+  "row": 165527,
+  "name": "The Lions Den",
+  "subzone": "CHINATOWN"
+ },
+ {
+  "label": "industrial_canteen",
+  "id": "4fTo2kHbHqAo",
+  "row": 160996,
+  "name": "Seatrium Canteen",
+  "subzone": "PIONEER SECTOR"
+ }
+]

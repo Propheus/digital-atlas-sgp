@@ -1,0 +1,100 @@
+{
+ "1_chain_retrieval": {
+  "score": 0.814,
+  "n": 1648,
+  "pass": true
+ },
+ "2_cat_knn": {
+  "score": 0.997,
+  "pass": true
+ },
+ "3_beyond_cat": {
+  "ratio": 0.157,
+  "pass": true
+ },
+ "4_geo_leak": {
+  "rho": 0.077,
+  "pass": true
+ },
+ "5_samehex_spread": {
+  "ratio": 0.64,
+  "pass": true
+ },
+ "6a_probe_anchors": {
+  "r2": 0.775,
+  "pass": true
+ },
+ "6b_probe_mrt": {
+  "r2": 0.809,
+  "pass": true
+ },
+ "7_forbidden_rating": {
+  "r2": 0.094,
+  "pass": true
+ },
+ "8_stability": {
+  "procrustes": [
+   0.979,
+   0.981
+  ],
+  "pass": true
+ },
+ "9_archetypes": {
+  "detail": [
+   {
+    "label": "yakun_kopi_chain",
+    "anchor": "Ya Kun Kaya Toast (One Holland Village)",
+    "neighbours": [
+     "5JKvDPFYGMnq|cafe_coffee|ANG MO KIO TOWN CENTRE",
+     "nw54SoCjFKsz|cafe_coffee|JELEBU",
+     "gQDoULVtL5L0|cafe_coffee|MOULMEIN",
+     "vbej654COtcC|cafe_coffee|PASIR RIS CENTRAL",
+     "iQs9NWzkX7uJ|cafe_coffee|JELEBU"
+    ],
+    "same_cat": 5,
+    "pass": true
+   },
+   {
+    "label": "heartland_clinic",
+    "anchor": "VitaliTCM Medical Clinic Pte. Ltd. \u4e00\u674f\u4e2d\u533b\u8bca\u7597\u6240",
+    "neighbours": [
+     "uUZxTwxq1yZw|health_medical|TELOK BLANGAH DRIVE",
+     "6qAklIP2dGI3|health_medical|GEYLANG EAST",
+     "VaOfOY9hGFyZ|health_medical|TAMPINES EAST",
+     "5N4R3NLWqxe2|health_medical|GEYLANG EAST",
+     "feKrJbTOrCJX|health_medical|PASIR RIS CENTRAL"
+    ],
+    "same_cat": 5,
+    "pass": true
+   },
+   {
+    "label": "shophouse_bar",
+    "anchor": "The Lions Den",
+    "neighbours": [
+     "18bLTX6l8kv5|bar_nightlife|CHINATOWN",
+     "43IGlts2ErZW|bar_nightlife|CHINATOWN",
+     "HPSjmxmqmLJ1|bar_nightlife|CHINATOWN",
+     "cEE4XzrPBCaM|bar_nightlife|CHINATOWN",
+     "e1463pu1YV0d|bar_nightlife|CHINATOWN"
+    ],
+    "same_cat": 5,
+    "pass": true
+   },
+   {
+    "label": "industrial_canteen",
+    "anchor": "Seatrium Canteen",
+    "neighbours": [
+     "rFNFMj7WOdLf|hawker|SAMULUN",
+     "eU0XfRe0ymFt|hawker|SELETAR AEROSPACE PARK",
+     "3nZHpQf33Kpw|hawker|JURONG RIVER",
+     "2Uwn0cH9ivzG|hawker|PENJURU CRESCENT",
+     "NyB5ApCgduIh|hawker|GUL BASIN"
+    ],
+    "same_cat": 5,
+    "pass": true
+   }
+  ],
+  "pass": true
+ },
+ "VERDICT": true
+}

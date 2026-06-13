@@ -17,7 +17,7 @@ from pathlib import Path
 import pandas as pd
 
 ROOT = Path(__file__).parent
-VERSION = "5.3.0"
+VERSION = "5.4.0"
 PLEXIS_VERSION = f"plexis-sgp-v{VERSION}"
 
 

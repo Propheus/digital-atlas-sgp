@@ -70,3 +70,4 @@
 |---|---|---|---|---|
 | `places/sgp_places_final.parquet` | 190,591 × 27 | `hex9_id` | `1` | Stage-1 deliverable: 190,591 places × 27 cols (geo + cat + brand + quality) |
 | `places/sgp_places_micrograph.parquet` | 190,591 × 20 | `id` | `10p` | Per-place micrograph (pmg_*): 400/800m competitors, complements, anchors, transit walk context — the per-venue site fingerprint |
+| `places/place_embedding_plexis_p1_64d.parquet` | 190,591 × 65 | `id` | `p1` | Plexis-P1 64d contrastive place embedding — no rating signals, 9/9 locked exam |

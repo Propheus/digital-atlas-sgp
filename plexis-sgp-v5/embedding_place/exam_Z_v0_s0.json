@@ -1,0 +1,47 @@
+{
+ "1_chain_retrieval": {
+  "score": 0.786,
+  "n": 435,
+  "pass": true
+ },
+ "2_cat_knn": {
+  "score": 0.995,
+  "pass": true
+ },
+ "3_beyond_cat": {
+  "ratio": 0.24,
+  "pass": true
+ },
+ "4_geo_leak": {
+  "rho": 0.085,
+  "pass": true
+ },
+ "5_samehex_spread": {
+  "ratio": 0.725,
+  "pass": true
+ },
+ "6a_probe_anchors": {
+  "r2": 0.782,
+  "pass": true
+ },
+ "6b_probe_mrt": {
+  "r2": 0.833,
+  "pass": true
+ },
+ "7_forbidden_rating": {
+  "r2": 0.089,
+  "pass": true
+ },
+ "8_stability": {
+  "procrustes": [
+   0.97,
+   0.97
+  ],
+  "pass": true
+ },
+ "9_archetypes": {
+  "detail": [],
+  "pass": true
+ },
+ "VERDICT": true
+}

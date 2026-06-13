@@ -1,0 +1,279 @@
++ /usr/bin/python3 train.py --seed 0 --epochs 30 --subset subset_v0.npy --out Z_v0_s0.npy
+train n=50000, dA=108, dB=89, chain_pairs=1103
+epoch 1/30 loss 11.1864 (1s)
+epoch 2/30 loss 10.6966 (1s)
+epoch 3/30 loss 10.6004 (2s)
+epoch 4/30 loss 10.5462 (3s)
+epoch 5/30 loss 10.5118 (3s)
+epoch 6/30 loss 10.4860 (4s)
+epoch 7/30 loss 10.4572 (5s)
+epoch 8/30 loss 10.4418 (5s)
+epoch 9/30 loss 10.4207 (6s)
+epoch 10/30 loss 10.4109 (7s)
+epoch 11/30 loss 10.3978 (7s)
+epoch 12/30 loss 10.3895 (8s)
+epoch 13/30 loss 10.3749 (8s)
+epoch 14/30 loss 10.3673 (9s)
+epoch 15/30 loss 10.3572 (10s)
+epoch 16/30 loss 10.3495 (10s)
+epoch 17/30 loss 10.3361 (11s)
+epoch 18/30 loss 10.3302 (12s)
+epoch 19/30 loss 10.3259 (12s)
+epoch 20/30 loss 10.3161 (13s)
+epoch 21/30 loss 10.3074 (14s)
+epoch 22/30 loss 10.2989 (14s)
+epoch 23/30 loss 10.2985 (15s)
+epoch 24/30 loss 10.2872 (16s)
+epoch 25/30 loss 10.2835 (16s)
+epoch 26/30 loss 10.2846 (17s)
+epoch 27/30 loss 10.2725 (17s)
+epoch 28/30 loss 10.2673 (18s)
+epoch 29/30 loss 10.2634 (19s)
+epoch 30/30 loss 10.2647 (19s)
+saved Z_v0_s0.npy (50000, 64) in 19s
+
++ /usr/bin/python3 train.py --seed 1 --epochs 30 --subset subset_v0.npy --out Z_v0_s1.npy
+train n=50000, dA=108, dB=89, chain_pairs=1103
+epoch 1/30 loss 11.2174 (1s)
+epoch 2/30 loss 10.7147 (1s)
+epoch 3/30 loss 10.6080 (2s)
+epoch 4/30 loss 10.5477 (3s)
+epoch 5/30 loss 10.5063 (3s)
+epoch 6/30 loss 10.4761 (4s)
+epoch 7/30 loss 10.4628 (5s)
+epoch 8/30 loss 10.4370 (5s)
+epoch 9/30 loss 10.4258 (6s)
+epoch 10/30 loss 10.4052 (6s)
+epoch 11/30 loss 10.3901 (7s)
+epoch 12/30 loss 10.3829 (8s)
+epoch 13/30 loss 10.3646 (8s)
+epoch 14/30 loss 10.3542 (9s)
+epoch 15/30 loss 10.3428 (10s)
+epoch 16/30 loss 10.3372 (10s)
+epoch 17/30 loss 10.3272 (11s)
+epoch 18/30 loss 10.3230 (12s)
+epoch 19/30 loss 10.3119 (12s)
+epoch 20/30 loss 10.3061 (13s)
+epoch 21/30 loss 10.2929 (14s)
+epoch 22/30 loss 10.2924 (14s)
+epoch 23/30 loss 10.2835 (15s)
+epoch 24/30 loss 10.2774 (16s)
+epoch 25/30 loss 10.2772 (16s)
+epoch 26/30 loss 10.2680 (17s)
+epoch 27/30 loss 10.2648 (18s)
+epoch 28/30 loss 10.2618 (18s)
+epoch 29/30 loss 10.2532 (19s)
+epoch 30/30 loss 10.2482 (19s)
+saved Z_v0_s1.npy (50000, 64) in 20s
+
++ /usr/bin/python3 train.py --seed 2 --epochs 30 --subset subset_v0.npy --out Z_v0_s2.npy
+train n=50000, dA=108, dB=89, chain_pairs=1103
+epoch 1/30 loss 11.2191 (1s)
+epoch 2/30 loss 10.7267 (1s)
+epoch 3/30 loss 10.6111 (2s)
+epoch 4/30 loss 10.5538 (3s)
+epoch 5/30 loss 10.5164 (3s)
+epoch 6/30 loss 10.4869 (4s)
+epoch 7/30 loss 10.4620 (4s)
+epoch 8/30 loss 10.4424 (5s)
+epoch 9/30 loss 10.4221 (6s)
+epoch 10/30 loss 10.4085 (6s)
+epoch 11/30 loss 10.3942 (7s)
+epoch 12/30 loss 10.3823 (8s)
+epoch 13/30 loss 10.3674 (8s)
+epoch 14/30 loss 10.3593 (9s)
+epoch 15/30 loss 10.3467 (10s)
+epoch 16/30 loss 10.3415 (10s)
+epoch 17/30 loss 10.3336 (11s)
+epoch 18/30 loss 10.3204 (12s)
+epoch 19/30 loss 10.3126 (12s)
+epoch 20/30 loss 10.3124 (13s)
+epoch 21/30 loss 10.3024 (13s)
+epoch 22/30 loss 10.2973 (14s)
+epoch 23/30 loss 10.2895 (15s)
+epoch 24/30 loss 10.2853 (15s)
+epoch 25/30 loss 10.2796 (16s)
+epoch 26/30 loss 10.2785 (17s)
+epoch 27/30 loss 10.2684 (17s)
+epoch 28/30 loss 10.2633 (18s)
+epoch 29/30 loss 10.2616 (19s)
+epoch 30/30 loss 10.2523 (19s)
+saved Z_v0_s2.npy (50000, 64) in 19s
+
++ /usr/bin/python3 exam.py Z_v0_s0.npy Z_v0_s1.npy Z_v0_s2.npy --subset subset_v0.npy
+{
+ "1_chain_retrieval": {
+  "score": 0.786,
+  "n": 435,
+  "pass": true
+ },
+ "2_cat_knn": {
+  "score": 0.995,
+  "pass": true
+ },
+ "3_beyond_cat": {
+  "ratio": 0.24,
+  "pass": true
+ },
+ "4_geo_leak": {
+  "rho": 0.085,
+  "pass": true
+ },
+ "5_samehex_spread": {
+  "ratio": 0.725,
+  "pass": true
+ },
+ "6a_probe_anchors": {
+  "r2": 0.782,
+  "pass": true
+ },
+ "6b_probe_mrt": {
+  "r2": 0.833,
+  "pass": true
+ },
+ "7_forbidden_rating": {
+  "r2": 0.089,
+  "pass": true
+ },
+ "8_stability": {
+  "procrustes": [
+   0.97,
+   0.97
+  ],
+  "pass": true
+ },
+ "9_archetypes": {
+  "pass": true
+ },
+ "VERDICT": true
+}
+exam -> /home/azureuser/da-sgp/v5/embedding_place/exam_Z_v0_s0.json
+
+
+=== V0 VERDICT: True ===
+
++ /usr/bin/python3 train.py --seed 0 --epochs 20 --out Z_p1_s0.npy
+train n=190591, dA=108, dB=89, chain_pairs=17046
+epoch 1/20 loss 10.7885 (3s)
+epoch 2/20 loss 10.5062 (5s)
+epoch 3/20 loss 10.4454 (8s)
+epoch 4/20 loss 10.4064 (10s)
+epoch 5/20 loss 10.3774 (13s)
+epoch 6/20 loss 10.3519 (15s)
+epoch 7/20 loss 10.3291 (18s)
+epoch 8/20 loss 10.3139 (20s)
+epoch 9/20 loss 10.3014 (23s)
+epoch 10/20 loss 10.2895 (25s)
+epoch 11/20 loss 10.2802 (28s)
+epoch 12/20 loss 10.2713 (30s)
+epoch 13/20 loss 10.2605 (33s)
+epoch 14/20 loss 10.2517 (35s)
+epoch 15/20 loss 10.2457 (38s)
+epoch 16/20 loss 10.2400 (40s)
+epoch 17/20 loss 10.2320 (43s)
+epoch 18/20 loss 10.2279 (45s)
+epoch 19/20 loss 10.2236 (48s)
+epoch 20/20 loss 10.2193 (50s)
+saved Z_p1_s0.npy (190591, 64) in 51s
+
++ /usr/bin/python3 train.py --seed 1 --epochs 20 --out Z_p1_s1.npy
+train n=190591, dA=108, dB=89, chain_pairs=17046
+epoch 1/20 loss 10.7993 (2s)
+epoch 2/20 loss 10.5070 (5s)
+epoch 3/20 loss 10.4372 (7s)
+epoch 4/20 loss 10.3976 (10s)
+epoch 5/20 loss 10.3660 (12s)
+epoch 6/20 loss 10.3406 (15s)
+epoch 7/20 loss 10.3212 (17s)
+epoch 8/20 loss 10.3050 (20s)
+epoch 9/20 loss 10.2905 (22s)
+epoch 10/20 loss 10.2801 (25s)
+epoch 11/20 loss 10.2700 (27s)
+epoch 12/20 loss 10.2591 (29s)
+epoch 13/20 loss 10.2551 (32s)
+epoch 14/20 loss 10.2447 (34s)
+epoch 15/20 loss 10.2370 (37s)
+epoch 16/20 loss 10.2323 (40s)
+epoch 17/20 loss 10.2260 (42s)
+epoch 18/20 loss 10.2212 (45s)
+epoch 19/20 loss 10.2176 (47s)
+epoch 20/20 loss 10.2123 (50s)
+saved Z_p1_s1.npy (190591, 64) in 50s
+
++ /usr/bin/python3 train.py --seed 2 --epochs 20 --out Z_p1_s2.npy
+train n=190591, dA=108, dB=89, chain_pairs=17046
+epoch 1/20 loss 10.8101 (3s)
+epoch 2/20 loss 10.5110 (5s)
+epoch 3/20 loss 10.4442 (8s)
+epoch 4/20 loss 10.4017 (10s)
+epoch 5/20 loss 10.3711 (13s)
+epoch 6/20 loss 10.3473 (15s)
+epoch 7/20 loss 10.3246 (18s)
+epoch 8/20 loss 10.3076 (20s)
+epoch 9/20 loss 10.2960 (23s)
+epoch 10/20 loss 10.2836 (25s)
+epoch 11/20 loss 10.2748 (28s)
+epoch 12/20 loss 10.2653 (30s)
+epoch 13/20 loss 10.2556 (33s)
+epoch 14/20 loss 10.2488 (35s)
+epoch 15/20 loss 10.2427 (38s)
+epoch 16/20 loss 10.2340 (40s)
+epoch 17/20 loss 10.2314 (43s)
+epoch 18/20 loss 10.2257 (45s)
+epoch 19/20 loss 10.2177 (48s)
+epoch 20/20 loss 10.2140 (50s)
+saved Z_p1_s2.npy (190591, 64) in 51s
+
++ /usr/bin/python3 exam.py Z_p1_s0.npy Z_p1_s1.npy Z_p1_s2.npy
+{
+ "1_chain_retrieval": {
+  "score": 0.814,
+  "n": 1648,
+  "pass": true
+ },
+ "2_cat_knn": {
+  "score": 0.997,
+  "pass": true
+ },
+ "3_beyond_cat": {
+  "ratio": 0.157,
+  "pass": true
+ },
+ "4_geo_leak": {
+  "rho": 0.077,
+  "pass": true
+ },
+ "5_samehex_spread": {
+  "ratio": 0.64,
+  "pass": true
+ },
+ "6a_probe_anchors": {
+  "r2": 0.775,
+  "pass": true
+ },
+ "6b_probe_mrt": {
+  "r2": 0.809,
+  "pass": true
+ },
+ "7_forbidden_rating": {
+  "r2": 0.094,
+  "pass": true
+ },
+ "8_stability": {
+  "procrustes": [
+   0.979,
+   0.981
+  ],
+  "pass": true
+ },
+ "9_archetypes": {
+  "pass": true
+ },
+ "VERDICT": true
+}
+exam -> /home/azureuser/da-sgp/v5/embedding_place/exam_Z_p1_s0.json
+
+
+=== FULL VERDICT: True ===
+
+SHIPPED /home/azureuser/da-sgp/v5/places/place_embedding_plexis_p1_64d.parquet

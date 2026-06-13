@@ -47,9 +47,17 @@ def main():
     m = pd.read_parquet(ROOT / "hex/hex8_all_features.parquet")
     m = m.set_index("hex8_id")
 
+    # Show only hexes with real human presence. Water catchment, military
+    # training areas, empty islands and runways carry no story and twin to
+    # nothing — they are dropped from the map entirely, not just greyed.
+    scored = m["zone_type_broad"].isin(["residential", "unknown"])
+    lived = ((m["pop_resident"].fillna(0) >= 200)
+             | (m["dt_pop"].fillna(0) >= 500)
+             | (m["pc_total"].fillna(0) >= 25))
+
     # ---- hexes.geojson ----
     feats = []
-    for hid, r in m.iterrows():
+    for hid, r in m[lived].iterrows():
         bnd = h3.cell_to_boundary(hid)
         ring = [[lng, lat] for lat, lng in bnd] + [[bnd[0][1], bnd[0][0]]]
         p = {"id": hid}
@@ -101,7 +109,6 @@ def main():
             else REASON_TXT["mixed"]
 
     # ---- report cards ----
-    scored = m["zone_type_broad"].isin(["residential", "unknown"])
     P = {
         "catch": pct(m["iso_walk10_pop"]), "dt": pct(m["dt_pop"]),
         "cafe": pct(m["cap_cafe_coffee"]), "retail": pct(m["cap_shopping_retail"]),
@@ -111,7 +118,7 @@ def main():
                       + (m["pipe_mrt_dist_m"] < 800).astype(float)),
     }
     cards = {}
-    for hid, r in m.iterrows():
+    for hid, r in m[lived].iterrows():
         if not scored.loc[hid]:
             cards[hid] = {"na": True, "name": r["parent_subzone_name"],
                           "zone": r["zone_type_broad"]}
@@ -178,25 +185,103 @@ def main():
     np.fill_diagonal(D, np.inf)
     ids = E.index.to_numpy()
     names = m["parent_subzone_name"]
-    scored_set = set(m.index[scored])
+    # twins only make sense between LIVED, scored hexes — no Semakau "twins"
+    twin_set = set(m.index[scored & lived])
+
+    # per-pair explanation: percentile ranks of human-readable features.
+    # "shared trait" = both hexes clearly off-centre (>=25 pts from median),
+    # same direction, within 22 pts of each other — unusual in the SAME way.
+    # "dif" = the single loudest disagreement (>=45 pts apart).
+    # Traits span FIVE families (max 2 picked per family) so explanations
+    # don't read as mobility-only — the embedding itself is view-balanced
+    # (equalized rho: WHERE .76 / FLOW .76 / PRICE .67 / WHO .66 / WHAT .65).
+    TWIN_FAM = {
+        "move": ["iso_walk10_pop", "iso_transit15_pop", "vis_exit_footfall",
+                 "od_throughput", "labor_pool_45m", "labor_jobs_balance_45m",
+                 "time_to_cbd_min", "pipe_mrt_dist_m"],
+        "people": ["pop_resident", "dt_pop", "pop_hdb_share"],
+        "places": ["pc_total", "pc_cat_restaurant", "pc_cat_shopping_retail",
+                   "biz_live_robust", "biz_recent_dead_share", "cap_total",
+                   "min15_score"],
+        "form": ["lu_residential_pct", "lu_business_pct", "lu_entropy",
+                 "est_built_far", "n_highrise_bldgs", "pipe_dev_capacity_res"],
+        "price": ["rent_resi_psf_med", "nl_2024"],
+    }
+    TWIN_FEATS = [k for fam in TWIN_FAM.values() for k in fam]
+    FAM_OF = {k: f for f, ks in TWIN_FAM.items() for k in ks}
+    PR = (m.loc[m.index.isin(twin_set), TWIN_FEATS].rank(pct=True) * 100)
+
+    def rawv(h, k):
+        v = m.at[h, k]
+        return None if pd.isna(v) else round(float(v), 3 if abs(v) < 10 else 1)
+
+    def why_pair(a, b):
+        shared, diffs = [], []
+        for k in TWIN_FEATS:
+            pa, pb = PR.at[a, k], PR.at[b, k]
+            if pd.isna(pa) or pd.isna(pb):
+                continue
+            da, db = pa - 50, pb - 50
+            if abs(da) >= 25 and abs(db) >= 25 and da * db > 0 \
+                    and abs(pa - pb) <= 22:
+                shared.append((min(abs(da), abs(db)) - 0.4 * abs(pa - pb),
+                               k, pa, pb))
+            if abs(pa - pb) >= 45:
+                diffs.append((abs(pa - pb), k, pa, pb))
+        shared.sort(reverse=True)
+        diffs.sort(reverse=True)
+        # diversity cap: at most 2 traits per family in the top-4, so a pair
+        # that matches on transit AND street life AND built form says so
+        why, famn = [], {}
+        for _, k, pa, pb in shared:
+            f = FAM_OF[k]
+            if famn.get(f, 0) >= 2:
+                continue
+            famn[f] = famn.get(f, 0) + 1
+            why.append({"k": k, "a": rawv(a, k), "b": rawv(b, k),
+                        "pa": round(pa), "pb": round(pb)})
+            if len(why) == 4:
+                break
+        dif = None
+        if diffs:
+            _, k, pa, pb = diffs[0]
+            dif = {"k": k, "a": rawv(a, k), "b": rawv(b, k),
+                   "pa": round(pa), "pb": round(pb)}
+        return why, dif
+
+    id_pos = {h: i for i, h in enumerate(ids)}
+    twin_cols = np.array([t in twin_set for t in ids])
+    n_twinnable = int(twin_cols.sum())
     twins = {}
-    for i, hid in enumerate(ids):
+    for hid in (h for h in ids if h in twin_set):
+        i = id_pos[hid]
         own = str(names.get(hid, ""))
         picks, seen = [], {own}
         for j in np.argsort(D[i]):
             t = ids[j]
-            if t not in scored_set:
+            if t not in twin_set:
                 continue
             nm = str(names.get(t, ""))
             if nm in seen:        # one entry per subzone, skip own subzone
                 continue
             seen.add(nm)
-            picks.append({"id": t, "name": nm})
+            # sim = share of ALL twinnable hexes farther away than this one
+            sim = round(100.0 * float((D[i][twin_cols] > D[i][j]).sum())
+                        / n_twinnable, 1)
+            why, dif = why_pair(hid, t)
+            picks.append({"id": t, "name": nm, "d": float(D[i][j]),
+                          "sim": sim, "why": why, "dif": dif})
             if len(picks) == 5:
                 break
+        # s = edge strength relative to the closest twin (1.0 = closest);
+        # drives line thickness/opacity on the map
+        d0 = min(p["d"] for p in picks)
+        for p in picks:
+            p["s"] = round(d0 / p["d"], 3) if p["d"] > 0 else 1.0
+            del p["d"]
         twins[hid] = picks
     json.dump(twins, open(APP / "twins.json", "w"))
-    print("twins.json done (raw-Z, scored-only, distinct subzones)")
+    print(f"twins.json done ({len(twins)} lived+scored anchors, + sim/why)")
 
     # ---- stories ----
     yunnan = m[m["parent_subzone_name"] == "YUNNAN"]["cap_supermarket"].idxmax()
@@ -247,8 +332,8 @@ def main():
              {"text": "Map two: where jobs and workers cannot reach each other. Colour = jobs reachable per reachable worker within 45 minutes of transit. The western industrial fringe burns bright — thousands of jobs, almost nobody who can get to them.",
               "view": {"center": [103.66, 1.29], "zoom": 11.0},
               "metric": "labor_jobs_balance_45m",
-              "marks": [{"lng": 103.674, "lat": 1.266, "text": "Jurong Island — jobs with no reachable workers"},
-                        {"lng": 103.64, "lat": 1.32, "text": "Tuas — the transit gap, quantified"}]},
+              "marks": [{"lng": 103.636, "lat": 1.275, "text": "Tuas View Extension — 85,000 jobs per reachable worker"},
+                        {"lng": 103.682, "lat": 1.313, "text": "Benoi & Gul — the transit gap, quantified"}]},
              {"text": "Map three: where businesses go to die. From 2.07 million company records: the share of recently registered businesses already closed. And it doesn't just show WHERE — click any red hex and the site card names the likely driver: thin footfall, rent pressure, crowded trade, or a fragile F&B-heavy mix.",
               "view": {"center": [103.85, 1.37], "zoom": 11.2},
               "metric": "biz_recent_dead_share",
