@@ -59,6 +59,38 @@ const LEGENDS = {
   pipe_mrt_dist_m: { title: 'Distance to FUTURE rail', lo: 'at a new station', hi: '12 km away', unit: 'brighter = closer to the coming JRL' },
 }
 
+// Twins tab: plain-language phrasing for each shared/different trait.
+// hi/lo = how to say "both are unusually high/low on this" to a non-expert.
+const TWIN_LBL = {
+  pop_resident: { t: 'residents at night', hi: 'both densely lived-in', lo: 'both lightly lived-in', f: fmtN },
+  dt_pop: { t: 'people present by day', hi: 'both fill up by day', lo: 'both quiet by day', f: fmtN },
+  cap_total: { t: 'open commercial opportunity', hi: 'both have demand to spare', lo: 'both already fully served', f: v => v.toFixed(1) + ' outlets' },
+  iso_walk10_pop: { t: 'people within a 10-min walk', hi: 'both walk-dense', lo: 'both walk-sparse', f: fmtN },
+  iso_transit15_pop: { t: 'reach by 15-min transit', hi: 'both superbly connected', lo: 'both transit-isolated', f: fmtN },
+  rent_resi_psf_med: { t: 'nearby rents', hi: 'both expensive postcodes', lo: 'both affordable postcodes', f: v => 'S$' + v.toFixed(2) + ' psf' },
+  biz_live_robust: { t: 'street businesses', hi: 'both business-dense streets', lo: 'both business-thin', f: fmtN },
+  biz_recent_dead_share: { t: 'recent business closures', hi: 'both high-churn for business', lo: 'both gentle on new business', f: v => Math.round(v * 100) + '%' },
+  vis_exit_footfall: { t: 'MRT exit taps per day', hi: 'both heavy MRT footfall', lo: 'both little MRT footfall', f: fmtN },
+  od_throughput: { t: 'transit trips touching it', hi: 'both major transit nodes', lo: 'both off the transit grid', f: fmtN },
+  labor_pool_45m: { t: 'workforce within 45 min', hi: 'both can staff anything', lo: 'both hard to staff', f: fmtN },
+  labor_jobs_balance_45m: { t: 'jobs per reachable worker', hi: 'both job-rich for their reach', lo: 'both bedroom communities', f: v => v.toFixed(1) + '×' },
+  min15_score: { t: '15-minute-city score', hi: 'both complete neighbourhoods', lo: 'both amenity-poor', f: v => Math.round(v) + '/100' },
+  time_to_cbd_min: { t: 'time to the CBD', hi: 'both far from the centre', lo: 'both close to the centre', f: v => Math.round(v) + ' min' },
+  nl_2024: { t: 'night-time glow', hi: 'both bright after dark', lo: 'both dark after dark', f: v => v.toFixed(1) },
+  pipe_mrt_dist_m: { t: 'distance to future rail', hi: 'both missed by coming rail', lo: 'both near coming rail', f: v => (v / 1000).toFixed(1) + ' km' },
+  pipe_dev_capacity_res: { t: 'room left to build', hi: 'both have growth headroom', lo: 'both built out', f: v => v.toFixed(2) },
+  pc_total: { t: 'places of every kind', hi: 'both packed with places', lo: 'both place-sparse', f: fmtN },
+  pc_cat_restaurant: { t: 'restaurants', hi: 'both eating streets', lo: 'both thin on food', f: fmtN },
+  pc_cat_shopping_retail: { t: 'retail shops', hi: 'both retail-heavy', lo: 'both light on retail', f: fmtN },
+  pop_hdb_share: { t: 'share living in HDB', hi: 'both HDB heartland', lo: 'both private-housing turf', f: v => Math.round(v * 100) + '%' },
+  lu_residential_pct: { t: 'land given to housing', hi: 'both housing-dominated land', lo: 'both little housing land', f: v => Math.round(v * 100) + '%' },
+  lu_business_pct: { t: 'land zoned office/industry', hi: 'both working districts', lo: 'both not office country', f: v => Math.round(v * 100) + '%' },
+  lu_entropy: { t: 'mix of land uses', hi: 'both genuinely mixed-use', lo: 'both single-use fabric', f: v => v.toFixed(2) },
+  est_built_far: { t: 'built intensity (floor-area ratio)', hi: 'both built dense and tall', lo: 'both low-rise fabric', f: v => v.toFixed(1) },
+  n_highrise_bldgs: { t: 'high-rise buildings', hi: 'both high-rise skylines', lo: 'both low-rise', f: fmtN },
+}
+const twinVal = (k, v) => (v == null ? '—' : TWIN_LBL[k].f(v))
+
 function colorExpr(metric, reverse = false) {
   const [lo, hi, log] = DOMAINS[metric] || [0, 1, false]
   const pal = reverse ? [...SEQ].reverse() : SEQ
@@ -152,6 +184,7 @@ export default function App() {
   const marksRef = useRef([])
   const dataRef = useRef({})
   const [twinSel, setTwinSel] = useState(null)   // selected hex on Twins tab
+  const [twinOpen, setTwinOpen] = useState(null) // which twin box is expanded
   const [legend, setLegend] = useState({ kind: 'pulse' })  // what the colours mean RIGHT NOW
 
   // Twins tab: highlight a hex + its 5 functional twins, with connecting lines
@@ -176,11 +209,14 @@ export default function App() {
     if (!self) return
     setTwinSel({ id: hexId, name: self.properties.parent_subzone_name,
                  twins: twins[hexId] || [] })
+    setTwinOpen(null)
     map.getSource('hl').setData({ type: 'FeatureCollection', features: [self] })
     map.getSource('twin-hl').setData({ type: 'FeatureCollection', features: tws })
     const c0 = hexCentroid(self)
+    const meta = Object.fromEntries((twins[hexId] || []).map(t => [t.id, t]))
     map.getSource('twin-lines').setData({ type: 'FeatureCollection',
-      features: tws.map(f => ({ type: 'Feature', properties: {},
+      features: tws.map(f => ({ type: 'Feature',
+        properties: { s: meta[f.properties.id]?.s ?? 0.7 },
         geometry: { type: 'LineString', coordinates: [c0, hexCentroid(f)] } })) })
     map.flyTo({ center: c0, zoom: 10.6, duration: 1500 })
   }
@@ -229,7 +265,10 @@ export default function App() {
           map.addSource('twin-hl', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } })
           map.addSource('twin-lines', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } })
           map.addLayer({ id: 'twin-lines', type: 'line', source: 'twin-lines',
-            paint: { 'line-color': '#20b2aa', 'line-width': 1.8, 'line-opacity': 0.8,
+            paint: { 'line-color': '#20b2aa',
+              // edge weight = similarity: the closest twin gets the boldest line
+              'line-width': ['interpolate', ['linear'], ['coalesce', ['get', 's'], 0.7], 0.5, 1.0, 1, 4.2],
+              'line-opacity': ['interpolate', ['linear'], ['coalesce', ['get', 's'], 0.7], 0.5, 0.4, 1, 0.95],
               'line-dasharray': [1.5, 1.5] } })
           map.addLayer({ id: 'twin-hl', type: 'line', source: 'twin-hl',
             paint: { 'line-color': '#20b2aa', 'line-width': 2.6 } })
@@ -504,7 +543,7 @@ export default function App() {
             <div className="leg-swatches">
               <span><i className="sw" style={{ background: '#fcd34d' }} />your pick</span>
               <span><i className="sw ring" style={{ borderColor: '#20b2aa' }} />its 5 twins</span>
-              <span><i className="sw dash" />similarity link</span>
+              <span><i className="sw dash" />similarity link — thicker = more alike</span>
             </div>
             <div className="leg-note">found by the trained 256-d embedding — not by distance</div>
           </>}
@@ -718,6 +757,57 @@ export default function App() {
               Full training report (plexis-e1) →</a>
             <Src text="plexis-e1 256-d hex embedding — trained on-server in 8 min; 13-check harness locked before training; eval logs validate_embedding_e1.json" />
           </div>
+        )}
+        {tab === 'Twins' && twinSel && twinSel.twins?.length > 0 && (
+          <aside className="panel rightw">
+            <div className="panel-tag">Why these five?</div>
+            <div className="card-title">{twinSel.name?.toLowerCase()} — its twins at a glance</div>
+            {twinSel.twins.map(t => {
+              const open = twinOpen === t.id
+              const phrase = (w) => {
+                const L = TWIN_LBL[w.k]
+                return L ? ((w.pa + w.pb) / 2 >= 50 ? L.hi : L.lo) : null
+              }
+              return (
+                <div className={'why-block' + (open ? ' open' : ' mini')} key={t.id}
+                  onClick={() => setTwinOpen(open ? null : t.id)}>
+                  <div className="why-head">
+                    <span className="why-name">{t.name?.toLowerCase()}</span>
+                    <span className="why-sim">{open ? <>closer than <b>{t.sim}%</b> of SG</> : <b>{t.sim}%</b>}</span>
+                  </div>
+                  <div className="why-bar"><i style={{ width: Math.round((t.s || 0) * 100) + '%' }} /></div>
+                  {!open && (
+                    <div className="why-minirow">
+                      {(t.why || []).slice(0, 2).map(phrase).filter(Boolean).join(' · ')
+                        || 'matched on the full 256-number fingerprint'}
+                    </div>
+                  )}
+                  {open && <>
+                    {t.why?.length ? t.why.map(w => {
+                      const L = TWIN_LBL[w.k]
+                      if (!L) return null
+                      return (
+                        <div className="why-row" key={w.k}>
+                          <span className="why-phrase">{phrase(w)}</span>
+                          <span className="why-vals">{L.t}: <b>{twinVal(w.k, w.a)}</b> vs <b>{twinVal(w.k, w.b)}</b></span>
+                          <div className="pbar">
+                            <i className="pa" style={{ width: w.pa + '%' }} />
+                            <i className="pb" style={{ width: w.pb + '%' }} />
+                          </div>
+                        </div>
+                      )
+                    }) : <div className="why-row"><span className="why-vals">no single headline trait — these match across the whole 256-number fingerprint</span></div>}
+                    {t.dif && TWIN_LBL[t.dif.k] && (
+                      <div className="why-dif">where they differ — {TWIN_LBL[t.dif.k].t}: {twinVal(t.dif.k, t.dif.a)} vs {twinVal(t.dif.k, t.dif.b)}</div>
+                    )}
+                    <button className="chip whychip" onClick={(e) => { e.stopPropagation(); drawTwins(t.id) }}>
+                      show ITS twins ↗</button>
+                  </>}
+                </div>
+              )
+            })}
+            <Src text="% = share of all scored hexes farther away in embedding space · bar = closeness vs the best twin · tap a box for the full story (yellow/teal bars = national percentile)" />
+          </aside>
         )}
 
         {tab === 'Future' && (

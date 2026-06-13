@@ -150,6 +150,35 @@ body{background:var(--bg);color:var(--t1);font:14px/1.5 -apple-system,BlinkMacSy
   text-decoration:none;border:1px solid var(--acc);border-radius:8px;padding:6px 12px}
 .report-link:hover{box-shadow:0 0 16px #fcd34d44}
 
+/* Twins: right-side "why these twins" explainer */
+.panel.rightw{left:auto;right:18px;width:392px;max-height:calc(100% - 300px)}
+.why-block{border:1px solid rgba(32,178,170,.18);border-radius:11px;padding:11px 13px;
+  margin-top:10px;background:rgba(13,25,26,.45);cursor:pointer;transition:border-color .2s}
+.why-block:hover{border-color:rgba(32,178,170,.45)}
+.why-block.mini{padding:8px 12px;margin-top:7px}
+.why-block.open{border-color:var(--acc);cursor:default}
+.why-name{font-size:12.5px;font-weight:650;color:var(--t1);text-transform:capitalize}
+.why-minirow{font-size:10.5px;color:var(--t2);margin-top:4px;line-height:1.4;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.whychip{margin-top:10px}
+.why-head{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.why-head .chip{text-transform:capitalize;font-weight:650;color:var(--t1)}
+.why-sim{font-size:10.5px;color:var(--t2);white-space:nowrap}
+.why-sim b{color:var(--acc)}
+.why-bar{height:3px;background:#ffffff12;border-radius:2px;margin:8px 0 2px}
+.why-bar i{display:block;height:100%;border-radius:2px;
+  background:linear-gradient(90deg,var(--teal),var(--acc))}
+.why-row{margin-top:9px}
+.why-phrase{display:block;font-size:12px;font-weight:650;color:#e8f1f0}
+.why-vals{display:block;font-size:10.5px;color:var(--t2);margin-top:1px}
+.why-vals b{color:#cbd5e1;font-weight:600}
+.pbar{position:relative;height:9px;margin-top:4px;background:#ffffff0a;border-radius:2px}
+.pbar i{position:absolute;left:0;height:3px;border-radius:2px}
+.pbar .pa{top:0;background:var(--acc)}
+.pbar .pb{bottom:0;background:var(--teal)}
+.why-dif{margin-top:10px;padding-top:7px;border-top:1px dashed rgba(32,178,170,.2);
+  font-size:10.5px;color:var(--t2);line-height:1.5}
+
 /* map legend — always explains what the colours mean right now */
 .maplegend.right{left:auto;right:18px}
 .maplegend{position:absolute;bottom:22px;left:18px;z-index:9;width:230px;
