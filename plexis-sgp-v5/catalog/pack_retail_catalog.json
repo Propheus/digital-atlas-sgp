@@ -1,0 +1,37 @@
+{
+ "pack": "retail",
+ "version": "1.0.0",
+ "scale": "hex8 + subzone rollup",
+ "hex8_key": "hex8_id",
+ "n_hex": 1191,
+ "columns": [
+  "retail_whitespace_score",
+  "retail_competition_pressure",
+  "format_fit_score",
+  "retail_cannibalization_score",
+  "retail_delivery_score",
+  "retail_footfall_score",
+  "rent_demand_tier"
+ ],
+ "hero_scores": [
+  "retail_whitespace_score",
+  "format_fit_score"
+ ],
+ "use_cases": [
+  "R1",
+  "R2",
+  "R3",
+  "R4",
+  "R5",
+  "R6",
+  "R7",
+  "R9",
+  "R10"
+ ],
+ "limits": [
+  "Placement & demand TIER, not store revenue (cap_* is Huff outlet-equivalent)",
+  "Commercial rent is residential-proxy until the \ud83d\udd34 commercial-rent surface lands"
+ ],
+ "hex8_path": "hex/hex8_retail_pack.parquet",
+ "subzone_path": "hex/subzone_retail_pack.parquet"
+}

@@ -1,0 +1,40 @@
+{
+ "pack": "realestate",
+ "n_hex": 1191,
+ "cols": [
+  "re_feasibility_score",
+  "re_livability_score",
+  "re_momentum_score",
+  "re_enbloc_score",
+  "re_collateral_score",
+  "re_yield_proxy",
+  "re_lease_decay_penalty"
+ ],
+ "scores": {
+  "re_feasibility_score": {
+   "min": 0,
+   "max": 100,
+   "nonzero_pct": 27.0
+  },
+  "re_livability_score": {
+   "min": 0,
+   "max": 100,
+   "nonzero_pct": 86.7
+  },
+  "re_momentum_score": {
+   "min": 0,
+   "max": 100,
+   "nonzero_pct": 67.9
+  },
+  "re_enbloc_score": {
+   "min": 0,
+   "max": 100,
+   "nonzero_pct": 19.5
+  },
+  "re_collateral_score": {
+   "min": 0,
+   "max": 100,
+   "nonzero_pct": 98.7
+  }
+ }
+}

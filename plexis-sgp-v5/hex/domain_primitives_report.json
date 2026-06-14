@@ -1,0 +1,34 @@
+{
+  "source": "/home/azureuser/da-sgp/v5/hex/hex8_all_features.parquet",
+  "n_hex": 1191,
+  "cols": [
+    "cannibalization_pressure",
+    "delivery_demand_density",
+    "spend_proxy_index",
+    "diurnal_load_am",
+    "diurnal_load_pm",
+    "diurnal_swing",
+    "water_demand_proxy",
+    "waste_gen_proxy",
+    "ev_demand_proxy",
+    "ev_charging_gap",
+    "first_last_mile_gap",
+    "transit_desert_score",
+    "crowding_stress",
+    "ridehail_demand_proxy",
+    "fire_risk_score",
+    "auto_exposure_score",
+    "industrial_hazard_buffer",
+    "pop_health_risk",
+    "collateral_value_proxy",
+    "nuisance_penalty",
+    "enbloc_upside_score",
+    "lease_decay_penalty"
+  ],
+  "skipped": [],
+  "elapsed_s": 0.1,
+  "spot": {
+    "transit_desert_p90": 0.0478,
+    "crowding_stress_p90": 3185.2917
+  }
+}

@@ -1,0 +1,52 @@
+{
+ "pack": "insurance",
+ "n_hex": 1191,
+ "cols": [
+  "risk_fire_score",
+  "risk_auto_score",
+  "risk_health_score",
+  "risk_bi_failure_score",
+  "risk_collateral_score",
+  "risk_nuisance_score",
+  "risk_coastal_proxy",
+  "insurance_risk_score",
+  "insurance_accumulation_band"
+ ],
+ "scores": {
+  "risk_fire_score": {
+   "min": 0,
+   "max": 100,
+   "nonzero_pct": 15.4
+  },
+  "risk_auto_score": {
+   "min": 0,
+   "max": 100,
+   "nonzero_pct": 28.8
+  },
+  "risk_health_score": {
+   "min": 0,
+   "max": 100,
+   "nonzero_pct": 14.9
+  },
+  "risk_bi_failure_score": {
+   "min": 0,
+   "max": 100,
+   "nonzero_pct": 46.3
+  },
+  "risk_collateral_score": {
+   "min": 0,
+   "max": 100,
+   "nonzero_pct": 28.2
+  },
+  "risk_nuisance_score": {
+   "min": 0,
+   "max": 100,
+   "nonzero_pct": 52.1
+  },
+  "insurance_risk_score": {
+   "min": 0,
+   "max": 100,
+   "nonzero_pct": 66.8
+  }
+ }
+}

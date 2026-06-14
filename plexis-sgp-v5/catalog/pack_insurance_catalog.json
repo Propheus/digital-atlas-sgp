@@ -1,0 +1,37 @@
+{
+ "pack": "insurance",
+ "version": "1.0.0",
+ "scale": "hex8 + subzone rollup",
+ "hex8_key": "hex8_id",
+ "n_hex": 1191,
+ "columns": [
+  "risk_fire_score",
+  "risk_auto_score",
+  "risk_health_score",
+  "risk_bi_failure_score",
+  "risk_collateral_score",
+  "risk_nuisance_score",
+  "risk_coastal_proxy",
+  "insurance_risk_score",
+  "insurance_accumulation_band"
+ ],
+ "hero_scores": [
+  "insurance_risk_score"
+ ],
+ "use_cases": [
+  "I1",
+  "I3",
+  "I4",
+  "I5",
+  "I6",
+  "I7",
+  "I8"
+ ],
+ "limits": [
+  "Hazard stratification, not actuarial pricing",
+  "No crime/theft data in SG open data \u2014 that peril omitted, not proxied",
+  "Flood/heat are Phase 3 (lu_water_pct is a weak coastal proxy)"
+ ],
+ "hex8_path": "hex/hex8_insurance_pack.parquet",
+ "subzone_path": "hex/subzone_insurance_pack.parquet"
+}

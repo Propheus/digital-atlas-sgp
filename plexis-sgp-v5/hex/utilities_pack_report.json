@@ -1,0 +1,51 @@
+{
+ "pack": "utilities",
+ "n_hex": 1191,
+ "cols": [
+  "utility_load_score",
+  "utility_load_growth_score",
+  "utility_water_score",
+  "utility_waste_score",
+  "utility_ev_gap_score",
+  "utility_diurnal_swing",
+  "utility_equity_score",
+  "utility_resilience_score"
+ ],
+ "scores": {
+  "utility_load_score": {
+   "min": 0,
+   "max": 100,
+   "nonzero_pct": 55.1
+  },
+  "utility_load_growth_score": {
+   "min": 0,
+   "max": 100,
+   "nonzero_pct": 52.6
+  },
+  "utility_water_score": {
+   "min": 0,
+   "max": 100,
+   "nonzero_pct": 38.5
+  },
+  "utility_waste_score": {
+   "min": 0,
+   "max": 100,
+   "nonzero_pct": 37.6
+  },
+  "utility_ev_gap_score": {
+   "min": 0,
+   "max": 100,
+   "nonzero_pct": 28.2
+  },
+  "utility_equity_score": {
+   "min": 0,
+   "max": 100,
+   "nonzero_pct": 23.5
+  },
+  "utility_resilience_score": {
+   "min": 0,
+   "max": 100,
+   "nonzero_pct": 60.3
+  }
+ }
+}

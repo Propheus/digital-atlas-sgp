@@ -1,0 +1,34 @@
+{
+ "pack": "realestate",
+ "version": "1.0.0",
+ "scale": "hex8 + subzone rollup",
+ "hex8_key": "hex8_id",
+ "n_hex": 1191,
+ "columns": [
+  "re_feasibility_score",
+  "re_livability_score",
+  "re_momentum_score",
+  "re_enbloc_score",
+  "re_collateral_score",
+  "re_yield_proxy",
+  "re_lease_decay_penalty"
+ ],
+ "hero_scores": [
+  "re_feasibility_score",
+  "re_livability_score",
+  "re_momentum_score"
+ ],
+ "use_cases": [
+  "E2",
+  "E4",
+  "E5",
+  "E8",
+  "E9",
+  "E11"
+ ],
+ "limits": [
+  "v1 on HDB resale + rent + feasibility; private-unit AVM is v2 (\ud83d\udd34 paywalled)"
+ ],
+ "hex8_path": "hex/hex8_realestate_pack.parquet",
+ "subzone_path": "hex/subzone_realestate_pack.parquet"
+}

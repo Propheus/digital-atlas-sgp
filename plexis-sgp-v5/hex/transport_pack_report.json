@@ -1,0 +1,41 @@
+{
+ "pack": "transport",
+ "n_hex": 1191,
+ "cols": [
+  "mobility_access_score",
+  "mobility_desert_priority",
+  "mobility_crowding_score",
+  "mobility_tod_score",
+  "mobility_ridehail_score",
+  "mobility_firstlast_gap_score",
+  "mobility_parking_stress",
+  "modal_split_proxy"
+ ],
+ "scores": {
+  "mobility_access_score": {
+   "min": 0,
+   "max": 100,
+   "nonzero_pct": 84.3
+  },
+  "mobility_crowding_score": {
+   "min": 0,
+   "max": 100,
+   "nonzero_pct": 12.6
+  },
+  "mobility_tod_score": {
+   "min": 0,
+   "max": 100,
+   "nonzero_pct": 14.5
+  },
+  "mobility_ridehail_score": {
+   "min": 0,
+   "max": 100,
+   "nonzero_pct": 6.9
+  },
+  "mobility_firstlast_gap_score": {
+   "min": 0,
+   "max": 100,
+   "nonzero_pct": 11.5
+  }
+ }
+}

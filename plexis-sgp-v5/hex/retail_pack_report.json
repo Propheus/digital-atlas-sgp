@@ -1,0 +1,45 @@
+{
+ "pack": "retail",
+ "n_hex": 1191,
+ "cols": [
+  "retail_whitespace_score",
+  "retail_competition_pressure",
+  "format_fit_score",
+  "retail_cannibalization_score",
+  "retail_delivery_score",
+  "retail_footfall_score",
+  "rent_demand_tier"
+ ],
+ "scores": {
+  "retail_whitespace_score": {
+   "min": 0,
+   "max": 100,
+   "nonzero_pct": 67.1
+  },
+  "format_fit_score": {
+   "min": 0,
+   "max": 100,
+   "nonzero_pct": 13.1
+  },
+  "retail_cannibalization_score": {
+   "min": 0,
+   "max": 100,
+   "nonzero_pct": 31.7
+  },
+  "retail_delivery_score": {
+   "min": 0,
+   "max": 100,
+   "nonzero_pct": 26.2
+  },
+  "retail_footfall_score": {
+   "min": 0,
+   "max": 100,
+   "nonzero_pct": 42.5
+  },
+  "rent_demand_tier": {
+   "min": 0,
+   "max": 100,
+   "nonzero_pct": 98.8
+  }
+ }
+}
