@@ -1,0 +1,24 @@
+generating 400 trajectories with google/gemma-4-31b-it (8 workers) -> ../traces/sft_batch1.jsonl
+  20 done | 16 kept (80%) | T0:0/1 T1:8/8 T2:2/5 T3:6/6
+  40 done | 34 kept (85%) | T0:2/4 T1:17/17 T2:5/9 T3:8/8 abstain:2/2
+  60 done | 52 kept (87%) | T0:3/6 T1:23/23 T2:10/15 T3:12/12 abstain:4/4
+  80 done | 65 kept (81%) | T0:3/6 T1:28/28 T2:12/24 T3:16/16 abstain:6/6
+  100 done | 82 kept (82%) | T0:3/6 T1:37/37 T2:17/32 T3:18/18 abstain:7/7
+  120 done | 100 kept (83%) | T0:3/6 T1:46/46 T2:22/39 T3:22/22 abstain:7/7
+  140 done | 119 kept (85%) | T0:3/7 T1:57/57 T2:23/40 T3:27/27 abstain:9/9
+  160 done | 135 kept (84%) | T0:4/9 T1:65/65 T2:26/45 T3:31/32 abstain:9/9
+  180 done | 150 kept (83%) | T0:5/11 T1:71/71 T2:29/52 T3:35/36 abstain:10/10
+  200 done | 164 kept (82%) | T0:6/12 T1:77/77 T2:33/62 T3:36/37 abstain:12/12
+  220 done | 181 kept (82%) | T0:6/12 T1:82/82 T2:43/75 T3:38/39 abstain:12/12
+  240 done | 198 kept (82%) | T0:6/12 T1:89/89 T2:49/84 T3:40/41 abstain:14/14
+  260 done | 215 kept (83%) | T0:9/15 T1:98/99 T2:50/87 T3:43/44 abstain:15/15
+  280 done | 232 kept (83%) | T0:9/15 T1:104/105 T2:55/95 T3:47/48 abstain:17/17
+  300 done | 249 kept (83%) | T0:10/17 T1:110/111 T2:61/103 T3:50/51 abstain:18/18
+  320 done | 263 kept (82%) | T0:11/19 T1:117/119 T2:64/109 T3:52/54 abstain:19/19
+  340 done | 276 kept (81%) | T0:13/22 T1:121/125 T2:67/116 T3:55/57 abstain:20/20
+  360 done | 290 kept (81%) | T0:16/28 T1:128/132 T2:70/122 T3:56/58 abstain:20/20
+  380 done | 308 kept (81%) | T0:17/29 T1:135/139 T2:74/128 T3:61/63 abstain:21/21
+  400 done | 326 kept (82%) | T0:19/31 T1:140/144 T2:79/134 T3:67/70 abstain:21/21
+
+DONE: 326/400 kept (82%)
+by tier: {'T1': '140/144', 'T0': '19/31', 'T2': '79/134', 'T3': '67/70', 'abstain': '21/21'}

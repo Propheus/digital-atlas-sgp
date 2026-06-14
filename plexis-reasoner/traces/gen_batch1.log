@@ -1,0 +1,54 @@
+generating 400 trajectories with google/gemma-4-31b-it (8 workers) -> ../traces/sft_batch1.jsonl
+  20 done | 19 kept (95%) | T0:1/2 T1:10/10 T2:5/5 T3:2/2 abstain:1/1
+  40 done | 36 kept (90%) | T0:4/7 T1:16/16 T2:8/9 T3:6/6 abstain:2/2
+  60 done | 53 kept (88%) | T0:7/10 T1:24/24 T2:10/14 T3:10/10 abstain:2/2
+  80 done | 70 kept (88%) | T0:10/14 T1:28/28 T2:12/18 T3:17/17 abstain:3/3
+  100 done | 88 kept (88%) | T0:11/16 T1:35/35 T2:17/24 T3:21/21 abstain:4/4
+  120 done | 106 kept (88%) | T0:11/17 T1:45/45 T2:21/28 T3:24/24 abstain:5/6
+  140 done | 123 kept (88%) | T0:12/18 T1:53/53 T2:28/38 T3:25/25 abstain:5/6
+  160 done | 141 kept (88%) | T0:12/19 T1:61/61 T2:32/43 T3:30/30 abstain:6/7
+  180 done | 156 kept (87%) | T0:14/23 T1:67/68 T2:37/50 T3:32/32 abstain:6/7
+  200 done | 174 kept (87%) | T0:16/26 T1:76/78 T2:40/53 T3:35/35 abstain:7/8
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/miniforge/base/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'gap_convenience'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sumanth/propheus-projs/da-sgp/digital-atlas-sgp/plexis-reasoner/harness/generate.py", line 72, in <module>
+    main()
+  File "/Users/sumanth/propheus-projs/da-sgp/digital-atlas-sgp/plexis-reasoner/harness/generate.py", line 64, in main
+    list(ex.map(lambda r: one(r, args.model, out_f), qs))
+  File "/opt/homebrew/Caskroom/miniforge/base/lib/python3.10/concurrent/futures/_base.py", line 621, in result_iterator
+    yield _result_or_cancel(fs.pop())
+  File "/opt/homebrew/Caskroom/miniforge/base/lib/python3.10/concurrent/futures/_base.py", line 319, in _result_or_cancel
+    return fut.result(timeout)
+  File "/opt/homebrew/Caskroom/miniforge/base/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/opt/homebrew/Caskroom/miniforge/base/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/opt/homebrew/Caskroom/miniforge/base/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/Users/sumanth/propheus-projs/da-sgp/digital-atlas-sgp/plexis-reasoner/harness/generate.py", line 64, in <lambda>
+    list(ex.map(lambda r: one(r, args.model, out_f), qs))
+  File "/Users/sumanth/propheus-projs/da-sgp/digital-atlas-sgp/plexis-reasoner/harness/generate.py", line 26, in one
+    t = rollout.run(rec["question"], model, temperature=0.7, max_turns=8)
+  File "/Users/sumanth/propheus-projs/da-sgp/digital-atlas-sgp/plexis-reasoner/harness/rollout.py", line 57, in run
+    result = AT.call(fn, **args)
+  File "/Users/sumanth/propheus-projs/da-sgp/digital-atlas-sgp/plexis-reasoner/tools/atlas_tools.py", line 455, in call
+    return TOOLS[tool](**kwargs)
+  File "/Users/sumanth/propheus-projs/da-sgp/digital-atlas-sgp/plexis-reasoner/tools/atlas_tools.py", line 262, in gap
+    v = row.iloc[0][col]
+  File "/opt/homebrew/Caskroom/miniforge/base/lib/python3.10/site-packages/pandas/core/series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "/opt/homebrew/Caskroom/miniforge/base/lib/python3.10/site-packages/pandas/core/series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "/opt/homebrew/Caskroom/miniforge/base/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'gap_convenience'
