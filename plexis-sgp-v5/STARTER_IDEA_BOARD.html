@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Starter Idea Board — Build on Singapore's City Fingerprints</title>
+<style>
+:root{--bg:#0d1f21;--card:#13282a;--card2:#16302f;--line:rgba(32,178,170,.25);
+  --teal:#20b2aa;--acc:#fcd34d;--orange:#f97316;--pink:#f472b6;--blue:#38bdf8;
+  --green:#34d399;--purple:#c084fc;--t1:#e8f1f0;--t2:#9fb3b1;--t3:#5f7472}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--t1);line-height:1.65;
+  font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',system-ui,sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:40px 26px 90px}
+.crown{height:4px;background:linear-gradient(90deg,var(--teal),var(--acc) 45%,var(--pink) 80%,transparent);border-radius:4px;margin-bottom:30px}
+h1{font-size:34px;line-height:1.2;letter-spacing:-.5px}
+h1 .hot{color:var(--acc);text-shadow:0 0 26px #fcd34d55}
+.tag{color:var(--t2);margin-top:10px;font-size:15px}
+h2{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin:46px 0 6px;padding-top:10px}
+h2 .em{color:var(--t3);letter-spacing:.4px;text-transform:none;font-size:13px}
+p{font-size:14.5px;margin:10px 0}
+b{color:#fff} .y{color:var(--acc)}
+a{color:var(--acc);text-decoration:none;border-bottom:1px solid #fcd34d44}
+
+/* box of stats */
+.stats{display:flex;gap:16px;flex-wrap:wrap;margin:22px 0}
+.stat{flex:1;min-width:150px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.stat .k{font-size:26px;font-weight:800;color:var(--acc)}
+.stat small{display:block;color:var(--t2);font-size:12px;margin-top:3px}
+
+/* what's in the box */
+.box{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+@media(max-width:720px){.box{grid-template-columns:1fr}}
+.boxc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.boxc h3{font-size:16px;color:#fff;margin-bottom:4px}
+.boxc .dim{color:var(--t2);font-size:13px}
+.boxc code{color:var(--teal);font-size:12px}
+.boxc ul{margin:8px 0 0 18px;font-size:13.5px} .boxc li{margin:4px 0}
+
+/* code */
+pre{background:#0a1819;border:1px solid var(--line);border-radius:12px;padding:16px 18px;overflow-x:auto;margin:14px 0;font-size:12.5px;line-height:1.6}
+code{font-family:'SF Mono',Menlo,Consolas,monospace}
+pre .c{color:var(--t3)} pre .k{color:var(--purple)} pre .s{color:var(--green)} pre .f{color:var(--blue)}
+
+/* tracks + idea grid */
+.track{margin-top:14px}
+.thead{display:flex;align-items:baseline;gap:12px;margin:30px 0 4px}
+.thead .ico{font-size:22px}
+.thead h3{font-size:19px}
+.thead .ts{color:var(--t2);font-size:13px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
+.idea{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;transition:border-color .15s,transform .15s}
+.idea:hover{border-color:var(--acc);transform:translateY(-2px)}
+.idea .it{font-size:15px;font-weight:700;color:#fff;margin-bottom:5px}
+.idea p{font-size:13px;margin:5px 0 9px;color:var(--t1)}
+.idea .aha{color:var(--t2);font-size:12px}
+.pills{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.pill{font-size:10.5px;font-weight:700;letter-spacing:.4px;border-radius:20px;padding:2px 9px;text-transform:uppercase}
+.d1{background:#34d39922;color:var(--green);border:1px solid #34d39955}
+.d2{background:#fcd34d22;color:var(--acc);border:1px solid #fcd34d55}
+.d3{background:#f9731622;color:var(--orange);border:1px solid #f9731655}
+.eHEX{background:#38bdf81a;color:var(--blue);border:1px solid #38bdf855}
+.ePLACE{background:#f472b61a;color:var(--pink);border:1px solid #f472b655}
+.eBOTH{background:#c084fc1a;color:var(--purple);border:1px solid #c084fc55}
+
+/* judging + rules */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0}
+@media(max-width:720px){.two{grid-template-columns:1fr}}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.panel.gold{border-color:var(--acc);box-shadow:0 0 22px #fcd34d18}
+.panel h3{font-size:15px;color:#fff;margin-bottom:8px}
+.panel ul{margin-left:18px;font-size:13.5px} .panel li{margin:6px 0}
+.panel li b{color:var(--acc)}
+.foot{color:var(--t3);font-size:11.5px;border-top:1px solid var(--line);margin-top:40px;padding-top:14px}
+.cta{display:inline-block;margin-top:6px;background:var(--acc);color:#0d1f21;font-weight:800;
+  border-radius:10px;padding:10px 20px;font-size:14px;border:none}
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin:10px 0 0;font-size:11.5px;color:var(--t2)}
+.legend span{display:flex;align-items:center;gap:5px}
+.sw{width:11px;height:11px;border-radius:3px;display:inline-block}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="crown"></div>
+
+<h1>The Starter <span class="hot">Idea Board</span> — build on Singapore's city fingerprints</h1>
+<p class="tag">Two trained embeddings. 192,000 places. 1,191 neighbourhoods. One similarity space.
+  <b>What will you build?</b></p>
+
+<div class="stats">
+  <div class="stat"><div class="k">1,191</div><small>neighbourhood fingerprints (hex8 · 256-d)</small></div>
+  <div class="stat"><div class="k">190,591</div><small>place fingerprints (64-d)</small></div>
+  <div class="stat"><div class="k">9/9 · 11/13</div><small>locked tests passed — these are trustworthy</small></div>
+  <div class="stat"><div class="k">23</div><small>starter ideas below — or bring your own</small></div>
+</div>
+
+<!-- ===== WHAT'S IN THE BOX ===== -->
+<h2>What's in the box</h2>
+<p>Two files. Each row is one place or one neighbourhood turned into a short list of numbers,
+  where <b>distance = functional similarity</b>. Same kind of thing sits close together —
+  wherever it is on the island. That's the whole magic; everything below is built on it.</p>
+<div class="box">
+  <div class="boxc">
+    <h3>🏘️ HEX — the neighbourhood fingerprint</h3>
+    <div class="dim"><code>hex8_embedding_plexis_e1_256d.parquet</code> · 1,191 × 256</div>
+    <ul>
+      <li>Built from 801 city measurements — people, buildings, transit, places, business, rent, flows.</li>
+      <li>Distance answers "which neighbourhoods <i>work</i> the same?"</li>
+      <li>Join key: <code>hex8_id</code>.</li>
+    </ul>
+  </div>
+  <div class="boxc">
+    <h3>📍 PLACE — the venue fingerprint</h3>
+    <div class="dim"><code>place_embedding_plexis_p1_64d.parquet</code> · 190,591 × 64</div>
+    <ul>
+      <li>Built from what a place <i>is</i> + its 400&nbsp;m world + the kind of spot it sits in.</li>
+      <li><b>No ratings, no reviews</b> — purely structural (audited).</li>
+      <li>Join key: <code>id</code> → links to the full places table for name/category/lat-lng.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== STARTER KIT ===== -->
+<h2>Starter kit <span class="em">— the only three operations you need</span></h2>
+<p>Vectors are unit-length, so cosine similarity is just a dot product — one line finds the
+  nearest neighbours of anything across the whole city. <b>Golden rule: use the vectors RAW.</b>
+  Never re-standardise the columns — it destroys the validated geometry.</p>
+<pre><code><span class="c"># pip install pandas numpy pyarrow</span>
+<span class="k">import</span> pandas <span class="k">as</span> pd, numpy <span class="k">as</span> np
+
+P = pd.<span class="f">read_parquet</span>(<span class="s">"place_embedding_plexis_p1_64d.parquet"</span>).<span class="f">set_index</span>(<span class="s">"id"</span>)
+Z = P.<span class="f">to_numpy</span>(np.float32)                  <span class="c"># 190,591 x 64, unit vectors</span>
+
+<span class="c"># 1) TWINS — "places like this one" (cosine = dot product)</span>
+<span class="k">def</span> <span class="f">twins</span>(place_id, k=12):
+    sims = Z @ P.<span class="f">loc</span>[place_id].<span class="f">to_numpy</span>()    <span class="c"># one matmul, whole city</span>
+    top  = np.<span class="f">argsort</span>(-sims)[1:k+1]
+    <span class="k">return</span> P.index[top], sims[top]
+
+<span class="c"># 2) BRAND DNA — the centroid of a group is its "kind of place"</span>
+<span class="k">def</span> <span class="f">dna</span>(ids):
+    v = P.<span class="f">loc</span>[ids].<span class="f">mean</span>(); <span class="k">return</span> v / np.<span class="f">linalg</span>.norm(v)
+
+<span class="c"># 3) MISFIT — how far a place sits from its own street's crowd</span>
+<span class="c">#    group by hex8_id, compare each member to the group mean → low = odd one out</span></code></pre>
+<p class="dim">The hex file works exactly the same way — swap the parquet and the join key.
+  Everything in the live apps (twins, galaxy, ghost maps) is built from these three moves.</p>
+
+<!-- ===== TRACKS ===== -->
+<h2>The ideas <span class="em">— pick one, remix one, or invent your own</span></h2>
+<div class="legend">
+  <span><i class="sw" style="background:#34d399"></i> 🟢 Starter (a weekend)</span>
+  <span><i class="sw" style="background:#fcd34d"></i> 🟡 Builder</span>
+  <span><i class="sw" style="background:#f97316"></i> 🔴 Moonshot</span>
+  <span><i class="sw" style="background:#38bdf8"></i> HEX</span>
+  <span><i class="sw" style="background:#f472b6"></i> PLACE</span>
+  <span><i class="sw" style="background:#c084fc"></i> BOTH</span>
+</div>
+
+<!-- TRACK A -->
+<div class="track">
+<div class="thead"><span class="ico">🎨</span><h3>Track A · Explore &amp; Visualise</h3><span class="ts">make the city's structure felt</span></div>
+<div class="grid">
+  <div class="idea"><div class="it">The Living Galaxy, remixed</div>
+    <p>Take the 190K-place map and add a dimension — time of day, a 3D layout, category filters, a search that flies you to any venue's neighbourhood in function-space.</p>
+    <div class="aha">aha: people SEE that "similar" isn't "nearby".</div>
+    <div class="pills"><span class="pill d1">🟢 starter</span><span class="pill ePLACE">place</span></div></div>
+
+  <div class="idea"><div class="it">Vibe Search Engine</div>
+    <p>"I love this kopitiam / this whole neighbourhood — show me everywhere in Singapore that feels the same." A search box over the fingerprints, results on a map.</p>
+    <div class="aha">aha: discovery by feel, not by postcode.</div>
+    <div class="pills"><span class="pill d2">🟡 builder</span><span class="pill eBOTH">both</span></div></div>
+
+  <div class="idea"><div class="it">Neighbourhood Time Machine</div>
+    <p>Re-embed across data vintages and animate how a place's role drifts — watch Tengah grow into its future, or an old estate gentrify, as motion through the space.</p>
+    <div class="aha">aha: the city moving, not a static map.</div>
+    <div class="pills"><span class="pill d3">🔴 moonshot</span><span class="pill eHEX">hex</span></div></div>
+
+  <div class="idea"><div class="it">City DNA, as art</div>
+    <p>Generative posters, a soundscape, a knit pattern — drive any aesthetic from a place's 64 numbers. Two twins should look/sound alike; opposites shouldn't.</p>
+    <div class="aha">aha: data you can hang on a wall.</div>
+    <div class="pills"><span class="pill d1">🟢 starter</span><span class="pill eBOTH">both</span></div></div>
+</div></div>
+
+<!-- TRACK B -->
+<div class="track">
+<div class="thead"><span class="ico">🏪</span><h3>Track B · Retail &amp; Site Selection</h3><span class="ts">where should it go, and who's really next door</span></div>
+<div class="grid">
+  <div class="idea"><div class="it">Where Should I Open?</div>
+    <p>Pick a business type and a shortlist of empty units; rank them by how well their surroundings match where that business already thrives. A one-click site report.</p>
+    <div class="aha">aha: gut-feel siting becomes evidence.</div>
+    <div class="pills"><span class="pill d2">🟡 builder</span><span class="pill eBOTH">both</span></div></div>
+
+  <div class="idea"><div class="it">Brand Expansion Ghost-Map</div>
+    <p>Average a chain's outlets into its "siting DNA", then paint the next 10 neighbourhoods that fit it but have no outlet yet. (We did this for FairPrice — it re-found a known desert.)</p>
+    <div class="aha">aha: a defensible expansion plan in seconds.</div>
+    <div class="pills"><span class="pill d2">🟡 builder</span><span class="pill ePLACE">place</span></div></div>
+
+  <div class="idea"><div class="it">Competitor Radar</div>
+    <p>Your <i>real</i> competitors aren't "all cafes" — they're the venues whose fingerprint is closest to yours. List them, map them, watch them.</p>
+    <div class="aha">aha: category labels lie; structure doesn't.</div>
+    <div class="pills"><span class="pill d1">🟢 starter</span><span class="pill ePLACE">place</span></div></div>
+
+  <div class="idea"><div class="it">Cannibalisation Checker</div>
+    <p>Before opening a new outlet, ask: is this spot a near-twin of one I already run? Flag locations that would eat their own — not grow the footprint.</p>
+    <div class="aha">aha: avoid competing with yourself.</div>
+    <div class="pills"><span class="pill d2">🟡 builder</span><span class="pill eBOTH">both</span></div></div>
+
+  <div class="idea"><div class="it">Cast-This-Corner</div>
+    <p>Point at any empty unit; the corner's surroundings retrieve the archetypes that survive in places like it — "this spot wants a clinic, a bakery, a tuition centre" — with evidence.</p>
+    <div class="aha">aha: the landlord's question, answered.</div>
+    <div class="pills"><span class="pill d2">🟡 builder</span><span class="pill eBOTH">both</span></div></div>
+
+  <div class="idea"><div class="it">Dead-Zone Early Warning</div>
+    <p>Find venues sitting far from their street's crowd (misfits) and cross-reference the atlas's business-mortality signal — a watch-list of at-risk shops before they fail.</p>
+    <div class="aha">aha: spot the closure before it happens.</div>
+    <div class="pills"><span class="pill d2">🟡 builder</span><span class="pill ePLACE">place</span></div></div>
+</div></div>
+
+<!-- TRACK C -->
+<div class="track">
+<div class="thead"><span class="ico">🏙️</span><h3>Track C · Planning &amp; Equity</h3><span class="ts">fairer decisions, fewer guesses</span></div>
+<div class="grid">
+  <div class="idea"><div class="it">Pilot Rollout Planner</div>
+    <p>Trial a scheme in one neighbourhood; instantly get the list of functional twins where the results will transfer — the honest rollout shortlist.</p>
+    <div class="aha">aha: findings travel by similarity, not adjacency.</div>
+    <div class="pills"><span class="pill d1">🟢 starter</span><span class="pill eHEX">hex</span></div></div>
+
+  <div class="idea"><div class="it">The Fairness Audit</div>
+    <p>Are neighbourhoods that function the same served the same? Find twin pairs where one has a clinic / playground / bus link and the other doesn't — inequity made concrete.</p>
+    <div class="aha">aha: "treat like cases alike", measured.</div>
+    <div class="pills"><span class="pill d2">🟡 builder</span><span class="pill eHEX">hex</span></div></div>
+
+  <div class="idea"><div class="it">Opportunity Finder</div>
+    <p>For each neighbourhood, the twins define what it <i>should</i> have. The biggest shortfalls become a ranked map of where to add what.</p>
+    <div class="aha">aha: a city-wide to-do list, computed.</div>
+    <div class="pills"><span class="pill d2">🟡 builder</span><span class="pill eHEX">hex</span></div></div>
+
+  <div class="idea"><div class="it">Boundary Re-drawer</div>
+    <p>Cluster the hex fingerprints to propose data-driven planning areas — boundaries that follow how the city actually functions, not historical lines.</p>
+    <div class="aha">aha: the map the city draws of itself.</div>
+    <div class="pills"><span class="pill d3">🔴 moonshot</span><span class="pill eHEX">hex</span></div></div>
+</div></div>
+
+<!-- TRACK D -->
+<div class="track">
+<div class="thead"><span class="ico">🤖</span><h3>Track D · ML &amp; Data Science</h3><span class="ts">the fingerprints as raw material</span></div>
+<div class="grid">
+  <div class="idea"><div class="it">Embeddings-as-Features</div>
+    <p>Bring your own target — footfall, resale price, crime, dengue, anything — and beat a sensible baseline using only the 64 / 256 fingerprint columns as input.</p>
+    <div class="aha">aha: the city pre-encoded for your model.</div>
+    <div class="pills"><span class="pill d1">🟢 starter</span><span class="pill eBOTH">both</span></div></div>
+
+  <div class="idea"><div class="it">Anomaly Hunter</div>
+    <p>Find the single weirdest place or neighbourhood in Singapore — the one whose fingerprint is unlike everything around it. Then go explain why.</p>
+    <div class="aha">aha: the city's beautiful outliers.</div>
+    <div class="pills"><span class="pill d2">🟡 builder</span><span class="pill eBOTH">both</span></div></div>
+
+  <div class="idea"><div class="it">City Recommender</div>
+    <p>"If you like Tiong Bahru, you'll like…" — a recommendation engine for neighbourhoods or venues, with a clean explanation of the shared traits behind each pick.</p>
+    <div class="aha">aha: Spotify, but for places.</div>
+    <div class="pills"><span class="pill d1">🟢 starter</span><span class="pill eBOTH">both</span></div></div>
+
+  <div class="idea"><div class="it">Graph Communities</div>
+    <p>Build the nearest-neighbour graph and run community detection — discover the city's functional "tribes" of venues, then name and map them.</p>
+    <div class="aha">aha: the market's true segments emerge.</div>
+    <div class="pills"><span class="pill d2">🟡 builder</span><span class="pill ePLACE">place</span></div></div>
+
+  <div class="idea"><div class="it">Missing-Data Imputer</div>
+    <p>A neighbourhood lacks a measurement? Borrow it from its embedding neighbours. Test it: hide a known value, predict it back, measure the error.</p>
+    <div class="aha">aha: fill the gaps honestly.</div>
+    <div class="pills"><span class="pill d2">🟡 builder</span><span class="pill eHEX">hex</span></div></div>
+
+  <div class="idea"><div class="it">Ask-the-City Bot</div>
+    <p>An LLM that answers questions by retrieving over the fingerprints — "what's the most underserved heartland?", "find me the next Haji Lane" — grounded, not guessed.</p>
+    <div class="aha">aha: chat with the city, with receipts.</div>
+    <div class="pills"><span class="pill d3">🔴 moonshot</span><span class="pill eBOTH">both</span></div></div>
+</div></div>
+
+<!-- TRACK E -->
+<div class="track">
+<div class="thead"><span class="ico">🌟</span><h3>Track E · Wildcard</h3><span class="ts">break it, bend it, take it somewhere new</span></div>
+<div class="grid">
+  <div class="idea"><div class="it">The Honesty Breaker</div>
+    <p>Red-team the embedding. Can you make the "forbidden probe" pass — recover ratings, or smuggle geography back in? Find a flaw and you've earned a co-author line.</p>
+    <div class="aha">aha: science needs adversaries.</div>
+    <div class="pills"><span class="pill d2">🟡 builder</span><span class="pill eBOTH">both</span></div></div>
+
+  <div class="idea"><div class="it">Cross-City Transfer</div>
+    <p>Take the method to another city's open data and build its fingerprints. Does "similar" still mean similar? The first step toward a universal city model.</p>
+    <div class="aha">aha: one recipe, every city.</div>
+    <div class="pills"><span class="pill d3">🔴 moonshot</span><span class="pill eBOTH">both</span></div></div>
+
+  <div class="idea"><div class="it">Your Idea Here</div>
+    <p>The fingerprints are a primitive, not a product. Dedup, fraud rings, tourism trails, delivery zones, insurance pricing… if it needs "what's like this?", it's buildable.</p>
+    <div class="aha">aha: the best idea isn't on this list yet.</div>
+    <div class="pills"><span class="pill d2">🟡 builder</span><span class="pill eBOTH">both</span></div></div>
+</div></div>
+
+<!-- ===== RULES ===== -->
+<h2>The golden rules</h2>
+<div class="panel gold">
+  <ul>
+    <li><b>Use the vectors RAW</b> — never re-standardise the columns.</li>
+    <li><b>Similar ≠ nearby</b> — if your result is just "things close together", you've found geography, not function.</li>
+    <li><b>Prove it</b> — hide some data, predict it back. A demo that survives a hidden-answer test beats a pretty one that doesn't.</li>
+    <li><b>hex8 + places only</b> — that's the whole toolbox. Constraints breed creativity.</li>
+  </ul>
+</div>
+
+<!-- ===== SEE IT LIVE ===== -->
+<h2>See it working first</h2>
+<p>Three reference apps already built from exactly these two files — fork the ideas, raise the bar:</p>
+<p>
+  <b>SG Pulse</b> — the breathing city + neighbourhood twins (<a href="http://10.0.2.25:16095">:16095</a>) ·
+  <b>Places Constellation</b> — the 190K-place galaxy + sibling graphs (<a href="http://10.0.2.25:16096">:16096</a>) ·
+  <b>Atlas Diary</b> — ten use cases answered live on the map (<a href="http://10.0.2.25:16097">:16097</a>)
+</p>
+<a class="cta" href="http://10.0.2.25:16096">Open the galaxy →</a>
+
+<div class="foot">
+  Data: <code>hex/hex8_embedding_plexis_e1_256d.parquet</code> · <code>places/place_embedding_plexis_p1_64d.parquet</code> +
+  <code>places/sgp_places_final.parquet</code> (names, categories, lat-lng). How they were built &amp; proven:
+  EMBEDDING_METHOD_REPORT.html · UNDERSTANDING_MODEL_BUILDING.md · TEST_REGISTRY.md.
+  Powered by the Digital Atlas v5.4.0.
+</div>
+</div>
+</body>
+</html>

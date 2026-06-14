@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>City Fingerprints — Contrastive Embeddings of Singapore's Regions & Places</title>
+<style>
+:root{--bg:#0d1f21;--card:#12282a;--line:rgba(32,178,170,.25);--teal:#20b2aa;--acc:#fcd34d;--t1:#e8f1f0;--t2:#94a3b8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--t1);font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',system-ui,sans-serif;line-height:1.7}
+.wrap{max-width:880px;margin:0 auto;padding:48px 28px 80px}
+header{border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:34px}
+h1{font-size:27px;line-height:1.3}
+h1 .hot{color:var(--acc)}
+.sub{color:var(--t2);margin-top:8px;font-size:14px}
+h2{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);
+  margin:44px 0 14px;padding-top:8px}
+h3{font-size:15.5px;color:#fff;margin:20px 0 8px}
+p{margin:10px 0;font-size:14.5px}
+b{color:#fff} .y{color:var(--acc)} .dim{color:var(--t2)}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:13px}
+th{color:var(--t2);text-align:left;font-weight:600;padding:7px 10px;border-bottom:1px solid var(--line);font-size:11.5px;letter-spacing:.5px;text-transform:uppercase}
+td{padding:7px 10px;border-bottom:1px solid rgba(32,178,170,.12)}
+td b{color:var(--acc)}
+.fail{color:#f87171}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin:14px 0}
+.card.gold{border-color:var(--acc);box-shadow:0 0 24px #fcd34d1a}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}}
+.k{font-size:30px;font-weight:800;color:var(--acc)}
+.k small{display:block;font-size:11.5px;color:var(--t2);font-weight:500;letter-spacing:.4px;margin-top:2px}
+.stats{display:flex;gap:26px;flex-wrap:wrap;margin:18px 0}
+ul,ol{margin:8px 0 8px 22px;font-size:14px}
+li{margin:5px 0}
+code{background:#0a1819;border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-size:12px;color:var(--teal)}
+.src{color:#5f7472;font-size:11px;border-top:1px solid rgba(32,178,170,.12);margin-top:10px;padding-top:8px}
+a{color:var(--acc)}
+.uc{margin:18px 0;padding-left:16px;border-left:2px solid var(--line)}
+.uc:hover{border-left-color:var(--acc)}
+.uc .t{display:block;color:var(--acc);font-size:15px;font-weight:700;margin-bottom:4px}
+.uc p{margin:5px 0;font-size:14px}
+.uc .ex{color:var(--t2);font-size:13px}
+.crown{height:3px;background:linear-gradient(90deg,var(--teal),var(--acc) 60%,transparent);border-radius:3px;margin-bottom:26px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="crown"></div>
+<header>
+  <h1>City Fingerprints — <span class="hot">contrastive embeddings</span> of Singapore's regions &amp; places</h1>
+  <div class="sub">Training method &amp; applications · plexis-e1 (1,191 neighbourhoods) + plexis-p1 (190,591 places) · Digital Atlas v5.4.0 · 2026-06-13</div>
+</header>
+
+<!-- ======================== 1 ABSTRACT ======================== -->
+<h2>1 · Abstract</h2>
+<p>We turned every neighbourhood and every place in Singapore into a <b>fingerprint</b> —
+a short list of numbers where <b>distance means functional similarity</b>. Two places (or two
+neighbourhoods) whose fingerprints sit close together play the same role in the city, even if
+they are on opposite ends of the island.</p>
+<p>The fingerprints were learned by <b>contrastive training</b>: a matching game played millions
+of times. The network must recognise two distorted copies of the same unit as "the same",
+recognise two outlets of the same chain as siblings, and agree with a second network that reads
+only the unit's surroundings. Nobody ever defines "similar" — it emerges from the game.</p>
+<p>Everything was proven the hard way: <b>every test was written and frozen before training
+began</b>, including one test the model must fail on purpose (predicting star ratings from a
+fingerprint that was promised to be popularity-free). The exam decided what shipped — and it
+rejected the best-scoring model once.</p>
+<div class="stats">
+  <div class="k">86<small>locked tests defined · 84 passed</small></div>
+  <div class="k">81%<small>hidden chain outlets re-found among 190,591</small></div>
+  <div class="k">0.08<small>geography leak — similar ≠ nearby</small></div>
+  <div class="k">0.09<small>rating recoverability — popularity-free, audited</small></div>
+</div>
+<p class="dim">External validity: the embeddings independently re-derived a government-documented
+supermarket desert (Yunnan) three different ways — by demand capture, by unserved-walk demand,
+and by twin-ghost logic — without ever seeing the study.</p>
+
+<!-- ======================== 2 DESIGN ======================== -->
+<h2>2 · Design</h2>
+
+<h3>The substrate</h3>
+<p>Both models stand on the Digital Atlas v5 feature base: <b>801 validated measurements per
+hex8 neighbourhood</b> (population, land use, buildings, roads, transit, places, business
+records, rents, flows — 64/64 layer gates passed) and <b>190,591 places</b>, each with a
+micrograph of its 400/800&nbsp;m surroundings.</p>
+
+<div class="grid">
+<div class="card">
+  <h3>plexis-e1 — the neighbourhood fingerprint</h3>
+  <p><b>1,191 hex8 cells → 256 numbers each.</b></p>
+  <ul>
+    <li><b>Input:</b> 739 prepared features in five views — WHO (people), WHERE (built form),
+      WHAT (places), FLOW (movement), PRICE.</li>
+    <li><b>Training:</b> SCARF-style corruption (mask 30% of features, the two views must still
+      match) plus view-masking, InfoNCE loss.</li>
+    <li><b>The twist:</b> the pure neural model scored best on prediction probes but quietly
+      pulled opposite districts (Tuas ↔ Orchard) together — a locked check caught it.
+      <b>Shipped = hybrid:</b> 160 classical (PCA) dimensions preserve global geography +
+      96 contrastive dimensions sharpen local character.</li>
+  </ul>
+</div>
+<div class="card">
+  <h3>plexis-p1 — the place fingerprint</h3>
+  <p><b>190,591 places → 64 numbers each.</b> Purely structural:</p>
+  <ul>
+    <li><b>What it is</b> — category, chain/independent, brand size.</li>
+    <li><b>What surrounds it</b> — the 18-feature micrograph: rivals at 400/800&nbsp;m,
+      complements, anchors, walk-to-MRT.</li>
+    <li><b>Where it sits</b> — pressed in during training via a second tower that reads the
+      hex's frozen e1 vector + the 400&nbsp;m category mix. The place never stores its location;
+      it learns to <i>encode what kind of context it fits</i>.</li>
+    <li><b>Hard rule:</b> no ratings, no reviews, no popularity — anywhere. Audited (§3).</li>
+  </ul>
+</div>
+</div>
+
+<h3>The three training signals (p1)</h3>
+<ol>
+  <li><b>Recognise yourself</b> — two corrupted copies of the same place must match (SCARF, mask 0.3).</li>
+  <li><b>Recognise your siblings</b> — 17,046 same-brand outlet pairs from 203 staffed chains
+    (ATMs, vending, EV chargers denylisted; 20% of every chain hidden for the exam).</li>
+  <li><b>Agree with your street</b> — the place tower and the context tower must produce matching
+    vectors for the same place (CLIP-style cross-view).</li>
+</ol>
+<p class="dim">Hard negatives by construction: half of every batch is same-category groups, so
+"all cafes are alike" is a losing strategy. Training cost: e1 full program 8 minutes;
+p1 52 seconds per seed (full 190K) — CPU only.</p>
+
+<h3>The validation-first protocol</h3>
+<p>For each model, a battery of falsifiable checks — thresholds included — was frozen
+<b>before</b> any training: known-twin and known-contrast panels, held-out chain retrieval,
+geography-leak caps, probes with spatially-blocked cross-validation, negative controls, seed
+stability, and the forbidden probe. The harness, not the loss curve, makes the ship/no-ship
+call. Usage rule for both: <b>use the vectors RAW — never re-standardise per dimension</b>
+(re-scaling amplifies near-constant dimensions and destroys the validated geometry).</p>
+
+<!-- ======================== 3 RESULTS ======================== -->
+<h2>3 · Results</h2>
+
+<h3>plexis-e1 — candidate scoreboard (the exam rejected the best scorer)</h3>
+<table>
+<tr><th>check</th><th>PCA-256</th><th>pure neural</th><th>shipped hybrid</th></tr>
+<tr><td>known twins (5 hand-picked anchors)</td><td>5/5</td><td>5/5</td><td><b>5/5</b></td></tr>
+<tr><td>opposites apart (Tuas↔Orchard, gate ≥ p90)</td><td>p99.7</td><td class="fail">p49 ✗ rejected</td><td><b>p99.7</b></td></tr>
+<tr><td>housing-price probe R² (blocked CV)</td><td>0.71</td><td>0.83</td><td><b>0.81</b></td></tr>
+<tr><td>transit-throughput probe R²</td><td>0.94</td><td>0.88</td><td>0.90</td></tr>
+<tr><td>adequacy probe R²</td><td>0.95</td><td>0.96</td><td>0.93</td></tr>
+<tr><td>zone silhouette (neighbourhood structure)</td><td>0.07</td><td>0.14</td><td><b>0.13</b></td></tr>
+<tr><td>per-hex neighbour coherence</td><td>91.5%</td><td>92.4%</td><td><b>92.5%</b></td></tr>
+<tr><td>negative control (must be ≈0)</td><td>−0.02</td><td>−0.00</td><td>−0.01 ✓</td></tr>
+<tr><td>stability across 3 seeds (Procrustes)</td><td>—</td><td>0.96</td><td><b>0.987</b></td></tr>
+</table>
+<p class="dim">Harness status: 11 of 13 checks passed, 2 deferred and tracked
+(per-hex explainability texts; leave-one-family-out retrains). Full ledger:
+<code>TEST_REGISTRY.md</code>.</p>
+
+<h3>plexis-p1 — the 9-check exam, 9/9</h3>
+<table>
+<tr><th>#</th><th>check</th><th>locked bar</th><th>result</th></tr>
+<tr><td>1</td><td>held-out chain retrieval (1,648 hidden outlets, top-10 of 190,591)</td><td>≥ 0.70</td><td><b>0.814</b></td></tr>
+<tr><td>2</td><td>category kNN majority (k=10)</td><td>≥ 0.80</td><td><b>0.997</b></td></tr>
+<tr><td>3</td><td>beyond-category structure (within cafes, micro-context match vs chance)</td><td>≤ 0.70</td><td><b>0.157</b></td></tr>
+<tr><td>4</td><td>geography leak ρ(fingerprint dist, metres)</td><td>≤ 0.45</td><td><b>0.077</b></td></tr>
+<tr><td>5</td><td>same-hex spread (not context-only)</td><td>≥ 0.50×</td><td><b>0.640</b></td></tr>
+<tr><td>6</td><td>micro-context probes (anchors / walk-to-MRT)</td><td>≥ .50 / .60</td><td><b>0.775 / 0.809</b></td></tr>
+<tr><td>7</td><td><b>forbidden probe — rating must be unpredictable</b></td><td>≤ 0.15</td><td><b>0.094 (failed on purpose ✓)</b></td></tr>
+<tr><td>8</td><td>seed stability (Procrustes, 3 seeds)</td><td>≥ 0.95</td><td><b>0.979 / 0.981</b></td></tr>
+<tr><td>9</td><td>archetype panels picked pre-training</td><td>4/4 sane</td><td><b>4/4 (5/5 same-cat each)</b></td></tr>
+</table>
+
+<div class="card gold">
+  <b>The qualitative results read like a person did them.</b>
+  Ya Kun (Holland Village) → kopi chains in town-centre malls · an Ang Mo Kio TCM clinic →
+  heartland clinics in Telok Blangah, Geylang East, Tampines · a Chinatown shophouse bar →
+  three more Chinatown shophouse bars · Seatrium Canteen (Pioneer) → industrial canteens in
+  Samulun and Seletar Aerospace Park · query Tiong Bahru Bakery and the siblings include
+  <b>PrimaDéli outlets the model was never told about</b>.
+</div>
+
+<!-- ======================== 4 APPLICATIONS ======================== -->
+<h2>4 · Applications</h2>
+
+<h3>With the neighbourhood fingerprint (hex8 · e1)</h3>
+
+<div class="uc">
+  <span class="t">Pilot here, roll out there</span>
+  <p>When you trial something new — a covered walkway, a feeder bus, a community
+  programme — in one neighbourhood, the real question is "where else will this work?"
+  The honest answer is not "the places nearby" but "the places that <b>function the same
+  way</b>." The fingerprint hands you that list at once: trial it in Toa Payoh Central and
+  the rollout candidates are Tiong Bahru, Townsville and Bendemeer — neighbourhoods that
+  share its density, its MRT footfall and its street life, even though they sit scattered
+  across the island. <span class="ex">Your findings travel along similarity, not along the
+  train line.</span></p>
+</div>
+
+<div class="uc">
+  <span class="t">Fair benchmarking</span>
+  <p>A rent, a business-closure rate, a footfall count means little on its own. Is
+  $6&nbsp;a&nbsp;square&nbsp;foot high? It depends entirely on what kind of place you are
+  standing in. The fingerprint lets you compare a neighbourhood <b>only to its five
+  functional twins</b> — places genuinely like it — so "30% more expensive than places just
+  like it" becomes a real, defensible statement instead of an apples-to-oranges league
+  table.</p>
+</div>
+
+<div class="uc">
+  <span class="t">Gap detection — what's missing here?</span>
+  <p>If five neighbourhoods are functionally identical and four of them support a supermarket,
+  a clinic and three tuition centres — but the fifth doesn't — that fifth one isn't merely
+  different, it's <b>underserved</b>. The twins quietly tell you what a place like this
+  <i>should</i> have; the gap between that expectation and reality is a ready-made shortlist
+  of opportunities, found without anyone guessing.</p>
+</div>
+
+<div class="uc">
+  <span class="t">New-town trajectory</span>
+  <p>A growing estate like Tengah is still becoming something. Re-run the fingerprints each
+  year and you can watch which established town Tengah is <b>drifting toward</b> in function
+  space — today it leans toward Bukit Batok and Yishun. That tells you which town's
+  amenity build-out, school pressure and commercial mix to expect next, using a real place's
+  decade of history as the forecast.</p>
+</div>
+
+<div class="uc">
+  <span class="t">Model fuel</span>
+  <p>Any data model the team builds — for demand, risk, accessibility — normally has to juggle
+  801 raw columns. The 256-number fingerprint carries the city's structure in compact form:
+  on held-out tests it rebuilds housing prices (0.81), transit throughput (0.90) and the
+  adequacy score (0.93) on its own. <span class="ex">So every future model starts richer and
+  simpler, with the city already encoded.</span></p>
+</div>
+
+<h3>With the place fingerprint (p1)</h3>
+
+<div class="uc">
+  <span class="t">Expansion scouting</span>
+  <p>Your best-performing outlet sits in a particular kind of spot. "Find me twenty more spots
+  like it" used to mean gut feeling and a wall map. Now it's one query: the twelve nearest
+  fingerprints are the <b>same kind of venue in the same kind of setting</b>, ranked by
+  genuine structural similarity rather than by who collected the most five-star reviews.</p>
+</div>
+
+<div class="uc">
+  <span class="t">Brand siting DNA</span>
+  <p>Average the fingerprints of all of a chain's existing outlets and you get its
+  <b>siting DNA</b> — a single number-portrait of the kind of corner that brand thrives on.
+  Score every neighbourhood against that DNA and the top of the list is a ghost map of where
+  the next outlets belong. When we ran this for FairPrice, the map pointed at <b>Yunnan</b> —
+  the very neighbourhood a separate government study had flagged as a supermarket desert —
+  which the model had never seen.</p>
+</div>
+
+<div class="uc">
+  <span class="t">Cast this corner</span>
+  <p>Flip the question around: point at an empty shop unit and ask "what belongs here?" The
+  fingerprint reads the corner's surroundings and retrieves the kinds of business that
+  <b>survive in corners like it</b> elsewhere in the city — "this spot wants a clinic, a
+  bakery, a tuition centre" — with the lookalike corners attached as evidence rather than a
+  hunch.</p>
+</div>
+
+<div class="uc">
+  <span class="t">Misfit detection — early risk warning</span>
+  <p>Most places fit their street; a few sit oddly far from everything around them. Sometimes
+  that's a bold contrarian bet, but more often it's a tenant in the wrong spot. Flagging these
+  <b>misfits</b> and cross-checking them against the atlas's record of where businesses go to
+  die gives lenders, landlords and operators an <b>early warning</b> before the closure
+  happens.</p>
+</div>
+
+<div class="uc">
+  <span class="t">True market segments</span>
+  <p>The word "cafe" lumps together a void-deck kopitiam, a specialty roaster and a mall chain
+  that share nothing but a label. The fingerprints sort all 190,591 places into <b>48
+  genuinely functional groups</b>, so market sizing, competitor sets and white-space analysis
+  run on what places <i>actually are</i> — not on the misleading category tag they happen to
+  carry.</p>
+</div>
+
+<p>All of it is live: <b>SG Pulse</b> (hex twins + why-panels, :16095) ·
+<b>Places Constellation</b> (the 190K galaxy + sibling graphs, :16096) ·
+<b>Atlas Diary</b> (all ten use cases answered on the map, :16097).</p>
+
+<div class="src">
+plexis-e1: EMBEDDING_V5_DESIGN.md · embedding/PLEXIS_E1_REPORT.md — plexis-p1: PLACE_EMBEDDING_DESIGN.md ·
+embedding_place/PLEXIS_P1_REPORT.md — full test ledger: TEST_REGISTRY.md — plain-English method:
+docs/UNDERSTANDING_MODEL_BUILDING.md — paper plan: docs/PAPER_PLAN_PLEXIS_EMBEDDINGS.md ·
+artifacts: hex/hex8_embedding_plexis_e1_256d.parquet · places/place_embedding_plexis_p1_64d.parquet · Digital Atlas v5.4.0
+</div>
+</div>
+</body>
+</html>
