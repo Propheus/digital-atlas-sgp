@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>One atlas, five industries — Domain Packs · Digital Atlas Singapore</title>
+<style>
+:root{
+  --bg:#0b1c1e; --accent:#20b2aa; --accent2:#2dd4bf; --acc:#fcd34d;
+  --border:rgba(32,178,170,.22); --border2:rgba(32,178,170,.4);
+  --glass:rgba(12,27,29,.84); --text:#e9eef0; --muted:#8fa3a6;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',system-ui,sans-serif;
+  --mono:'SF Mono',ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;font-family:var(--font);color:var(--text);
+  background:radial-gradient(1100px 560px at 75% -10%,#173f41 0%,transparent 58%),
+    linear-gradient(162deg,#0a1a1c,#0d2123 55%,#102628);}
+b{color:#fff;font-weight:600}.accent{color:var(--accent)}.y{color:var(--acc)}
+.app{height:100vh;display:grid;grid-template-rows:auto 1fr auto;padding:13px 20px;gap:12px;max-width:1280px;margin:0 auto}
+
+.nav{display:flex;align-items:center;justify-content:space-between;gap:14px;border:1px solid var(--border);
+  border-radius:12px;background:var(--glass);backdrop-filter:blur(12px);padding:9px 16px}
+.brand{display:flex;align-items:center;gap:11px;min-width:0}
+.brand .wm{font-weight:800;font-size:.95rem;letter-spacing:-.01em}
+.brand .wm .h{color:var(--acc);text-shadow:0 0 16px #fcd34d55}
+.brand .sep{color:var(--border2);font-size:1.05rem}
+.brand .navtitle{font-size:.85rem;font-weight:500;color:#cfe4e5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand .navtitle b{color:var(--accent)}
+.dots{display:flex;gap:7px}
+.dot-nav{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.13);cursor:pointer;border:none;transition:.2s}
+.dot-nav.on{background:var(--accent);box-shadow:0 0 9px var(--accent);transform:scale(1.15)}
+
+.stage{min-height:0;display:grid;grid-template-columns:1fr 360px;gap:14px}
+@media(max-width:820px){.stage{grid-template-columns:1fr}.panel{display:none}}
+.mapwrap{position:relative;border:1px solid var(--border);border-radius:16px;overflow:hidden;
+  background:radial-gradient(700px 400px at 50% 40%,#0e2628 0%,#0a1819 70%)}
+#map{width:100%;height:100%;display:block}
+.maptag{position:absolute;left:18px;bottom:16px;font-size:.72rem;color:var(--muted);letter-spacing:.3px}
+.ramp{position:absolute;right:18px;bottom:16px;display:flex;flex-direction:column;align-items:flex-end;gap:5px}
+.ramp .bar{width:130px;height:8px;border-radius:5px;
+  background:linear-gradient(90deg,#0b3b3a,#0f766e,#14b8a6,#fcd34d,#f97316,#ef4444)}
+.ramp .ends{display:flex;justify-content:space-between;width:130px;font-size:.66rem;color:var(--muted)}
+
+.panel{border:1px solid var(--border);border-radius:16px;background:var(--glass);backdrop-filter:blur(12px);
+  padding:22px 24px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.panel::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--accent),var(--acc) 60%,transparent)}
+.kicker{font-size:.72rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);font-weight:700}
+.ptitle{font-size:1.55rem;font-weight:800;line-height:1.15;margin:10px 0 4px;animation:fade .5s ease}
+.psub{font-size:.95rem;color:#cfe4e5;line-height:1.55;margin-bottom:14px;animation:fade .55s ease}
+.ask{font-size:.86rem;color:var(--acc);font-style:italic;border-left:2px solid var(--acc);padding-left:11px;margin-bottom:16px}
+.tops{margin-top:auto}
+.tops .lab{font-size:.68rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--border);border-radius:9px;
+  padding:5px 11px;margin:0 6px 6px 0;font-size:.8rem;color:#dbeceb;background:rgba(32,178,170,.06);animation:pop .4s ease both}
+.chip i{width:7px;height:7px;border-radius:50%;background:var(--acc);box-shadow:0 0 8px var(--acc)}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:none}}
+
+.foot{display:flex;align-items:center;justify-content:space-between;gap:14px;border:1px solid var(--border);
+  border-radius:12px;background:var(--glass);backdrop-filter:blur(12px);padding:9px 16px}
+.foot .msg{font-size:.8rem;color:var(--muted)}.foot .msg b{color:var(--acc)}
+.ctrls{display:flex;gap:9px}
+button.nav-btn{background:rgba(32,178,170,.1);border:1px solid var(--border);color:var(--text);
+  border-radius:9px;padding:7px 16px;font-size:.85rem;cursor:pointer;font-family:var(--font)}
+button.nav-btn:hover{border-color:var(--border2);background:rgba(32,178,170,.18)}
+button.nav-btn.go{background:var(--acc);color:#0b1c1e;font-weight:700;border-color:var(--acc)}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="nav">
+    <div class="brand">
+      <span class="wm">Digital Atlas <span class="h">Singapore</span></span>
+      <span class="sep">/</span>
+      <span class="navtitle"><b>Domain Packs</b> — one atlas, five industries</span>
+    </div>
+    <div class="dots" id="dots"></div>
+  </div>
+
+  <div class="stage">
+    <div class="mapwrap">
+      <canvas id="map"></canvas>
+      <div class="maptag">1,191 hex8 cells · scores 0–100 · live from the v5 atlas</div>
+      <div class="ramp"><div class="bar"></div><div class="ends"><span id="lo">low</span><span id="hi">high</span></div></div>
+    </div>
+    <div class="panel">
+      <div class="kicker" id="kicker">The atlas</div>
+      <div class="ptitle" id="ptitle">One city. 801 measurements.</div>
+      <div class="psub" id="psub">Every hex carries the full atlas. A domain pack re-frames those measurements into the one number an industry actually decides on.</div>
+      <div class="ask" id="ask" style="display:none"></div>
+      <div class="tops" id="tops" style="display:none"><div class="lab">Top areas</div><div id="chips"></div></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="msg" id="msg">Same 801 features · five lenses · validated to the S1–S11 discipline</div>
+    <div class="ctrls">
+      <button class="nav-btn" id="prev">‹ Back</button>
+      <button class="nav-btn go" id="next">Next ›</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const C = document.getElementById('map'), X = C.getContext('2d');
+const SEQ = [[11,59,58],[15,118,110],[20,178,170],[252,211,77],[249,115,22],[239,68,68]];
+function ramp(t){ // t in [0,1] -> rgb
+  t=Math.max(0,Math.min(1,t)); const f=t*(SEQ.length-1), i=Math.floor(f), a=SEQ[i], b=SEQ[Math.min(i+1,SEQ.length-1)], k=f-i;
+  return [a[0]+(b[0]-a[0])*k, a[1]+(b[1]-a[1])*k, a[2]+(b[2]-a[2])*k];
+}
+let D=null, cur=[], tgt=[], proj=null, DPR=Math.min(2,devicePixelRatio||1);
+
+function resize(){
+  const w=C.clientWidth, h=C.clientHeight; C.width=w*DPR; C.height=h*DPR;
+  if(!D) return;
+  const la=D.lat, lo=D.lng;
+  let laMin=Math.min(...la),laMax=Math.max(...la),loMin=Math.min(...lo),loMax=Math.max(...lo);
+  const pad=26; const sw=w-pad*2, sh=h-pad*2;
+  const sx=sw/(loMax-loMin), sy=sh/(laMax-laMin), s=Math.min(sx,sy);
+  const ox=pad+(sw-(loMax-loMin)*s)/2, oy=pad+(sh-(laMax-laMin)*s)/2;
+  proj=(i)=>[ (ox+(lo[i]-loMin)*s)*DPR, (oy+(laMax-la[i])*s)*DPR ];
+}
+function draw(){
+  if(!D||!proj){requestAnimationFrame(draw);return;}
+  X.clearRect(0,0,C.width,C.height);
+  const r=Math.max(2.4, C.width/520);
+  for(let i=0;i<D.n;i++){
+    // ease current toward target
+    cur[i]+=(tgt[i]-cur[i])*0.08;
+    const v=cur[i]/100, c=ramp(v); const [px,py]=proj(i);
+    const al = 0.35 + 0.6*v;
+    X.beginPath(); X.arc(px,py,r*(0.7+0.5*v),0,6.283);
+    X.fillStyle=`rgba(${c[0]|0},${c[1]|0},${c[2]|0},${al})`;
+    if(v>0.78){X.shadowBlur=10;X.shadowColor=`rgba(${c[0]|0},${c[1]|0},${c[2]|0},.8)`;}else X.shadowBlur=0;
+    X.fill();
+  }
+  X.shadowBlur=0;
+  requestAnimationFrame(draw);
+}
+
+const SCENES = [
+  {kicker:'The atlas', pack:null, title:'One city. 801 measurements.',
+   sub:'Every hex8 cell carries the full Digital Atlas — people, places, transit, buildings, business, rents, flows. A <b>domain pack</b> re-frames those into the one number an industry decides on.'},
+  {kicker:'🛍️ Retail pack', pack:'retail', title:'Where should the next outlet go?',
+   sub:'<b>Whitespace</b> blends winnable demand (Huff capture) with under-served residents — the corners a retailer would open in.'},
+  {kicker:'🏢 Real Estate pack', pack:'realestate', title:'What can you build here?',
+   sub:'<b>Development feasibility</b> from FAR headroom — the new towns and redevelopment belts light up; the built-out core goes dark.'},
+  {kicker:'⚡ Utilities pack', pack:'utilities', title:'Where is the load?',
+   sub:'<b>Energy-load proxy</b> from floor-area × use × night-lights — the CBD and Jurong industrial glow; quiet heartlands cool.'},
+  {kicker:'🚇 Transport pack', pack:'transport', title:'Who can’t reach transit?',
+   sub:'<b>Transit-desert priority</b> — dense residents far from rail with weak transit. The western fringe burns; the rail corridor calms.'},
+  {kicker:'🛡️ Insurance pack', pack:'insurance', title:'How risky is this address?',
+   sub:'<b>Location risk</b> blends fire, motor, health, business-failure and nuisance — dense ageing fabric scores hot, green edges cool.'},
+  {kicker:'The point', pack:null, title:'Same atlas. Five lenses.',
+   sub:'No new data — five sellable verticals, each a re-composition of the same 801 validated features, at hex8 + subzone. <b>Built, validated, shipped.</b>'},
+];
+
+let idx=0;
+function setScene(n){
+  idx=(n+SCENES.length)%SCENES.length;
+  const s=SCENES[idx];
+  document.getElementById('kicker').textContent=s.kicker;
+  document.getElementById('ptitle').innerHTML=s.title;
+  document.getElementById('psub').innerHTML=s.sub;
+  [...document.querySelectorAll('.dot-nav')].forEach((d,i)=>d.classList.toggle('on',i===idx));
+  // target colors
+  if(s.pack && D){
+    tgt = D.packs[s.pack].score.slice();
+    document.getElementById('lo').textContent='0'; document.getElementById('hi').textContent='100';
+    // tops
+    const tops=document.getElementById('tops'); tops.style.display='block';
+    document.getElementById('chips').innerHTML = D.top[s.pack].map(t=>`<span class="chip"><i></i>${t}</span>`).join('');
+    document.getElementById('msg').innerHTML = D.packs[s.pack].label;
+  } else if(D){
+    // intro/outro: gentle uniform glow (a structural feature so the city is visible)
+    tgt = D.packs.realestate.score.map(v=>30+v*0.25);
+    document.getElementById('tops').style.display='none';
+    document.getElementById('msg').innerHTML='Same 801 features · five lenses · validated to the S1–S11 discipline';
+  }
+}
+document.getElementById('next').onclick=()=>setScene(idx+1);
+document.getElementById('prev').onclick=()=>setScene(idx-1);
+window.addEventListener('keydown',e=>{if(e.key==='ArrowRight')setScene(idx+1);if(e.key==='ArrowLeft')setScene(idx-1);});
+
+// build dots
+const dots=document.getElementById('dots');
+SCENES.forEach((_,i)=>{const b=document.createElement('button');b.className='dot-nav'+(i===0?' on':'');b.onclick=()=>setScene(i);dots.appendChild(b);});
+
+fetch('packs_map.json').then(r=>r.json()).then(d=>{
+  D=d; cur=new Array(d.n).fill(0); tgt=new Array(d.n).fill(0);
+  resize(); setScene(0); draw();
+  // gentle auto-advance through the packs
+  let auto=setInterval(()=>{ if(idx<SCENES.length-1) setScene(idx+1); else clearInterval(auto); }, 4200);
+  ['click','keydown'].forEach(ev=>window.addEventListener(ev,()=>clearInterval(auto),{once:true}));
+});
+window.addEventListener('resize',resize);
+</script>
+</body>
+</html>
