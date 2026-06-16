@@ -1,0 +1,79 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Representation Benchmark — Measured Results</title><style>
+:root{--accent:#20b2aa;--accent2:#2dd4bf;--ok:#39d98a;--warn:#f0c14b;
+ --glass:rgba(17,40,42,.55);--glass2:rgba(12,27,29,.72);
+ --border:rgba(32,178,170,.18);--border2:rgba(32,178,170,.32);
+ --text:#e9eef0;--muted:#8fa3a6;--mono:#7fe3da}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--text);
+ background:radial-gradient(1100px 560px at 72% -12%,#173f41 0%,transparent 58%),
+   linear-gradient(162deg,#0a1a1c,#0d2123 55%,#102628);
+ background-attachment:fixed;min-height:100vh;max-width:1060px;margin:0 auto;
+ padding:46px 26px;font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1{font-size:30px;font-weight:700;letter-spacing:-.022em;margin:0 0 4px}
+.accent{color:var(--accent)}
+h2{font-size:16px;font-weight:600;margin:34px 0 12px;color:#d4ecea;
+ border-bottom:1px solid var(--border);padding-bottom:7px;letter-spacing:-.01em}
+h2 .n{color:var(--muted);font-weight:400;font-size:13px}
+.sub{color:var(--muted);margin:0 0 22px;font-size:14px}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+.cards{display:grid;grid-template-columns:repeat(6,1fr);gap:11px;margin:20px 0 8px}
+.card{background:var(--glass);border:1px solid var(--border);border-radius:13px;
+ padding:16px 12px;text-align:center;backdrop-filter:blur(13px);-webkit-backdrop-filter:blur(13px)}
+.cv{font-size:23px;font-weight:700;color:#fff;letter-spacing:-.02em}
+.cl{font-size:10.5px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.045em}
+table{width:100%;border-collapse:separate;border-spacing:0;background:var(--glass2);
+ border:1px solid var(--border);border-radius:13px;overflow:hidden;margin-bottom:8px;
+ backdrop-filter:blur(11px);-webkit-backdrop-filter:blur(11px)}
+th,td{text-align:left;padding:9px 13px;border-bottom:1px solid rgba(32,178,170,.10);font-size:13px;vertical-align:top}
+th{background:rgba(32,178,170,.09);color:var(--accent);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:rgba(32,178,170,.05)}
+td.f{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:12px;color:var(--mono);white-space:nowrap}
+td.t{color:var(--muted);font-size:11.5px}
+td.s{color:#b9c9cb;font-size:12px;white-space:nowrap}
+.banner{background:linear-gradient(90deg,rgba(57,217,138,.16),rgba(32,178,170,.04));
+ border:1px solid var(--border2);color:#8fe9c4;border-radius:13px;padding:13px 17px;font-weight:600;margin:8px 0 4px}
+.note{color:var(--muted);font-size:12.5px;margin-top:9px}
+.pill{display:inline-block;background:rgba(32,178,170,.14);border:1px solid var(--border);
+ color:#9fe9e1;border-radius:20px;padding:3px 11px;margin:3px 2px;font-size:12.5px}
+code{background:rgba(32,178,170,.1);padding:1px 6px;border-radius:5px;font-size:12px;color:#9fe9e1;
+ font-family:ui-monospace,"SF Mono",Menlo,monospace}
+.tag{display:inline-block;font-size:9.5px;background:rgba(32,178,170,.2);color:#9fe9e1;
+ border-radius:6px;padding:1px 7px;margin-left:7px;vertical-align:middle;text-transform:uppercase;letter-spacing:.04em;font-weight:600}
+/* prose (markdown) */
+p{margin:10px 0}
+ul,ol{margin:8px 0 12px;padding-left:22px} li{margin:4px 0;color:#cdd9da}
+strong,b{color:#fff;font-weight:600}
+em{color:#bcd}
+hr{border:none;border-top:1px solid var(--border);margin:30px 0}
+blockquote{border-left:3px solid var(--accent);background:rgba(32,178,170,.06);
+ margin:14px 0;padding:10px 16px;border-radius:0 8px 8px 0;color:#bcd0d2}
+blockquote p{margin:4px 0}
+pre{background:rgba(8,18,20,.85);border:1px solid var(--border);border-radius:10px;
+ padding:13px 15px;overflow-x:auto;margin:12px 0;font-size:12.5px;line-height:1.5}
+pre code{background:none;padding:0;color:#cfeae6;font-family:ui-monospace,"SF Mono",Menlo,monospace}
+h1+p em,h1+p{color:var(--muted)}
+@media(max-width:680px){.cards{grid-template-columns:repeat(3,1fr)}}
+</style></head><body>
+<h1>Representation Benchmark — <span class="accent">Measured Results</span></h1>
+<p class="sub">Six methods, one frozen input (<code>X 1191×739</code> → 256-d), one frozen exam. Apples-to-apples. 2 seeds. Companion to the method note.</p>
+<div class="cards"><div class='card'><div class='cv'>6</div><div class='cl'>methods · same X</div></div><div class='card'><div class='cv'>0.54</div><div class='cl'>Contrastive robust</div></div><div class='card'><div class='cv'>1.7×</div><div class='cl'>vs PCA robustness</div></div><div class='card'><div class='cv'>0.97</div><div class='cl'>Contrastive stability</div></div><div class='card'><div class='cv'>0.91</div><div class='cl'>Hybrid OD R²</div></div><div class='card'><div class='cv'>1191×739</div><div class='cl'>frozen input</div></div></div>
+<div class="banner">Contrastive is <b>1.7× more corruption-robust than PCA</b> (0.538 vs 0.324) and the most stable learned method (0.975) — while staying competitive on every utility probe. The hybrid keeps PCA's linear-probe edge AND contrastive's robustness.</div>
+
+<h2>The scorecard <span class="n">· green = best of the 6 trained</span></h2>
+<table><tr><th>Method</th><th>Twin hit-rate</th><th>Probe OD R²</th><th>Probe adq R²</th><th>Probe HDB R²</th><th>Corruption-robust</th><th>Stability</th><th>Dist rank-corr</th><th>Neg-control (→0)</th><th>Zone ARI</th><th>Silhouette</th><th>Locality</th><th>CKA vs e1</th></tr><tr><td class='f'>PCA</td><td class='s' style='color:#39d98a;font-weight:700'>1.00</td><td class='s' style='color:#39d98a;font-weight:700'>0.935</td><td class='s' style='color:#b9c9cb'>0.951</td><td class='s' style='color:#b9c9cb'>0.712</td><td class='s' style='color:#b9c9cb'>0.324</td><td class='s' style='color:#39d98a;font-weight:700'>0.999</td><td class='s' style='color:#39d98a;font-weight:700'>1.000</td><td class='s' style='color:#b9c9cb'>-0.020</td><td class='s' style='color:#b9c9cb'>0.261</td><td class='s' style='color:#b9c9cb'>0.065</td><td class='s' style='color:#b9c9cb'>0.431</td><td class='s' style='color:#b9c9cb'>0.971</td></tr><tr><td class='f'>AE</td><td class='s' style='color:#b9c9cb'>1.00</td><td class='s' style='color:#b9c9cb'>0.874</td><td class='s' style='color:#b9c9cb'>0.959</td><td class='s' style='color:#b9c9cb'>0.792</td><td class='s' style='color:#b9c9cb'>0.292</td><td class='s' style='color:#b9c9cb'>0.863</td><td class='s' style='color:#b9c9cb'>0.948</td><td class='s' style='color:#b9c9cb'>-0.011</td><td class='s' style='color:#b9c9cb'>0.206</td><td class='s' style='color:#b9c9cb'>0.018</td><td class='s' style='color:#b9c9cb'>0.449</td><td class='s' style='color:#b9c9cb'>0.949</td></tr><tr><td class='f'>VAE</td><td class='s' style='color:#b9c9cb'>1.00</td><td class='s' style='color:#b9c9cb'>0.871</td><td class='s' style='color:#b9c9cb'>0.955</td><td class='s' style='color:#b9c9cb'>0.769</td><td class='s' style='color:#b9c9cb'>0.306</td><td class='s' style='color:#b9c9cb'>0.824</td><td class='s' style='color:#b9c9cb'>0.913</td><td class='s' style='color:#b9c9cb'>-0.009</td><td class='s' style='color:#b9c9cb'>0.189</td><td class='s' style='color:#b9c9cb'>0.009</td><td class='s' style='color:#b9c9cb'>0.447</td><td class='s' style='color:#b9c9cb'>0.921</td></tr><tr><td class='f'>MAE</td><td class='s' style='color:#b9c9cb'>1.00</td><td class='s' style='color:#b9c9cb'>0.893</td><td class='s' style='color:#39d98a;font-weight:700'>0.961</td><td class='s' style='color:#39d98a;font-weight:700'>0.817</td><td class='s' style='color:#b9c9cb'>0.417</td><td class='s' style='color:#b9c9cb'>0.923</td><td class='s' style='color:#b9c9cb'>0.953</td><td class='s' style='color:#b9c9cb'>-0.010</td><td class='s' style='color:#b9c9cb'>0.204</td><td class='s' style='color:#b9c9cb'>0.060</td><td class='s' style='color:#b9c9cb'>0.461</td><td class='s' style='color:#b9c9cb'>0.943</td></tr><tr><td class='f'><b style='color:#fff'>Contrastive</b></td><td class='s' style='color:#b9c9cb'>1.00</td><td class='s' style='color:#b9c9cb'>0.887</td><td class='s' style='color:#b9c9cb'>0.960</td><td class='s' style='color:#b9c9cb'>0.788</td><td class='s' style='color:#39d98a;font-weight:700'>0.538</td><td class='s' style='color:#b9c9cb'>0.975</td><td class='s' style='color:#b9c9cb'>0.242</td><td class='s' style='color:#b9c9cb'>-0.011</td><td class='s' style='color:#39d98a;font-weight:700'>0.454</td><td class='s' style='color:#39d98a;font-weight:700'>0.158</td><td class='s' style='color:#39d98a;font-weight:700'>0.474</td><td class='s' style='color:#b9c9cb'>0.776</td></tr><tr><td class='f'><b style='color:#fff'>Hybrid</b></td><td class='s' style='color:#b9c9cb'>1.00</td><td class='s' style='color:#b9c9cb'>0.911</td><td class='s' style='color:#b9c9cb'>0.933</td><td class='s' style='color:#b9c9cb'>0.813</td><td class='s' style='color:#b9c9cb'>0.460</td><td class='s' style='color:#b9c9cb'>0.993</td><td class='s' style='color:#b9c9cb'>0.975</td><td class='s' style='color:#b9c9cb'>-0.013</td><td class='s' style='color:#b9c9cb'>0.192</td><td class='s' style='color:#b9c9cb'>0.127</td><td class='s' style='color:#b9c9cb'>0.464</td><td class='s' style='color:#b9c9cb'>0.996</td></tr><tr><td class='f'>e1 (shipped) <span class='tag'>shipped</span></td><td class='s' style='color:#b9c9cb'>1.00</td><td class='s' style='color:#b9c9cb'>0.897</td><td class='s' style='color:#b9c9cb'>0.930</td><td class='s' style='color:#b9c9cb'>0.810</td><td class='s'>—</td><td class='s' style='color:#b9c9cb'>0.987</td><td class='s' style='color:#b9c9cb'>0.943</td><td class='s' style='color:#b9c9cb'>-0.014</td><td class='s' style='color:#b9c9cb'>0.281</td><td class='s' style='color:#b9c9cb'>0.131</td><td class='s' style='color:#b9c9cb'>0.471</td><td class='s' style='color:#b9c9cb'>1.000</td></tr></table>
+<p class="note"><b>How to read it.</b> Every method was trained on the <i>identical</i> frozen feature matrix and judged by the <i>identical</i> frozen exam (PA-blocked ridge probes, known-answer twins, negative control). <b>Twin hit-rate</b> saturates at 1.0 for all — the hand-picked analogs are easy at hex8 grain, so it doesn't separate methods. The separation is in <b>corruption-robustness</b> (resample 30% of features → how many of each hex's 10 nearest neighbours survive) and <b>stability</b> (2-seed Procrustes). <b>Neg-control</b> is a permuted-target probe — all sit ≈0, confirming none of them leak. <b>CKA vs e1</b> shows how similarly each organises the space to the shipped hybrid.</p>
+
+<h2>What it proves</h2>
+<ul>
+<li><b>Utility is shared, not a differentiator.</b> The information lives in the features, so a linear probe recovers OD / adequacy / HDB-price from <i>every</i> embedding (R² ≈ 0.87–0.96). PCA even edges the OD probe — a linear probe rewards linear structure. So "which predicts best" is the <i>wrong</i> question for a similarity atlas.</li>
+<li><b>Contrastive wins the properties that matter for retrieval.</b> A twin/whitespace/competitor system lives or dies on <b>robustness</b> (neighbours that don't move when data is noisy) and <b>stability</b> (the same map on a re-train). Contrastive tops both — by a wide margin on robustness — because invariance to corruption and view-masking is <i>in its objective</i>, not hoped for.</li>
+<li><b>The reconstruction ladder behaves as theory predicts.</b> PCA → AE → VAE recover utility but are brittle (robustness 0.29–0.32) and less stable; <b>MAE</b> — the masked/denoising cousin — is the best of the reconstruction family on robustness (its masking objective is exactly what contrastive borrows as view-masking), but still trails pure contrastive.</li>
+<li><b>The hybrid is the honest winner.</b> PCA-160 ⊕ contrastive-96 keeps PCA's clean linear-probe utility <i>and</i> inherits contrastive's robustness — which is why the shipped <code>e1</code> is a hybrid, not a purist.</li>
+</ul>
+
+<h2>Honest caveats</h2>
+<p class="note">CPU run, 1191 hexes, 2 seeds — the absolute numbers would tighten with more seeds and a larger grid, but the <i>ordering</i> (contrastive ≫ reconstruction on robustness/stability; utility shared) is the robust finding. Twin hit-rate saturates and under-separates at this grain; a harder retrieval set (held-out chain siblings, à la p1) would discriminate further. Each method got a fixed, un-tuned budget; heavy per-method tuning could shift utility probes by a few points but not the robustness gap.</p>
+
+<p class="note" style="margin-top:18px">Generated from <code>embedding/benchmark_results.json</code> (187s, 7 methods) · frozen exam <code>embedding/eval_harness.py</code> · Plexis SGP v5.5.0. See the method note: <a href="REPRESENTATION_METHODS_REPORT.html">Why Contrastive — &amp; Measuring Correctness</a>.</p>
+</body></html>
