@@ -75,15 +75,37 @@ h1+p em,h1+p{color:var(--muted)}
 <h2>Honest caveats</h2>
 <p class="note">CPU run, 1191 hexes, 2 seeds — the absolute numbers would tighten with more seeds and a larger grid, but the <i>ordering</i> (contrastive ≫ reconstruction on robustness/stability; utility shared) is the robust finding. Twin hit-rate saturates and under-separates at this grain; a harder retrieval set (held-out chain siblings, à la p1) would discriminate further. Each method got a fixed, un-tuned budget; heavy per-method tuning could shift utility probes by a few points but not the robustness gap.</p>
 
-<h2>Our method — Plexis-E</h2>
-<p class="note">The atlas does not pick a side in "contrastive vs reconstruction" — it <b>composes them</b>, then proves the result. <b>Plexis-E</b> is the recipe behind the shipped <code>e1</code> (hex) and <code>p1</code> (place) embeddings:</p>
-<ul>
-<li><b>Review-free tabular input.</b> Every hex is the 739-feature vector — population, land use, places, flow, economy — with ratings, reviews and raw identity <i>excluded by design</i>. The model can only learn what a place <i>is</i>, never how popular it is.</li>
-<li><b>A clean 2-layer MLP encoder</b> (Linear → LayerNorm → GELU → Dropout → Linear) — <b>no attention, no transformer</b>. The input is a fixed vector, spatial context already enters as ring features, and the bottleneck is <i>information</i>, not capacity.</li>
-<li><b>A hybrid objective: PCA-160 ⊕ contrastive-96.</b> PCA anchors the clean linear structure; the contrastive half is trained with <b>SCARF feature-corruption + whole-view masking + InfoNCE + a denoising reconstruction</b> term — so the geometry is shaped directly while masking teaches cross-view dependence.</li>
-<li><b>Free domain supervision through pair design.</b> For places, a positive pair is <i>two outlets of the same chain</i> (17,046 sibling pairs / 203 chains) — teaching "same kind of place" with zero hand labels.</li>
-<li><b>Exam-gated.</b> The test is written and frozen <i>before</i> training; nothing ships until it passes — including the forbidden probes it must <i>fail</i>.</li>
-</ul>
+<h2>Our method — the Plexis-E hybrid</h2>
+<p class="note">The atlas does not pick a side in "contrastive vs reconstruction" — it <b>composes them</b> into one 256-d vector, then proves the result. The shipped <code>e1</code> (hex) embedding is a <b>hybrid: PCA-160 ⊕ contrastive-96</b>. The recipe: a <b>review-free</b> 739-feature input → a clean 2-layer MLP (no attention/transformer) → concatenate 160 PCA dimensions with 96 contrastive dimensions trained by <b>SCARF corruption + whole-view masking + InfoNCE + denoising reconstruction</b>. Exam-gated: the test is frozen <i>before</i> training, including the forbidden probes it must <i>fail</i>.</p>
+
+<h3 style="color:#93c5fd;font-size:1rem;margin:16px 0 8px">What each half captures</h3>
+<table>
+<tr><th>Half</th><th>Captures</th><th>Good at (measured)</th><th>Lost without it</th></tr>
+<tr><td class='f'>Contrastive-96<br><span style='color:var(--muted);font-weight:400'>SCARF + view-mask + InfoNCE</span></td>
+<td><b>LOCAL</b> structure — "same kind of place" neighbourhoods that survive noise &amp; re-training (invariance is in the loss)</td>
+<td class='s'>corruption-robust <b style='color:#39d98a'>0.54</b> (best) · stability 0.97</td>
+<td class='s'>neighbours drift under noisy / missing data; map changes on every re-train</td></tr>
+<tr><td class='f'>PCA-160<br><span style='color:var(--muted);font-weight:400'>linear variance</span></td>
+<td><b>GLOBAL</b> metric — faithful distances &amp; magnitudes, clean linear structure ("how far / how different")</td>
+<td class='s'>dist rank-corr <b style='color:#39d98a'>1.00</b> · OD-probe 0.94</td>
+<td class='s'>"how different are these two?" becomes meaningless — pure contrastive's dist rank-corr collapses to <b>0.24</b></td></tr>
+</table>
+<p class="note"><b>In one line: contrastive for local robustness/invariance, PCA for global metric.</b> The hybrid is the only embedding tested that holds <i>both</i> — global geometry <b>0.97</b> (≈ PCA) <i>and</i> corruption-robustness <b>0.46</b> (toward contrastive), at the best learned stability <b>0.99</b>. Pure contrastive throws the global metric away (0.24); PCA alone is brittle to noise (0.32). Neither half is optional.</p>
+
+<h3 style="color:#93c5fd;font-size:1rem;margin:16px 0 8px">The ratio — 160/96, not a guess</h3>
+<p class="note">The split was chosen by a <b>ratio sweep</b> (<code>eval_hybrid_ratios.json</code>): <b>192/64</b> vs <b>160/96</b>, judged on the frozen exam. 160/96 won — it lifted the HDB-price probe (0.785 → <b>0.810</b>) and adequacy (0.918 → <b>0.930</b>) for a negligible OD cost. More contrastive capacity (96) bought sharper structure; 160 PCA kept enough global metric. That is the shipped configuration.</p>
+
+<h3 style="color:#93c5fd;font-size:1rem;margin:16px 0 8px">What the two halves together let us solve</h3>
+<table>
+<tr><th>Use case</th><th>Needs</th><th>Why the hybrid delivers it</th></tr>
+<tr><td><b>Twin search</b> — "find places like this"</td><td class='s'>LOCAL</td><td>contrastive neighbourhoods stay put under noisy/missing features</td></tr>
+<tr><td><b>"How different are these two?" · dissimilarity ranking</b></td><td class='s'>GLOBAL</td><td>PCA half gives calibrated far-distances; pure contrastive would lie (0.24)</td></tr>
+<tr><td><b>Whitespace / brand ghost-maps</b></td><td class='s'>BOTH</td><td>find the nearest <i>thriving</i> analog (local) <b>and</b> size the gap (global magnitude)</td></tr>
+<tr><td><b>Site selection</b> — score a unit for a brand</td><td class='s'>BOTH</td><td>nearest analog to where the brand wins (local) + "how unlike my best sites" calibrated score (global)</td></tr>
+<tr><td><b>Anomaly</b> — "unusually unlike everywhere"</td><td class='s'>GLOBAL</td><td>needs faithful far-distances — only the PCA-anchored space supports it</td></tr>
+<tr><td><b>Embeddings-as-ML-features</b> (BYO target)</td><td class='s'>BOTH</td><td>robust, stable columns (contrastive) over preserved variance structure (PCA) → stronger, steadier downstream models</td></tr>
+<tr><td><b>Transition / gradient mapping</b> — where the city changes character</td><td class='s'>GLOBAL</td><td>a smooth, metric-faithful distance field — meaningless in a warped contrastive space</td></tr>
+</table>
 
 <h2>Why it wins</h2>
 <ul>
