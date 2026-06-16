@@ -1,0 +1,297 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Why Contrastive — and How to Know a Representation Is Correct</title><style>
+:root{--accent:#20b2aa;--accent2:#2dd4bf;--ok:#39d98a;--warn:#f0c14b;
+ --glass:rgba(17,40,42,.55);--glass2:rgba(12,27,29,.72);
+ --border:rgba(32,178,170,.18);--border2:rgba(32,178,170,.32);
+ --text:#e9eef0;--muted:#8fa3a6;--mono:#7fe3da}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--text);
+ background:radial-gradient(1100px 560px at 72% -12%,#173f41 0%,transparent 58%),
+   linear-gradient(162deg,#0a1a1c,#0d2123 55%,#102628);
+ background-attachment:fixed;min-height:100vh;max-width:1060px;margin:0 auto;
+ padding:46px 26px;font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1{font-size:30px;font-weight:700;letter-spacing:-.022em;margin:0 0 4px}
+.accent{color:var(--accent)}
+h2{font-size:16px;font-weight:600;margin:34px 0 12px;color:#d4ecea;
+ border-bottom:1px solid var(--border);padding-bottom:7px;letter-spacing:-.01em}
+h2 .n{color:var(--muted);font-weight:400;font-size:13px}
+.sub{color:var(--muted);margin:0 0 22px;font-size:14px}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+.cards{display:grid;grid-template-columns:repeat(6,1fr);gap:11px;margin:20px 0 8px}
+.card{background:var(--glass);border:1px solid var(--border);border-radius:13px;
+ padding:16px 12px;text-align:center;backdrop-filter:blur(13px);-webkit-backdrop-filter:blur(13px)}
+.cv{font-size:23px;font-weight:700;color:#fff;letter-spacing:-.02em}
+.cl{font-size:10.5px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.045em}
+table{width:100%;border-collapse:separate;border-spacing:0;background:var(--glass2);
+ border:1px solid var(--border);border-radius:13px;overflow:hidden;margin-bottom:8px;
+ backdrop-filter:blur(11px);-webkit-backdrop-filter:blur(11px)}
+th,td{text-align:left;padding:9px 13px;border-bottom:1px solid rgba(32,178,170,.10);font-size:13px;vertical-align:top}
+th{background:rgba(32,178,170,.09);color:var(--accent);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:rgba(32,178,170,.05)}
+td.f{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:12px;color:var(--mono);white-space:nowrap}
+td.t{color:var(--muted);font-size:11.5px}
+td.s{color:#b9c9cb;font-size:12px;white-space:nowrap}
+.banner{background:linear-gradient(90deg,rgba(57,217,138,.16),rgba(32,178,170,.04));
+ border:1px solid var(--border2);color:#8fe9c4;border-radius:13px;padding:13px 17px;font-weight:600;margin:8px 0 4px}
+.note{color:var(--muted);font-size:12.5px;margin-top:9px}
+.pill{display:inline-block;background:rgba(32,178,170,.14);border:1px solid var(--border);
+ color:#9fe9e1;border-radius:20px;padding:3px 11px;margin:3px 2px;font-size:12.5px}
+code{background:rgba(32,178,170,.1);padding:1px 6px;border-radius:5px;font-size:12px;color:#9fe9e1;
+ font-family:ui-monospace,"SF Mono",Menlo,monospace}
+.tag{display:inline-block;font-size:9.5px;background:rgba(32,178,170,.2);color:#9fe9e1;
+ border-radius:6px;padding:1px 7px;margin-left:7px;vertical-align:middle;text-transform:uppercase;letter-spacing:.04em;font-weight:600}
+/* prose (markdown) */
+p{margin:10px 0}
+ul,ol{margin:8px 0 12px;padding-left:22px} li{margin:4px 0;color:#cdd9da}
+strong,b{color:#fff;font-weight:600}
+em{color:#bcd}
+hr{border:none;border-top:1px solid var(--border);margin:30px 0}
+blockquote{border-left:3px solid var(--accent);background:rgba(32,178,170,.06);
+ margin:14px 0;padding:10px 16px;border-radius:0 8px 8px 0;color:#bcd0d2}
+blockquote p{margin:4px 0}
+pre{background:rgba(8,18,20,.85);border:1px solid var(--border);border-radius:10px;
+ padding:13px 15px;overflow-x:auto;margin:12px 0;font-size:12.5px;line-height:1.5}
+pre code{background:none;padding:0;color:#cfeae6;font-family:ui-monospace,"SF Mono",Menlo,monospace}
+h1+p em,h1+p{color:var(--muted)}
+@media(max-width:680px){.cards{grid-template-columns:repeat(3,1fr)}}
+</style></head><body><div class="cards">
+<div class="card"><div class="cv">5</div><div class="cl">methods compared</div></div>
+<div class="card"><div class="cv">1.0</div><div class="cl">e1 twin hit-rate</div></div>
+<div class="card"><div class="cv">0.90</div><div class="cl">probe OD R²</div></div>
+<div class="card"><div class="cv">−0.01</div><div class="cl">forbidden probe</div></div>
+<div class="card"><div class="cv">0.997</div><div class="cl">corruption-robust</div></div>
+<div class="card"><div class="cv">5×</div><div class="cl">test families</div></div>
+</div>
+
+<h1>Why Contrastive — and How to Know a Representation Is <em>Correct</em></h1>
+<p><em>A method note for the Singapore &amp; Jakarta Digital Atlases. How contrastive
+training compares to PCA, autoencoders, VAEs and masked autoencoders for learning
+the e1 (hex) and p1 (place) embeddings — and the exam protocol that decides whether
+a representation is actually right. Grounded in the real frozen-exam numbers.</em></p>
+<hr />
+<h2>TL;DR</h2>
+<ul>
+<li>The atlas's goal is a <strong>similarity metric</strong> — <em>distance = functional similarity</em>,
+  twins, retrieval, clustering. The reconstruction family (PCA / AE / VAE / MAE)
+  optimizes a <strong>proxy</strong> ("can I rebuild the input?") and hopes good geometry falls
+  out. <strong>Contrastive optimizes the geometry directly</strong> — the metric <em>is</em> the loss.</li>
+<li>Contrastive uniquely lets you (1) make the <em>retrieval objective</em> the training
+  objective, (2) inject free supervision through <strong>positive-pair design</strong>
+  (chain-siblings), (3) bake in <strong>invariance/robustness</strong>, and (4) <strong>provably
+  exclude</strong> information (ratings, geography).</li>
+<li>It is <strong>not universally better</strong> — augmentation/positive design is everything,
+  it needs negatives, it can't generate. The honest winner is a <strong>hybrid</strong> — and
+  e1 already is one (160 PCA + 96 contrastive + a reconstruction anchor).</li>
+<li>A representation has <strong>no single accuracy</strong>. Correctness = a <strong>battery of
+  necessary properties</strong>, half of which test what it must <em>refuse</em> to encode.
+  Write the exam first, freeze it, let the marks decide.</li>
+</ul>
+<hr />
+<h2>1. The goal chooses the method</h2>
+<p>Every method below is a different answer to a different question:</p>
+<blockquote>
+<p><strong>Reconstruction methods ask:</strong> <em>"Can I compress this hex and rebuild it?"</em>
+<strong>Contrastive asks:</strong> <em>"Is this hex the same kind of place as that one?"</em></p>
+</blockquote>
+<p>The atlas is used for twin search, whitespace, site matching, competitor radar,
+clustering — all <strong>similarity</strong> operations. So the objective that <em>names</em> similarity
+in its loss has a structural advantage: <strong>what you optimize is what you ship.</strong>
+Everything else produces good similarity geometry only as a hopeful by-product.</p>
+<hr />
+<h2>2. Method by method</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>What it actually minimizes</th>
+<th>Latent shaped by</th>
+<th>Failure mode for <em>similarity</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PCA</strong></td>
+<td>linear reconstruction error (max variance)</td>
+<td>the few highest-variance directions</td>
+<td>linear only; dominated by high-variance columns (a <code>pop</code> swing drowns out land-use); no notion of "alike"; no noise invariance</td>
+</tr>
+<tr>
+<td><strong>Simple autoencoder</strong></td>
+<td>nonlinear reconstruction error</td>
+<td>whatever is cheapest to reconstruct</td>
+<td>learns easy/high-variance features; can drift toward identity; "close in latent" ≠ "same kind of place"</td>
+</tr>
+<tr>
+<td><strong>Variational AE (VAE)</strong></td>
+<td>reconstruction + KL-to-prior</td>
+<td>a smooth Gaussian latent (generative)</td>
+<td>objective is <em>generation</em>, not retrieval; posterior collapse / over-smoothing blurs the fine distinctions; you never need to <em>sample</em> hexes</td>
+</tr>
+<tr>
+<td><strong>Masked AE (MAE / denoising SSL)</strong></td>
+<td>reconstruct <em>masked</em> inputs</td>
+<td>cross-feature dependencies (<strong>good</strong>)</td>
+<td>closest cousin — but the embedding is a <strong>by-product</strong> of a reconstruction decoder; the metric isn't directly shaped; quality rides on the recon proxy</td>
+</tr>
+<tr>
+<td><strong>Contrastive (InfoNCE + SCARF + view-masking)</strong></td>
+<td><strong>alignment</strong> (positives close) + <strong>uniformity</strong> (everything else spread)</td>
+<td>the <strong>distance geometry itself</strong></td>
+<td>the metric <em>is</em> the loss — but only as good as the positive pairs you design</td>
+</tr>
+</tbody>
+</table>
+<p>The reconstruction family is a <em>spectrum of the same idea</em> (rebuild the input),
+getting smarter from PCA → AE → VAE → MAE. MAE is the strongest of them precisely
+because masking forces the model to learn how features <strong>imply each other</strong> —
+which is why the atlas borrows it as <strong>view-masking</strong>. But even MAE leaves the
+embedding as a residue of a reconstruction task; it never directly says "these two
+should be neighbours."</p>
+<hr />
+<h2>3. The four levers contrastive gives you (all four are used)</h2>
+<ol>
+<li>
+<p><strong>The metric is the objective, not a side effect.</strong> "Pull twins together, push
+   others apart" <em>is</em> InfoNCE — formally, <strong>alignment + uniformity</strong> on the
+   hypersphere. No reconstruction method states the retrieval goal in its loss.</p>
+</li>
+<li>
+<p><strong>Free supervision through positive-pair design.</strong> The biggest lever. For
+   <strong>places</strong>, a positive pair is <em>two outlets of the same chain</em> — <strong>17,046
+   sibling pairs across 203 real chains</strong> taught p1 "same kind of place" with
+   <strong>zero hand labels</strong>. PCA/AE/VAE cannot ingest that knowledge; it lives in the
+   <em>pairing</em>, not the inputs.</p>
+</li>
+<li>
+<p><strong>Invariance is designed in.</strong> You choose what a positive <em>ignores</em>: SCARF
+   corruption ≈ "shrug off ~30% noisy features"; view-masking ≈ "infer the FLOW
+   view from WHO/WHERE/WHAT/ECON." The embedding becomes robust to exactly those
+   nuisances — e1 seed-stability <strong>0.987</strong>, corruption-percentile min <strong>0.997</strong>.</p>
+</li>
+<li>
+<p><strong>You can provably EXCLUDE information.</strong> Ratings/reviews never enter, and the
+   forbidden-probe confirms they're unrecoverable — <strong>e1 −0.014</strong>, <strong>p1 0.094</strong> —
+   while geography is suppressed (<strong>geo-leak ρ 0.077</strong>). A reconstruction objective
+   <em>wants</em> to encode everything it sees; contrastive lets you sculpt <strong>presence and
+   absence</strong>.</p>
+</li>
+</ol>
+<h3>Honest caveats (don't over-claim)</h3>
+<ul>
+<li>Contrastive is <strong>only as good as its augmentations/positives</strong> — wrong pairs bake
+  in wrong invariances. The reconstruction family needs no such choice.</li>
+<li>It needs <strong>negatives</strong> and risks <strong>dimensional collapse</strong> without care
+  (temperature, batch size).</li>
+<li>It <strong>cannot generate or impute</strong> — if you need to fill missing features or sample
+  synthetic hexes, an AE/VAE/MAE is the right tool.</li>
+<li><strong>The real winner is a hybrid.</strong> e1 is exactly that: <strong>160 PCA dimensions + 96
+  contrastive (view-masked SCARF, mask .3 / τ .5 / view-mask .5) + a reconstruction
+  anchor</strong>. So the honest framing is <em>not</em> "contrastive vs the rest" — it's
+  <strong>"contrastive geometry + MAE-style masking + a recon anchor, with PCA as the
+  yardstick."</strong></li>
+</ul>
+<hr />
+<h2>4. How to know a representation is <em>correct</em></h2>
+<p>There is <strong>no single accuracy</strong> and no ground-truth "true embedding." A
+representation is correct iff it passes a <strong>battery of necessary properties</strong> — and
+correctness is as much about what it <em>refuses</em> to encode as what it does. The
+governing rule: <strong>write the exam before training, freeze it, and let the marks
+decide.</strong> Five families:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Family</th>
+<th>Question</th>
+<th>Test</th>
+<th>Atlas result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Should-predict (utility)</strong></td>
+<td>is real structure <em>linearly</em> accessible?</td>
+<td>light/linear <strong>probe</strong> on held-out targets</td>
+<td>OD R² <strong>0.90</strong> · adequacy <strong>0.93</strong> · HDB-psm <strong>0.81</strong></td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Should-NOT-predict (forbidden)</strong></td>
+<td>did banned info leak in?</td>
+<td>probe for ratings, raw geography</td>
+<td>rating e1 <strong>−0.01</strong> / p1 <strong>0.09</strong> · geo-leak ρ <strong>0.08</strong></td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Retrieval / twins</strong></td>
+<td>does <em>distance = similarity</em>?</td>
+<td>known-answer twin hit-rate · kNN purity · chain recall@10</td>
+<td>twin <strong>1.0</strong> · cat-kNN <strong>0.997</strong> · chain <strong>0.814</strong></td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Invariance &amp; stability</strong></td>
+<td>robust to noise &amp; re-training?</td>
+<td>corrupt N% features → neighbour drift · multi-seed Procrustes</td>
+<td>Procrustes <strong>0.987</strong> · contrast-pct <strong>0.997</strong></td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Structure &amp; baselines</strong></td>
+<td>geometry preserves meaning; beats trivial?</td>
+<td>distance rank-corr · cluster ARI/silhouette · <strong>negative control</strong> · <strong>ablations</strong> · <strong>PCA baseline</strong></td>
+<td>dist-rankcorr <strong>0.94</strong> · neg-control R² <strong>−0.01</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Three non-obvious points:</p>
+<ul>
+<li><strong>The forbidden / negative-control probes are the heart of correctness.</strong> Anyone
+  can score high on "should-predict." The proof of a <em>clean</em> representation is that
+  it scores ≈ 0 on what it must <em>not</em> know — popularity, identity, a random-label
+  control. That <strong>asymmetry</strong> is what makes the embedding trustworthy, not just
+  useful.</li>
+<li><strong>Use a <em>linear</em> probe, not a deep one.</strong> If a linear head recovers a target, the
+  geometry encodes it <em>cleanly</em>. A deep probe can recover almost anything and tells
+  you little about the representation.</li>
+<li><strong>Always carry a baseline + ablations.</strong> "Contrastive is better" is only
+  meaningful against PCA <em>on the same exam</em>, and every ingredient (mask, view-mask,
+  chain pairs) must earn its place.</li>
+</ul>
+<hr />
+<h2>5. The experiment that actually settles it</h2>
+<p>Today the claim is asserted; it should be <strong>proven apples-to-apples</strong>:</p>
+<blockquote>
+<p><strong>Same input features → train {PCA, AE, VAE, MAE, SimCLR-contrastive, the hybrid}
+→ run all six through the one frozen exam → tabulate.</strong></p>
+</blockquote>
+<ul>
+<li><strong>Controls</strong> — identical feature matrix, identical dim (256), identical held-out
+  splits, exam frozen <em>before</em> any training.</li>
+<li><strong>Output</strong> — one table: utility probes ↑, forbidden probes ↓, twin/retrieval ↑,
+  corruption-robustness ↑, seed-stability ↑ — across all six; plus <strong>CKA</strong> between
+  every pair to see <em>how differently</em> each organises the space.</li>
+<li><strong>Predicted shape</strong> — PCA strong on linear-utility but brittle and leaky; AE
+  similar; VAE smoothest but weakest retrieval; MAE close to contrastive on utility
+  yet worse on the <em>metric</em> tests; contrastive/hybrid wins retrieval + robustness +
+  clean forbidden scores.</li>
+<li><strong>What would change the verdict</strong> — if MAE matched contrastive on twin/chain
+  retrieval, the "metric-is-the-objective" advantage would be smaller than claimed.</li>
+</ul>
+<p>That benchmark is the honest, publishable answer — and it doubles as the results
+section of any write-up of the method.</p>
+<hr />
+<h2>6. Bottom line</h2>
+<p>For a <em>similarity</em> atlas, <strong>contrastive is the right backbone</strong> because the metric
+you care about is the metric it optimises, it lets you teach the model through
+pair design, and it lets you guarantee what stays <em>out</em>. The reconstruction family
+remains the right tool for compression, imputation and generation — which is why
+the shipped embedding is a <strong>hybrid</strong>, not a purist. And "is it correct?" is never
+one number: it's a <strong>frozen battery</strong> of should-predict, must-not-predict,
+retrieve-sanely, stay-stable, and beat-the-baseline — the same discipline that
+gates every embedding in this atlas.</p>
+<hr />
+<p><em>Method note for Plexis SGP v5.5.0 &amp; Jabodetabek · numbers from the frozen e1/p1
+exams (<code>eval_final_plexis_e1.json</code>, <code>exam_Z_p1_s0.json</code>) · everything review-free,
+exam-gated.</em></p></body></html>
