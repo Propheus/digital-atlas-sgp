@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jabodetabek Digital Atlas — reports, training & demos · Propheus</title>
+<style>
+:root{
+  --accent:#20b2aa;--accent2:#2dd4bf;
+  --glass:rgba(11,28,30,.72);--card:rgba(17,40,42,.55);
+  --border:rgba(32,178,170,.22);--border2:rgba(32,178,170,.4);
+  --t1:#e9eef0;--t2:#9fb3b1;--t3:#6f8482;
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",system-ui,sans-serif;
+  --mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{color:var(--t1);line-height:1.6;font-family:var(--font);-webkit-font-smoothing:antialiased;
+  background:radial-gradient(1100px 560px at 75% -8%,#173f41 0%,transparent 58%),
+    linear-gradient(162deg,#0a1a1c,#0d2123 55%,#102628);background-attachment:fixed;min-height:100vh}
+
+.nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:11px 26px;border-bottom:1px solid var(--border);background:var(--glass);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.brand{display:flex;align-items:center;gap:11px;min-width:0}
+.brand .logo{width:26px;height:26px;flex-shrink:0;filter:drop-shadow(0 0 7px rgba(32,178,170,.45))}
+.brand .logo path{fill:var(--accent2)}
+.brand .wm{font-weight:700;font-size:.98rem;letter-spacing:-.01em;color:#fff}
+.brand .sep{color:var(--border2);font-size:1.1rem}
+.brand .navtitle{font-size:.9rem;font-weight:500;color:#cfe4e5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand .navtitle b{color:var(--accent)}
+.navmeta{font-family:var(--mono);font-size:.7rem;color:var(--t2);border:1px solid var(--border);border-radius:7px;padding:3px 9px;white-space:nowrap}
+
+.wrap{max-width:1060px;margin:0 auto;padding:42px 26px 90px}
+h1{font-size:34px;line-height:1.18;letter-spacing:-.6px;font-weight:700}
+h1 .hot{color:var(--accent);text-shadow:0 0 26px rgba(32,178,170,.4)}
+.tag{color:var(--t2);margin-top:11px;font-size:15.5px;max-width:760px}
+.tag b{color:#fff}
+
+.stats{display:flex;gap:14px;flex-wrap:wrap;margin:26px 0 10px}
+.stat{flex:1;min-width:130px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:15px 17px;
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.stat .k{font-size:24px;font-weight:800;color:var(--accent2);letter-spacing:-.02em}
+.stat small{display:block;color:var(--t2);font-size:11.5px;margin-top:3px;text-transform:uppercase;letter-spacing:.04em}
+
+h2{font-size:12.5px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin:42px 0 14px;
+  border-bottom:1px solid var(--border);padding-bottom:9px}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
+.card{display:block;background:var(--card);border:1px solid var(--border);border-left:3px solid var(--c,var(--accent));
+  border-radius:14px;padding:18px 20px;text-decoration:none;color:inherit;transition:.18s;
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 26px rgba(0,0,0,.3);border-color:var(--c,var(--border2))}
+.card .ct{font-size:16.5px;font-weight:700;color:var(--c,#fff);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.card .cd{font-size:13.5px;color:#cdd9da;line-height:1.5}
+.card .cf{display:flex;align-items:center;justify-content:space-between;margin-top:13px}
+.card .tag2{font-size:10px;font-family:var(--mono);color:var(--c,var(--accent2));border:1px solid var(--c,var(--border));
+  border-radius:6px;padding:2px 8px;text-transform:uppercase;letter-spacing:.04em;opacity:.9}
+.card .go{font-size:12px;color:var(--c,var(--accent2));font-weight:600}
+
+.foot{color:var(--t3);font-size:12px;border-top:1px solid var(--border);margin-top:44px;padding-top:16px;line-height:1.7}
+.foot code{font-family:var(--mono);color:var(--accent2);font-size:11.5px}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="brand">
+    <svg class="logo" viewBox="0 0 100 100" aria-label="Propheus"><g>
+      <path d="M45,64.2c-1.1,9.1-3.3,15.3-5.8,15.3c-0.1,0-0.1,0-0.2,0c-0.3,0-0.6-0.2-1-0.4c0,0,0,0,0,0c-3.1-2.5-5.4-14.5-5.4-29c0-14.4,2.3-26.4,5.4-29c0.3-0.3,0.7-0.5,1-0.5c0,0,0,0,0,0h0.2c2.6,0,4.9,6.8,6,16.6c-5.6,2-9.5,7.3-9.5,13.5C35.6,56.9,39.5,62.1,45,64.2z"/>
+      <path d="M67.4,50c0,14.5-2.3,26.5-5.4,29h0v0c-0.3,0.2-0.6,0.4-0.9,0.4c-0.1,0-0.2,0-0.2,0c-2.5,0-4.7-6.2-5.8-15.3c5.5-2,9.4-7.3,9.4-13.5c0-6.2-4-11.6-9.5-13.5c1.1-9.8,3.4-16.6,6-16.6H61v0c0.4,0,0.7,0.2,1,0.5c0,0,0,0,0,0C65.1,23.6,67.4,35.6,67.4,50z"/>
+      <path d="M30.2,50c0-14.4,2.3-26.4,5.4-29c-10.6,5.3-17.9,16.3-17.9,29c0,12.7,7.3,23.7,17.9,29C32.5,76.5,30.2,64.5,30.2,50z M64.4,21c3.1,2.6,5.4,14.5,5.4,29c0,14.5-2.3,26.5-5.4,29C75,73.7,82.3,62.7,82.3,50C82.3,37.3,75,26.4,64.4,21z"/>
+      <path d="M62.1,50.7c0,5-3,9.3-7.4,11.2c-1.5,0.6-3.1,1-4.8,1c-1.7,0-3.3-0.4-4.8-1c-4.3-1.9-7.4-6.2-7.4-11.2c0-5.1,3.1-9.4,7.5-11.2c1.4-0.6,3-0.9,4.7-0.9c1.7,0,3.2,0.3,4.7,0.9C59.1,41.3,62.1,45.6,62.1,50.7z"/>
+    </g></svg>
+    <span class="wm">Propheus</span><span class="sep">·</span>
+    <span class="navtitle">Jabodetabek <b>Digital Atlas</b></span>
+  </div>
+  <span class="navmeta">Plexis JKT v1</span>
+</nav>
+
+<div class="wrap">
+  <h1>Jabodetabek <span class="hot">Digital Atlas</span></h1>
+  <p class="tag">A Singapore-parity city atlas for Greater Jakarta — every neighbourhood and venue turned into a
+    learned fingerprint where <b>distance = functional similarity</b>. Reports, training results and demos below.</p>
+
+  <div class="stats">
+    <div class="stat"><div class="k">9,164</div><small>hexes (H3-8)</small></div>
+    <div class="stat"><div class="k">369</div><small>features / hex</small></div>
+    <div class="stat"><div class="k">3.07M</div><small>places</small></div>
+    <div class="stat"><div class="k">256-d</div><small>hex embed · e1</small></div>
+    <div class="stat"><div class="k">64-d</div><small>place embed · p1</small></div>
+  </div>
+
+  <h2>Jabo — reports &amp; training</h2>
+  <div class="grid">
+    <a class="card" href="JABO_ATLAS_COMPLETE.html" style="--c:#5eead4">
+      <div class="ct">📘 Complete Atlas Report</div>
+      <div class="cd">The full writeup — every feature per hex &amp; place, both embeddings, scale, and the contrastive training results in one document.</div>
+      <div class="cf"><span class="tag2">full report</span><span class="go">open →</span></div></a>
+
+    <a class="card" href="JABO_ATLAS_BUILD_REPORT.html" style="--c:#f0c14b">
+      <div class="ct">🛠️ Build Report</div>
+      <div class="cd">10-section technical build: data layers, feature engineering, and the contrastive training (SCARF · InfoNCE · e1/p1 · forbidden-probe).</div>
+      <div class="cf"><span class="tag2">training</span><span class="go">open →</span></div></a>
+
+    <a class="card" href="JABO_HEX_FEATURE_CATALOG.html" style="--c:#7dd3fc">
+      <div class="ct">🗂️ Hex Feature Catalog</div>
+      <div class="cd">All 369 hex features grouped by view (WHO · WHERE · WHAT · FLOW · ECON), with descriptions, sources and coverage.</div>
+      <div class="cf"><span class="tag2">features</span><span class="go">open →</span></div></a>
+
+    <a class="card" href="contrastive_learning_animation.html" style="--c:#f0abfc">
+      <div class="ct">🎬 Contrastive Training Animation</div>
+      <div class="cd">A 9-scene plain-English explainer of how the atlas learns place &amp; hex representations — corruption, masking, InfoNCE, and the papers behind it.</div>
+      <div class="cf"><span class="tag2">explainer</span><span class="go">open →</span></div></a>
+  </div>
+
+  <h2>Apps — live</h2>
+  <div class="grid">
+    <a class="card" href="https://property-intel-jabo.digitalatlaspropheus.com/" target="_blank" rel="noopener" style="--c:#5eead4">
+      <div class="ct">🏢 Property Intelligence</div>
+      <div class="cd">Real-estate intelligence on the Jakarta atlas — development feasibility, livability, momentum and collateral scored for every neighbourhood.</div>
+      <div class="cf"><span class="tag2">live app</span><span class="go">open →</span></div></a>
+  </div>
+
+  <h2>Related — Singapore</h2>
+  <div class="grid">
+    <a class="card" href="http://10.0.2.25:14043/" style="--c:#5eead4">
+      <div class="ct">🇸🇬 Singapore Digital Atlas</div>
+      <div class="cd">The full reference build this metro was cut to parity with &mdash; 1,191 hexes &times; 801 features, 190,591 places, two embeddings, five domain packs. Reports, training &amp; live apps.</div>
+      <div class="cf"><span class="tag2">full atlas</span><span class="go">open &rarr;</span></div></a>
+
+  </div>
+
+  <div class="foot" style="text-align:center">
+    <div style="font-size:16px;letter-spacing:.08em;color:var(--t1);margin-bottom:9px;font-weight:600">
+      <span style="color:var(--accent2)">Data</span>
+      <span style="color:var(--border2);margin:0 10px">→</span>
+      <span style="color:var(--accent2)">Features</span>
+      <span style="color:var(--border2);margin:0 10px">→</span>
+      <span style="color:var(--accent2)">Representation</span>
+    </div>
+    Built with <b style="color:#fff">Plexis</b> &mdash; one universal embeddings creator.
+  </div>
+</div>
+</body>
+</html>
