@@ -1,0 +1,386 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Plexis-E — the Hybrid Representation Method</title><style>
+:root{--accent:#20b2aa;--accent2:#2dd4bf;--ok:#39d98a;--warn:#f0c14b;
+ --glass:rgba(17,40,42,.55);--glass2:rgba(12,27,29,.72);
+ --border:rgba(32,178,170,.18);--border2:rgba(32,178,170,.32);
+ --text:#e9eef0;--muted:#8fa3a6;--mono:#7fe3da}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--text);
+ background:radial-gradient(1100px 560px at 72% -12%,#173f41 0%,transparent 58%),
+   linear-gradient(162deg,#0a1a1c,#0d2123 55%,#102628);
+ background-attachment:fixed;min-height:100vh;max-width:1060px;margin:0 auto;
+ padding:46px 26px;font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1{font-size:30px;font-weight:700;letter-spacing:-.022em;margin:0 0 4px}
+.accent{color:var(--accent)}
+h2{font-size:16px;font-weight:600;margin:34px 0 12px;color:#d4ecea;
+ border-bottom:1px solid var(--border);padding-bottom:7px;letter-spacing:-.01em}
+h2 .n{color:var(--muted);font-weight:400;font-size:13px}
+.sub{color:var(--muted);margin:0 0 22px;font-size:14px}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+.cards{display:grid;grid-template-columns:repeat(6,1fr);gap:11px;margin:20px 0 8px}
+.card{background:var(--glass);border:1px solid var(--border);border-radius:13px;
+ padding:16px 12px;text-align:center;backdrop-filter:blur(13px);-webkit-backdrop-filter:blur(13px)}
+.cv{font-size:23px;font-weight:700;color:#fff;letter-spacing:-.02em}
+.cl{font-size:10.5px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.045em}
+table{width:100%;border-collapse:separate;border-spacing:0;background:var(--glass2);
+ border:1px solid var(--border);border-radius:13px;overflow:hidden;margin-bottom:8px;
+ backdrop-filter:blur(11px);-webkit-backdrop-filter:blur(11px)}
+th,td{text-align:left;padding:9px 13px;border-bottom:1px solid rgba(32,178,170,.10);font-size:13px;vertical-align:top}
+th{background:rgba(32,178,170,.09);color:var(--accent);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:rgba(32,178,170,.05)}
+td.f{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:12px;color:var(--mono);white-space:nowrap}
+td.t{color:var(--muted);font-size:11.5px}
+td.s{color:#b9c9cb;font-size:12px;white-space:nowrap}
+.banner{background:linear-gradient(90deg,rgba(57,217,138,.16),rgba(32,178,170,.04));
+ border:1px solid var(--border2);color:#8fe9c4;border-radius:13px;padding:13px 17px;font-weight:600;margin:8px 0 4px}
+.note{color:var(--muted);font-size:12.5px;margin-top:9px}
+.pill{display:inline-block;background:rgba(32,178,170,.14);border:1px solid var(--border);
+ color:#9fe9e1;border-radius:20px;padding:3px 11px;margin:3px 2px;font-size:12.5px}
+code{background:rgba(32,178,170,.1);padding:1px 6px;border-radius:5px;font-size:12px;color:#9fe9e1;
+ font-family:ui-monospace,"SF Mono",Menlo,monospace}
+.tag{display:inline-block;font-size:9.5px;background:rgba(32,178,170,.2);color:#9fe9e1;
+ border-radius:6px;padding:1px 7px;margin-left:7px;vertical-align:middle;text-transform:uppercase;letter-spacing:.04em;font-weight:600}
+/* prose (markdown) */
+p{margin:10px 0}
+ul,ol{margin:8px 0 12px;padding-left:22px} li{margin:4px 0;color:#cdd9da}
+strong,b{color:#fff;font-weight:600}
+em{color:#bcd}
+hr{border:none;border-top:1px solid var(--border);margin:30px 0}
+blockquote{border-left:3px solid var(--accent);background:rgba(32,178,170,.06);
+ margin:14px 0;padding:10px 16px;border-radius:0 8px 8px 0;color:#bcd0d2}
+blockquote p{margin:4px 0}
+pre{background:rgba(8,18,20,.85);border:1px solid var(--border);border-radius:10px;
+ padding:13px 15px;overflow-x:auto;margin:12px 0;font-size:12.5px;line-height:1.5}
+pre code{background:none;padding:0;color:#cfeae6;font-family:ui-monospace,"SF Mono",Menlo,monospace}
+h1+p em,h1+p{color:var(--muted)}
+@media(max-width:680px){.cards{grid-template-columns:repeat(3,1fr)}}
+</style></head><body><h1>Plexis-E — the Hybrid Representation Method</h1>
+<p><em>A portable spec for building learned region (<code>e1</code>) and place (<code>p1</code>) embeddings for
+a city atlas. Proven on Singapore (SGP); written so a Jakarta (IDN) or New York
+(NYC) builder can pick it up and reproduce it at parity. Review-free, exam-gated,
+CPU-only.</em></p>
+<hr />
+<h2>0. TL;DR</h2>
+<ul>
+<li><strong>What it is.</strong> One compact vector per ~0.74 km² hex (<code>e1</code>, 256-d) and per venue
+  (<code>p1</code>, 64-d), where <strong>distance = functional similarity</strong>. Built by <strong>composing two
+  objectives</strong>, not picking one: <code>e1 = PCA-160 ⊕ contrastive-96</code>.</li>
+<li><strong>Why hybrid.</strong> A controlled benchmark (PCA / AE / VAE / MAE / contrastive /
+  hybrid, same input, same frozen exam) showed the two halves do <strong>different jobs</strong>:
+  <strong>contrastive → local robustness/invariance</strong>, <strong>PCA → the global metric</strong>. The
+  hybrid is the only one that holds both.</li>
+<li><strong>How good.</strong> Twin hit-rate 1.0, probe OD R² 0.90 / adequacy 0.93, corruption-
+  robustness ~1.5× PCA, 2-seed stability 0.99, and the forbidden-rating probe ≈ 0
+  (provably no review leakage).</li>
+<li><strong>Cost.</strong> Trains in minutes on CPU, seed-deterministic, no GPU, no transformer.</li>
+<li><strong>Portable.</strong> The recipe is city-agnostic; only a short list of city-specific
+  inputs is swapped (§6).</li>
+</ul>
+<hr />
+<h2>1. The principle — optimise for <em>similarity</em>, not reconstruction</h2>
+<p>A city atlas is used for <strong>similarity</strong> operations: twins, whitespace, competitor
+radar, vibe search, analog retrieval, anomaly. So the embedding objective should
+<strong>name similarity</strong>, not proxy it.</p>
+<blockquote>
+<p><strong>Reconstruction methods</strong> (PCA, AE, VAE, MAE) ask <em>"can I rebuild this hex?"</em> and
+<em>hope</em> good geometry follows.
+<strong>Contrastive</strong> asks <em>"is this hex the same kind of place as that one?"</em> — the
+retrieval goal <strong>is</strong> the loss.</p>
+</blockquote>
+<p>But contrastive alone has a measured failure mode (§4): it <strong>warps global
+distances</strong>. So Plexis-E <strong>anchors contrastive geometry with PCA</strong> — keeping the
+global metric while gaining local robustness. That composition is the method.</p>
+<hr />
+<h2>2. The recipe (city-agnostic)</h2>
+<h3>2.1 Input prep — <code>prep_features.py</code></h3>
+<p>From the city's hex master table build <code>X</code> (n_hex × d):
+- <strong>Numeric columns only</strong>; drop identity/bookkeeping.
+- <strong>Exclude by design (no leakage):</strong> ratings, review counts, and any column that is
+  a model <em>output</em> or a probe target (price, OD, adequacy) — these become the
+  <strong>forbidden / probe</strong> set, never inputs.
+- <strong>Per-column transform:</strong> <code>log1p</code> for skewed non-negative columns, then z-score,
+  clip to ±6.
+- <strong>NaN → 0 after z</strong>, with per-family <strong>NaN-indicator channels</strong> appended.
+- <strong>Assign every input column a VIEW</strong> — <code>WHO / WHERE / WHAT / FLOW / ECON(PRICE)</code> —
+  for view-masking later.
+- Output <code>X.npy</code>, <code>meta.json</code> (cols, views), <code>labels.parquet</code> (probe targets + zone
+  labels held out of <code>X</code>).</p>
+<blockquote>
+<p>SGP: 801-col master → <strong>739 review-free inputs</strong>, views
+<code>{WHO 64, WHERE 341, FLOW 94, PRICE 33, WHAT 202}</code>.</p>
+</blockquote>
+<h3>2.2 Encoder — a clean MLP, deliberately no transformer</h3>
+<pre><code>Encoder:  Linear(d→512) → LayerNorm → GELU → Dropout(0.1) → Linear(512→dim)
+          + projection head Linear(dim→128)   (for InfoNCE)
+          + decoder Linear(dim→512)→GELU→Linear(512→d)   (for denoising recon)
+</code></pre>
+<p>The input is a fixed-length vector and spatial context already enters as ring
+features — there is no sequence to attend over. The bottleneck is <strong>information</strong>
+(we exclude rating/name/identity by design), not capacity, so an MLP + a strong
+self-supervised objective is the right tool.</p>
+<h3>2.3 The hybrid — <code>e1 = PCA-160 ⊕ contrastive-96</code></h3>
+<ol>
+<li><code>PCA-160 = PCA(160).fit_transform(X)</code> — the global-metric anchor.</li>
+<li><code>Z_c = contrastive_encoder(X)</code> (256-d), then <code>PCA-96 = PCA(96).fit_transform(Z_c)</code>.</li>
+<li><code>e1 = concat([PCA-160, PCA-96])</code> → 256-d. Store as <code>hex8_embedding_*_256d.parquet</code>
+   (key + <code>e0…e255</code>).</li>
+</ol>
+<h3>2.4 Contrastive training — <code>train.py</code></h3>
+<p>SCARF-style self-supervision + view-masking:
+- <strong>Positive pair</strong> = (clean hex, corrupted copy). <strong>SCARF corruption:</strong> resample a
+  random ~30% of features from each column's marginal (donor = another random hex).
+- <strong>View-masking (the key extra):</strong> with prob ~0.5, additionally <strong>zero an entire
+  view</strong> (e.g. all FLOW), so the encoder must infer the missing domain from the
+  others — the supply↔demand objective; this is the MAE idea, folded in.
+- <strong>Loss</strong> = <code>InfoNCE(proj(clean), proj(corrupt))</code> (in-batch negatives, τ≈0.5)
+  <code>+ λ·MSE</code> denoising reconstruction on the masked entries.
+- AdamW, cosine LR, batch 256, ~700–1500 epochs, <strong>2 seeds</strong> for a stability check.</p>
+<h3>2.5 The ratio — sweep it, don't guess</h3>
+<p>Sweep the PCA/contrastive split on the frozen exam. SGP tried <strong>192/64 vs 160/96</strong>
+and shipped <strong>160/96</strong> (it lifted HDB-price probe 0.785→0.810 and adequacy
+0.918→0.930 for negligible OD cost). Re-run this sweep per city — the optimum may
+shift with feature count.</p>
+<h3>2.6 The place embedding <code>p1</code> (64-d) — pair design is the lever</h3>
+<p>Same encoder, but the <strong>positive pair changes</strong>: two outlets of the <strong>same chain</strong>
+are a positive (free domain supervision, no labels). Inputs = category one-hot +
+per-venue micrograph + a down-weighted slice of the venue's hex context. SGP:
+<strong>17,046 chain-sibling pairs across 203 chains</strong>. Note <code>p1</code> is currently
+<strong>contrastive (not hybridised)</strong> — fine for local retrieval; hybridise it only if
+global place-distance queries matter (§8).</p>
+<hr />
+<h2>3. The exam — write it first, freeze it, let the marks decide</h2>
+<p>Nothing ships until it passes a <strong>battery written and frozen before training</strong>.
+Five families (<code>eval_harness.py</code>), all probes <strong>PA-blocked</strong> (spatial-autocorrelation
+guard), Z standardized so the comparison is scale-fair:</p>
+<ol>
+<li><strong>Should-predict (utility):</strong> linear ridge probe on held-out targets (price, OD,
+   adequacy). High = real structure is <em>linearly accessible</em>.</li>
+<li><strong>Should-NOT-predict (forbidden):</strong> probe ratings, raw geography, a <strong>permuted-
+   target negative control</strong>. Must be ≈ 0 — <em>this is the ship gate.</em></li>
+<li><strong>Retrieval / twins:</strong> hand-picked known-answer analogs + (harder) hidden-sibling
+   retrieval + kNN purity.</li>
+<li><strong>Invariance &amp; stability:</strong> corrupt 30% of features → neighbour drift; 2-seed
+   Procrustes.</li>
+<li><strong>Structure &amp; baselines:</strong> distance rank-corr, cluster ARI/silhouette, <strong>and PCA
+   as the yardstick + ablations</strong> (every ingredient must earn its place).</li>
+</ol>
+<blockquote>
+<p><strong>The asymmetry is the point.</strong> Anyone scores high on "should-predict." A <em>clean</em>
+representation scores ≈ 0 on what it must <strong>not</strong> know. That is what makes it
+trustworthy, not just useful.</p>
+</blockquote>
+<hr />
+<h2>4. How good it is — the measured evidence (SGP)</h2>
+<p>Six methods, identical input <code>X (1191×739 → 256-d)</code>, identical frozen exam, 2 seeds:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>OD R²</th>
+<th>adq R²</th>
+<th><strong>robust</strong></th>
+<th><strong>stability</strong></th>
+<th><strong>dist-rank (global)</strong></th>
+<th>neg-ctrl</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PCA</td>
+<td><strong>0.935</strong></td>
+<td>0.951</td>
+<td>0.324</td>
+<td>0.999</td>
+<td><strong>1.00</strong></td>
+<td>−0.020</td>
+</tr>
+<tr>
+<td>AE</td>
+<td>0.874</td>
+<td>0.959</td>
+<td>0.292</td>
+<td>0.863</td>
+<td>—</td>
+<td>−0.011</td>
+</tr>
+<tr>
+<td>VAE</td>
+<td>0.871</td>
+<td>0.955</td>
+<td>0.306</td>
+<td>0.824</td>
+<td>—</td>
+<td>−0.009</td>
+</tr>
+<tr>
+<td>MAE</td>
+<td>0.893</td>
+<td><strong>0.961</strong></td>
+<td>0.417</td>
+<td>0.923</td>
+<td>—</td>
+<td>−0.010</td>
+</tr>
+<tr>
+<td>Contrastive</td>
+<td>0.887</td>
+<td>0.960</td>
+<td><strong>0.538</strong></td>
+<td>0.975</td>
+<td><strong>0.24</strong> ⚠</td>
+<td>−0.011</td>
+</tr>
+<tr>
+<td><strong>Hybrid (e1)</strong></td>
+<td>0.911</td>
+<td>0.933</td>
+<td>0.460</td>
+<td>0.993</td>
+<td><strong>0.97</strong></td>
+<td>−0.013</td>
+</tr>
+</tbody>
+</table>
+<p><strong>What each half captures:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Half</th>
+<th>Captures</th>
+<th>Good at</th>
+<th>Lost without it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Contrastive-96</strong></td>
+<td><strong>LOCAL</strong> — "same kind of place" neighbourhoods robust to noise &amp; re-training</td>
+<td>robust <strong>0.54</strong> (best), stability 0.97</td>
+<td>neighbours drift; map changes each re-train</td>
+</tr>
+<tr>
+<td><strong>PCA-160</strong></td>
+<td><strong>GLOBAL</strong> — faithful distances/magnitudes, linear structure</td>
+<td>dist-rank <strong>1.00</strong>, OD-probe 0.94</td>
+<td>"how different / how far" collapses (pure contrastive → <strong>0.24</strong>)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Read it honestly:</strong> <em>utility is shared</em> (every method 0.87–0.96 — the info is in
+the features, not the embedding), and a harder K=25 functional-retrieval exam still
+under-separates the methods (~0.60 for all). <strong>The real differentiators are
+robustness, stability, and the global metric</strong> — exactly where pure contrastive
+both wins (robustness) <em>and</em> fails (global distance 0.20–0.24), and exactly why the
+<strong>hybrid is the shipped choice</strong>: it keeps the global metric (0.97) <em>and</em> the
+robustness (0.46) at the best learned stability (0.99). We didn't assert it; we froze
+the test and ran the field.</p>
+<hr />
+<h2>5. The fruits — what the method buys you</h2>
+<ol>
+<li><strong>One vector → every similarity product.</strong> Twins, whitespace ghost-maps,
+   competitor radar, vibe search, analog retrieval, anomaly, gradient maps — all are
+   nearest-neighbour or distance operations on the same fingerprint.</li>
+<li><strong>Local <em>and</em> global, by construction.</strong> Retrieval that stays put under noise
+   (contrastive) <strong>and</strong> trustworthy "how different are these two" (PCA). Most
+   embeddings give you one; the hybrid gives both.</li>
+<li><strong>Provably clean → trustable.</strong> Review-free inputs + the forbidden probe ≈ 0 mean
+   the embedding encodes <em>what a place is</em>, never <em>how popular it is</em> — safe to ship
+   to customers and to expose in apps.</li>
+<li><strong>Free domain supervision.</strong> Pair design (chain siblings) injects "same kind of
+   place" with zero hand labels — knowledge no PCA/AE can absorb.</li>
+<li><strong>Cheap, reproducible, auditable.</strong> CPU-only, minutes to train, seed-deterministic,
+   gated by a public frozen exam. No GPU, no black box.</li>
+<li><strong>Composable.</strong> Drop the columns into any model as features (BYO target), feed the
+   domain packs, or expose as tools to an agent/reasoner — the embedding is a
+   substrate, not an endpoint.</li>
+<li><strong>Transfers across cities at parity.</strong> The recipe is fixed; only the inputs change
+   (§6). One method, many atlases.</li>
+</ol>
+<hr />
+<h2>6. Port it to a new city (IDN / NYC checklist)</h2>
+<p><strong>Keep unchanged (the method):</strong> the encoder, the hybrid 160/96 construction, SCARF
++ view-masking + InfoNCE + denoising recon, the 2-seed stability check, the
+exam-first discipline and its five families.</p>
+<p><strong>Swap per city (the inputs):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Swap</th>
+<th>SGP</th>
+<th>What IDN / NYC supplies</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hex master table</strong></td>
+<td><code>hex8_all_features</code> (801)</td>
+<td>your city's per-hex feature matrix</td>
+</tr>
+<tr>
+<td><strong>Forbidden / probe targets</strong></td>
+<td>ratings, HDB-psm, OD, adequacy</td>
+<td>your price feed (resale/rent/assessed), your OD, your adequacy/access target</td>
+</tr>
+<tr>
+<td><strong>Views</strong></td>
+<td>WHO/WHERE/WHAT/FLOW/PRICE prefixes</td>
+<td>re-map prefixes to the same 5 views</td>
+</tr>
+<tr>
+<td><strong>Twin anchors</strong> (exam)</td>
+<td>Toa Payoh, CBD, Tuas, Tengah, Yishun</td>
+<td>hand-pick 5 known archetypes (NYC: Midtown CBD, brownstone Brooklyn, industrial Bronx, a transit desert, a new-build waterfront)</td>
+</tr>
+<tr>
+<td><strong>Category taxonomy + chains</strong> (p1)</td>
+<td>24 cats, 203 chains</td>
+<td>the city's POI taxonomy + its real chains (IDN: Indomaret/Alfamart/Kopi Kenangan; NYC: Duane Reade/Starbucks/Dunkin)</td>
+</tr>
+<tr>
+<td><strong>Zone labels</strong></td>
+<td>URA <code>zone_type_broad</code></td>
+<td>the city's land-use/zoning classes</td>
+</tr>
+<tr>
+<td><strong>Ratio sweep</strong></td>
+<td>160/96 won</td>
+<td>re-sweep — optimum shifts with feature count</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Do NOT</strong> import another city's z-score stats or embedding space — each city is
+fit on its own marginals. For cross-city comparison, align spaces post-hoc
+(Procrustes / CORAL on shared anchors); a single joint space is a separate project.</p>
+<hr />
+<h2>7. Reproducibility — files &amp; order</h2>
+<pre><code>embedding/prep_features.py     # master -&gt; X.npy, meta.json, labels.parquet
+embedding/train.py             # contrastive encoder (SCARF + view-mask + InfoNCE + recon)
+embedding/eval_harness.py      # the frozen exam: evaluate(Z, fast=False, X_raw=X)
+embedding/benchmark_methods.py # PCA/AE/VAE/MAE/contrastive/hybrid on the SAME X + exam
+embedding/hard_exam.py         # K-class functional retrieval + hard-negative triplets
+# place side:
+embedding_place/prep.py · train.py · exam.py   # p1 (chain-sibling positives)
+</code></pre>
+<p>Run order: <code>prep → train (2 seeds) → build hybrid (PCA160 ⊕ PCA96(contrastive)) →
+eval_harness → (sweep ratio) → ship the parquet</code>. Training is seed-deterministic;
+the whole thing re-runs from source.</p>
+<hr />
+<h2>8. Honest limits (so a builder ships with eyes open)</h2>
+<ul>
+<li><strong>Pure contrastive distorts global distance</strong> — trust its neighbourhoods, not its
+  far-distances. Hybridise (as <code>e1</code> does) if "how different / rank-by-distance /
+  anomaly" matters. <code>p1</code> (places) is not yet hybridised — fine for local/chain
+  retrieval, weak on global place-distance.</li>
+<li><strong>Utility is feature-bound, not embedding-bound</strong> — if a probe target isn't
+  recoverable from any embedding, the feature is missing, not the method.</li>
+<li><strong>The embedding encodes <em>kind<em>, not </em>quality<em> or </em>geography</em></strong> — by design. Use a
+  separate (non-leaky) head for quality and the spatial index for "nearest X".</li>
+<li><strong>Static snapshot</strong> — no temporal/causal/daypart. Those are separate layers.</li>
+<li><strong>Augmentation design is the whole game</strong> — a wrong positive pair bakes in a wrong
+  invariance silently. Ablate every augmentation against the exam.</li>
+</ul>
+<hr />
+<p><em>Method proven on Plexis SGP v5.5.0 · <code>e1</code> 256-d hybrid + <code>p1</code> 64-d · everything
+review-free and exam-gated · numbers from the frozen e1/p1 exams and the
+six-method benchmark. Take it, swap the inputs, pass the exam — and you have a city
+atlas at parity.</em></p></body></html>
