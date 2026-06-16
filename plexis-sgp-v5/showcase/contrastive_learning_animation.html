@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Building a representation for every place & hex — Singapore · contrastive training · Propheus</title>
+<style>
+  :root{
+    --bg:#0b1c1e; --bg2:#102628; --accent:#20b2aa; --accent2:#2dd4bf;
+    --dim:rgba(32,178,170,.14); --border:rgba(32,178,170,.22); --border2:rgba(32,178,170,.4);
+    --glass:rgba(12,27,29,.82); --text:#e9eef0; --muted:#8fa3a6;
+    --pos:#39d98a; --neg:#f87171; --mask:#f0c14b;
+    --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",system-ui,sans-serif;
+    --mono:"SF Mono",ui-monospace,Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;overflow:hidden;font-family:var(--font);color:var(--text);
+    background:radial-gradient(1100px 560px at 75% -10%,#173f41 0%,transparent 58%),
+      linear-gradient(162deg,#0a1a1c,#0d2123 55%,#102628);}
+  .accent{color:var(--accent)} .pos{color:var(--pos)} .neg{color:var(--neg)} .mask{color:var(--mask)}
+  b{color:#fff;font-weight:600}
+  .app{height:100vh;display:grid;grid-template-rows:auto 1fr auto auto;padding:13px 20px;gap:11px;max-width:1200px;margin:0 auto}
+
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:14px;border:1px solid var(--border);border-radius:12px;
+    background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:9px 16px}
+  .brand{display:flex;align-items:center;gap:11px;min-width:0}
+  .brand .logo{width:25px;height:25px;flex-shrink:0;filter:drop-shadow(0 0 7px rgba(32,178,170,.4))}
+  .brand .logo path{fill:var(--accent2)}
+  .brand .wm{font-weight:700;font-size:.93rem;letter-spacing:-.01em}
+  .brand .sep{color:var(--border2);font-size:1.05rem}
+  .brand .navtitle{font-size:.86rem;font-weight:500;color:#cfe4e5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .brand .navtitle b{color:var(--accent)}
+  .dots{display:flex;gap:7px;flex-shrink:0}
+  .dot-nav{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.12);cursor:pointer;border:none;transition:.2s}
+  .dot-nav.on{background:var(--accent);box-shadow:0 0 9px var(--accent);transform:scale(1.15)}
+
+  .stage{min-height:0;border:1px solid var(--border);border-radius:14px;background:var(--glass);
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);position:relative;overflow:hidden}
+  .scene{position:absolute;inset:0;padding:20px 26px;display:flex;flex-direction:column;animation:fade .45s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .scene-title{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);font-weight:600;margin-bottom:4px}
+  .scwrap{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
+  .scene-body{display:flex;align-items:center;justify-content:center;gap:30px;flex-wrap:wrap}
+
+  .narr{padding:15px 22px;border:1px solid var(--border);border-radius:12px;background:linear-gradient(90deg,rgba(32,178,170,.07),transparent);
+    font-size:1.02rem;line-height:1.64;color:#e2ecec;min-height:64px}
+  .narr .step{display:inline-block;font-family:var(--mono);font-size:.66rem;color:var(--accent);border:1px solid var(--border);
+    border-radius:6px;padding:2px 8px;margin-right:11px;vertical-align:2px;letter-spacing:.03em}
+
+  .controls{display:flex;align-items:center;gap:10px}
+  button{font-family:var(--font);font-size:.72rem;padding:6px 13px;border-radius:8px;border:1px solid var(--border);
+    background:rgba(255,255,255,.04);color:var(--text);cursor:pointer;transition:.15s}
+  button:hover{border-color:var(--border2)}
+  button.pri{background:var(--dim);color:var(--accent);border-color:var(--accent)}
+  .prog{flex:1;height:4px;background:rgba(255,255,255,.07);border-radius:3px;overflow:hidden}
+  .prog i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;transition:width .25s linear}
+  .scene-no{font-size:.7rem;color:var(--muted);font-family:var(--mono)}
+
+  /* view bars */
+  .views{display:flex;flex-direction:column;gap:11px;width:330px}
+  .view{display:grid;grid-template-columns:70px 1fr 30px;align-items:center;gap:11px}
+  .view .vl{font-size:.72rem;font-weight:600}
+  .view .vt{height:11px;border-radius:5px;background:rgba(255,255,255,.06);overflow:hidden}
+  .view .vt i{display:block;height:100%;width:0;border-radius:5px;transition:width .8s cubic-bezier(.22,1,.36,1)}
+  .view .vv{font-size:.66rem;color:var(--muted);font-family:var(--mono);text-align:right}
+  .view.masked .vt i{opacity:.25} .view.masked .vl{opacity:.4}
+  .viewdesc{width:300px;font-size:.82rem;line-height:1.6;color:var(--muted)}
+  .viewdesc b{color:var(--text)}
+  .viewdesc .vk{color:var(--accent);font-weight:600}
+  .stack{display:flex;flex-direction:column;gap:17px;align-items:center;max-width:780px}
+  .caption{font-size:.86rem;line-height:1.58;color:#c4d4d5;text-align:center;max-width:720px;
+    border-top:1px solid var(--border);padding-top:14px}
+  .caption b{color:#fff}
+
+  .card{border:1px solid var(--border);border-radius:11px;padding:15px 17px;background:rgba(17,40,42,.5);width:300px}
+  .card h4{font-size:.66rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:11px}
+  .card.corrupt{border-color:var(--mask)} .card.corrupt h4{color:var(--mask)}
+  .hexlabel{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;margin-bottom:6px}
+  .tag{font-family:var(--mono);font-size:.62rem;background:var(--dim);color:var(--accent);border:1px solid var(--border);border-radius:6px;padding:1px 7px}
+
+  svg{display:block;overflow:visible}
+  .chip{font-size:.72rem;border:1px solid var(--border2);border-radius:20px;padding:5px 13px;background:var(--dim);color:var(--accent2);font-weight:600}
+  .legend{font-size:.72rem;color:var(--muted);display:flex;gap:16px;margin-top:8px;justify-content:center}
+  .legend b.pull{color:var(--pos)} .legend b.push{color:var(--neg)}
+
+  /* scene 1 — feature → representation flow */
+  .flow{display:flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:center}
+  .flow .arrow{font-size:1.7rem;color:var(--accent);opacity:.7}
+  .featstack{width:190px;border:1px solid var(--border);border-radius:12px;background:rgba(17,40,42,.5);padding:13px 15px}
+  .featstack h4{font-size:.62rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:9px}
+  .featrow{font-family:var(--mono);font-size:.68rem;color:#aef0e8;display:flex;justify-content:space-between;gap:8px;padding:3px 0;border-bottom:1px solid rgba(32,178,170,.08)}
+  .featrow b{color:var(--accent2);font-weight:600}
+  .featmore{font-size:.66rem;color:var(--muted);margin-top:9px;text-align:center}
+  .encoder{width:118px;height:96px;border:1.5px solid var(--accent);border-radius:13px;background:var(--dim);display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:1px;color:var(--accent2);box-shadow:0 0 26px rgba(32,178,170,.2)}
+  .encoder b{font-size:.8rem;color:#fff} .encoder small{font-size:.58rem;color:var(--muted);margin-top:3px}
+  .vec{width:236px}
+  .vec h4{font-size:.62rem;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);margin-bottom:10px}
+  .vecbars{display:flex;gap:2px;align-items:flex-end;height:50px;margin-bottom:9px}
+  .vecbars i{flex:1;background:linear-gradient(180deg,var(--accent2),var(--accent));border-radius:1px;opacity:.85;
+    transition:height .7s cubic-bezier(.22,1,.36,1)}
+  .vecnum{font-family:var(--mono);font-size:.74rem;color:#cfe}
+  /* scene — split hex/place representation */
+  .split{display:flex;gap:28px;align-items:stretch;justify-content:center;flex-wrap:wrap}
+  .repcard{width:308px;border:1px solid var(--border);border-radius:15px;background:rgba(17,40,42,.55);padding:22px 24px;text-align:center}
+  .repcard.on{border-color:var(--border2);box-shadow:0 0 26px rgba(32,178,170,.13)}
+  .repcard h3{font-size:.92rem;margin-bottom:13px;color:var(--accent2)}
+  .repcard .big{font-size:2.1rem;font-weight:700;color:#fff;letter-spacing:-.02em;line-height:1}
+  .repcard .lbl{font-size:.7rem;text-transform:uppercase;letter-spacing:.045em;color:var(--muted);margin-top:5px}
+  .repcard .dim{display:inline-block;margin-top:14px;font-family:var(--mono);font-size:.74rem;color:var(--accent2);
+    border:1px solid var(--border);border-radius:7px;padding:3px 11px}
+  .repcard .desc{font-size:.8rem;color:#bcd0d2;margin-top:14px;line-height:1.5}
+  /* scene — application cards */
+  .apps{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;width:100%;max-width:880px}
+  .appcard{border:1px solid var(--border);border-left:3px solid var(--c,var(--accent));border-radius:12px;
+    background:rgba(17,40,42,.5);padding:14px 16px;text-align:left;transition:.2s}
+  .appcard:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(0,0,0,.28)}
+  .appcard .at{font-size:.84rem;font-weight:600;color:var(--c,#fff);margin-bottom:6px}
+  .appcard .ad{font-size:.72rem;color:#aebfc0;line-height:1.46}
+  .appcard .ap{display:inline-block;margin-top:10px;font-size:.6rem;font-family:var(--mono);color:var(--c,var(--accent2));
+    border:1px solid var(--c,var(--border));border-radius:5px;padding:1px 8px;text-transform:uppercase;letter-spacing:.03em;opacity:.92}
+  .appcard:nth-child(1){--c:#5eead4} .appcard:nth-child(2){--c:#6ee7b7} .appcard:nth-child(3){--c:#f0c14b}
+  .appcard:nth-child(4){--c:#f0abfc} .appcard:nth-child(5){--c:#7dd3fc} .appcard:nth-child(6){--c:#fb923c}
+  /* references */
+  .refs{display:flex;flex-direction:column;gap:13px;width:100%;max-width:740px}
+  .refcard{display:block;border:1px solid var(--border);border-left:3px solid var(--c,var(--accent));border-radius:12px;
+    background:rgba(17,40,42,.5);padding:14px 18px;text-decoration:none;transition:.2s}
+  .refcard:hover{transform:translateX(4px);box-shadow:0 5px 20px rgba(0,0,0,.28)}
+  .refcard .rt{font-size:.88rem;font-weight:600;color:var(--c,#fff);line-height:1.35}
+  .refcard .rm{font-size:.72rem;color:var(--muted);margin-top:4px}
+  .refcard .rr{font-size:.73rem;color:#aebfc0;margin-top:7px;line-height:1.45}
+  .refcard .rl{font-family:var(--mono);font-size:.66rem;color:var(--c,var(--accent2));margin-top:8px;display:inline-block}
+  /* scene 3 — enlarged hex representation */
+  .big-hex .card{width:362px;padding:18px 22px}
+  .big-hex .card h4{font-size:.72rem;margin-bottom:14px}
+  .big-hex .views{width:318px;gap:13px}
+  .big-hex .view{grid-template-columns:74px 1fr 34px}
+  .big-hex .view .vt{height:16px}
+  .big-hex .view .vl{font-size:.82rem}
+  .big-hex .view .vv{font-size:.74rem}
+
+  @keyframes pulse{0%,100%{transform:translate(0,0)}50%{transform:translate(var(--dx),var(--dy))}}
+  .pushing{animation:pulse 1.8s ease-in-out infinite}
+  @keyframes draw{from{stroke-dashoffset:var(--len)}to{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<div class="app">
+  <nav class="nav">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 100 100" aria-label="Propheus"><g>
+        <path d="M45,64.2c-1.1,9.1-3.3,15.3-5.8,15.3c-0.1,0-0.1,0-0.2,0c-0.3,0-0.6-0.2-1-0.4c0,0,0,0,0,0c-3.1-2.5-5.4-14.5-5.4-29c0-14.4,2.3-26.4,5.4-29c0.3-0.3,0.7-0.5,1-0.5c0,0,0,0,0,0h0.2c2.6,0,4.9,6.8,6,16.6c-5.6,2-9.5,7.3-9.5,13.5C35.6,56.9,39.5,62.1,45,64.2z"/>
+        <path d="M67.4,50c0,14.5-2.3,26.5-5.4,29h0v0c-0.3,0.2-0.6,0.4-0.9,0.4c-0.1,0-0.2,0-0.2,0c-2.5,0-4.7-6.2-5.8-15.3c5.5-2,9.4-7.3,9.4-13.5c0-6.2-4-11.6-9.5-13.5c1.1-9.8,3.4-16.6,6-16.6H61v0c0.4,0,0.7,0.2,1,0.5c0,0,0,0,0,0C65.1,23.6,67.4,35.6,67.4,50z"/>
+        <path d="M30.2,50c0-14.4,2.3-26.4,5.4-29c-10.6,5.3-17.9,16.3-17.9,29c0,12.7,7.3,23.7,17.9,29C32.5,76.5,30.2,64.5,30.2,50z M64.4,21c3.1,2.6,5.4,14.5,5.4,29c0,14.5-2.3,26.5-5.4,29C75,73.7,82.3,62.7,82.3,50C82.3,37.3,75,26.4,64.4,21z"/>
+        <path d="M62.1,50.7c0,5-3,9.3-7.4,11.2c-1.5,0.6-3.1,1-4.8,1c-1.7,0-3.3-0.4-4.8-1c-4.3-1.9-7.4-6.2-7.4-11.2c0-5.1,3.1-9.4,7.5-11.2c1.4-0.6,3-0.9,4.7-0.9c1.7,0,3.2,0.3,4.7,0.9C59.1,41.3,62.1,45.6,62.1,50.7z"/>
+      </g></svg>
+      <span class="wm">Propheus</span><span class="sep">·</span>
+      <span class="navtitle">Building a representation for every <b>place &amp; hex</b> — Singapore Digital Atlas</span>
+    </div>
+    <div class="dots" id="dots"></div>
+  </nav>
+  <div class="stage" id="stage"></div>
+  <div class="narr" id="narr"></div>
+  <div class="controls">
+    <button id="prev">← Back</button>
+    <button id="play" class="pri">Pause</button>
+    <button id="next">Next →</button>
+    <div class="prog"><i id="prog"></i></div>
+    <span class="scene-no" id="sceneno"></span>
+  </div>
+</div>
+<script>
+const VIEWS=["WHO","WHERE","WHAT","FLOW","ECON"];
+const VC={WHO:"#5eead4",WHERE:"#7dd3fc",WHAT:"#6ee7b7",FLOW:"#20b2aa",ECON:"#f0c14b"};
+const VDESC={WHO:"who lives here — population, age bands, density",
+  WHERE:"what's built — buildings, roads, land cover",
+  WHAT:"what's around — shops, schools, malls (POIs)",
+  FLOW:"how reachable — transit, road network, CBD access",
+  ECON:"how commercial — nightlights, malls, wealth"};
+// 5 representative Singapore hexes; xy = where they land in the learned 2-D map
+const HEX=[
+  {tag:"CBD",      label:"Raffles Place · CBD", v:{WHO:46,WHERE:88,WHAT:95,FLOW:94,ECON:97}, xy:[.80,.74]},
+  {tag:"ORCHARD",  label:"Orchard Road",        v:{WHO:58,WHERE:82,WHAT:92,FLOW:90,ECON:95}, xy:[.73,.68]},
+  {tag:"HDB",      label:"Toa Payoh Central",   v:{WHO:86,WHERE:60,WHAT:78,FLOW:82,ECON:58}, xy:[.34,.64]},
+  {tag:"INDUSTRY", label:"Tuas",                v:{WHO:18,WHERE:78,WHAT:30,FLOW:42,ECON:54}, xy:[.56,.38]},
+  {tag:"NATURE",   label:"Lim Chu Kang",        v:{WHO:12,WHERE:15,WHAT:8, FLOW:11,ECON:7 }, xy:[.12,.14]},
+];
+const ANCHOR=HEX[0];
+// sample applications (from the SGP starter idea board) — built directly on the raw fingerprints
+const APPS=[
+  {t:"Where should I open?",d:"Rank empty units by how well their surroundings match where this business already thrives — a one-click site report.",p:"site selection"},
+  {t:"Brand expansion ghost-map",d:"Average a chain's outlets into its siting DNA, then paint the next neighbourhoods that fit it but have no outlet yet.",p:"whitespace"},
+  {t:"Vibe search",d:"“Show me everywhere that feels like this neighbourhood.” A search box over the fingerprints, results on a map.",p:"discovery"},
+  {t:"Competitor radar",d:"Your real rivals aren't “all cafes” — they're the venues whose fingerprint is closest to yours. List, map, watch.",p:"places"},
+  {t:"Opportunity finder",d:"A hex's twins define what it should have; the biggest shortfalls become a ranked map of where to add what.",p:"gap engine"},
+  {t:"Embeddings as features",d:"Bring your own target — footfall, resale price, dengue — and beat a baseline using only the fingerprint columns.",p:"ML / DS"},
+];
+// the three papers this method is built on
+const REFS=[
+  {c:"#5eead4",t:"SCARF: Self-Supervised Contrastive Learning using Random Feature Corruption",
+   m:"Bahri, Jiang, Tay, Metzler · ICLR 2022",
+   r:"The feature-corruption recipe we use on hexes — scramble ~30% of the features to make a positive pair from tabular data.",
+   u:"https://arxiv.org/abs/2106.15147"},
+  {c:"#f0c14b",t:"Representation Learning with Contrastive Predictive Coding",
+   m:"van den Oord, Li, Vinyals · 2018",
+   r:"Introduces the InfoNCE loss — the pull-together / push-apart objective at the heart of the training.",
+   u:"https://arxiv.org/abs/1807.03748"},
+  {c:"#f0abfc",t:"A Simple Framework for Contrastive Learning of Visual Representations (SimCLR)",
+   m:"Chen, Kornblith, Norouzi, Hinton · ICML 2020",
+   r:"The positives-vs-negatives contrastive framework we adapt from images to hexes & places.",
+   u:"https://arxiv.org/abs/2002.05709"},
+];
+// deterministic background cloud (looks like the real 1,191-hex embedding)
+function bg(n){let s=7,r=()=>(s=(s*9301+49297)%233280)/233280;const C=HEX.map(h=>h.xy);
+  return Array.from({length:n},()=>{const c=C[Math.floor(r()*C.length)];
+    return[Math.min(.97,Math.max(.03,c[0]+(r()-.5)*.26)),Math.min(.97,Math.max(.03,c[1]+(r()-.5)*.26))]});}
+const BG=bg(150);
+
+const hexPath=(cx,cy,r)=>Array.from({length:6},(_,i)=>{const a=Math.PI/3*i-Math.PI/6;return`${i?"L":"M"}${(cx+r*Math.cos(a)).toFixed(1)},${(cy+r*Math.sin(a)).toFixed(1)}`}).join("")+"Z";
+
+function viewBars(v,{masked=[],corrupt=null}={}){
+  return `<div class="views">${VIEWS.map(g=>{
+    const m=masked.includes(g); const w=corrupt&&m?corrupt[g]:v[g];
+    return `<div class="view${m?' masked':''}"><span class="vl" style="color:${VC[g]}">${g}</span>
+      <div class="vt"><i data-w="${w}" style="background:${VC[g]}"></i></div>
+      <span class="vv">${corrupt&&m?'⟲':Math.round(v[g])}</span></div>`;}).join("")}</div>`;
+}
+
+function scatter(W,H,{twins=false,labelAll=false}={}){
+  const sc=(x,y)=>[18+x*(W-36), H-18-y*(H-36)];
+  const dots=BG.map(p=>{const[x,y]=sc(p[0],p[1]);return`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="2" fill="#20b2aa" opacity=".13"/>`}).join("");
+  const marks=HEX.map((h,i)=>{const[x,y]=sc(h.xy[0],h.xy[1]);const hi=twins&&i<2;
+    return `<g><path d="${hexPath(x,y,hi?10:8)}" fill="${VC[VIEWS[i]]}" stroke="${hi?'#fff':'rgba(255,255,255,.35)'}" stroke-width="${hi?1.4:.9}"/>
+      ${(hi||labelAll)?`<text x="${x}" y="${y-13}" text-anchor="middle" fill="#cfe" font-size="9">${h.tag}</text>`:''}</g>`;}).join("");
+  let link='';
+  if(twins){const a=sc(HEX[0].xy[0],HEX[0].xy[1]),b=sc(HEX[1].xy[0],HEX[1].xy[1]);
+    link=`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="${'#39d98a'}" stroke-width="1.5" stroke-dasharray="4 3" opacity=".85"/>`;}
+  return `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">${dots}${link}${marks}</svg>`;
+}
+
+const SCENES=[
+{ t:"The goal — turn features into a representation", dur:8500,
+  body:()=>`<div class="flow">
+    <div class="featstack"><h4>1 hex · Raffles Place</h4>
+      ${[["pop_resident","1,920"],["pc_total","486"],["road_density","11.2"],["nl_2024","58.7"],["transit_score","0.93"],["bldg_gfa_m²","1.24M"]]
+        .map(r=>`<div class="featrow">${r[0]}<b>${r[1]}</b></div>`).join("")}
+      <div class="featmore">＋ 795 more · <b style="color:var(--accent2)">801 features</b></div></div>
+    <div class="arrow">→</div>
+    <div class="encoder"><b>contrastive</b><b>encoder</b><small>2-layer MLP</small></div>
+    <div class="arrow">→</div>
+    <div class="vec"><h4>256-d fingerprint</h4>
+      <div class="vecbars">${Array.from({length:44},(_,i)=>{const h=18+Math.abs(Math.sin(i*1.7)*Math.cos(i*.55))*82;return`<i style="height:${h.toFixed(0)}%"></i>`}).join("")}</div>
+      <div class="vecnum">[ 0.21, −0.08, 0.44, −0.31, 0.12, … ]</div></div>
+  </div>`,
+  narr:`<span class="step">goal</span>Each of Singapore's <b>1,191 hexes</b> carries <b>801 measured features</b> — population, POIs, roads, nightlights, transit… The <b class="accent">contrastive encoder</b> squeezes all of them into one compact <b>256-number fingerprint</b>. That short vector <i>is</i> the hex's representation — and hexes that <b>behave alike get fingerprints that sit close together</b>. (Places get the same treatment.)` },
+
+{ t:"The input — one hex, five views", dur:8000,
+  body:()=>`<div class="scene-body">${viewBars(ANCHOR.v)}
+    <div class="viewdesc"><div class="hexlabel"><span class="tag">${ANCHOR.tag}</span><b>${ANCHOR.label}</b></div>
+    The same <b>801 features</b> are grouped into five <span class="vk">views</span>:<br><br>
+    ${VIEWS.map(g=>`<span style="color:${VC[g]};font-weight:600">${g}</span> — ${VDESC[g]}`).join("<br>")}<br><br>
+    <span style="color:var(--muted);font-size:.78rem">(ratings &amp; reviews are never included — the fingerprint describes what a place <i>is</i>, not how popular it is.)</span></div></div>`,
+  narr:`<span class="step">input</span>A hex isn't a picture — it's that same <b>vector of 801 features</b>, bundled into five views: <b style="color:#5eead4">WHO</b> lives there, <b style="color:#7dd3fc">WHERE</b> it's built, <b style="color:#6ee7b7">WHAT</b>'s around, the <b style="color:#20b2aa">FLOW</b> of access, and how <b style="color:#f0c14b">ECON</b>-commercial it is.` },
+
+{ t:"Make a positive pair — SCARF corruption", dur:11000,
+  body:()=>`<div class="stack" style="max-width:840px">
+    <div class="scene-body big-hex" style="gap:24px">
+      <div class="card"><h4>① Clean — the real hex</h4>${viewBars(ANCHOR.v)}</div>
+      <div style="font-size:1.4rem;color:var(--mask);text-align:center">corrupt<br>→</div>
+      <div class="card corrupt"><h4>② Noisy twin — ~30% scrambled</h4>${viewBars(ANCHOR.v,{masked:["WHO","ECON"],corrupt:{WHO:38,ECON:55}})}</div>
+    </div>
+    <div class="caption"><b class="mask">What "corruption" means</b> (the term comes straight from the <i>SCARF</i> paper — <b>S</b>elf-supervised <b>C</b>ontrastive learning using r<b>A</b>ndom <b>F</b>eature co<b>R</b>ruption): we keep about 70% of the hex's numbers exactly as they are, and overwrite the other ~30% (here the <b>WHO</b> and <b>ECON</b> values, shown faded with a ⟲) with figures copied at random from <i>other</i> hexes. Nothing about the real place changed — it's still the Raffles Place CBD core — we've just smudged some of its readings on purpose.</div>
+  </div>`,
+  narr:`<span class="step">SCARF · corruption</span><b>To learn "alike", the model first needs pairs it KNOWS are the same.</b> We make one cheaply: take a real hex and create a damaged copy of it — that copying-with-damage is called <b class="mask">corruption</b>. We randomly pick ~30% of its features and replace them with values borrowed from other hexes, leaving the rest untouched. The copy is still obviously the same place, so we tell the model that the <span class="pos">(clean hex, noisy twin)</span> form a <b class="pos">positive pair</b> and train it to give them <b>almost the same fingerprint</b>. Why damage it deliberately? Because real data is always a little wrong or missing — a fingerprint that shrugs off the scrambling has captured the place's <i>true character</i> instead of memorising the noise.` },
+
+{ t:"Hide a whole view — view-masking", dur:11000,
+  body:()=>`<div class="stack">
+    <div class="scene-body" style="gap:26px">
+      ${viewBars(ANCHOR.v,{masked:["FLOW"]})}
+      <div class="viewdesc"><b style="color:#20b2aa">The whole FLOW view is blanked out</b> — every access &amp; transit feature hidden at once (not just a few).<br><br>
+      The encoder now sees only <b style="color:#5eead4">WHO</b>, <b style="color:#7dd3fc">WHERE</b>, <b style="color:#6ee7b7">WHAT</b> and <b style="color:#f0c14b">ECON</b>, and must <b class="accent">work out the missing FLOW</b> from them.</div>
+    </div>
+    <div class="caption"><b class="accent">Corruption vs. masking — the difference:</b> corruption nudged a few <i>scattered</i> numbers. <b>Masking</b> is far more aggressive — it hides an <b>entire view</b>, a whole category of facts. To fill that gap the model can't treat the five views as unrelated lists; it has to learn how they <b>imply each other</b> — e.g. that dense housing plus many offices and shops almost always comes with good transit.</div>
+  </div>`,
+  narr:`<span class="step">view-masking</span><b>Masking is corruption's bigger sibling.</b> Instead of scrambling a few scattered features, we <b>black out one entire view</b> — here every <b style="color:#20b2aa">FLOW</b> (access &amp; transit) feature at once — and ask the encoder to describe the place anyway. To succeed, it can't look at the five views in isolation; it has to learn how they <b class="accent">predict one another</b> — that a hex packed with homes, shops and offices almost certainly has strong access too. That cross-view understanding is also what keeps a fingerprint sensible when a whole layer of data is genuinely missing for some real hex.` },
+
+{ t:"Pull together, push apart — InfoNCE", dur:10500,
+  body:()=>{
+    const W=500,H=270,cx=W/2,cy=H/2;
+    const negs=HEX.slice(2).map((h,i)=>{const a=(i/3)*Math.PI*2-Math.PI/2,d=108,nx=cx+Math.cos(a)*d,ny=cy+Math.sin(a)*d;
+      const dx=(Math.cos(a)*16).toFixed(1),dy=(Math.sin(a)*16).toFixed(1);
+      return `<g class="pushing" style="--dx:${dx}px;--dy:${dy}px"><path d="${hexPath(nx,ny,9)}" fill="${VC[VIEWS[i+2]]}" opacity=".55"/>
+        <line x1="${cx}" y1="${cy}" x2="${nx}" y2="${ny}" stroke="#f87171" stroke-width="1.2" stroke-dasharray="3 4" opacity=".6"/>
+        <text x="${nx}" y="${ny+16}" text-anchor="middle" fill="#9aa" font-size="8">${h.tag}</text></g>`;}).join("");
+    const px=cx+70,py=cy-46;
+    return `<div class="stack">
+      <svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">${negs}
+      <line x1="${cx}" y1="${cy}" x2="${px}" y2="${py}" stroke="#39d98a" stroke-width="2.4"/>
+      <path d="${hexPath(px,py,9)}" fill="#f0c14b" stroke="#fff" stroke-width="1"/><text x="${px+4}" y="${py-13}" text-anchor="middle" fill="#39d98a" font-size="9">noisy twin</text>
+      <path d="${hexPath(cx,cy,11)}" fill="#20b2aa" stroke="#fff" stroke-width="1.3"/><text x="${cx}" y="${cy+24}" text-anchor="middle" fill="#fff" font-size="9">anchor · ${ANCHOR.tag}</text>
+      </svg>
+      <div class="legend"><span><b class="pull">━ pull</b> the positive pair together</span><span><b class="push">┄ push</b> every other hex away</span></div>
+      <div class="caption"><b class="accent">The InfoNCE loss, in one line:</b> measure how similar the anchor's fingerprint is to <i>every</i> hex in the batch, turn those similarities into a softmax — a "which one is the twin?" probability — and reward the model when the <b class="pos">positive twin</b> scores highest while the <b class="neg">negatives</b> score low. It's literally a classification task where the right answer is the twin hidden in a crowd of distractors; driving the loss down forces "alike" fingerprints together and everything else apart.</div>
+    </div>`;
+  },
+  narr:`<span class="step">InfoNCE</span>One single loss does both jobs at once: <b class="pos">pull</b> the anchor and its noisy twin together, and <b class="neg">push</b> every <i>other</i> hex in the batch away. That loss is called <b>InfoNCE</b>. Repeated over millions of pairs, "alike" places gradually drift together and unlike ones spread apart — and crucially, <b>nobody ever labelled the data</b>; the twin <i>is</i> the answer.` },
+
+{ t:"Places work the same — chain-sibling pairs", dur:11000,
+  body:()=>{
+    const pin=(x,y,c,lb,r=16)=>`<circle cx="${x}" cy="${y}" r="${r}" fill="${c}" stroke="#fff" stroke-width="1.4"/><text x="${x}" y="${y+4}" text-anchor="middle" fill="#04201c" font-size="11" font-weight="700">${lb}</text>`;
+    const panel=(title,c,lb,subA,subB,distC,distLb,distName)=>{
+      const W=270,H=200,cx=W/2,ay=66;const a=[cx-46,ay],b=[cx+46,ay];
+      return `<div class="repcard on" style="width:300px;padding:18px 18px">
+        <h3 style="color:${c}">${title}</h3>
+        <svg viewBox="0 0 ${W} ${H}" width="100%" style="max-width:252px;margin:4px auto 0;display:block">
+          <line x1="${a[0]}" y1="${ay}" x2="${b[0]}" y2="${ay}" stroke="#39d98a" stroke-width="2.8"/>
+          <text x="${a[0]}" y="${ay-24}" text-anchor="middle" fill="#cfe" font-size="8.5">${subA}</text>
+          <text x="${b[0]}" y="${ay-24}" text-anchor="middle" fill="#cfe" font-size="8.5">${subB}</text>
+          ${pin(a[0],ay,c,lb)}${pin(b[0],ay,c,lb)}
+          <text x="${cx}" y="${ay+34}" text-anchor="middle" fill="#39d98a" font-size="9" font-weight="600">same chain → pull together</text>
+          <g class="pushing" style="--dx:0px;--dy:12px">
+            <line x1="${cx}" y1="${ay+46}" x2="${cx}" y2="${ay+98}" stroke="#f87171" stroke-width="1.3" stroke-dasharray="3 4" opacity=".65"/>
+            ${pin(cx,ay+102,distC,distLb,13)}
+            <text x="${cx}" y="${ay+130}" text-anchor="middle" fill="#f0a0a0" font-size="8.5">${distName} → pushed away</text></g>
+        </svg></div>`;
+    };
+    return `<div class="split" style="gap:30px">
+      ${panel("Convenience stores","#7dd3fc","7E","7-Eleven · Tampines","7-Eleven · Clementi","#f0c14b","P","a provision shop")}
+      ${panel("Kopitiam chains","#6ee7b7","YK","Ya Kun · Bishan","Ya Kun · Bedok","#f0abfc","SB","a Starbucks")}
+    </div>`;
+  },
+  narr:`<span class="step">places</span>The very same recipe trains the <b class="accent">place</b> fingerprint (p1) for all <b>190,591 venues</b> — but the positive pair changes: here it's <b>two outlets of the same chain</b>. Two <b style="color:#7dd3fc">7-Eleven</b> stores are "the same kind of place," so they pull together while a corner provision shop is pushed away; two <b style="color:#6ee7b7">Ya Kun</b> kopitiams pull together while a Starbucks is pushed away. No human labels — the model learns purely from <b>17,046 chain-sibling pairs across 203 real chains</b> what counts as similar.` },
+
+{ t:"Two representations — hex & place", dur:8500,
+  body:()=>`<div class="split">
+    <div class="repcard hex on"><h3>⬢ HEX — region representation</h3>
+      <div class="big">1,191</div><div class="lbl">hexes · all of Singapore</div>
+      <div class="dim">e1 · 256-d</div>
+      <div class="desc">One fingerprint per ~0.74 km² patch of the island — its people, build, access &amp; economy.</div></div>
+    <div class="repcard on"><h3>● PLACE — venue representation</h3>
+      <div class="big">190,591</div><div class="lbl">places · venues &amp; POIs</div>
+      <div class="dim">p1 · 64-d</div>
+      <div class="desc">One fingerprint per venue — what kind of place it is, learned from its chain &amp; surroundings.</div></div>
+  </div>`,
+  narr:`<span class="step">result</span>Two representations come out: a <b class="accent">256-d fingerprint for each of the 1,191 hexes</b> (regions) and a <b class="accent">64-d fingerprint for each of the 190,591 places</b> (venues). "Find things like this one" becomes nearest-neighbours in the map — no labels, no reviews.` },
+
+{ t:"What you can build on it", dur:11000,
+  body:()=>`<div class="apps">${APPS.map(a=>`<div class="appcard"><div class="at">${a.t}</div><div class="ad">${a.d}</div><span class="ap">${a.p}</span></div>`).join("")}</div>`,
+  narr:`<span class="step">apps</span>Because the fingerprints are <b>raw, review-free vectors</b>, apps build on them directly — site selection, whitespace ghost-maps, vibe search, competitor radar, gap-finding, or as ready-made features for any model. <b class="accent">One atlas, many apps.</b>` },
+
+{ t:"References — the papers behind this", dur:13000,
+  body:()=>`<div class="refs">${REFS.map(r=>`<a class="refcard" href="${r.u}" target="_blank" rel="noopener" style="--c:${r.c}">
+      <div class="rt">${r.t}</div><div class="rm">${r.m}</div><div class="rr">${r.r}</div>
+      <div class="rl">↗ ${r.u.replace('https://','')}</div></a>`).join("")}</div>`,
+  narr:`<span class="step">refs</span>Three papers cover the whole method: <b style="color:#5eead4">SCARF</b> (the feature-corruption trick), <b style="color:#f0c14b">CPC</b> (the InfoNCE loss), and <b style="color:#f0abfc">SimCLR</b> (the contrastive framework). <b>Click any card to open the paper.</b> Everything here is built from these three ideas — adapted from images &amp; tables to <b>hexes &amp; places</b>.` },
+];
+
+const SLOW=1.7;  // global pacing multiplier — give people time to read each scene
+let si=0, playing=true, timer, tick, elapsed=0;
+const stage=document.getElementById("stage"), narr=document.getElementById("narr"),
+      prog=document.getElementById("prog"), dots=document.getElementById("dots");
+
+SCENES.forEach((s,i)=>{const b=document.createElement("button");b.className="dot-nav";b.title=s.t;b.onclick=()=>go(i);dots.appendChild(b);});
+
+function animateBars(){requestAnimationFrame(()=>document.querySelectorAll("[data-w]").forEach((el,i)=>setTimeout(()=>el.style.width=el.dataset.w+"%",i*40)));}
+
+function render(reset=true){
+  const s=SCENES[si];
+  stage.innerHTML=`<div class="scene"><div class="scene-title">${s.t}</div><div class="scwrap">${s.body()}</div></div>`;
+  narr.innerHTML=s.narr;
+  document.getElementById("sceneno").textContent=`${si+1} / ${SCENES.length}`;
+  [...dots.children].forEach((d,i)=>d.classList.toggle("on",i===si));
+  animateBars();
+  if(reset){elapsed=0;clearInterval(tick);const dur=s.dur*SLOW;
+    tick=setInterval(()=>{elapsed+=50;prog.style.width=Math.min(100,elapsed/dur*100)+"%";},50);
+    clearTimeout(timer); if(playing) timer=setTimeout(()=>go(si+1),dur);}
+}
+function go(i){si=(i+SCENES.length)%SCENES.length;render(true);}
+document.getElementById("prev").onclick=()=>go(si-1);
+document.getElementById("next").onclick=()=>go(si+1);
+document.getElementById("play").onclick=()=>{playing=!playing;document.getElementById("play").textContent=playing?"Pause":"Play";if(playing)render(false);else{clearTimeout(timer);clearInterval(tick);}};
+go(0);
+</script>
+</body>
+</html>

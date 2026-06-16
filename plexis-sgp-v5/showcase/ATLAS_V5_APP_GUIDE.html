@@ -1,0 +1,576 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Digital Atlas Singapore V5 — App Builder's Guide</title><style>
+:root{--accent:#20b2aa;--accent2:#2dd4bf;--ok:#39d98a;--warn:#f0c14b;
+ --glass:rgba(17,40,42,.55);--glass2:rgba(12,27,29,.72);
+ --border:rgba(32,178,170,.18);--border2:rgba(32,178,170,.32);
+ --text:#e9eef0;--muted:#8fa3a6;--mono:#7fe3da}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--text);
+ background:radial-gradient(1100px 560px at 72% -12%,#173f41 0%,transparent 58%),
+   linear-gradient(162deg,#0a1a1c,#0d2123 55%,#102628);
+ background-attachment:fixed;min-height:100vh;max-width:1060px;margin:0 auto;
+ padding:46px 26px;font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1{font-size:30px;font-weight:700;letter-spacing:-.022em;margin:0 0 4px}
+.accent{color:var(--accent)}
+h2{font-size:16px;font-weight:600;margin:34px 0 12px;color:#d4ecea;
+ border-bottom:1px solid var(--border);padding-bottom:7px;letter-spacing:-.01em}
+h2 .n{color:var(--muted);font-weight:400;font-size:13px}
+.sub{color:var(--muted);margin:0 0 22px;font-size:14px}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+.cards{display:grid;grid-template-columns:repeat(6,1fr);gap:11px;margin:20px 0 8px}
+.card{background:var(--glass);border:1px solid var(--border);border-radius:13px;
+ padding:16px 12px;text-align:center;backdrop-filter:blur(13px);-webkit-backdrop-filter:blur(13px)}
+.cv{font-size:23px;font-weight:700;color:#fff;letter-spacing:-.02em}
+.cl{font-size:10.5px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.045em}
+table{width:100%;border-collapse:separate;border-spacing:0;background:var(--glass2);
+ border:1px solid var(--border);border-radius:13px;overflow:hidden;margin-bottom:8px;
+ backdrop-filter:blur(11px);-webkit-backdrop-filter:blur(11px)}
+th,td{text-align:left;padding:9px 13px;border-bottom:1px solid rgba(32,178,170,.10);font-size:13px;vertical-align:top}
+th{background:rgba(32,178,170,.09);color:var(--accent);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:rgba(32,178,170,.05)}
+td.f{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:12px;color:var(--mono);white-space:nowrap}
+td.t{color:var(--muted);font-size:11.5px}
+td.s{color:#b9c9cb;font-size:12px;white-space:nowrap}
+.banner{background:linear-gradient(90deg,rgba(57,217,138,.16),rgba(32,178,170,.04));
+ border:1px solid var(--border2);color:#8fe9c4;border-radius:13px;padding:13px 17px;font-weight:600;margin:8px 0 4px}
+.note{color:var(--muted);font-size:12.5px;margin-top:9px}
+.pill{display:inline-block;background:rgba(32,178,170,.14);border:1px solid var(--border);
+ color:#9fe9e1;border-radius:20px;padding:3px 11px;margin:3px 2px;font-size:12.5px}
+code{background:rgba(32,178,170,.1);padding:1px 6px;border-radius:5px;font-size:12px;color:#9fe9e1;
+ font-family:ui-monospace,"SF Mono",Menlo,monospace}
+.tag{display:inline-block;font-size:9.5px;background:rgba(32,178,170,.2);color:#9fe9e1;
+ border-radius:6px;padding:1px 7px;margin-left:7px;vertical-align:middle;text-transform:uppercase;letter-spacing:.04em;font-weight:600}
+/* prose (markdown) */
+p{margin:10px 0}
+ul,ol{margin:8px 0 12px;padding-left:22px} li{margin:4px 0;color:#cdd9da}
+strong,b{color:#fff;font-weight:600}
+em{color:#bcd}
+hr{border:none;border-top:1px solid var(--border);margin:30px 0}
+blockquote{border-left:3px solid var(--accent);background:rgba(32,178,170,.06);
+ margin:14px 0;padding:10px 16px;border-radius:0 8px 8px 0;color:#bcd0d2}
+blockquote p{margin:4px 0}
+pre{background:rgba(8,18,20,.85);border:1px solid var(--border);border-radius:10px;
+ padding:13px 15px;overflow-x:auto;margin:12px 0;font-size:12.5px;line-height:1.5}
+pre code{background:none;padding:0;color:#cfeae6;font-family:ui-monospace,"SF Mono",Menlo,monospace}
+h1+p em,h1+p{color:var(--muted)}
+@media(max-width:680px){.cards{grid-template-columns:repeat(3,1fr)}}
+</style></head><body><div class="cards">
+<div class="card"><div class="cv">1,191</div><div class="cl">hex8 cells</div></div>
+<div class="card"><div class="cv">840</div><div class="cl">cols / hex (801 + packs)</div></div>
+<div class="card"><div class="cv">190,591</div><div class="cl">places</div></div>
+<div class="card"><div class="cv">256-d</div><div class="cl">hex embed e1</div></div>
+<div class="card"><div class="cv">64-d</div><div class="cl">place embed p1</div></div>
+<div class="card"><div class="cv">5 · 39</div><div class="cl">domain packs</div></div>
+</div>
+
+<h1>Digital Atlas Singapore V5 — App Builder's Guide</h1>
+<p><em>Everything you need to build on Plexis SGP v5.4.0: where the data lives, how to
+load it, the keys that join it, the two embeddings, the five domain packs, and
+eight copy-paste recipes. Review-free, exam-gated.</em></p>
+<hr />
+<h2>0. TL;DR — zero to a twin query in 10 lines</h2>
+<pre><code class="language-python">import pandas as pd, numpy as np
+V5 = &quot;/home/azureuser/da-sgp/v5&quot;      # azold (authoritative); or local &quot;plexis-sgp-v5/&quot;
+
+e1 = pd.read_parquet(f&quot;{V5}/hex/hex8_embedding_plexis_e1_256d.parquet&quot;).set_index(&quot;hex8_id&quot;)
+E  = e1[[f&quot;e{i}&quot; for i in range(256)]].values
+ids = e1.index.to_numpy()
+En = E / (np.linalg.norm(E, axis=1, keepdims=True) + 1e-9)
+
+def hex_twins(hid, k=8):                       # nearest neighbours in fingerprint space
+    v = En[list(ids).index(hid)]
+    cos = En @ v
+    return ids[np.argsort(-cos)[1:k+1]].tolist()
+
+# &quot;find the 8 hexes that behave most like this one&quot; — no labels, no reviews
+print(hex_twins(ids[0]))
+</code></pre>
+<p>That's the whole idea: <strong>distance in the embedding = functional similarity.</strong>
+Everything below is variations on this.</p>
+<hr />
+<h2>1. What you're building on</h2>
+<table>
+<thead>
+<tr>
+<th>Scale</th>
+<th>Key column</th>
+<th>Count</th>
+<th>Master file</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>hex8</strong> (product scale, ~0.74 km²)</td>
+<td><code>hex8_id</code> (H3 res-8)</td>
+<td>1,191</td>
+<td><code>hex/hex8_all_features.parquet</code></td>
+</tr>
+<tr>
+<td>hex9 (fine, ~0.10 km² — <em>not used in products</em>)</td>
+<td><code>hex9_id</code></td>
+<td>7,318</td>
+<td><code>hex/hex9_all_features.parquet</code></td>
+</tr>
+<tr>
+<td><strong>subzone</strong> (URA MP2019)</td>
+<td><code>subzone_c</code> (e.g. <code>AMSZ01</code>)</td>
+<td>326 (270 populated)</td>
+<td><code>hex/subzone_all_features.parquet</code></td>
+</tr>
+<tr>
+<td><strong>place</strong> (venue)</td>
+<td><code>id</code> (12-char)</td>
+<td>190,591</td>
+<td><code>places/sgp_places_final.parquet</code></td>
+</tr>
+</tbody>
+</table>
+<p>Admin hierarchy on every hex/place: <code>parent_subzone</code> → <code>parent_pa</code> (planning
+area) → <code>parent_region</code> (5 regions). Non-residential land carries
+<code>zone_type_broad</code> (residential / commercial / industrial / nature / airport /
+islands / future) — <strong>always filter these out before scoring "adequacy"</strong>, or an
+airport will look like a clinic desert.</p>
+<blockquote>
+<p><strong>Build at hex8.</strong> It's the scale every embedding, pack and app uses. hex9
+exists but is intentionally not wired into any product.</p>
+</blockquote>
+<hr />
+<h2>2. Where everything lives — file inventory</h2>
+<p>All paths under <code>azold-test-server:/home/azureuser/da-sgp/v5/</code> (authoritative) =
+local <code>plexis-sgp-v5/</code>. Parquets are LFS-tracked in
+<code>github.com/Propheus/digital-atlas-sgp</code>.</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Rows × cols</th>
+<th>Key</th>
+<th>Size</th>
+<th>What</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>hex/hex8_all_features.parquet</code></td>
+<td>1,191 × <strong>840</strong></td>
+<td><code>hex8_id</code></td>
+<td>2.7 MB</td>
+<td><strong>the master</strong> — 801 base features <strong>+ 39 pack scores folded in (v5.5.0)</strong></td>
+</tr>
+<tr>
+<td><code>hex/hex8_embedding_plexis_e1_256d.parquet</code></td>
+<td>1,191 × 257</td>
+<td><code>hex8_id</code></td>
+<td>1.7 MB</td>
+<td>hex fingerprints <code>e0…e255</code></td>
+</tr>
+<tr>
+<td><code>places/sgp_places_final.parquet</code></td>
+<td>190,591 × 27</td>
+<td><code>id</code></td>
+<td>12 MB</td>
+<td>every venue + admin + brand</td>
+</tr>
+<tr>
+<td><code>places/sgp_places_micrograph.parquet</code></td>
+<td>190,591 × 20</td>
+<td><code>id</code></td>
+<td>—</td>
+<td>per-venue local context <code>pmg_*</code></td>
+</tr>
+<tr>
+<td><code>places/place_embedding_plexis_p1_64d.parquet</code></td>
+<td>190,591 × 65</td>
+<td><code>id</code></td>
+<td>72 MB</td>
+<td>place fingerprints <code>d0…d63</code></td>
+</tr>
+<tr>
+<td><code>hex/subzone_all_features.parquet</code></td>
+<td>326 × <strong>428</strong></td>
+<td><code>subzone_c</code></td>
+<td>—</td>
+<td>subzone rollup + 39 pack scores folded in</td>
+</tr>
+<tr>
+<td><code>hex/hex8_retail_pack.parquet</code></td>
+<td>1,191 × 12</td>
+<td><code>hex8_id</code></td>
+<td>28 KB</td>
+<td>retail hero scores</td>
+</tr>
+<tr>
+<td><code>hex/hex8_realestate_pack.parquet</code></td>
+<td>1,191 × 12</td>
+<td><code>hex8_id</code></td>
+<td>—</td>
+<td>real-estate hero scores</td>
+</tr>
+<tr>
+<td><code>hex/hex8_utilities_pack.parquet</code></td>
+<td>1,191 × 13</td>
+<td><code>hex8_id</code></td>
+<td>—</td>
+<td>utilities hero scores</td>
+</tr>
+<tr>
+<td><code>hex/hex8_transport_pack.parquet</code></td>
+<td>1,191 × 13</td>
+<td><code>hex8_id</code></td>
+<td>—</td>
+<td>transport hero scores</td>
+</tr>
+<tr>
+<td><code>hex/hex8_insurance_pack.parquet</code></td>
+<td>1,191 × 14</td>
+<td><code>hex8_id</code></td>
+<td>—</td>
+<td>insurance/risk hero scores</td>
+</tr>
+<tr>
+<td><code>hex/hex8_mobility_pack.parquet</code></td>
+<td>1,191 × 99</td>
+<td><code>hex8_id</code></td>
+<td>—</td>
+<td>travel-times <code>time_to_*_min</code> + access</td>
+</tr>
+<tr>
+<td><code>hex/hex8_context_pack.parquet</code></td>
+<td>1,191 × 17</td>
+<td><code>hex8_id</code></td>
+<td>—</td>
+<td>polyclinic/wet-market/carpark/coworking/condo counts</td>
+</tr>
+<tr>
+<td><code>hex/subzone_{pack}_pack.parquet</code> ×5</td>
+<td>270 × …</td>
+<td><code>subzone_c</code></td>
+<td>—</td>
+<td>pop-weighted pack rollups</td>
+</tr>
+<tr>
+<td><code>catalog/feature_catalog.json</code></td>
+<td>2,735 entries</td>
+<td>—</td>
+<td>—</td>
+<td><strong>data dictionary</strong> (desc, units, range)</td>
+</tr>
+<tr>
+<td><code>catalog/atlas_manifest.json</code></td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>scales, keys, shapes, version</td>
+</tr>
+<tr>
+<td><code>catalog/pack_{pack}_catalog.json</code> ×5</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>pack columns + use-cases + honest limits</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>3. Loading &amp; joining — the one pattern you'll reuse</h2>
+<p>Everything joins on its key. Load the master, left-join whatever you need:</p>
+<pre><code class="language-python">hex8 = pd.read_parquet(f&quot;{V5}/hex/hex8_all_features.parquet&quot;)   # 840 cols — INCLUDES all 39 pack scores
+e1   = pd.read_parquet(f&quot;{V5}/hex/hex8_embedding_plexis_e1_256d.parquet&quot;)
+df   = hex8.merge(e1, on=&quot;hex8_id&quot;, how=&quot;left&quot;)                 # add e0..e255 (the only join you need)
+
+# hex8[&quot;retail_whitespace_score&quot;], hex8[&quot;re_feasibility_score&quot;], hex8[&quot;insurance_risk_score&quot;] … already here
+# ⚠ don't re-merge the hex8_&lt;pack&gt;_pack files onto the master — you'd get _x/_y duplicate columns
+
+places = pd.read_parquet(f&quot;{V5}/places/sgp_places_final.parquet&quot;)
+p1     = pd.read_parquet(f&quot;{V5}/places/place_embedding_plexis_p1_64d.parquet&quot;)
+pl = places.merge(p1, on=&quot;id&quot;, how=&quot;left&quot;)                      # venues + d0..d63
+</code></pre>
+<p><strong>As of v5.5.0 the 39 pack scores are folded into the master</strong> (801 → 840) — read
+them as ordinary columns, no join needed. The standalone pack parquets + subzone
+rollups are retained (for the per-pack catalogs and the 270-subzone rollup), but
+for hex8 you don't need them.</p>
+<p>Map coordinates: hex8 has <code>lat</code>,<code>lng</code> (centroid); places have
+<code>latitude</code>,<code>longitude</code>. For hex polygons use H3:
+<code>h3.cell_to_boundary(hex8_id)</code>.</p>
+<hr />
+<h2>4. The 801 hex features — five views</h2>
+<p>Features group into five "views". You rarely touch all 801; these are the
+columns you'll actually use. Full dictionary: <code>catalog/feature_catalog.json</code> (or
+the <strong>Hex Feature Catalog</strong> report).</p>
+<ul>
+<li><strong>WHO</strong> — <code>pop_resident</code>, <code>pop_total_all</code>, <code>pop_0_14 / pop_15_64 / pop_65plus</code>,
+  <code>pop_hdb</code>, <code>pop_dorm</code>, <code>dt_pop</code> (daytime), <code>nvp_*</code> (persona age/occupation/
+  industry mix).</li>
+<li><strong>WHERE</strong> — <code>lu_*_pct</code> (22 URA land-use fractions), <code>bldg_*</code> (count, height,
+  GFA, high-rise), <code>road_density…</code>, <code>road_intersection_density_per_km2</code>,
+  <code>dist_*_m</code> (distances).</li>
+<li><strong>WHAT</strong> — <code>pc_total</code> (place count), <code>pc_cat_&lt;cat&gt;</code> (24 category counts),
+  <code>is_magnet</code> density, <code>hawker_centre_count</code>, amenity counts, <code>mg_*</code> micrograph
+  context.</li>
+<li><strong>FLOW</strong> — <code>mrt_station_count</code>, <code>dist_mrt_m</code>, <code>transit_score</code>,
+  <code>iso_walk10_*</code> (10-min walk reach), <code>iso_transit15_*</code> (15-min transit reach),
+  <code>od_*</code> (origin-destination throughput), <code>walkability_score</code>, <code>min15_score</code>.</li>
+<li><strong>ECON</strong> — <code>nl_2024</code> (night-lights), <code>rent_resi_psf_med</code>, <code>hdb_resale_*</code>,
+  <code>biz_*</code> (ACRA formation/churn), <code>cap_&lt;cat&gt;</code> (Huff demand), <code>gap_&lt;cat&gt;</code>
+  (whitespace), composites (<code>livability</code>, <code>vibrancy</code>, <code>adq_*</code>).</li>
+</ul>
+<h3>The category system</h3>
+<p>24 <code>plexis_category</code> values drive the place counts and demand columns:</p>
+<pre><code>business_office services other_uncategorized industrial_mfg residential
+shopping_retail transportation education restaurant beauty_personal
+health_medical cafe_coffee hawker convenience park_open fitness_recreation
+supermarket bakery entertainment_culture government_public religious_worship
+hotel_hospitality bar_nightlife fast_food
+</code></pre>
+<p>Three families are keyed by category suffix:
+- <strong><code>pc_cat_&lt;cat&gt;</code></strong> — count of that category in the hex (all 24).
+- <strong><code>cap_&lt;cat&gt;</code></strong> — Huff capturable demand, review-free, outlet-equivalents
+  (13: cafe_coffee, restaurant, fast_food, hawker, supermarket, convenience,
+  health_medical, education, beauty_personal, fitness_recreation, shopping_retail
+  + <code>cap_total</code>, <code>cap_best_category</code>).
+- <strong><code>gap_&lt;cat&gt;</code></strong> — demand-vs-supply whitespace (9: bakery, beauty_personal,
+  cafe_coffee, fast_food, fitness_recreation, hawker, health_medical, restaurant,
+  supermarket). <strong>Caveat:</strong> <code>gap_*</code> reads ~0.84 island-wide (low variance) — for
+  real whitespace use <code>iso_walk10_unserved_pop_&lt;cat&gt;</code> <strong>+</strong> <code>cap_&lt;cat&gt;</code> as an
+  <em>additive</em> blend, never a product.</p>
+<hr />
+<h2>5. The two embeddings — your similarity engine</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>e1 — hex</th>
+<th>p1 — place</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>File</td>
+<td><code>hex/hex8_embedding_plexis_e1_256d.parquet</code></td>
+<td><code>places/place_embedding_plexis_p1_64d.parquet</code></td>
+</tr>
+<tr>
+<td>Key · cols</td>
+<td><code>hex8_id</code> · <code>e0…e255</code></td>
+<td><code>id</code> · <code>d0…d63</code></td>
+</tr>
+<tr>
+<td>Trained on</td>
+<td>review-free hex features</td>
+<td>category + micrograph + chain-sibling pairs</td>
+</tr>
+<tr>
+<td>Use it for</td>
+<td>region twins, vibe search, ML features</td>
+<td>venue twins, competitor radar, brand DNA</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Trust scores</strong> (exams frozen <em>before</em> training):
+- <strong>e1</strong> — twin hit-rate <strong>1.0</strong>, probes OD R²<strong>0.90</strong> / adequacy R²<strong>0.93</strong> /
+  HDB-psm R²<strong>0.81</strong>, stability <strong>0.987</strong>, forbidden-rating probe <strong>−0.014</strong>.
+- <strong>p1</strong> — chain retrieval <strong>0.814</strong>, category-kNN purity <strong>0.997</strong>, geo-leak ρ
+  <strong>0.077</strong>, forbidden-rating R²<strong>0.094</strong>, stability <strong>0.98</strong> (9/9 pass).</p>
+<p><strong>The contract:</strong> ratings &amp; reviews are <em>never</em> inputs and are provably
+unrecoverable (the forbidden-probe ≈ 0). Build on the fingerprints freely — they
+describe what a place <strong>is</strong>, not how popular it is.</p>
+<p><strong>Don't expect:</strong> the embedding to rank "good vs bad" venues, recover a brand
+name, or distinguish two genuinely-identical minimarts. It encodes <em>kind</em> and
+<em>context</em>, nothing it wasn't given.</p>
+<p>Cosine is the only operation you need:</p>
+<pre><code class="language-python">def cosine_twins(emb_df, key, dims, the_id, k=8):
+    M = emb_df.set_index(key)[dims]
+    Z = M.values; Z = Z / (np.linalg.norm(Z, axis=1, keepdims=True) + 1e-9)
+    v = Z[M.index.get_loc(the_id)]
+    order = np.argsort(-(Z @ v))
+    return M.index[order[1:k+1]].tolist()
+
+hex_dims   = [f&quot;e{i}&quot; for i in range(256)]
+place_dims = [f&quot;d{i}&quot; for i in range(64)]
+cosine_twins(e1, &quot;hex8_id&quot;, hex_dims, &quot;8865a1...ffff&quot;)   # region analogs
+cosine_twins(p1, &quot;id&quot;,      place_dims, &quot;5JKvDPFYGMnq&quot;)   # venue analogs
+</code></pre>
+<hr />
+<h2>6. The five domain packs — the "one number a buyer pays for"</h2>
+<p>Each pack adds hero scores (0–100). <strong>These 39 scores are now columns in the
+master</strong> (v5.5.0) — <code>df = pd.read_parquet(".../hex8_all_features.parquet")</code> already
+has them; the standalone pack files + subzone rollups are kept for the catalogs.
+22 shared primitives + 39 hero scores, <strong>zero new data</strong> — pure re-composition.
+Full columns + honest limits in <code>catalog/pack_&lt;pack&gt;_catalog.json</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Pack</th>
+<th>File</th>
+<th>Hero score(s)</th>
+<th>Also has</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🛍️ Retail</td>
+<td><code>hex8_retail_pack</code></td>
+<td><code>retail_whitespace_score</code>, <code>format_fit_score</code></td>
+<td>competition_pressure · cannibalization · delivery · footfall · rent_demand_tier</td>
+</tr>
+<tr>
+<td>🏢 Real estate</td>
+<td><code>hex8_realestate_pack</code></td>
+<td><code>re_feasibility_score</code>, <code>re_livability_score</code>, <code>re_momentum_score</code></td>
+<td>enbloc · collateral · yield_proxy · lease_decay_penalty</td>
+</tr>
+<tr>
+<td>⚡ Utilities</td>
+<td><code>hex8_utilities_pack</code></td>
+<td><code>utility_load_score</code>, <code>utility_ev_gap_score</code></td>
+<td>load_growth · water · waste · diurnal_swing · equity · resilience</td>
+</tr>
+<tr>
+<td>🚇 Transport</td>
+<td><code>hex8_transport_pack</code></td>
+<td><code>mobility_access_score</code>, <code>mobility_desert_priority</code></td>
+<td>crowding · tod · ridehail · firstlast_gap · parking_stress · modal_split</td>
+</tr>
+<tr>
+<td>🛡️ Insurance</td>
+<td><code>hex8_insurance_pack</code></td>
+<td><code>insurance_risk_score</code></td>
+<td>fire · auto · health · bi_failure · collateral · nuisance · coastal_proxy · accumulation_band</td>
+</tr>
+</tbody>
+</table>
+<p>Plus two utility sidecars: <strong><code>hex8_mobility_pack</code></strong> (99 cols — <code>time_to_cbd_min</code>,
+<code>time_to_orchard_min</code>, <code>time_to_changi_business_min</code>, <code>time_to_nus_min</code>… real
+travel-times to 12 anchors) and <strong><code>hex8_context_pack</code></strong> (polyclinic / wet-market /
+carpark / coworking / condo counts + distances).</p>
+<pre><code class="language-python">re = pd.read_parquet(f&quot;{V5}/hex/hex8_realestate_pack.parquet&quot;)
+top = re.nlargest(10, &quot;re_feasibility_score&quot;)[[&quot;hex8_id&quot;,&quot;re_feasibility_score&quot;]]
+# known-answer: Tengah tops feasibility; Jurong West tops transit-desert &amp; whitespace
+</code></pre>
+<hr />
+<h2>7. Eight recipes</h2>
+<h3>R1 · Region twin / analog search</h3>
+<p><code>cosine_twins(e1, "hex8_id", hex_dims, hid)</code> → "neighbourhoods that behave like
+this one." Foundation of vibe search, comps, transfer.</p>
+<h3>R2 · Place twins / competitor radar</h3>
+<p><code>cosine_twins(p1, "id", place_dims, pid)</code> → a venue's true rivals are its nearest
+fingerprints, <strong>not</strong> "all cafés." Join back to <code>places</code> for name/category.</p>
+<h3>R3 · Brand expansion ghost-map (whitespace)</h3>
+<pre><code class="language-python">pl = places.merge(p1, on=&quot;id&quot;)
+dna = pl[pl.brand_norm == &quot;ya kun&quot;][place_dims].mean().values          # brand siting DNA
+dna /= np.linalg.norm(dna) + 1e-9
+hexrep = pl.groupby(&quot;hex8_id&quot;)[place_dims].mean()                       # hex's place-mix vector
+H = hexrep.values; H = H / (np.linalg.norm(H,axis=1,keepdims=True)+1e-9)
+fit = pd.Series(H @ dna, index=hexrep.index)                           # similarity to the DNA
+has = pl[pl.brand_norm==&quot;ya kun&quot;].groupby(&quot;hex8_id&quot;).size()
+ghost = fit.drop(has.index, errors=&quot;ignore&quot;).nlargest(15)             # looks-like-it, no outlet yet
+</code></pre>
+<h3>R4 · Site score for a category</h3>
+<pre><code class="language-python">cat = &quot;cafe_coffee&quot;
+s = hex8.set_index(&quot;hex8_id&quot;)
+score = (s[f&quot;cap_{cat}&quot;].rank(pct=True)*0.5
+       + s[f&quot;iso_walk10_unserved_pop_{cat}&quot;].rank(pct=True)*0.5)      # demand + winnable
+score = score[s[&quot;zone_type_broad&quot;]==&quot;residential&quot;]                    # skip industrial/airport
+</code></pre>
+<p>(Or just read <code>retail_whitespace_score</code> from the retail pack — same idea, validated.)</p>
+<h3>R5 · Vibe search ("feels like here")</h3>
+<p>Take a hex's e1 twins (R1); paint them on a map. A search box over fingerprints.</p>
+<h3>R6 · Opportunity / gap finder</h3>
+<p>A hex's twins define what it <em>should</em> have; the per-category shortfall vs its
+twins' mean = a ranked "add what, where" map. Use <code>pc_cat_*</code> differences across
+the twin set.</p>
+<h3>R7 · Embeddings as ML features (bring your own target)</h3>
+<pre><code class="language-python">from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.model_selection import cross_val_score
+X = e1.set_index(&quot;hex8_id&quot;)[hex_dims]
+y = hex8.set_index(&quot;hex8_id&quot;)[&quot;hdb_resale_psm_med&quot;]                    # any target you have
+m = X.join(y).dropna()
+print(cross_val_score(GradientBoostingRegressor(), m[hex_dims], m.iloc[:,-1], cv=5, scoring=&quot;r2&quot;).mean())
+# the probes already proved the geometry carries structure (OD 0.90, adequacy 0.93)
+</code></pre>
+<h3>R8 · One-number lookup (domain packs)</h3>
+<p>Join the pack, read the hero column, map it. <code>insurance_risk_score</code> for an
+address, <code>mobility_desert_priority</code> for a transport brief, <code>re_feasibility_score</code>
+for a GLS bid.</p>
+<hr />
+<h2>8. Mapping the output</h2>
+<pre><code class="language-python">import h3
+hex8[&quot;boundary&quot;] = hex8[&quot;hex8_id&quot;].map(lambda h: h3.cell_to_boundary(h))   # [(lat,lng),…]
+# → GeoJSON polygons for Mapbox/Deck.gl; colour by any score column
+# places: scatter on latitude/longitude, colour by plexis_category or a p1 cluster
+</code></pre>
+<p>The reference apps already do this — copy their patterns (Mapbox GL + Deck.gl +
+a score→colour ramp). The atlas ships centroids; you build the polygons client- or
+server-side from the H3 id.</p>
+<hr />
+<h2>9. Reference apps — study these, they're built on exactly this data</h2>
+<table>
+<thead>
+<tr>
+<th>App</th>
+<th>URL</th>
+<th>Shows you</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🌗 <strong>SG Pulse</strong></td>
+<td><code>http://10.0.2.25:16095</code></td>
+<td>day-night population/demand engine over all 1,191 hexes</td>
+</tr>
+<tr>
+<td>🌌 <strong>Places Constellation</strong></td>
+<td><code>http://10.0.2.25:16096</code></td>
+<td>the 190K-place p1 galaxy + twin retrieval (R2)</td>
+</tr>
+<tr>
+<td>📓 <strong>Atlas Diary</strong></td>
+<td><code>http://10.0.2.25:16097</code></td>
+<td>ten embedding use-cases answered live on the map</td>
+</tr>
+<tr>
+<td>🎬 Contrastive animation</td>
+<td><code>:14043/contrastive_learning_animation.html</code></td>
+<td>how e1/p1 are trained (the <em>why</em> behind cosine)</td>
+</tr>
+<tr>
+<td>🎞️ Domain packs animation</td>
+<td><code>:14043/domain_packs_animation.html</code></td>
+<td>the 5 packs recolouring the map</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>Starter Idea Board</strong> (<code>:14043/STARTER_IDEA_BOARD.html</code>) lists 23 more app
+concepts on this same data.</p>
+<hr />
+<h2>10. Keys &amp; services</h2>
+<ul>
+<li><strong>Mapbox</strong> (basemap/GL) — token in project <code>CLAUDE.md</code>.</li>
+<li><strong>OpenRouter</strong> (LLM layer — explanations, the reasoner) — key in
+  <code>~/notes/openrouter-keys-batch1.txt</code> (Haiku 4.5 / Sonnet 4.6 / Grok).</li>
+<li><strong>data.gov.sg</strong> + <strong>OneMap</strong> — for any live SG layer refresh (keys in <code>CLAUDE.md</code>).</li>
+<li>No paid feed is required to <em>use</em> the atlas — it's static parquet.</li>
+</ul>
+<hr />
+<h2>11. Honest limits (so you don't over-promise)</h2>
+<ul>
+<li><strong>No commercial-rent or private-property prices</strong> — retail rent uses a
+  residential proxy; private-unit AVM is RE v2 (paywalled).</li>
+<li><strong>No time-of-day OD</strong> — <code>od_*</code> is aggregate; daypart is Phase 3.</li>
+<li><strong>No crime feed</strong> — that peril is <em>omitted, not proxied</em> in the insurance pack.</li>
+<li><strong>Climate</strong> (flood/heat) is Phase 3; <code>lu_water_pct</code> is only a weak coastal proxy.</li>
+<li>Three pack scores are honest re-framings of an existing column (waste ∝ pop,
+  bi_failure ≈ <code>biz_recent_dead_share</code>, mobility_access ≈ adequacy) — flagged in
+  each pack catalog. The embeddings encode <em>kind</em>, not <em>quality</em>.</li>
+</ul>
+<hr />
+<h2>12. Cheat-sheet — the 25 columns you'll reach for first</h2>
+<p><code>hex8_id</code> · <code>lat</code> · <code>lng</code> · <code>parent_subzone</code> · <code>parent_pa</code> · <code>parent_region</code> ·
+<code>zone_type_broad</code> · <code>pop_resident</code> · <code>pop_total_all</code> · <code>dt_pop</code> · <code>pop_65plus</code> ·
+<code>pc_total</code> · <code>pc_cat_&lt;cat&gt;</code> · <code>cap_&lt;cat&gt;</code> · <code>iso_walk10_unserved_pop_&lt;cat&gt;</code> ·
+<code>transit_score</code> · <code>mrt_station_count</code> · <code>dist_mrt_m</code> · <code>nl_2024</code> ·
+<code>hdb_resale_psm_med</code> · <code>min15_score</code> · <code>time_to_cbd_min</code> · <code>e0…e255</code> (hex
+fingerprint) · pack hero scores · <code>id</code> + <code>d0…d63</code> (place fingerprint).</p>
+<hr />
+<p><em>Built on Atlas v5.4.0 · <code>github.com/Propheus/digital-atlas-sgp</code> · everything
+review-free, exam-gated, and reproducible from <code>plexis-sgp-v5/</code>. Now go build.</em></p></body></html>

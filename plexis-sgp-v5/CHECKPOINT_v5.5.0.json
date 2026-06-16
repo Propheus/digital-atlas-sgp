@@ -1,0 +1,132 @@
+{
+  "version": "5.5.0",
+  "generated_at": "2026-06-16T00:00:00",
+  "change": "Domain packs folded into the canonical masters.",
+  "detail": {
+    "hex8_all_features": "801 -> 840 (+39 pack hero scores: retail 7, realestate 7, utilities 8, transport 8, insurance 9)",
+    "subzone_all_features": "389 -> 428 (+39 pack rollups; 270/326 subzones populated)",
+    "feature_catalog": "+78 curated rows (39 hex8 + 39 subzone), regenerated JSON + manifest",
+    "packs_retained": "original sidecar parquets kept for rollups/catalogs",
+    "backup": "backups/prefold_* (pre-fold masters + feature_catalog)"
+  },
+  "known_answer": {
+    "re_feasibility_top": "Tengah",
+    "transit_desert_top": "Jurong West / Choa Chu Kang",
+    "insurance_bi_corr": 0.99
+  },
+  "inherits_validators_from": "5.4.0",
+  "validators": [
+    {
+      "validator": "transit_validation",
+      "checks_total": 6,
+      "checks_pass": 6,
+      "checks_warn": 0,
+      "checks_fail": 0
+    },
+    {
+      "validator": "population_validation",
+      "checks_total": 6,
+      "checks_pass": 6,
+      "checks_warn": 0,
+      "checks_fail": 0
+    },
+    {
+      "validator": "place_composition_validation",
+      "checks_total": 6,
+      "checks_pass": 6,
+      "checks_warn": 0,
+      "checks_fail": 0
+    },
+    {
+      "validator": "embeddings_validation",
+      "checks_total": 5,
+      "checks_pass": 5,
+      "checks_warn": 0,
+      "checks_fail": 0
+    },
+    {
+      "validator": "buildings_clean_validation",
+      "checks_total": 6,
+      "checks_pass": 5,
+      "checks_warn": 1,
+      "checks_fail": 0
+    },
+    {
+      "validator": "schools_validation",
+      "checks_total": 6,
+      "checks_pass": 6,
+      "checks_warn": 0,
+      "checks_fail": 0
+    },
+    {
+      "validator": "land_use_validation",
+      "checks_total": 6,
+      "checks_pass": 6,
+      "checks_warn": 0,
+      "checks_fail": 0
+    },
+    {
+      "validator": "amenities_extra_validation",
+      "checks_total": 10,
+      "checks_pass": 10,
+      "checks_warn": 0,
+      "checks_fail": 0
+    },
+    {
+      "validator": "composites_validation",
+      "checks_total": 6,
+      "checks_pass": 5,
+      "checks_warn": 1,
+      "checks_fail": 0
+    },
+    {
+      "validator": "road_centrality_validation",
+      "checks_total": 5,
+      "checks_pass": 4,
+      "checks_warn": 1,
+      "checks_fail": 0
+    },
+    {
+      "validator": "non_resident_validation",
+      "checks_total": 5,
+      "checks_pass": 5,
+      "checks_warn": 0,
+      "checks_fail": 0
+    },
+    {
+      "validator": "satellite_validation",
+      "checks_total": 5,
+      "checks_pass": 3,
+      "checks_warn": 2,
+      "checks_fail": 0
+    },
+    {
+      "validator": "buildings_validation",
+      "checks_total": 6,
+      "checks_pass": 5,
+      "checks_warn": 1,
+      "checks_fail": 0
+    },
+    {
+      "validator": "roads_validation",
+      "checks_total": 8,
+      "checks_pass": 6,
+      "checks_warn": 2,
+      "checks_fail": 0
+    },
+    {
+      "validator": "demand_pull_validation",
+      "checks_total": 7,
+      "checks_pass": 7,
+      "checks_warn": 0,
+      "checks_fail": 0
+    },
+    {
+      "validator": "hdb_resale_validation",
+      "checks_total": 6,
+      "checks_pass": 6,
+      "checks_warn": 0,
+      "checks_fail": 0
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "atlas_name": "Plexis SGP",
-  "version": "5.3.0",
-  "generated_at": "2026-06-11T05:06:07",
+  "version": "5.5.0",
+  "generated_at": "2026-06-16T01:20:19",
   "scales": {
     "hex9": {
       "resolution": "H3 res-9 (~174m edge, ~0.105 km\u00b2)",
@@ -38,14 +38,14 @@
       "path": "hex/hex8_all_features.parquet",
       "shape": [
         1191,
-        801
+        840
       ]
     },
     "subzone_all_features": {
       "path": "hex/subzone_all_features.parquet",
       "shape": [
         326,
-        389
+        428
       ]
     },
     "places_final": {
@@ -70,7 +70,7 @@
     "report_html": "PLEXIS_v4_FINAL_REPORT.html"
   },
   "embedding_count": 10,
-  "feature_count": 2735,
-  "dataset_count": 50,
+  "feature_count": 2813,
+  "dataset_count": 51,
   "pipeline_stages": 47
 }
