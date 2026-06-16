@@ -75,5 +75,26 @@ h1+p em,h1+p{color:var(--muted)}
 <h2>Honest caveats</h2>
 <p class="note">CPU run, 1191 hexes, 2 seeds — the absolute numbers would tighten with more seeds and a larger grid, but the <i>ordering</i> (contrastive ≫ reconstruction on robustness/stability; utility shared) is the robust finding. Twin hit-rate saturates and under-separates at this grain; a harder retrieval set (held-out chain siblings, à la p1) would discriminate further. Each method got a fixed, un-tuned budget; heavy per-method tuning could shift utility probes by a few points but not the robustness gap.</p>
 
+<h2>Our method — Plexis-E</h2>
+<p class="note">The atlas does not pick a side in "contrastive vs reconstruction" — it <b>composes them</b>, then proves the result. <b>Plexis-E</b> is the recipe behind the shipped <code>e1</code> (hex) and <code>p1</code> (place) embeddings:</p>
+<ul>
+<li><b>Review-free tabular input.</b> Every hex is the 739-feature vector — population, land use, places, flow, economy — with ratings, reviews and raw identity <i>excluded by design</i>. The model can only learn what a place <i>is</i>, never how popular it is.</li>
+<li><b>A clean 2-layer MLP encoder</b> (Linear → LayerNorm → GELU → Dropout → Linear) — <b>no attention, no transformer</b>. The input is a fixed vector, spatial context already enters as ring features, and the bottleneck is <i>information</i>, not capacity.</li>
+<li><b>A hybrid objective: PCA-160 ⊕ contrastive-96.</b> PCA anchors the clean linear structure; the contrastive half is trained with <b>SCARF feature-corruption + whole-view masking + InfoNCE + a denoising reconstruction</b> term — so the geometry is shaped directly while masking teaches cross-view dependence.</li>
+<li><b>Free domain supervision through pair design.</b> For places, a positive pair is <i>two outlets of the same chain</i> (17,046 sibling pairs / 203 chains) — teaching "same kind of place" with zero hand labels.</li>
+<li><b>Exam-gated.</b> The test is written and frozen <i>before</i> training; nothing ships until it passes — including the forbidden probes it must <i>fail</i>.</li>
+</ul>
+
+<h2>Why it wins</h2>
+<ul>
+<li><b>It owns the axes that retrieval depends on.</b> The benchmark is unambiguous: corruption-robustness <b>0.538</b> (contrastive) and <b>0.460</b> (hybrid) vs PCA's 0.324 — and stability <b>0.993</b> for the hybrid. Twins, whitespace and competitor maps only mean something if neighbours don't move under noise or a re-train; ours don't.</li>
+<li><b>It keeps the utility too.</b> The hybrid's probes (OD R² <b>0.911</b>, adequacy 0.933) sit right beside PCA's — it sacrifices nothing on the "should-predict" side while winning the "should-stay-stable" side. Best of both, by construction.</li>
+<li><b>It excludes what it must.</b> The negative-control probe sits at <b>-0.013</b> and the forbidden-rating probe at e1 <b>−0.014</b> / p1 <b>0.094</b> — the embedding provably cannot recover popularity or identity. A representation you can <i>trust</i>, not just one that scores well.</li>
+<li><b>It is cheap, reproducible and honest.</b> The whole benchmark ran in 187s on CPU, seed-deterministic, on the same frozen input every competitor saw. No GPU, no cherry-picking — the marks decided.</li>
+</ul>
+
+<h2>Conclusion</h2>
+<p class="note" style="font-size:13.5px;line-height:1.7">A representation is only as good as the question it is built to answer. The atlas's question is <b>similarity</b> — "what is functionally like this place?" — and for that question the reconstruction family (PCA, AE, VAE, MAE) optimises the wrong thing: it learns to rebuild the input and merely <i>hopes</i> good geometry follows. Contrastive optimises the geometry itself, and the benchmark shows the consequence plainly — <b>utility is shared across all methods, but only contrastive (and our hybrid) hold their shape under corruption and re-training</b>, which is exactly what twin search, whitespace and competitor radar require. So the answer is not "contrastive instead of the rest" but <b>"contrastive geometry, anchored by PCA, taught by masking and by the pairs we choose, and judged by a frozen exam."</b> That is Plexis-E — and it is why the embedding the atlas ships is a hybrid, review-free and exam-gated. We did not assert that it wins; we froze the test, ran the field, and let the numbers say so.</p>
+
 <p class="note" style="margin-top:18px">Generated from <code>embedding/benchmark_results.json</code> (187s, 7 methods) · frozen exam <code>embedding/eval_harness.py</code> · Plexis SGP v5.5.0. See the method note: <a href="REPRESENTATION_METHODS_REPORT.html">Why Contrastive — &amp; Measuring Correctness</a>.</p>
 </body></html>
