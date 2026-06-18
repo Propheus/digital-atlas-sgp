@@ -1,0 +1,23 @@
+{
+  "version": "5.6.0",
+  "generated_at": "2026-06-18T01:47:52",
+  "change": "places cleaned + promoted; pc_cat_ (24->26) + pop_weighted rebuilt from clean places",
+  "detail": {
+    "places": "sgp_places_cleaned -> sgp_places_final (35 cols, 8 new flags)",
+    "new_categories": [
+      "financial_services",
+      "automated_kiosk"
+    ],
+    "rebuilt": [
+      "pc_cat_*",
+      "pc_total/diversity/dominant",
+      "pw1/pw2/max1/max2 pop_weighted"
+    ],
+    "backup": "backups/places_promote_*",
+    "not_refit": [
+      "cap_/gap_ (saturation stage 14)",
+      "domain packs",
+      "plexis-e1/p1 embeddings"
+    ]
+  }
+}

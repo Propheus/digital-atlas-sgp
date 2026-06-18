@@ -1,7 +1,7 @@
 {
   "atlas_name": "Plexis SGP",
-  "version": "5.5.0",
-  "generated_at": "2026-06-16T01:20:19",
+  "version": "5.6.0",
+  "generated_at": "2026-06-18T01:47:52",
   "scales": {
     "hex9": {
       "resolution": "H3 res-9 (~174m edge, ~0.105 km\u00b2)",
@@ -31,28 +31,28 @@
       "path": "hex/hex9_all_features.parquet",
       "shape": [
         7318,
-        583
+        585
       ]
     },
     "hex8_all_features": {
       "path": "hex/hex8_all_features.parquet",
       "shape": [
         1191,
-        840
+        842
       ]
     },
     "subzone_all_features": {
       "path": "hex/subzone_all_features.parquet",
       "shape": [
         326,
-        428
+        430
       ]
     },
     "places_final": {
       "path": "places/sgp_places_final.parquet",
       "shape": [
         190591,
-        27
+        35
       ]
     },
     "places_micrograph": {

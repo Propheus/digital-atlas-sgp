@@ -31,11 +31,17 @@ Money-Transfer unified into `financial_services`.
 → the demand model should now count supply as `plexis_category == <cat> AND
 is_storefront AND NOT is_duplicate`.
 
-## Not yet done / honest limits
-- **#4 — rebuild hex8 `pc_cat_*` / `pw1_*` / `pw2_*` from the cleaned places.** This
-  is the downstream step and is the real cost: it changes the 840-col master →
-  triggers an e1/p1 re-train + re-exam = a **v5.6 places-clean release**. Cleaned
-  places is the prerequisite; say go and we run it.
+## #4 — DONE (v5.6.0)
+**Cleaned places promoted to canonical + the named columns rebuilt.**
+- `sgp_places_cleaned.parquet` → **`sgp_places_final.parquet`** (now canonical; backup `backups/places_promote_*`).
+- **`pc_cat_*` rebuilt at 26 categories** (`build_place_composition.py` CATS→26) and patched into hex8/hex9/subzone masters: `pc_cat_financial_services`=3,720, `pc_cat_automated_kiosk`=1,913, `pc_cat_convenience`=**2,164** (ATMs gone), `pc_cat_business_office`=21,592 (banks out).
+- **`pw1_*`/`pw2_*`/`max1_*`/`max2_*` pop-weighted refreshed** from the patched master.
+- hex8 master **840 → 842 cols**; manifest + feature_catalog regenerated; **`CHECKPOINT_v5.6.0.json`**.
+- The demand model now sees **clean per-category supply** (`is_storefront AND NOT is_duplicate` for storefront counts).
+
+## Still on old composition (deeper re-fit, not in v5.6.0)
+- **`cap_*` / `gap_*` (Huff demand/saturation, stage 14)** — not named in #4; still reflect old category counts (e.g. `cap_convenience` over-counts). Re-fit if you want the Huff layer exact.
+- **Domain packs** (retail whitespace etc.) and **plexis-e1/p1 embeddings** — derived from the composition; minor drift, would re-fit in a full v5.6 pass.
 - **#5 — sparse `brand`.** All known chains were already brand-resolved; the 175k
   unbranded are genuine independents. Lifting coverage needs a much larger SG chain
   dictionary (separate data task), not a re-run.
