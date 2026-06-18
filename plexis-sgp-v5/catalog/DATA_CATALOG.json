@@ -1,0 +1,1430 @@
+{
+ "atlas": "Plexis SGP",
+ "version": "5.6.1",
+ "generated_at": "2026-06-18T09:47:22",
+ "n_datasets": 158,
+ "datasets": [
+  {
+   "dataset": "colo_lift_matrix",
+   "scale": "other",
+   "path": "catalog/colo_lift_matrix.parquet",
+   "rows": 676,
+   "cols": 6,
+   "size_mb": 0.02,
+   "description": ""
+  },
+  {
+   "dataset": "dataset_catalog",
+   "scale": "other",
+   "path": "catalog/dataset_catalog.parquet",
+   "rows": 51,
+   "cols": 9,
+   "size_mb": 0.01,
+   "description": ""
+  },
+  {
+   "dataset": "feature_catalog",
+   "scale": "other",
+   "path": "catalog/feature_catalog.parquet",
+   "rows": 2813,
+   "cols": 16,
+   "size_mb": 0.09,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_acra_biz",
+   "scale": "hex8",
+   "path": "hex/hex8_acra_biz.parquet",
+   "rows": 1191,
+   "cols": 11,
+   "size_mb": 0.05,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_all_features",
+   "scale": "hex8",
+   "path": "hex/hex8_all_features.parquet",
+   "rows": 1191,
+   "cols": 842,
+   "size_mb": 2.8,
+   "description": "Master hex8 feature bundle (product scale, ~0.74 km\u00b2) \u2014 every feature per cell"
+  },
+  {
+   "dataset": "hex8_amenities_extra",
+   "scale": "hex8",
+   "path": "hex/hex8_amenities_extra.parquet",
+   "rows": 1191,
+   "cols": 13,
+   "size_mb": 0.05,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_buildings_clean",
+   "scale": "hex8",
+   "path": "hex/hex8_buildings_clean.parquet",
+   "rows": 1191,
+   "cols": 19,
+   "size_mb": 0.08,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_built_environment_features",
+   "scale": "hex8",
+   "path": "hex/hex8_built_environment_features.parquet",
+   "rows": 1191,
+   "cols": 40,
+   "size_mb": 0.18,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_colo_fit",
+   "scale": "hex8",
+   "path": "hex/hex8_colo_fit.parquet",
+   "rows": 1191,
+   "cols": 12,
+   "size_mb": 0.08,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_commercial_activity",
+   "scale": "hex8",
+   "path": "hex/hex8_commercial_activity.parquet",
+   "rows": 1191,
+   "cols": 7,
+   "size_mb": 0.04,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_composites",
+   "scale": "hex8",
+   "path": "hex/hex8_composites.parquet",
+   "rows": 1191,
+   "cols": 7,
+   "size_mb": 0.03,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_context_pack",
+   "scale": "hex8",
+   "path": "hex/hex8_context_pack.parquet",
+   "rows": 1191,
+   "cols": 17,
+   "size_mb": 0.05,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_daytime_pop",
+   "scale": "hex8",
+   "path": "hex/hex8_daytime_pop.parquet",
+   "rows": 1191,
+   "cols": 9,
+   "size_mb": 0.04,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_demand_pull",
+   "scale": "hex8",
+   "path": "hex/hex8_demand_pull.parquet",
+   "rows": 1191,
+   "cols": 8,
+   "size_mb": 0.04,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_domain_primitives",
+   "scale": "hex8",
+   "path": "hex/hex8_domain_primitives.parquet",
+   "rows": 1191,
+   "cols": 23,
+   "size_mb": 0.09,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_embedding_plexis_e1_256d",
+   "scale": "hex8",
+   "path": "hex/hex8_embedding_plexis_e1_256d.parquet",
+   "rows": 1191,
+   "cols": 257,
+   "size_mb": 1.78,
+   "description": "Hex region embedding e1 (256-d, hybrid)"
+  },
+  {
+   "dataset": "hex8_gtfs_windows",
+   "scale": "hex8",
+   "path": "hex/hex8_gtfs_windows.parquet",
+   "rows": 1191,
+   "cols": 12,
+   "size_mb": 0.04,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_hdb_resale",
+   "scale": "hex8",
+   "path": "hex/hex8_hdb_resale.parquet",
+   "rows": 1191,
+   "cols": 10,
+   "size_mb": 0.02,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_hdb_town_overlap",
+   "scale": "hex8",
+   "path": "hex/hex8_hdb_town_overlap.parquet",
+   "rows": 432,
+   "cols": 3,
+   "size_mb": 0.01,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_huff_capture",
+   "scale": "hex8",
+   "path": "hex/hex8_huff_capture.parquet",
+   "rows": 1191,
+   "cols": 14,
+   "size_mb": 0.1,
+   "description": "Huff capturable demand per category (cap_*)"
+  },
+  {
+   "dataset": "hex8_insurance_pack",
+   "scale": "hex8",
+   "path": "hex/hex8_insurance_pack.parquet",
+   "rows": 1191,
+   "cols": 14,
+   "size_mb": 0.03,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_iso_transit",
+   "scale": "hex8",
+   "path": "hex/hex8_iso_transit.parquet",
+   "rows": 1191,
+   "cols": 5,
+   "size_mb": 0.02,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_iso_walk",
+   "scale": "hex8",
+   "path": "hex/hex8_iso_walk.parquet",
+   "rows": 1191,
+   "cols": 17,
+   "size_mb": 0.06,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_labor_shed",
+   "scale": "hex8",
+   "path": "hex/hex8_labor_shed.parquet",
+   "rows": 1191,
+   "cols": 6,
+   "size_mb": 0.04,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_land_use",
+   "scale": "hex8",
+   "path": "hex/hex8_land_use.parquet",
+   "rows": 1191,
+   "cols": 22,
+   "size_mb": 0.11,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_landcover",
+   "scale": "hex8",
+   "path": "hex/hex8_landcover.parquet",
+   "rows": 1191,
+   "cols": 7,
+   "size_mb": 0.03,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_lta_dynamic",
+   "scale": "hex8",
+   "path": "hex/hex8_lta_dynamic.parquet",
+   "rows": 1191,
+   "cols": 7,
+   "size_mb": 0.03,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_lta_pv",
+   "scale": "hex8",
+   "path": "hex/hex8_lta_pv.parquet",
+   "rows": 1191,
+   "cols": 13,
+   "size_mb": 0.06,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_micrograph_rollup",
+   "scale": "hex8",
+   "path": "hex/hex8_micrograph_rollup.parquet",
+   "rows": 1191,
+   "cols": 76,
+   "size_mb": 0.22,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_mobility_features",
+   "scale": "hex8",
+   "path": "hex/hex8_mobility_features.parquet",
+   "rows": 1191,
+   "cols": 50,
+   "size_mb": 0.27,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_mobility_pack",
+   "scale": "hex8",
+   "path": "hex/hex8_mobility_pack.parquet",
+   "rows": 1191,
+   "cols": 99,
+   "size_mb": 0.33,
+   "description": "Travel-times to anchors + access/desert mobility metrics"
+  },
+  {
+   "dataset": "hex8_od_features",
+   "scale": "hex8",
+   "path": "hex/hex8_od_features.parquet",
+   "rows": 1191,
+   "cols": 14,
+   "size_mb": 0.07,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_osm_pois",
+   "scale": "hex8",
+   "path": "hex/hex8_osm_pois.parquet",
+   "rows": 1191,
+   "cols": 5,
+   "size_mb": 0.02,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_pa_overlap",
+   "scale": "hex8",
+   "path": "hex/hex8_pa_overlap.parquet",
+   "rows": 1656,
+   "cols": 3,
+   "size_mb": 0.03,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_personas_nv",
+   "scale": "hex8",
+   "path": "hex/hex8_personas_nv.parquet",
+   "rows": 1191,
+   "cols": 34,
+   "size_mb": 0.06,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_pipeline",
+   "scale": "hex8",
+   "path": "hex/hex8_pipeline.parquet",
+   "rows": 1191,
+   "cols": 6,
+   "size_mb": 0.03,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_place_composition",
+   "scale": "hex8",
+   "path": "hex/hex8_place_composition.parquet",
+   "rows": 1191,
+   "cols": 36,
+   "size_mb": 0.08,
+   "description": "Per-hex place counts by category (pc_cat_*) + diversity/magnets"
+  },
+  {
+   "dataset": "hex8_place_composition_v2",
+   "scale": "hex8",
+   "path": "hex/hex8_place_composition_v2.parquet",
+   "rows": 1191,
+   "cols": 60,
+   "size_mb": 0.09,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_pop_weighted",
+   "scale": "hex8",
+   "path": "hex/hex8_pop_weighted.parquet",
+   "rows": 1191,
+   "cols": 125,
+   "size_mb": 0.45,
+   "description": "Pop-weighted ring poolings (pw1/pw2/max1/max2)"
+  },
+  {
+   "dataset": "hex8_population",
+   "scale": "hex8",
+   "path": "hex/hex8_population.parquet",
+   "rows": 1191,
+   "cols": 18,
+   "size_mb": 0.11,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_realestate_pack",
+   "scale": "hex8",
+   "path": "hex/hex8_realestate_pack.parquet",
+   "rows": 1191,
+   "cols": 12,
+   "size_mb": 0.03,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_region_overlap",
+   "scale": "hex8",
+   "path": "hex/hex8_region_overlap.parquet",
+   "rows": 1285,
+   "cols": 3,
+   "size_mb": 0.02,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_rent_surface",
+   "scale": "hex8",
+   "path": "hex/hex8_rent_surface.parquet",
+   "rows": 1191,
+   "cols": 9,
+   "size_mb": 0.04,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_retail_pack",
+   "scale": "hex8",
+   "path": "hex/hex8_retail_pack.parquet",
+   "rows": 1191,
+   "cols": 12,
+   "size_mb": 0.03,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_roads_clean",
+   "scale": "hex8",
+   "path": "hex/hex8_roads_clean.parquet",
+   "rows": 1191,
+   "cols": 18,
+   "size_mb": 0.09,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_satellite",
+   "scale": "hex8",
+   "path": "hex/hex8_satellite.parquet",
+   "rows": 1191,
+   "cols": 9,
+   "size_mb": 0.05,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_saturation_gap",
+   "scale": "hex8",
+   "path": "hex/hex8_saturation_gap.parquet",
+   "rows": 1191,
+   "cols": 19,
+   "size_mb": 0.06,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_schools",
+   "scale": "hex8",
+   "path": "hex/hex8_schools.parquet",
+   "rows": 1191,
+   "cols": 13,
+   "size_mb": 0.04,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_spatial_rings",
+   "scale": "hex8",
+   "path": "hex/hex8_spatial_rings.parquet",
+   "rows": 1191,
+   "cols": 19,
+   "size_mb": 0.1,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_subzone_overlap",
+   "scale": "hex8",
+   "path": "hex/hex8_subzone_overlap.parquet",
+   "rows": 2553,
+   "cols": 3,
+   "size_mb": 0.04,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_synergy",
+   "scale": "hex8",
+   "path": "hex/hex8_synergy.parquet",
+   "rows": 1191,
+   "cols": 9,
+   "size_mb": 0.03,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_traffic_signals",
+   "scale": "hex8",
+   "path": "hex/hex8_traffic_signals.parquet",
+   "rows": 1191,
+   "cols": 10,
+   "size_mb": 0.02,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_transit_clean",
+   "scale": "hex8",
+   "path": "hex/hex8_transit_clean.parquet",
+   "rows": 1191,
+   "cols": 18,
+   "size_mb": 0.08,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_transport_pack",
+   "scale": "hex8",
+   "path": "hex/hex8_transport_pack.parquet",
+   "rows": 1191,
+   "cols": 13,
+   "size_mb": 0.03,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_universe",
+   "scale": "hex8",
+   "path": "hex/hex8_universe.parquet",
+   "rows": 1191,
+   "cols": 7,
+   "size_mb": 0.04,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_utilities_pack",
+   "scale": "hex8",
+   "path": "hex/hex8_utilities_pack.parquet",
+   "rows": 1191,
+   "cols": 13,
+   "size_mb": 0.03,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_visibility",
+   "scale": "hex8",
+   "path": "hex/hex8_visibility.parquet",
+   "rows": 1191,
+   "cols": 7,
+   "size_mb": 0.03,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_walk_scores",
+   "scale": "hex8",
+   "path": "hex/hex8_walk_scores.parquet",
+   "rows": 1191,
+   "cols": 11,
+   "size_mb": 0.05,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_walkability",
+   "scale": "hex8",
+   "path": "hex/hex8_walkability.parquet",
+   "rows": 1191,
+   "cols": 21,
+   "size_mb": 0.13,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_all_features",
+   "scale": "hex9",
+   "path": "hex/hex9_all_features.parquet",
+   "rows": 7318,
+   "cols": 585,
+   "size_mb": 7.06,
+   "description": "Master hex9 feature bundle (~0.10 km\u00b2; fine, not used in products)"
+  },
+  {
+   "dataset": "hex9_amenities_extra",
+   "scale": "hex9",
+   "path": "hex/hex9_amenities_extra.parquet",
+   "rows": 7318,
+   "cols": 13,
+   "size_mb": 0.24,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_archetypes",
+   "scale": "hex9",
+   "path": "hex/hex9_archetypes.parquet",
+   "rows": 7318,
+   "cols": 4,
+   "size_mb": 0.08,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_buildings",
+   "scale": "hex9",
+   "path": "hex/hex9_buildings.parquet",
+   "rows": 7318,
+   "cols": 39,
+   "size_mb": 0.58,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_buildings_clean",
+   "scale": "hex9",
+   "path": "hex/hex9_buildings_clean.parquet",
+   "rows": 7318,
+   "cols": 20,
+   "size_mb": 0.36,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_built_environment_features",
+   "scale": "hex9",
+   "path": "hex/hex9_built_environment_features.parquet",
+   "rows": 7318,
+   "cols": 41,
+   "size_mb": 0.75,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_colo_fit",
+   "scale": "hex9",
+   "path": "hex/hex9_colo_fit.parquet",
+   "rows": 7318,
+   "cols": 12,
+   "size_mb": 0.31,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_composites",
+   "scale": "hex9",
+   "path": "hex/hex9_composites.parquet",
+   "rows": 7318,
+   "cols": 7,
+   "size_mb": 0.12,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_demand_pull",
+   "scale": "hex9",
+   "path": "hex/hex9_demand_pull.parquet",
+   "rows": 7318,
+   "cols": 8,
+   "size_mb": 0.14,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_embedding_combined_128d",
+   "scale": "hex9",
+   "path": "hex/hex9_embedding_combined_128d.parquet",
+   "rows": 7318,
+   "cols": 129,
+   "size_mb": 4.27,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_embedding_where_64d",
+   "scale": "hex9",
+   "path": "hex/hex9_embedding_where_64d.parquet",
+   "rows": 7318,
+   "cols": 65,
+   "size_mb": 2.72,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_gtfs_windows",
+   "scale": "hex9",
+   "path": "hex/hex9_gtfs_windows.parquet",
+   "rows": 7318,
+   "cols": 12,
+   "size_mb": 0.11,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_hdb_resale",
+   "scale": "hex9",
+   "path": "hex/hex9_hdb_resale.parquet",
+   "rows": 7318,
+   "cols": 10,
+   "size_mb": 0.07,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_hdb_town_overlap",
+   "scale": "hex9",
+   "path": "hex/hex9_hdb_town_overlap.parquet",
+   "rows": 1945,
+   "cols": 3,
+   "size_mb": 0.03,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_huff_capture",
+   "scale": "hex9",
+   "path": "hex/hex9_huff_capture.parquet",
+   "rows": 7318,
+   "cols": 14,
+   "size_mb": 0.47,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_influence",
+   "scale": "hex9",
+   "path": "hex/hex9_influence.parquet",
+   "rows": 7318,
+   "cols": 4,
+   "size_mb": 0.09,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_land_use",
+   "scale": "hex9",
+   "path": "hex/hex9_land_use.parquet",
+   "rows": 7318,
+   "cols": 22,
+   "size_mb": 0.43,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_landcover",
+   "scale": "hex9",
+   "path": "hex/hex9_landcover.parquet",
+   "rows": 7318,
+   "cols": 7,
+   "size_mb": 0.11,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_lta_dynamic",
+   "scale": "hex9",
+   "path": "hex/hex9_lta_dynamic.parquet",
+   "rows": 7318,
+   "cols": 7,
+   "size_mb": 0.09,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_lta_pv",
+   "scale": "hex9",
+   "path": "hex/hex9_lta_pv.parquet",
+   "rows": 7318,
+   "cols": 13,
+   "size_mb": 0.21,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_micrograph_rollup",
+   "scale": "hex9",
+   "path": "hex/hex9_micrograph_rollup.parquet",
+   "rows": 7318,
+   "cols": 76,
+   "size_mb": 0.5,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_mobility_features",
+   "scale": "hex9",
+   "path": "hex/hex9_mobility_features.parquet",
+   "rows": 7318,
+   "cols": 53,
+   "size_mb": 1.45,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_osm_pois",
+   "scale": "hex9",
+   "path": "hex/hex9_osm_pois.parquet",
+   "rows": 7318,
+   "cols": 5,
+   "size_mb": 0.06,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_pa_overlap",
+   "scale": "hex9",
+   "path": "hex/hex9_pa_overlap.parquet",
+   "rows": 8492,
+   "cols": 3,
+   "size_mb": 0.14,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_parking",
+   "scale": "hex9",
+   "path": "hex/hex9_parking.parquet",
+   "rows": 7318,
+   "cols": 11,
+   "size_mb": 0.07,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_parking_raw",
+   "scale": "hex9",
+   "path": "hex/hex9_parking_raw.parquet",
+   "rows": 7318,
+   "cols": 11,
+   "size_mb": 0.07,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_place_composition",
+   "scale": "hex9",
+   "path": "hex/hex9_place_composition.parquet",
+   "rows": 7318,
+   "cols": 36,
+   "size_mb": 0.2,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_place_composition_v2",
+   "scale": "hex9",
+   "path": "hex/hex9_place_composition_v2.parquet",
+   "rows": 7318,
+   "cols": 60,
+   "size_mb": 0.2,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_pop_weighted",
+   "scale": "hex9",
+   "path": "hex/hex9_pop_weighted.parquet",
+   "rows": 7318,
+   "cols": 125,
+   "size_mb": 1.44,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_population",
+   "scale": "hex9",
+   "path": "hex/hex9_population.parquet",
+   "rows": 7318,
+   "cols": 15,
+   "size_mb": 0.4,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_region_overlap",
+   "scale": "hex9",
+   "path": "hex/hex9_region_overlap.parquet",
+   "rows": 7592,
+   "cols": 3,
+   "size_mb": 0.12,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_road_centrality_raw",
+   "scale": "hex9",
+   "path": "hex/hex9_road_centrality_raw.parquet",
+   "rows": 7318,
+   "cols": 11,
+   "size_mb": 0.25,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_roads",
+   "scale": "hex9",
+   "path": "hex/hex9_roads.parquet",
+   "rows": 7318,
+   "cols": 69,
+   "size_mb": 1.51,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_roads_clean",
+   "scale": "hex9",
+   "path": "hex/hex9_roads_clean.parquet",
+   "rows": 7318,
+   "cols": 18,
+   "size_mb": 0.45,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_roads_raw",
+   "scale": "hex9",
+   "path": "hex/hex9_roads_raw.parquet",
+   "rows": 7318,
+   "cols": 69,
+   "size_mb": 1.51,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_satellite",
+   "scale": "hex9",
+   "path": "hex/hex9_satellite.parquet",
+   "rows": 7318,
+   "cols": 11,
+   "size_mb": 0.19,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_saturation_gap",
+   "scale": "hex9",
+   "path": "hex/hex9_saturation_gap.parquet",
+   "rows": 7318,
+   "cols": 19,
+   "size_mb": 0.17,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_schools",
+   "scale": "hex9",
+   "path": "hex/hex9_schools.parquet",
+   "rows": 7318,
+   "cols": 13,
+   "size_mb": 0.15,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_spatial_rings",
+   "scale": "hex9",
+   "path": "hex/hex9_spatial_rings.parquet",
+   "rows": 7318,
+   "cols": 19,
+   "size_mb": 0.36,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_subzone_overlap",
+   "scale": "hex9",
+   "path": "hex/hex9_subzone_overlap.parquet",
+   "rows": 10453,
+   "cols": 3,
+   "size_mb": 0.18,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_synergy",
+   "scale": "hex9",
+   "path": "hex/hex9_synergy.parquet",
+   "rows": 7318,
+   "cols": 9,
+   "size_mb": 0.09,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_traffic_signals",
+   "scale": "hex9",
+   "path": "hex/hex9_traffic_signals.parquet",
+   "rows": 7318,
+   "cols": 10,
+   "size_mb": 0.07,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_transit",
+   "scale": "hex9",
+   "path": "hex/hex9_transit.parquet",
+   "rows": 7318,
+   "cols": 19,
+   "size_mb": 0.41,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_transit_clean",
+   "scale": "hex9",
+   "path": "hex/hex9_transit_clean.parquet",
+   "rows": 7318,
+   "cols": 19,
+   "size_mb": 0.41,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_universe",
+   "scale": "hex9",
+   "path": "hex/hex9_universe.parquet",
+   "rows": 7318,
+   "cols": 8,
+   "size_mb": 0.22,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_walk_scores",
+   "scale": "hex9",
+   "path": "hex/hex9_walk_scores.parquet",
+   "rows": 7318,
+   "cols": 11,
+   "size_mb": 0.17,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_walkability",
+   "scale": "hex9",
+   "path": "hex/hex9_walkability.parquet",
+   "rows": 7318,
+   "cols": 27,
+   "size_mb": 0.78,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_all_features",
+   "scale": "subzone",
+   "path": "hex/subzone_all_features.parquet",
+   "rows": 326,
+   "cols": 430,
+   "size_mb": 0.77,
+   "description": "Master subzone feature bundle (URA MP2019)"
+  },
+  {
+   "dataset": "subzone_amenities_extra",
+   "scale": "subzone",
+   "path": "hex/subzone_amenities_extra.parquet",
+   "rows": 326,
+   "cols": 13,
+   "size_mb": 0.02,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_archetypes",
+   "scale": "subzone",
+   "path": "hex/subzone_archetypes.parquet",
+   "rows": 326,
+   "cols": 4,
+   "size_mb": 0.01,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_buildings_clean",
+   "scale": "subzone",
+   "path": "hex/subzone_buildings_clean.parquet",
+   "rows": 270,
+   "cols": 17,
+   "size_mb": 0.04,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_built_environment_features",
+   "scale": "subzone",
+   "path": "hex/subzone_built_environment_features.parquet",
+   "rows": 270,
+   "cols": 38,
+   "size_mb": 0.08,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_composites",
+   "scale": "subzone",
+   "path": "hex/subzone_composites.parquet",
+   "rows": 326,
+   "cols": 7,
+   "size_mb": 0.02,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_demand_pull",
+   "scale": "subzone",
+   "path": "hex/subzone_demand_pull.parquet",
+   "rows": 326,
+   "cols": 8,
+   "size_mb": 0.02,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_gtfs_windows",
+   "scale": "subzone",
+   "path": "hex/subzone_gtfs_windows.parquet",
+   "rows": 326,
+   "cols": 12,
+   "size_mb": 0.02,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_hdb_resale",
+   "scale": "subzone",
+   "path": "hex/subzone_hdb_resale.parquet",
+   "rows": 326,
+   "cols": 10,
+   "size_mb": 0.01,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_insurance_pack",
+   "scale": "subzone",
+   "path": "hex/subzone_insurance_pack.parquet",
+   "rows": 270,
+   "cols": 10,
+   "size_mb": 0.02,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_land_use",
+   "scale": "subzone",
+   "path": "hex/subzone_land_use.parquet",
+   "rows": 326,
+   "cols": 22,
+   "size_mb": 0.06,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_landcover",
+   "scale": "subzone",
+   "path": "hex/subzone_landcover.parquet",
+   "rows": 326,
+   "cols": 7,
+   "size_mb": 0.01,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_lta_dynamic",
+   "scale": "subzone",
+   "path": "hex/subzone_lta_dynamic.parquet",
+   "rows": 326,
+   "cols": 7,
+   "size_mb": 0.01,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_lta_pv",
+   "scale": "subzone",
+   "path": "hex/subzone_lta_pv.parquet",
+   "rows": 326,
+   "cols": 13,
+   "size_mb": 0.03,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_micrograph_rollup",
+   "scale": "subzone",
+   "path": "hex/subzone_micrograph_rollup.parquet",
+   "rows": 326,
+   "cols": 76,
+   "size_mb": 0.17,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_mobility_features",
+   "scale": "subzone",
+   "path": "hex/subzone_mobility_features.parquet",
+   "rows": 270,
+   "cols": 38,
+   "size_mb": 0.08,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_osm_pois",
+   "scale": "subzone",
+   "path": "hex/subzone_osm_pois.parquet",
+   "rows": 326,
+   "cols": 5,
+   "size_mb": 0.01,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_place_composition",
+   "scale": "subzone",
+   "path": "hex/subzone_place_composition.parquet",
+   "rows": 326,
+   "cols": 36,
+   "size_mb": 0.05,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_place_composition_v2",
+   "scale": "subzone",
+   "path": "hex/subzone_place_composition_v2.parquet",
+   "rows": 326,
+   "cols": 60,
+   "size_mb": 0.07,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_population",
+   "scale": "subzone",
+   "path": "hex/subzone_population.parquet",
+   "rows": 326,
+   "cols": 12,
+   "size_mb": 0.04,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_realestate_pack",
+   "scale": "subzone",
+   "path": "hex/subzone_realestate_pack.parquet",
+   "rows": 270,
+   "cols": 8,
+   "size_mb": 0.01,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_retail_pack",
+   "scale": "subzone",
+   "path": "hex/subzone_retail_pack.parquet",
+   "rows": 270,
+   "cols": 8,
+   "size_mb": 0.01,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_roads_clean",
+   "scale": "subzone",
+   "path": "hex/subzone_roads_clean.parquet",
+   "rows": 270,
+   "cols": 18,
+   "size_mb": 0.04,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_satellite",
+   "scale": "subzone",
+   "path": "hex/subzone_satellite.parquet",
+   "rows": 326,
+   "cols": 9,
+   "size_mb": 0.02,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_saturation_gap",
+   "scale": "subzone",
+   "path": "hex/subzone_saturation_gap.parquet",
+   "rows": 326,
+   "cols": 19,
+   "size_mb": 0.04,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_schools",
+   "scale": "subzone",
+   "path": "hex/subzone_schools.parquet",
+   "rows": 326,
+   "cols": 13,
+   "size_mb": 0.02,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_synergy",
+   "scale": "subzone",
+   "path": "hex/subzone_synergy.parquet",
+   "rows": 326,
+   "cols": 9,
+   "size_mb": 0.01,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_traffic_signals",
+   "scale": "subzone",
+   "path": "hex/subzone_traffic_signals.parquet",
+   "rows": 326,
+   "cols": 10,
+   "size_mb": 0.01,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_transit_clean",
+   "scale": "subzone",
+   "path": "hex/subzone_transit_clean.parquet",
+   "rows": 270,
+   "cols": 14,
+   "size_mb": 0.02,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_transport_pack",
+   "scale": "subzone",
+   "path": "hex/subzone_transport_pack.parquet",
+   "rows": 270,
+   "cols": 9,
+   "size_mb": 0.01,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_utilities_pack",
+   "scale": "subzone",
+   "path": "hex/subzone_utilities_pack.parquet",
+   "rows": 270,
+   "cols": 9,
+   "size_mb": 0.02,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_walk_scores",
+   "scale": "subzone",
+   "path": "hex/subzone_walk_scores.parquet",
+   "rows": 270,
+   "cols": 11,
+   "size_mb": 0.01,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_walkability",
+   "scale": "subzone",
+   "path": "hex/subzone_walkability.parquet",
+   "rows": 270,
+   "cols": 8,
+   "size_mb": 0.02,
+   "description": ""
+  },
+  {
+   "dataset": "brand_rollup",
+   "scale": "other",
+   "path": "places/brand_rollup.parquet",
+   "rows": 268,
+   "cols": 5,
+   "size_mb": 0.02,
+   "description": ""
+  },
+  {
+   "dataset": "category_quality_benchmarks",
+   "scale": "other",
+   "path": "places/category_quality_benchmarks.parquet",
+   "rows": 24,
+   "cols": 13,
+   "size_mb": 0.01,
+   "description": ""
+  },
+  {
+   "dataset": "hdb_town_place_counts",
+   "scale": "place",
+   "path": "places/hdb_town_place_counts.parquet",
+   "rows": 27,
+   "cols": 2,
+   "size_mb": 0.0,
+   "description": ""
+  },
+  {
+   "dataset": "hex8_place_counts",
+   "scale": "hex8",
+   "path": "places/hex8_place_counts.parquet",
+   "rows": 911,
+   "cols": 2,
+   "size_mb": 0.01,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_place_counts",
+   "scale": "hex9",
+   "path": "places/hex9_place_counts.parquet",
+   "rows": 4224,
+   "cols": 2,
+   "size_mb": 0.03,
+   "description": ""
+  },
+  {
+   "dataset": "pa_place_counts",
+   "scale": "place",
+   "path": "places/pa_place_counts.parquet",
+   "rows": 55,
+   "cols": 2,
+   "size_mb": 0.0,
+   "description": ""
+  },
+  {
+   "dataset": "place_embedding_combined_128d",
+   "scale": "place",
+   "path": "places/place_embedding_combined_128d.parquet",
+   "rows": 190591,
+   "cols": 129,
+   "size_mb": 60.22,
+   "description": ""
+  },
+  {
+   "dataset": "place_embedding_plexis_p1_64d",
+   "scale": "place",
+   "path": "places/place_embedding_plexis_p1_64d.parquet",
+   "rows": 190591,
+   "cols": 65,
+   "size_mb": 75.09,
+   "description": "Place embedding p1 (64-d, contrastive)"
+  },
+  {
+   "dataset": "place_embedding_what_64d",
+   "scale": "place",
+   "path": "places/place_embedding_what_64d.parquet",
+   "rows": 190591,
+   "cols": 65,
+   "size_mb": 40.35,
+   "description": ""
+  },
+  {
+   "dataset": "sgp_places_branded",
+   "scale": "place",
+   "path": "places/sgp_places_branded.parquet",
+   "rows": 190591,
+   "cols": 20,
+   "size_mb": 10.91,
+   "description": ""
+  },
+  {
+   "dataset": "sgp_places_categorized",
+   "scale": "place",
+   "path": "places/sgp_places_categorized.parquet",
+   "rows": 190591,
+   "cols": 18,
+   "size_mb": 10.86,
+   "description": ""
+  },
+  {
+   "dataset": "sgp_places_cleaned",
+   "scale": "place",
+   "path": "places/sgp_places_cleaned.parquet",
+   "rows": 190591,
+   "cols": 35,
+   "size_mb": 18.19,
+   "description": ""
+  },
+  {
+   "dataset": "sgp_places_final",
+   "scale": "place",
+   "path": "places/sgp_places_final.parquet",
+   "rows": 190591,
+   "cols": 36,
+   "size_mb": 18.23,
+   "description": "All Singapore places (cleaned, canonical) \u2014 name/category/brand/flags"
+  },
+  {
+   "dataset": "sgp_places_geoattached",
+   "scale": "place",
+   "path": "places/sgp_places_geoattached.parquet",
+   "rows": 190591,
+   "cols": 17,
+   "size_mb": 10.74,
+   "description": ""
+  },
+  {
+   "dataset": "sgp_places_micrograph",
+   "scale": "place",
+   "path": "places/sgp_places_micrograph.parquet",
+   "rows": 190591,
+   "cols": 20,
+   "size_mb": 9.65,
+   "description": "Per-venue local-context micrograph (pmg_*)"
+  },
+  {
+   "dataset": "sgp_places_unresolved_after_heuristics",
+   "scale": "place",
+   "path": "places/sgp_places_unresolved_after_heuristics.parquet",
+   "rows": 18015,
+   "cols": 18,
+   "size_mb": 1.13,
+   "description": ""
+  },
+  {
+   "dataset": "sgp_places_unresolved_category",
+   "scale": "place",
+   "path": "places/sgp_places_unresolved_category.parquet",
+   "rows": 38811,
+   "cols": 18,
+   "size_mb": 2.36,
+   "description": ""
+  },
+  {
+   "dataset": "sgp_places_v2",
+   "scale": "place",
+   "path": "places/sgp_places_v2.parquet",
+   "rows": 190591,
+   "cols": 36,
+   "size_mb": 18.23,
+   "description": ""
+  },
+  {
+   "dataset": "subzone_place_counts",
+   "scale": "subzone",
+   "path": "places/subzone_place_counts.parquet",
+   "rows": 331,
+   "cols": 2,
+   "size_mb": 0.01,
+   "description": ""
+  }
+ ]
+}

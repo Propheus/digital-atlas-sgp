@@ -1,0 +1,383 @@
+{
+ "atlas": "Plexis SGP",
+ "version": "5.6.1",
+ "generated_at": "2026-06-18T09:47:22",
+ "n_places": 190591,
+ "n_categories": 26,
+ "canonical_places": 189094,
+ "brand_coverage_pct": 11.1,
+ "duplicates_flagged": 1497,
+ "flags": {
+  "is_storefront": "manned commercial premise (count supply with is_storefront & not is_duplicate)",
+  "host_venue": "venue a co-located tenant sits inside",
+  "operator/parent_brand": "food-court / coffeeshop operator",
+  "is_duplicate / canonical_id": "de-duplication (filter is_duplicate==False)",
+  "zero_reviews": "reviews_count == 0"
+ },
+ "categories": [
+  {
+   "category": "services",
+   "count": 22691,
+   "pct": 11.9,
+   "description": "Professional & personal services (legal, repair, courier, agencies)",
+   "is_storefront_pct": 100.0,
+   "branded_pct": 3.1,
+   "top_brands": [
+    "Singapore Pools",
+    "DHL Express Service Point",
+    "Car Club",
+    "Castrol Auto"
+   ]
+  },
+  {
+   "category": "business_office",
+   "count": 21593,
+   "pct": 11.3,
+   "description": "Corporate offices, coworking, trading, media, IT",
+   "is_storefront_pct": 100.0,
+   "branded_pct": 1.1,
+   "top_brands": [
+    "Regus",
+    "WeWork",
+    "JustCo",
+    "Samsung"
+   ]
+  },
+  {
+   "category": "industrial_mfg",
+   "count": 17956,
+   "pct": 9.4,
+   "description": "Manufacturers, wholesale, logistics, construction, car dealers",
+   "is_storefront_pct": 100.0,
+   "branded_pct": 0.8,
+   "top_brands": [
+    "StorHub",
+    "Shell",
+    "Goldlion",
+    "UPS"
+   ]
+  },
+  {
+   "category": "residential",
+   "count": 16271,
+   "pct": 8.5,
+   "description": "HDB, condos, apartments",
+   "is_storefront_pct": 100.0,
+   "branded_pct": 0.3,
+   "top_brands": [
+    "Courts",
+    "Astons",
+    "Banyan Clinic",
+    "Coliwoo"
+   ]
+  },
+  {
+   "category": "shopping_retail",
+   "count": 15373,
+   "pct": 8.1,
+   "description": "Apparel, electronics, furniture, books, malls & general retail",
+   "is_storefront_pct": 100.0,
+   "branded_pct": 14.1,
+   "top_brands": [
+    "Singtel",
+    "Pet Lovers Centre",
+    "Japan Home",
+    "Challenger"
+   ]
+  },
+  {
+   "category": "transportation",
+   "count": 12904,
+   "pct": 6.8,
+   "description": "Bus/MRT stops, taxi stands, parking, petrol, airport",
+   "is_storefront_pct": 30.7,
+   "branded_pct": 23.3,
+   "top_brands": [
+    "SP Mobility Charging",
+    "CDG ENGIE Charging",
+    "Charge+ Charging",
+    "Shell Recharge Charging"
+   ]
+  },
+  {
+   "category": "restaurant",
+   "count": 11285,
+   "pct": 5.9,
+   "description": "Full-service & casual restaurants, eateries, caterers",
+   "is_storefront_pct": 100.0,
+   "branded_pct": 13.1,
+   "top_brands": [
+    "Saizeriya",
+    "Tenderbest",
+    "King of Fried Rice",
+    "Sukiya"
+   ]
+  },
+  {
+   "category": "education",
+   "count": 11175,
+   "pct": 5.9,
+   "description": "Schools, tuition, preschools, universities, studios",
+   "is_storefront_pct": 100.0,
+   "branded_pct": 19.2,
+   "top_brands": [
+    "PCF Sparkletots",
+    "My First Skool",
+    "Edufarm Learning Centre",
+    "Star Tots Playgroup"
+   ]
+  },
+  {
+   "category": "beauty_personal",
+   "count": 7767,
+   "pct": 4.1,
+   "description": "Hair / nail / beauty salons, spa, massage, tailor",
+   "is_storefront_pct": 100.0,
+   "branded_pct": 6.3,
+   "top_brands": [
+    "kcuts",
+    "Kskin Korean Express Facial",
+    "Venus Beauty",
+    "Jean Yip"
+   ]
+  },
+  {
+   "category": "health_medical",
+   "count": 7453,
+   "pct": 3.9,
+   "description": "Clinics, hospitals, dental, TCM, pharmacy, physio, vet",
+   "is_storefront_pct": 100.0,
+   "branded_pct": 14.2,
+   "top_brands": [
+    "Guardian Health & Beauty",
+    "Watsons",
+    "NTUC Health",
+    "Parkway"
+   ]
+  },
+  {
+   "category": "cafe_coffee",
+   "count": 6519,
+   "pct": 3.4,
+   "description": "Caf\u00e9s, coffee shops, bubble tea, dessert, juice bars",
+   "is_storefront_pct": 100.0,
+   "branded_pct": 26.3,
+   "top_brands": [
+    "Starbucks",
+    "Kimly",
+    "Ya Kun Kaya Toast",
+    "Toast Box"
+   ]
+  },
+  {
+   "category": "hawker",
+   "count": 5892,
+   "pct": 3.1,
+   "description": "Hawker stalls & centres, food courts, kopitiams",
+   "is_storefront_pct": 100.0,
+   "branded_pct": 3.1,
+   "top_brands": [
+    "Kopitiam",
+    "Koufu",
+    "Food Republic",
+    "Malaysia Boleh!"
+   ]
+  },
+  {
+   "category": "park_open",
+   "count": 4434,
+   "pct": 2.3,
+   "description": "Parks, playgrounds, gardens, nature",
+   "is_storefront_pct": 100.0,
+   "branded_pct": 0.9,
+   "top_brands": [
+    "Kiztopia",
+    "Banyan Clinic",
+    "SAFRA",
+    "Seoul Garden"
+   ]
+  },
+  {
+   "category": "fitness_recreation",
+   "count": 4022,
+   "pct": 2.1,
+   "description": "Gyms & sports facilities",
+   "is_storefront_pct": 100.0,
+   "branded_pct": 11.5,
+   "top_brands": [
+    "Anytime Fitness",
+    "ActiveSG",
+    "The Gym Pod",
+    "Courts"
+   ]
+  },
+  {
+   "category": "financial_services",
+   "count": 3720,
+   "pct": 2.0,
+   "description": "ATMs, banks, financial services, insurance, money transfer (NEW v5.6)",
+   "is_storefront_pct": 59.5,
+   "branded_pct": 51.7,
+   "top_brands": [
+    "DBS",
+    "POSB",
+    "UOB",
+    "OCBC"
+   ]
+  },
+  {
+   "category": "other_uncategorized",
+   "count": 3413,
+   "pct": 1.8,
+   "description": "Unclassified residue (genuinely ambiguous names)",
+   "is_storefront_pct": 100.0,
+   "branded_pct": 0.5,
+   "top_brands": [
+    "novita",
+    "FUJIFILM",
+    "Collin's",
+    "Poh Kim"
+   ]
+  },
+  {
+   "category": "supermarket",
+   "count": 2939,
+   "pct": 1.5,
+   "description": "Supermarkets, grocery, wet markets, specialty food",
+   "is_storefront_pct": 100.0,
+   "branded_pct": 26.6,
+   "top_brands": [
+    "NTUC FairPrice",
+    "Sheng Siong",
+    "Giant",
+    "Cold Storage"
+   ]
+  },
+  {
+   "category": "entertainment_culture",
+   "count": 2172,
+   "pct": 1.1,
+   "description": "Museums, galleries, cinemas, attractions, event venues",
+   "is_storefront_pct": 100.0,
+   "branded_pct": 2.3,
+   "top_brands": [
+    "Timezone",
+    "Golden Village",
+    "GV",
+    "Shaw Theatres"
+   ]
+  },
+  {
+   "category": "convenience",
+   "count": 2164,
+   "pct": 1.1,
+   "description": "Convenience & provision stores (7-Eleven, Cheers, mama shops)",
+   "is_storefront_pct": 100.0,
+   "branded_pct": 36.3,
+   "top_brands": [
+    "7-Eleven",
+    "Cheers",
+    "Valu$",
+    "Choices"
+   ]
+  },
+  {
+   "category": "bakery",
+   "count": 2038,
+   "pct": 1.1,
+   "description": "Bakeries, cake & bread shops",
+   "is_storefront_pct": 100.0,
+   "branded_pct": 32.1,
+   "top_brands": [
+    "Swee Heng",
+    "Old Chang Kee",
+    "Munchi Pancakes",
+    "Bengawan Solo"
+   ]
+  },
+  {
+   "category": "government_public",
+   "count": 1934,
+   "pct": 1.0,
+   "description": "Govt offices, post, police, fire, library, community clubs",
+   "is_storefront_pct": 100.0,
+   "branded_pct": 11.5,
+   "top_brands": [
+    "SingPost",
+    "PUB",
+    "Courts",
+    "ActiveSG"
+   ]
+  },
+  {
+   "category": "automated_kiosk",
+   "count": 1913,
+   "pct": 1.0,
+   "description": "Unmanned automated points: vending, self-service kiosks, parcel lockers (NEW v5.6)",
+   "is_storefront_pct": 0.5,
+   "branded_pct": 91.6,
+   "top_brands": [
+    "iJooz",
+    "AXS Station",
+    "Pick Locker",
+    "SPX Express Locker"
+   ]
+  },
+  {
+   "category": "religious_worship",
+   "count": 1729,
+   "pct": 0.9,
+   "description": "Churches, temples, mosques, cemeteries",
+   "is_storefront_pct": 100.0,
+   "branded_pct": 0.3,
+   "top_brands": [
+    "The Salvation Army",
+    "CHICHA San Chen",
+    "Shi Li Fang",
+    "City Harvest Church"
+   ]
+  },
+  {
+   "category": "hotel_hospitality",
+   "count": 1176,
+   "pct": 0.6,
+   "description": "Hotels, resorts, hostels",
+   "is_storefront_pct": 100.0,
+   "branded_pct": 27.4,
+   "top_brands": [
+    "Marina Bay Sands",
+    "Hotel 81",
+    "Pan Pacific",
+    "ibis"
+   ]
+  },
+  {
+   "category": "bar_nightlife",
+   "count": 1120,
+   "pct": 0.6,
+   "description": "Bars, pubs, lounges, nightclubs",
+   "is_storefront_pct": 100.0,
+   "branded_pct": 2.8,
+   "top_brands": [
+    "LeNu",
+    "Teo Heng",
+    "Benefit Cosmetics",
+    "SilverKris"
+   ]
+  },
+  {
+   "category": "fast_food",
+   "count": 938,
+   "pct": 0.5,
+   "description": "Quick-service / fast-food outlets",
+   "is_storefront_pct": 100.0,
+   "branded_pct": 85.2,
+   "top_brands": [
+    "McDonald's",
+    "Subway",
+    "Burger King",
+    "KFC"
+   ]
+  }
+ ]
+}
