@@ -1,0 +1,11 @@
+{
+  "version": "5.6.1",
+  "generated_at": "2026-06-18T02:54:02",
+  "change": "places fixes V2: robust dedup + operator + brand resolution (dict+LLM)",
+  "detail": {
+    "dedup": "271-> 1497 (60m spatial merge)",
+    "brand_coverage": "15127 -> 21204",
+    "operator": 410,
+    "backup": "backups/places_v2_*"
+  }
+}
