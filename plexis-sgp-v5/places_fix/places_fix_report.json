@@ -1,0 +1,110 @@
+{
+ "generated_at": "2026-06-18T01:15:12",
+ "n_places": 190591,
+ "secs": 11,
+ "taxonomy": {
+  "before_n_categories": 24,
+  "after_n_categories": 26,
+  "added": [
+   "financial_services",
+   "automated_kiosk"
+  ]
+ },
+ "category_before": {
+  "business_office": 21377,
+  "services": 20303,
+  "other_uncategorized": 17990,
+  "industrial_mfg": 16940,
+  "residential": 15554,
+  "shopping_retail": 14211,
+  "transportation": 12369,
+  "education": 10438,
+  "restaurant": 10120,
+  "beauty_personal": 7557,
+  "health_medical": 6546,
+  "cafe_coffee": 6339,
+  "hawker": 5829,
+  "convenience": 5762,
+  "park_open": 4086,
+  "fitness_recreation": 3234,
+  "supermarket": 2477,
+  "bakery": 1886,
+  "entertainment_culture": 1669,
+  "government_public": 1614,
+  "religious_worship": 1451,
+  "hotel_hospitality": 1010,
+  "bar_nightlife": 974,
+  "fast_food": 855
+ },
+ "category_after": {
+  "services": 20366,
+  "business_office": 19608,
+  "other_uncategorized": 17986,
+  "industrial_mfg": 16934,
+  "residential": 15554,
+  "shopping_retail": 13992,
+  "transportation": 12367,
+  "education": 10438,
+  "restaurant": 10119,
+  "beauty_personal": 7557,
+  "health_medical": 6543,
+  "cafe_coffee": 6334,
+  "hawker": 5829,
+  "park_open": 4085,
+  "financial_services": 3685,
+  "fitness_recreation": 3234,
+  "supermarket": 2476,
+  "convenience": 2129,
+  "automated_kiosk": 1904,
+  "bakery": 1882,
+  "entertainment_culture": 1669,
+  "government_public": 1611,
+  "religious_worship": 1451,
+  "hotel_hospitality": 1010,
+  "bar_nightlife": 974,
+  "fast_food": 854
+ },
+ "convenience_cleanup": {
+  "before": 5762,
+  "after": 2129,
+  "real_store_share_after": {
+   "convenience_total": 2129,
+   "real_stores_7e_cheers": 717
+  }
+ },
+ "financial_services_created": 3685,
+ "automated_kiosk_created": 1904,
+ "is_storefront": {
+  "true": 178235,
+  "false": 12356
+ },
+ "other_uncategorized": {
+  "before": 17990,
+  "after": 17986,
+  "reclassified": 0
+ },
+ "host_venue_extracted": 7896,
+ "brand_norm_coverage": {
+  "before": 15127,
+  "after": 15127,
+  "before_pct": 7.9,
+  "after_pct": 7.9
+ },
+ "duplicates": {
+  "flagged": 271,
+  "groups": 213,
+  "canonical_stores": 190320
+ },
+ "zero_reviews": 80727,
+ "new_columns": [
+  "is_storefront",
+  "host_venue",
+  "operator_name",
+  "parent_brand",
+  "is_duplicate",
+  "canonical_id",
+  "zero_reviews",
+  "is_phantom_suspect"
+ ],
+ "output": "/home/azureuser/da-sgp/v5/places/sgp_places_cleaned.parquet"
+}
