@@ -41,7 +41,18 @@ demand-relevant hex counts (`pc_cat_*`, pop-weighted rings) were rebuilt from it
 - **Airport/stadium/campus throughput** still absent from the mobility/demand feed.
 - No `first_seen`; `zero_reviews` is the only new/no-traffic signal.
 
-## Files
-- `places/sgp_places_final.parquet` (190,591 × 36) · masters `hex/{hex8,hex9,subzone}_all_features.parquet`
-- `CHECKPOINT_v5.6.1.json` · `catalog/atlas_manifest.json` (v5.6.1)
-- Backups: `backups/places_promote_*`, `backups/places_v2_*`
+## Where to get it (server location)
+**Host:** `azold-test-server` · **Root:** `/home/azureuser/da-sgp/v5/`
+(Git mirror: `github.com/Propheus/digital-atlas-sgp` → `plexis-sgp-v5/`, parquets via LFS.)
+
+| Artifact | Path (under `/home/azureuser/da-sgp/v5/`) |
+|---|---|
+| Places (cleaned) | `places/sgp_places_final.parquet` (190,591 × 36) |
+| Hex8 master | `hex/hex8_all_features.parquet` (1,191 × 842) |
+| Hex9 / Subzone masters | `hex/hex9_all_features.parquet` · `hex/subzone_all_features.parquet` |
+| Place composition (`pc_cat_*`) | `hex/hex8_place_composition.parquet` |
+| Manifest / feature catalog | `catalog/atlas_manifest.json` · `catalog/feature_catalog.json` (v5.6.1) |
+| Checkpoint | `CHECKPOINT_v5.6.1.json` |
+| Backups (pre-change) | `backups/places_promote_*` · `backups/places_v2_*` |
+
+**Pull example:** `scp azold-test-server:/home/azureuser/da-sgp/v5/places/sgp_places_final.parquet .`

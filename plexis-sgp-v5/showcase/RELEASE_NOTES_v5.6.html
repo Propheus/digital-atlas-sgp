@@ -1,0 +1,140 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Plexis SGP Atlas — Release Notes v5.6</title><style>
+:root{--accent:#20b2aa;--accent2:#2dd4bf;--ok:#39d98a;--warn:#f0c14b;
+ --glass:rgba(17,40,42,.55);--glass2:rgba(12,27,29,.72);
+ --border:rgba(32,178,170,.18);--border2:rgba(32,178,170,.32);
+ --text:#e9eef0;--muted:#8fa3a6;--mono:#7fe3da}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--text);
+ background:radial-gradient(1100px 560px at 72% -12%,#173f41 0%,transparent 58%),
+   linear-gradient(162deg,#0a1a1c,#0d2123 55%,#102628);
+ background-attachment:fixed;min-height:100vh;max-width:1060px;margin:0 auto;
+ padding:46px 26px;font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1{font-size:30px;font-weight:700;letter-spacing:-.022em;margin:0 0 4px}
+.accent{color:var(--accent)}
+h2{font-size:16px;font-weight:600;margin:34px 0 12px;color:#d4ecea;
+ border-bottom:1px solid var(--border);padding-bottom:7px;letter-spacing:-.01em}
+h2 .n{color:var(--muted);font-weight:400;font-size:13px}
+.sub{color:var(--muted);margin:0 0 22px;font-size:14px}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+.cards{display:grid;grid-template-columns:repeat(6,1fr);gap:11px;margin:20px 0 8px}
+.card{background:var(--glass);border:1px solid var(--border);border-radius:13px;
+ padding:16px 12px;text-align:center;backdrop-filter:blur(13px);-webkit-backdrop-filter:blur(13px)}
+.cv{font-size:23px;font-weight:700;color:#fff;letter-spacing:-.02em}
+.cl{font-size:10.5px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.045em}
+table{width:100%;border-collapse:separate;border-spacing:0;background:var(--glass2);
+ border:1px solid var(--border);border-radius:13px;overflow:hidden;margin-bottom:8px;
+ backdrop-filter:blur(11px);-webkit-backdrop-filter:blur(11px)}
+th,td{text-align:left;padding:9px 13px;border-bottom:1px solid rgba(32,178,170,.10);font-size:13px;vertical-align:top}
+th{background:rgba(32,178,170,.09);color:var(--accent);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:rgba(32,178,170,.05)}
+td.f{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:12px;color:var(--mono);white-space:nowrap}
+td.t{color:var(--muted);font-size:11.5px}
+td.s{color:#b9c9cb;font-size:12px;white-space:nowrap}
+.banner{background:linear-gradient(90deg,rgba(57,217,138,.16),rgba(32,178,170,.04));
+ border:1px solid var(--border2);color:#8fe9c4;border-radius:13px;padding:13px 17px;font-weight:600;margin:8px 0 4px}
+.note{color:var(--muted);font-size:12.5px;margin-top:9px}
+.pill{display:inline-block;background:rgba(32,178,170,.14);border:1px solid var(--border);
+ color:#9fe9e1;border-radius:20px;padding:3px 11px;margin:3px 2px;font-size:12.5px}
+code{background:rgba(32,178,170,.1);padding:1px 6px;border-radius:5px;font-size:12px;color:#9fe9e1;
+ font-family:ui-monospace,"SF Mono",Menlo,monospace}
+.tag{display:inline-block;font-size:9.5px;background:rgba(32,178,170,.2);color:#9fe9e1;
+ border-radius:6px;padding:1px 7px;margin-left:7px;vertical-align:middle;text-transform:uppercase;letter-spacing:.04em;font-weight:600}
+/* prose (markdown) */
+p{margin:10px 0}
+ul,ol{margin:8px 0 12px;padding-left:22px} li{margin:4px 0;color:#cdd9da}
+strong,b{color:#fff;font-weight:600}
+em{color:#bcd}
+hr{border:none;border-top:1px solid var(--border);margin:30px 0}
+blockquote{border-left:3px solid var(--accent);background:rgba(32,178,170,.06);
+ margin:14px 0;padding:10px 16px;border-radius:0 8px 8px 0;color:#bcd0d2}
+blockquote p{margin:4px 0}
+pre{background:rgba(8,18,20,.85);border:1px solid var(--border);border-radius:10px;
+ padding:13px 15px;overflow-x:auto;margin:12px 0;font-size:12.5px;line-height:1.5}
+pre code{background:none;padding:0;color:#cfeae6;font-family:ui-monospace,"SF Mono",Menlo,monospace}
+h1+p em,h1+p{color:var(--muted)}
+@media(max-width:680px){.cards{grid-template-columns:repeat(3,1fr)}}
+</style></head><body><h1>Plexis SGP Atlas — Release Notes v5.6 (places-clean)</h1>
+<p><strong>Date:</strong> 2026-06-18 · <strong>Versions:</strong> v5.6.0 (places clean) + v5.6.1 (dedup/brand/operator)
+<strong>Scope:</strong> <code>places</code> table + the places-derived <code>hex8</code> features. Non-destructive; backups retained.</p>
+<h2>TL;DR</h2>
+<p>The places table was cleaned, brand-resolved, de-duplicated, and re-categorised; the
+demand-relevant hex counts (<code>pc_cat_*</code>, pop-weighted rings) were rebuilt from it.
+<strong>Action for consumers:</strong> count supply as <code>is_storefront AND NOT is_duplicate</code>.</p>
+<h2>What changed</h2>
+<ul>
+<li><strong>Taxonomy 24 → 26 categories</strong> — added <code>financial_services</code> (3,720: ATM+bank+insurance+remittance)
+  and <code>automated_kiosk</code> (1,913: vending/locker/AXS). <code>convenience</code> depolluted <strong>5,762 → 2,164</strong>
+  (ATMs/vending no longer counted as stores).</li>
+<li><strong><code>other_uncategorized</code> 17,990 → 3,413</strong> — reclassified into real categories (LLM).</li>
+<li><strong>Co-located tenants</strong> — <code>brand</code> now = the operator, not the host ("Singapore Pools @ FairPrice"
+  → brand <code>Singapore Pools</code>); new <code>host_venue</code> field.</li>
+<li><strong>De-duplication</strong> — 1,497 store-code aliases / pin-duplicates flagged (<code>is_duplicate</code>,
+  <code>canonical_id</code>); 189,094 canonical stores.</li>
+<li><strong>Brand coverage 7.9% → 11.1%</strong> (high-precision; independents left null on purpose).
+  Per category: shopping_retail 3→14%, restaurant 4→13%, health_medical 10→14%, cafe_coffee 17→26%.</li>
+<li><strong><code>operator</code>/<code>parent_brand</code></strong> — food-court/coffeeshop operator (Koufu, Kopitiam, …).</li>
+<li><strong>hex8/hex9/subzone masters</strong> — <code>pc_cat_*</code> rebuilt at 26 cats; <code>pw1/pw2/max1/max2</code> pop-weighted
+  refreshed; <code>pc_unique_brands</code> refreshed. hex8 master 801 → <strong>842 cols</strong>.</li>
+</ul>
+<h2>New columns on <code>places</code></h2>
+<p><code>is_storefront</code> · <code>host_venue</code> · <code>operator</code> / <code>parent_brand</code> · <code>is_duplicate</code> · <code>canonical_id</code>
+· <code>zero_reviews</code> · <code>is_phantom_suspect</code></p>
+<h2>How to consume</h2>
+<ul>
+<li><strong>Supply / competition counts:</strong> filter <code>is_storefront == True AND is_duplicate == False</code>.</li>
+<li><strong>Category counts per hex:</strong> <code>pc_cat_&lt;cat&gt;</code> (now incl. <code>pc_cat_financial_services</code>,
+  <code>pc_cat_automated_kiosk</code>); convenience/business_office are now clean.</li>
+<li><strong>Brand analytics:</strong> <code>brand_norm</code> (null = independent or unresolved, <em>not</em> an error).</li>
+<li><strong>Keys unchanged:</strong> <code>id</code> (place), <code>hex8_id</code>, <code>subzone_c</code>. No row IDs changed.</li>
+</ul>
+<h2>Not changed in this release (known)</h2>
+<ul>
+<li><strong><code>cap_*</code> / <code>gap_*</code> (Huff demand)</strong>, <strong>domain packs</strong>, <strong>plexis-e1/p1 embeddings</strong> still reflect
+  the pre-clean composition (partial refit pending). <code>cap_convenience</code> may over-count.</li>
+<li><strong>Brand</strong> is precision-first — many true independents remain null by design.</li>
+<li><strong>Airport/stadium/campus throughput</strong> still absent from the mobility/demand feed.</li>
+<li>No <code>first_seen</code>; <code>zero_reviews</code> is the only new/no-traffic signal.</li>
+</ul>
+<h2>Where to get it (server location)</h2>
+<p><strong>Host:</strong> <code>azold-test-server</code> · <strong>Root:</strong> <code>/home/azureuser/da-sgp/v5/</code>
+(Git mirror: <code>github.com/Propheus/digital-atlas-sgp</code> → <code>plexis-sgp-v5/</code>, parquets via LFS.)</p>
+<table>
+<thead>
+<tr>
+<th>Artifact</th>
+<th>Path (under <code>/home/azureuser/da-sgp/v5/</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Places (cleaned)</td>
+<td><code>places/sgp_places_final.parquet</code> (190,591 × 36)</td>
+</tr>
+<tr>
+<td>Hex8 master</td>
+<td><code>hex/hex8_all_features.parquet</code> (1,191 × 842)</td>
+</tr>
+<tr>
+<td>Hex9 / Subzone masters</td>
+<td><code>hex/hex9_all_features.parquet</code> · <code>hex/subzone_all_features.parquet</code></td>
+</tr>
+<tr>
+<td>Place composition (<code>pc_cat_*</code>)</td>
+<td><code>hex/hex8_place_composition.parquet</code></td>
+</tr>
+<tr>
+<td>Manifest / feature catalog</td>
+<td><code>catalog/atlas_manifest.json</code> · <code>catalog/feature_catalog.json</code> (v5.6.1)</td>
+</tr>
+<tr>
+<td>Checkpoint</td>
+<td><code>CHECKPOINT_v5.6.1.json</code></td>
+</tr>
+<tr>
+<td>Backups (pre-change)</td>
+<td><code>backups/places_promote_*</code> · <code>backups/places_v2_*</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pull example:</strong> <code>scp azold-test-server:/home/azureuser/da-sgp/v5/places/sgp_places_final.parquet .</code></p></body></html>
