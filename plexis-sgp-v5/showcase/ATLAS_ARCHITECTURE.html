@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Atlas — Architecture · Propheus</title>
+<style>
+:root{
+  --accent:#20b2aa;--accent2:#2dd4bf;--ink:#0d1f21;
+  --glass:rgba(11,28,30,.72);--card:rgba(17,40,42,.55);
+  --border:rgba(32,178,170,.22);--border2:rgba(32,178,170,.45);
+  --t1:#e9eef0;--t2:#9fb3b1;--t3:#6f8482;
+  --data:#5eead4;--feat:#7dd3fc;--train:#f0abfc;--emb:#fcd34d;
+  --tool:#6ee7b7;--agent:#fb923c;--app:#f472b6;
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",system-ui,sans-serif;
+  --mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{color:var(--t1);line-height:1.6;font-family:var(--font);-webkit-font-smoothing:antialiased;
+  background:radial-gradient(1200px 600px at 75% -10%,#173f41 0%,transparent 60%),
+    linear-gradient(165deg,#0a1a1c,#0d2123 55%,#102628);background-attachment:fixed;min-height:100vh}
+.nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:11px;
+  padding:11px 26px;border-bottom:1px solid var(--border);background:var(--glass);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.nav .logo{width:25px;height:25px;filter:drop-shadow(0 0 7px rgba(32,178,170,.5))}
+.nav .logo path{fill:var(--accent2)}
+.nav .wm{font-weight:700;font-size:.95rem;color:#fff}.nav .sep{color:var(--border2)}
+.nav .tt{font-size:.88rem;color:#cfe4e5}.nav .tt b{color:var(--accent)}
+.nav .meta{margin-left:auto;font-family:var(--mono);font-size:.7rem;color:var(--t2);border:1px solid var(--border);border-radius:7px;padding:3px 9px}
+
+.wrap{max-width:1080px;margin:0 auto;padding:34px 24px 80px}
+h1{font-size:30px;line-height:1.15;letter-spacing:-.5px;font-weight:700}
+h1 .hot{color:var(--accent);text-shadow:0 0 26px rgba(32,178,170,.4)}
+.sub{color:var(--t2);margin-top:9px;font-size:15px;max-width:780px}
+.sub b{color:#fff}
+
+.stack{margin:30px 0 8px;display:flex;flex-direction:column;gap:0}
+/* a layer band */
+.layer{position:relative;border:1px solid var(--border);border-left:4px solid var(--c);
+  border-radius:14px;background:var(--card);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  padding:15px 18px;margin:7px 0;transition:.18s}
+.layer:hover{border-color:var(--c);box-shadow:0 6px 28px rgba(0,0,0,.32);transform:translateX(3px)}
+.lhead{display:flex;align-items:center;gap:12px;margin-bottom:11px}
+.lnum{flex-shrink:0;width:30px;height:30px;border-radius:9px;background:color-mix(in srgb,var(--c) 22%,transparent);
+  border:1px solid var(--c);color:var(--c);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px}
+.ltitle{font-size:15.5px;font-weight:700;color:#fff}
+.ltitle .lk{color:var(--c)}
+.lone{font-size:12.5px;color:var(--t2);margin-left:auto;text-align:right;max-width:46%}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{font-size:12px;border:1px solid var(--border);border-radius:8px;padding:4px 10px;background:rgba(255,255,255,.03);color:#cdd9da}
+.chip b{color:var(--c);font-weight:600}
+.chip.k{border-color:var(--c);background:color-mix(in srgb,var(--c) 14%,transparent);color:#fff;font-weight:600}
+
+/* group label for the agent megalayer */
+.group{border:1px dashed var(--border2);border-radius:16px;padding:8px 8px 4px;margin:10px 0;
+  background:linear-gradient(180deg,rgba(251,146,60,.05),transparent)}
+.glabel{display:flex;align-items:center;gap:8px;font-size:11px;text-transform:uppercase;letter-spacing:.14em;
+  color:var(--agent);font-weight:700;padding:4px 10px 6px}
+.glabel .pill{font-family:var(--mono);font-size:9.5px;border:1px solid var(--agent);border-radius:20px;padding:1px 8px;color:var(--agent)}
+
+/* flow arrow between bands */
+.flow{display:flex;justify-content:center;align-items:center;gap:9px;color:var(--t3);font-size:11px;margin:-2px 0;letter-spacing:.1em}
+.flow .ar{color:var(--accent2);font-size:15px;animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.45;transform:translateY(1px)}50%{opacity:1;transform:translateY(-2px)}}
+
+.legend{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin:22px 0 6px;font-size:12px;color:var(--t2)}
+.legend span{display:flex;align-items:center;gap:6px}
+.legend i{width:11px;height:11px;border-radius:3px;display:inline-block}
+.note{color:var(--t2);font-size:12.5px;text-align:center;margin-top:18px;max-width:820px;margin-left:auto;margin-right:auto}
+.foot{color:var(--t3);font-size:12px;border-top:1px solid var(--border);margin-top:34px;padding-top:16px;text-align:center}
+.foot b{color:#fff}.foot .ar{color:var(--border2);margin:0 8px}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <svg class="logo" viewBox="0 0 100 100"><g>
+    <path d="M45,64.2c-1.1,9.1-3.3,15.3-5.8,15.3c-0.1,0-0.1,0-0.2,0c-0.3,0-0.6-0.2-1-0.4c-3.1-2.5-5.4-14.5-5.4-29c0-14.4,2.3-26.4,5.4-29c0.3-0.3,0.7-0.5,1-0.5h0.2c2.6,0,4.9,6.8,6,16.6c-5.6,2-9.5,7.3-9.5,13.5C35.6,56.9,39.5,62.1,45,64.2z"/>
+    <path d="M67.4,50c0,14.5-2.3,26.5-5.4,29c-0.3,0.2-0.6,0.4-0.9,0.4c-0.1,0-0.2,0-0.2,0c-2.5,0-4.7-6.2-5.8-15.3c5.5-2,9.4-7.3,9.4-13.5c0-6.2-4-11.6-9.5-13.5c1.1-9.8,3.4-16.6,6-16.6H61c0.4,0,0.7,0.2,1,0.5C65.1,23.6,67.4,35.6,67.4,50z"/>
+    <path d="M30.2,50c0-14.4,2.3-26.4,5.4-29c-10.6,5.3-17.9,16.3-17.9,29c0,12.7,7.3,23.7,17.9,29C32.5,76.5,30.2,64.5,30.2,50z M64.4,21c3.1,2.6,5.4,14.5,5.4,29c0,14.5-2.3,26.5-5.4,29C75,73.7,82.3,62.7,82.3,50C82.3,37.3,75,26.4,64.4,21z"/>
+    <path d="M62.1,50.7c0,5-3,9.3-7.4,11.2c-1.5,0.6-3.1,1-4.8,1c-1.7,0-3.3-0.4-4.8-1c-4.3-1.9-7.4-6.2-7.4-11.2c0-5.1,3.1-9.4,7.5-11.2c1.4-0.6,3-0.9,4.7-0.9c1.7,0,3.2,0.3,4.7,0.9C59.1,41.3,62.1,45.6,62.1,50.7z"/>
+  </g></svg>
+  <span class="wm">Propheus</span><span class="sep">·</span><span class="tt">Digital Atlas <b>Architecture</b></span>
+  <span class="meta">Plexis SGP v5.6.1</span>
+</nav>
+
+<div class="wrap">
+  <h1>Digital Atlas — <span class="hot">Architecture</span></h1>
+  <p class="sub">One stack: raw city <b>data</b> becomes engineered <b>features</b>, a contrastive <b>training</b>
+    objective turns them into learned <b>embeddings</b> — and on top sit <b>multiple layers of agents</b> that
+    operate the atlas. Read it bottom-up: each layer consumes the one beneath it.</p>
+
+  <div class="legend">
+    <span><i style="background:var(--data)"></i>Data</span>
+    <span><i style="background:var(--feat)"></i>Features</span>
+    <span><i style="background:var(--train)"></i>Training</span>
+    <span><i style="background:var(--emb)"></i>Embeddings</span>
+    <span><i style="background:var(--tool)"></i>Tools / Packs</span>
+    <span><i style="background:var(--agent)"></i>Agents</span>
+    <span><i style="background:var(--app)"></i>Apps</span>
+  </div>
+
+  <div class="stack">
+
+    <!-- ====== AGENT MEGALAYER (multiple layers) ====== -->
+    <div class="group">
+      <div class="glabel">▲ Agent layers — operate the atlas <span class="pill">multi-layer</span></div>
+
+      <div class="layer" style="--c:var(--app)">
+        <div class="lhead"><div class="lnum">7</div><div class="ltitle"><span class="lk">Experience</span> · live apps</div>
+          <div class="lone">6 deployed apps, one fingerprint substrate</div></div>
+        <div class="chips">
+          <span class="chip">🎯 Site Selection</span><span class="chip">🏢 Property Intelligence</span>
+          <span class="chip">🚇 Transport Adequacy</span><span class="chip">🌌 Places Constellation</span>
+          <span class="chip">🌗 SG Pulse</span><span class="chip">📓 Atlas Diary</span>
+        </div>
+      </div>
+
+      <div class="layer" style="--c:var(--agent)">
+        <div class="lhead"><div class="lnum">6</div><div class="ltitle"><span class="lk">Reasoning agents</span> · plan &amp; decide</div>
+          <div class="lone">intent → expert routing → grounded answer, eval-looped</div></div>
+        <div class="chips">
+          <span class="chip k">Plexis-Reasoner <b>tool-using LLM</b></span>
+          <span class="chip">factual / domain experts</span><span class="chip">reasoning + planning</span>
+          <span class="chip">equity / zone-type guards</span><span class="chip">Grok eval loop</span>
+        </div>
+      </div>
+
+      <div class="layer" style="--c:var(--tool)">
+        <div class="lhead"><div class="lnum">5</div><div class="ltitle"><span class="lk">Tools &amp; packs</span> · the atlas API</div>
+          <div class="lone">21-tool action layer + 5 domain verticals</div></div>
+        <div class="chips">
+          <span class="chip k"><b>21 tools</b> resolve·rank·gap·twins·isochrone…</span>
+          <span class="chip">Retail</span><span class="chip">Real Estate</span><span class="chip">Utilities</span>
+          <span class="chip">Transport</span><span class="chip">Insurance</span><span class="chip"><b>39</b> hero scores</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flow"><span class="ar">↑</span> agents consume the representation <span class="ar">↑</span></div>
+
+    <!-- ====== CORE ATLAS (4 layers) ====== -->
+    <div class="layer" style="--c:var(--emb)">
+      <div class="lhead"><div class="lnum">4</div><div class="ltitle"><span class="lk">Embeddings</span> · the representation</div>
+        <div class="lone">distance = functional similarity · review-free</div></div>
+      <div class="chips">
+        <span class="chip k">e1 — hex region <b>256-d</b></span><span class="chip k">p1 — place <b>64-d</b></span>
+        <span class="chip">twins · whitespace · analogs · anomaly</span><span class="chip">exam-gated (13 / 9 checks)</span>
+      </div>
+    </div>
+    <div class="flow"><span class="ar">↑</span> generate <span class="ar">↑</span></div>
+
+    <div class="layer" style="--c:var(--train)">
+      <div class="lhead"><div class="lnum">3</div><div class="ltitle"><span class="lk">Training</span> · contrastive, hybrid</div>
+        <div class="lone">PCA global metric + contrastive local invariance</div></div>
+      <div class="chips">
+        <span class="chip k">hybrid <b>PCA-160 ⊕ contrastive-96</b></span>
+        <span class="chip">SCARF corruption</span><span class="chip">view-masking</span>
+        <span class="chip">InfoNCE + denoising</span><span class="chip">chain-sibling positives (p1)</span>
+        <span class="chip">2-layer MLP · no transformer</span><span class="chip">frozen exam decides</span>
+      </div>
+    </div>
+    <div class="flow"><span class="ar">↑</span> learn <span class="ar">↑</span></div>
+
+    <div class="layer" style="--c:var(--feat)">
+      <div class="lhead"><div class="lnum">2</div><div class="ltitle"><span class="lk">Features</span> · the engineered grid</div>
+        <div class="lone">842 per hex · 5 views · 3 scales · 190,591 places</div></div>
+      <div class="chips">
+        <span class="chip k">hex8 <b>1,191 × 842</b></span><span class="chip">hex9 · subzone</span>
+        <span class="chip"><b>WHO</b></span><span class="chip"><b>WHERE</b></span><span class="chip"><b>WHAT</b></span>
+        <span class="chip"><b>FLOW</b></span><span class="chip"><b>ECON</b></span>
+        <span class="chip">places <b>190,591</b> · 26 cats · micrograph</span><span class="chip">5 packs folded in</span>
+      </div>
+    </div>
+    <div class="flow"><span class="ar">↑</span> engineer <span class="ar">↑</span></div>
+
+    <div class="layer" style="--c:var(--data)">
+      <div class="lhead"><div class="lnum">1</div><div class="ltitle"><span class="lk">Data</span> · raw city sources</div>
+        <div class="lone">~15 sources · official + open · 5.7 GB</div></div>
+      <div class="chips">
+        <span class="chip">URA Master Plan</span><span class="chip">SingStat / HDB</span><span class="chip">LTA DataMall + GTFS + OD</span>
+        <span class="chip">Overture + OneMap</span><span class="chip">Google / OSM places</span><span class="chip">ACRA</span>
+        <span class="chip">NEA hawkers / CHAS</span><span class="chip">VIIRS / Sentinel</span><span class="chip">data.gov.sg</span>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="note"><b style="color:#fff">Why this shape.</b> Everything below the agent layers is <b style="color:#fff">review-free and
+    exam-gated</b> — the representation encodes what a place <i>is</i>, never how popular it is. Agents never touch raw
+    data; they call <span style="color:var(--tool)">tools</span> over the <span style="color:var(--emb)">embeddings</span>
+    and <span style="color:var(--tool)">packs</span>, so every product inherits the same clean, validated substrate.</p>
+
+  <div class="foot">
+    <span style="color:var(--accent2);font-weight:600;letter-spacing:.06em;font-size:14px">Data <span class="ar">→</span> Features <span class="ar">→</span> Representation</span><br>
+    Built with <b>Plexis</b> — one universal embeddings creator. · Plexis SGP v5.6.1
+  </div>
+</div>
+</body>
+</html>
