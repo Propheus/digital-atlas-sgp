@@ -43,6 +43,7 @@ h1 .hot{color:var(--accent);text-shadow:0 0 26px rgba(32,178,170,.4)}
 .lhead{display:flex;align-items:center;gap:12px;margin-bottom:11px}
 .lnum{flex-shrink:0;width:30px;height:30px;border-radius:9px;background:color-mix(in srgb,var(--c) 22%,transparent);
   border:1px solid var(--c);color:var(--c);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px}
+.licon{font-size:19px;flex-shrink:0;line-height:1;filter:drop-shadow(0 0 7px color-mix(in srgb,var(--c) 55%,transparent))}
 .ltitle{font-size:15.5px;font-weight:700;color:#fff}
 .ltitle .lk{color:var(--c)}
 .lone{font-size:12.5px;color:var(--t2);margin-left:auto;text-align:right;max-width:46%}
@@ -106,7 +107,7 @@ h1 .hot{color:var(--accent);text-shadow:0 0 26px rgba(32,178,170,.4)}
   <h1>Digital Atlas — <span class="hot">Architecture</span></h1>
   <p class="sub">One stack: raw city <b>data</b> becomes engineered <b>features</b>, a contrastive <b>training</b>
     objective turns them into learned <b>embeddings</b> — and on top sit <b>multiple layers of agents</b> that
-    operate the atlas. Read it bottom-up: each layer consumes the one beneath it.</p>
+    operate the atlas. Read it bottom-up: each layer consumes the one beneath it. <a href="atlas_architecture.png" download style="color:var(--accent);text-decoration:none;border:1px solid var(--border);border-radius:7px;padding:2px 9px;font-size:13px;white-space:nowrap">⬇ download PNG</a></p>
 
   <div class="legend">
     <span><i style="background:var(--data)"></i>Data</span>
@@ -125,7 +126,7 @@ h1 .hot{color:var(--accent);text-shadow:0 0 26px rgba(32,178,170,.4)}
       <div class="glabel">▲ Agent layers — operate the atlas <span class="pill">multi-layer</span></div>
 
       <div class="layer" style="--c:var(--app)">
-        <div class="lhead"><div class="lnum">7</div><div class="ltitle"><span class="lk">Experience</span> · live apps</div>
+        <div class="lhead"><div class="lnum">7</div><span class="licon">🖥️</span><div class="ltitle"><span class="lk">Experience</span> · live apps</div>
           <div class="lone">6 deployed apps, one fingerprint substrate</div></div>
         <div class="chips">
           <span class="chip">🎯 Site Selection</span><span class="chip">🏢 Property Intelligence</span>
@@ -135,7 +136,7 @@ h1 .hot{color:var(--accent);text-shadow:0 0 26px rgba(32,178,170,.4)}
       </div>
 
       <div class="layer" style="--c:var(--agent)">
-        <div class="lhead"><div class="lnum">6</div><div class="ltitle"><span class="lk">Reasoning agents</span> · plan &amp; decide</div>
+        <div class="lhead"><div class="lnum">6</div><span class="licon">🤖</span><div class="ltitle"><span class="lk">Reasoning agents</span> · plan &amp; decide</div>
           <div class="lone">intent → expert routing → grounded answer, eval-looped</div></div>
         <div class="chips">
           <span class="chip k">Plexis-Reasoner <b>tool-using LLM</b></span>
@@ -145,7 +146,7 @@ h1 .hot{color:var(--accent);text-shadow:0 0 26px rgba(32,178,170,.4)}
       </div>
 
       <div class="layer" style="--c:var(--tool)">
-        <div class="lhead"><div class="lnum">5</div><div class="ltitle"><span class="lk">Tools &amp; packs</span> · the atlas API</div>
+        <div class="lhead"><div class="lnum">5</div><span class="licon">🧰</span><div class="ltitle"><span class="lk">Tools &amp; packs</span> · the atlas API</div>
           <div class="lone">21-tool action layer + 5 domain verticals</div></div>
         <div class="chips">
           <span class="chip k"><b>21 tools</b> resolve·rank·gap·twins·isochrone…</span>
@@ -159,7 +160,7 @@ h1 .hot{color:var(--accent);text-shadow:0 0 26px rgba(32,178,170,.4)}
 
     <!-- ====== CORE ATLAS (4 layers) ====== -->
     <div class="layer" style="--c:var(--emb)">
-      <div class="lhead"><div class="lnum">4</div><div class="ltitle"><span class="lk">Embeddings</span> · the representation</div>
+      <div class="lhead"><div class="lnum">4</div><span class="licon">🧬</span><div class="ltitle"><span class="lk">Embeddings</span> · the representation</div>
         <div class="lone">distance = functional similarity · review-free</div></div>
       <div class="chips">
         <span class="chip k">e1 — hex region <b>256-d</b></span><span class="chip k">p1 — place <b>64-d</b></span>
@@ -169,7 +170,7 @@ h1 .hot{color:var(--accent);text-shadow:0 0 26px rgba(32,178,170,.4)}
     <div class="flow"><span class="ar">↑</span> generate <span class="ar">↑</span></div>
 
     <div class="layer" style="--c:var(--train)">
-      <div class="lhead"><div class="lnum">3</div><div class="ltitle"><span class="lk">Training</span> · contrastive, hybrid</div>
+      <div class="lhead"><div class="lnum">3</div><span class="licon">🧠</span><div class="ltitle"><span class="lk">Training</span> · contrastive, hybrid</div>
         <div class="lone">PCA global metric + contrastive local invariance</div></div>
       <div class="chips">
         <span class="chip k">hybrid <b>PCA-160 ⊕ contrastive-96</b></span>
@@ -181,19 +182,26 @@ h1 .hot{color:var(--accent);text-shadow:0 0 26px rgba(32,178,170,.4)}
     <div class="flow"><span class="ar">↑</span> learn <span class="ar">↑</span></div>
 
     <div class="layer" style="--c:var(--feat)">
-      <div class="lhead"><div class="lnum">2</div><div class="ltitle"><span class="lk">Features</span> · the engineered grid</div>
+      <div class="lhead"><div class="lnum">2</div><span class="licon">🧩</span><div class="ltitle"><span class="lk">Features</span> · the engineered grid</div>
         <div class="lone">842 per hex · 5 views · 3 scales · 190,591 places</div></div>
       <div class="chips">
         <span class="chip k">hex8 <b>1,191 × 842</b></span><span class="chip">hex9 · subzone</span>
         <span class="chip"><b>WHO</b></span><span class="chip"><b>WHERE</b></span><span class="chip"><b>WHAT</b></span>
         <span class="chip"><b>FLOW</b></span><span class="chip"><b>ECON</b></span>
-        <span class="chip">places <b>190,591</b> · 26 cats · micrograph</span><span class="chip">5 packs folded in</span>
+        <span class="chip">places <b>190,591</b> · 26 cats</span><span class="chip">5 packs folded in</span>
+      </div>
+      <div class="chips" style="margin-top:8px">
+        <span class="chip k">🔬 per-place <b>micrographs</b></span>
+        <span class="chip">competitors / complements 400–800m</span>
+        <span class="chip">nearest MRT &amp; hawker</span>
+        <span class="chip">road frontage &amp; anchors</span>
+        <span class="chip">→ feeds the place embedding (p1)</span>
       </div>
     </div>
     <div class="flow"><span class="ar">↑</span> engineer <span class="ar">↑</span></div>
 
     <div class="layer" style="--c:var(--data)">
-      <div class="lhead"><div class="lnum">1</div><div class="ltitle"><span class="lk">Data</span> · raw city data, by kind</div>
+      <div class="lhead"><div class="lnum">1</div><span class="licon">🗄️</span><div class="ltitle"><span class="lk">Data</span> · raw city data, by kind</div>
         <div class="lone">12 data kinds · points · polygons · rasters · flow matrices · 5.7 GB</div></div>
       <div class="chips">
         <span class="chip"><b>Places</b> · 190,591 pts</span>
