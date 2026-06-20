@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Atlas — Data Sources · Propheus</title>
+<style>
+:root{--accent:#20b2aa;--accent2:#2dd4bf;--glass:rgba(11,28,30,.72);--card:rgba(17,40,42,.55);
+ --border:rgba(32,178,170,.2);--border2:rgba(32,178,170,.4);--t1:#e9eef0;--t2:#9fb3b1;--t3:#6f8482;
+ --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",system-ui,sans-serif;
+ --mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
+ --who:#5eead4;--where:#7dd3fc;--what:#6ee7b7;--flow:#fb923c;--econ:#fcd34d;--sat:#c084fc;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{color:var(--t1);line-height:1.55;font-family:var(--font);-webkit-font-smoothing:antialiased;
+ background:radial-gradient(1200px 600px at 75% -10%,#173f41 0%,transparent 60%),
+  linear-gradient(165deg,#0a1a1c,#0d2123 55%,#102628);background-attachment:fixed;min-height:100vh}
+.nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:11px;padding:11px 26px;
+ border-bottom:1px solid var(--border);background:var(--glass);backdrop-filter:blur(14px)}
+.nav .logo{width:25px;height:25px;filter:drop-shadow(0 0 7px rgba(32,178,170,.5))}.nav .logo path{fill:var(--accent2)}
+.nav .wm{font-weight:700;font-size:.95rem;color:#fff}.nav .sep{color:var(--border2)}.nav .tt{font-size:.88rem;color:#cfe4e5}.nav .tt b{color:var(--accent)}
+.nav .meta{margin-left:auto;font-family:var(--mono);font-size:.7rem;color:var(--t2);border:1px solid var(--border);border-radius:7px;padding:3px 9px}
+.wrap{max-width:1240px;margin:0 auto;padding:30px 22px 80px}
+h1{font-size:28px;font-weight:700;letter-spacing:-.5px}h1 .hot{color:var(--accent);text-shadow:0 0 24px rgba(32,178,170,.4)}
+.sub{color:var(--t2);margin-top:8px;font-size:14.5px;max-width:840px}.sub b{color:#fff}
+.cards{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0 8px}
+.scard{flex:1;min-width:120px;background:var(--card);border:1px solid var(--border);border-radius:13px;padding:13px 15px;backdrop-filter:blur(12px)}
+.scard .v{font-size:21px;font-weight:800;color:var(--accent2)}.scard .l{font-size:10.5px;color:var(--t2);margin-top:3px;text-transform:uppercase;letter-spacing:.04em}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin:18px 0 6px;font-size:12px;color:var(--t2)}
+.legend span{display:flex;align-items:center;gap:6px}.legend i{width:11px;height:11px;border-radius:3px}
+table{width:100%;border-collapse:separate;border-spacing:0;background:rgba(12,27,29,.6);border:1px solid var(--border);
+ border-radius:13px;overflow:hidden;font-size:12.5px;backdrop-filter:blur(11px);margin-top:8px}
+th,td{text-align:left;padding:8px 12px;border-bottom:1px solid rgba(32,178,170,.08);vertical-align:top}
+th{background:rgba(32,178,170,.1);color:var(--accent);font-size:10px;text-transform:uppercase;letter-spacing:.05em;position:sticky;top:54px;z-index:2}
+tr:last-child td{border-bottom:none}tbody tr:hover td{background:rgba(32,178,170,.045)}
+.grp td{background:rgba(32,178,170,.07);font-weight:700;color:#fff;font-size:11px;text-transform:uppercase;letter-spacing:.12em;border-left:4px solid var(--g)}
+.grp td .gi{margin-right:7px}
+.src{font-weight:600;color:#fff;white-space:nowrap}
+.prov{color:#bcd0d2;white-space:nowrap}
+.fmt{font-family:var(--mono);font-size:10.5px;color:var(--accent2);white-space:nowrap}
+.vol{font-family:var(--mono);font-size:11px;color:#e9eef0;white-space:nowrap}
+.sc{font-size:10.5px}
+.scc{display:inline-block;font-size:9.5px;font-family:var(--mono);border:1px solid var(--border);border-radius:5px;padding:1px 5px;margin:1px 2px 1px 0;color:var(--t2)}
+.col{color:var(--t2);font-size:11.5px}.col code{font-family:var(--mono);font-size:10.5px;color:var(--accent2)}
+.foot{color:var(--t3);font-size:12px;border-top:1px solid var(--border);margin-top:30px;padding-top:14px;text-align:center}
+.foot b{color:#fff}.foot .ar{color:var(--border2);margin:0 8px}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <svg class="logo" viewBox="0 0 100 100"><g>
+    <path d="M45,64.2c-1.1,9.1-3.3,15.3-5.8,15.3c-0.3,0-0.6-0.2-1-0.4c-3.1-2.5-5.4-14.5-5.4-29c0-14.4,2.3-26.4,5.4-29c0.3-0.3,0.7-0.5,1-0.5h0.2c2.6,0,4.9,6.8,6,16.6c-5.6,2-9.5,7.3-9.5,13.5C35.6,56.9,39.5,62.1,45,64.2z"/>
+    <path d="M67.4,50c0,14.5-2.3,26.5-5.4,29c-0.3,0.2-0.6,0.4-0.9,0.4c-2.5,0-4.7-6.2-5.8-15.3c5.5-2,9.4-7.3,9.4-13.5c0-6.2-4-11.6-9.5-13.5c1.1-9.8,3.4-16.6,6-16.6H61c0.4,0,0.7,0.2,1,0.5C65.1,23.6,67.4,35.6,67.4,50z"/>
+    <path d="M30.2,50c0-14.4,2.3-26.4,5.4-29c-10.6,5.3-17.9,16.3-17.9,29c0,12.7,7.3,23.7,17.9,29C32.5,76.5,30.2,64.5,30.2,50z M64.4,21c3.1,2.6,5.4,14.5,5.4,29c0,14.5-2.3,26.5-5.4,29C75,73.7,82.3,62.7,82.3,50C82.3,37.3,75,26.4,64.4,21z"/>
+    <path d="M62.1,50.7c0,5-3,9.3-7.4,11.2c-1.5,0.6-3.1,1-4.8,1c-1.7,0-3.3-0.4-4.8-1c-4.3-1.9-7.4-6.2-7.4-11.2c0-5.1,3.1-9.4,7.5-11.2c1.4-0.6,3-0.9,4.7-0.9c1.7,0,3.2,0.3,4.7,0.9C59.1,41.3,62.1,45.6,62.1,50.7z"/>
+  </g></svg>
+  <span class="wm">Propheus</span><span class="sep">·</span><span class="tt">Digital Atlas <b>Data Sources</b></span>
+  <span class="meta">Plexis SGP v5.6.1</span>
+</nav>
+<div class="wrap">
+  <h1>Digital Atlas — <span class="hot">Data Sources</span></h1>
+  <p class="sub">Every source behind the atlas, with provider, what it feeds, format, native volume and the atlas scale it
+    lands on. <b>~22 datasets · ~5.7 GB raw</b> → snapped to four scales. Everything official or open; nothing scraped behind a login except the user-provided places set.</p>
+
+  <div class="cards">
+    <div class="scard"><div class="v">7,318</div><div class="l">hex9 (~0.10 km²)</div></div>
+    <div class="scard"><div class="v">1,191</div><div class="l">hex8 (~0.74 km²)</div></div>
+    <div class="scard"><div class="v">326</div><div class="l">subzones (URA)</div></div>
+    <div class="scard"><div class="v">190,591</div><div class="l">places</div></div>
+    <div class="scard"><div class="v">~22</div><div class="l">datasets</div></div>
+    <div class="scard"><div class="v">5.7 GB</div><div class="l">raw data</div></div>
+  </div>
+
+  <div class="legend">
+    <span><i style="background:var(--who)"></i>WHO — people</span>
+    <span><i style="background:var(--where)"></i>WHERE — built form</span>
+    <span><i style="background:var(--what)"></i>WHAT — places</span>
+    <span><i style="background:var(--flow)"></i>FLOW — mobility</span>
+    <span><i style="background:var(--econ)"></i>ECON — economy</span>
+    <span><i style="background:var(--sat)"></i>Environment</span>
+  </div>
+
+  <table>
+    <thead><tr><th>Source / dataset</th><th>Provider</th><th>What it provides (→ features)</th><th>Format</th><th>Native scale / volume</th><th>Atlas scale</th></tr></thead>
+    <tbody>
+
+    <tr class="grp" style="--g:var(--who)"><td colspan="6"><span class="gi">👥</span>WHO — population &amp; people</td></tr>
+    <tr><td class="src">Resident population &amp; demographics</td><td class="prov">SingStat / Dept of Statistics</td><td class="col">residents, age bands, sex, dwelling type → <code>pop_resident</code>, <code>pop_0_14/15_64/65plus</code></td><td class="fmt">tabular</td><td class="vol">4.18 M residents</td><td class="sc"><span class="scc">subzone→hex</span></td></tr>
+    <tr><td class="src">HDB dwelling units</td><td class="prov">HDB</td><td class="col">HDB vs non-HDB population split, dorm allocation → <code>pop_hdb</code>, <code>pop_dorm</code></td><td class="fmt">tabular</td><td class="vol">~1M flats</td><td class="sc"><span class="scc">hex</span></td></tr>
+    <tr><td class="src">Non-resident allocation</td><td class="prov">SingStat (national) + V3 anchor</td><td class="col">1.77M non-residents disaggregated → <code>pop_nonresident</code></td><td class="fmt">tabular + model</td><td class="vol">6.04 M total pop</td><td class="sc"><span class="scc">hex</span></td></tr>
+    <tr><td class="src">Demographic personas</td><td class="prov">NVIDIA personas</td><td class="col">age/occupation/industry/education mix → <code>nvp_*</code> (40 cols)</td><td class="fmt">parquet</td><td class="vol">263 MB</td><td class="sc"><span class="scc">hex</span></td></tr>
+
+    <tr class="grp" style="--g:var(--where)"><td colspan="6"><span class="gi">🏗️</span>WHERE — built form &amp; land</td></tr>
+    <tr><td class="src">Land use (Master Plan 2019)</td><td class="prov">URA</td><td class="col">22 land-use fractions; subzone/PA/region boundaries → <code>lu_*_pct</code>, admin keys</td><td class="fmt">geojson polygons</td><td class="vol">332 subzones · 55 PAs</td><td class="sc"><span class="scc">subzone</span><span class="scc">hex</span></td></tr>
+    <tr><td class="src">Buildings (fused)</td><td class="prov">Overture + OSM</td><td class="col">footprint, height, GFA, high-rise, is_hdb → <code>bldg_*</code></td><td class="fmt">parquet polygons</td><td class="vol">377,331 buildings</td><td class="sc"><span class="scc">hex</span></td></tr>
+    <tr><td class="src">Addresses / geocoding</td><td class="prov">OneMap (SLA, offline dump)</td><td class="col">place &amp; entity geocoding, postal building lookup</td><td class="fmt">tabular</td><td class="vol">island-wide</td><td class="sc"><span class="scc">point</span></td></tr>
+    <tr><td class="src">Road network</td><td class="prov">OSM</td><td class="col">length by class, intersection density, betweenness, bridges → <code>road_*</code></td><td class="fmt">geojson lines + graph</td><td class="vol">550,991 segments</td><td class="sc"><span class="scc">hex</span></td></tr>
+
+    <tr class="grp" style="--g:var(--what)"><td colspan="6"><span class="gi">📍</span>WHAT — places &amp; amenities</td></tr>
+    <tr><td class="src">Places / POI</td><td class="prov">Google + OSM + Overture (union)</td><td class="col">venue, 26-category, brand, rating, per-venue micrograph → <code>pc_cat_*</code>, p1</td><td class="fmt">parquet points</td><td class="vol">190,591 places</td><td class="sc"><span class="scc">place→hex</span></td></tr>
+    <tr><td class="src">Hawker centres</td><td class="prov">NEA</td><td class="col">official hawker centres → <code>hawker_centre_count</code>, walk distance</td><td class="fmt">point</td><td class="vol">129 centres</td><td class="sc"><span class="scc">hex</span></td></tr>
+    <tr><td class="src">Schools + catchment</td><td class="prov">MOE (geocoded via OneMap)</td><td class="col">schools &amp; 1-2km catchment zones → school access</td><td class="fmt">csv + zones</td><td class="vol">337 schools</td><td class="sc"><span class="scc">hex</span></td></tr>
+    <tr><td class="src">CHAS clinics · parks · tourist · silver zones</td><td class="prov">data.gov.sg</td><td class="col">amenity counts &amp; access → <code>chas_*</code>, <code>park_*</code>, <code>tourist_*</code></td><td class="fmt">geojson / csv</td><td class="vol">island-wide</td><td class="sc"><span class="scc">hex</span></td></tr>
+    <tr><td class="src">OSM amenities/leisure/shops/tourism</td><td class="prov">OpenStreetMap</td><td class="col">supplementary POI counts → <code>osm_*</code></td><td class="fmt">geojson</td><td class="vol">island-wide</td><td class="sc"><span class="scc">hex</span></td></tr>
+
+    <tr class="grp" style="--g:var(--flow)"><td colspan="6"><span class="gi">🚇</span>FLOW — transit &amp; mobility (LTA DataMall)</td></tr>
+    <tr><td class="src">Passenger Volume — O-D Bus Stops</td><td class="prov">LTA DataMall</td><td class="col">bus origin-destination flows → <code>od_throughput</code>, in/out trips, net flow</td><td class="fmt">csv flow matrix</td><td class="vol">242 MB (202604)</td><td class="sc"><span class="scc">hex8 OD matrix</span></td></tr>
+    <tr><td class="src">Passenger Volume — O-D Train Stations</td><td class="prov">LTA DataMall</td><td class="col">rail O-D flows → commute reach, self-containment</td><td class="fmt">csv flow matrix</td><td class="vol">37 MB (202604)</td><td class="sc"><span class="scc">hex</span></td></tr>
+    <tr><td class="src">Passenger Volume — Bus / Train taps</td><td class="prov">LTA DataMall (/PV/Bus, /PV/Train)</td><td class="col">tap-in/out by time-of-day → <code>bus_taps_*</code>, <code>daily_train_taps</code> (am/midday/pm/night/offpeak)</td><td class="fmt">csv</td><td class="vol">monthly</td><td class="sc"><span class="scc">hex</span></td></tr>
+    <tr><td class="src">Bus static (GTFS)</td><td class="prov">LTA DataMall</td><td class="col">stops, routes, trips, calendar → headways by window</td><td class="fmt">GTFS txt</td><td class="vol">~5,000 stops</td><td class="sc"><span class="scc">hex</span></td></tr>
+    <tr><td class="src">Rail + MRT/LRT station exits</td><td class="prov">LTA / OSM</td><td class="col">station &amp; exit access, rail-line through → <code>mrt_*</code>, <code>transit_score</code></td><td class="fmt">geojson</td><td class="vol">~185 stops</td><td class="sc"><span class="scc">hex</span></td></tr>
+    <tr><td class="src">Carpark Availability v2</td><td class="prov">LTA DataMall</td><td class="col">public carparks &amp; live lots → <code>carpark_count_avail</code>, <code>carpark_lots_avail</code></td><td class="fmt">REST (live)</td><td class="vol">~2,000 carparks</td><td class="sc"><span class="scc">hex</span></td></tr>
+    <tr><td class="src">Traffic Speed Bands v3</td><td class="prov">LTA DataMall</td><td class="col">road-link speeds (1-8) → <code>speed_band_avg</code>, <code>jam_pct</code>, <code>dyn_avg_speed_kmh</code></td><td class="fmt">REST (live)</td><td class="vol">island links</td><td class="sc"><span class="scc">hex</span></td></tr>
+    <tr><td class="src">Traffic signals + ped crossings</td><td class="prov">LTA</td><td class="col">signalised junctions &amp; crossings → <code>sig_*</code>, walkability</td><td class="fmt">geojson</td><td class="vol">44,922 signals</td><td class="sc"><span class="scc">hex</span></td></tr>
+
+    <tr class="grp" style="--g:var(--econ)"><td colspan="6"><span class="gi">💰</span>ECON — economy &amp; growth</td></tr>
+    <tr><td class="src">HDB resale transactions</td><td class="prov">HDB</td><td class="col">price psf, lease-remaining by flat type → <code>hdb_resale_*</code></td><td class="fmt">tabular</td><td class="vol">227K txns (2017–2026)</td><td class="sc"><span class="scc">town→hex</span></td></tr>
+    <tr><td class="src">Business formation</td><td class="prov">ACRA</td><td class="col">new &amp; struck-off entities, churn → <code>biz_*</code>, <code>biz_recent_dead_share</code></td><td class="fmt">tabular (geocoded)</td><td class="vol">island-wide</td><td class="sc"><span class="scc">hex</span></td></tr>
+    <tr><td class="src">Night-lights</td><td class="prov">VIIRS (NOAA)</td><td class="col">radiance, commercial-activity indicator → <code>nl_2024</code>, <code>ca_nl</code></td><td class="fmt">raster (GeoTIFF)</td><td class="vol">~500 m grid</td><td class="sc"><span class="scc">raster→hex</span></td></tr>
+
+    <tr class="grp" style="--g:var(--sat)"><td colspan="6"><span class="gi">🛰️</span>Environment — satellite &amp; landcover</td></tr>
+    <tr><td class="src">Satellite / greenness</td><td class="prov">Sentinel (Copernicus)</td><td class="col">NDVI, built-up, change → <code>sat_*</code> greenness</td><td class="fmt">raster</td><td class="vol">10 m bands</td><td class="sc"><span class="scc">raster→hex</span></td></tr>
+    <tr><td class="src">Landcover</td><td class="prov">ESA WorldCover 2021</td><td class="col">built / tree / water / grass fractions → <code>wc_*</code></td><td class="fmt">GeoTIFF (10 m)</td><td class="vol">island clip</td><td class="sc"><span class="scc">raster→hex</span></td></tr>
+
+    </tbody>
+  </table>
+
+  <p class="sub" style="margin-top:16px;font-size:12.5px">Atlas scales — <b>hex9</b> (7,318 · ~0.10 km²) · <b>hex8</b> (1,191 · ~0.74 km² — product scale) ·
+    <b>subzone</b> (326 · URA MP2019) · <b>place</b> (190,591 venues). Every raster/point/polygon/flow source is snapped to these via H3.
+    Server: <code style="font-family:var(--mono);color:var(--accent2)">azold-test-server:/home/azureuser/da-sgp/v5/</code> · catalog: <code style="font-family:var(--mono);color:var(--accent2)">catalog/DATA_CATALOG.json</code>.</p>
+
+  <div class="foot">
+    <span style="color:var(--accent2);font-weight:600;letter-spacing:.06em;font-size:14px">Data <span class="ar">→</span> Features <span class="ar">→</span> Representation</span><br>
+    Built with <b>Plexis</b> — one universal embeddings creator. · Plexis SGP v5.6.1
+  </div>
+</div>
+</body>
+</html>
