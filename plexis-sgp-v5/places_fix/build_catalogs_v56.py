@@ -79,6 +79,10 @@ CURATED_NEW = {
  "pc_cat_automated_kiosk": "Count of unmanned automated points (vending/locker/AXS) in cell",
  "brand_norm": "Canonical chain brand (null = independent or unresolved)",
  "brand_source": "How brand was resolved (scrape / dict / llm)",
+ "rent_hdb_4r_est_pm": "Estimated HDB 4-room monthly rent ($/mo) = resale price × 7.3% gross yield ÷ 12 (ESTIMATE, not observed)",
+ "rent_hdb_est_psf": "Estimated HDB rent $psf/mo (4-room est ÷ 969 sqft) — comparable to private rent_resi_psf",
+ "rent_occ_cost_psf": "Unified occupancy-cost $psf/mo — real private rent where observed, else HDB estimate",
+ "rent_occ_cost_source": "private_observed | hdb_estimate | none",
 }
 def describe(col):
     if col in desc_map and isinstance(desc_map[col], str) and desc_map[col].strip(): return desc_map[col]

@@ -1,9 +1,9 @@
-# Plexis SGP — Feature Catalog (v5.7.0)
+# Plexis SGP — Feature Catalog (v5.7.1)
 
-*1921 columns across 5 master datasets · 2026-06-21T09:33:38*
+*1929 columns across 5 master datasets · 2026-06-21T11:28:59*
 
 
-## hex8_all_features (842 cols)
+## hex8_all_features (846 cols)
 
 | Column | Description | Type | Range/μ or sample |
 |---|---|---|---|
@@ -849,8 +849,12 @@
 | `roi_cap_per_rent_restaurant` | cap_restaurant / rent_resi_psf_med — opportunity per occupancy-cost proxy (rank heuristic). NaN where no rent | float64 | 0.0012–1.1234 (μ 0.3036) |
 | `roi_cap_per_rent_shopping_retail` | cap_shopping_retail / rent_resi_psf_med — opportunity per occupancy-cost proxy (rank heuristic). NaN where no rent | float64 | 0.0023–1.2582 (μ 0.3166) |
 | `roi_cap_per_rent_total` | cap_total / rent_resi_psf_med — opportunity per occupancy-cost proxy (rank heuristic). NaN where no rent | float64 | 0.0287–11.4337 (μ 2.7839) |
+| `rent_hdb_4r_est_pm` | Rent hdb 4r est pm | float64 | 2634.0–5080.0 (μ 3333.9474) |
+| `rent_hdb_est_psf` | Rent hdb est psf | float64 | 2.718–5.243 (μ 3.4406) |
+| `rent_occ_cost_psf` | Rent occ cost psf | float64 | 2.02–8.174 (μ 4.5238) |
+| `rent_occ_cost_source` | Rent occ cost source | object | e.g. none |
 
-## hex9_all_features (593 cols)
+## hex9_all_features (597 cols)
 
 | Column | Description | Type | Range/μ or sample |
 |---|---|---|---|
@@ -1447,6 +1451,10 @@
 | `roi_cap_per_rent_restaurant` | cap_restaurant / rent_resi_psf_med — opportunity per occupancy-cost proxy (rank heuristic). NaN where no rent | float64 | 0.0009–1.1242 (μ 0.2786) |
 | `roi_cap_per_rent_shopping_retail` | cap_shopping_retail / rent_resi_psf_med — opportunity per occupancy-cost proxy (rank heuristic). NaN where no rent | float64 | 0.0017–1.2293 (μ 0.2945) |
 | `roi_cap_per_rent_total` | cap_total / rent_resi_psf_med — opportunity per occupancy-cost proxy (rank heuristic). NaN where no rent | float64 | 0.017–11.0215 (μ 2.4671) |
+| `rent_hdb_4r_est_pm` | Rent hdb 4r est pm | float64 | 2634.0–5080.0 (μ 3323.7436) |
+| `rent_hdb_est_psf` | Rent hdb est psf | float64 | 2.718–5.243 (μ 3.4301) |
+| `rent_occ_cost_psf` | Rent occ cost psf | float64 | 2.02–8.298 (μ 4.5202) |
+| `rent_occ_cost_source` | Rent occ cost source | object | e.g. none |
 
 ## subzone_all_features (430 cols)
 

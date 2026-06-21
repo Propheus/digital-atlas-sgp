@@ -1,0 +1,29 @@
+{
+  "version": "5.7.1",
+  "generated_at": "2026-06-21T11:28:11",
+  "change": "HDB rent ESTIMATE (resale x 7.3% yield) + unified occupancy-cost, hex9+hex8",
+  "detail": {
+    "method": "rent_hdb_4r_est_pm = hdb_resale_4r_median_price x 0.073 / 12; calibrated to ~$3,100/mo median",
+    "new_cols": [
+      "rent_hdb_4r_est_pm",
+      "rent_hdb_est_psf",
+      "rent_occ_cost_psf",
+      "rent_occ_cost_source"
+    ],
+    "shapes": {
+      "hex9": {
+        "hdb_rent_nonnull": 1751,
+        "occ_cost_covered": 4124,
+        "n": 7318,
+        "cols": 597
+      },
+      "hex8": {
+        "hdb_rent_nonnull": 342,
+        "occ_cost_covered": 630,
+        "n": 1191,
+        "cols": 846
+      }
+    },
+    "note": "ESTIMATE not observed HDB rent; real data.gov.sg feed = follow-up"
+  }
+}
