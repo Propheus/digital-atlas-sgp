@@ -1,8 +1,8 @@
 {
  "atlas": "Plexis SGP",
- "version": "5.6.1",
- "generated_at": "2026-06-18T09:47:22",
- "n_datasets": 158,
+ "version": "5.7.0",
+ "generated_at": "2026-06-21T09:33:38",
+ "n_datasets": 159,
  "datasets": [
   {
    "dataset": "colo_lift_matrix",
@@ -26,9 +26,9 @@
    "dataset": "feature_catalog",
    "scale": "other",
    "path": "catalog/feature_catalog.parquet",
-   "rows": 2813,
-   "cols": 16,
-   "size_mb": 0.09,
+   "rows": 1913,
+   "cols": 12,
+   "size_mb": 0.07,
    "description": ""
   },
   {
@@ -540,8 +540,8 @@
    "scale": "hex9",
    "path": "hex/hex9_all_features.parquet",
    "rows": 7318,
-   "cols": 585,
-   "size_mb": 7.06,
+   "cols": 593,
+   "size_mb": 7.2,
    "description": "Master hex9 feature bundle (~0.10 km\u00b2; fine, not used in products)"
   },
   {
@@ -812,6 +812,15 @@
    "rows": 7592,
    "cols": 3,
    "size_mb": 0.12,
+   "description": ""
+  },
+  {
+   "dataset": "hex9_rent_surface",
+   "scale": "hex9",
+   "path": "hex/hex9_rent_surface.parquet",
+   "rows": 7318,
+   "cols": 9,
+   "size_mb": 0.19,
    "description": ""
   },
   {

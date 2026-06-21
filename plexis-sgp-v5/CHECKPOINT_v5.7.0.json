@@ -1,0 +1,23 @@
+{
+  "version": "5.7.0",
+  "generated_at": "2026-06-21T09:33:37",
+  "change": "residential rent surface at hex9 + hex8 (URA PMI_Resi_Rental_Median)",
+  "detail": {
+    "source": "URA private-resi rental median, 913 projects, 2023Q2-2026Q1, IDW k5/p2/<=2.5km",
+    "hex9_rent_surface": "NEW (7318)",
+    "hex8_rent_surface": "refreshed (1191)",
+    "master_shapes": {
+      "hex9": [
+        585,
+        593
+      ],
+      "hex8": [
+        842,
+        842
+      ]
+    },
+    "cols": "rent_resi_psf_med, rent_resi_n_obs, rent_resolution, roi_cap_per_rent_*",
+    "hdb_rent": "follow-up (data.gov.sg resource to locate)",
+    "commercial_rent": "gap (Realis only)"
+  }
+}

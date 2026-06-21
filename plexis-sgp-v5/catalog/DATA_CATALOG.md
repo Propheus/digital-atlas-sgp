@@ -1,12 +1,12 @@
-# Plexis SGP — Data Catalog (v5.6.1)
+# Plexis SGP — Data Catalog (v5.7.0)
 
-*158 datasets · generated 2026-06-18T09:47:22*
+*159 datasets · generated 2026-06-21T09:33:38*
 
 | Dataset | Scale | Rows | Cols | Size MB | Description |
 |---|---|--:|--:|--:|---|
 | `colo_lift_matrix` | other | 676 | 6 | 0.02 |  |
 | `dataset_catalog` | other | 51 | 9 | 0.01 |  |
-| `feature_catalog` | other | 2,813 | 16 | 0.09 |  |
+| `feature_catalog` | other | 1,913 | 12 | 0.07 |  |
 | `hex8_acra_biz` | hex8 | 1,191 | 11 | 0.05 |  |
 | `hex8_all_features` | hex8 | 1,191 | 842 | 2.8 | Master hex8 feature bundle (product scale, ~0.74 km²) — every feature per cell |
 | `hex8_amenities_extra` | hex8 | 1,191 | 13 | 0.05 |  |
@@ -63,7 +63,7 @@
 | `hex8_visibility` | hex8 | 1,191 | 7 | 0.03 |  |
 | `hex8_walk_scores` | hex8 | 1,191 | 11 | 0.05 |  |
 | `hex8_walkability` | hex8 | 1,191 | 21 | 0.13 |  |
-| `hex9_all_features` | hex9 | 7,318 | 585 | 7.06 | Master hex9 feature bundle (~0.10 km²; fine, not used in products) |
+| `hex9_all_features` | hex9 | 7,318 | 593 | 7.2 | Master hex9 feature bundle (~0.10 km²; fine, not used in products) |
 | `hex9_amenities_extra` | hex9 | 7,318 | 13 | 0.24 |  |
 | `hex9_archetypes` | hex9 | 7,318 | 4 | 0.08 |  |
 | `hex9_buildings` | hex9 | 7,318 | 39 | 0.58 |  |
@@ -94,6 +94,7 @@
 | `hex9_pop_weighted` | hex9 | 7,318 | 125 | 1.44 |  |
 | `hex9_population` | hex9 | 7,318 | 15 | 0.4 |  |
 | `hex9_region_overlap` | hex9 | 7,592 | 3 | 0.12 |  |
+| `hex9_rent_surface` | hex9 | 7,318 | 9 | 0.19 |  |
 | `hex9_road_centrality_raw` | hex9 | 7,318 | 11 | 0.25 |  |
 | `hex9_roads` | hex9 | 7,318 | 69 | 1.51 |  |
 | `hex9_roads_clean` | hex9 | 7,318 | 18 | 0.45 |  |
