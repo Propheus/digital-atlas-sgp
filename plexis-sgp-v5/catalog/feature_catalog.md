@@ -1,6 +1,6 @@
 # Plexis SGP v4 — Feature Catalog
 
-**Generated:** 2026-06-24 15:57 · **Features:** 2,865
+**Generated:** 2026-06-24 17:57 · **Features:** 2,871
 
 ## `catalog/colo_lift_matrix.parquet`
 
@@ -35,7 +35,7 @@ _11 columns_
 
 ## `hex/hex8_all_features.parquet`
 
-_852 columns_
+_855 columns_
 
 | Column | dtype | Units | Null % | Range / sample | Description |
 |---|---|---|---|---|---|
@@ -752,10 +752,13 @@ _852 columns_
 | `rent_resi_n_obs` | int64 | count | 0.0 | 0 → 5 (median 1) | Projects within 2.5 km supporting the estimate |
 | `rent_resi_psf_med` | float64 | $psf/month | 47.5 | 2.02 → 8.174 (median 4.412) | URA private-resi median rent (913 projects, last 4 quarters, IDW k=5 ≤2.5 km). COMMERCIAL rent not openly available. NaN = no observation in range |
 | `rent_resolution` | object | category | 0.0 | 3 unique · `none` | local (≤800 m) / idw / none |
+| `rent_retail_locality_obs_psf` | float32 | $psf/mo | 0.0 | 4.59 → 8.59 (median 5.15) | OBSERVED URA median retail rent for the cell's locality ($psf/mo, latest qtr) — the defensible ABSOLUTE anchor (Orchard $8.59 / Central-ex-Orchard $4.59 / Outside-Central $5.15). Use this for absolute figures; use rent_retail_psf_med for within-grid ranking. (nous V5/A3). |
+| `rent_retail_locality_obs_psm` | float32 | $psm/mo | 0.0 | 49.4 → 92.5 (median 55.4) | OBSERVED URA median retail rent for the locality in $psm/mo = obs_psf * 10.764 (nous V5/A3). |
 | `rent_retail_n_obs` | int64 | count | 0.0 | 54 → 54 (median 54) | URA observed retail-rent records backing the cell's locality tier (nous V4). |
 | `rent_retail_psf_med` | float64 | $psf/mo | 49.0 | 4.02 → 40 (median 12.67) | Median ground-floor retail rent $psf/mo (nous V4). Centrality/commercial-led model anchored to URA Median Retail Rentals (data.gov.sg d_49962204d37550d54175c2e5f0e78025, 3 localities), ranked among retail-scorable cells over a $4-$40 scale (10x spread). Orchard ~$40 >> heartland ~$12. NaN for nature/water/terminals. |
 | `rent_retail_psm_med` | float64 | $psm/mo | 49.0 | 43.3 → 430.6 (median 136.4) | Median ground-floor retail rent $psm/mo = rent_retail_psf_med * 10.764 (nous V4). Distinct from residential rent_resi (corr 0.54). |
 | `rent_retail_tier` | object | category | 0.0 | 3 unique · `Outside Central Area` | Retail locality tier (nous V4): Orchard | Central Area - Outside Orchard | Outside Central Area (URA locality bands). |
+| `rent_retail_vacancy_pct` | float32 | % | 0.0 | 6.4 → 8.2 (median 6.4) | OBSERVED URA retail vacancy rate for the cell's locality, latest quarter (Orchard 6.5 / Central-ex 8.2 / Outside-Central 6.4). Demand-side signal (nous V5/A3). |
 | `retail_cannibalization_score` | int64 |  | 0.0 | 0 → 100 (median 0) |  |
 | `retail_competition_pressure` | int64 |  | 0.0 | 0 → 100 (median 0) |  |
 | `retail_delivery_score` | int64 |  | 0.0 | 0 → 100 (median 0) |  |
@@ -1464,7 +1467,7 @@ _21 columns_
 
 ## `hex/hex9_all_features.parquet`
 
-_612 columns_
+_615 columns_
 
 | Column | dtype | Units | Null % | Range / sample | Description |
 |---|---|---|---|---|---|
@@ -1980,10 +1983,13 @@ _612 columns_
 | `rent_resi_n_obs` | int64 | count | 0.0 | 0 → 5 (median 4) | Projects within 2.5 km supporting the estimate |
 | `rent_resi_psf_med` | float64 | $psf/month | 43.9 | 2.02 → 8.298 (median 4.396) | URA private-resi median rent (913 projects, last 4 quarters, IDW k=5 ≤2.5 km). COMMERCIAL rent not openly available. NaN = no observation in range |
 | `rent_resolution` | object | category | 0.0 | 3 unique · `none` | local (≤800 m) / idw / none |
+| `rent_retail_locality_obs_psf` | float32 | $psf/mo | 0.0 | 4.59 → 8.59 (median 5.15) | OBSERVED URA median retail rent for the cell's locality ($psf/mo, latest qtr) — the defensible ABSOLUTE anchor (Orchard $8.59 / Central-ex-Orchard $4.59 / Outside-Central $5.15). Use this for absolute figures; use rent_retail_psf_med for within-grid ranking. (nous V5/A3). |
+| `rent_retail_locality_obs_psm` | float32 | $psm/mo | 0.0 | 49.4 → 92.5 (median 55.4) | OBSERVED URA median retail rent for the locality in $psm/mo = obs_psf * 10.764 (nous V5/A3). |
 | `rent_retail_n_obs` | int64 | count | 0.0 | 54 → 54 (median 54) | URA observed retail-rent records backing the cell's locality tier (nous V4). |
 | `rent_retail_psf_med` | float64 | $psf/mo | 46.2 | 4.02 → 40 (median 12.96) | Median ground-floor retail rent $psf/mo (nous V4). Centrality/commercial-led model anchored to URA Median Retail Rentals (data.gov.sg d_49962204d37550d54175c2e5f0e78025, 3 localities), ranked among retail-scorable cells over a $4-$40 scale (10x spread). Orchard ~$40 >> heartland ~$12. NaN for nature/water/terminals. |
 | `rent_retail_psm_med` | float64 | $psm/mo | 46.2 | 43.3 → 430.6 (median 139.5) | Median ground-floor retail rent $psm/mo = rent_retail_psf_med * 10.764 (nous V4). Distinct from residential rent_resi (corr 0.54). |
 | `rent_retail_tier` | object | category | 0.0 | 3 unique · `Outside Central Area` | Retail locality tier (nous V4): Orchard | Central Area - Outside Orchard | Outside Central Area (URA locality bands). |
+| `rent_retail_vacancy_pct` | float32 | % | 0.0 | 6.4 → 8.2 (median 6.4) | OBSERVED URA retail vacancy rate for the cell's locality, latest quarter (Orchard 6.5 / Central-ex 8.2 / Outside-Central 6.4). Demand-side signal (nous V5/A3). |
 | `retail_footfall_score` | float32 | 0-100 | 53.8 | 0 → 100 (median 74) | Pedestrian-footfall proxy (nous V4). Percentile of 0.82*dt_pop + 0.12*iso_transit15_pop + 0.06*iso_walk10_pop among scored cells; cells with shops but no residents get a low (1-15) commercial rescue; NaN for terminals/nature/reserve. EXCLUDES vis_exit_footfall (transit-exit point-source) and od_throughput (embedding probe target). dt_pop-corr 0.99; hubs (Orchard/Bugis/Raffles/Tampines/Jurong E) top-decile; dead maritime port reads ~0. |
 | `ring1_hdb_resale_4r_median_psm` | float64 |  | 0.0 | 0 → 9175 (median 0) | Sum over H3 ring-1 neighbours (~±1 km) of: hdb resale 4r median psm (see layer docs) |
 | `ring1_nl_2024` | float64 |  | 0.0 | 0 → 160.4 (median 50.02) | Sum over H3 ring-1 neighbours (~±1 km) of: VIIRS night light radiance 2024 (subzone-broadcast) |

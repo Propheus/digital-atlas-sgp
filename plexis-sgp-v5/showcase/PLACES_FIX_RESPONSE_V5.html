@@ -1,0 +1,156 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Atlas Team — nous V5 Response</title><style>
+:root{--accent:#20b2aa;--accent2:#2dd4bf;--ok:#39d98a;--warn:#f0c14b;
+ --glass:rgba(17,40,42,.55);--glass2:rgba(12,27,29,.72);
+ --border:rgba(32,178,170,.18);--border2:rgba(32,178,170,.32);
+ --text:#e9eef0;--muted:#8fa3a6;--mono:#7fe3da}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--text);
+ background:radial-gradient(1100px 560px at 72% -12%,#173f41 0%,transparent 58%),
+   linear-gradient(162deg,#0a1a1c,#0d2123 55%,#102628);
+ background-attachment:fixed;min-height:100vh;max-width:1060px;margin:0 auto;
+ padding:46px 26px;font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1{font-size:30px;font-weight:700;letter-spacing:-.022em;margin:0 0 4px}
+.accent{color:var(--accent)}
+h2{font-size:16px;font-weight:600;margin:34px 0 12px;color:#d4ecea;
+ border-bottom:1px solid var(--border);padding-bottom:7px;letter-spacing:-.01em}
+h2 .n{color:var(--muted);font-weight:400;font-size:13px}
+.sub{color:var(--muted);margin:0 0 22px;font-size:14px}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+.cards{display:grid;grid-template-columns:repeat(6,1fr);gap:11px;margin:20px 0 8px}
+.card{background:var(--glass);border:1px solid var(--border);border-radius:13px;
+ padding:16px 12px;text-align:center;backdrop-filter:blur(13px);-webkit-backdrop-filter:blur(13px)}
+.cv{font-size:23px;font-weight:700;color:#fff;letter-spacing:-.02em}
+.cl{font-size:10.5px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.045em}
+table{width:100%;border-collapse:separate;border-spacing:0;background:var(--glass2);
+ border:1px solid var(--border);border-radius:13px;overflow:hidden;margin-bottom:8px;
+ backdrop-filter:blur(11px);-webkit-backdrop-filter:blur(11px)}
+th,td{text-align:left;padding:9px 13px;border-bottom:1px solid rgba(32,178,170,.10);font-size:13px;vertical-align:top}
+th{background:rgba(32,178,170,.09);color:var(--accent);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:rgba(32,178,170,.05)}
+td.f{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:12px;color:var(--mono);white-space:nowrap}
+td.t{color:var(--muted);font-size:11.5px}
+td.s{color:#b9c9cb;font-size:12px;white-space:nowrap}
+.banner{background:linear-gradient(90deg,rgba(57,217,138,.16),rgba(32,178,170,.04));
+ border:1px solid var(--border2);color:#8fe9c4;border-radius:13px;padding:13px 17px;font-weight:600;margin:8px 0 4px}
+.note{color:var(--muted);font-size:12.5px;margin-top:9px}
+.pill{display:inline-block;background:rgba(32,178,170,.14);border:1px solid var(--border);
+ color:#9fe9e1;border-radius:20px;padding:3px 11px;margin:3px 2px;font-size:12.5px}
+code{background:rgba(32,178,170,.1);padding:1px 6px;border-radius:5px;font-size:12px;color:#9fe9e1;
+ font-family:ui-monospace,"SF Mono",Menlo,monospace}
+.tag{display:inline-block;font-size:9.5px;background:rgba(32,178,170,.2);color:#9fe9e1;
+ border-radius:6px;padding:1px 7px;margin-left:7px;vertical-align:middle;text-transform:uppercase;letter-spacing:.04em;font-weight:600}
+/* prose (markdown) */
+p{margin:10px 0}
+ul,ol{margin:8px 0 12px;padding-left:22px} li{margin:4px 0;color:#cdd9da}
+strong,b{color:#fff;font-weight:600}
+em{color:#bcd}
+hr{border:none;border-top:1px solid var(--border);margin:30px 0}
+blockquote{border-left:3px solid var(--accent);background:rgba(32,178,170,.06);
+ margin:14px 0;padding:10px 16px;border-radius:0 8px 8px 0;color:#bcd0d2}
+blockquote p{margin:4px 0}
+pre{background:rgba(8,18,20,.85);border:1px solid var(--border);border-radius:10px;
+ padding:13px 15px;overflow-x:auto;margin:12px 0;font-size:12.5px;line-height:1.5}
+pre code{background:none;padding:0;color:#cfeae6;font-family:ui-monospace,"SF Mono",Menlo,monospace}
+h1+p em,h1+p{color:var(--muted)}
+@media(max-width:680px){.cards{grid-template-columns:repeat(3,1fr)}}
+</style></head><body><h1>Atlas Team → nous Team — V5 Response</h1>
+<p><strong>Re:</strong> <code>brand-analysis/ATLAS_TEAM_FIXES_V5.md</code> (optional improvements, post-v5.8.0)
+<strong>Atlas:</strong> Plexis SGP <strong>v5.8.1</strong> · Data: <code>azold-test-server:/home/azureuser/da-sgp/v5/</code></p>
+<p>Thanks for the clean bill of health on v5.8.0. Here's where we land on the three optional asks.</p>
+<table>
+<thead>
+<tr>
+<th>Ask</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A1</strong> — measured pedestrian-footfall layer</td>
+<td>⛔ <strong>Declined — no data source</strong></td>
+</tr>
+<tr>
+<td><strong>A2</strong> — <code>store_perf_all</code> catalog↔disk</td>
+<td>✅ <strong>Already consistent</strong> (no change needed)</td>
+</tr>
+<tr>
+<td><strong>A3</strong> — observed retail rent in the 3 URA localities</td>
+<td>✅ <strong>Done — observed anchors added</strong> (v5.8.1)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>A1 — Measured pedestrian footfall · <strong>NO</strong></h2>
+<p>We have <strong>no measured pedestrian-volume source</strong> — no telco mobility-ping feed, no GPS/SDK visit
+counts, no pedestrian-counter network licensed for this build. Sourcing one is a data-procurement
+effort, not an engineering fix, and isn't on the table right now.</p>
+<p><code>retail_footfall_score</code> stays as the <strong>modeled</strong> demand signal (dt_pop-based, V4-decontaminated).
+It already ranks the known hubs top-decile and your Anytime Fitness run was clean on it. If a
+measured layer is later licensed, it slots in as <code>ped_volume_measured</code> with <code>retail_footfall_score</code>
+as the documented fallback — but that's a future procurement, not v5.x.</p>
+<h2>A2 — <code>store_perf_all</code> catalog↔disk · <strong>Already consistent</strong></h2>
+<p>We checked the <strong>v5.8.0</strong> catalog directly:</p>
+<ul>
+<li><code>store_perf</code> appears in <strong>zero</strong> catalog files (<code>grep -r store_perf catalog/</code> → nothing).</li>
+<li>The catalog↔disk invariant <strong>passes</strong>: <strong>0 of 50</strong> listed datasets are missing on disk.</li>
+</ul>
+<p>So the v5.8.0 catalog does <strong>not</strong> list <code>derived/store_perf_all.parquet</code> — the entry you saw was
+from a pre-v5.8.0 catalog (the old build did carry a <code>derived/</code> registry). Nothing to remove on our
+side. <code>store_perf_all</code> remains a <strong>NOUS-owned derived dataset</strong> (your <code>scripts/build_store_perf.py</code>)
+— it was never an atlas-produced layer, and the current catalog correctly doesn't claim it.</p>
+<blockquote>
+<p>Re-check: <code>ssh azold-test-server 'cd ~/da-sgp/v5 &amp;&amp; python3 -c "import pandas as pd,os; dc=pd.read_parquet(\"catalog/dataset_catalog.parquet\"); print(sum(not os.path.exists(f\"{p}\") for p in dc.dataset))'</code></p>
+</blockquote>
+<h2>A3 — Observed retail rent · <strong>Done (the right way)</strong></h2>
+<p>You asked to conserve <code>rent_retail_psf_med</code> to the observed URA locality medians. We tested literal
+conservation and it <strong>regresses the atlas</strong>, so we delivered the same <em>intent</em> — defensible absolute
+figures — without the damage.</p>
+<p><strong>Why literal conservation was rejected</strong> (measured on live data):
+- URA publishes only a <strong>blended locality median</strong> (Orchard $8.59, Central-ex-Orchard $4.59,
+  Outside-Central $5.15 psf/mo) — not prime ground-floor. At hex8 grain, "Orchard" is a <strong>single
+  cell</strong>, so pinning it to the blended $8.59 erases the prime premium.
+- Per-locality median-matching dropped the spread to <strong>5.7×</strong> (breaks V4 test A6 ≥8×), Orchard to
+  <strong>1.47×</strong> heartland (breaks A6 ≥2×), and <strong>inverted 160 suburban cells above Orchard</strong>. That would
+  regress exactly the V4 fixes you signed off on.</p>
+<p><strong>What we shipped instead (v5.8.1)</strong> — observed URA figures as <strong>first-class anchor fields</strong>, on hex8 + hex9:</p>
+<table>
+<thead>
+<tr>
+<th>New column</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>rent_retail_locality_obs_psf</code></td>
+<td><strong>Observed</strong> URA median retail rent for the cell's locality ($psf/mo): Orchard $8.59 · Central-ex $4.59 · Outside-Central $5.15 — the <strong>defensible absolute</strong> figure</td>
+</tr>
+<tr>
+<td><code>rent_retail_locality_obs_psm</code></td>
+<td>same in $psm/mo (×10.764)</td>
+</tr>
+<tr>
+<td><code>rent_retail_vacancy_pct</code></td>
+<td><strong>Observed</strong> URA retail vacancy %: Orchard 6.5 · Central-ex 8.2 · Outside-Central 6.4 — a demand-side signal you didn't have</td>
+</tr>
+<tr>
+<td><code>rent_retail_n_obs</code></td>
+<td>URA records backing each locality (54 each)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Use this way:</strong>
+- <strong>Absolute / defensible rent</strong> → <code>rent_retail_locality_obs_psf</code> (observed, URA-sourced).
+- <strong>Within-grid ranking</strong> → <code>rent_retail_psf_med</code> (modeled, unchanged — your tier-rent gate keeps working, V4 tests stay 30/30).</p>
+<p>This gives you the observed truth where it exists (locality level) and keeps the modeled surface for
+the per-cell ranking that locality medians can't provide. Bonus: vacancy is a new lever for demand.</p>
+<hr />
+<h2>Status</h2>
+<ul>
+<li><strong>Atlas v5.8.1</strong> — hex8 <code>1191×855</code>, hex9 <code>7318×615</code>; manifest + catalog bumped; V4 acceptance
+  <strong>30/30</strong> still green; 0 hex9 orphans. Backup <code>backups/v581_*</code>.</li>
+<li><strong>No blocking items.</strong> A1 is a future procurement; A2 needs nothing from us; A3 is delivered.</li>
+</ul>
+<hr />
+<p><em>Atlas team · v5.8.1 · companion to <code>PLACES_FIX_RESPONSE_V4.md</code>.</em></p></body></html>

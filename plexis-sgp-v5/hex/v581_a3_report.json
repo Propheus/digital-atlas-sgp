@@ -1,0 +1,23 @@
+{
+ "obs": {
+  "Central Area - Outside Orchard": 4.59,
+  "Orchard": 8.59,
+  "Outside Central Area": 5.15
+ },
+ "vac": {
+  "Central Area - Outside Orchard": 8.2,
+  "Orchard": 6.5,
+  "Outside Central Area": 6.4
+ },
+ "n_obs": {
+  "Central Area - Outside Orchard": 54,
+  "Orchard": 54,
+  "Outside Central Area": 54
+ },
+ "new_cols": [
+  "rent_retail_locality_obs_psf",
+  "rent_retail_locality_obs_psm",
+  "rent_retail_vacancy_pct"
+ ],
+ "backup": "/home/azureuser/da-sgp/v5/backups/v581_20260624_175715"
+}

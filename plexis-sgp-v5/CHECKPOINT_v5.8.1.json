@@ -1,0 +1,10 @@
+{
+ "version": "5.8.1",
+ "generated_at": "2026-06-24T17:57:49",
+ "change": "nous V5 optional asks: A2 catalog consistency confirmed, A3 observed URA rent anchors added",
+ "detail": [
+  "A1 measured pedestrian footfall: DECLINED (no telco/GPS/SDK/counter data source) \u2014 modeled retail_footfall_score retained",
+  "A2 store_perf_all catalog<->disk: already consistent in v5.8.0 (0/50 datasets missing; store_perf not listed)",
+  "A3 added rent_retail_locality_obs_psf/psm + rent_retail_vacancy_pct (observed URA anchors); modeled rent_retail_psf_med kept for ranking (literal conservation rejected: inverts Orchard, breaks A6 spread)"
+ ]
+}
