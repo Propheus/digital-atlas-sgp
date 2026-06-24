@@ -1,0 +1,68 @@
+{
+  "P1-1": {
+    "transport_subtype": {
+      "not_transport": 1073,
+      "transport_terminal": 70,
+      "transport_transit": 48
+    },
+    "zone_unknown_after": 0,
+    "sentosa_zone": {
+      "islands_resort": 12
+    }
+  },
+  "P0-2": {
+    "coverage_nonNA": 0.939,
+    "coverage_consumer": 0.735,
+    "spearman_vs_vis_exit": 0.41,
+    "nonnull": 477,
+    "hub_medians": {
+      "ORCHARD": 88.0,
+      "TAMPINES": 86.0,
+      "TOA PAYOH": 85.0,
+      "JURONG WEST": 86.0,
+      "BEDOK": 84.0
+    },
+    "nassim": 76.0,
+    "dead_transport_median": null
+  },
+  "P0-3": {
+    "corr_bldg_industrial": 0.689,
+    "corr_lu_business": 0.439,
+    "tiong_bahru_median": 0.355,
+    "tuas_median": 0.55,
+    "murai_median": 0.0,
+    "physical_industrial_median": 1.0,
+    "heartland_median": 0.055
+  },
+  "P0-1": {
+    "ura_anchors": {
+      "Central Area - Outside Orchard": 4.59,
+      "Orchard": 8.59,
+      "Outside Central Area": 5.15
+    },
+    "spread_x": 10.0,
+    "orchard": 39.5,
+    "downtown": 39.8,
+    "tampines": 11.7,
+    "jurong_west": 8.5,
+    "confidence": {
+      "na": 796,
+      "medium": 340,
+      "high": 37,
+      "low": 18
+    }
+  },
+  "master_shape": [
+    1191,
+    852
+  ],
+  "new_cols": [
+    "transport_subtype",
+    "rent_retail_psf_med",
+    "rent_retail_psm_med",
+    "rent_retail_tier",
+    "rent_confidence",
+    "rent_retail_n_obs"
+  ],
+  "backup": "/home/azureuser/da-sgp/v5/backups/v4fix_20260624_144737"
+}
