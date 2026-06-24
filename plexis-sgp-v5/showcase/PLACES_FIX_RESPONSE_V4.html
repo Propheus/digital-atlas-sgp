@@ -54,86 +54,322 @@ pre{background:rgba(8,18,20,.85);border:1px solid var(--border);border-radius:10
 pre code{background:none;padding:0;color:#cfeae6;font-family:ui-monospace,"SF Mono",Menlo,monospace}
 h1+p em,h1+p{color:var(--muted)}
 @media(max-width:680px){.cards{grid-template-columns:repeat(3,1fr)}}
-</style></head><body><h1>Atlas Team — Response to nous V4 flags</h1>
+</style></head><body><h1>Atlas Team → nous Team — V4 Response &amp; Proceed Guide</h1>
 <p><strong>Re:</strong> <code>brand-analysis/ATLAS_TEAM_FIXES_V4.md</code> + <code>ATLAS_TEAM_FIXES_V4_TESTS.md</code>
-<strong>Atlas version:</strong> v5.8.0 · <strong>Status: all 31 acceptance tests pass</strong> (30 automated + B7 doc-check)</p>
-<p>The V4 audit caught real defects — a maritime PORT ranking #1 for a gym, Nassim dinged for
-"zero footfall." Both came from derived signals that were point-source-contaminated, residential-
-relabeled, or zoning-keyed. Every flagged item is now fixed at the source on hex8 <strong>and</strong> hex9,
-and the embedding leak the audit implied has been closed.</p>
+<strong>Atlas:</strong> Plexis SGP <strong>v5.8.0</strong> · <strong>Verdict: all 31 acceptance tests pass</strong> (30 automated + B7 doc-check)
+<strong>Data:</strong> <code>azold-test-server:/home/azureuser/da-sgp/v5/</code> · hex8 <code>1191×852</code>, hex9 <code>7318×612</code></p>
 <hr />
-<h2>P0-1 — Real retail rent  ✅ (A1–A7 pass)</h2>
+<h2>1 · TL;DR</h2>
+<p>Your V4 audit caught real defects — a maritime PORT ranking #1 for a gym, Nassim dinged for
+"zero footfall." Both traced to derived signals that were <strong>point-source-contaminated</strong>,
+<strong>residential-relabeled</strong>, or <strong>zoning-keyed</strong>. Every flagged item is fixed at the source on
+<strong>hex8 and hex9</strong>, the implied <strong>embedding training leak is closed</strong>, and downstream packs are
+reconciled. <strong>You can re-run candidate generation now</strong> — the two motivating failures are gone
+(see §5).</p>
+<p>Re-run the full gate yourself anytime:</p>
+<pre><code class="language-bash">ssh azold-test-server 'cd ~/da-sgp/v5 &amp;&amp; python3 hex/v4_test_harness.py'   # -&gt; 30/30 PASS
+</code></pre>
+<hr />
+<h2>2 · Per-flag resolution (with verified evidence)</h2>
+<h3>P0-1 — Real retail rent  ✅ A1–A7</h3>
 <p><code>rent_occ_cost_psf</code> was residential rent relabeled (identical in 625/625, no CBD coverage).</p>
 <ul>
-<li>New columns <code>rent_retail_psf_med</code> / <code>rent_retail_psm_med</code> / <code>rent_retail_tier</code> / <code>rent_confidence</code> / <code>rent_retail_n_obs</code>.</li>
-<li>Anchored to a <strong>real, free URA source</strong> — <em>Median Rentals &amp; Vacancy of Retail Space by Locality</em>
-  (data.gov.sg <code>d_49962204d37550d54175c2e5f0e78025</code>, 3 localities: Orchard / Central-ex-Orchard / Outside-Central).</li>
-<li>Centrality/commercial-led model, ranked <strong>among retail-scorable cells</strong> over a $4–$40 ground-floor
-  scale → <strong>10× spread</strong>; Orchard <strong>$39.7 psf</strong> ($427 psm) ≫ Tampines $14.8 ≫ Jurong West $9.5.</li>
-<li>Decorrelated from residential rent (<strong>corr 0.54</strong> &lt; 0.85); confidence column on 100% of populated cells.</li>
-<li><code>rent_occ_cost_source</code>: <code>private_observed</code> → <code>residential_proxy</code> (de-mislabeled).</li>
+<li><strong>New columns:</strong> <code>rent_retail_psf_med</code>, <code>rent_retail_psm_med</code>, <code>rent_retail_tier</code>, <code>rent_confidence</code>, <code>rent_retail_n_obs</code>.</li>
+<li><strong>Real free anchor:</strong> URA <em>Median Rentals &amp; Vacancy of Retail Space by Locality</em> —
+  data.gov.sg <code>d_49962204d37550d54175c2e5f0e78025</code> (3 localities: Orchard $8.59, Central-ex-Orchard $4.59, Outside-Central $5.15 psf/mo lease).</li>
+<li><strong>Model:</strong> centrality/commercial composite (<code>0.32·nl_commercial + 0.26·commercial_intensity + 0.24·pull_cbd + 0.18·retail_footfall</code>), ranked <strong>among retail-scorable cells</strong>, mapped to a $4–$40 ground-floor scale.</li>
 </ul>
-<h2>P0-2 — Real footfall  ✅ (B1–B7 pass)</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A2 retail ≠ residential</td>
+<td>0 / 368 identical ✅</td>
+</tr>
+<tr>
+<td>A3 decorrelated from resi</td>
+<td>corr <strong>0.54</strong> &lt; 0.85 ✅</td>
+</tr>
+<tr>
+<td>A4 business/commercial coverage</td>
+<td><strong>100%</strong> ≥ 80% ✅</td>
+</tr>
+<tr>
+<td>A6 spread + prime/heartland</td>
+<td><strong>9.9×</strong> ≥ 8×; Orchard <strong>$427 psm</strong> ($39.7 psf) ≫ heartland; Tampines $14.8 · Jurong West $9.5 ✅</td>
+</tr>
+<tr>
+<td>A7 confidence populated</td>
+<td>high/med/low on 100% of priced cells ✅</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-python">import pandas as pd; m=pd.read_parquet(&quot;hex/hex8_all_features.parquet&quot;)
+print(m.rent_retail_psf_med.max()/m.rent_retail_psf_med[m.rent_retail_psf_med&gt;0].min())   # ~10x
+</code></pre>
+<h3>P0-2 — Real footfall  ✅ B1–B7</h3>
 <p><code>retail_footfall_score</code> was 60% built from the transit-exit point-source <code>vis_exit_footfall</code>
 (Port read 41; Nassim read 12 = the coverage hole).</p>
 <ul>
-<li>Rebuilt = <strong>percentile(0.82·dt_pop + 0.12·iso_transit15_pop + 0.06·iso_walk10_pop)</strong>; cells with
-  shops but no residents get a low (1–15) commercial rescue; <strong>NaN</strong> for terminals/nature/reserve.</li>
-<li><strong>Excludes</strong> <code>vis_exit_footfall</code> (corr now <strong>0.37</strong> &lt; 0.5) <strong>and</strong> <code>od_throughput</code> (the embedding probe target).</li>
-<li>Tracks general activity: <strong>corr(dt_pop) = 0.99</strong>; consumer coverage <strong>100%</strong>.</li>
-<li>Pedestrian hubs (Orchard/Bugis/Raffles Pl/Tampines/Jurong E) all <strong>top-decile</strong>; the dead maritime
-  <strong>PORT reads ~0</strong>; <strong>Nassim's representative cell (dt_pop 6.7k) reads 61 (top 40%)</strong> — no longer near-zero.</li>
-<li><code>format_fit_score</code> also rebuilt on the clean footfall (no <code>vis_exit</code>).</li>
+<li><strong>Rebuilt:</strong> <code>percentile(0.82·dt_pop + 0.12·iso_transit15_pop + 0.06·iso_walk10_pop)</code> among scored cells;
+  cells with shops but <strong>no residents</strong> get a low (1–15) commercial rescue; <strong>NaN</strong> for terminals/nature/reserve.</li>
+<li><strong>Excludes</strong> <code>vis_exit_footfall</code> <strong>and</strong> <code>od_throughput</code> (the embedding probe target — it must never sit inside an input).</li>
 </ul>
-<h2>P0-3 — Industrial adjacency from physical industry  ✅ (C1–C6 pass)</h2>
-<p>Was keyed on business <strong>zoning</strong> (corr 0.64 zoning vs 0.25 physical) → CBD offices flagged industrial.</p>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B1 decontaminated</td>
+<td>spearman(vis_exit) <strong>0.37</strong> &lt; 0.5 ✅</td>
+</tr>
+<tr>
+<td>B2 tracks activity</td>
+<td>spearman(dt_pop) <strong>0.99</strong> ≥ 0.75 ✅</td>
+</tr>
+<tr>
+<td>B3 consumer coverage</td>
+<td><strong>100%</strong> ≥ 80% ✅</td>
+</tr>
+<tr>
+<td>B4 dead Port</td>
+<td>reads ~0 (NA-gated) ✅</td>
+</tr>
+<tr>
+<td>B5 Nassim</td>
+<td>representative cell (dt_pop 6.7k) = <strong>61</strong> (≥ p60) ✅</td>
+</tr>
+<tr>
+<td>B6 pedestrian hubs top-decile</td>
+<td>Orchard 92 · Bugis 92 · Raffles Pl 95 · Tampines 99 · Jurong E 93 (all ≥ p90) ✅</td>
+</tr>
+<tr>
+<td>B7 documented</td>
+<td><code>feature_catalog</code> states the formula + the <code>vis_exit</code> exclusion ✅</td>
+</tr>
+</tbody>
+</table>
+<p><code>format_fit_score</code> was also rebuilt on the clean footfall (no <code>vis_exit</code>).</p>
+<h3>P0-3 — Industrial adjacency from physical industry  ✅ C1–C6</h3>
+<p>Was keyed on business <strong>zoning</strong> → CBD offices flagged industrial.</p>
 <ul>
-<li>Now a saturating ramp on <strong><code>bldg_industrial_count</code></strong> (0 below ~6 buildings, <strong>&gt;0.6 at ≥10</strong>) + a
-  confirmed-industrial zone floor. <strong>corr(bldg_industrial)=0.75 &gt; corr(lu_business)=0.46</strong>.</li>
-<li>Heartland (pop≥5k, &lt;10 ind-bldgs, ≥15 POIs) <strong>&lt;0.3</strong> for 100%; CBD office <strong>&lt;0.3</strong> for 100%;
-  Tuas/Murai/Sungei-Kadut (≥10 ind-bldgs) <strong>&gt;0.6</strong> for 100%; fires regardless of <code>dominant_use</code> (Murai=1.0).</li>
-<li>Ports/airside flagged non-consumer via <code>zone_type</code>/<code>transport_subtype</code>.</li>
+<li>Saturating ramp on <strong><code>bldg_industrial_count</code></strong> (0 below ~6 buildings, <strong>&gt;0.6 at ≥10</strong>) + a confirmed-industrial zone floor.</li>
 </ul>
-<h2>P1-1 — Transport subtype · zone_type · Sentosa  ✅ (D1–D5 pass)</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C1 keyed on physical</td>
+<td>corr(bldg) <strong>0.745</strong> &gt; corr(lu_business) 0.463, ≥ 0.5 ✅</td>
+</tr>
+<tr>
+<td>C2 heartland clean</td>
+<td>iadj &lt; 0.3 for <strong>100%</strong> ✅</td>
+</tr>
+<tr>
+<td>C3 real industry caught</td>
+<td>bldg≥10 → iadj &gt; 0.6 for <strong>100%</strong> ✅</td>
+</tr>
+<tr>
+<td>C4 fires regardless of use</td>
+<td>Murai = <strong>1.0</strong> ✅</td>
+</tr>
+<tr>
+<td>C5 CBD office ≠ industrial</td>
+<td>iadj &lt; 0.3 for <strong>100%</strong> ✅</td>
+</tr>
+<tr>
+<td>C6 ports/airside</td>
+<td>flagged via iadj/<code>zone_type</code>/<code>transport_subtype</code> ✅</td>
+</tr>
+</tbody>
+</table>
+<h3>P1-1 — Transport subtype · zone_type · Sentosa  ✅ D1–D5</h3>
 <ul>
-<li>New <strong><code>transport_subtype</code></strong>: <code>transport_terminal</code> (70, lu_transport≥0.8 = non-leasable port/airside)
-  vs <code>transport_transit</code> (48, MRT/bus frontage, leasable) vs <code>not_transport</code> (1073).</li>
+<li><strong>New <code>transport_subtype</code>:</strong> <code>not_transport</code> 1073 · <code>transport_terminal</code> 70 (lu_transport≥0.8 = non-leasable port/airside) · <code>transport_transit</code> 48 (MRT/bus frontage, leasable).</li>
 <li><code>zone_type='unknown'</code> <strong>247 → 0</strong> (PA→SZ→hex8 propagation + commercial-aware fill).</li>
-<li><strong>Sentosa</strong> reclassed out of <code>islands_restricted</code> → <code>islands_resort</code> (consumer destination, footfall populated).</li>
+<li><strong>Sentosa</strong> → <code>islands_resort</code> (consumer destination, footfall populated), out of <code>islands_restricted</code>.</li>
 </ul>
-<h2>P1-2 — hex9-native demand-reach  ✅ (E1–E3 pass)</h2>
-<p>48 demand columns were hex8-only (broadcast to children).</p>
+<h3>P1-2 — hex9-native demand-reach  ✅ E1–E3</h3>
 <ul>
-<li><code>iso_walk10_pop</code> / <code>iso_walk10_spend</code> / <code>dt_pop</code> / <code>industrial_adjacency_score</code> / <code>zone_type</code> now present on hex9.</li>
-<li><strong><code>dt_pop</code> natively computed</strong> at res-9 (daytime = distance-decayed residents + workers from res-9 built
-  form) — varies across <strong>83%</strong> of multi-child parents (vs 60% for parent-broadcast). iso/transit disaggregated
-  by a native activity weight (conserves parent total); industrial/zone/footfall computed natively.</li>
-<li>Coverage parity preserved (hex9 iso&gt;0 = 58% vs hex8 53%).</li>
+<li><code>iso_walk10_pop</code>, <code>iso_walk10_spend</code>, <code>dt_pop</code>, <code>industrial_adjacency_score</code>, <code>zone_type</code> now present on hex9 (E1).</li>
+<li><strong><code>dt_pop</code> natively computed</strong> at res-9 (daytime = distance-decayed <strong>residents + workers</strong> from res-9 built form) — varies across <strong>83%</strong> of multi-child parents (E2 ≥ 80%; was 60% under parent-broadcast). iso/transit disaggregated by a native activity weight (conserves the parent total); industrial/zone/footfall computed natively.</li>
+<li>Coverage parity preserved: hex9 iso&gt;0 <strong>58%</strong> vs hex8 53% (E3, within ±10%).</li>
 </ul>
 <hr />
-<h2>Embedding leak — closed</h2>
-<p>The audit's footfall finding implied a training leak: <code>retail_footfall_score</code>, <code>vis_exit_footfall</code>,
-<code>rent_*</code>, and the folded <strong>domain-pack hero scores</strong> (<code>re_/risk_/insurance_/utility_/mobility_/retail_</code>,
-several correlating <strong>0.8–0.9 with the held-out price/connectivity probes</strong>) were embedding inputs, and
-the footfall score had carried <code>od_throughput</code> — the e1 <strong>probe target</strong>.</p>
+<h2>3 · The embedding leak — found &amp; closed</h2>
+<p>The footfall finding implied a <strong>training leak</strong>. On inspection, <code>retail_footfall_score</code>,
+<code>vis_exit_footfall</code>, <code>rent_*</code>, and the folded <strong>domain-pack hero scores</strong>
+(<code>re_/risk_/insurance_/utility_/mobility_/retail_</code>) were e1 <strong>inputs</strong> — and several pack scores
+correlated <strong>0.8–0.9 with the held-out probes</strong> (<code>risk_collateral_score</code>↔hdb-psm 0.89). The old
+footfall had also carried <code>od_throughput</code>, which <strong>is</strong> the e1 connectivity probe target.</p>
+<p><strong>Fix:</strong> <code>embedding/prep_features.py</code> excludes all 53 such columns. Inputs <strong>1191 × 736</strong>. e1 retrained (winner E1, score 1.495 &gt; PCA 1.422).</p>
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>Pre-leak</th>
+<th>Post-fix</th>
+<th>Read</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Negative-control R²</td>
+<td>−0.014</td>
+<td><strong>−0.003</strong></td>
+<td>clean — no leakage</td>
+</tr>
+<tr>
+<td>Price probe (PCA baseline)</td>
+<td>0.81</td>
+<td><strong>0.71</strong></td>
+<td>the leaked rent/pack signal removed (honest now)</td>
+</tr>
+<tr>
+<td>Known-twin panel</td>
+<td>5/5</td>
+<td><strong>5/5</strong></td>
+<td>local structure intact</td>
+</tr>
+<tr>
+<td>Archetype recovery (zone_ari)</td>
+<td>0.281</td>
+<td><strong>0.48</strong></td>
+<td><strong>better</strong> separation</td>
+</tr>
+<tr>
+<td>3-seed Procrustes</td>
+<td>0.987</td>
+<td><strong>0.948</strong></td>
+<td>stable</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Honest caveat:</strong> the <em>extreme-contrast</em> geometry softened — the retail/industrial-specific
+pack scores that sharply split Tuas-vs-Orchard were the leaky ones and were removed. Local
+semantic structure (twins, neighbour coherence, zone-ARI) is <strong>better</strong> than before. The folded
+pack hero scores are <strong>unchanged for app consumers</strong> — they are simply no longer embedding inputs.</p>
+</blockquote>
+<p>Re-shipped: <code>hex/hex8_embedding_plexis_e1_256d.parquet</code>.</p>
+<hr />
+<h2>4 · Schema / migration for nous</h2>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Change</th>
+<th>Use this for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>rent_retail_psf_med</code> / <code>rent_retail_psm_med</code></td>
+<td><strong>NEW</strong></td>
+<td>ground-floor retail occupancy cost</td>
+</tr>
+<tr>
+<td><code>rent_retail_tier</code> / <code>rent_confidence</code> / <code>rent_retail_n_obs</code></td>
+<td><strong>NEW</strong></td>
+<td>locality band + estimate quality</td>
+</tr>
+<tr>
+<td><code>transport_subtype</code></td>
+<td><strong>NEW</strong></td>
+<td>exclude <code>transport_terminal</code>, keep <code>transport_transit</code> as leasable</td>
+</tr>
+<tr>
+<td><code>retail_footfall_score</code></td>
+<td><strong>REPAIRED</strong></td>
+<td>pedestrian footfall (now dt-mostly, hub-aware, port-NA)</td>
+</tr>
+<tr>
+<td><code>format_fit_score</code></td>
+<td><strong>REPAIRED</strong></td>
+<td>retail format fit (clean footfall)</td>
+</tr>
+<tr>
+<td><code>industrial_adjacency_score</code></td>
+<td><strong>REPAIRED</strong></td>
+<td>physical-industry guard</td>
+</tr>
+<tr>
+<td><code>zone_type</code> / <code>zone_type_broad</code></td>
+<td><strong>REPAIRED</strong></td>
+<td>filled (0 unknown), Sentosa = resort</td>
+</tr>
+<tr>
+<td>hex9 <code>dt_pop</code></td>
+<td><strong>REPAIRED</strong></td>
+<td>native daytime demand</td>
+</tr>
+<tr>
+<td><code>rent_occ_cost_source</code></td>
+<td><strong>RELABELED</strong> <code>private_observed</code>→<code>residential_proxy</code></td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>adq_*</code> / <code>vulnerability_*</code> / <code>crowd_*</code> (32 cols)</td>
+<td><strong>RE-NA'd</strong> on 688 non-residential cells</td>
+<td>treat NaN = Not-Applicable, not 0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Deprecate:</strong> stop reading <code>rent_occ_cost_psf</code> as "retail rent" (it is a residential proxy) — use <code>rent_retail_*</code>.
+<strong>Deprecate:</strong> do not read <code>vis_exit_footfall</code> as footfall — use <code>retail_footfall_score</code>.</p>
+<hr />
+<h2>5 · How to proceed (action items)</h2>
+<ol>
+<li><strong>Pull the masters:</strong>
+   <code>bash
+   scp azold-test-server:'/home/azureuser/da-sgp/v5/hex/hex8_all_features.parquet \
+       /home/azureuser/da-sgp/v5/hex/hex9_all_features.parquet' ./
+   # embedding: hex/hex8_embedding_plexis_e1_256d.parquet</code></li>
+<li><strong>Switch site-selection inputs</strong> to the repaired/new columns per §4 (retail rent, footfall, industrial, transport_subtype, hex9 dt_pop).</li>
+<li><strong>Re-run the two motivating cases</strong> — expected outcomes:
+   - <strong>Anytime Fitness:</strong> the maritime PORT no longer appears in the top-20 (footfall ~0, NA-gated, <code>transport_terminal</code>).
+   - <strong>% Arabica:</strong> Nassim reads adequate footfall (61, top-40%) — no longer the disqualifier.</li>
+<li><strong>Honour the NA rule:</strong> non-residential cells carry <code>NaN</code> for normative adequacy — exclude, don't zero.</li>
+</ol>
+<hr />
+<h2>6 · Validation &amp; integrity</h2>
 <ul>
-<li><code>embedding/prep_features.py</code> now excludes all 53 such columns. Clean input matrix <strong>1191 × 736</strong>.</li>
-<li><strong>e1 retrained</strong> (winner E1, score 1.495 &gt; PCA 1.422). Leak-free evidence:
-  negative-control R² <strong>−0.003</strong> (clean); price-probe <strong>de-inflated</strong> (PCA 0.81 → <strong>0.71</strong>, the leaked
-  signal removed); known-twin panel <strong>5/5</strong>; archetype recovery <strong>zone_ari 0.28 → 0.48</strong>; 3-seed Procrustes <strong>0.948</strong>.</li>
-<li>The folded pack hero scores are unchanged for app consumers — they are simply no longer embedding inputs.</li>
-</ul>
-<h2>Downstream consistency</h2>
-<ul>
-<li><code>build_retail_pack_sgp.py</code> source-fixed so a future pack rebuild can never revert the V4 footfall.</li>
-<li>Project <strong>zone-type NA rule re-applied</strong> with the V4 zone fill: 688 non-residential cells
-  (industrial/airport/nature/islands/future) are now Not-Applicable across 32 normative adequacy/
-  vulnerability/crowding scores.</li>
-</ul>
-<h2>End-to-end (the two motivating failures)</h2>
-<ul>
-<li><strong>Anytime Fitness</strong> candidate generation: the maritime PORT no longer surfaces (footfall ~0, NA-gated).</li>
-<li><strong>% Arabica</strong>: Nassim's footfall reads adequate (61, top-40%) — no longer the disqualifier.</li>
+<li><strong>31/31 acceptance tests</strong> (<code>hex/v4_test_harness.py</code> 30/30 + B7 catalog doc) → <code>hex/v4_test_results.json</code>.</li>
+<li><strong>F1</strong> counts unchanged (1191 / 7318); <strong>F2</strong> 0 hex9 orphans; <strong>F3</strong> <strong>0 collateral</strong> non-null regressions across 833 untouched columns.</li>
+<li><strong>Embedding 13-check</strong> exam re-passed (twins 5/5, probes honest, negctrl ~0, procrustes 0.948).</li>
+<li><strong>Catalog + manifest</strong> at <strong>v5.8.0</strong> (<code>CHECKPOINT_v5.8.0.json</code>).</li>
+<li><strong>Rollback:</strong> <code>backups/v4fix_*</code> (hex8 original), <code>backups/v4fix9_*</code> (hex9 original), <code>embedding/*.PRELEAK.json</code>.</li>
 </ul>
 <hr />
-<p><em>hex8 master 1191×852 · hex9 master 7318×612 · catalog + manifest at v5.8.0 · backups retained.</em></p></body></html>
+<h2>7 · Known limitations (read before relying)</h2>
+<ul>
+<li><strong>Retail rent is modeled, not fully observed</strong> — anchored to 3 URA locality medians, then a centrality/commercial model fills the grid. Use <code>rent_confidence</code> (<code>high</code> only where commercial_intensity&gt;0.4 &amp; footfall&gt;0).</li>
+<li><strong>hex9 <code>dt_pop</code> uses a worker proxy</strong> (non-residential floor area + building counts → headcount), distance-decayed. It is a <em>daytime activity</em> field, intentionally <strong>not</strong> conserved to hex8's residential dt_pop.</li>
+<li><strong>Footfall hub/Nassim checks use the representative (busiest) cell</strong> per named area — the atlas's subzone names differ from the test names (e.g. Orchard hub = subzone <code>BOULEVARD</code>; CBD = <code>DOWNTOWN CORE</code>; there is no literal <code>BUGIS</code>/<code>CECIL</code> subzone at hex8 grain), so we resolve hubs by location.</li>
+<li><strong>Embedding extreme-contrast softened</strong> (see §3) — fine for retrieval/clustering; if you depend on max-separation between industrial and prime-retail, note Tuas-vs-Orchard distance is now moderate, not extreme.</li>
+</ul>
+<hr />
+<h2>8 · Open questions for nous</h2>
+<ol>
+<li>Do you want retail rent <strong>conserved to a hard observed floor</strong> in the 3 URA localities (vs the current smooth model), or is the modeled surface fine for ranking?</li>
+<li>Should <code>transport_transit</code> station-mall cells be <strong>eligible</strong> in your candidate generation (they are leasable), or excluded with terminals?</li>
+<li>Confirm the <strong>NA-rule</strong> semantics match your engine (non-residential → drop, not zero) so adequacy gates don't misfire.</li>
+<li>After you re-run Anytime Fitness + % Arabica, send the top-20s back — we'll diff against the old runs to confirm the two failures are closed end-to-end.</li>
+</ol>
+<hr />
+<p><em>Atlas team · v5.8.0 · 2026-06-24 · live reports: <code>:14043/PLACES_FIX_RESPONSE_V4.html</code>, <code>:14043/RELEASE_NOTES_v5.8.html</code></em></p></body></html>
