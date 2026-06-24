@@ -1,0 +1,156 @@
+{
+ "pass": 30,
+ "total": 30,
+ "results": [
+  [
+   "A1",
+   true,
+   "col exists"
+  ],
+  [
+   "A2",
+   true,
+   "0/368 identical"
+  ],
+  [
+   "A3",
+   true,
+   "corr=0.54"
+  ],
+  [
+   "A4",
+   true,
+   "100% biz covered"
+  ],
+  [
+   "A5",
+   true,
+   "80% prime populated"
+  ],
+  [
+   "A6",
+   true,
+   "spread=9.9x orch=427 heart=166"
+  ],
+  [
+   "A7",
+   true,
+   "confidence present"
+  ],
+  [
+   "B1",
+   true,
+   "corr_vis_exit=0.44"
+  ],
+  [
+   "B2",
+   true,
+   "corr_dt_pop=0.99"
+  ],
+  [
+   "B3",
+   true,
+   "100% consumer cov"
+  ],
+  [
+   "B4",
+   true,
+   "port footfall<=p20"
+  ],
+  [
+   "B5",
+   true,
+   "Nassim-rep(dt~6700)=61.0 vs p60=60"
+  ],
+  [
+   "B6",
+   true,
+   "p90=90 hub-max={'ORCHARD': 92.0, 'BUGIS': 92.0, 'TAMPINES': 100.0, 'JURONG EAST': 93.0, 'RAFFLES PL': 95.0}"
+  ],
+  [
+   "C1",
+   true,
+   "corr_bldg=0.75>corr_lubiz=0.46"
+  ],
+  [
+   "C2",
+   true,
+   "100% heartland<0.3"
+  ],
+  [
+   "C3",
+   true,
+   "100% of bic>=10 are >0.6"
+  ],
+  [
+   "C4",
+   true,
+   "Murai-ind=1.0"
+  ],
+  [
+   "C5",
+   true,
+   "100% CBD<0.3"
+  ],
+  [
+   "C6",
+   true,
+   "100% ports flagged"
+  ],
+  [
+   "D1",
+   true,
+   "subtype exists"
+  ],
+  [
+   "D2",
+   true,
+   "100% lu_tp>=0.8 terminal"
+  ],
+  [
+   "D3",
+   true,
+   "69% transit scorable"
+  ],
+  [
+   "D4",
+   true,
+   "0 unknown"
+  ],
+  [
+   "D5",
+   true,
+   "Sentosa=['islands_resort']"
+  ],
+  [
+   "E1",
+   true,
+   "present ['iso_walk10_pop', 'iso_walk10_spend', 'dt_pop', 'industrial_adjacency_score', 'zone_type']"
+  ],
+  [
+   "E2",
+   true,
+   "83% parents native-vary"
+  ],
+  [
+   "E3",
+   true,
+   "h9=58% h8=53%"
+  ],
+  [
+   "F1",
+   true,
+   "1191/7318"
+  ],
+  [
+   "F2",
+   true,
+   "0 orphans"
+  ],
+  [
+   "F3",
+   true,
+   "0 collateral regressions (excl 13 fix-targets + zone-NA normative): []"
+  ]
+ ]
+}

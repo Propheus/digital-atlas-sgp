@@ -1,14 +1,14 @@
-# Plexis SGP — Data Catalog (v5.7.0)
+# Plexis SGP — Data Catalog (v5.8.0)
 
-*159 datasets · generated 2026-06-21T09:33:38*
+*159 datasets · generated 2026-06-24T15:57:42*
 
 | Dataset | Scale | Rows | Cols | Size MB | Description |
 |---|---|--:|--:|--:|---|
 | `colo_lift_matrix` | other | 676 | 6 | 0.02 |  |
-| `dataset_catalog` | other | 51 | 9 | 0.01 |  |
-| `feature_catalog` | other | 1,913 | 12 | 0.07 |  |
+| `dataset_catalog` | other | 50 | 9 | 0.01 |  |
+| `feature_catalog` | other | 2,865 | 16 | 0.09 |  |
 | `hex8_acra_biz` | hex8 | 1,191 | 11 | 0.05 |  |
-| `hex8_all_features` | hex8 | 1,191 | 842 | 2.8 | Master hex8 feature bundle (product scale, ~0.74 km²) — every feature per cell |
+| `hex8_all_features` | hex8 | 1,191 | 852 | 2.8 | Master hex8 feature bundle (product scale, ~0.74 km²) — every feature per cell |
 | `hex8_amenities_extra` | hex8 | 1,191 | 13 | 0.05 |  |
 | `hex8_buildings_clean` | hex8 | 1,191 | 19 | 0.08 |  |
 | `hex8_built_environment_features` | hex8 | 1,191 | 40 | 0.18 |  |
@@ -19,7 +19,7 @@
 | `hex8_daytime_pop` | hex8 | 1,191 | 9 | 0.04 |  |
 | `hex8_demand_pull` | hex8 | 1,191 | 8 | 0.04 |  |
 | `hex8_domain_primitives` | hex8 | 1,191 | 23 | 0.09 |  |
-| `hex8_embedding_plexis_e1_256d` | hex8 | 1,191 | 257 | 1.78 | Hex region embedding e1 (256-d, hybrid) |
+| `hex8_embedding_plexis_e1_256d` | hex8 | 1,191 | 257 | 1.79 | Hex region embedding e1 (256-d, hybrid) |
 | `hex8_gtfs_windows` | hex8 | 1,191 | 12 | 0.04 |  |
 | `hex8_hdb_resale` | hex8 | 1,191 | 10 | 0.02 |  |
 | `hex8_hdb_town_overlap` | hex8 | 432 | 3 | 0.01 |  |
@@ -63,7 +63,7 @@
 | `hex8_visibility` | hex8 | 1,191 | 7 | 0.03 |  |
 | `hex8_walk_scores` | hex8 | 1,191 | 11 | 0.05 |  |
 | `hex8_walkability` | hex8 | 1,191 | 21 | 0.13 |  |
-| `hex9_all_features` | hex9 | 7,318 | 593 | 7.2 | Master hex9 feature bundle (~0.10 km²; fine, not used in products) |
+| `hex9_all_features` | hex9 | 7,318 | 612 | 7.39 | Master hex9 feature bundle (~0.10 km²; fine, not used in products) |
 | `hex9_amenities_extra` | hex9 | 7,318 | 13 | 0.24 |  |
 | `hex9_archetypes` | hex9 | 7,318 | 4 | 0.08 |  |
 | `hex9_buildings` | hex9 | 7,318 | 39 | 0.58 |  |

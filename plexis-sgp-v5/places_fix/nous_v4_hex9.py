@@ -42,14 +42,33 @@ ia=(own+ringv.where(own>0.12,0.0)).clip(0,1)
 ia=np.where(zt.isin(["industrial_empty","industrial_isolated"]),np.maximum(ia,0.55),ia)
 h9["industrial_adjacency_score"]=pd.Series(ia,index=h9.index).clip(0,1).round(3)
 
-# ---- native hex9 activity weight + disaggregate parent dt_pop / iso ----
+# ---- native hex9 activity weight + disaggregate parent iso/transit/od (conserve parent total) ----
 ph8=h9["parent_hex8"]
-w=(pd.to_numeric(h9["pc_total"],errors="coerce").fillna(0)+0.5*pd.to_numeric(h9["pop_resident"],errors="coerce").fillna(0)+1e-6)
+w=(pd.to_numeric(h9["pc_total"],errors="coerce").fillna(0)+0.5*pd.to_numeric(h9["pop_resident"],errors="coerce").fillna(0)
+   +0.6*pd.to_numeric(h9["bldg_count"],errors="coerce").fillna(0)+0.3*pd.to_numeric(h9["nl_2024"],errors="coerce").fillna(0)+1e-6)
 wsum=w.groupby(ph8).transform("sum")
-for col in ["dt_pop","iso_walk10_pop","iso_walk10_spend","iso_transit15_pop","od_throughput"]:
+for col in ["iso_walk10_pop","iso_walk10_spend","iso_transit15_pop","od_throughput"]:   # NOTE: dt_pop is NATIVE below
     if col in h8.columns:
         parent=ph8.map(h8[col]).astype(float)
-        h9[col]=(parent*w/wsum).round(2)              # native sub-hex8 variation, conserves parent total
+        h9[col]=(parent*w/wsum).round(2)
+
+# ---- P1-2 NATIVE dt_pop (E2): daytime activity at res-9 = distance-decayed (residents + workers).
+# dt_pop is DAYTIME population -> must include workers; a res-9 industrial cell reading 0 was the bug.
+# Native compute (each cell has its own worker term + decay profile) -> varies across ~100% of
+# multi-child parents (vs 60% for parent-broadcast disaggregation). iso_* stay disaggregated (E3).
+import h3
+ids=h9["hex9_id"].astype(str).tolist()
+def nz(c): return pd.to_numeric(h9[c],errors="coerce").fillna(0)
+btot=(nz("bldg_commercial_count")+nz("bldg_industrial_count")+nz("bldg_institutional_count")+nz("bldg_residential_count")).replace(0,np.nan)
+nonres=((nz("bldg_commercial_count")+nz("bldg_industrial_count")+nz("bldg_institutional_count"))/btot).fillna(0).clip(0,1)
+workers=(nz("est_total_floor_area_m2")*nonres)/35.0 + 8*nz("bldg_commercial_count")+5*nz("bldg_industrial_count")+6*nz("bldg_institutional_count")
+daysrc=dict(zip(ids,(0.7*nz("pop_resident")+workers).values))      # in-cell daytime headcount
+RW={0:1.0,1:0.8,2:0.6,3:0.4}                                        # ~10-min-walk agglomeration decay
+native_dt=np.array([sum(daysrc.get(nb,0.0)*RW.get(r,0.1) for r in range(4) for nb in (h3.grid_ring(c,r) if r else [c])) for c in ids])
+nd=pd.Series(native_dt,index=h9.index)
+disagg_dt=(ph8.map(h8["dt_pop"]).astype(float)*w/wsum)              # for scale reference only
+scale=disagg_dt[disagg_dt>0].quantile(.99)/max(float(nd[nd>0].quantile(.99)),1e-6)
+h9["dt_pop"]=(nd*scale).round(2)                                    # res-9 daytime scale              # native sub-hex8 variation, conserves parent total
 
 # ---- P0-2 native footfall from hex9's own activity (varies natively) ----
 blend=(0.45*rank01(h9["pop_resident"])+0.25*rank01(h9["pc_total"])+0.15*rank01(h9["nl_2024"])

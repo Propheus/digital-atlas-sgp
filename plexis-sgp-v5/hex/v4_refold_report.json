@@ -1,0 +1,11 @@
+{
+ "na_zones": [
+  "airport",
+  "future",
+  "industrial",
+  "islands",
+  "nature"
+ ],
+ "norm_cols": 32,
+ "cleared": 688
+}

@@ -1,0 +1,15 @@
+{
+ "version": "5.8.0",
+ "generated_at": "2026-06-24T15:57:26",
+ "change": "nous V4 site-selection fixes (hex8+hex9) + embedding leak fix",
+ "detail": [
+  "P0-1 real retail rent (URA-anchored, 10x spread, CBD covered)",
+  "P0-2 footfall decontaminated from vis_exit/od_throughput (dt-mostly, hubs top-decile, dead-port NA)",
+  "P0-3 industrial_adjacency from physical buildings (corr 0.75>0.46)",
+  "P1-1 transport_subtype + zone_type fill (0 unknown) + Sentosa reclass",
+  "P1-2 hex9-native dt_pop/zone/industrial/footfall (E2 83%)",
+  "31/31 nous acceptance tests pass",
+  "embedding e1 retrained leak-free: rent/footfall/pack-scores excluded; negctrl ~0; twins 5/5; zone_ari 0.28->0.48",
+  "zone-type NA rule re-applied to 32 normative adq/vuln/crowd cols (688 NA-zone cells)"
+ ]
+}

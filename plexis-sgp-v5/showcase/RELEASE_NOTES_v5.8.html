@@ -1,0 +1,137 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Plexis SGP Atlas — Release Notes v5.8</title><style>
+:root{--accent:#20b2aa;--accent2:#2dd4bf;--ok:#39d98a;--warn:#f0c14b;
+ --glass:rgba(17,40,42,.55);--glass2:rgba(12,27,29,.72);
+ --border:rgba(32,178,170,.18);--border2:rgba(32,178,170,.32);
+ --text:#e9eef0;--muted:#8fa3a6;--mono:#7fe3da}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--text);
+ background:radial-gradient(1100px 560px at 72% -12%,#173f41 0%,transparent 58%),
+   linear-gradient(162deg,#0a1a1c,#0d2123 55%,#102628);
+ background-attachment:fixed;min-height:100vh;max-width:1060px;margin:0 auto;
+ padding:46px 26px;font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1{font-size:30px;font-weight:700;letter-spacing:-.022em;margin:0 0 4px}
+.accent{color:var(--accent)}
+h2{font-size:16px;font-weight:600;margin:34px 0 12px;color:#d4ecea;
+ border-bottom:1px solid var(--border);padding-bottom:7px;letter-spacing:-.01em}
+h2 .n{color:var(--muted);font-weight:400;font-size:13px}
+.sub{color:var(--muted);margin:0 0 22px;font-size:14px}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+.cards{display:grid;grid-template-columns:repeat(6,1fr);gap:11px;margin:20px 0 8px}
+.card{background:var(--glass);border:1px solid var(--border);border-radius:13px;
+ padding:16px 12px;text-align:center;backdrop-filter:blur(13px);-webkit-backdrop-filter:blur(13px)}
+.cv{font-size:23px;font-weight:700;color:#fff;letter-spacing:-.02em}
+.cl{font-size:10.5px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.045em}
+table{width:100%;border-collapse:separate;border-spacing:0;background:var(--glass2);
+ border:1px solid var(--border);border-radius:13px;overflow:hidden;margin-bottom:8px;
+ backdrop-filter:blur(11px);-webkit-backdrop-filter:blur(11px)}
+th,td{text-align:left;padding:9px 13px;border-bottom:1px solid rgba(32,178,170,.10);font-size:13px;vertical-align:top}
+th{background:rgba(32,178,170,.09);color:var(--accent);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:rgba(32,178,170,.05)}
+td.f{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:12px;color:var(--mono);white-space:nowrap}
+td.t{color:var(--muted);font-size:11.5px}
+td.s{color:#b9c9cb;font-size:12px;white-space:nowrap}
+.banner{background:linear-gradient(90deg,rgba(57,217,138,.16),rgba(32,178,170,.04));
+ border:1px solid var(--border2);color:#8fe9c4;border-radius:13px;padding:13px 17px;font-weight:600;margin:8px 0 4px}
+.note{color:var(--muted);font-size:12.5px;margin-top:9px}
+.pill{display:inline-block;background:rgba(32,178,170,.14);border:1px solid var(--border);
+ color:#9fe9e1;border-radius:20px;padding:3px 11px;margin:3px 2px;font-size:12.5px}
+code{background:rgba(32,178,170,.1);padding:1px 6px;border-radius:5px;font-size:12px;color:#9fe9e1;
+ font-family:ui-monospace,"SF Mono",Menlo,monospace}
+.tag{display:inline-block;font-size:9.5px;background:rgba(32,178,170,.2);color:#9fe9e1;
+ border-radius:6px;padding:1px 7px;margin-left:7px;vertical-align:middle;text-transform:uppercase;letter-spacing:.04em;font-weight:600}
+/* prose (markdown) */
+p{margin:10px 0}
+ul,ol{margin:8px 0 12px;padding-left:22px} li{margin:4px 0;color:#cdd9da}
+strong,b{color:#fff;font-weight:600}
+em{color:#bcd}
+hr{border:none;border-top:1px solid var(--border);margin:30px 0}
+blockquote{border-left:3px solid var(--accent);background:rgba(32,178,170,.06);
+ margin:14px 0;padding:10px 16px;border-radius:0 8px 8px 0;color:#bcd0d2}
+blockquote p{margin:4px 0}
+pre{background:rgba(8,18,20,.85);border:1px solid var(--border);border-radius:10px;
+ padding:13px 15px;overflow-x:auto;margin:12px 0;font-size:12.5px;line-height:1.5}
+pre code{background:none;padding:0;color:#cfeae6;font-family:ui-monospace,"SF Mono",Menlo,monospace}
+h1+p em,h1+p{color:var(--muted)}
+@media(max-width:680px){.cards{grid-template-columns:repeat(3,1fr)}}
+</style></head><body><h1>Plexis SGP Atlas — v5.8.0 Release Notes</h1>
+<p><strong>Theme:</strong> nous V4 site-selection fixes (hex8 + hex9) + embedding leak closure
+<strong>Date:</strong> 2026-06-24 · <strong>Supersedes:</strong> v5.7.1</p>
+<p>v5.8.0 closes the defects from the nous V4 site-selection audit (<code>ATLAS_TEAM_FIXES_V4.md</code>)
+across the hex8 <strong>and</strong> hex9 masters, and retrains the e1 embedding leak-free. <strong>All 31 acceptance
+tests pass</strong> (30 automated in <code>hex/v4_test_harness.py</code> + B7 catalog doc-check).</p>
+<h2>Highlights</h2>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Before</th>
+<th>After (v5.8.0)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Retail rent</td>
+<td>residential rent relabeled, no CBD</td>
+<td>real URA-anchored model, <strong>10× spread</strong>, Orchard $40 ≫ heartland</td>
+</tr>
+<tr>
+<td>Footfall</td>
+<td>60% transit-exit point-source; Port=41, Nassim=12</td>
+<td>dt-mostly + percentile; hubs top-decile, <strong>Port ~0, Nassim 61</strong>, corr(dt_pop)=0.99</td>
+</tr>
+<tr>
+<td>Industrial adjacency</td>
+<td>business-zoning keyed (CBD flagged)</td>
+<td><strong>physical buildings</strong> (corr 0.75 &gt; 0.46)</td>
+</tr>
+<tr>
+<td>Transport / zone</td>
+<td>single 'transport' bucket; 247 unknown zones</td>
+<td><code>transport_subtype</code> (terminal/transit); <strong>0 unknown</strong>; Sentosa → resort</td>
+</tr>
+<tr>
+<td>hex9 demand</td>
+<td>broadcast from hex8</td>
+<td><strong>native dt_pop</strong> (E2 83%) + disaggregated reach</td>
+</tr>
+<tr>
+<td>Embedding e1</td>
+<td>rent/footfall/pack-scores were inputs</td>
+<td><strong>leak-free</strong>: 53 cols excluded, negctrl −0.003, zone_ari 0.28→0.48</td>
+</tr>
+</tbody>
+</table>
+<h2>New / changed columns</h2>
+<ul>
+<li><strong>Added (hex8 + inherited hex9):</strong> <code>rent_retail_psf_med</code>, <code>rent_retail_psm_med</code>, <code>rent_retail_tier</code>,
+  <code>rent_confidence</code>, <code>rent_retail_n_obs</code>, <code>transport_subtype</code>.</li>
+<li><strong>Repaired:</strong> <code>retail_footfall_score</code> (decontaminated), <code>format_fit_score</code> (clean footfall),
+  <code>industrial_adjacency_score</code> (physical), <code>zone_type</code>/<code>zone_type_broad</code> (filled + Sentosa),
+  <code>rent_occ_cost_source</code> (de-mislabeled), hex9 <code>dt_pop</code> (native).</li>
+<li><strong>Re-NA'd by zone rule:</strong> 32 normative <code>adq_*</code>/<code>vulnerability_*</code>/<code>access_vuln*</code>/<code>crowd_*</code> columns
+  set Not-Applicable on 688 non-residential cells.</li>
+</ul>
+<h2>Embedding</h2>
+<ul>
+<li><code>embedding/prep_features.py</code> excludes derived footfall + <code>rent_*</code> + domain-pack hero scores +
+  <code>od_throughput</code>/<code>vis_exit_footfall</code>. Inputs <strong>1191 × 736</strong>.</li>
+<li>e1 retrained → shipped <code>hex/hex8_embedding_plexis_e1_256d.parquet</code> (winner E1, 256-d). 13-check exam:
+  twins 5/5, probes recover honestly (hdb 0.80 / od 0.86 / adq 0.96), <strong>negctrl −0.003</strong>, procrustes 0.948.</li>
+<li>Note: the extreme-contrast geometry softened (the retail/industrial-specific pack scores that sharply
+  separated Tuas-vs-Orchard were leaky and removed); local semantic structure (twins, coherence, zone_ari)
+  is <strong>better</strong> than before.</li>
+</ul>
+<h2>Files</h2>
+<ul>
+<li>Builders: <code>places_fix/nous_v4_hex8.py</code>, <code>nous_v4_hex9.py</code>; <code>places_fix/refold_v4.py</code>.</li>
+<li>Tests: <code>hex/v4_test_harness.py</code> (31 checks) → <code>hex/v4_test_results.json</code>.</li>
+<li>Catalog: <code>build_catalog.py</code> (+9 V4 descriptions) → <code>catalog/*</code> at v5.8.0; <code>CHECKPOINT_v5.8.0.json</code>.</li>
+<li>Response: <code>docs/PLACES_FIX_RESPONSE_V4.md</code>.</li>
+<li>Backups: <code>backups/v4fix_*</code> (hex8), <code>backups/v4fix9_*</code> (hex9), <code>embedding/*.PRELEAK.json</code>.</li>
+</ul>
+<h2>Integrity</h2>
+<ul>
+<li>hex8 1191×852, hex9 7318×612 — no cells lost; 0 hex9 orphans.</li>
+<li>F3 regression: <strong>0 collateral</strong> non-null drops across 833 untouched columns (fix-targets + zone-NA cols excluded).</li>
+</ul></body></html>

@@ -24,12 +24,20 @@ OUT = Path(__file__).parent
 
 EXCLUDE_EXACT = {"hex8_id", "lat", "lng", "n_children", "n_children_wk",
                  "n_children_tr", "hdb_resale_4r_median_psm", "od_throughput",
-                 "adq_default"}
+                 "adq_default", "ca_footfall", "industrial_adjacency_score",
+                 "format_fit_score", "vis_exit_footfall"}
+# nous V4 embedding-leak fix: derived footfall + rent are NOT inputs (they correlate with
+# the held-out price/connectivity probes -> inflate recovery). Folded DOMAIN-PACK hero scores
+# (re_/risk_/insurance_/utility_/mobility_/retail_) are downstream MODEL OUTPUTS -- same class
+# as cap_/roi_/colo_fit_. Original urbanism indices (walkability_score, vibrancy_index, ...)
+# are STRUCTURAL inputs and are kept.
 EXCLUDE_PREFIX = ("cap_", "colo_fit_", "roi_", "parent_", "zone_type",
                   "archetype", "pop_callout", "adq_primary", "adq_worst_factor",
                   "mrt_reach_mode", "dominant_use", "pc_dominant",
-                  "best_max", "rent_resolution", "vis_exit_station",
-                  "pipe_mrt_name", "cap_best", "dt_class")
+                  "best_max", "rent_", "vis_exit_station",
+                  "pipe_mrt_name", "cap_best", "dt_class",
+                  "re_", "risk_", "insurance_", "utility_", "mobility_",
+                  "retail_", "format_fit", "transport_subtype")
 
 VIEWS = [
     ("WHO", ("pop_", "nvp_", "female_pop_share", "pr_share", "low_income_share",

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-16T01:20:18",
-  "n_datasets": 51,
+  "generated_at": "2026-06-24T15:57:41",
+  "n_datasets": 50,
   "datasets": [
     {
       "dataset": "hex/hex9_universe.parquet",
@@ -373,7 +373,7 @@
       "exists": true,
       "n_rows": 7318,
       "n_cols": 14,
-      "size_bytes": 485304,
+      "size_bytes": 471834,
       "join_key": "hex9_id"
     },
     {
@@ -384,7 +384,7 @@
       "exists": true,
       "n_rows": 1191,
       "n_cols": 14,
-      "size_bytes": 99403,
+      "size_bytes": 97519,
       "join_key": "hex8_id"
     },
     {
@@ -406,7 +406,7 @@
       "exists": true,
       "n_rows": 7318,
       "n_cols": 12,
-      "size_bytes": 312164,
+      "size_bytes": 311380,
       "join_key": "hex9_id"
     },
     {
@@ -417,7 +417,7 @@
       "exists": true,
       "n_rows": 1191,
       "n_cols": 12,
-      "size_bytes": 73859,
+      "size_bytes": 75581,
       "join_key": "hex8_id"
     },
     {
@@ -426,9 +426,9 @@
       "description": "S6 24\u00d724 count-based co-location lift matrix with bootstrap CIs",
       "owner_stage": "S6",
       "exists": true,
-      "n_rows": 576,
+      "n_rows": 676,
       "n_cols": 6,
-      "size_bytes": 18082,
+      "size_bytes": 19971,
       "join_key": ""
     },
     {
@@ -461,7 +461,7 @@
       "exists": true,
       "n_rows": 1191,
       "n_cols": 9,
-      "size_bytes": 44308,
+      "size_bytes": 42611,
       "join_key": "hex8_id"
     },
     {
@@ -504,8 +504,8 @@
       "owner_stage": "all",
       "exists": true,
       "n_rows": 7318,
-      "n_cols": 583,
-      "size_bytes": 7056747,
+      "n_cols": 612,
+      "size_bytes": 7386876,
       "join_key": "hex9_id"
     },
     {
@@ -515,8 +515,8 @@
       "owner_stage": "all",
       "exists": true,
       "n_rows": 1191,
-      "n_cols": 801,
-      "size_bytes": 2726737,
+      "n_cols": 852,
+      "size_bytes": 2803223,
       "join_key": "hex8_id"
     },
     {
@@ -526,8 +526,8 @@
       "owner_stage": "all",
       "exists": true,
       "n_rows": 326,
-      "n_cols": 389,
-      "size_bytes": 706638,
+      "n_cols": 430,
+      "size_bytes": 769457,
       "join_key": "subzone_c"
     },
     {
@@ -537,8 +537,8 @@
       "owner_stage": "1",
       "exists": true,
       "n_rows": 190591,
-      "n_cols": 27,
-      "size_bytes": 11983078,
+      "n_cols": 36,
+      "size_bytes": 18230803,
       "join_key": "hex9_id"
     },
     {
@@ -550,17 +550,6 @@
       "n_rows": 190591,
       "n_cols": 20,
       "size_bytes": 9652908,
-      "join_key": "id"
-    },
-    {
-      "dataset": "places/place_embedding_plexis_p1_64d.parquet",
-      "scale": "place",
-      "description": "Plexis-P1 64d contrastive place embedding (no rating signals; essence+micrograph+context; 9/9 exam passed)",
-      "owner_stage": "p1",
-      "exists": true,
-      "n_rows": 190591,
-      "n_cols": 65,
-      "size_bytes": 75090413,
       "join_key": "id"
     }
   ]

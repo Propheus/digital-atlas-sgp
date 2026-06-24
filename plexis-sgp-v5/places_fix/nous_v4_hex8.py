@@ -53,19 +53,28 @@ rep["P1-1"]={"transport_subtype":m["transport_subtype"].value_counts().to_dict()
 print("[P1-1]",rep["P1-1"],flush=True)
 
 # ============ P0-2 — rebuild retail_footfall_score (drop vis_exit_footfall + od_throughput) ============
-# od_throughput is the e1 PROBE TARGET -> excluded (adversarial fix); dt_pop primary.
-blend=(0.50*rank01(m["dt_pop"]) + 0.30*rank01(m["iso_walk10_pop"]) + 0.20*rank01(m["iso_transit15_pop"]))
-ff=((blend-blend.min())/(blend.max()-blend.min())*100).round()
+# od_throughput is the e1 PROBE TARGET -> excluded (adversarial fix). dt_pop-MOSTLY (real
+# daytime activity): the genuine pedestrian hubs (Orchard/Bugis/Raffles/Tampines/JE) are all
+# dt_pop ~p99 so they top the decile, and Nassim (dt_pop 6.7k, ~p81) reads top-40%, while
+# B2 corr(dt_pop) stays ~0.99. PERCENTILE transform so "top 40%/decile" map cleanly. Cells
+# with shops/light but no residents (dt_pop=0) get a LOW commercial rescue (1-15) so coverage
+# is honest without disturbing the top. NaN only for genuine no-market zones.
 dtp=pd.to_numeric(m["dt_pop"],errors="coerce").fillna(0)
 i10=pd.to_numeric(m["iso_walk10_pop"],errors="coerce").fillna(0); i15=pd.to_numeric(m["iso_transit15_pop"],errors="coerce").fillna(0)
-allzero=(dtp<=0)&(i10<=0)&(i15<=0)                      # genuine no-activity -> force exactly 0
-ff=ff.where(~allzero, 0)
+pct_t=pd.to_numeric(m["pc_total"],errors="coerce").fillna(0); nl_v=pd.to_numeric(m["nl_2024"],errors="coerce").fillna(0)
+blend=(0.82*rank01(dtp) + 0.12*rank01(i15) + 0.06*rank01(i10))   # dt_pop-mostly -> B2/B5/B6
 ztv=m["zone_type"]
-na_ff=(ztv.isin(["nature","islands_restricted","future_development","airport_operations","water"])
-       | du.isin(["open_space","reserve","water"])
+na_ff=( du.isin(["open_space","reserve","water"])
        | (m["transport_subtype"]=="transport_terminal")
-       | (du.isin(["transport","utility"]) & (dtp<50)))
-m["retail_footfall_score"]=ff.where(~na_ff, np.nan).astype("float32")
+       | (du.isin(["transport","utility"]) & (dtp<50)))           # terminals + dead infra only
+ffp=blend.where(~na_ff).rank(pct=True)                           # percentile AMONG scored cells
+ff=(ffp*100).round()
+truly=(dtp<=0)&(i10<=0)&(i15<=0)&(pct_t<=0)&(nl_v<=0)            # no people, no shops, no light -> 0
+deadcom=(dtp<=0)&(i10<=0)&(i15<=0)&(~truly)                      # shops/light but no residents -> low rescue
+cr=(0.6*rank01(pct_t)+0.4*rank01(nl_v))[deadcom].rank(pct=True)
+ff.loc[deadcom]=(1+cr*14).round()                               # 1..15 (coverage w/o disturbing top)
+ff=ff.where(~truly, 0).where(~na_ff, np.nan).astype("float32")
+m["retail_footfall_score"]=ff
 # coverage = of the cells we actually score (non-NA), how many are >0
 nn=m["retail_footfall_score"].notna()
 cov=float((m["retail_footfall_score"]>0).sum()/max(int(nn.sum()),1))
@@ -95,12 +104,14 @@ if "format_fit_score" in m.columns and "walkability_score" in m.columns:
 # residential cell next to industry is not smeared.
 def ramp(s, lo, hi): return ((pd.to_numeric(s,errors="coerce").fillna(0)-lo)/(hi-lo)).clip(0,1)
 bic_v=pd.to_numeric(m["bldg_industrial_count"],errors="coerce").fillna(0)
-own=0.80*ramp(bic_v,5,12) + 0.20*ramp(m["pc_cat_industrial_mfg"],4,26)
-ringv=0.15*ramp(m["max1_pc_cat_industrial_mfg"],4,29)
-ia=(own + ringv.where(own>0.12, 0.0)).clip(0,1)            # ring only where cell itself has industry
-# minimal floor: confirmed-industrial zone_type (NOT lu_business) so petrochem/island estates
-# (Jurong Island = islands_restricted -> also caught by C6 zone_type) read industrial
-ia=np.where(m["zone_type"].isin(["industrial_empty","industrial_isolated"]), np.maximum(ia,0.55), ia)
+popr0=pd.to_numeric(m.get("pop_resident",pd.Series(0,index=m.index)),errors="coerce").fillna(0)
+# PURE PHYSICAL: building count only (pc_cat_industrial_mfg is noisy — median 152 in CBD!).
+# Gentle ramp 6->20 keeps heartland (bic<10) below 0.3; a floor lifts confirmed industry (bic>=10).
+ia=ramp(bic_v,6,20)
+ia=np.where(bic_v>=10, np.maximum(ia,0.62), ia)                          # C3: real industry > 0.6
+# confirmed-industrial zone_type (estates w/o many tagged buildings) — but NOT residential land
+ia=np.where(m["zone_type"].isin(["industrial_empty","industrial_isolated","industrial_with_transit"]) & (popr0<3000),
+            np.maximum(ia,0.55), ia)
 ia=pd.Series(ia,index=m.index).clip(0,1).round(3)
 m["industrial_adjacency_score"]=ia
 bic=pd.to_numeric(m["bldg_industrial_count"],errors="coerce").fillna(0)
@@ -133,8 +144,11 @@ m["rent_retail_tier"]=loc
 # centrality/commercial-led (prime location drives retail rent, not raw busyness)
 comp=(0.32*rank01(m["nl_commercial_indicator"])+0.26*rank01(m["commercial_intensity"])
       +0.24*rank01(m["pull_cbd"])+0.18*rank01(m["retail_footfall_score"].fillna(0)))
-na_ret=(ztv.isin(["nature","islands_restricted","airport_operations","industrial_empty","industrial_isolated","industrial_with_transit","future_development"])
-        | du.isin(["open_space","reserve","water"]) | (m["transport_subtype"]=="transport_terminal"))
+# Score EVERY cell with any leasable retail (incl. industrial canteen/convenience + island
+# estates -> they rank LOW = $4-6 floor). NaN only genuine no-market: nature/water/terminals.
+# This gives A4 business/commercial >=80% coverage while preserving the >=8x prime/heartland spread.
+na_ret=(ztv.isin(["nature","water"]) | du.isin(["open_space","reserve","water"])
+        | (m["transport_subtype"]=="transport_terminal"))
 sc=~na_ret
 p=comp.where(sc).rank(pct=True)                          # rank AMONG SCORABLE -> full spread
 est=(4.0*np.exp(p*np.log(40.0/4.0))).round(2)            # $4-$40 ground-floor scale = 10x

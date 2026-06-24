@@ -1,7 +1,7 @@
 {
  "atlas": "Plexis SGP",
- "version": "5.7.1",
- "generated_at": "2026-06-21T11:28:59",
+ "version": "5.8.0",
+ "generated_at": "2026-06-24T15:57:42",
  "n_datasets": 159,
  "datasets": [
   {
@@ -17,7 +17,7 @@
    "dataset": "dataset_catalog",
    "scale": "other",
    "path": "catalog/dataset_catalog.parquet",
-   "rows": 51,
+   "rows": 50,
    "cols": 9,
    "size_mb": 0.01,
    "description": ""
@@ -26,9 +26,9 @@
    "dataset": "feature_catalog",
    "scale": "other",
    "path": "catalog/feature_catalog.parquet",
-   "rows": 1929,
-   "cols": 12,
-   "size_mb": 0.07,
+   "rows": 2865,
+   "cols": 16,
+   "size_mb": 0.09,
    "description": ""
   },
   {
@@ -45,7 +45,7 @@
    "scale": "hex8",
    "path": "hex/hex8_all_features.parquet",
    "rows": 1191,
-   "cols": 846,
+   "cols": 852,
    "size_mb": 2.8,
    "description": "Master hex8 feature bundle (product scale, ~0.74 km\u00b2) \u2014 every feature per cell"
   },
@@ -145,7 +145,7 @@
    "path": "hex/hex8_embedding_plexis_e1_256d.parquet",
    "rows": 1191,
    "cols": 257,
-   "size_mb": 1.78,
+   "size_mb": 1.79,
    "description": "Hex region embedding e1 (256-d, hybrid)"
   },
   {
@@ -540,8 +540,8 @@
    "scale": "hex9",
    "path": "hex/hex9_all_features.parquet",
    "rows": 7318,
-   "cols": 597,
-   "size_mb": 7.22,
+   "cols": 612,
+   "size_mb": 7.39,
    "description": "Master hex9 feature bundle (~0.10 km\u00b2; fine, not used in products)"
   },
   {

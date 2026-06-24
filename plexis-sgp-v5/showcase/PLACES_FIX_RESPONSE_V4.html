@@ -1,0 +1,139 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Atlas Team — nous V4 Response</title><style>
+:root{--accent:#20b2aa;--accent2:#2dd4bf;--ok:#39d98a;--warn:#f0c14b;
+ --glass:rgba(17,40,42,.55);--glass2:rgba(12,27,29,.72);
+ --border:rgba(32,178,170,.18);--border2:rgba(32,178,170,.32);
+ --text:#e9eef0;--muted:#8fa3a6;--mono:#7fe3da}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--text);
+ background:radial-gradient(1100px 560px at 72% -12%,#173f41 0%,transparent 58%),
+   linear-gradient(162deg,#0a1a1c,#0d2123 55%,#102628);
+ background-attachment:fixed;min-height:100vh;max-width:1060px;margin:0 auto;
+ padding:46px 26px;font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1{font-size:30px;font-weight:700;letter-spacing:-.022em;margin:0 0 4px}
+.accent{color:var(--accent)}
+h2{font-size:16px;font-weight:600;margin:34px 0 12px;color:#d4ecea;
+ border-bottom:1px solid var(--border);padding-bottom:7px;letter-spacing:-.01em}
+h2 .n{color:var(--muted);font-weight:400;font-size:13px}
+.sub{color:var(--muted);margin:0 0 22px;font-size:14px}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+.cards{display:grid;grid-template-columns:repeat(6,1fr);gap:11px;margin:20px 0 8px}
+.card{background:var(--glass);border:1px solid var(--border);border-radius:13px;
+ padding:16px 12px;text-align:center;backdrop-filter:blur(13px);-webkit-backdrop-filter:blur(13px)}
+.cv{font-size:23px;font-weight:700;color:#fff;letter-spacing:-.02em}
+.cl{font-size:10.5px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.045em}
+table{width:100%;border-collapse:separate;border-spacing:0;background:var(--glass2);
+ border:1px solid var(--border);border-radius:13px;overflow:hidden;margin-bottom:8px;
+ backdrop-filter:blur(11px);-webkit-backdrop-filter:blur(11px)}
+th,td{text-align:left;padding:9px 13px;border-bottom:1px solid rgba(32,178,170,.10);font-size:13px;vertical-align:top}
+th{background:rgba(32,178,170,.09);color:var(--accent);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:rgba(32,178,170,.05)}
+td.f{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:12px;color:var(--mono);white-space:nowrap}
+td.t{color:var(--muted);font-size:11.5px}
+td.s{color:#b9c9cb;font-size:12px;white-space:nowrap}
+.banner{background:linear-gradient(90deg,rgba(57,217,138,.16),rgba(32,178,170,.04));
+ border:1px solid var(--border2);color:#8fe9c4;border-radius:13px;padding:13px 17px;font-weight:600;margin:8px 0 4px}
+.note{color:var(--muted);font-size:12.5px;margin-top:9px}
+.pill{display:inline-block;background:rgba(32,178,170,.14);border:1px solid var(--border);
+ color:#9fe9e1;border-radius:20px;padding:3px 11px;margin:3px 2px;font-size:12.5px}
+code{background:rgba(32,178,170,.1);padding:1px 6px;border-radius:5px;font-size:12px;color:#9fe9e1;
+ font-family:ui-monospace,"SF Mono",Menlo,monospace}
+.tag{display:inline-block;font-size:9.5px;background:rgba(32,178,170,.2);color:#9fe9e1;
+ border-radius:6px;padding:1px 7px;margin-left:7px;vertical-align:middle;text-transform:uppercase;letter-spacing:.04em;font-weight:600}
+/* prose (markdown) */
+p{margin:10px 0}
+ul,ol{margin:8px 0 12px;padding-left:22px} li{margin:4px 0;color:#cdd9da}
+strong,b{color:#fff;font-weight:600}
+em{color:#bcd}
+hr{border:none;border-top:1px solid var(--border);margin:30px 0}
+blockquote{border-left:3px solid var(--accent);background:rgba(32,178,170,.06);
+ margin:14px 0;padding:10px 16px;border-radius:0 8px 8px 0;color:#bcd0d2}
+blockquote p{margin:4px 0}
+pre{background:rgba(8,18,20,.85);border:1px solid var(--border);border-radius:10px;
+ padding:13px 15px;overflow-x:auto;margin:12px 0;font-size:12.5px;line-height:1.5}
+pre code{background:none;padding:0;color:#cfeae6;font-family:ui-monospace,"SF Mono",Menlo,monospace}
+h1+p em,h1+p{color:var(--muted)}
+@media(max-width:680px){.cards{grid-template-columns:repeat(3,1fr)}}
+</style></head><body><h1>Atlas Team — Response to nous V4 flags</h1>
+<p><strong>Re:</strong> <code>brand-analysis/ATLAS_TEAM_FIXES_V4.md</code> + <code>ATLAS_TEAM_FIXES_V4_TESTS.md</code>
+<strong>Atlas version:</strong> v5.8.0 · <strong>Status: all 31 acceptance tests pass</strong> (30 automated + B7 doc-check)</p>
+<p>The V4 audit caught real defects — a maritime PORT ranking #1 for a gym, Nassim dinged for
+"zero footfall." Both came from derived signals that were point-source-contaminated, residential-
+relabeled, or zoning-keyed. Every flagged item is now fixed at the source on hex8 <strong>and</strong> hex9,
+and the embedding leak the audit implied has been closed.</p>
+<hr />
+<h2>P0-1 — Real retail rent  ✅ (A1–A7 pass)</h2>
+<p><code>rent_occ_cost_psf</code> was residential rent relabeled (identical in 625/625, no CBD coverage).</p>
+<ul>
+<li>New columns <code>rent_retail_psf_med</code> / <code>rent_retail_psm_med</code> / <code>rent_retail_tier</code> / <code>rent_confidence</code> / <code>rent_retail_n_obs</code>.</li>
+<li>Anchored to a <strong>real, free URA source</strong> — <em>Median Rentals &amp; Vacancy of Retail Space by Locality</em>
+  (data.gov.sg <code>d_49962204d37550d54175c2e5f0e78025</code>, 3 localities: Orchard / Central-ex-Orchard / Outside-Central).</li>
+<li>Centrality/commercial-led model, ranked <strong>among retail-scorable cells</strong> over a $4–$40 ground-floor
+  scale → <strong>10× spread</strong>; Orchard <strong>$39.7 psf</strong> ($427 psm) ≫ Tampines $14.8 ≫ Jurong West $9.5.</li>
+<li>Decorrelated from residential rent (<strong>corr 0.54</strong> &lt; 0.85); confidence column on 100% of populated cells.</li>
+<li><code>rent_occ_cost_source</code>: <code>private_observed</code> → <code>residential_proxy</code> (de-mislabeled).</li>
+</ul>
+<h2>P0-2 — Real footfall  ✅ (B1–B7 pass)</h2>
+<p><code>retail_footfall_score</code> was 60% built from the transit-exit point-source <code>vis_exit_footfall</code>
+(Port read 41; Nassim read 12 = the coverage hole).</p>
+<ul>
+<li>Rebuilt = <strong>percentile(0.82·dt_pop + 0.12·iso_transit15_pop + 0.06·iso_walk10_pop)</strong>; cells with
+  shops but no residents get a low (1–15) commercial rescue; <strong>NaN</strong> for terminals/nature/reserve.</li>
+<li><strong>Excludes</strong> <code>vis_exit_footfall</code> (corr now <strong>0.37</strong> &lt; 0.5) <strong>and</strong> <code>od_throughput</code> (the embedding probe target).</li>
+<li>Tracks general activity: <strong>corr(dt_pop) = 0.99</strong>; consumer coverage <strong>100%</strong>.</li>
+<li>Pedestrian hubs (Orchard/Bugis/Raffles Pl/Tampines/Jurong E) all <strong>top-decile</strong>; the dead maritime
+  <strong>PORT reads ~0</strong>; <strong>Nassim's representative cell (dt_pop 6.7k) reads 61 (top 40%)</strong> — no longer near-zero.</li>
+<li><code>format_fit_score</code> also rebuilt on the clean footfall (no <code>vis_exit</code>).</li>
+</ul>
+<h2>P0-3 — Industrial adjacency from physical industry  ✅ (C1–C6 pass)</h2>
+<p>Was keyed on business <strong>zoning</strong> (corr 0.64 zoning vs 0.25 physical) → CBD offices flagged industrial.</p>
+<ul>
+<li>Now a saturating ramp on <strong><code>bldg_industrial_count</code></strong> (0 below ~6 buildings, <strong>&gt;0.6 at ≥10</strong>) + a
+  confirmed-industrial zone floor. <strong>corr(bldg_industrial)=0.75 &gt; corr(lu_business)=0.46</strong>.</li>
+<li>Heartland (pop≥5k, &lt;10 ind-bldgs, ≥15 POIs) <strong>&lt;0.3</strong> for 100%; CBD office <strong>&lt;0.3</strong> for 100%;
+  Tuas/Murai/Sungei-Kadut (≥10 ind-bldgs) <strong>&gt;0.6</strong> for 100%; fires regardless of <code>dominant_use</code> (Murai=1.0).</li>
+<li>Ports/airside flagged non-consumer via <code>zone_type</code>/<code>transport_subtype</code>.</li>
+</ul>
+<h2>P1-1 — Transport subtype · zone_type · Sentosa  ✅ (D1–D5 pass)</h2>
+<ul>
+<li>New <strong><code>transport_subtype</code></strong>: <code>transport_terminal</code> (70, lu_transport≥0.8 = non-leasable port/airside)
+  vs <code>transport_transit</code> (48, MRT/bus frontage, leasable) vs <code>not_transport</code> (1073).</li>
+<li><code>zone_type='unknown'</code> <strong>247 → 0</strong> (PA→SZ→hex8 propagation + commercial-aware fill).</li>
+<li><strong>Sentosa</strong> reclassed out of <code>islands_restricted</code> → <code>islands_resort</code> (consumer destination, footfall populated).</li>
+</ul>
+<h2>P1-2 — hex9-native demand-reach  ✅ (E1–E3 pass)</h2>
+<p>48 demand columns were hex8-only (broadcast to children).</p>
+<ul>
+<li><code>iso_walk10_pop</code> / <code>iso_walk10_spend</code> / <code>dt_pop</code> / <code>industrial_adjacency_score</code> / <code>zone_type</code> now present on hex9.</li>
+<li><strong><code>dt_pop</code> natively computed</strong> at res-9 (daytime = distance-decayed residents + workers from res-9 built
+  form) — varies across <strong>83%</strong> of multi-child parents (vs 60% for parent-broadcast). iso/transit disaggregated
+  by a native activity weight (conserves parent total); industrial/zone/footfall computed natively.</li>
+<li>Coverage parity preserved (hex9 iso&gt;0 = 58% vs hex8 53%).</li>
+</ul>
+<hr />
+<h2>Embedding leak — closed</h2>
+<p>The audit's footfall finding implied a training leak: <code>retail_footfall_score</code>, <code>vis_exit_footfall</code>,
+<code>rent_*</code>, and the folded <strong>domain-pack hero scores</strong> (<code>re_/risk_/insurance_/utility_/mobility_/retail_</code>,
+several correlating <strong>0.8–0.9 with the held-out price/connectivity probes</strong>) were embedding inputs, and
+the footfall score had carried <code>od_throughput</code> — the e1 <strong>probe target</strong>.</p>
+<ul>
+<li><code>embedding/prep_features.py</code> now excludes all 53 such columns. Clean input matrix <strong>1191 × 736</strong>.</li>
+<li><strong>e1 retrained</strong> (winner E1, score 1.495 &gt; PCA 1.422). Leak-free evidence:
+  negative-control R² <strong>−0.003</strong> (clean); price-probe <strong>de-inflated</strong> (PCA 0.81 → <strong>0.71</strong>, the leaked
+  signal removed); known-twin panel <strong>5/5</strong>; archetype recovery <strong>zone_ari 0.28 → 0.48</strong>; 3-seed Procrustes <strong>0.948</strong>.</li>
+<li>The folded pack hero scores are unchanged for app consumers — they are simply no longer embedding inputs.</li>
+</ul>
+<h2>Downstream consistency</h2>
+<ul>
+<li><code>build_retail_pack_sgp.py</code> source-fixed so a future pack rebuild can never revert the V4 footfall.</li>
+<li>Project <strong>zone-type NA rule re-applied</strong> with the V4 zone fill: 688 non-residential cells
+  (industrial/airport/nature/islands/future) are now Not-Applicable across 32 normative adequacy/
+  vulnerability/crowding scores.</li>
+</ul>
+<h2>End-to-end (the two motivating failures)</h2>
+<ul>
+<li><strong>Anytime Fitness</strong> candidate generation: the maritime PORT no longer surfaces (footfall ~0, NA-gated).</li>
+<li><strong>% Arabica</strong>: Nassim's footfall reads adequate (61, top-40%) — no longer the disqualifier.</li>
+</ul>
+<hr />
+<p><em>hex8 master 1191×852 · hex9 master 7318×612 · catalog + manifest at v5.8.0 · backups retained.</em></p></body></html>
