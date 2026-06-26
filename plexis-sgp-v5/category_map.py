@@ -17,6 +17,7 @@ TAXONOMY = [
     "hotel_hospitality",     "entertainment_culture", "transportation",
     "government_public",     "religious_worship",     "industrial_mfg",
     "residential",           "park_open",             "other_uncategorized",
+    "pharmacy_beauty",
 ]
 
 # V1 primary_category -> Plexis category
@@ -86,7 +87,7 @@ CATEGORY_MAP: dict[str, Optional[str]] = {
     "Dental Clinic": "health_medical",
     "TCM Clinic": "health_medical",
     "TCM Pharmacy": "health_medical",
-    "Pharmacy": "health_medical",
+    "Pharmacy": "pharmacy_beauty",  # nous-consolidated: retail H&B, footfall-driven
     "Physiotherapy": "health_medical",
     "Polyclinic": "health_medical",
     "Aesthetic Clinic": "health_medical",

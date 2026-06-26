@@ -51,7 +51,7 @@ ROOT = Path(__file__).parent
 # for bars would be confidently wrong.
 CATS = ["cafe_coffee", "restaurant", "hawker", "fast_food", "supermarket",
         "convenience", "fitness_recreation", "health_medical", "beauty_personal",
-        "shopping_retail", "education"]
+        "shopping_retail", "education", "pharmacy_beauty"]
 DAYTIME_CATS = {"cafe_coffee", "restaurant", "fast_food"}
 # LAMBDA IS ASSUMED, NOT CALIBRATED — finding 2026-06-10: lambda is not
 # empirically identifiable from cross-sectional outlet data here.
@@ -64,7 +64,7 @@ DAYTIME_CATS = {"cafe_coffee", "restaurant", "fast_food"}
 LAMBDA_BY_CAT = {
     "hawker": 500.0, "convenience": 500.0, "supermarket": 500.0,
     "cafe_coffee": 500.0, "fast_food": 500.0,                      # walk-daily
-    "health_medical": 700.0, "beauty_personal": 700.0,
+    "health_medical": 700.0, "beauty_personal": 700.0, "pharmacy_beauty": 700.0,
     "education": 700.0, "fitness_recreation": 700.0,               # neighborhood
     "restaurant": 1000.0,                                          # mixed-mode
     "shopping_retail": 1500.0,                                     # destination

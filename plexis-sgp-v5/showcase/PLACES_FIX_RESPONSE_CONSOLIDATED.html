@@ -1,0 +1,199 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Atlas Team — nous Consolidated Response (v5.9.0)</title><style>
+:root{--accent:#20b2aa;--accent2:#2dd4bf;--ok:#39d98a;--warn:#f0c14b;
+ --glass:rgba(17,40,42,.55);--glass2:rgba(12,27,29,.72);
+ --border:rgba(32,178,170,.18);--border2:rgba(32,178,170,.32);
+ --text:#e9eef0;--muted:#8fa3a6;--mono:#7fe3da}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--text);
+ background:radial-gradient(1100px 560px at 72% -12%,#173f41 0%,transparent 58%),
+   linear-gradient(162deg,#0a1a1c,#0d2123 55%,#102628);
+ background-attachment:fixed;min-height:100vh;max-width:1060px;margin:0 auto;
+ padding:46px 26px;font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1{font-size:30px;font-weight:700;letter-spacing:-.022em;margin:0 0 4px}
+.accent{color:var(--accent)}
+h2{font-size:16px;font-weight:600;margin:34px 0 12px;color:#d4ecea;
+ border-bottom:1px solid var(--border);padding-bottom:7px;letter-spacing:-.01em}
+h2 .n{color:var(--muted);font-weight:400;font-size:13px}
+.sub{color:var(--muted);margin:0 0 22px;font-size:14px}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+.cards{display:grid;grid-template-columns:repeat(6,1fr);gap:11px;margin:20px 0 8px}
+.card{background:var(--glass);border:1px solid var(--border);border-radius:13px;
+ padding:16px 12px;text-align:center;backdrop-filter:blur(13px);-webkit-backdrop-filter:blur(13px)}
+.cv{font-size:23px;font-weight:700;color:#fff;letter-spacing:-.02em}
+.cl{font-size:10.5px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.045em}
+table{width:100%;border-collapse:separate;border-spacing:0;background:var(--glass2);
+ border:1px solid var(--border);border-radius:13px;overflow:hidden;margin-bottom:8px;
+ backdrop-filter:blur(11px);-webkit-backdrop-filter:blur(11px)}
+th,td{text-align:left;padding:9px 13px;border-bottom:1px solid rgba(32,178,170,.10);font-size:13px;vertical-align:top}
+th{background:rgba(32,178,170,.09);color:var(--accent);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:rgba(32,178,170,.05)}
+td.f{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:12px;color:var(--mono);white-space:nowrap}
+td.t{color:var(--muted);font-size:11.5px}
+td.s{color:#b9c9cb;font-size:12px;white-space:nowrap}
+.banner{background:linear-gradient(90deg,rgba(57,217,138,.16),rgba(32,178,170,.04));
+ border:1px solid var(--border2);color:#8fe9c4;border-radius:13px;padding:13px 17px;font-weight:600;margin:8px 0 4px}
+.note{color:var(--muted);font-size:12.5px;margin-top:9px}
+.pill{display:inline-block;background:rgba(32,178,170,.14);border:1px solid var(--border);
+ color:#9fe9e1;border-radius:20px;padding:3px 11px;margin:3px 2px;font-size:12.5px}
+code{background:rgba(32,178,170,.1);padding:1px 6px;border-radius:5px;font-size:12px;color:#9fe9e1;
+ font-family:ui-monospace,"SF Mono",Menlo,monospace}
+.tag{display:inline-block;font-size:9.5px;background:rgba(32,178,170,.2);color:#9fe9e1;
+ border-radius:6px;padding:1px 7px;margin-left:7px;vertical-align:middle;text-transform:uppercase;letter-spacing:.04em;font-weight:600}
+/* prose (markdown) */
+p{margin:10px 0}
+ul,ol{margin:8px 0 12px;padding-left:22px} li{margin:4px 0;color:#cdd9da}
+strong,b{color:#fff;font-weight:600}
+em{color:#bcd}
+hr{border:none;border-top:1px solid var(--border);margin:30px 0}
+blockquote{border-left:3px solid var(--accent);background:rgba(32,178,170,.06);
+ margin:14px 0;padding:10px 16px;border-radius:0 8px 8px 0;color:#bcd0d2}
+blockquote p{margin:4px 0}
+pre{background:rgba(8,18,20,.85);border:1px solid var(--border);border-radius:10px;
+ padding:13px 15px;overflow-x:auto;margin:12px 0;font-size:12.5px;line-height:1.5}
+pre code{background:none;padding:0;color:#cfeae6;font-family:ui-monospace,"SF Mono",Menlo,monospace}
+h1+p em,h1+p{color:var(--muted)}
+@media(max-width:680px){.cards{grid-template-columns:repeat(3,1fr)}}
+</style></head><body><h1>Atlas Team → nous Team — Consolidated Fixes Response</h1>
+<p><strong>Re:</strong> <code>brand-analysis/ATLAS_TEAM_FIXES_CONSOLIDATED.md</code> (9 open items)
+<strong>Atlas:</strong> Plexis SGP <strong>v5.9.0</strong> · Data: <code>azold-test-server:/home/azureuser/da-sgp/v5/</code></p>
+<p>Worked the whole residue list. <strong>6 fixed, 1 confirmed-already-clean, 2 declined/deferred with reason.</strong>
+The category/brand fixes cascaded through <code>places → pc_cat → Huff demand → embeddings</code>, so the P0
+Huff refit (#1) and the embedding refits (#8) are resolved as part of the same rebuild.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Item</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong> P0</td>
+<td>Refit Huff <code>cap_*</code>/<code>gap_*</code> on cleaned places</td>
+<td>✅ <strong>Refit + confirmed</strong></td>
+</tr>
+<tr>
+<td><strong>2</strong> P1</td>
+<td>Pharmacy/H&amp;B ≠ <code>health_medical</code></td>
+<td>✅ <strong>New <code>pharmacy_beauty</code> category</strong></td>
+</tr>
+<tr>
+<td><strong>3</strong> P1</td>
+<td>Gong Cha undercount + thin-brand sweep</td>
+<td>✅ <strong>Swept</strong> (Gong Cha = source gap)</td>
+</tr>
+<tr>
+<td><strong>4</strong> P1</td>
+<td>LAC + NTUC Healthcare Unity in <code>supermarket</code></td>
+<td>✅ <strong>Reclassified</strong></td>
+</tr>
+<tr>
+<td><strong>5</strong> P1</td>
+<td>Split NTUC subsidiaries</td>
+<td>✅ <strong>Split</strong></td>
+</tr>
+<tr>
+<td><strong>6</strong> P2</td>
+<td>~12 ATMs <code>is_storefront=true</code></td>
+<td>✅ <strong>Already 0</strong></td>
+</tr>
+<tr>
+<td><strong>8</strong> P2</td>
+<td>Confirm <code>plexis-p1</code> + packs refit</td>
+<td>✅ <strong>p1 retrained; e1 retrained</strong></td>
+</tr>
+<tr>
+<td><strong>7</strong> P2</td>
+<td>Transient-hub demand feed</td>
+<td>⛔ <strong>Declined</strong> (no data)</td>
+</tr>
+<tr>
+<td><strong>9</strong> P2</td>
+<td><code>first_seen</code> / <code>listing_age</code></td>
+<td>⛔ <strong>Deferred</strong> (no source date)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>🔴 #1 — Huff demand (<code>cap_*</code>/<code>gap_*</code>) refit on cleaned places · <strong>Done + confirmed</strong></h2>
+<p>Verified the supply was already clean (<code>pc_cat_convenience = 2,164</code>, the depolluted set), then
+<strong>regenerated the entire Huff layer</strong> off it so there is no ambiguity:</p>
+<ul>
+<li>Re-ran <code>build_place_composition</code> → <code>build_huff_capture</code> → <code>build_saturation_gap</code> → <code>build_demand_pull</code>
+  on the cleaned + recategorised places, and surgically merged the refreshed <code>pc_cat_*</code> / <code>cap_*</code> /
+  <code>gap_*</code> / <code>sat_*</code> / <code>pull_*</code> into the master (V4/V5 fixes preserved).</li>
+<li><code>cap_convenience</code> now computed off the <strong>2,164</strong> convenience set; <strong>added <code>gap_convenience</code></strong>
+  (it was previously absent from the saturation layer) so the depolluted convenience demand is
+  explicit. <code>pull_hospital</code> is now clinic-only (retail pharmacies removed — see #2).</li>
+<li><strong>Acceptance met:</strong> demand for re-bucketed categories tracks the clean supply.</li>
+</ul>
+<h2>🟠 #2 — Pharmacy / health-&amp;-beauty ≠ <code>health_medical</code> · <strong>New <code>pharmacy_beauty</code> category</strong></h2>
+<p>Created a <strong>distinct <code>plexis_category = 'pharmacy_beauty'</code></strong> (27th category) and split the retail
+chemists out of the clinic bucket so their demand is modeled on <strong>retail footfall, not medical catchment</strong>.</p>
+<ul>
+<li><strong>569 places</strong> rerouted: Watsons (92), Guardian (128), Unity / NTUC Healthcare Unity, and all
+  <code>primary_category='Pharmacy'</code> (515) — clinics/hospitals/TCM stay in <code>health_medical</code> (now 7,453 → 6,939).</li>
+<li>Wired into the Huff model (<code>lambda 700</code>, neighbourhood-retail) + saturation gap. <strong>Demand now tracks
+  shopping:</strong> <code>corr(cap_pharmacy_beauty, retail_footfall_score) = 0.74</code> vs <code>corr(…, pull_hospital) = 0.22</code>.</li>
+<li><strong>Guardian brand_norm coverage 16 → 129</strong> (the brand gap you flagged); Watsons consolidated to 92.</li>
+<li><strong>Acceptance met:</strong> Guardian/Watsons demand tracks shopping catchment, not clinic catchment.</li>
+</ul>
+<h2>🟠 #3 — Gong Cha undercount + thin-brand sweep · <strong>Swept; Gong Cha is a true source gap</strong></h2>
+<ul>
+<li><strong>Swept the major chains:</strong> KOI (91), CHICHA San Chen (35), Each-a-Cup (44), PlayMade (24),
+  LiHO (53) already carry <code>brand_norm</code> — coverage is good. Filled the residual <strong>R&amp;B Tea (+5)</strong>.</li>
+<li><strong>Gong Cha = 2 records is a genuine source gap</strong> — only 2 exist in the underlying places data
+  (no alternate spelling/venue filing found). We cannot manufacture stores that aren't ingested; a
+  full Gong Cha footprint needs a new source pull, not a normalisation fix. Your <code>&lt;5-store
+  low-confidence</code> guard correctly flags it meanwhile.</li>
+</ul>
+<h2>🟠 #4 — LAC + NTUC Healthcare Unity out of <code>supermarket</code> · <strong>Reclassified</strong></h2>
+<ul>
+<li><strong>LAC Nutrition For Life (40 rows)</strong> and <strong>NTUC Healthcare Unity (1 row)</strong> moved out of
+  <code>plexis_category='supermarket'</code> → <code>pharmacy_beauty</code> (supplement / pharmacy retail). Supermarket 2,939 → 2,897.</li>
+<li>The separately-branded <code>Unity Pharmacy</code> rows were already correct and untouched.</li>
+</ul>
+<h2>🟠 #5 — Split NTUC subsidiaries · <strong>Split</strong></h2>
+<ul>
+<li><code>brand_norm='NTUC FairPrice'</code> → split out <strong>NTUC LearningHub (10)</strong> and <strong>NTUC Healthcare Unity
+  (4)</strong> into their own brands (the latter also recategorised to <code>pharmacy_beauty</code>, cross-ref #4).
+  <code>NTUC Foodfare</code> had 0 rows still under the FairPrice brand_norm (already separate). Finest / Xpress /
+  Cheers retained as legitimate FairPrice grocery formats.</li>
+</ul>
+<h2>🟡 #6 — Residual ATMs <code>is_storefront</code> · <strong>Already 0</strong></h2>
+<p>Verified on v5.9.0: <strong>0</strong> records match <code>name ~ ATM</code> with <code>is_storefront=true</code>. Already resolved by
+the prior storefront-classifier tightening.</p>
+<h2>🟡 #8 — <code>plexis-p1</code> + domain packs refit · <strong>p1 retrained, e1 retrained</strong></h2>
+<ul>
+<li><strong>plexis-p1 retrained.</strong> The shipped p1 (2026-06-12) <strong>predated</strong> the v5.6 cleaned places — your
+  #8(a) was correct. Retrained on the cleaned + recategorised places (<code>plexis_category</code> is a one-hot
+  p1 input). <strong>9/9 exam pass</strong> — chain retrieval 0.814, category-kNN 0.997, geo-leak 0.077,
+  forbidden-rating R² 0.094, 3-seed Procrustes 0.979–0.981. Re-shipped <code>place_embedding_plexis_p1_64d.parquet</code>.</li>
+<li><strong>plexis-e1 retrained</strong> to absorb the new <code>pc_cat_pharmacy_beauty</code> input (e1 was already leak-free
+  and on cleaned places per v5.8.0). Winner E1; <strong>leak gate stays clean</strong> — negative-control R²
+  −0.001, known-twin panel 5/5, 3-seed Procrustes 0.918, probes honest (hdb 0.81 / od 0.87 / adq 0.95).
+  Re-shipped <code>hex8_embedding_plexis_e1_256d.parquet</code>.</li>
+<li><strong>Domain packs:</strong> the hero scores consume <code>cap_*</code>/footfall/industrial, all refreshed by this
+  rebuild and re-merged into the master; packs remain excluded from embedding inputs (the v5.8.0 leak fix).</li>
+</ul>
+<h2>🟡 #7 — Transient-hub destination throughput · <strong>Declined (no data)</strong></h2>
+<p>Airport pax / stadium events / campus footfall need a <strong>destination-throughput feed</strong> we do not have
+licensed (same class as the declined V5/A1 measured-footfall layer). Your <code>SPECIAL_DEMAND</code> floor
+remains the right mitigation until such a source is procured. No re-raise.</p>
+<h2>🟡 #9 — <code>first_seen</code> / <code>listing_age</code> · <strong>Deferred (no source field)</strong></h2>
+<p>The source scrape carries <strong>no listing-creation date</strong>, so <code>first_seen</code> can't be derived without a
+new dated ingest (or a longitudinal diff we'd have to start accumulating now). <code>zero_reviews</code> remains
+the only available proxy. Flagged for a future dated pull.</p>
+<hr />
+<h2>Status</h2>
+<ul>
+<li><strong>Atlas v5.9.0</strong> — hex8 <code>1191×861</code>, hex9 <code>7318×621</code>; <code>places/sgp_places_final.parquet</code> updated
+  (new <code>pharmacy_beauty</code> category, brand splits). <strong>V4 acceptance still 30/30</strong>; 0 hex9 orphans.</li>
+<li>Backups: <code>backups/places_consol_*</code>, <code>backups/v581_*</code>; embedding <code>*.PRECONSOL.json</code>.</li>
+<li>Catalog + manifest bumped; new columns (<code>pc_cat_pharmacy_beauty</code>, <code>cap_/gap_pharmacy_beauty</code>,
+  <code>gap_convenience</code>) documented.</li>
+</ul>
+<hr />
+<p><em>Atlas team · v5.9.0 · supersedes the per-round response files.</em></p></body></html>

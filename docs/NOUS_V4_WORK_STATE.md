@@ -1,7 +1,20 @@
-# nous V4 atlas fixes — WORK STATE (resume after restart)
+# nous V4 atlas fixes — WORK STATE  ✅ COMPLETE (v5.8.0)
 
-**As of 2026-06-24.** Mid-flight on the nous V4 site-selection audit. This file is the
-resume pointer for that work. Atlas server = `azold-test-server:/home/azureuser/da-sgp/v5/`.
+**As of 2026-06-24.** The nous V4 site-selection audit is FULLY RESOLVED and shipped as
+**v5.8.0** (commit `4279566`). Atlas server = `azold-test-server:/home/azureuser/da-sgp/v5/`.
+
+## ✅ DONE — all 6 pending items complete
+1. **31/31 acceptance tests pass** (`hex/v4_test_harness.py` 30/30 automated + B7 catalog doc-check). Results in `hex/v4_test_results.json`.
+2. **Embedding leak closed** — `embedding/prep_features.py` excludes rent_*/footfall/od_throughput/vis_exit + pack hero scores (53 cols, inputs 1191×736). e1 retrained (winner E1 1.495): negctrl −0.003, price-probe de-inflated (PCA 0.81→0.71), twins 5/5, zone_ari 0.28→0.48, procrustes 0.948. Shipped `hex/hex8_embedding_plexis_e1_256d.parquet`.
+3. **hex9 E2 = 83%** (≥80%) via native dt_pop (daytime = residents + workers, distance-decayed).
+4. **Packs re-folded** — retail builder source-fixed (no footfall revert); zone-NA rule re-applied to 32 normative cols on 688 cells. Insurance/RE/utilities verified unaffected.
+5. **Catalog + manifest v5.8.0** — 9 V4 columns documented; `CHECKPOINT_v5.8.0.json`.
+6. **Response + release notes** — `docs/PLACES_FIX_RESPONSE_V4.md` (+nous copy), `docs/RELEASE_NOTES_v5.8.md`; HTML live on showcase :14043 (HTTP 200).
+
+Backups retained: `backups/v4fix_*` (hex8), `backups/v4fix9_*` (hex9), `embedding/*.PRELEAK.json`.
+
+---
+*(history below — kept for reference)*
 
 ## The ask (nous brand-analysis/ATLAS_TEAM_FIXES_V4.md + _V4_TESTS.md = 31 acceptance tests)
 3 P0 + 2 P1 data fixes found by a hex8/hex9 site-selection audit (a maritime PORT ranked #1

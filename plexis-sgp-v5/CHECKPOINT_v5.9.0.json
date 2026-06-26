@@ -1,0 +1,16 @@
+{
+ "version": "5.9.0",
+ "generated_at": "2026-06-26T16:23:18",
+ "change": "nous consolidated places fixes (V6): new pharmacy_beauty category + Huff demand refit + brand fixes + p1/e1 retrain",
+ "detail": [
+  "#1 Huff cap_*/gap_* refit off cleaned places (convenience=2164); gap_convenience added",
+  "#2 NEW plexis_category pharmacy_beauty (569): Watsons/Guardian/Unity/Pharmacy split from health_medical -> retail-footfall demand (corr 0.74 footfall vs 0.22 clinic); Guardian brand_norm 16->129",
+  "#4 LAC(40)+NTUC Healthcare Unity(1) out of supermarket",
+  "#5 NTUC LearningHub(10)+Healthcare Unity(4) split from FairPrice brand_norm",
+  "#3 R&B Tea brand_norm filled (+5); other thin chains already normalized; Gong Cha (2)=genuine source gap",
+  "#6 ATMs is_storefront already 0",
+  "#8 p1 retrained on cleaned+recategorized places (was 06-12, pre-clean); e1 retrained incl pc_cat_pharmacy_beauty",
+  "#7 transient-hub destination-throughput: DECLINED (no data source, like V5/A1)",
+  "#9 first_seen/listing_age: DEFERRED (no listing-date field in source scrape)"
+ ]
+}

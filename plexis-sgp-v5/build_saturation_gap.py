@@ -26,8 +26,9 @@ import pandas as pd
 ROOT = Path(__file__).parent
 
 CATEGORIES = [
-    "cafe_coffee","restaurant","hawker","fast_food",
+    "cafe_coffee","restaurant","hawker","fast_food","convenience",
     "supermarket","bakery","beauty_personal","fitness_recreation","health_medical",
+    "pharmacy_beauty",
 ]
 
 

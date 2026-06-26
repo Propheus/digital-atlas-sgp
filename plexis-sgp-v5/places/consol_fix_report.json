@@ -1,0 +1,24 @@
+{
+ "before": {
+  "health_medical": 7453,
+  "supermarket": 2939,
+  "pharmacy_beauty": 0,
+  "brand_guardian": 16
+ },
+ "after": {
+  "health_medical": 6939,
+  "supermarket": 2897,
+  "pharmacy_beauty": 569,
+  "brand_guardian": 129
+ },
+ "actions": {
+  "reroute_pharmacy_beauty": 528,
+  "guardian_brand_set": 128,
+  "lac_unity_from_supermkt": 41,
+  "ntuc_learninghub": 10,
+  "ntuc_foodfare": 0,
+  "ntuc_healthcare_unity": 4,
+  "rb_tea": 5
+ },
+ "backup": "/home/azureuser/da-sgp/v5/backups/places_consol_20260626_160215"
+}

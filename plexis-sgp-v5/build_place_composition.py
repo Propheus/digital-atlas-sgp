@@ -22,6 +22,7 @@ CATS = [
     "government_public","hawker","health_medical","hotel_hospitality","industrial_mfg",
     "other_uncategorized","park_open","religious_worship","residential","restaurant",
     "services","shopping_retail","supermarket","transportation",
+    "financial_services","automated_kiosk","pharmacy_beauty",
 ]
 CAT_COLS = [f"pc_cat_{c}" for c in CATS]
 
